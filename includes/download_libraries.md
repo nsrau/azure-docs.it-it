@@ -1,20 +1,17 @@
+
 # Download di Azure SDK per Java
+
 ## Librerie client di Azure per Java - Download manuale
 
-Le librerie di Azure per Java vengono distribuite con la [licenza Apache
-versione 2.0][1]. Fare clic [qui][2] per ottenere un file ZIP contenente
-tutte le librerie e le relative dipendenze. Questo software è reso
-disponibile da Microsoft Open Technologies, Inc. Per dettagli sulla
-licenza e altre informazioni, vedere i file license.txt e
-ThirdPartyNotices.txt all'interno dell'archivio ZIP.
+Le librerie di Azure per Java vengono distribuite con la [licenza Apache versione 2.0][1]. Fare clic [qui][2] per ottenere un file ZIP contenente tutte le librerie e le relative dipendenze. Questo software è reso disponibile da Microsoft Open Technologies, Inc. Per dettagli sulla licenza e altre informazioni, vedere i file license.txt e ThirdPartyNotices.txt all'interno dell'archivio ZIP.
+
 ## Librerie di Azure per Java - Maven
 
-Se il progetto è già stato configurato per utilizzare Maven per la
-compilazione, aggiungere la dipendenza seguente al file pom.xml.
+Se il progetto è già stato configurato per utilizzare Maven per la compilazione, aggiungere la dipendenza seguente al file pom.xml.
 
     <dependency>
     	<groupId>com.microsoft.windowsazure</groupId>
-    	<artifactId>microsoft-windowsazure-api</artifactId>
+    	<a rtifactId>microsoft-windowsazure-api</artifactId>
     	<version>n.n.n</version>
     </dependency>
 

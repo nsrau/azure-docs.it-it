@@ -1,13 +1,7 @@
+
 ## <a name="what-is"> </a>Informazioni sull'archiviazione BLOB
 
-L'archiviazione BLOB di Azure è un servizio per l'archiviazione di
-quantità elevate di dati non strutturati a cui è possibile accedere da
-qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può
-raggiungere dimensioni di centinaia di gigabyte, mentre un singolo
-account di archiviazione può arrivare a contenere fino a 200 TB di BLOB,
-se creato a partire dall'8 giugno 2012. Gli account di archiviazione
-creati prima di tale data possono contenere fino a 100 TB di BLOB. Per
-informazioni sulla capacità dell'account di archiviazione, vedere
+L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può raggiungere dimensioni di centinaia di gigabyte, mentre un singolo account di archiviazione può arrivare a contenere fino a 200 TB di BLOB, se creato a partire dall'8 giugno 2012. Gli account di archiviazione creati prima di tale data possono contenere fino a 100 TB di BLOB. Per informazioni sulla capacità dell'account di archiviazione, vedere
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][1].
 
 Quelli di seguito sono gli impieghi più comuni dell'archiviazione BLOB:
@@ -19,9 +13,8 @@ Quelli di seguito sono gli impieghi più comuni dell'archiviazione BLOB:
 * Archiviazione di dati a scopo di analisi da parte di un servizio
   locale o ospitato in Azure
 
-L'archiviazione BLOB può essere utilizzata per esporre dati
-pubblicamente a livello mondiale o privatamente a scopo di archiviazione
-interna per le applicazioni.
+L'archiviazione BLOB può essere utilizzata per esporre dati pubblicamente a livello mondiale o privatamente a scopo di archiviazione interna per le applicazioni.
+
 ## <a name="concepts"> </a>Concetti
 
 Il servizio BLOB è composto dai componenti seguenti:

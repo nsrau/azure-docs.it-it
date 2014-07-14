@@ -6,4 +6,3 @@
 > quindi di eliminarlo al termine dell'importazione. Un utente
 > malintenzionato che riesce ad accedere al file .publishsettings può
 > modificare, creare ed eliminare i servizi di Azure.
-

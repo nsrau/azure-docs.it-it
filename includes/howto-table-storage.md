@@ -1,11 +1,7 @@
+
 ## <a name="what-is"> </a>Informazioni sul servizio tabelle
 
-Il servizio di archiviazione tabelle di Azure consente di archiviare
-grandi quantità di dati strutturati. Il servizio è un datastore NoSQL
-che accetta chiamate autenticate dall'interno e dall'esterno del cloud
-di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati
-strutturati non relazionali. Di seguito sono riportati gli utilizzi più
-comuni per il servizio tabelle.
+Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Di seguito sono riportati gli utilizzi più comuni per il servizio tabelle.
 
 * Archiviazione di terabyte di dati strutturati in grado di servire
   applicazioni su scala Web
@@ -17,8 +13,8 @@ comuni per il servizio tabelle.
   .NET WCF Data Service
 
 È possibile utilizzare il servizio tabelle per archiviare e interrogare
-grandi set di dati strutturati non relazionali, con tabelle scalabili in
-base all'aumento della domanda
+grandi set di dati strutturati non relazionali, con tabelle scalabili in base all'aumento della domanda
+
 ## <a name="concepts"> </a>Concetti
 
 Il servizio tabelle contiene i componenti seguenti:

@@ -1,12 +1,10 @@
-Viene registrato un nuovo script insert che genera una firma di accesso
-condiviso quando viene inserito un nuovo elemento Todo.
+Viene registrato un nuovo script insert che genera una firma di accesso condiviso quando viene inserito un nuovo elemento Todo.
 
 1.  Se non è ancora stato creato un account di archiviazione, vedere
     [Come creare un account di
     archiviazione](/en-us/manage/services/storage/how-to-create-a-storage-account).
 
-2.  Nel portale di gestione fare clic su **Storage**, sull'account di
-    archiviazione e quindi su **Manage Keys**.
+2.  Nel portale di gestione fare clic su **Storage**, sull'account di archiviazione e quindi su **Manage Keys**.
 
  	 ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
 
@@ -14,29 +12,20 @@ condiviso quando viene inserito un nuovo elemento Todo.
     
 	   ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
-2.  Nel servizio mobile fare clic sulla scheda **Configure**, scorrere
-    fino a **App settings** e immettere una coppia **Name** e **Value**
-    per ognuno degli elementi seguenti ottenuti dall'account di
-    archiviazione, quindi fare clic su **Save**.
+2.  Nel servizio mobile fare clic sulla scheda **Configure**, scorrere fino a **App settings** e immettere una coppia **Name** e **Value** per ognuno degli elementi seguenti ottenuti dall'account di archiviazione, quindi fare clic su **Save**.
     
     * `STORAGE_ACCOUNT_NAME`
     * `STORAGE_ACCOUNT_ACCESS_KEY`
     
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
     
-    La chiave di accesso all'account di archiviazione è archiviata in
-    formato crittografato nelle impostazioni dell'app. È possibile
-    accedere a questa chiave da qualsiasi script del server in fase di
-    esecuzione. Per ulteriori informazioni, vedere [Impostazioni
-    app][1].
+    La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per ulteriori informazioni, vedere [Impostazioni app][1].
 
 3.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
     
     ![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
-4.  In **todoitem** fare clic sulla scheda **Script** e selezionare
-    **Insert**. Sostituire la funzione insert con il codice seguente,
-    quindi fare clic su **Save**:
+4.  In **todoitem** fare clic sulla scheda **Script** e selezionare **Insert**. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
     
         var azure = require('azure');
         var qs = require('querystring');
@@ -84,12 +73,10 @@ condiviso quando viene inserito un nuovo elemento Todo.
 
 	La funzione richiamata quando si verifica un inserimento nella tabella TodoItem verrà sostituita da un nuovo script. Il nuovo script genera una nuova firma di accesso condiviso per l'inserimento, valida per 5 minuti, quindi assegna il valore di questa firma generata alla proprietà `sasQueryString` dell'elemento restituito. La proprietà `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-	>[WACOM.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Se è necessario caricare più BLOB in un contenitore utilizzando la stessa firma di accesso condiviso, chiamare il <a  href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">metodo generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: 
+	>[WACOM.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Se è necessario caricare più BLOB in un contenitore utilizzando la stessa firma di accesso condiviso, chiamare il <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">metodo generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: 
     <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
-In seguito, l'app della Guida introduttiva verrà aggiornata per
-aggiungere funzionalità di caricamento delle immagini mediante la firma
-di accesso condiviso generata per l'inserimento.
+In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funzionalità di caricamento delle immagini mediante la firma di accesso condiviso generata per l'inserimento.
 
 <!-- Anchors. -->
 

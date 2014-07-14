@@ -13,8 +13,7 @@
 		    });
 		}
     
-    Quando si salvano le modifiche apportate al file insert.js, nel
-    servizio mobile viene caricata una nuova versione dello script.
+    Quando si salvano le modifiche apportate al file insert.js, nel servizio mobile viene caricata una nuova versione dello script.
 
 2.  In Esplora server espandere la tabella TodoItem, aprire il file insert.js e sostituire la funzione insert corrente con il codice seguente, quindi salvare le modifiche:
     
@@ -44,6 +43,4 @@
 			}
 		}
     
-    A questo punto, quando si inserisce un nuovo elemento TodoItem,
-    verrà inviata una notifica push a tutti i dispositivi registrati.
-
+    A questo punto, quando si inserisce un nuovo elemento TodoItem, verrà inviata una notifica push a tutti i dispositivi registrati.

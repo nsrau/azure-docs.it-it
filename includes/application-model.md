@@ -1,15 +1,9 @@
+
 # Calcolo
 
-Azure consente di distribuire ed eseguire il monitoraggio del codice
-dell'applicazione in esecuzione in un data center Microsoft. Quando si
-crea un'applicazione e la si esegue in Azure, la combinazione del
-codice e della configurazione viene definita servizio ospitato di Azure.
-I servizi ospitati sono facili da gestire, aumentare e ridurre,
-riconfigurare e aggiornare con le nuove versioni del codice
-dell'applicazione. In questo articolo verrà descritto principalmente il
-modello applicativo del servizio ospitato di Azure.<a
- id="compare" name="compare" ></a>
-## Sommario<a  id="_GoBack" name="_GoBack" ></a>
+Azure consente di distribuire ed eseguire il monitoraggio del codice dell'applicazione in esecuzione in un data center Microsoft. Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione viene definita servizio ospitato di Azure. I servizi ospitati sono facili da gestire, aumentare e ridurre, riconfigurare e aggiornare con le nuove versioni del codice dell'applicazione. In questo articolo verrà descritto principalmente il modello applicativo del servizio ospitato di Azure.<a id="compare" name="compare" ></a>
+
+## Sommario<a id="_GoBack" name="_GoBack" ></a>
 
 * [Vantaggi del modello applicativo di Azure](#benefits)
 * [Concetti principali relativi al servizio ospitato](#concepts)
@@ -21,16 +15,10 @@ modello applicativo del servizio ospitato di Azure.<a
 * [File di configurazione del servizio](#cfg)
 * [Creazione e distribuzione di un servizio ospitato](#hostedservices)
 * [Riferimenti](#references)
-## <a  id="benefits"> </a>Vantaggi del modello applicativo di Azure
 
-Quando si distribuisce l'applicazione come servizio ospitato, in Azure
-vengono create una o più macchine virtuali (VM) che contengono il codice
-dell'applicazione. Tali macchine virtuali vengono avviate nei computer
-fisici che risiedono in uno dei data center di Azure. Un servizio di
-bilanciamento del carico provvede a distribuire in modo uniforme alle
-macchine virtuali le richieste client all'applicazione ospitata non
-appena arrivano al data center. Un'applicazione ospitata in Azure può
-usufruire di tre vantaggi principali:
+## <a id="benefits"> </a>Vantaggi del modello applicativo di Azure
+
+Quando si distribuisce l'applicazione come servizio ospitato, in Azure vengono create una o più macchine virtuali (VM) che contengono il codice dell'applicazione. Tali macchine virtuali vengono avviate nei computer fisici che risiedono in uno dei data center di Azure. Un servizio di bilanciamento del carico provvede a distribuire in modo uniforme alle macchine virtuali le richieste client all'applicazione ospitata non appena arrivano al data center. Un'applicazione ospitata in Azure può usufruire di tre vantaggi principali:
 
 * **Disponibilità elevata.** Azure assicura infatti che l'applicazione
   venga eseguita il più possibile senza interruzioni e sia quindi in
@@ -75,66 +63,34 @@ usufruire di tre vantaggi principali:
   2008. Dal momento che in tutte le macchine virtuali viene eseguito
   Windows Server 2008, tutto il codice che viene eseguito in Windows
   Server 2008 funziona perfettamente anche in Azure.
-## <a  id="concepts"> </a>Concetti principali relativi al servizio ospitato
 
-L'applicazione distribuita come servizio ospitato in Azure viene
-eseguita con uno o più *ruoli.* Il termine *ruolo* fa riferimento alla
-configurazione e ai file dell'applicazione. È possibile definire per
-l'applicazione uno o più ruoli, ognuno con un proprio insieme di
-configurazione e file dell'applicazione. Per ogni ruolo
-dell'applicazione è possibile specificare il numero di macchine
-virtuali o *istanze del ruolo* da eseguire. Nella figura seguente sono
-illustrati due semplici esempi di un'applicazione modellata come
-servizio ospitato con ruoli e istanze del ruolo.
+## <a id="concepts"> </a>Concetti principali relativi al servizio ospitato
+
+L'applicazione distribuita come servizio ospitato in Azure viene eseguita con uno o più *ruoli.* Il termine *ruolo* fa riferimento alla configurazione e ai file dell'applicazione. È possibile definire per l'applicazione uno o più ruoli, ognuno con un proprio insieme di configurazione e file dell'applicazione. Per ogni ruolo dell'applicazione è possibile specificare il numero di macchine virtuali o *istanze del ruolo* da eseguire. Nella figura seguente sono illustrati due semplici esempi di un'applicazione modellata come servizio ospitato con ruoli e istanze del ruolo.
+
 ##### Figura 1: un singolo ruolo con tre istanze (macchine virtuali) in esecuzione in un data center di Azure
 
 ![immagine](./media/application-model/application-model-3.jpg)
+
 ##### Figura 2: due ruoli, ognuno con due istanze (macchine virtuali) in esecuzione in un data center di Azure
 
 ![immagine](./media/application-model/application-model-4.jpg)
 
-Le istanze del ruolo elaborano in genere le richieste client Internet
-che giungono al data center tramite il cosiddetto *endpoint di input*.
-Per un singolo ruolo possono essere disponibili 0 o più endpoint di
-input. Ogni endpoint indica un protocollo (HTTP, HTTPS o TCP) e una
-porta. In genere si configura un ruolo con due endpoint di input: HTTP
-in ascolto sulla porta 80 e HTTPS in ascolto sulla porta 443. Nella
-figura seguente è illustrato un esempio dei due diversi ruoli con
-endpoint di input diversi ai quali vengono indirizzate le richieste
-client.
+Le istanze del ruolo elaborano in genere le richieste client Internet che giungono al data center tramite il cosiddetto *endpoint di input*. Per un singolo ruolo possono essere disponibili 0 o più endpoint di input. Ogni endpoint indica un protocollo (HTTP, HTTPS o TCP) e una porta. In genere si configura un ruolo con due endpoint di input: HTTP in ascolto sulla porta 80 e HTTPS in ascolto sulla porta 443. Nella figura seguente è illustrato un esempio dei due diversi ruoli con endpoint di input diversi ai quali vengono indirizzate le richieste client.
 
 ![immagine](./media/application-model/application-model-5.jpg)
 
-A un servizio ospitato creato in Azure viene assegnato un indirizzo IP
-indirizzabile pubblicamente che i client possono utilizzare per accedere
-al servizio. Durante la creazione del servizio ospitato è inoltre
-necessario selezionare un prefisso URL che viene mappato a tale
-indirizzo IP. Tale prefisso deve essere univoco dal momento che viene
-utilizzato essenzialmente per riservare l'URL *prefisso*.cloudapp.net
-in modo che nessun altro possa disporne. L'URL viene utilizzato dai
-client per comunicare con le istanze del ruolo. L'URL
+A un servizio ospitato creato in Azure viene assegnato un indirizzo IP indirizzabile pubblicamente che i client possono utilizzare per accedere al servizio. Durante la creazione del servizio ospitato è inoltre necessario selezionare un prefisso URL che viene mappato a tale indirizzo IP. Tale prefisso deve essere univoco dal momento che viene utilizzato essenzialmente per riservare l'URL *prefisso*.cloudapp.net in modo che nessun altro possa disporne. L'URL viene utilizzato dai client per comunicare con le istanze del ruolo. L'URL
 *prefisso*.cloudapp.net di Azure non viene in genere distribuito né
-pubblicato. Per reindirizzare le richieste client all'URL di Azure,
-invece, si utilizza un nome DNS acquistato presso un registrar DNS a
-scelta e appositamente configurato. Per ulteriori informazioni, vedere
+pubblicato. Per reindirizzare le richieste client all'URL di Azure, invece, si utilizza un nome DNS acquistato presso un registrar DNS a scelta e appositamente configurato. Per ulteriori informazioni, vedere
 [Configurazione di un nome di dominio personalizzato per un sito Web di
 Azure][1].
-## <a  id="considerations"> </a>Considerazioni sulla progettazione del servizio ospitato
 
-Quando si progetta un'applicazione da eseguire in un ambiente cloud, è
-necessario prendere in considerazione diversi fattori, tra cui latenza,
-disponibilità elevata e scalabilità.
+## <a id="considerations"> </a>Considerazioni sulla progettazione del servizio ospitato
 
-Anche scegliere dove inserire il codice dell'applicazione è una
-decisione importante quando si esegue un servizio ospitato in Azure. In
-genere, per ridurre la latenza e garantire le migliori prestazioni
-possibili, l'applicazione viene distribuita nei data center più vicini
-ai client. Per evitare problemi legali o di giurisdizione sui dati e
-sulla posizione in cui risiedono, è tuttavia possibile scegliere un data
-center più vicino alla società o ai dati. In tutto il mondo sono
-disponibili sei data center in grado di ospitare il codice
-dell'applicazione. Le località disponibili sono elencate nella tabella
-seguente:
+Quando si progetta un'applicazione da eseguire in un ambiente cloud, è necessario prendere in considerazione diversi fattori, tra cui latenza, disponibilità elevata e scalabilità.
+
+Anche scegliere dove inserire il codice dell'applicazione è una decisione importante quando si esegue un servizio ospitato in Azure. In genere, per ridurre la latenza e garantire le migliori prestazioni possibili, l'applicazione viene distribuita nei data center più vicini ai client. Per evitare problemi legali o di giurisdizione sui dati e sulla posizione in cui risiedono, è tuttavia possibile scegliere un data center più vicino alla società o ai dati. In tutto il mondo sono disponibili sei data center in grado di ospitare il codice dell'applicazione. Le località disponibili sono elencate nella tabella seguente:
 
 <table  border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
@@ -194,135 +150,47 @@ Sudorientale e orientale
 
 </table>
 
-Quando si crea un servizio ospitato, è necessario selezionare una
-sottoarea che indica la località in cui si desidera eseguire il codice.
+Quando si crea un servizio ospitato, è necessario selezionare una sottoarea che indica la località in cui si desidera eseguire il codice.
 
-Ai fini della disponibilità elevata e della scalabilità, è di
-fondamentale importanza che i dati dell'applicazione vengano mantenuti
-in un archivio centrale accessibile a più istanze del ruolo. A tale
-scopo, in Azure sono disponibili diverse opzioni di archiviazione, tra
-cui BLOB, tabelle e database SQL. Per ulteriori informazioni su queste
-tecnologie di archiviazione, vedere l'articolo sulle [opzioni
-disponibili per l'archiviazione dati in Azure][2]. Nella figura
-seguente viene illustrata la modalità con cui il sistema di
-bilanciamento del carico all'interno del data center di Azure
-distribuisce le richieste client a diverse istanze del ruolo che
-dispongono tutte di accesso alla stessa risorsa di archiviazione dati.
+Ai fini della disponibilità elevata e della scalabilità, è di fondamentale importanza che i dati dell'applicazione vengano mantenuti in un archivio centrale accessibile a più istanze del ruolo. A tale scopo, in Azure sono disponibili diverse opzioni di archiviazione, tra cui BLOB, tabelle e database SQL. Per ulteriori informazioni su queste tecnologie di archiviazione, vedere l'articolo sulle [opzioni disponibili per l'archiviazione dati in Azure][2]. Nella figura seguente viene illustrata la modalità con cui il sistema di bilanciamento del carico all'interno del data center di Azure distribuisce le richieste client a diverse istanze del ruolo che dispongono tutte di accesso alla stessa risorsa di archiviazione dati.
 
 ![immagine](./media/application-model/application-model-6.jpg)
 
-In genere, si preferisce che il codice dell'applicazione e i dati siano
-entrambi disponibili nello stesso data center, in quanto tale
-configurazione garantisce una latenza bassa e di conseguenza prestazioni
-migliori quando il codice dell'applicazione accede ai dati. Lo
-spostamento dei dati all'interno dello stesso data center non comporta
-inoltre costi di larghezza di banda.
-## <a  id="scale"> </a>Progettazione dell'applicazione per la scalabilità
+In genere, si preferisce che il codice dell'applicazione e i dati siano entrambi disponibili nello stesso data center, in quanto tale configurazione garantisce una latenza bassa e di conseguenza prestazioni migliori quando il codice dell'applicazione accede ai dati. Lo spostamento dei dati all'interno dello stesso data center non comporta inoltre costi di larghezza di banda.
 
-Può capitare che talvolta si desideri ospitare una singola applicazione,
-ad esempio un semplice sito Web, in Azure, ma molto spesso
-l'applicazione può essere costituita da ruoli diversi che operano
-congiuntamente. Nella figura seguente, ad esempio, sono presenti due
-istanze del ruolo Sito Web, tre istanze del ruolo Elaborazione degli
-ordini e un'istanza del ruolo Generatore di report. Tutti questi ruoli
-operano congiuntamente ed è possibile creare e distribuire in un unico
-pacchetto il relativo codice come una singola unità in Azure.
+## <a id="scale"> </a>Progettazione dell'applicazione per la scalabilità
+
+Può capitare che talvolta si desideri ospitare una singola applicazione, ad esempio un semplice sito Web, in Azure, ma molto spesso l'applicazione può essere costituita da ruoli diversi che operano congiuntamente. Nella figura seguente, ad esempio, sono presenti due istanze del ruolo Sito Web, tre istanze del ruolo Elaborazione degli ordini e un'istanza del ruolo Generatore di report. Tutti questi ruoli operano congiuntamente ed è possibile creare e distribuire in un unico pacchetto il relativo codice come una singola unità in Azure.
 
 ![immagine](./media/application-model/application-model-7.jpg)
 
-Il motivo principale per cui dividere un'applicazione in diversi ruoli
-ognuno in esecuzione nel relativo insieme di istanze del ruolo, ovvero
-macchine virtuali, è per garantire la scalabilità dei ruoli in modo
-indipendente. Durante la stagione estiva, ad esempio, è possibile che
-molti clienti facciano acquisti presso la società, pertanto potrebbe
-essere necessario incrementare il numero di istanze del ruolo che
-eseguono il ruolo Sito Web, nonché di quelle che eseguono il ruolo
-Elaborazione degli ordini. Dopo la stagione estiva è possibile che
-aumenti il numero di prodotti restituiti; in tal caso potrebbe essere
-ancora necessario mantenere un numero elevato di istanze di Sito Web, ma
-meno istanze di Elaborazione degli ordini. Nel resto dell'anno
-potrebbero essere necessarie solo alcune istanze di Sito Web e di
-Elaborazione degli ordini. In tutti i periodi potrebbe infine essere
-necessaria una sola istanza di Generatore di report. Grazie alla
-flessibilità delle distribuzioni basate sui ruoli in Azure, è possibile
-adattare facilmente l'applicazione alle esigenze aziendali.
+Il motivo principale per cui dividere un'applicazione in diversi ruoli ognuno in esecuzione nel relativo insieme di istanze del ruolo, ovvero macchine virtuali, è per garantire la scalabilità dei ruoli in modo indipendente. Durante la stagione estiva, ad esempio, è possibile che molti clienti facciano acquisti presso la società, pertanto potrebbe essere necessario incrementare il numero di istanze del ruolo che eseguono il ruolo Sito Web, nonché di quelle che eseguono il ruolo Elaborazione degli ordini. Dopo la stagione estiva è possibile che aumenti il numero di prodotti restituiti; in tal caso potrebbe essere ancora necessario mantenere un numero elevato di istanze di Sito Web, ma meno istanze di Elaborazione degli ordini. Nel resto dell'anno potrebbero essere necessarie solo alcune istanze di Sito Web e di Elaborazione degli ordini. In tutti i periodi potrebbe infine essere necessaria una sola istanza di Generatore di report. Grazie alla flessibilità delle distribuzioni basate sui ruoli in Azure, è possibile adattare facilmente l'applicazione alle esigenze aziendali.
 
 È comune che le istanze del ruolo all'interno del servizio ospitato
-comunichino tra loro. Ad esempio, il ruolo Sito Web accetta l'ordine di
-un cliente, ma successivamente ripartisce il carico di lavoro alle
-istanze del ruolo Elaborazione degli ordini. Il modo migliore per
-passare il lavoro da un insieme di istanze del ruolo a un altro consiste
-nell'utilizzare la tecnologia di accodamento offerta da Azure, ovvero
-il Servizio di accodamento o le code del bus di servizio. La coda
-costituisce un fattore importante in questo contesto, in quanto consente
-al servizio ospitato di garantire la scalabilità dei relativi ruoli in
-modo indipendente e di conseguenza di bilanciare il carico di lavoro
-rispetto al costo. Se il numero di messaggi nella coda cresce nel tempo,
+comunichino tra loro. Ad esempio, il ruolo Sito Web accetta l'ordine di un cliente, ma successivamente ripartisce il carico di lavoro alle istanze del ruolo Elaborazione degli ordini. Il modo migliore per passare il lavoro da un insieme di istanze del ruolo a un altro consiste nell'utilizzare la tecnologia di accodamento offerta da Azure, ovvero il Servizio di accodamento o le code del bus di servizio. La coda costituisce un fattore importante in questo contesto, in quanto consente al servizio ospitato di garantire la scalabilità dei relativi ruoli in modo indipendente e di conseguenza di bilanciare il carico di lavoro rispetto al costo. Se il numero di messaggi nella coda cresce nel tempo,
 è possibile aumentare il numero di istanze del ruolo Elaborazione degli
-ordini. Se invece decresce, è possibile ridurre il numero di istanze di
-questo ruolo. In questo modo si pagherà solo per le istanze necessarie a
-gestire l'effettivo carico di lavoro.
+ordini. Se invece decresce, è possibile ridurre il numero di istanze di questo ruolo. In questo modo si pagherà solo per le istanze necessarie a gestire l'effettivo carico di lavoro.
 
-La coda offre inoltre una maggiore affidabilità. Quando viene ridotto il
-numero di istanze del ruolo Elaborazione degli ordini, è Azure a
-decidere le istanze da terminare. Può ad esempio decidere di terminare
-un'istanza per la quale è in corso l'elaborazione di un messaggio
-della coda. Poiché tuttavia l'elaborazione non viene completata
-correttamente, il messaggio risulta nuovamente visibile a un'altra
-istanza del ruolo Elaborazione degli ordini che la preleva e la elabora.
-Dal momento che i messaggi della coda sono visibili, viene quindi
-garantita l'elaborazione di tutti i messaggi. La coda funge anche da
-bilanciamento del carico, distribuendo in modo efficace i messaggi a
-tutte le istanze del ruolo che li richiedono.
+La coda offre inoltre una maggiore affidabilità. Quando viene ridotto il numero di istanze del ruolo Elaborazione degli ordini, è Azure a decidere le istanze da terminare. Può ad esempio decidere di terminare un'istanza per la quale è in corso l'elaborazione di un messaggio della coda. Poiché tuttavia l'elaborazione non viene completata correttamente, il messaggio risulta nuovamente visibile a un'altra istanza del ruolo Elaborazione degli ordini che la preleva e la elabora. Dal momento che i messaggi della coda sono visibili, viene quindi garantita l'elaborazione di tutti i messaggi. La coda funge anche da bilanciamento del carico, distribuendo in modo efficace i messaggi a tutte le istanze del ruolo che li richiedono.
 
-Per le istanze del ruolo Sito Web è possibile monitorare il traffico in
-entrata e decidere se aumentarne o ridurne il numero. La coda consente
-di garantire la scalabilità del numero di istanze del ruolo Sito Web in
-modo indipendente dalle istanze del ruolo Elaborazione degli ordini.
-Questo aspetto è particolarmente efficace e offre una notevole
-flessibilità. Se naturalmente l'applicazione è costituita da ulteriori
-ruoli, è possibile aggiungere altre code come canale di comunicazione
-tra loro al fine di usufruire degli stessi vantaggi in termini di
-scalabilità e costo.
-## <a  id="defandcfg"> </a>Definizione e configurazione del servizio ospitato
+Per le istanze del ruolo Sito Web è possibile monitorare il traffico in entrata e decidere se aumentarne o ridurne il numero. La coda consente di garantire la scalabilità del numero di istanze del ruolo Sito Web in modo indipendente dalle istanze del ruolo Elaborazione degli ordini. Questo aspetto è particolarmente efficace e offre una notevole flessibilità. Se naturalmente l'applicazione è costituita da ulteriori ruoli, è possibile aggiungere altre code come canale di comunicazione tra loro al fine di usufruire degli stessi vantaggi in termini di scalabilità e costo.
 
-Per distribuire un servizio ospitato in Azure, è inoltre necessario
-disporre di un file di definizione del servizio e di un file di
-configurazione del servizio. Entrambi questi file, in formato XML,
-consentono di specificare in modo dichiarativo le opzioni di
-distribuzione per il servizio ospitato. Nel file di definizione del
-servizio sono descritti tutti i ruoli che costituiscono il servizio
-ospitato e la relativa modalità di comunicazione. Nel file di
-configurazione del servizio sono invece descritti il numero di istanze
-per ogni ruolo e le impostazioni utilizzate per configurare ognuna di
-esse.
-## <a  id="def"> </a>File di definizione del servizio
+## <a id="defandcfg"> </a>Definizione e configurazione del servizio ospitato
+
+Per distribuire un servizio ospitato in Azure, è inoltre necessario disporre di un file di definizione del servizio e di un file di configurazione del servizio. Entrambi questi file, in formato XML, consentono di specificare in modo dichiarativo le opzioni di distribuzione per il servizio ospitato. Nel file di definizione del servizio sono descritti tutti i ruoli che costituiscono il servizio ospitato e la relativa modalità di comunicazione. Nel file di configurazione del servizio sono invece descritti il numero di istanze per ogni ruolo e le impostazioni utilizzate per configurare ognuna di esse.
+
+## <a id="def"> </a>File di definizione del servizio
 
 Come accennato in precedenza, il file di definizione del servizio
 (CSDEF) è un file XML in cui sono descritti i diversi ruoli che
-costituiscono l'applicazione completa. Lo schema completo per il file
-XML è disponibile qui:
+costituiscono l'applicazione completa. Lo schema completo per il file XML è disponibile qui:
 [http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx][].
-Il file CSDEF contiene un elemento WebRole o WorkerRole per ogni ruolo
-che si desidera utilizzare nell'applicazione. Se si distribuisce un
-ruolo come ruolo Web (mediante l'elemento WebRole), il codice verrà
-eseguito su un'istanza del ruolo che contiene Windows Server 2008 e
-Internet Information Server (IIS). Se invece si distribuisce un ruolo
-come ruolo di lavoro (mediante l'elemento WorkerRole), nell'istanza
-del ruolo sarà presente Windows Server 2008, mentre IIS non verrà
-installato.
+Il file CSDEF contiene un elemento WebRole o WorkerRole per ogni ruolo che si desidera utilizzare nell'applicazione. Se si distribuisce un ruolo come ruolo Web (mediante l'elemento WebRole), il codice verrà eseguito su un'istanza del ruolo che contiene Windows Server 2008 e Internet Information Server (IIS). Se invece si distribuisce un ruolo come ruolo di lavoro (mediante l'elemento WorkerRole), nell'istanza del ruolo sarà presente Windows Server 2008, mentre IIS non verrà installato.
 
 È certamente possibile creare e distribuire un ruolo di lavoro che
-utilizza altri meccanismi per ascoltare le richieste Web in arrivo. Ad
-esempio il codice potrebbe creare e utilizzare un HttpListener .NET.
-Poiché in tutte le istanze del ruolo viene eseguito Windows Server 2008,
-con il codice è possibile eseguire operazioni che sono normalmente
-disponibili per un'applicazione in esecuzione in Windows Server 2008.
+utilizza altri meccanismi per ascoltare le richieste Web in arrivo. Ad esempio il codice potrebbe creare e utilizzare un HttpListener .NET. Poiché in tutte le istanze del ruolo viene eseguito Windows Server 2008, con il codice è possibile eseguire operazioni che sono normalmente disponibili per un'applicazione in esecuzione in Windows Server 2008.
 
-Per ogni ruolo è necessario indicare le dimensioni desiderate per la
-macchina virtuale che verrà utilizzata dalle istanze di tale ruolo.
-Nella tabella seguente sono elencate le diverse dimensioni delle
-macchine virtuali attualmente disponibili e gli attributi di ognuna:
+Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina virtuale che verrà utilizzata dalle istanze di tale ruolo. Nella tabella seguente sono elencate le diverse dimensioni delle macchine virtuali attualmente disponibili e gli attributi di ognuna:
 
 <table  border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
@@ -498,24 +366,9 @@ macchine virtuali attualmente disponibili e gli attributi di ognuna:
 
 </table>
 
-Vengono addebitati i costi orari relativi a ogni macchina virtuale
-utilizzata come istanza del ruolo, nonché i costi relativi a tutti i
-dati inviati dalle istanze del ruolo all'esterno del data center. Non
-vengono invece addebitati i costi relativi ai dati in ingresso nel data
-center. Per ulteriori informazioni, vedere la pagina relativa ai [prezzi
-di Azure][3]. In generale, è consigliabile utilizzare più istanze del
-ruolo di piccole dimensioni, anziché alcune istanze del ruolo di grandi
-dimensioni, in modo che l'applicazione risulti più resiliente in caso
-di errore. In linea di massima, se il numero di istanze del ruolo è
-ridotto, un errore in una sola di esse può comportare gravi danni
-all'intera applicazione. Come accennato in precedenza, inoltre, per
-ottenere il 99,95% del contratto di servizio offerto da Microsoft, è
-necessario distribuire almeno due istanze per ogni ruolo.
+Vengono addebitati i costi orari relativi a ogni macchina virtuale utilizzata come istanza del ruolo, nonché i costi relativi a tutti i dati inviati dalle istanze del ruolo all'esterno del data center. Non vengono invece addebitati i costi relativi ai dati in ingresso nel data center. Per ulteriori informazioni, vedere la pagina relativa ai [prezzi di Azure][3]. In generale, è consigliabile utilizzare più istanze del ruolo di piccole dimensioni, anziché alcune istanze del ruolo di grandi dimensioni, in modo che l'applicazione risulti più resiliente in caso di errore. In linea di massima, se il numero di istanze del ruolo è ridotto, un errore in una sola di esse può comportare gravi danni all'intera applicazione. Come accennato in precedenza, inoltre, per ottenere il 99,95% del contratto di servizio offerto da Microsoft, è necessario distribuire almeno due istanze per ogni ruolo.
 
-Nel file di definizione del servizio (CSDEF) è inoltre possibile
-specificare il numero di attributi relativi a ogni ruolo
-dell'applicazione. Di seguito sono elencati alcuni degli elementi più
-utili disponibili:
+Nel file di definizione del servizio (CSDEF) è inoltre possibile specificare il numero di attributi relativi a ogni ruolo dell'applicazione. Di seguito sono elencati alcuni degli elementi più utili disponibili:
 
 * **Certificati**. I certificati vengono utilizzati per crittografare i
   dati oppure se il servizio Web supporta SSL. Tutti i certificati
@@ -563,15 +416,12 @@ utili disponibili:
   prerequisiti in un'istanza del ruolo all'avvio. Se necessario, è
   possibile eseguire le attività con privilegi elevati di
   amministratore.
-## <a  id="cfg"> </a>File di configurazione del servizio
 
-Il file di configurazione del servizio (CSCFG) è un file XML in cui sono
-descritte le impostazioni che è possibile modificare senza ridistribuire
-l'applicazione. Lo schema completo per il file XML è disponibile qui:
+## <a id="cfg"> </a>File di configurazione del servizio
+
+Il file di configurazione del servizio (CSCFG) è un file XML in cui sono descritte le impostazioni che è possibile modificare senza ridistribuire l'applicazione. Lo schema completo per il file XML è disponibile qui:
 [http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx][5].
-Il file CSCFG contiene un elemento Role per ogni ruolo
-dell'applicazione. Di seguito sono elencati alcuni degli elementi che è
-possibile specificare nel file CSCFG:
+Il file CSCFG contiene un elemento Role per ogni ruolo dell'applicazione. Di seguito sono elencati alcuni degli elementi che è possibile specificare nel file CSCFG:
 
 * **Versione sistema operativo**. Questo attributo consente di
   selezionare la versione del sistema operativo da utilizzare per tutte
@@ -610,37 +460,22 @@ possibile specificare nel file CSCFG:
   impostazioni di configurazione utilizzati in genere per le stringhe di
   connessione al database SQL o ad Archiviazione di Azure, che possono
   tuttavia essere impiegati anche per altre finalità.
-## <a  id="hostedservices"> </a>Creazione e distribuzione di un servizio ospitato
+
+## <a id="hostedservices"> </a>Creazione e distribuzione di un servizio ospitato
 
 Per creare un servizio ospitato, è innanzitutto necessario passare al
 [portale di gestione di Azure] ed eseguire il provisioning di un
-servizio ospitato specificando un prefisso DNS e il data center in cui
-eseguire effettivamente il codice. Successivamente, nell'ambiente di
-sviluppo è necessario creare il file di definizione del servizio
+servizio ospitato specificando un prefisso DNS e il data center in cui eseguire effettivamente il codice. Successivamente, nell'ambiente di sviluppo è necessario creare il file di definizione del servizio
 (CSDEF), compilare il codice dell'applicazione e comprimere tutti
-questi file in un file di pacchetto del servizio (CSPKG). È inoltre
-necessario preparare il file di configurazione del servizio (CSCFG). Per
-distribuire il ruolo, è necessario caricare i file CSPKG e CSCFG con
-l'API di gestione dei servizi di Azure. Dopo la distribuzione, in Azure
-verrà eseguito il provisioning delle istanze del ruolo nel data center,
-sulla base dei dati di configurazione. Il codice dell'applicazione
-verrà quindi estratto dal pacchetto e copiato nelle istanze del ruolo
-che verranno infine avviate. A questo punto il codice è operativo.
+questi file in un file di pacchetto del servizio (CSPKG). È inoltre necessario preparare il file di configurazione del servizio (CSCFG). Per distribuire il ruolo, è necessario caricare i file CSPKG e CSCFG con l'API di gestione dei servizi di Azure. Dopo la distribuzione, in Azure verrà eseguito il provisioning delle istanze del ruolo nel data center, sulla base dei dati di configurazione. Il codice dell'applicazione verrà quindi estratto dal pacchetto e copiato nelle istanze del ruolo che verranno infine avviate. A questo punto il codice è operativo.
 
-Nella figura seguente sono illustrati i file CSPKG e CSCFG creati nel
-computer di sviluppo. Il file CSPKG contiene il file CSDEF e il codice
-per due ruoli. Dopo il caricamento dei file CSPKG e CSCFG con l'API di
-gestione dei servizi di Azure, nel data center verranno create le
-istanze del ruolo. In questo esempio il file CSCFG indica che in Azure è
-necessario creare tre istanze del ruolo 1 e due istanze del ruolo 2.
+Nella figura seguente sono illustrati i file CSPKG e CSCFG creati nel computer di sviluppo. Il file CSPKG contiene il file CSDEF e il codice per due ruoli. Dopo il caricamento dei file CSPKG e CSCFG con l'API di gestione dei servizi di Azure, nel data center verranno create le istanze del ruolo. In questo esempio il file CSCFG indica che in Azure è necessario creare tre istanze del ruolo 1 e due istanze del ruolo 2.
 
 ![immagine](./media/application-model/application-model-8.jpg)
 
-Per ulteriori informazioni su distribuzione, aggiornamento e
-riconfigurazione dei ruoli, vedere l'articolo relativo a [distribuzione
-e aggiornamento di applicazioni di Azure][8].<a 
-id="Ref" name="Ref" ></a>
-## <a  id="references"> </a>Riferimenti
+Per ulteriori informazioni su distribuzione, aggiornamento e riconfigurazione dei ruoli, vedere l'articolo relativo a [distribuzione e aggiornamento di applicazioni di Azure][8].<a id="Ref" name="Ref" ></a>
+
+## <a id="references"> </a>Riferimenti
 
 * [Creazione di un servizio ospitato per Azure][9]
 

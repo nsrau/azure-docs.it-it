@@ -1,6 +1,4 @@
-Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è
-necessario creare una nuova tabella nell'istanza di database SQL
-associata.
+Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessario creare una nuova tabella nell'istanza di database SQL associata.
 
 1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
 
@@ -15,10 +13,7 @@ associata.
 
  	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
 
- Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le
-autorizzazioni predefinite impostate. Questo significa che chiunque
-disponga della chiave dell'applicazione, che viene distribuita con
-l'app, potrà accedere alla tabella e modificare i dati.
+ Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le autorizzazioni predefinite impostate. Questo significa che chiunque disponga della chiave dell'applicazione, che viene distribuita con l'app, potrà accedere alla tabella e modificare i dati.
 
 > [WACOM.NOTE] Nella Guida introduttiva di Servizi mobili viene
 > utilizzato lo stesso nome di tabella. Tuttavia, ogni tabella viene
@@ -26,11 +21,9 @@ l'app, potrà accedere alla tabella e modificare i dati.
 > questo modo è possibile evitare conflitti di dati quando più servizi
 > mobili utilizzano lo stesso database.
 
-1.  Fare clic sulla nuova tabella **TodoItem** e verificare che non
-    siano presenti righe di dati.
+1.  Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
-2.  Fare clic sulla scheda **Columns**. Verificare che siano state
-    create automaticamente le colonne predefinite seguenti:
+2.  Fare clic sulla scheda **Columns**. Verificare che siano state create automaticamente le colonne predefinite seguenti:
     
     <table  border="1" cellpadding="10">
      	<tr>
@@ -91,6 +84,4 @@ l'app, potrà accedere alla tabella e modificare i dati.
 
 
 
-A questo punto è possibile utilizzare il nuovo servizio mobile come
-archivio dati per l'app.
-
+A questo punto è possibile utilizzare il nuovo servizio mobile come archivio dati per l'app.

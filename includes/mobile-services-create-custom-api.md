@@ -1,5 +1,4 @@
-1.  Accedere al [portale di gestione di Azure][1], fare clic su **Mobile
-    Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][1], fare clic su **Mobile Services** e quindi sull'app.
     
     ![](./media/mobile-services-create-custom-api/mobile-services-selection.png)
 
@@ -7,16 +6,16 @@
     
     ![](./media/mobile-services-create-custom-api/mobile-custom-api-create.png)
     
-    Verrà visualizzata la finestra di dialogo **Create a new custom
-    API**.
+    Verrà visualizzata la finestra di dialogo **Create a new custom API**.
 
-3.  Immettere *completeall* in **API name**, quindi fare clic sul segno
-    di spunta.
+3.  Immettere *completeall* in **API name**, quindi fare clic sul segno di spunta.
     
     ![](./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png)
     
     Verrà creata la nuova API.
-    
+
+
+   
     > [WACOM.NOTE] Poiché vengono impostate autorizzazioni
     > predefinite, qualsiasi utente dell'app può chiamare l'API
     > personalizzata. Tuttavia, la chiave dell'applicazione non viene
@@ -44,20 +43,13 @@
 			})
 		};
     
-    In questo codice viene utilizzato l'[oggetto mssql][2] per accedere
-    direttamente alla tabella **todoitem** e impostare il contrassegno
-    di completamento su tutti gli elementi. Poiché viene utilizzata la
-    funzione **exports.post**, i client inviano una richiesta POST per
-    eseguire l'operazione. Al client viene restituito un valore intero
-    corrispondente al numero di righe modificate.
+    In questo codice viene utilizzato l'[oggetto mssql][2] per accedere direttamente alla tabella **todoitem** e impostare il contrassegno di completamento su tutti gli elementi. Poiché viene utilizzata la funzione **exports.post**, i client inviano una richiesta POST per eseguire l'operazione. Al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
 > [WACOM.NOTE] Gli oggetti [request][3] e [response][4] forniti a funzioni API personalizzate vengono
 > implementati dalla [libreria Express.js][5]. Per ulteriori informazioni, vedere [API
 > personalizzata][6].
 
-In seguito, l'app della Guida introduttiva verrà modificata per
-aggiungere un pulsante New e il codice che chiama in modo asincrono la
-nuova API personalizzata.
+In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
 
 <!-- Anchors. -->
 

@@ -1,13 +1,7 @@
+
 # Gestione di database SQL di Azure tramite SQL Server Management Studio
 
-Per amministrare le sottoscrizioni del database SQL nonché creare e
-gestire server e database logici associati, è possibile utilizzare il
-portale di gestione database SQL di Azure oppure l'applicazione client
-di SQL Server Management Studio (SSMS). Nelle linee guida seguenti viene
-illustrato come utilizzare Management Studio per gestire i database e i
-server logici di un database SQL. Per informazioni su come utilizzare
-connessioni al database SQL nel codice dell'applicazione, vedere [Come
-utilizzare un database SQL di Azure][1].
+Per amministrare le sottoscrizioni del database SQL nonché creare e gestire server e database logici associati, è possibile utilizzare il portale di gestione database SQL di Azure oppure l'applicazione client di SQL Server Management Studio (SSMS). Nelle linee guida seguenti viene illustrato come utilizzare Management Studio per gestire i database e i server logici di un database SQL. Per informazioni su come utilizzare connessioni al database SQL nel codice dell'applicazione, vedere [Come utilizzare un database SQL di Azure][1].
 
  
 <div  class="dev-callout-new-collapsed">
@@ -24,15 +18,10 @@ utilizzare un database SQL di Azure][1].
 * [Passaggio 4: Creare e gestire gli accessi](#Step4)
 * [Passaggio 5: Monitorare il database SQL utilizzando viste a gestione dinamica][]
 
-<h2><a  id="Step1" name="Step1"> </a>Passaggio 1: Ottenere Management Studio</h2>
+<h2><a id="Step1" name="Step1"> </a>Passaggio 1: Ottenere Management Studio</h2>
 
 
-Management Studio è un ambiente integrato per la gestione dei database
-SQL. Per la gestione dei database in Azure, è possibile utilizzare
-l'applicazione Management Studio installata con SQL Server oppure
-scaricare la versione gratuita di SQL Server 2012 Management Studio
-Express (SSMSE). Nei passaggi seguenti viene descritto come eseguire
-l'installazione di SSMSE.
+Management Studio è un ambiente integrato per la gestione dei database SQL. Per la gestione dei database in Azure, è possibile utilizzare l'applicazione Management Studio installata con SQL Server oppure scaricare la versione gratuita di SQL Server 2012 Management Studio Express (SSMSE). Nei passaggi seguenti viene descritto come eseguire l'installazione di SSMSE.
 
 1.  Nella pagina [Microsoft SQL Server 2012 Express][], selezionare
     la versione x86 di Management Studio se si esegue un sistema
@@ -62,12 +51,10 @@ l'installazione di SSMSE.
 7.  Al termine dell'installazione verrà visualizzata la **pagina di
     completamento**. Fare clic su **Close**.
 
-<h2><a  id="Step2" name="Step2"> </a>Passaggio 2: Connettersi al database SQL</h2>
+<h2><a id="Step2" name="Step2"> </a>Passaggio 2: Connettersi al database SQL</h2>
 
 
-Per la connessione al database SQL è necessario conoscere il nome del
-server in Azure. Potrebbe essere necessario accedere al portale per
-ottenere questa informazione.
+Per la connessione al database SQL è necessario conoscere il nome del server in Azure. Potrebbe essere necessario accedere al portale per ottenere questa informazione.
 
 1.  Accedere al [portale di gestione di Azure][].
 
@@ -133,39 +120,21 @@ ottenere questa informazione.
 
 14. Fare clic su **Connetti** per stabilire la connessione.
 
-In Azure, ogni server logico di database SQL è un'astrazione che
-definisce un raggruppamento di database. L'ubicazione fisica di ciascun
-database potrebbe essere in qualsiasi computer nel data center.
+In Azure, ogni server logico di database SQL è un'astrazione che definisce un raggruppamento di database. L'ubicazione fisica di ciascun database potrebbe essere in qualsiasi computer nel data center.
 
 Nelle versioni precedenti è necessario connettersi direttamente a
 **master** quando si imposta la connessione in Management Studio. Questo
-passaggio non è più necessario. La riuscita delle connessioni dipenderà
-dal nome del server, dal tipo di autenticazione e dalle credenziali di
-amministratore.
+passaggio non è più necessario. La riuscita delle connessioni dipenderà dal nome del server, dal tipo di autenticazione e dalle credenziali di amministratore.
 
-Molte delle procedure guidate di SSMS per attività come la creazione e
-la modifica di database e di account di accesso in un database SQL
-Server non sono disponibili per i database SQL in Azure, pertanto, al
-fine di completare tali attività, sarà necessario utilizzare istruzioni
-Transact-SQL. Nei passaggi successivi vengono forniti esempi di tali
-istruzioni. Per ulteriori informazioni sull'utilizzo di Transact-SQL
-con database SQL, compresi i dettagli sui comandi supportati, vedere
+Molte delle procedure guidate di SSMS per attività come la creazione e la modifica di database e di account di accesso in un database SQL Server non sono disponibili per i database SQL in Azure, pertanto, al fine di completare tali attività, sarà necessario utilizzare istruzioni Transact-SQL. Nei passaggi successivi vengono forniti esempi di tali istruzioni. Per ulteriori informazioni sull'utilizzo di Transact-SQL con database SQL, compresi i dettagli sui comandi supportati, vedere
 [Riferimento a Transact-SQL (database SQL)][].
 
-<h2><a  id="Step3" name="Step3"> </a>Passaggio 3: Creare e gestire i database</h2>
+<h2><a id="Step3" name="Step3"> </a>Passaggio 3: Creare e gestire i database</h2>
 
 
-Durante la connessione al database **master**, è possibile creare nuovi
-database nel server e modificare o eliminare database esistenti. Nei
-passaggi seguenti viene descritto come completare diverse attività
-comuni di gestione del database tramite Management Studio. Per eseguire
-queste attività, assicurarsi di essere connessi al database **master**
-con l'account di accesso dell'entità di livello server creato al
-momento della configurazione del server.
+Durante la connessione al database **master**, è possibile creare nuovi database nel server e modificare o eliminare database esistenti. Nei passaggi seguenti viene descritto come completare diverse attività comuni di gestione del database tramite Management Studio. Per eseguire queste attività, assicurarsi di essere connessi al database **master** con l'account di accesso dell'entità di livello server creato al momento della configurazione del server.
 
-Per aprire una finestra Query in Management Studio, aprire la cartella
-Database, fare clic con il pulsante destro del mouse su **master**,
-quindi scegliere **New Query**.
+Per aprire una finestra Query in Management Studio, aprire la cartella Database, fare clic con il pulsante destro del mouse su **master**, quindi scegliere **New Query**.
 
 Fare clic su **Execute** per eseguire la query.
 
@@ -214,18 +183,12 @@ Fare clic su **Execute** per eseguire la query.
    <p>Molte delle istruzioni Transact-SQL che consentono di creare o modificare un database devono essere eseguite nell'ambito del proprio batch e non possono essere raggruppate insieme ad altre istruzioni Transact-SQL. Per ulteriori informazioni, vedere i dettagli specifici di ogni istruzione forniti nei collegamenti elencati sopra.</p>
 </div>
 
- <h2><a  id="Step4" name="Step4"> </a>Passaggio 4: Creare e gestire gli accessi</h2>
+ <h2><a id="Step4" name="Step4"> </a>Passaggio 4: Creare e gestire gli accessi</h2>
 
 
-Il database master tiene traccia dei login di accesso riconoscendo
-quelli che dispongono delle autorizzazioni per creare database o
-ulteriori account di accesso. Per gestire gli account di accesso,
-connettersi al database **master** con l'account di accesso
-dell'entità di livello server creato al momento della configurazione
-del server. È possibile utilizzare le istruzioni **CREATE LOGIN**,
+Il database master tiene traccia dei login di accesso riconoscendo quelli che dispongono delle autorizzazioni per creare database o ulteriori account di accesso. Per gestire gli account di accesso, connettersi al database **master** con l'account di accesso dell'entità di livello server creato al momento della configurazione del server. È possibile utilizzare le istruzioni **CREATE LOGIN**,
 **ALTER LOGIN** o **DROP LOGIN** per eseguire query sul database master
-che gestirà gli account di accesso per l'intero server. Per ulteriori
-informazioni, vedere [Gestione di database e account di accesso in database SQL][].
+che gestirà gli account di accesso per l'intero server. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL][].
 
 * Utilizzare l'istruzione **CREATE LOGIN** per creare un nuovo account
   di accesso di livello server. Per ulteriori informazioni, vedere
@@ -301,15 +264,10 @@ informazioni, vedere [Gestione di database e account di accesso in database SQL]
   
       	SELECT * FROM sys.sql_logins;
 
-<h2><a  id="Step5" name="Step5"> </a>Passaggio 5: Monitorare il database SQL utilizzando viste a gestione dinamica</h2>
+<h2><a id="Step5" name="Step5"> </a>Passaggio 5: Monitorare il database SQL utilizzando viste a gestione dinamica</h2>
 
 
-Il database SQL supporta diverse viste a gestione dinamica che possono
-essere utilizzate per il monitoraggio di database specifici. Di seguito
-vengono forniti alcuni esempi del tipo di dati di monitoraggio che
-possono essere recuperati tramite tali viste. Per informazioni
-dettagliate e altri esempi di utilizzo, vedere [Monitoraggio di
-database SQL mediante le viste a gestione dinamica][].
+Il database SQL supporta diverse viste a gestione dinamica che possono essere utilizzate per il monitoraggio di database specifici. Di seguito vengono forniti alcuni esempi del tipo di dati di monitoraggio che possono essere recuperati tramite tali viste. Per informazioni dettagliate e altri esempi di utilizzo, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica][].
 
 * L'esecuzione di query in una vista a gestione dinamica richiede
   autorizzazioni **VIEW DATABASE STATE**. Per concedere le

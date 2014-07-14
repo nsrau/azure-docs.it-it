@@ -9,4 +9,3 @@
 
 ![Sito Web di
 Azure](./media/create-azure-account/freetrialonwindowsazurehomepage.png)
-

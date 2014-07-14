@@ -1,10 +1,8 @@
+
 # Creazione di un account Azure e abilitazione dell'anteprima delle funzionalità
 
-Per distribuire applicazioni in Azure, è necessario disporre di un
-account. In questo articolo viene illustrato come creare un account di
-valutazione gratuito e come abilitare l'anteprima delle funzionalità di
-Azure, inclusi i Servizi BizTalk, HDInsight e Azure Backup, per
-l'account.
+Per distribuire applicazioni in Azure, è necessario disporre di un account. In questo articolo viene illustrato come creare un account di valutazione gratuito e come abilitare l'anteprima delle funzionalità di Azure, inclusi i Servizi BizTalk, HDInsight e Azure Backup, per l'account.
+
 ## Creare un account Azure
 
 1.  Aprire un Web browser e passare al sito
@@ -15,13 +13,9 @@ l'account.
     visualizzate per creare un account attivando i benefici per gli
     abbonati MSDN.
 
-In caso contrario, passare alla pagina relativa alla [creazione di un
-account di valutazione gratuito](/en-us/pricing/free-trial/) e seguire le istruzioni
-visualizzate per creare un account di prova. Sarà necessario specificare
-un numero di carta di credito e un numero di telefono cellulare per
-dimostrare la propria identità, ma non verranno addebitati costi.
+In caso contrario, passare alla pagina relativa alla [creazione di un account di valutazione gratuito](/en-us/pricing/free-trial/) e seguire le istruzioni visualizzate per creare un account di prova. Sarà necessario specificare un numero di carta di credito e un numero di telefono cellulare per dimostrare la propria identità, ma non verranno addebitati costi.
 
-<h2><a  id="enable" ></a>Abilitare l'anteprima delle funzionalità di Azure</h2>
+<h2><a id="enable" ></a>Abilitare l'anteprima delle funzionalità di Azure</h2>
 
 
 1.  Passare al sito [http://www.windowsazure.com/it-it/][2] ed
