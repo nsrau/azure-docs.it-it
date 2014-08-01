@@ -139,10 +139,10 @@ Passaggi successivi
 Nella prossima esercitazione, [Autorizzazione di utenti con script](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per ulteriori informazioni su come utilizzare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
 
 <!-- Anchors. -->
-[Register your app for authentication and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Next Steps]:#next-steps
+[Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
+[Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
+[Aggiunta dell'autenticazione all'app]: #add-authentication
+[Passaggi successivi]:#next-steps
 
 <!-- Images. -->
 
