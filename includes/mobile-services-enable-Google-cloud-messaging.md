@@ -1,38 +1,37 @@
 
 
-<p></p>
+**Nota**
 
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+Per completare la procedura descritta in questo argomento, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1.  Passare al sito [Google Cloud Console](http://cloud.google.com/console), eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **CREATE PROJECT**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
+    **Nota**
 
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+    Se si dispone già di un progetto esistente, dopo l'accesso verrà visualizzata la pagina **Projects**. Per creare un nuovo progetto dalla pagina Dashboard, espandere **API Project**, fare clic su **Create...** in **Other projects**, quindi immettere un nome di progetto e fare clic su **Create project**.
 
-3. Make a note of the project number in the **Projects** section. 
+2.  Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Eseguire la verifica SMS richiesta, quindi fare nuovamente clic su **Create**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+3.  Prendere nota del numero di progetto nella sezione **Projects**.
 
-4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+    Più avanti nell'esercitazione si imposterà questo valore come variabile PROJECT\_ID nel client.
 
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+4.  Nella colonna di sinistra fare clic su **APIs & auth**, scorrere verso il basso e fare clic sull'interruttore per abilitare **Google Cloud Messaging for Android** e accettare le condizioni per l'utilizzo del servizio.
 
-5. Click **Credentials**, and then click **CREATE NEW KEY** 
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
+5.  Fare clic su **Credentials**, quindi su **CREATE NEW KEY**
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+6.  In **Create a new key** fare clic su **Server key**. Nella finestra successiva fare clic su **Create**.
 
-7. Make a note of the **API key** value.
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+7.  Prendere nota del valore **API key**.
+
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+
 

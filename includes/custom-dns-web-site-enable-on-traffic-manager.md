@@ -1,7 +1,8 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web site.
+Dopo la propagazione dei record per il nome di dominio, sarà possibile utilizzare il browser per verificare che il nome di dominio personalizzato possa essere utilizzato per accedere al sito Web.
 
-> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+> [WACOM.NOTE] La propagazione del record CNAME in tutto il sistema DNS può richiedere tempo. È possibile utilizzare un servizio come <http://www.digwebinterface.com/> per verificare se il record CNAME è disponibile.
 
-If you have not already added your web site as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web site. Use the information in [Add or Delete Endpoints](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) to add your web site as an endpoint in your Traffic Manager profile.
+Se non si è già aggiunto il sito Web come endpoint di Gestione traffico, è necessario eseguire questa operazione per consentire il funzionamento della risoluzione dei nomi, perché il nome di dominio personalizzato viene instradato a Gestione traffico. Gestione traffico viene quindi instradato al sito Web. Utilizzare le informazioni della sezione [Aggiungere o eliminare endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) per aggiungere il sito Web come endpoint nel profilo di Gestione traffico.
 
-> [WACOM.NOTE] If your web site is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your web site in order to work with Traffic Manager.
+> [WACOM.NOTE] Se il sito Web non è elencato quando si aggiunge un endpoint, verificare che sia configurato per la modalità standard. Per utilizzare Gestione traffico, è necessario che il sito Web sia impostato sulla modalità standard.
+

@@ -1,51 +1,49 @@
+1.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla cartella Controllers relativa al progetto di servizio mobile, espandere **Add**, quindi fare clic su **New Scaffolded Item**.
 
+    Verrà visualizzata la finestra di dialogo Add Scaffold.
 
-1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **New Scaffolded Item**.
+2.  Espandere **Azure Mobile Services** e fare clic su **Azure Mobile Services Custom Controller** e quindi su **Add**, specificare `CompleteAllController` per **Controller name** e infine fare di nuovo clic su **Add**.
 
-	This displays the Add Scaffold dialog.
+    ![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
-2. Expand **Azure Mobile Services** and click **Azure Mobile Services Custom Controller**, then click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
+    Verrà creata una nuova classe controller vuota denominata **CompleteAllController**.
 
-	![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
+> [WACOM.NOTE]Se la finestra di dialogo non include scaffolding specifici di Servizi mobili, creare invece un nuovo oggetto **Web API Controller - Empty**. Nella nuova classe controller aggiungere una proprietà **Services** pubblica, che restituisce il tipo **ApiServices**. Questa proprietà viene utilizzata per accedere a impostazioni specifiche del server dall'interno del controller.
 
-	This creates a new empty controller class named **CompleteAllController**.
+1.  Nel nuovo file di progetto CompleteAllController.cs aggiungere le istruzioni **using** seguenti:
 
->[WACOM.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
+         using System.Threading.Tasks;
+         using todolistService.Models;
 
-3. In the new CompleteAllController.cs project file, add the following **using** statements:
+    Nel codice precedente sostituire `todolistService` con lo spazio dei nomi del progetto di servizio mobile, che non deve essere il nome del servizio mobile aggiunto con `Service`.
 
-		using System.Threading.Tasks;
-		using todolistService.Models;
+2.  Aggiungere il codice seguente al nuovo controller:
 
-	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
+         // POST api/completeall        
+         public Task<int> Post()
+         {
+             using (todolistContext context = new todolistContext())
+             {
+                 // Get the database from the context.
+                 var database = context.Database;
 
-4. Add the following code to the new controller:
+                 // Create a SQL statement that sets all uncompleted items
+                 // to complete and execute the statement asynchronously.
+                 var sql = @"UPDATE TodoItems SET Complete = 1 " +
+                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
+                 var result = database.ExecuteSqlCommandAsync(sql);
 
-	    // POST api/completeall        
-        public Task<int> Post()
-        {
-            using (todolistContext context = new todolistContext())
-            {
-                // Get the database from the context.
-                var database = context.Database;
+                 // Log the result.
+                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
+                     result.ToString()));
+                    
+                 return result;
+             }
+         }
 
-                // Create a SQL statement that sets all uncompleted items
-                // to complete and execute the statement asynchronously.
-                var sql = @"UPDATE TodoItems SET Complete = 1 " +
-                            @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
-                var result = database.ExecuteSqlCommandAsync(sql);
+    Nel codice precedente sostituire `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che dovrà corrispondere al nome del servizio mobile aggiunto con `Context`. In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
-                // Log the result.
-                Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                    result.ToString()));
-                
-                return result;
-            }
-        }
+    > [WACOM.NOTE] Poiché vengono impostate autorizzazioni predefinite, qualsiasi utente dell'app può chiamare l'API personalizzata. Tuttavia, la chiave dell'applicazione non viene distribuita né archiviata in modo sicuro e non può essere considerata una credenziale di sicurezza. Per questo motivo, è consigliabile limitare l'accesso solo agli utenti autenticati per le operazioni che modificano dati o hanno effetto sul servizio mobile.
 
-	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
-
-	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service. 
-
-Next, you will modify the quickstart app to add a new button and code that asynchronously calls the new custom API.
+In seguito, l'app di guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
 

@@ -1,3 +1,4 @@
-Setting a custom domain name on a web site that is load balanced by Traffic Manager is only available for Standard mode web sites. Before switching a web site from the Free web site mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Web Site subscription. 
+L'impostazione di un nome di dominio personalizzato in un sito Web con carico bilanciato tramite Gestione traffico è disponibile solo per i siti Web in modalità standard. Prima di impostare un sito Web dalla modalità gratuita alla modalità condivisa, di base o standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per il sito Web.
 
-For more information on the Web Site modes modes, including how to change the mode of your site, see [How to scale web sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+Per ulteriori informazioni sulle modalità dei siti Web e su come cambiarla, vedere [Come applicare la scalabilità ai siti Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+

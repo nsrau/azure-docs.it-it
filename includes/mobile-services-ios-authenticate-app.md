@@ -1,28 +1,29 @@
 
+1.  Aprire il file di progetto QSTodoListViewController.m e il metodo **viewDidLoad** e rimuovere il codice seguente che ricarica i dati nella tabella:
 
-1. Open the project file QSTodoListViewController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+         [self refresh];
 
-        [self refresh];
-
-2.	Just after the **viewDidLoad** method, add the following code:  
+2.  Subito dopo il metodo **viewDidLoad** aggiungere il codice seguente:
 
         - (void)viewDidAppear:(BOOL)animated
-        {
-            MSClient *client = self.todoService.client;
-            
+                {
+                    MSClient *client = self.todoService.client;
+                
             if (client.currentUser != nil) {
                 return;
-            }
-            
-            [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+                    }
+                        
+                    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 [self refresh];
-            }];
-        }
+                    }];
+                }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, or <em>google</em>.</p>
-    </div>
-		
-3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+    **Nota**
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    Se si utilizza un provider di identità diverso da Facebook, sostituire il valore passato al metodo **loginWithProvider** riportato in precedenza con uno dei seguenti: *microsoftaccount*, *facebook*, *twitter* o *google*.
+
+3.  Premere il pulsante **Run** per creare il progetto, avviare l'app nell'emulatore iPhone e quindi accedere con il provider di identità scelto.
+
+	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+
+

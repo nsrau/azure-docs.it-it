@@ -1,40 +1,37 @@
 
-1. Make sure to stop the mobile service if it is currently running in IIS Express. Right click the IIS Express tray icon and click **stop** for the mobile service.
+
+1.  Assicurarsi di arrestare il servizio mobile se è in esecuzione in IIS Express. Fare clic con il pulsante destro del mouse sull'icona IIS Express sulla barra delle applicazioni e scegliere **stop** per il servizio mobile
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
 
-
-2. In a command prompt window, run the **ipconfig** command to look up a valid local IP address for your workstation.
+2.  In una finestra del prompt dei comandi eseguire il comando **ipconfig** per cercare un indirizzo IP locale valido per la workstation.
 
     ![](./media/mobile-services-how-to-configure-iis-express/ipconfig.png)
 
+3.  In Visual Studio aprire il file applicationhost.config per IIS Express. Questo file si trova nella sottodirectory seguente della directory del profilo utente.
 
-3. In Visual Studio, open the applicationhost.config file for IIS Express. This file is located in the following subdirectory of your user profile directory.
+         C:\Users C:\Users\<your profile name>\Documents\IISExpress\config\applicationhost.config
 
-        C:\Users\<your profile name>\Documents\IISExpress\config\applicationhost.config
+4.  Configurare IIS Express per consentire le richieste di connessioni remota al servizio. A questo scopo, nel file applicationhost.config individuare l'elemento relativo al sito per il servizio mobile e aggiungere un nuovo elemento `binding` per la porta utilizzando l'indirizzo IP individuato in precedenza. Salvare il file applicationhost.config.
 
-4. Configure IIS Express to allow remote connection requests to the service. To do this, in the applicationhost.config file, find the site element for your mobile service and add a new `binding` element for the port using the IP address you noted above. Then save the applicationhost.config file. 
+    L'elemento relativo al sito aggiornato dovrebbe essere simile a quanto segue:
 
-    Your updated site element should look similar to the following:
+         <site name="todolist_Service(1)" id="2">
+             <application path="/" applicationPool="Clr4IntegratedAppPool">
+                 <virtualDirectory path="/" physicalPath="C:\Archive\GetStartedDataWP8\C#\todolist_Service" />
+             </application>
+             <bindings>
+                 <binding protocol="http" bindingInformation="*:58203:localhost" />
+                 <binding protocol="http" bindingInformation="*:58203:192.168.137.72" />
+             </bindings>
+         </site>
 
-        <site name="todolist_Service(1)" id="2">
-            <application path="/" applicationPool="Clr4IntegratedAppPool">
-                <virtualDirectory path="/" physicalPath="C:\Archive\GetStartedDataWP8\C#\todolist_Service" />
-            </application>
-            <bindings>
-                <binding protocol="http" bindingInformation="*:58203:localhost" />
-                <binding protocol="http" bindingInformation="*:58203:192.168.137.72" />
-            </bindings>
-        </site>
+5.  Aprire la console di Windows Firewall e creare una nuova regola di porta per consentire le connessioni alla porta. Per ulteriori informazioni sulla creazione di una nuova regola di porta in Windows Firewall, vedere l'argomento relativo all'[aggiunta di una nuova regola porta in Windows Firewall](http://go.microsoft.com/fwlink/?LinkId=392240).
 
-5. Open the Windows Firewall console and create a new port rule to allow connections to the port. For more information on creating a new Windows Firewall port rule, see [How to add a new Windows Firewall port rule].
+    > [WACOM.NOTE] Se il computer di test fa parte di un dominio, è possibile che le eccezioni del firewall siano controllate da un criterio di dominio. In questo caso, contattare l'amministratore del dominio per ottenere un'esenzione per la porta nel computer in uso.
 
-    >[WACOM.NOTE] If your test machine is joined to a domain, firewall exceptions may be controlled by a domain policy. In this case, you would need to contact your domain adminstrator to get an exemption for the port on your machine.
+    A questo punto il computer dovrebbe essere configurato per il test con l'istanza di IIS Express che ospita il servizio mobile.
 
-    You should now be configured to test with IIS Express hosting your mobile service. 
-
-    >[WACOM.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule you created. 
+    > [WACOM.NOTE] Al termine del test del servizio in locale, eliminare la regola di Windows Firewall creata.
 
 
-<!-- URLs. -->
-[How to add a new Windows Firewall port rule]:  http://go.microsoft.com/fwlink/?LinkId=392240

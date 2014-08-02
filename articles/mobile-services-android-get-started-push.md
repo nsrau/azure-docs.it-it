@@ -7,28 +7,17 @@
 	<a  href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a  href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
- In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per inviare notifiche push a un\'app per Android. L\'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite il servizio Google Cloud Messaging (GCM). Al termine dell\'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+ In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per inviare notifiche push a un'app per Android. L'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite il servizio Google Cloud Messaging (GCM). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 
-> [WACOM.NOTE] In questo argomento viene illustrato come abilitare le
-> notifiche push utilizzando il supporto delle versioni precedenti
-> offerto da Servizi mobili. Grazie all\'integrazione tra Hub di
-> notifica di Azure e Servizi mobili, è possibile inviare a milioni di
-> dispositivi notifiche push basate su modello e idonee a piattaforme
-> diverse. Per impostazione predefinita, l\'utilizzo di Hub di notifica
-> non è abilitato e non è attualmente disponibile supporto di Hub di
-> notifica per Android nelle librerie di Servizi mobili. È tuttavia
-> possibile inviare notifiche push dal proprio servizio mobile
-> utilizzando le librerie di Hub di notifica. Per ulteriori
-> informazioni, vedere [Introduzione ad Hub di
-> notifica](/en-us/documentation/articles/notification-hubs-android-get-started/).
+> [WACOM.NOTE] In questo argomento viene illustrato come abilitare le notifiche push utilizzando il supporto delle versioni precedenti offerto da Servizi mobili. Grazie all'integrazione tra Hub di notifica di Azure e Servizi mobili, è possibile inviare a milioni di dispositivi notifiche push basate su modello e idonee a piattaforme diverse. Per impostazione predefinita, l'utilizzo di Hub di notifica non è abilitato e non è attualmente disponibile supporto di Hub di notifica per Android nelle librerie di Servizi mobili. È tuttavia possibile inviare notifiche push dal proprio servizio mobile utilizzando le librerie di Hub di notifica. Per ulteriori informazioni, vedere [Introduzione ad Hub di notifica](/en-us/documentation/articles/notification-hubs-android-get-started/).
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
 * [Abilitazione di Google Cloud Messaging](#register)
 * [Configurazione di Servizi mobili](#configure)
-* [Aggiunta di notifiche push all\'app](#add-push)
-* [Aggiornamento degli script per l\'invio di notifiche
+* [Aggiunta di notifiche push all'app](#add-push)
+* [Aggiornamento degli script per l'invio di notifiche
   push](#update-scripts)
 * [Inserimento di dati per la ricezione di notifiche](#test)
 
@@ -43,7 +32,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 [WACOM.INCLUDE [Abilitazione di GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-Questo valore della chiave dell\'API verrà utilizzato successivamente per abilitare Servizi mobili per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
+Questo valore della chiave dell'API verrà utilizzato successivamente per abilitare Servizi mobili per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
 ## <a  id="configure" ></a>Configurazione di Servizi mobili per l'invio di richieste push
 
@@ -57,7 +46,7 @@ Questo valore della chiave dell\'API verrà utilizzato successivamente per abili
 
 Il servizio mobile è ora configurato per l'utilizzo con GCM per l'invio di notifiche push.
 
-## <a  id="add-push" ></a>Aggiunta di notifiche push all\'app
+## <a  id="add-push" ></a>Aggiunta di notifiche push all'app
 
 ### Aggiungere Google Play Services al progetto
 
@@ -68,7 +57,7 @@ Services](../includes/mobile-services-add-Google-play-services.md)]
 
 1.  Aprire il file del progetto **AndroidManifest.xml**. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e il testing. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti. Se è necessario impostare un valore inferiore a 16 perché si utilizza un dispositivo meno recente, per determinare il livello minimo su cui è possibile impostare tale valore, fare riferimento alla pagina relativa alla [configurazione di Google Play Services SDK][3]. Impostare la proprietà in modo appropriato.
 
-2.  Verificare che nell\'elemento `uses-sdk` il valore di **targetSdkVersion** sia impostato sul numero di una piattaforma SDK installata (Passaggio 1). È consigliabile impostare tale valore sulla versione più recente disponibile.
+2.  Verificare che nell'elemento `uses-sdk` il valore di **targetSdkVersion** sia impostato sul numero di una piattaforma SDK installata (Passaggio 1). È consigliabile impostare tale valore sulla versione più recente disponibile.
 
 3.  Il tag **uses-sdk** potrebbe avere un aspetto analogo al seguente, in base alle scelte effettuate nei passaggi precedenti:
     
@@ -76,7 +65,7 @@ Services](../includes/mobile-services-add-Google-play-services.md)]
              android:minSdkVersion="17"
              android:targetSdkVersion="19" />
 
-4.  Nel codice per i due passaggi successivi sostituire *`**my_app_package**`* con il nome del pacchetto dell'app per il progetto, ovvero il valore dell'attributo `package` del tag `manifest`.
+4.  Nel codice per i due passaggi successivi sostituire _`**my_app_package**`_ con il nome del pacchetto dell'app per il progetto, ovvero il valore dell'attributo `package` del tag `manifest`.
 
 5.  Aggiungere le nuove autorizzazioni seguenti dopo l'elemento `uses-permission`:
     
@@ -137,7 +126,7 @@ Services](../includes/mobile-services-add-Google-play-services.md)]
     
         import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-10. Aggiungere la variabile privata seguente alla classe, dove *`<PROJECT _NUMBER>`* è il numero di progetto assegnato da Google all\'app nella procedura precedente:
+10. Aggiungere la variabile privata seguente alla classe, dove *`<PROJECT _NUMBER>`* è il numero di progetto assegnato da Google all'app nella procedura precedente:
     
         public static final String SENDER_ID = "<PROJECT _NUMBER>";
 
@@ -178,7 +167,7 @@ Services](../includes/mobile-services-add-Google-play-services.md)]
 			mHandle = handle;
 		}
 
-17. Sostituire l\'override del metodo **onRegistered** con il codice seguente:
+17. Sostituire l'override del metodo **onRegistered** con il codice seguente:
     
         @Override
         public void onRegistered(Context context, String gcmRegistrationId) {
@@ -220,48 +209,48 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 	Verrà registrato un nuovo script insert, che utilizza l'oggetto [gcm object] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert. 
 
-## <a  id="test" ></a>Esecuzione del test delle notifiche push nell\'app
+## <a  id="test" ></a>Esecuzione del test delle notifiche push nell'app
 
  
 <div  class="dev-callout"><b>Nota</b>
 	<p>Quando si esegue l'app nell'emulatore, assicurarsi di utilizzare un emulatore Android Virtual Device (AVD) con il supporto per Google APIs.</p>
 </div>
 
- 1.  Riavviare Eclipse, quindi in Package Explorer fare clic con il pulsante destro del mouse sul progetto, scegliere **Properties**, fare clic su **Android**, selezionare **Google APIs** e infine fare clic su **OK**.
-    
+1. Riavviare Eclipse, quindi in Package Explorer fare clic con il pulsante destro del mouse sul progetto, scegliere **Properties**, fare clic su **Android**, selezionare **Google APIs** e infine fare clic su **OK**.
+
 	![](./media/mobile-services-android-get-started-push/mobile-services-import-android-properties.png)
 
- 	Il progetto farà quindi riferimento a Google APIs.
+	Il progetto farà quindi riferimento a Google APIs.
 
-1.  Da **Window** selezionare **Android Virtual Device Manager**, quindi selezionare il dispositivo e fare clic su **Edit**.
-    
+2. Da **Window** selezionare **Android Virtual Device Manager**, quindi selezionare il dispositivo e fare clic su **Edit**.
+
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-2.  Selezionare **Google APIs** in **Target**, quindi fare clic su OK.
-    
+3. Selezionare **Google APIs** in **Target**, quindi fare clic su OK.
+
 	![][25]
-    
-    AVD sarà quindi configurato per l\'utilizzo di Google APIs.
 
-3.  Dal menu **Run** scegliere **Run** per avviare l\'app.
+	AVD sarà quindi configurato per l'utilizzo di Google APIs.
 
-4.  Digitare testo significativo nell\'app, ad esempio *Nuova attività di Servizi mobili*, quindi fare clic sul pulsante **Add**.
+4. Dal menu **Run** scegliere **Run** per avviare l'app.
+
+5. Digitare testo significativo nell'app, ad esempio *Nuova attività di Servizi mobili*, quindi fare clic sul pulsante **Add**.
 
 	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
-1.  Una casella nera di notifica verrà visualizzata brevemente nella parte inferiore dello schermo.
+6. Una casella nera di notifica verrà visualizzata brevemente nella parte inferiore dello schermo.
 
 	![](./media/mobile-services-android-get-started-push/mobile-push-icon.png) 
 
-<!--7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
+7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
 
-	![][27]-->
+	![][27]
 
 L'esercitazione è stata completata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo semplice esempio un utente riceve una notifica push con i dati appena inseriti. Il token di dispositivo utilizzato da GCM viene fornito al servizio mobile dal client nella richiesta. Nell\'esercitazione successiva, [Notifiche push per utenti di app](/en-us/develop/mobile/tutorials/push-notifications-to-users-android), sarà possibile creare una tabella Devices distinta in cui archiviare i token di dispositivo e sarà possibile inviare una notifica push a tutti i canali archiviati quando si verifica un inserimento.
+In questo semplice esempio un utente riceve una notifica push con i dati appena inseriti. Il token di dispositivo utilizzato da GCM viene fornito al servizio mobile dal client nella richiesta. Nell'esercitazione successiva, [Notifiche push per utenti di app](/en-us/develop/mobile/tutorials/push-notifications-to-users-android), sarà possibile creare una tabella Devices distinta in cui archiviare i token di dispositivo e sarà possibile inviare una notifica push a tutti i canali archiviati quando si verifica un inserimento.
 
 <!-- Images. -->
 [1]: ./media/mobile-services-android-get-started-push/mobile-services-google-developers.png

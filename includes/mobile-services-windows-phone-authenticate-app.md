@@ -1,53 +1,58 @@
-1. Open the project file mainpage.xaml.cs and add the following code snippet to the MainPage class:
-	
-        private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
+<ol>
 
-                MessageBox.Show(message);
-            }
-        }
+1.  Aprire il file di progetto mainpage.xaml.cs e aggiungere il frammento di codice seguente alla classe MainPage:
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+         private MobileServiceUser user;
+         private async System.Threading.Tasks.Task Authenticate()
+         {
+             while (user == null)
+             {
+                 string message;
+                 try
+                 {
+                     user = await App.MobileService
+                         .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                     message =
+                         string.Format("You are now logged in - {0}", user.UserId);
+                 }
+                 catch (InvalidOperationException)
+                 {
+                     message = "You must log in. Login Required";
+                 }
 
-    >[WACOM.NOTE]If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
-    </div>
+                 MessageBox.Show(message);
+             }
+         }
 
-2. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
+    Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook.
 
-        async void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
-        }
+    > [WACOM.NOTE]Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il nome del provider.&lt;/p\>
 
-   	This method calls the new **Authenticate** method. 
 
-3. Replace the MainPage constructor with the following code:
 
-        // Constructor
-        public MainPage()
-        {
-            InitializeComponent();
-            this.Loaded += MainPage_Loaded;
-        }
+2.  Eliminare o rimuovere i simboli di commento dall'override del metodo **OnNavigatedTo** esistente e sostituirlo con il metodo seguente che gestisce l'evento **Loaded** per la pagina.
 
-   	This constructor also registers the handler for the Loaded event.
-		
-4. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+         async void MainPage_Loaded(object sender, RoutedEventArgs e)
+         {
+             await Authenticate();
+             RefreshTodoItems();
+         }
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+        Questo metodo chiama il nuovo metodo **Authenticate**. 
+
+3.  Sostituire il costruttore MainPage con il codice seguente:
+
+         // Constructor
+         public MainPage()
+         {
+             InitializeComponent();
+             this.Loaded += MainPage_Loaded;
+         }
+
+        Questo costruttore registra inoltre il gestore per l'evento Loaded.
+
+4.  Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato.
+
+	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+
+

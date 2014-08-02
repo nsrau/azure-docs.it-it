@@ -1,20 +1,19 @@
-Because of ongoing development, the Android SDK version installed in Eclipse might not match the version in the code. The Android SDK referenced in this tutorial is version 19, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.
+Poiché lo sviluppo è ancora in corso, è possibile che la versione di Android SDK installata in Eclipse non corrisponda a quella del codice. Android SDK a cui viene fatto riferimento in questa esercitazione è la versione 19, ovvero la più recente al momento della stesura di questo documento. Il numero di versione dell'SDK può aumentare nel corso del tempo ed è consigliabile utilizzare la versione più recente disponibile.
 
-Two symptoms of version mismatch are:
+Due sintomi di una mancata corrispondenza delle versioni sono i seguenti:
 
-1. Look in the Eclipse Console in the bottom pane. You may see error messages of the form "**Unable to resolve target 'android-n'**".
+1.  Esaminare la console di Eclipse nel riquadro inferiore. È possibile che vengano visualizzati messaggi di errore indicanti che non è possibile risolvere la destinazione di tipo 'android-n'.****
 
-2. Standard Android objects in code that should resolve based on `import` statements may be generating error messages.
+2.  Gli oggetti Android standard nel codice che dovrebbero risolversi in base a istruzioni `import` potrebbero generare messaggi di errore.
 
-If either of these appear, the version of the Android SDK installed in Eclipse might not match the SDK target of the downloaded project.  To verify the version, make the following changes:
+	Se si manifesta uno di questi sintomi, la versione di Android SDK installata in Eclipse potrebbe non corrispondere alla destinazione dell'SDK del progetto scaricato. Per verificare la versione, apportare le modifiche seguenti:
+
+1.  In Eclipse fare clic su **Window** e quindi su **Android SDK Manager**. Se la versione più recente della piattaforma SDK non è installata, fare clic per installarla. Prendere nota del numero di versione.
+
+2.  Aprire il file del progetto **AndroidManifest.xml**. Verificare che nell'elemento **uses-sdk** il valore di **targetSdkVersion** sia impostato sulla versione più recente installata. Il tag **uses-sdk** potrebbe avere l'aspetto seguente:
+
+	&lt;uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" /\>
+
+3.  In Eclipse Package Explorer fare clic con il pulsante destro del mouse sul nodo di progetto, scegliere **Properties** e quindi nella colonna sinistra scegliere **Android**. Assicurarsi che il valore di **Project Build Target** sia impostato sulla stessa versione dell'SDK di **targetSdkVersion**.
 
 
-1. In Eclipse, click **Window**, then click **Android SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
-
-2. Open the project file **AndroidManifest.xml**. Ensure that in the **uses-sdk** element, the **targetSdkVersion** is set to the latest version installed. The **uses-sdk** tag might look like this:
- 
-	 	    <uses-sdk
-	 	        android:minSdkVersion="8"
-	 	        android:targetSdkVersion="19" />
-	
-3. In the Eclipse Package Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.

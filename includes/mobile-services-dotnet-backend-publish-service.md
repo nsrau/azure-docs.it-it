@@ -1,24 +1,27 @@
 
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Azure and run the app against the live service.
+Dopo l'esecuzione del test dell'app di Windows Store rispetto al servizio mobile locale, la fase finale dell'esercitazione consiste nel pubblicare il servizio mobile in Azure e nell'eseguire l'app rispetto al servizio attivo.
 
-1. In Solution Explorer, right-click the mobile service project and click **Publish**
+1.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto relativo al servizio mobile, quindi scegliere **Pubblica**.
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png)
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png)
 
-	This displays the Publish Web dialog box.
+    La finestra di dialogo Pubblica sito Web viene visualizzata.
 
-2. Click **Import**, click **Browse**, navigate to the location where you earlier saved the publish profile file, Select the publish profile file, click **OK**.
+2.  Fare clic su **Importa**, quindi su **Sfoglia**, passare al percorso in cui è stato salvato in precedenza il file del profilo di pubblicazione, selezionare tale file e infine fare clic su **OK**.
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-import-profile.png)
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-import-profile.png)
 
-	This loads the information needed by Visual Studio to publish your mobile service to Azure. 
-	
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish profile, consider deleting the downloaded file as it contains information that can be used by others to access your services.</p></div>
+    Verranno caricate le informazioni necessarie a Visual Studio per la pubblicazione del servizio mobile in Azure.
 
-3. Click **Validate connection** to verify that publishing is correctly configured, then click **Publish**.
+    **Nota sulla sicurezza**
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
+    Dopo l'importazione del profilo di pubblicazione, è consigliabile eliminare il file pubblicato, in quanto contiene informazioni che possono essere utilizzate da altri utenti per accedere ai servizi.
 
-	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Azure.
+3.  Fare clic su **Convalida connessione** per verificare che la pubblicazione sia stata configurata correttamente, quindi fare clic su **Pubblica**.
+
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
+
+    Se la pubblicazione ha esito positivo, verrà visualizzata di nuovo la pagina di conferma, che indica che il servizio mobile è attivo e in esecuzione, questa volta in Azure.
+
 

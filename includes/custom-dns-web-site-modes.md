@@ -1,3 +1,4 @@
-Setting a custom domain name on a web site is only available for the Shared, Basic and Standard modes for Azure Web Sites. Before switching a web site from the Free web site mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Web Site subscription. 
+L'impostazione di un nome di dominio personalizzato in un sito Web è disponibile solo per le modalità condivisa, di base e standard per Siti Web di Azure. Prima di impostare un sito Web dalla modalità gratuita alla modalità condivisa, di base o standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per il sito Web.
 
-For more information on the Web Site modes modes, including how to change the mode of your site, see [How to scale web sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+Per ulteriori informazioni sulle modalità dei siti Web e su come cambiarla, vedere [Come applicare la scalabilità ai siti Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+

@@ -1,0 +1,164 @@
+<properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+
+[Windows Store](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+
+Introduzione a Servizi mobili
+=============================
+
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile.
+
+Di seguito è riportata una schermata dell'app completata:
+
+![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png)
+
+### Requisiti aggiuntivi
+
+Per completare questa esercitazione, è necessario disporre degli strumenti PhoneGap (per i progetti di Windows Phone 8 è necessaria la versione 3.2 o successiva).
+
+PhoneGap supporta lo sviluppo per più piattaforme. Oltre agli strumenti PhoneGap, è necessario installare gli strumenti relativi a ogni piattaforma di destinazione:
+
+-   Windows Phone: Installare [Visual Studio 2012 Express per Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
+-   iOS: Installare [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) (è necessaria la versione 4.4 o successiva)
+-   Android: Installare [Android Developer Tools](https://go.microsoft.com/fwLink/p/?LinkID=280125)
+    (Mobile Services SDK per Android supporta le app per Android 2.2 o versione successiva. Per l'esecuzione dell'app di guida introduttiva è necessario Android 4.2 o versione successiva.)
+
+Creazione di un nuovo servizio mobile
+-------------------------------------
+
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+
+Creazione di una nuova appCreazione di una nuova app PhoneGap
+-------------------------------------------------------------
+
+Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
+
+In questa sezione si creerà una nuova app PhoneGap connessa al servizio mobile.
+
+1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+
+2.  Nella scheda Quickstart fare clic su **PhoneGap** in **Choose platform** ed espandere **Create a new PhoneGap app**.
+
+    ![][0]
+
+    Di seguito sono visualizzati i tre semplici passaggi per creare un'app PhoneGap connessa al servizio mobile.
+
+	![](./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png)
+
+1.  Se necessario, scaricare e installare PhoneGap e almeno uno strumento di sviluppo della piattaforma (Windows Phone, iOS o Android).
+
+2.  Fare clic su **Create TodoItems table** per creare una tabella in cui archiviare i dati dell'app.
+
+3.  In **Download and run your app** fare clic su **Download**.
+
+    Verrà scaricato il progetto per l'applicazione *To do list* di esempio connessa al servizio mobile, unitamente a Mobile Services SDK per JavaScript. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+
+Esecuzione della nuova app PhoneGap
+-----------------------------------
+
+La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
+
+1.  Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso.
+
+2.  Aprire ed eseguire il progetto in base alle istruzioni riportate di seguito per ogni piattaforma.
+
+    -   **Windows Phone 8**
+
+    1.  Windows Phone 8: Aprire il file con estensione sln nella cartella **platforms\\wp8** in Visual Studio 2012 Express per Windows Phone.
+
+    2.  Premere **F5** per ricompilare il progetto e avviare l'app.
+
+    	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png)
+
+    -   **iOS**
+
+    1.  Aprire il progetto nella cartella **platforms/ios** in Xcode.
+
+    2.  Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
+
+    	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png)
+
+    -   **Android**
+
+        1.  In Eclipse fare clic su **File**, quindi su **Import**, espandere **Android**, fare clic su **Existing Android Code into Workspace** e quindi su **Next**.
+
+        2.  Fare clic su **Browse**, individuare il percorso dei file espansi del progetto, fare clic su **OK**, verificare che il progetto TodoActivity sia selezionato, quindi fare clic su **Finish**. <p\>I file del progetto verranno importati nell'area di lavoro corrente.</p>
+
+        3.  Scegliere **Run** dal menu **Run** per avviare il progetto nell'emulatore di Android.
+
+            ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png)
+
+        > [WACOM.NOTE]Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un Android Virtual Device (AVD). Utilizzare AVD Manager per creare e gestire questi dispositivi.
+
+3.  Dopo aver avviato l'app in uno degli emulatori mobili, digitare un testo nella casella di testo e quindi fare clic su **Add**.
+
+    Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella **TodoItem**. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
+
+    **Importante**
+
+    Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
+
+4.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+
+    ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
+
+    In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
+
+    ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-browse.png)
+
+Esecuzione di aggiornamenti dell'app e ricompilazione di progetti per ogni piattaforma
+--------------------------------------------------------------------------------------
+
+1.  Modificare i file di codice nella directory Â´wwwÂ´, che in questo caso è Â´todolist/wwwÂ´.
+
+2.  Verificare che tutti gli strumenti della piattaforma di destinazione siano accessibili nel percorso di sistema.
+
+3.  Aprire un prompt dei comandi nella directory radice del progetto ed eseguire uno dei comandi seguenti, specifici della piattaforma:
+
+    -   **Windows Phone**
+
+        Eseguire il comando seguente al prompt dei comandi per gli sviluppatori Visual Studio:
+
+    		phonegap local build wp8
+
+    -   **iOS**
+
+        Aprire il terminale ed eseguire il comando seguente:
+
+    		phonegap local build ios
+
+    -   **Android**
+
+        Aprire un prompt dei comandi o una finestra del terminale ed eseguire il comando seguente.
+
+              phonegap local build android
+
+4.  Aprire ogni progetto nell'ambiente di sviluppo appropriato, come illustrato nella sezione precedente.
+
+> [WACOM.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file js/index.js.
+
+Passaggi successivi
+-------------------
+
+Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
+
+-   [Introduzione ai dati](/en-us/documentation/articles/mobile-services-html-get-started-data) <br/>
+    Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
+
+-   [Introduzione all'autenticazione](/en-us/documentation/articles/mobile-services-html-get-started-users) <br/>
+    Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+
+<!-- Images. -->
+[0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
+[1]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png
+[2]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png
+[3]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+[4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
+
+<!-- URLs. -->
+[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Management Portal]: https://manage.windowsazure.com/
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

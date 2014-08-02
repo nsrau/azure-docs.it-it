@@ -24,15 +24,15 @@
 
 ## Connettersi alla macchina virtuale tramite SSH o PuTTY e completare la configurazione
 
-Il disco dati appena collegato alla macchina virtuale è offline e non è inizializzato dopo l\'aggiunta. Per archiviare i dati, è necessario accedere alla macchina e inizializzare il disco da utilizzare.
+Il disco dati appena collegato alla macchina virtuale è offline e non è inizializzato dopo l'aggiunta. Per archiviare i dati, è necessario accedere alla macchina e inizializzare il disco da utilizzare.
 
-1.  Dopo avere effettuato il provisioning della macchina virtuale, connettersi tramite SSH o PuTTY ed eseguire l\'accesso come **newuser** (come descritto nei passaggi precedenti).
+1.  Dopo avere effettuato il provisioning della macchina virtuale, connettersi tramite SSH o PuTTY ed eseguire l'accesso come **newuser** (come descritto nei passaggi precedenti).
 
-2.  Nella finestra di SSH o PuTTY digitare il comando seguente e quindi immettere la password dell\'account:
+2.  Nella finestra di SSH o PuTTY digitare il comando seguente e quindi immettere la password dell'account:
     
     `$ sudo grep SCSI /var/log/messages`
     
-    L\'identificatore dell\'ultimo disco dati aggiunto sarà disponibile nei messaggi visualizzati (in questo esempio, **sdc**).
+    L'identificatore dell'ultimo disco dati aggiunto sarà disponibile nei messaggi visualizzati (in questo esempio, **sdc**).
     
     ![GREP](./media/attach-data-disk-centos-vm-in-portal/GrepScsiMessages.png)
 
@@ -63,23 +63,23 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
     ![Creare il file
     system](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
 
-9.  È quindi necessario disporre di una directory per il montaggio del nuovo file system. Digitare, ad esempio, il comando seguente per creare una nuova directory per il montaggio dell\'unità, quindi immettere la password per l\'account:
+9.  È quindi necessario disporre di una directory per il montaggio del nuovo file system. Digitare, ad esempio, il comando seguente per creare una nuova directory per il montaggio dell'unità, quindi immettere la password per l'account:
     
     `sudo mkdir /datadrive`
 
-10. Digitare il comando seguente per montare l\'unità:
+10. Digitare il comando seguente per montare l'unità:
     
     `sudo mount /dev/sdc1 /datadrive`
     
-    Il disco dati è ora pronto per l\'uso come **/datadrive**.
+    Il disco dati è ora pronto per l'uso come **/datadrive**.
 
 11. Aggiungere la nuova unità a /etc/fstab:
     
-    Per assicurarsi che l\'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l\'UUID (Universally Unique IDentifier) utilizzato in /etc/fstab faccia riferimento all\'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l\'UUID della nuova unità, è possibile utilizzare l\'utilità **blkid**:
+    Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) utilizzato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile utilizzare l'utilità **blkid**:
     
         `sudo -i blkid`
     
-    L\'output sarà simile al seguente:
+    L'output sarà simile al seguente:
     
         `/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
         `/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
@@ -87,7 +87,7 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 
 
    
-    > [WACOM.NOTE] blkid potrebbe non richiedere l\'accesso sudo in
+    > [WACOM.NOTE] blkid potrebbe non richiedere l'accesso sudo in
     > tutti i casi ma potrebbe risultare più facile eseguirlo con `sudo
     > -i` su distribuzioni in cui /sbin o /usr/sbin non sono presenti
     > nei percorsi indicati in `$PATH`.
@@ -113,7 +113,7 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
     > modificare fstab, è possibile che si verifichi un errore di avvio
     > della macchina virtuale. Se si tratta di un errore ricorrente,
     > nella maggior parte delle distribuzioni sono disponibili le
-    > opzioni `nofail` e/o `nobootwait`, che consentono l\'avvio di un
+    > opzioni `nofail` e/o `nobootwait`, che consentono l'avvio di un
     > sistema anche in caso di assenza del disco. Per ulteriori
     > informazioni su tali parametri, fare riferimento alla
     > documentazione della distribuzione.

@@ -1,19 +1,19 @@
 
 
+La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
 
-The final stage of this tutorial is to build and run your new app.
+1.  Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi aprire il file di progetto tramite Xcode.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+    ![](./media/mobile-services-ios-run-app/mobile-xcode-project.png)
 
-   	![](./media/mobile-services-ios-run-app/mobile-xcode-project.png)
+2.  Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+3.  Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, quindi fare clic sull'icona con il segno PIÙ (**+**).
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    > [WACOM.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.m.</p> </div>
 
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
- 	</div>
+
