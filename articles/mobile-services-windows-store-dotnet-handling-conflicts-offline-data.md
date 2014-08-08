@@ -1,4 +1,4 @@
-
+<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
 Gestione dei conflitti con dati offline in Servizi mobili
 =========================================================
@@ -20,6 +20,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 Per completare questa esercitazione, è necessario disporre di Visual Studio 2013 in esecuzione su Windows 8.1.
 
+<a name="download-app"></a>
 Download del progetto di esempio
 --------------------------------
 
@@ -35,6 +36,7 @@ Questa esercitazione è basata sull'[esempio di codice per la gestione dei confl
 
 Si noti che l'app non è ancora connessa ad alcun servizio mobile, pertanto i pulsanti **Push** e **Pull** genereranno eccezioni.
 
+<a name="add-column"></a>
 Aggiunta di una colonna al modello di dati
 ------------------------------------------
 
@@ -46,6 +48,7 @@ La classe `TodoItem` dell'esempio è definita in MainPage.xaml.cs. Si noti che l
 
 Aggiornare il database in modo da includere questa tabella.
 
+<a name="dotnet-backend"></a>
 ### Aggiornamento del database per i servizi mobili back-end .NET
 
 Se si utilizza back-end .NET per il servizio mobile, attenersi alla procedura seguente per aggiornare lo schema per il database.
@@ -75,6 +78,7 @@ Se si utilizza back-end .NET per il servizio mobile, attenersi alla procedura se
 
 5.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto del servizio mobile back-end .NET, quindi scegliere **Pubblica** per pubblicare le modifiche.
 
+<a name="javascript-backend"></a>
 ### Aggiornamento del database per i servizi mobili back-end JavaScript
 
 Per i servizi mobili back-end JavaScript verrà aggiunta una nuova tabella denominata **TodoWithDate**. Per aggiungere la tabella **TodoWithDate** per i servizi mobili back-end JavaScript, attenersi alla procedura seguente.
@@ -85,6 +89,7 @@ Per i servizi mobili back-end JavaScript verrà aggiunta una nuova tabella denom
 
 3.  Fare clic su **Create** in fondo alla pagina e creare una nuova tabella denominata **TodoWithDate**.
 
+<a name="test-app"></a>
 Test dell'app su Servizi mobili
 -------------------------------
 
@@ -121,6 +126,7 @@ Ora verrà eseguito il test dell'app su Servizi mobili.
 
     ![][3]
 
+<a name="handle-conflict"></a>
 Aggiornamento dei dati nel back-end per creare un conflitto
 -----------------------------------------------------------
 

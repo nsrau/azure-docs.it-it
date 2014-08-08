@@ -14,7 +14,7 @@ Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Int
 3.  [Test dell'app](#test-app)
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/develop/mobile/tutorials/get-started/#create-new-service) o [Introduzione ai dati](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
-
+<a name="define-custom-api"></a>
 Definizione dell'API personalizzata
 -----------------------------------
 
@@ -86,7 +86,7 @@ Definizione dell'API personalizzata
         </div>
 
 Si procederà quindi alla modifica dell'app di guida introduttiva per avviare notifiche periodiche che aggiornano il riquadro animato richiedendo la nuova API personalizzata.
-
+<a name="update-app"></a>
 Aggiornamento dell'app Aggiornamento dell'app per l'abilitazione delle notifiche periodiche
 -------------------------------------------------------------------------------------------
 
@@ -107,6 +107,7 @@ Aggiornamento dell'app Aggiornamento dell'app per l'abilitazione delle notifiche
 
     Questo codice consente di attivare le notifiche periodiche per richiedere i dati del modello di riquadro dalla nuova API personalizzata **tiles**. Selezionare il valore di [PeriodicUpdateRecurrance] più adatto alla frequenza di aggiornamento dei dati desiderata.
 
+<a name="test-app"></a>
 Test dell'app
 -------------
 
@@ -135,9 +136,33 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
+
+<!-- Anchors. -->
+[Define the custom API]: #define-custom-api
+[Update the app to turn on period notifications]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
+
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png
 [1]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create.png
 [2]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create-dialog.png
 [3]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-select.png
 [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
+
+<!-- URLs. -->
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[JavaScript and HTML]: mobile-services-win8-javascript/
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+
+
