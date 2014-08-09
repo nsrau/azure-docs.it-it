@@ -3,7 +3,7 @@
 Installazione di un controller di dominio Active Directory di replica nelle reti virtuali di Azure
 ==================================================================================================
 
-In questa esercitazione verranno descritte le procedure per installare un controller di dominio aggiuntivo dalla foresta Active Directory aziendale in una macchina virtuale in [Rete virtuale di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In questa esercitazione la rete virtuale per la macchina virtuale è connessa alla rete aziendale. Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+In questa esercitazione verranno descritte le procedure per installare un controller di dominio aggiuntivo dalla foresta Active Directory aziendale in una macchina virtuale in [Rete virtuale di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx). In questa esercitazione la rete virtuale per la macchina virtuale è connessa alla rete aziendale. Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx).
 
 Sommario
 --------
@@ -21,9 +21,9 @@ Sommario
 Prerequisiti
 ------------
 
--   [Creare una rete virtuale per la connettività cross-premise](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configurata tra la rete virtuale di Azure e la rete aziendale.
+-   [Creare una rete virtuale per la connettività cross-premise](http://www.windowsazure.com/it-it/manage/services/networking/cross-premises-connectivity/) configurata tra la rete virtuale di Azure e la rete aziendale.
 -   Creare un servizio cloud nella rete virtuale.
--   Distribuire due macchine virtuali nel servizio cloud che fanno parte della rete virtuale (specificare la subnet in cui si desidera collocare la macchina virtuale). Per ulteriori informazioni, vedere [Aggiunta di una macchina virtuale a Rete virtuale](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). Una macchina virtuale deve essere di dimensione L o superiore per consentire il collegamento di due dischi dati. I dischi dati sono necessari per l'archiviazione di:
+-   Distribuire due macchine virtuali nel servizio cloud che fanno parte della rete virtuale (specificare la subnet in cui si desidera collocare la macchina virtuale). Per ulteriori informazioni, vedere [Aggiunta di una macchina virtuale a Rete virtuale](http://www.windowsazure.com/it-it/manage/services/networking/add-a-vm-to-a-virtual-network/). Una macchina virtuale deve essere di dimensione L o superiore per consentire il collegamento di due dischi dati. I dischi dati sono necessari per l'archiviazione di:
     -   Database e log di Active Directory.
     -   Backup dello stato del sistema.
 -   Rete aziendale con due macchine virtuali (YourPrimaryDC e FileServer).
@@ -218,7 +218,7 @@ Passaggio 5: Convalidare l'installazione
 
 Dopo avere configurato il controller di dominio, eseguire il cmdlet di Windows PowerShell per eseguire il provisioning di altre macchine virtuali e aggiungerle automaticamente al dominio una volta eseguito il provisioning. È necessario configurare le impostazioni del resolver del client DNS per le macchine virtuali quando viene effettuato il provisioning. Sostituire i nomi corretti per il dominio, la macchina virtuale e così via.
 
-Per ulteriori informazioni su come utilizzare Windows PowerShell, vedere gli argomenti relativi ad [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) e ai [cmdlet di gestione di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
+Per ulteriori informazioni su come utilizzare Windows PowerShell, vedere gli argomenti relativi ad [Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj156055.aspx) e ai [cmdlet di gestione di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj152841).
 
 Passaggio 6: Eseguire il provisioning di una macchina virtuale aggiunta a un dominio all'avvio
 ----------------------------------------------------------------------------------------------
@@ -285,10 +285,10 @@ Passaggio 8: Verificare l'autenticazione e l'autorizzazione
 Vedere anche
 ------------
 
--   [Rete virtuale di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Rete virtuale di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx)
 
--   [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
+-   [Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj156055.aspx)
 
--   [Cmdlet di gestione di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
+-   [Cmdlet di gestione di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj152841)
 
 

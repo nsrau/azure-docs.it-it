@@ -11,9 +11,9 @@ PreparazionePreparazione per possibili emergenze
 Per semplificare il ripristino nel caso in cui si verifichi un problema di disponibilità, è possibile prepararsi in anticipo a farvi ricorso:
 
 -   **Eseguire il backup dei dati nel database SQL del servizio mobile di Azure**
-    <br/>I dati dell'applicazione del servizio mobile sono archiviati in un database SQL di Azure. È consigliabile eseguirne il backup come descritto nelle linee guida relative alla [continuità aziendale nel database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx).
+    <br/>I dati dell'applicazione del servizio mobile sono archiviati in un database SQL di Azure. È consigliabile eseguirne il backup come descritto nelle linee guida relative alla [continuità aziendale nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx).
 -   **Eseguire il backup degli script del servizio mobile**
-    <br/>È consigliabile archiviare gli script del servizio mobile in un sistema di controllo del codice sorgente come [Team Foundation Service](http://tfs.visualstudio.com/) o [GitHub] e non fare affidamento unicamente alle copie presenti nel servizio mobile stesso. È possibile scaricare gli script tramite il portale di Azure utilizzando la funzionalità per il [controllo del codice sorgente](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) di Servizi mobili, oppure utilizzando lo [strumento da riga di comando di Azure](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/). Prestare particolare attenzione alle funzionalità contrassegnare come in anteprima nel portale, poiché il ripristino per tali script non è garantito e potrebbe essere necessario ripristinarli dall'originale nel proprio programma di controllo del codice sorgente.
+    <br/>È consigliabile archiviare gli script del servizio mobile in un sistema di controllo del codice sorgente come [Team Foundation Service](http://tfs.visualstudio.com/) o [GitHub] e non fare affidamento unicamente alle copie presenti nel servizio mobile stesso. È possibile scaricare gli script tramite il portale di Azure utilizzando la funzionalità per il [controllo del codice sorgente](http://www.windowsazure.com/it-it/develop/mobile/tutorials/store-scripts-in-source-control/) di Servizi mobili, oppure utilizzando lo [strumento da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/). Prestare particolare attenzione alle funzionalità contrassegnare come in anteprima nel portale, poiché il ripristino per tali script non è garantito e potrebbe essere necessario ripristinarli dall'originale nel proprio programma di controllo del codice sorgente.
 -   **Riservare un servizio mobile secondario**
     <br/>Nell'eventualità di un problema di disponibilità del servizio mobile, potrebbe essere necessario eseguirne nuovamente la distribuzione in un'area alternativa di Azure. Per garantire la disponibilità della capacità, ad esempio in circostanze rare come la perdita di un'intera area, è consigliabile creare un servizio mobile secondario nell'area alternativa e impostarne la modalità su un valore equivalente o superiore rispetto a quella del servizio primario. Se il servizio primario è in modalità condivisa, è possibile impostare il servizio secondario come condiviso o riservato. Se invece il servizio primario è in modalità riservata, quello secondario dovrà essere impostato nella stessa modalità.
 
@@ -25,7 +25,7 @@ Le circostanze seguenti sono indicative di problemi che potrebbero richiedere un
 -   Le applicazioni connesse al servizio mobile non comunicano con questo per un periodo di tempo prolungato.
 -   Lo stato del servizio mobile è visualizzato come **Unhealthy** nel [portale di Azure](http://manage.windowsazure.com/).
 -   Nel portale di Azure viene visualizzata un'intestazione **Unhealthy** sopra ogni scheda del servizio mobile e le operazioni di gestione restituiscono messaggi di errore.
--   Il [dashboard dei servizi mobili di Azure](http://www.windowsazure.com/en-us/support/service-dashboard/) indica un problema di disponibilità.
+-   Il [dashboard dei servizi mobili di Azure](http://www.windowsazure.com/it-it/support/service-dashboard/) indica un problema di disponibilità.
 
 RipristinoRipristino di emergenza
 ---------------------------------
@@ -42,7 +42,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 
     Se non si è ancora riservato un servizio mobile secondario, crearne uno ora in un'altra area di Azure. Impostare la modalità del nuovo servizio su un livello equivalente o superiore rispetto alla modalità del servizio primario. Se il servizio primario è in modalità condivisa, è possibile impostare il servizio secondario come condiviso o riservato. Se invece il servizio primario è in modalità riservata, quello secondario dovrà essere impostato nella stessa modalità.
 
-3.  Configurare gli strumenti da riga di comando di Azure in modo da funzionare correttamente con la sottoscrizione in uso, come descritto nell'articolo [Automazione dei servizi mobili con gli strumenti da riga di comando](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/).
+3.  Configurare gli strumenti da riga di comando di Azure in modo da funzionare correttamente con la sottoscrizione in uso, come descritto nell'articolo [Automazione dei servizi mobili con gli strumenti da riga di comando](http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/).
 
 4.  È ora possibile utilizzare il servizio secondario per ripristinare quello primario.
 
@@ -69,7 +69,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 
 6.  Verificare che il servizio ripristinato comunichi con il database SQL di Azure. Il comando di ripristino consente di ripristinare il servizio mobile, ma viene mantenuta la connessione al database originale. Se il problema nell'area primaria di Azure riguarda anche il database, è possibile che il servizio ripristinato continui a non funzionare correttamente. È possibile utilizzare il dashboard dei servizi mobili di Azure per esaminare lo stato del database per una determinata regione. Se il database originale non è in funzione, sarà possibile ripristinarlo:
 
-    -   Ripristinare il database SQL di Azure nell'area di Azure in cui si è ripristinato il servizio mobile, come descritto nelle linee guida relative alla [continuità aziendale nel database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx).
+    -   Ripristinare il database SQL di Azure nell'area di Azure in cui si è ripristinato il servizio mobile, come descritto nelle linee guida relative alla [continuità aziendale nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx).
     -   Nella scheda **"Configure"** relativa al servizio mobile del portale di Azure, scegliere "Change database", quindi selezionare il database appena ripristinato.
 
 Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in una nuova area di Azure e accetta traffico dalle app dello Store utilizzando il proprio URL originale.
@@ -79,11 +79,11 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL Database business continuity guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+[SQL Database business continuity guidance]: http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[source control feature]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[using the Azure command-line tool]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[source control feature]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/store-scripts-in-source-control/
+[using the Azure command-line tool]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/
 [Azure portal]: http://manage.windowsazure.com/
-[Azure Service Dashboard]: http://www.windowsazure.com/en-us/support/service-dashboard/
-[Automate mobile services with command-line tools]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[Azure Service Dashboard]: http://www.windowsazure.com/it-it/support/service-dashboard/
+[Automate mobile services with command-line tools]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/

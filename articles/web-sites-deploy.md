@@ -39,7 +39,7 @@ Qualora non sia ancora stato impostato il controllo del codice sorgente, il modo
 Per ulteriori informazioni, vedere le risorse seguenti:
 
 -   [Distribuire in modo continuo](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Esercitazione dettagliata in cui viene illustrato come configurare il recapito continuo da VSO su un sito Web di Azure con TFVC. TFVC è l'opzione di controllo del codice sorgente in VSO, mentre Git è l'opzione di controllo del codice distribuito.
--   [Recapito continuo in Azure utilizzando Visual Studio Online](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). Come iscriversi a VSO, archiviare un progetto nel controllo del codice sorgente e configurarlo per il recapito continuo (distribuzione automatica) in Azure. Scritto per i servizi cloud, ma gran parte del processo di configurazione della distribuzione in Visual Studio Online è simile per Siti Web di Azure.
+-   [Recapito continuo in Azure utilizzando Visual Studio Online](/it-it/documentation/articles/cloud-services-continuous-delivery-use-vso/). Come iscriversi a VSO, archiviare un progetto nel controllo del codice sorgente e configurarlo per il recapito continuo (distribuzione automatica) in Azure. Scritto per i servizi cloud, ma gran parte del processo di configurazione della distribuzione in Visual Studio Online è simile per Siti Web di Azure.
 
 ### Siti Web di repository con Git
 
@@ -47,7 +47,7 @@ Per ulteriori informazioni, vedere le risorse seguenti:
 
 Per ulteriori informazioni, vedere le risorse seguenti:
 
--   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Come utilizzare Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è denominato Local Git. In questo articolo viene inoltre illustrato come abilitare il recapito continuo dei repository Git da GitHub, CodePlex o BitBucket.
+-   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/it-it/documentation/articles/web-sites-publish-source-control/). Come utilizzare Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è denominato Local Git. In questo articolo viene inoltre illustrato come abilitare il recapito continuo dei repository Git da GitHub, CodePlex o BitBucket.
 -   [Forum di Azure per Git, Mercurial e DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ### Siti Web di repository con Mercurial
@@ -56,7 +56,7 @@ Se il sistema di controllo del codice sorgente in uso è [Mercurial](http://merc
 
 Per informazioni su come eseguire la distribuzione con Mercurial vedere le risorse seguenti:
 
--   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Benché questa esercitazione contenga informazioni su come pubblicare un repository Git, il processo per i repository Mercurial ospitati in CodePlex o BitBucket è simile.
+-   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/it-it/documentation/articles/web-sites-publish-source-control/). Benché questa esercitazione contenga informazioni su come pubblicare un repository Git, il processo per i repository Mercurial ospitati in CodePlex o BitBucket è simile.
 -   [Forum di Azure per Git, Mercurial e DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ### DropBox
@@ -80,7 +80,7 @@ Per informazioni su come eseguire la distribuzione nei siti Web di Azure da Visu
 
 -   [Introduzione ad Azure e ASP.NET](/en-us/develop/net/tutorials/get-started/). Come creare e distribuire un semplice Progetto Applicazione Web MVC ASP.NET utilizzando Visual Studio e Distribuzione Web.
 -   [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/). Come creare e distribuire un Progetto Applicazione Web MVC ASP.NET con un database SQL utilizzando Visual Studio, Distribuzione Web e Migrazioni Code First di Entity Framework.
--   [Panoramica di Distribuzione Web per Visual Studio e ASP.NET](http://msdn.microsoft.com/en-us/library/dd394698.aspx). Presentazione di base della distribuzione Web con Visual Studio. È un articolo datato, che però include informazioni ancora rilevanti, tra cui una panoramica delle opzioni di distribuzione di un database assieme all'applicazione Web e un elenco delle ulteriori attività di distribuzione che potrebbe essere necessario eseguire oppure far eseguire a Visual Studio configurandolo manualmente. Questo argomento riguarda la distribuzione in generale, non solo la distribuzione nei siti Web di Azure.
+-   [Panoramica di Distribuzione Web per Visual Studio e ASP.NET](http://msdn.microsoft.com/it-it/library/dd394698.aspx). Presentazione di base della distribuzione Web con Visual Studio. È un articolo datato, che però include informazioni ancora rilevanti, tra cui una panoramica delle opzioni di distribuzione di un database assieme all'applicazione Web e un elenco delle ulteriori attività di distribuzione che potrebbe essere necessario eseguire oppure far eseguire a Visual Studio configurandolo manualmente. Questo argomento riguarda la distribuzione in generale, non solo la distribuzione nei siti Web di Azure.
 -   [Distribuzione Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco.
 -   Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git.
 
@@ -88,9 +88,9 @@ Per informazioni su come eseguire la distribuzione nei siti Web di Azure da Visu
 
 Per informazioni su come eseguire la distribuzione nei siti Web di Azure da WebMatrix vedere le risorse seguenti:
 
--   [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/). Come creare un semplice sito Web di ASP.NET utilizzando un modello di WebMatrix e distribuendolo in un sito Web di Azure tramite WebMatrix e Distribuzione Web.
--   [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/).
--   [Creazione e distribuzione di un sito Web di Azure PHP-MySQL tramite WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+-   [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-using-webmatrix/). Come creare un semplice sito Web di ASP.NET utilizzando un modello di WebMatrix e distribuendolo in un sito Web di Azure tramite WebMatrix e Distribuzione Web.
+-   [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-nodejs-use-webmatrix/).
+-   [Creazione e distribuzione di un sito Web di Azure PHP-MySQL tramite WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 -   [WebMatrix 3: Git integrato e distribuzione in Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Come utilizzare WebMatrix per eseguire la distribuzione da un repository Git di controllo del codice sorgente.
 
 Distribuzione mediante un'utilità FTP
@@ -102,8 +102,8 @@ Benché sia semplice copiare i file del proprio sito Web in Azure mediante le ut
 
 Per ulteriori informazioni, vedere le risorse seguenti:
 
--   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
--   [Come gestire i siti Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). Contiene informazioni aggiuntive non incluse nell'esercitazione su PHP riguardanti la modalità di configurazione delle credenziali FTP. Per informazioni su come ottenere le credenziali che non sono presenti nel documento stesso, vedere i commenti a fondo pagina.
+-   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite FTP](/it-it/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
+-   [Come gestire i siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-manage/). Contiene informazioni aggiuntive non incluse nell'esercitazione su PHP riguardanti la modalità di configurazione delle credenziali FTP. Per informazioni su come ottenere le credenziali che non sono presenti nel documento stesso, vedere i commenti a fondo pagina.
 
 Distribuzione da un sistema di controllo del codice sorgente locale
 -------------------------------------------------------------------
@@ -124,7 +124,7 @@ In Azure è possibile immettere l'URL di qualsiasi repository che utilizzi Git o
 
 Per ulteriori informazioni, vedere le risorse seguenti:
 
--   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Come utilizzare Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è denominato Local Git. In questo articolo viene inoltre illustrato come abilitare il recapito continuo dei repository Git da GitHub, CodePlex o BitBucket.
+-   [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](/it-it/documentation/articles/web-sites-publish-source-control/). Come utilizzare Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è denominato Local Git. In questo articolo viene inoltre illustrato come abilitare il recapito continuo dei repository Git da GitHub, CodePlex o BitBucket.
 -   Post sulla [pubblicazione in Siti Web di Azure da qualsiasi repository Git/HG](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html) nel blog di David Ebbo, in cui è illustrata la funzione di "Repository esterno" in Siti Web di Azure.
 -   [Forum di Azure per Git, Mercurial e DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 -   Post sulla [distribuzione di DUE siti Web in Azure da un solo repository Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) nel blog di Scott Hanselman.
@@ -155,7 +155,7 @@ Per ulteriori informazioni, vedere la risorsa seguente:
 
 ### Windows PowerShell
 
-In [Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx) è possibile eseguire funzioni MSBuild o FTP. In tal caso, è inoltre possibile utilizzare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione RET di Azure.
+In [Windows PowerShell](http://msdn.microsoft.com/it-it/library/dd835506.aspx) è possibile eseguire funzioni MSBuild o FTP. In tal caso, è inoltre possibile utilizzare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione RET di Azure.
 
 Per ulteriori informazioni, vedere la risorsa seguente:
 
@@ -191,5 +191,5 @@ Per ulteriori informazioni, vedere la risorsa seguente:
 Passaggi successivi
 -------------------
 
-Per ulteriori informazioni, vedere la sezione relativa alla distribuzione nella [documentazione di Siti Web di Azure](/en-us/documentation/services/web-sites/).
+Per ulteriori informazioni, vedere la sezione relativa alla distribuzione nella [documentazione di Siti Web di Azure](/it-it/documentation/services/web-sites/).
 

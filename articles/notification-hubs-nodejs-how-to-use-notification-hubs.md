@@ -17,12 +17,12 @@ Sommario
 Informazioni su Hub di notifica del bus di servizio
 ---------------------------------------------------
 
-Hub di notifica del bus di servizio di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per ulteriori informazioni, vedere [Hub di notifica del bus di servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Hub di notifica del bus di servizio di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per ulteriori informazioni, vedere [Hub di notifica del bus di servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj927170.aspx).
 
 Creazione di un'applicazione Node.js
 ------------------------------------
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servizio cloud Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (utilizzando Windows PowerShell) o [Sito Web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servizio cloud Node.js](/it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (utilizzando Windows PowerShell) o [Sito Web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configurazione dell'applicazione per l'utilizzo del bus di servizio
 -------------------------------------------------------------------
@@ -134,11 +134,11 @@ L'oggetto **MpnsService** fornisce un metodo **send** che è possibile utilizzar
 -   Tags: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client
 -   Payload: il payload XML del messaggio
 -   TargetName: 'toast' per le notifiche di tipo avviso popup, 'token' per le notifica di tipo riquadro
--   NotificationClass: la priorità della notifica. Per i valori validi, vedere la sezione relativa agli elementi dell'intestazione HTTP di [Push di notifiche da un server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+-   NotificationClass: la priorità della notifica. Per i valori validi, vedere la sezione relativa agli elementi dell'intestazione HTTP di [Push di notifiche da un server](http://msdn.microsoft.com/it-it/library/hh221551.aspx).
 -   Options: intestazioni delle richieste facoltative
 -   Callback: la funzione di richiamata
 
-Per un elenco dei valori validi per TargetName, NotificationClass e le opzioni di intestazione, vedere [Push di notifiche da un server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+Per un elenco dei valori validi per TargetName, NotificationClass e le opzioni di intestazione, vedere [Push di notifiche da un server](http://msdn.microsoft.com/it-it/library/hh221551.aspx).
 
 Nel codice seguente viene utilizzata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica di tipo avviso popup:
 
@@ -159,7 +159,7 @@ L'oggetto **WnsService** fornisce un metodo **send** che è possibile utilizzare
 -   Options: intestazioni delle richieste facoltative
 -   Callback: la funzione di richiamata
 
-Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica Push](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica Push](http://msdn.microsoft.com/it-it/library/windows/apps/hh465435.aspx).
 
 Nel codice seguente viene utilizzata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica di tipo avviso popup.
 
@@ -175,6 +175,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, utilizzare i collegamenti seguenti per ulteriori informazioni.
 
--   Riferimento in MSDN: [Hub di notifica del bus di servizio di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)
+-   Riferimento in MSDN: [Hub di notifica del bus di servizio di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj927170.aspx)
 -   Archivio [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) su GitHub
 

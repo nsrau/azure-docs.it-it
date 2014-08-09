@@ -25,8 +25,8 @@ Nella pagina di gestione **Dashboard** sono inclusi gli elementi seguenti:
 -   **Data Out**: misura dei dati inviati dal sito Web ai client.
 -   **HTTP Server Errors**: numero di messaggi di errore del server HTTP 5xx inviati.
 -   **Requests**: conteggio di tutte le richieste client al sito Web.
-    **Nota:** per aggiungere ulteriori metriche delle prestazioni, passare alla pagina di gestione **Monitor** e scegliere **Add Metrics** nella parte inferiore della pagina. Per ulteriori informazioni, vedere [Come monitorare i siti Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/).
--   **Web Endpoint Status**: elenco degli endpoint Web configurati per il monitoraggio. Se non sono stati configurati endpoint, fare clic su **Configure Web Endpoint Monitoring** e passare alla sezione **Monitoring** della pagina di gestione **Configure**. Per ulteriori informazioni, vedere [Come monitorare i siti Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/).
+    **Nota:** per aggiungere ulteriori metriche delle prestazioni, passare alla pagina di gestione **Monitor** e scegliere **Add Metrics** nella parte inferiore della pagina. Per ulteriori informazioni, vedere [Come monitorare i siti Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/).
+-   **Web Endpoint Status**: elenco degli endpoint Web configurati per il monitoraggio. Se non sono stati configurati endpoint, fare clic su **Configure Web Endpoint Monitoring** e passare alla sezione **Monitoring** della pagina di gestione **Configure**. Per ulteriori informazioni, vedere [Come monitorare i siti Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/).
 
 -   **Autoscale Status**: nella modalità standard è disponibile la scalabilità automatica delle risorse in modo da spendere solo per l'utilizzo delle risorse necessarie. Per abilitare la scalabilità automatica, scegliere **Configure Autoscale** per passare alla pagina **Scale**. Se il sito Web è in modalità gratuita o condivisa, sarà necessario passare alla modalità standard (dalla pagina **Scale**) prima di poter configurare la scalabilità automatica. **Autoscale Operation Logs**: reindirizza l'utente al portale **Management Services** in cui è possibile visualizzare la cronologia di scalabilità automatica del sito Web. La query prevede solo le ultime 24 ore, ma è possibile modificarla.
 
@@ -47,7 +47,7 @@ Nella pagina di gestione **Dashboard** sono inclusi gli elementi seguenti:
  - **Management Services**: fare clic sul collegamento **Operation Logs** per visualizzare i log delle operazioni per il sito Web dal portale dei servizi di gestione di Microsoft Azure.
  - **Virtual IP Address**: consente di visualizzare l'indirizzo IP virtuale del sito Web se è stata configurata un'associazione SSL basata su IP per il sito Web nella sezione **SSL Bindings** della scheda **Configure**.
  - **Site URL**: specifica l'indirizzo accessibile pubblicamente del sito Web in Internet.
- - **Compute Mode**: specifica se il sito Web è in esecuzione in modalità gratuita, condivisa, base o standard. Per ulteriori informazioni sulle modalità dei gruppi di scala Web, vedere [Come scalare un sito Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites).
+ - **Compute Mode**: specifica se il sito Web è in esecuzione in modalità gratuita, condivisa, base o standard. Per ulteriori informazioni sulle modalità dei gruppi di scala Web, vedere [Come scalare un sito Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-scale-websites).
  - **FTP Hostname**: specifica l'URL da utilizzare per la pubblicazione nel sito Web tramite FTP.
  - **FTPS Hostname**: specifica l'URL da utilizzare per la pubblicazione nel sito Web tramite FTPS.
  - **Deployment User / FTP User**: indica l'account utilizzato per la distribuzione del sito Web in Microsoft Azure tramite FTP o Git.
@@ -65,12 +65,12 @@ Questa scheda viene visualizzata solo se è stata impostata la distribuzione dal
 Monitor
 -------
 
-Nella pagina di gestione **Monitor** è disponibile un grafico in cui sono visualizzate le informazioni sull'utilizzo per il sito Web. Per impostazione predefinita, questo grafico visualizza le stesse metriche del grafico nella pagina **Dashboard**, come descritto in precedenza nella sezione Dashboard. È inoltre possibile configurare il grafico per visualizzare metriche quali operazioni HTTP completate, reindirizzamenti HTTP, errori HTTP 401, errori HTTP 403, errori HTTP 404 ed errori HTTP 406. Per ulteriori informazioni su queste metriche, vedere [Come monitorare i siti Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/).
+Nella pagina di gestione **Monitor** è disponibile un grafico in cui sono visualizzate le informazioni sull'utilizzo per il sito Web. Per impostazione predefinita, questo grafico visualizza le stesse metriche del grafico nella pagina **Dashboard**, come descritto in precedenza nella sezione Dashboard. È inoltre possibile configurare il grafico per visualizzare metriche quali operazioni HTTP completate, reindirizzamenti HTTP, errori HTTP 401, errori HTTP 403, errori HTTP 404 ed errori HTTP 406. Per ulteriori informazioni su queste metriche, vedere [Come monitorare i siti Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/).
 
 WebJobs
 -------
 
-La pagina di gestione WebJobs consente di creare attività su richiesta, pianificate o con esecuzione continua per il sito Web. Per ulteriori informazioni, vedere [Come utilizzare la funzionalità WebJobs in Siti Web di Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-create-web-jobs/).
+La pagina di gestione WebJobs consente di creare attività su richiesta, pianificate o con esecuzione continua per il sito Web. Per ulteriori informazioni, vedere [Come utilizzare la funzionalità WebJobs in Siti Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-create-web-jobs/).
 
 Configure
 ---------
@@ -92,7 +92,7 @@ Configure
 -   **Handler Mappings**: consente di aggiungere processori script personalizzati per gestire le richieste per tipi di file specifici, ad esempio \*.php.
 -   **Virtual Applications and Directories**: consente di configurare applicazioni e directory virtuali associate al sito Web. È inoltre possibile contrassegnare una directory virtuale come un'applicazione nella configurazione del sito.
 
-Per ulteriori informazioni su come configurare un sito Web, vedere la pagina [Come configurare i siti Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites).
+Per ulteriori informazioni su come configurare un sito Web, vedere la pagina [Come configurare i siti Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-configure-websites).
 
 Scale
 -----
@@ -101,7 +101,7 @@ Nella pagina di gestione **Scale** è possibile specificare la modalità del gru
 
 In modalità **Standard** è inoltre possibile aumentare il numero di core e la capacità di memoria di ogni istanza modificando il valore in **Instance Size**. Ai fini della convenienza, è possibile scegliere l'opzione **Autoscale** per consentire a Microsoft Azure di allocare le risorse per il sito Web in modo dinamico.
 
-Per ulteriori informazioni sulla configurazione delle opzioni di scala per un sito Web, vedere [Come scalare un sito Web](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites).
+Per ulteriori informazioni sulla configurazione delle opzioni di scala per un sito Web, vedere [Come scalare un sito Web](http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-scale-websites).
 
 Linked Resources
 ----------------
@@ -111,7 +111,7 @@ Nella pagina di gestione **Linked Resources** è disponibile un elenco di risors
 Backups
 -------
 
-La pagina di gestione **Backups** consente di creare backup automatici o manuali per il sito Web, ripristinare il sito Web a uno stato precedente o creare un nuovo sito Web in base a uno dei backup esistenti. Per ulteriori informazioni, vedere [Backup di siti Web di Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/) e [Ripristino di un sito Web di Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+La pagina di gestione **Backups** consente di creare backup automatici o manuali per il sito Web, ripristinare il sito Web a uno stato precedente o creare un nuovo sito Web in base a uno dei backup esistenti. Per ulteriori informazioni, vedere [Backup di siti Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-backup/) e [Ripristino di un sito Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-restore/).
 
 Icone delle pagine di gestione
 ------------------------------

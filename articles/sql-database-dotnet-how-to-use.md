@@ -192,13 +192,13 @@ Di seguito è riportato un esempio di stringa di connessione:
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](http://msdn.microsoft.com/en-us/library/bb738561.aspx).
+Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](http://msdn.microsoft.com/it-it/library/bb738561.aspx).
 
 Passaggi successivi
 -------------------
 
 A questo punto, dopo aver appreso le nozioni di base della connessione al database SQL, vedere le risorse seguenti per ottenere ulteriori informazioni sul database SQL.
 
--   [Sviluppo: Procedure (SQL Database)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx)
--   [Database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)
+-   [Sviluppo: Procedure (SQL Database)](http://msdn.microsoft.com/it-it/library/windowsazure/ee621787.aspx)
+-   [Database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee336279.aspx)
 

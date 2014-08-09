@@ -174,12 +174,12 @@ In questa esercitazione si apprenderà come:
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx
 [2]: http://go.microsoft.com/fwlink/?LinkId=296652
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx
 [4]: http://manage.windowsazure.com/
 [5]: http://go.microsoft.com/fwlink/?LinkID=248092
 [6]: http://go.microsoft.com/fwlink/?linkid=248097
 [7]: http://go.microsoft.com/fwlink/?LinkId=296650
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156097.aspx
 [9]: http://go.microsoft.com/fwlink/?LinkId=248097

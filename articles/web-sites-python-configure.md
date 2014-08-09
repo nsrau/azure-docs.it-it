@@ -5,7 +5,7 @@ Configurazione di Python con Siti Web di Azure
 
 In questa esercitazione verranno descritte le opzioni per la creazione e la configurazione di un'applicazione Python di base conforme con l'interfaccia WSGI (Web Server Gateway Interface) sui siti Web di Azure. È facile iniziare a utilizzare i siti Web di Azure e sarà possibile scalare ed estendere l'applicazione Python ad altri servizi di Azure. La piattaforma Siti Web di Azure include Python 2.7 il gestore wfastcgi.py FastCGI generico per Python. Basta configurare il proprio sito Web in modo da utilizzare il gestore Python.
 
-Per un esempio più complesso di configurazione del framework Django sulla piattaforma Siti Web di Azure, vedere l'esercitazione seguente: <http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django>.
+Per un esempio più complesso di configurazione del framework Django sulla piattaforma Siti Web di Azure, vedere l'esercitazione seguente: <http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django>.
 
 Supporto WSGI
 -------------
@@ -15,7 +15,7 @@ WSGI è uno standard Python descritto da [PEP 3333](http://www.python.org/dev/pe
 Creazione di un sito Web
 ------------------------
 
-In questa esercitazione si presume che sia stata eseguita una sottoscrizione di Azure e sia stato effettuato l'accesso al portale di gestione Azure. Linee guida dettagliate sulla creazione di un sito Web sono disponibili all'indirizzo <http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites>.
+In questa esercitazione si presume che sia stata eseguita una sottoscrizione di Azure e sia stato effettuato l'accesso al portale di gestione Azure. Linee guida dettagliate sulla creazione di un sito Web sono disponibili all'indirizzo <http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-create-websites>.
 
 In breve, se non si dispone di un sito Web esistente è possibile crearne uno dal portale di gestione di Azure. Selezionare la funzionalità WEB SITES e quindi l'opzione QUICK CREATE, specificando un URL per il proprio sito Web.
 

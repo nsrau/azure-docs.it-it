@@ -250,7 +250,7 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 
 [1]: https://manage.windowsazure.com/
 [2]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [4]: http://nodejs.org/api/modules.html
 [5]: https://npmjs.org/package/node-uuid
 [6]: http://nodejs.org/

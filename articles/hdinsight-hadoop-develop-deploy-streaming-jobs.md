@@ -10,7 +10,7 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 -   Installare Azure HDInsight Emulator. Per istruzioni, vedere [Introduzione all'utilizzo di HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/).
--   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 -   Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto](https://www.windowsazure.com/en-us/pricing/purchase-options/), [Offerte per i membri](https://www.windowsazure.com/en-us/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/).
 
 Contenuto dell'articolo
@@ -200,7 +200,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per eseguire il processo MapReduce tramite HDInsight PowerShell**
 
-1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Per impostare le variabili, eseguire i comandi seguenti.
 
          $clusterName = "http://localhost:50111"
@@ -520,7 +520,7 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di s
 
 -   [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 -   [Introduzione a HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
--   [Sviluppo di programmi MapReduce Java per HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Sviluppo di programmi MapReduce Java per HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 -   [Utilizzo dell'archivio BLOB di Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/)
 -   [Amministrazione di HDInsight tramite PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)
 -   [Caricamento di dati in HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)

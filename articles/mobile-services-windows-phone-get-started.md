@@ -2,8 +2,8 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[Windows Store](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows Store")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started "Android")[HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android")[Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha")[PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
-[Back-end .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ "Back-end .NET") | [Back-end JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-get-started/ "Back-end JavaScript")
+[Windows Store](/it-it/documentation/articles/mobile-services-windows-store-get-started "Windows Store")[Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone")[iOS](/it-it/documentation/articles/mobile-services-ios-get-started "iOS")[Android](/it-it/documentation/articles/mobile-services-android-get-started "Android")[HTML](/it-it/documentation/articles/mobile-services-html-get-started "HTML")[Xamarin.iOS](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS")[Xamarin.Android](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android")[Sencha](/it-it/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha")[PhoneGap](/it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-phone-get-started/ "Back-end JavaScript")
 
 In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Windows Phone 8 mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. 
 
@@ -11,13 +11,13 @@ Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stess
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">guarda l'esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">13:18</span></div>
 </div>
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per backend .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started) di questo argomento.
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per backend .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started) di questo argomento.
 
 Di seguito è riportata una schermata dell'app completata:
 
 ![](./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png)
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Servizi mobili di Azure.</p> <ul> <li>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">versione di valutazione gratuita di Azure</a></li></ul> </div>
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Servizi mobili di Azure.</p> <ul> <li>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">versione di valutazione gratuita di Azure</a></li></ul> </div>
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
@@ -99,5 +99,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 [1]: http://go.microsoft.com/fwlink/?LinkId=290816
-[2]: "http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
+[2]: "http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
 [3]: https://go.microsoft.com/fwLink/p/?LinkID=268374

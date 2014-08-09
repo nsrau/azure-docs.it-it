@@ -256,4 +256,4 @@ In Azure sono disponibili diversi modelli di esecuzione poiché le piattaforme c
 
 
 [1]: http://vmdepot.msopentech.com/
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx

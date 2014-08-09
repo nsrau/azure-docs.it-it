@@ -38,8 +38,8 @@ L'output del processo MapReduce è un insieme di coppie chiave-valore. La chiave
 
 Per eseguire un processo MapReduce è necessario disporre degli elementi seguenti:
 
--   Un programma MapReduce. In questa esercitazione verrà utilizzato il processo di esempio WordCount, disponibile nella distribuzione dei cluster HDInsight. Non sarà pertanto necessario scrivere un processo personalizzato. Il processo di esempio è disponibile in */example/jars/hadoop-examples.jar*. Nella versione 3.0 dei cluster HDInsight il nome del file è *hadoop-mapreduce-examples.jar*. Per istruzioni sulla scrittura di un processo MapReduce personalizzato, vedere [Sviluppo di programmi MapReduce Java per HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
--   Un file di input. Come file di input verrà utilizzato il file */example/data/gutenberg/davinci.txt*. Per informazioni sul caricamento di file, vedere [Caricamento di dati in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+-   Un programma MapReduce. In questa esercitazione verrà utilizzato il processo di esempio WordCount, disponibile nella distribuzione dei cluster HDInsight. Non sarà pertanto necessario scrivere un processo personalizzato. Il processo di esempio è disponibile in */example/jars/hadoop-examples.jar*. Nella versione 3.0 dei cluster HDInsight il nome del file è *hadoop-mapreduce-examples.jar*. Per istruzioni sulla scrittura di un processo MapReduce personalizzato, vedere [Sviluppo di programmi MapReduce Java per HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
+-   Un file di input. Come file di input verrà utilizzato il file */example/data/gutenberg/davinci.txt*. Per informazioni sul caricamento di file, vedere [Caricamento di dati in HDInsight](/it-it/documentation/articles/hdinsight-upload-data/).
 -   Una cartella di file di output. Come cartella di file di output verrà utilizzata la cartella */example/data/WordCountOutput*. Se non esiste, tale cartella verrà creata dal sistema. Se tale cartella esiste già, il processo MapReduce avrà esito negativo. Se si desidera eseguire il processo MapReduce una seconda volta, assicurarsi di eliminare la cartella di output o di specificarne un'altra.
 
 Esecuzione dell'esempio con Azure PowerShell
@@ -207,9 +207,9 @@ Passaggi successivi
 Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare difficoltà di gestione. Altri linguaggi, come Pig e Hive, costituiscono una soluzione più agevole per gestire i dati archiviati in HDInsight. Per ulteriori informazioni, vedere gli articoli seguenti:
 
 -   [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Sviluppo di programmi MapReduce Java per HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [Sviluppo di programmi MapReduce di streaming Hadoop in C\# per HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
--   [Utilizzo di Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
--   [Utilizzo di Pig con HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
--   [Esecuzione degli esempi relativi a HDInsight](/en-us/documentation/articles/hdinsight-run-samples/)
+-   [Sviluppo di programmi MapReduce Java per HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Sviluppo di programmi MapReduce di streaming Hadoop in C\# per HDInsight](/it-it/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Utilizzo di Hive con HDInsight](/it-it/documentation/articles/hdinsight-use-hive/)
+-   [Utilizzo di Pig con HDInsight](/it-it/documentation/articles/hdinsight-use-pig/)
+-   [Esecuzione degli esempi relativi a HDInsight](/it-it/documentation/articles/hdinsight-run-samples/)
 

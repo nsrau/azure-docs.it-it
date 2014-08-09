@@ -60,8 +60,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Per ulteriori informazioni sulla distribuzione di asset, vedere:
 
--   [Distribuzione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [Distribuzione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [Distribuzione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/jj129575.aspx)
+-   [Distribuzione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/jj129578.aspx)
 
 Passaggi successivi
 -------------------
@@ -73,6 +73,6 @@ Questo argomento conclude la serie dedicata all'utilizzo di Servizi multimediali
 -   [Creazione di applicazioni con Media Services SDK per .NET](http://go.microsoft.com/fwlink/?linkid=247821)
 -   [Creazione di applicazioni con l'API REST di Servizi multimediali](http://go.microsoft.com/fwlink/?linkid=252967)
 -   [Forum su Servizi multimediali](http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads)
--   [Come monitorare un account di Servizi multimediali](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
--   [Come gestire il contenuto in Servizi multimediali](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/)
+-   [Come monitorare un account di Servizi multimediali](http://www.windowsazure.com/it-it/manage/services/media-services/how-to-monitor-a-media-services-account/)
+-   [Come gestire il contenuto in Servizi multimediali](http://www.windowsazure.com/it-it/manage/services/media-services/how-to-manage-content-in-media-services/)
 

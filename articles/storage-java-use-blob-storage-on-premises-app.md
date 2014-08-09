@@ -17,8 +17,8 @@ Prerequisiti
 
 1.  Java Developer Kit (JDK) v1.6 o versione successiva installato.
 2.  Azure SDK installato.
-3.  JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
-4.  Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice più sotto. Vedere [Come creare un account di archiviazione](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/) per informazioni sul recupero della chiave dell'account.
+3.  JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK for Java](http://www.windowsazure.com/it-it/develop/java/).
+4.  Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice più sotto. Vedere [Come creare un account di archiviazione](http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/) per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione](http://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/) per informazioni sul recupero della chiave dell'account.
 5.  Aver creato un file di immagine locale denominato archiviato nel percorso c:\\myimages\\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per utilizzare un percorso e un nome file di immagine diversi.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
@@ -349,5 +349,5 @@ Per chiamare il metodo **CloudBlobContainer.delete**, il processo di inizializza
         }
     }
 
-Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Come utilizzare il servizio di archiviazione BLOB da Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/).
+Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Come utilizzare il servizio di archiviazione BLOB da Java](http://www.windowsazure.com/it-it/develop/java/how-to-guides/blob-storage/).
 

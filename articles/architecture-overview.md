@@ -53,9 +53,9 @@ Per informazioni sui modelli di progettazione più comuni in Azure, vedere l'arg
 
 
 [1]: http://www.microsoft.com/en-us/download/details.aspx?id=41937
-[2]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
-[3]: http://msdn.microsoft.com/en-us/library/dn568103.aspx
-[4]: http://msdn.microsoft.com/en-us/library/dn568104.aspx
-[5]: http://msdn.microsoft.com/en-us/library/dn568100.aspx
-[6]: http://msdn.microsoft.com/en-us/library/dn568102.aspx
-[7]: http://msdn.microsoft.com/en-us/library/dn568099.aspx
+[2]: http://msdn.microsoft.com/it-it/library/dn568101.aspx
+[3]: http://msdn.microsoft.com/it-it/library/dn568103.aspx
+[4]: http://msdn.microsoft.com/it-it/library/dn568104.aspx
+[5]: http://msdn.microsoft.com/it-it/library/dn568100.aspx
+[6]: http://msdn.microsoft.com/it-it/library/dn568102.aspx
+[7]: http://msdn.microsoft.com/it-it/library/dn568099.aspx

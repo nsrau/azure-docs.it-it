@@ -52,11 +52,11 @@ Durante la versione preliminare di Macchine virtuali, affinché le macchine virt
 
 **Passaggio 1: Generare la coppia di chiavi SSH**
 
-In fase di provisioning Azure richiede una chiave pubblica X509 con codifica PEM o DER. Generare una coppia di chiavi pubbliche/private seguendo le istruzioni contenute in [Come utilizzare SSH con Linux in Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/). Se si prevede di utilizzare putty.exe come client SSH in Windows o Linux, è necessario convertire la chiave privata RSA con codifica PEM nel formato PPK mediante puttygen.exe. Le istruzioni relative a questa operazione sono disponibili nella pagina sulla [generazione della coppia di chiavi SSH per la distribuzione di macchine virtuali Linux in Windows Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
+In fase di provisioning Azure richiede una chiave pubblica X509 con codifica PEM o DER. Generare una coppia di chiavi pubbliche/private seguendo le istruzioni contenute in [Come utilizzare SSH con Linux in Azure](http://www.windowsazure.com/it-it/manage/linux/how-to-guides/ssh-into-linux/). Se si prevede di utilizzare putty.exe come client SSH in Windows o Linux, è necessario convertire la chiave privata RSA con codifica PEM nel formato PPK mediante puttygen.exe. Le istruzioni relative a questa operazione sono disponibili nella pagina sulla [generazione della coppia di chiavi SSH per la distribuzione di macchine virtuali Linux in Windows Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
 
 **Passaggio 2: Creare una macchina virtuale Ubuntu**
 
-Per creare la prima macchina virtuale Ubuntu, accedere al portale Azure Preview, fare clic su **New**, su **Virtual Machine**, su **From Gallery**, quindi su **Unbuntu Server 12.xx** e infine sulla freccia a destra. Per un'esercitazione che descrive come creare una macchina virtuale Linux, vedere [Creazione di una macchina virtuale che esegue Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
+Per creare la prima macchina virtuale Ubuntu, accedere al portale Azure Preview, fare clic su **New**, su **Virtual Machine**, su **From Gallery**, quindi su **Unbuntu Server 12.xx** e infine sulla freccia a destra. Per un'esercitazione che descrive come creare una macchina virtuale Linux, vedere [Creazione di una macchina virtuale che esegue Linux](http://www.windowsazure.com/it-it/manage/linux/tutorials/virtual-machine-from-gallery/).
 
 <p>Immettere quindi le informazioni seguenti nella schermata VM Configuration:</p>
 

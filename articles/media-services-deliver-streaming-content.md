@@ -65,8 +65,8 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)?{?    /
 
 Per ulteriori informazioni sulla distribuzione di asset, vedere:
 
--   [Distribuzione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [Distribuzione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [Distribuzione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/jj129575.aspx)
+-   [Distribuzione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/jj129578.aspx)
 
 Passaggi successivi
 -------------------

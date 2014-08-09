@@ -55,7 +55,7 @@ Nel computer in cui viene installato l'agente client devono essere installati an
 
 ### Passaggio 2b: Installare un nuovo agente client
 
-Per installare l'agente, seguire le istruzioni disponibili in [Installare un agente client di sincronizzazione dati SQL](http://msdn.microsoft.com/en-us/library/jj823137.aspx).
+Per installare l'agente, seguire le istruzioni disponibili in [Installare un agente client di sincronizzazione dati SQL](http://msdn.microsoft.com/it-it/library/jj823137.aspx).
 
 ### Passaggio 2c: Completare la procedura guidata New SQL Data Sync Agent
 
@@ -69,7 +69,7 @@ Passaggio 3: Registrare un database di SQL Server con l'agente client
 ---------------------------------------------------------------------
 
 Dopo aver installato l'agente client, registrare con l'agente tutti i database di SQL Server locali che si desidera includere in un gruppo di sincronizzazione. 
-Per registrare un database con l'agente, seguire le istruzioni in [Registrare un database SQL Server con un agente client](http://msdn.microsoft.com/en-us/library/jj823138.aspx).
+Per registrare un database con l'agente, seguire le istruzioni in [Registrare un database SQL Server con un agente client](http://msdn.microsoft.com/it-it/library/jj823138.aspx).
 
 Passaggio 4: Creare un gruppo di sincronizzazione
 -------------------------------------------------
@@ -176,7 +176,7 @@ Passaggi successivi
 Per ulteriori informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
 -   [Iscrizione per l'offerta Premium per il database SQL] (../sign-up-for-sql-database-premium/)
--   [Sincronizzazione dati SQL (portale di Azure)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+-   [Sincronizzazione dati SQL (portale di Azure)](http://msdn.microsoft.com/it-it/library/windowsazure/jj856263.aspx)
 -   [Introduzione al database SQL di Azure](../getting-started-w-sql-databases/)
 -   [Ciclo di vita del database di SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 

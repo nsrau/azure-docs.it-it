@@ -34,7 +34,7 @@ Scenari:
 Serializzazione tramite la reflection
 -------------------------------------
 
-Nell'esempio seguente una classe e una struct vengono serializzate, deserializzate e infine confrontate con le istanze iniziali per garantire l'identità. Lo schema JSON per i tipi viene automaticamente creato dalla libreria Microsoft Avro tenendo conto degli attributi di contratto dati dell'account. La libreria Microsoft Avro utilizza un [resolver di contratto dati](http://msdn.microsoft.com/en-us/library/ms731072(v=vs.110).aspx) per identificare i campi serializzati.
+Nell'esempio seguente una classe e una struct vengono serializzate, deserializzate e infine confrontate con le istanze iniziali per garantire l'identità. Lo schema JSON per i tipi viene automaticamente creato dalla libreria Microsoft Avro tenendo conto degli attributi di contratto dati dell'account. La libreria Microsoft Avro utilizza un [resolver di contratto dati](http://msdn.microsoft.com/it-it/library/ms731072(v=vs.110).aspx) per identificare i campi serializzati.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -768,7 +768,7 @@ I dati nel file contenitore di oggetti non sono compressi (viene utilizzato il c
 Serializzazione tramite file contenitori di oggetti con codice di compressione personalizzato
 ---------------------------------------------------------------------------------------------
 
-Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'utilizzo di codec di compressione facoltativi (in aggiunta a Null e Deflate). Nell'esempio seguente viene illustrato come utilizzare un codec di compressione personalizzato per i file contenitori di oggetti. Non viene implementato un codec realmente diverso (come Snappy, citato nelle specifiche di Avro come codec facoltativo supportato), ma viene utilizzata un'implementazione [Deflate](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) di .NET Framework 4.5 (fornisce un algoritmo di compressione migliore basato su zlib), che potrebbe risultare utile per molti sviluppatori.
+Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'utilizzo di codec di compressione facoltativi (in aggiunta a Null e Deflate). Nell'esempio seguente viene illustrato come utilizzare un codec di compressione personalizzato per i file contenitori di oggetti. Non viene implementato un codec realmente diverso (come Snappy, citato nelle specifiche di Avro come codec facoltativo supportato), ma viene utilizzata un'implementazione [Deflate](http://msdn.microsoft.com/it-it/library/system.io.compression.deflatestream(v=vs.110).aspx) di .NET Framework 4.5 (fornisce un algoritmo di compressione migliore basato su zlib), che potrebbe risultare utile per molti sviluppatori.
 
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
     // to ensure the desired implementation of Deflate compression algorithm is used

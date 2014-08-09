@@ -474,11 +474,11 @@ Per un esempio che illustra come eseguire la convalida e la gestione degli error
 
 [1]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [2]: https://developer.apple.com/xcode
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193162.aspx
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [5]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[6]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[6]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [7]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193161.aspx
 [9]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [10]: http://go.microsoft.com/fwlink/p/?LinkId=301955

@@ -85,5 +85,5 @@ Dopo avere configurato il computer e creato una soluzione Visual Studio per la p
 [Come creare e caricare un asset crittografato nell'archiviazione]:http://go.microsoft.com/fwlink/?LinkID=301733&clcid=0x409
 
 
-[1]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+[1]: http://www.windowsazure.com/it-it/manage/services/media-services/how-to-create-a-media-services-account/
 [2]: http://nuget.org/packages/windowsazure.mediaservices

@@ -110,7 +110,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ### Gestire uno spazio dei nomi servizio tramite Esplora server di Visual Studio
 
-Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
+Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui](http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx), nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
 ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
 
@@ -401,7 +401,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
     DISTRIBUZIONE IN AZUREPREPARAZIONE DELL'APPLICAZIONE PER LA DISTRIBUZIONE IN AZURE
     ----------------------------------------------------------------------------------
 
-    È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per ulteriori informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
+    È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per ulteriori informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure](http://www.windowsazure.com/it-it/develop/net/fundamentals/compute/). Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](http://www.windowsazure.com/it-it/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
 
     Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere alla soluzione un progetto di distribuzione del progetto di Servizi cloud. Il progetto di distribuzione contiene le informazioni di configurazione necessarie per la corretta esecuzione dell'applicazione nel cloud.
 
@@ -537,7 +537,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 
         ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
 
-Per ulteriori informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/).
+Per ulteriori informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure](http://www.windowsazure.com/it-it/develop/net/fundamentals/compute/).
 
 ELIMINAZIONE DELL'APPLICAZIONEARRESTO ED ELIMINAZIONE DELL'APPLICAZIONE
 -----------------------------------------------------------------------
@@ -559,7 +559,7 @@ Passaggi successiviPassaggi successivi
 
 Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:
 
--   [Bus di servizio di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Bus di servizio di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee732537.aspx)
 -   [Procedure relative al bus di servizio](/en-us/manage/services/service-bus/)
 -   [Come utilizzare le code del bus di servizio](/en-us/develop/net/how-to-guides/service-bus-queues/)
 

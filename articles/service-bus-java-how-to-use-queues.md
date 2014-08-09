@@ -3,7 +3,7 @@
 Come utilizzare le code del bus di servizio
 ===========================================
 
-In questa guida verrà descritto come utilizzare le code del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx). Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
+In questa guida verrà descritto come utilizzare le code del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java](http://msdn.microsoft.com/it-it/library/windowsazure/hh690953(v=vs.103).aspx). Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
 
 Sommario
 --------
@@ -176,5 +176,5 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 Passaggi successivi
 -------------------
 
-A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere l'argomento [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) su MSDN per ulteriori informazioni.
+A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere l'argomento [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx) su MSDN per ulteriori informazioni.
 

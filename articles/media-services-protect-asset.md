@@ -9,7 +9,7 @@ In Servizi multimediali di Azure è possibile inviare un processo che si integra
 
 Nell'esempio seguente viene illustrato come creare un semplice processo per applicare la protezione PlayReady.
 
-1.  Recuperare i dati di configurazione. È possibile ottenere un file di configurazione di esempio nell'argomento [Set di impostazioni di attività per Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx).
+1.  Recuperare i dati di configurazione. È possibile ottenere un file di configurazione di esempio nell'argomento [Set di impostazioni di attività per Azure Media Encryptor](http://msdn.microsoft.com/it-it/library/hh973610.aspx).
 2.  Caricare un file di input MP4
 3.  Convertire il file MP4 in un asset Smooth Streaming
 4.  Crittografare l'asset con PlayReady
@@ -105,7 +105,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
 Per ulteriori informazioni sulla protezione PlayReady, vedere:
 
--   [Protezione di asset con Microsoft PlayReady](http://msdn.microsoft.com/en-us/library/dn189154.aspx)
+-   [Protezione di asset con Microsoft PlayReady](http://msdn.microsoft.com/it-it/library/dn189154.aspx)
 -   [Microsoft PlayReady](http://www.microsoft.com/PlayReady/)
 
 Passaggi successivi

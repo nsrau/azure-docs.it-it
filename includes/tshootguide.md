@@ -337,7 +337,7 @@ Esistono molte librerie supportate che implementano le procedure consigliate per
 Tramite i collegamenti seguenti è possibile accedere a indicazioni sulla progettazione o sulle procedure per limitare i problemi che richiedono interventi di risoluzione o le posizioni in cui è consigliabile aggiungere attività di traccia o registrazione.
 
 * Stato dell'archiviazione e codici di errore:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx][37]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/dd179382.aspx][37]
 
 * Analisi dell'archiviazione:
   [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx][38]
@@ -413,9 +413,9 @@ Per ulteriori dettagli sugli errori comuni del bus di servizio e su come esamina
 Risoluzione dei problemi
 
 * Codici di errore:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/gg185949.aspx][52]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/gg185949.aspx][52]
 * Limitazioni del servizio ACS:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx][53]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/gg185909.aspx][53]
 
 <h2><a id="SQLTroubleshooting" ></a>Risoluzione dei problemi relativi al database SQL di Azure</h2>
 
@@ -463,7 +463,7 @@ Il database SQL di Azure richiede una strategia di backup e ripristino specifica
 [http://www.red-gate.com/products/dba/sql-azure-backup/][66].
 
 La sincronizzazione dati SQL consente di creare e pianificare facilmente sincronizzazioni bidirezionali dal sito Web di sincronizzazione dati eliminando del tutto la necessità di scrivere codice. Ulteriori informazioni sono disponibili all'indirizzo
-[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx][67].
+[http://msdn.microsoft.com/it-it/library/windowsazure/hh456371.aspx][67].
 
 Per ulteriori informazioni sulle strategie di backup e ripristino del database SQL, vedere gli articoli seguenti:
 
@@ -472,17 +472,17 @@ Per ulteriori informazioni sulle strategie di backup e ripristino del database S
   [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx][68]
 * In questo argomento viene spiegato come eseguire il backup di un
   database in un altro database sullo stesso server:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx][69]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/ff951631.aspx][69]
 * In questo argomento viene spiegato come esportare un'istanza
   esistente di database SQL in un BLOB su un determinato account di
   archiviazione:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx][70]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/hh335292.aspx][70]
 * In questo argomento viene spiegato come importare un'istanza
   esistente di database SQL da un file bacpac archiviato in un BLOB:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx][71]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/hh335291.aspx][71]
 * In questo argomento vengono descritte le funzionalità di continuità
   aziendale fornite dal database SQL:
-  [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx][72]
+  [http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx][72]
 
 <h2><a id="Cache" ></a>Cache di Azure</h2>
 
@@ -506,9 +506,9 @@ Per ulteriori informazioni sugli errori correlati alle quote, vedere
 
 
 [1]: https://www.windowsazure.com/en-us/develop/overview/
-[2]: http://msdn.microsoft.com/en-us/library/hh680918%28v=pandp.50%29.aspx
+[2]: http://msdn.microsoft.com/it-it/library/hh680918%28v=pandp.50%29.aspx
 [3]: http://nuget.org/packages/Microsoft.Experience.CloudFx
-[4]: http://msdn.microsoft.com/en-us/magazine/ff714589.aspx
+[4]: http://msdn.microsoft.com/it-it/magazine/ff714589.aspx
 [5]: http://www.microsoft.com/download/en/details.aspx?id=11324
 [6]: http://www.microsoft.com/en-us/server-cloud/system-center/operations-manager.aspx
 [7]: http://wapmmc.codeplex.com/
@@ -522,13 +522,13 @@ Per ulteriori informazioni sugli errori correlati alle quote, vedere
 [15]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [16]: http://www.apicasystem.com/integration-partners/
 [17]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
-[18]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
+[18]: http://msdn.microsoft.com/it-it/library/windowsazure/hh369930.aspx
 [19]: http://azurevmassist.codeplex.com/
 [20]: https://github.com/dannycoates/node-inspector
 [21]: http://weblogs.asp.net/jimwang/archive/2012/04/17/debugging-node-node-inspector-in-the-azure-emulator.aspx
 [22]: https://github.com/windowsazure/iisnode/downloads
 [23]: http://howtonode.org/debugging-with-node-inspector
-[24]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
+[24]: http://msdn.microsoft.com/it-it/library/dd264915.aspx
 [25]: http://www.fiddler2.com/fiddler2/
 [26]: http://go.microsoft.com/fwlink/?LinkID=90561
 [27]: http://go.microsoft.com/fwlink/?LinkId=246619
@@ -536,12 +536,12 @@ Per ulteriori informazioni sugli errori correlati alle quote, vedere
 [29]: http://technet.microsoft.com/en-us/library/ee692659.aspx
 [30]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
 [31]: http://logparserplus.com/article/2
-[32]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
+[32]: http://msdn.microsoft.com/it-it/library/7a50syb3%28v=vs.90%29.aspx
 [33]: http://technet.microsoft.com/en-us/edge/Video/hh867800
 [34]: https://www.suse.com/documentation/
 [35]: https://help.ubuntu.com/
 [36]: http://centos.org/
-[37]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx
+[37]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179382.aspx
 [38]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx
 [39]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx
 [40]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
@@ -549,19 +549,19 @@ Per ulteriori informazioni sugli errori correlati alle quote, vedere
 [42]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/17/windows-azure-storage-explorers.aspx
 [43]: http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx
 [44]: http://en.wikipedia.org/wiki/Enterprise_service_bus
-[45]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732538.aspx
+[45]: http://msdn.microsoft.com/it-it/library/windowsazure/ee732538.aspx
 [46]: http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a
-[47]: http://msdn.microsoft.com/en-us/library/windowsazure/ee706729.aspx
-[48]: http://msdn.microsoft.com/en-us/library/hh851746(VS.103).aspx
-[49]: http://msdn.microsoft.com/en-us/library/hh418082.aspx
-[50]: http://msdn.microsoft.com/en-us/library/windowsazure/hh545245.aspx
-[51]: http://msdn.microsoft.com/en-us/library/windowsazure/ee706702.aspx
-[52]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185949.aspx
-[53]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx
+[47]: http://msdn.microsoft.com/it-it/library/windowsazure/ee706729.aspx
+[48]: http://msdn.microsoft.com/it-it/library/hh851746(VS.103).aspx
+[49]: http://msdn.microsoft.com/it-it/library/hh418082.aspx
+[50]: http://msdn.microsoft.com/it-it/library/windowsazure/hh545245.aspx
+[51]: http://msdn.microsoft.com/it-it/library/windowsazure/ee706702.aspx
+[52]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185949.aspx
+[53]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185909.aspx
 [54]: http://go.microsoft.com/fwlink/p/?LinkId=168847
 [55]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
-[56]: http://msdn.microsoft.com/en-us/library/ee730906.aspx
-[57]: http://msdn.microsoft.com/en-us/library/ms186351(SQL.100).aspx
+[56]: http://msdn.microsoft.com/it-it/library/ee730906.aspx
+[57]: http://msdn.microsoft.com/it-it/library/ms186351(SQL.100).aspx
 [58]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [59]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [60]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
@@ -569,12 +569,12 @@ Per ulteriori informazioni sugli errori correlati alle quote, vedere
 [62]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [63]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [64]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401
-[65]: http://msdn.microsoft.com/en-us/library/hh680934(PandP.50).aspx
+[65]: http://msdn.microsoft.com/it-it/library/hh680934(PandP.50).aspx
 [66]: http://www.red-gate.com/products/dba/sql-azure-backup/
-[67]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
+[67]: http://msdn.microsoft.com/it-it/library/windowsazure/hh456371.aspx
 [68]: http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx
-[69]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx
-[70]: http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx
-[71]: http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx
-[72]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
-[73]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
+[69]: http://msdn.microsoft.com/it-it/library/windowsazure/ff951631.aspx
+[70]: http://msdn.microsoft.com/it-it/library/windowsazure/hh335292.aspx
+[71]: http://msdn.microsoft.com/it-it/library/windowsazure/hh335291.aspx
+[72]: http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx
+[73]: http://msdn.microsoft.com/it-it/library/gg185683.aspx

@@ -9,7 +9,7 @@ Finché non viene configurato il monitoraggio per un account di archiviazione, i
 
 **Nota**
 
-All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx).
 
 Sommario
 --------
@@ -46,7 +46,7 @@ Procedura: Configurare il monitoraggio per un account di archiviazione
 
 I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard e nella pagina **Monitor** dopo circa un'ora.
 
-Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue e \$MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue e \$MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh343258.aspx).
 
 Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è possibile scegliere quali metriche monitorare nel portale di gestione e quali tracciare sui grafici delle metriche. Per ogni livello di monitoraggio viene visualizzato un set predefinito di metriche. È possibile utilizzare **Add Metrics** per aggiungere o rimuovere metriche dall'elenco.
 
@@ -93,7 +93,7 @@ Procedura: Aggiungere metriche alla relativa tabella
 
     **Nota**
 
-    Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+    Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx).
 
 	
 
@@ -147,5 +147,5 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 4.  Fare clic su **Save**.
 
-I log di diagnostica vengono salvati in un contenitore BLOB denominato \$logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore \$logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+I log di diagnostica vengono salvati in un contenitore BLOB denominato \$logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore \$logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh343262.aspx).
 

@@ -148,9 +148,9 @@ Dopo avere caricato il file VHD, aggiungerlo come immagine all'elenco di immagin
 ## Passaggi successivi
 Quando l'immagine è disponibile nell'elenco, è possibile utilizzarla per creare macchine virtuali. Per istruzioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial/).
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/jj672979.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx
 [3]: http://technet.microsoft.com/en-us/library/hh846766.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/dn205185.aspx
 [5]: http://technet.microsoft.com/en-us/library/bb457073.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
+[6]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx

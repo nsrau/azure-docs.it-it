@@ -64,7 +64,7 @@ Procedura: Aggiornare la configurazione del servizio cloud
 
     c. Se il servizio cloud contiene ruoli con un'unica istanza, selezionare la casella di controllo **Apply configuration even if one or more roles contain a single instance** per procedere con gli aggiornamenti della configurazione per i ruoli.
 
-    Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per ulteriori informazioni, vedere [Contratti di servizio](http://www.windowsazure.com/en-us/support/legal/sla/).
+    Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per ulteriori informazioni, vedere [Contratti di servizio](http://www.windowsazure.com/it-it/support/legal/sla/).
 
     d. Fare clic su OK (segno di spunta).
 
@@ -81,7 +81,7 @@ Se il servizio cloud è composto da due o più macchine virtuali basate su Windo
 
 ### Per configurare l'accesso remoto nel file di definizione del servizio
 
-Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per importare i moduli RemoteAccess e RemoteForwarder nel modello del servizio. Quando questi moduli sono presenti, le impostazioni di configurazione per Desktop remoto vengono aggiunte al file di configurazione del servizio. Per completare la configurazione di Desktop remoto, è necessario importare un certificato in Azure e specificarlo nel file di configurazione del servizio. Per ulteriori informazioni, vedere [Impostare una connessione Desktop remoto per un ruolo in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx).
+Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per importare i moduli RemoteAccess e RemoteForwarder nel modello del servizio. Quando questi moduli sono presenti, le impostazioni di configurazione per Desktop remoto vengono aggiunte al file di configurazione del servizio. Per completare la configurazione di Desktop remoto, è necessario importare un certificato in Azure e specificarlo nel file di configurazione del servizio. Per ulteriori informazioni, vedere [Impostare una connessione Desktop remoto per un ruolo in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh124107.aspx).
 
 ### Per abilitare o modificare l'accesso remoto per le istanze del ruolo nel portale di gestione
 

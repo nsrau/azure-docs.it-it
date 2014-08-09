@@ -39,7 +39,7 @@ Servizio cache (anteprima) è disponibile in tre livelli:
 -   Standard: cache con dimensioni da 1 GB a 10 GB
 -   Premium: cache con dimensioni da 5 GB a 150 GB
 
-Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per ulteriori informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](http://www.windowsazure.com/en-us/pricing/details/cache/).
+Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per ulteriori informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](http://www.windowsazure.com/it-it/pricing/details/cache/).
 
 In questa guida vengono fornite informazioni generali sul Servizio cache (anteprima). Per informazioni dettagliate su queste funzionalità che non rientrano nell'ambito di questa guida introduttiva, vedere la [panoramica di Servizio cache di Azure (anteprima)](http://go.microsoft.com/fwlink/?LinkId=320830).
 

@@ -187,7 +187,7 @@ Verranno inoltre aggiunte autorizzazioni all'entità servizio dell'applicazione 
 
 1.  Scaricare ed estrarre l'applicazione di esempio nella cartella desiderata.
 2.  Prima di utilizzare il codice di esempio, è necessario concedere autorizzazioni aggiuntive all'entità servizio. Queste autorizzazioni consentiranno all'entità servizio di leggere i dati tramite l'API Graph. Nel menu **Start** eseguire la console **Modulo dei Microsoft Online Services per Windows PowerShell**.
-3.  Per concedere autorizzazioni di lettura all'entità servizio, aggiungerla al ruolo Service Support Administrator. Per ulteriori informazioni sull'assegnazione di ruoli all'entità servizio, vedere [Graph di AD di Azure e controllo di accesso basato sui ruoli](http://msdn.microsoft.com/en-us/library/hh974466.aspx). Digitare il comando seguente e premere INVIO:
+3.  Per concedere autorizzazioni di lettura all'entità servizio, aggiungerla al ruolo Service Support Administrator. Per ulteriori informazioni sull'assegnazione di ruoli all'entità servizio, vedere [Graph di AD di Azure e controllo di accesso basato sui ruoli](http://msdn.microsoft.com/it-it/library/hh974466.aspx). Digitare il comando seguente e premere INVIO:
 
          Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -222,5 +222,5 @@ Riepilogo
 
 In questa esercitazione è stato illustrato come creare e configurare un'applicazione a singolo tenant che utilizza le funzionalità Single Sign-On di Azure Active Directory. È inoltre stato effettuato l'accesso ai dati della directory del tenant tramite l'API Graph. È consigliabile esaminare l'applicazione di esempio per comprendere come sfruttare l'API Graph nella propria applicazione.
 
-Per ulteriori informazioni sull'API Graph, [vedere gli articoli sull'argomento su MSDN](http://msdn.microsoft.com/en-us/library/hh974476.aspx). È anche possibile creare applicazioni multitenant per Azure Active Directory consultando l'esercitazione seguente: [Sviluppo di applicazioni per cloud multitenant con Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
+Per ulteriori informazioni sull'API Graph, [vedere gli articoli sull'argomento su MSDN](http://msdn.microsoft.com/it-it/library/hh974476.aspx). È anche possibile creare applicazioni multitenant per Azure Active Directory consultando l'esercitazione seguente: [Sviluppo di applicazioni per cloud multitenant con Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
 

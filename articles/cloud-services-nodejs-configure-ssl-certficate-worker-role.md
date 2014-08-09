@@ -133,9 +133,9 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 Risorse aggiuntive
 ------------------
 
-[Come associare un certificato a un servizio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[Come associare un certificato a un servizio](http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx)
 
 [Configurazione di SSL per un'applicazione Node.js in un ruolo Web di Azure](/en-us/develop/nodejs/common-tasks/enable-ssl/)
 
-[Come configurare un certificato SSL su un endpoint HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[Come configurare un certificato SSL su un endpoint HTTPS](http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx)
 

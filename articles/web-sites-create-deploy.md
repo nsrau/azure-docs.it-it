@@ -4,7 +4,7 @@
 
 In questo argomento viene illustrato come creare un sito Web dalla raccolta oppure mediante il portale di gestione.
 
-Per informazioni su come distribuire il contenuto in un sito Web di Azure creato, vedere la sezione relativa alla **distribuzione** in [Siti Web di Azure](/en-us/documentation/services/web-sites/).
+Per informazioni su come distribuire il contenuto in un sito Web di Azure creato, vedere la sezione relativa alla **distribuzione** in [Siti Web di Azure](/it-it/documentation/services/web-sites/).
 
 ## Sommario
 
@@ -66,7 +66,7 @@ Per eliminare i siti Web viene utilizzata l'icona **Delete** del portale di gest
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere [Siti Web di Azure](/en-us/documentation/services/web-sites/).
+Per ulteriori informazioni, vedere [Siti Web di Azure](/it-it/documentation/services/web-sites/).
 
 
 

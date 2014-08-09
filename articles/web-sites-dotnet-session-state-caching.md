@@ -7,7 +7,7 @@ In questo argomento vengono fornite informazioni su come utilizzare il Servizio 
 
 Senza un provider esterno, lo stato sessione viene archiviato in-process sul server Web che ospita il sito. Per Siti Web di Azure, lo stato sessione in-process pone due problemi: in primo luogo, per i siti con più istanze, lo stato sessione archiviato in un'unica istanza non è accessibile ad altre istanze. Poiché è possibile indirizzare una richiesta dell'utente a qualsiasi istanza, non è garantita la disponibilità delle informazioni di sessione. In secondo luogo, eventuali cambiamenti di configurazione potrebbero produrre l'esecuzione del sito Web su un server completamente diverso.
 
-Il Servizio cache (Anteprima) fornisce un servizio di memorizzazione nella cache distribuita esterno al sito Web. Ciò consente di risolvere il problema dello stato sessione in-process. Per ulteriori informazioni su come utilizzare lo stato sessione vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+Il Servizio cache (Anteprima) fornisce un servizio di memorizzazione nella cache distribuita esterno al sito Web. Ciò consente di risolvere il problema dello stato sessione in-process. Per ulteriori informazioni su come utilizzare lo stato sessione vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/it-it/library/ms178581.aspx).
 
 La procedura di base per l'uso del Servizio cache (Anteprima) per la memorizzazione nella cache dello stato sessione include i seguenti passaggi:
 
@@ -38,7 +38,7 @@ Creazione della cache
 Configurazione del progetto ASP.NET
 -----------------------------------
 
-1.  In primo luogo, assicurarsi di aver [installato l'ultimo](http://www.windowsazure.com/en-us/downloads/?sdk=net) **Azure SDK per .NET**.
+1.  In primo luogo, assicurarsi di aver [installato l'ultimo](http://www.windowsazure.com/it-it/downloads/?sdk=net) **Azure SDK per .NET**.
 
 2.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto ASP.NET in **Esplora soluzioni** e quindi selezionare **Manage NuGet Packages** (se si utilizza WebMatrix, fare invece clic sul pulsante **NuGet** sulla barra degli strumenti).
 
@@ -87,5 +87,5 @@ Il codice seguente recupera questo valore dallo stato sessione.
     if (objValue != null)
        strValue = (string)obj;  
 
-Per ulteriori informazioni su come utilizzare lo stato sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+Per ulteriori informazioni su come utilizzare lo stato sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/it-it/library/ms178581.aspx).
 

@@ -61,7 +61,7 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
 Risorse aggiuntive
 ------------------
 
--   [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi IP virtuali in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx)
--   [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)
+-   [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi IP virtuali in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee517253.aspx)
+-   [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh386336.aspx)
 
 

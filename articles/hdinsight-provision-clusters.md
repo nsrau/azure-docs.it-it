@@ -52,7 +52,7 @@ In questa sessione viene descritta la procedura per creare un cluster HDInsight 
 
     HDINSIGHT VERSION
 
-    Scegliere la versione. Il valore predefinito è 2.0. Questa versione esegue cluster Hadoop 1.2. La versione 3.0 utilizza cluster Hadoop 2.2. Per ulteriori informazioni, vedere [Versione di Hadoop inclusa in Azure HDInsight](http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/).
+    Scegliere la versione. Il valore predefinito è 2.0. Questa versione esegue cluster Hadoop 1.2. La versione 3.0 utilizza cluster Hadoop 2.2. Per ulteriori informazioni, vedere [Versione di Hadoop inclusa in Azure HDInsight](http://www.windowsazure.com/it-it/manage/services/hdinsight/versioning-in-hdinsight/).
 
     REGION
 
@@ -144,7 +144,7 @@ Il provisioning di un cluster può richiedere alcuni minuti. Al termine del proc
 Utilizzo di Azure PowerShell
 ----------------------------
 
-Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/). Per ulteriori informazioni sull'utilizzo di PowerShell con HDInsight, vedere [Amministrazione di HDInsight tramite PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/). Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/). Per ulteriori informazioni sull'utilizzo di PowerShell con HDInsight, vedere [Amministrazione di HDInsight tramite PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/). Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx).
 
 Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster HDInsight utilizzando PowerShell:
 
@@ -297,7 +297,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 **Per installare l'interfaccia della riga di comando mediante Windows Installer**
 
-1.  Andare a **http://www.windowsazure.com/en-us/downloads/**.
+1.  Andare a **http://www.windowsazure.com/it-it/downloads/**.
 2.  Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 Prima di utilizzare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono utilizzate dall'interfaccia della riga di comando per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà utilizzata per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.

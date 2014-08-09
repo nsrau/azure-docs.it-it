@@ -1369,7 +1369,7 @@ Questo comando consente di rimuovere tutte le righe di dati dalla tabella.
 
 ### Comandi per la gestione degli script
 
-Comandi in questa sezione vengono utilizzati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/).
+Comandi in questa sezione vengono utilizzati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](http://www.windowsazure.com/it-it/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [opzioni] [nome\_servizio]**
 
@@ -1427,7 +1427,7 @@ Questo comando consente di rimuovere lo script insert esistente dalla tabella To
 
 ### Comandi per la gestione dei processi pianificati
 
-I comandi in questa sezione vengono utilizzati per gestire i processi pianificati appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Pianificare i processi](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+I comandi in questa sezione vengono utilizzati per gestire i processi pianificati appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Pianificare i processi](http://msdn.microsoft.com/it-it/library/windowsazure/jj860528.aspx).
 
 **mobile job list [opzioni] [nome\_servizio]**
 
@@ -1501,7 +1501,7 @@ L'eliminazione di un processo comporta anche l'eliminazione dello script caricat
 
 ### Comandi per il ridimensionamento di un servizio mobile
 
-I comandi in questa sezione vengono utilizzati per ridimensionare un servizio mobile. Per ulteriori informazioni, vedere [Ridimensionamento di un servizio mobile](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+I comandi in questa sezione vengono utilizzati per ridimensionare un servizio mobile. Per ulteriori informazioni, vedere [Ridimensionamento di un servizio mobile](http://msdn.microsoft.com/it-it/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [opzioni] [nome\_servizio]**
 

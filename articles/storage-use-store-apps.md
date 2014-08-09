@@ -8,7 +8,7 @@ In questa guida viene illustrato come iniziare a sviluppare un'applicazione Wind
 Download degli strumenti richiesti
 ----------------------------------
 
--   [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) facilita le operazioni di compilazione, debug, localizzazione, creazione pacchetti e distribuzione delle app di Windows Store.
+-   [Visual Studio 2012](http://msdn.microsoft.com/it-it/library/windows/apps/br211384) facilita le operazioni di compilazione, debug, localizzazione, creazione pacchetti e distribuzione delle app di Windows Store.
 -   La [libreria del client di archiviazione di Windows Azure per Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) contiene i tipi utilizzati per comunicare con l'archiviazione di Azure, inclusi in un pacchetto con un componente di Windows Runtime.
 -   Gli [strumenti dei Servizi dati WCF per le app di Windows Store](http://www.microsoft.com/en-us/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio 2012.
 
@@ -32,7 +32,7 @@ A questo punto l'applicazione sarà pronta per comunicare con BLOB e i servizi d
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
 
-Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo di gestione degli eventi con la [parola chiave async](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx):
+Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo di gestione degli eventi con la [parola chiave async](http://msdn.microsoft.com/it-it/library/vstudio/hh156513.aspx):
 
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);

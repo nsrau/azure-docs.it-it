@@ -26,7 +26,7 @@ Utilizzare le federazioni
 
 Nel database SQL le federazioni vengono utilizzate per raggiungere livelli superiori di scalabilità e prestazioni. Una o più tabelle all'interno di un database vengono divise per riga e distribuite tra più database, ovvero i membri della federazione. Si tratta in sostanza di un partizionamento orizzontale. I principali scenari in cui questo approccio risulta utile sono quelli in cui è necessario ottenere scalabilità e prestazioni oppure gestire la capacità.
 
-Le federazioni sono supportate nell'edizione Business. Per ulteriori informazioni, vedere [Federazioni in database SQL di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) e [Esercitazione sulle federazioni del database SQL - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx).
+Le federazioni sono supportate nell'edizione Business. Per ulteriori informazioni, vedere [Federazioni in database SQL di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh597452.aspx) e [Esercitazione sulle federazioni del database SQL - DBA](http://msdn.microsoft.com/it-it/library/windowsazure/hh778416.aspx).
 
 Valutare altri tipi di archiviazione
 ------------------------------------

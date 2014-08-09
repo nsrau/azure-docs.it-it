@@ -36,7 +36,7 @@ Per poter autenticare gli utenti, è necessario registrare la propria app presso
 	-   [Account di accesso di Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 	-   [Account di accesso di Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 	-   [Account di accesso di Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Azure Active Directory](/it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	Non dimenticare di prendere nota dei valori dell'identità e del segreto client generati dal provider.
 

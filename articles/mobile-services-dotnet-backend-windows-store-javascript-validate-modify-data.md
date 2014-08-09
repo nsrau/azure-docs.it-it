@@ -3,8 +3,8 @@
 Convalida e modifica dei dati in Servizi mobili mediante il back-end .NET
 =========================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
-[Back-end .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Back-end .NET") | [Back-end JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/ "Back-end JavaScript")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#") [Windows Store JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript") [Windows Phone](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/ "Back-end JavaScript")
 
 In questo argomento viene illustrato come utilizzare il codice in Servizi mobili di Azure back-end .NET per convalidare e modificare dati. Il servizio back-end .NET è un servizio HTTP creato con il framework API Web. Se si ha familiarità con la classe `ApiController` definita nel framework API Web, la classe `TableController` fornita da Servizi mobili risulterà molto intuitiva. `TableController` deriva dalla classe `ApiController` e fornisce funzionalità aggiuntive per l'interfaccia con una tabella di database. Può essere utilizzato per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati, descritte in questa esercitazione.
 
@@ -16,7 +16,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 4.  [Aggiunta di un campo timestamp per CompleteDate](#add-timestamp)
 5.  [Aggiornamento del client per la visualizzazione del timestamp CompleteDate](#update-client-timestamp)
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).
+Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).
 
 Aggiunta del codice di convalida a Servizi mobili
 -------------------------------------------------
@@ -127,10 +127,10 @@ Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima es
 
 Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e per l'invio di notifiche push. Per ulteriori informazioni, vedere le esercitazioni seguenti:
 
--   [Autorizzazione lato servizio degli utenti](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
+-   [Autorizzazione lato servizio degli utenti](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
     <br/>LInformazioni su come filtrare i dati in base all'ID di un utente autenticato.
 
--   [Introduzione alle notifiche push](en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
+-   [Introduzione alle notifiche push](it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
     <br/>LInformazioni sull'invio di una notifica push di base all'app.
 
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
@@ -155,12 +155,12 @@ Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Service-side authorization of users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
+[Service-side authorization of users]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-[Get started with authentication]: en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-[Get started with push notifications]: en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+[Getting Started]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
+[Get started with authentication]: it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Get started with push notifications]: it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [Management Portal]: https://manage.windowsazure.com/

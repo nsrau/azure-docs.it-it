@@ -79,7 +79,7 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 Risorse aggiuntive
 ------------------
 
--   [Accesso remoto alle istanze del ruolo in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)
--   [Utilizzo di Desktop remoto con i ruoli Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx)
+-   [Accesso remoto alle istanze del ruolo in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh124107.aspx)
+-   [Utilizzo di Desktop remoto con i ruoli Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx)
 
 

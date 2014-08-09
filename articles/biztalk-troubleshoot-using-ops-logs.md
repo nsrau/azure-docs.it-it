@@ -7,7 +7,7 @@ I log operazioni sono una funzionalità dei servizi di gestione disponibile sul 
 
 **Nota**
 
-Questa funzionalità acquisisce log solo per le operazioni di gestione effettuate su Servizi BizTalk, ad esempio avvio del servizio, backup e così via. Di tali operazioni viene tenuta traccia indipendentemente dal fatto che vengano eseguite dal portale di gestione di Azure o mediante le [API REST di Servizi BizTalk](http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).
+Questa funzionalità acquisisce log solo per le operazioni di gestione effettuate su Servizi BizTalk, ad esempio avvio del servizio, backup e così via. Di tali operazioni viene tenuta traccia indipendentemente dal fatto che vengano eseguite dal portale di gestione di Azure o mediante le [API REST di Servizi BizTalk](http://msdn.microsoft.com/it-it/library/windowsazure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).
 
 Non vengono acquisiti log delle attività correlate al runtime dei servizi BizTalk, ad esempio un messaggio elaborato da bridge. Per visualizzare tali log, è necessario utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](http://msdn.microsoft.com/library/windowsazure/hh949805.aspx).
 

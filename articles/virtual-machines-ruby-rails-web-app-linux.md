@@ -124,7 +124,7 @@ Per avviare il server Rails nell'ambiente di sviluppo, eseguire la procedura seg
 Creazione di una macchina virtuale di Azure
 -------------------------------------------
 
-Attenersi alle istruzioni riportate [qui](http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial) per creare una macchina virtuale di Azure che ospita Linux.
+Attenersi alle istruzioni riportate [qui](http://windowsazure.com/it-it/documentation/articles/virtual-machines-linux-tutorial) per creare una macchina virtuale di Azure che ospita Linux.
 
 **Nota**
 
@@ -262,16 +262,16 @@ Passaggi successivi
 
 In questo articolo è stato illustrato come creare e pubblicare una semplice applicazione Rails basata su form in una macchina virtuale di Azure. La maggior parte delle azioni eseguite sono manuali, mentre in un ambiente di produzione è consigliabile automatizzarle. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche.
 
-Per informazioni sull'automazione della distribuzione dell'applicazione Rails, oltre che sull'utilizzo del server Web Unicorn e di NginX, vedere [Unicorn, NginX e Capistrano con una macchina virtuale di Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
+Per informazioni sull'automazione della distribuzione dell'applicazione Rails, oltre che sull'utilizzo del server Web Unicorn e di NginX, vedere [Unicorn, NginX e Capistrano con una macchina virtuale di Azure](http://windowsazure.com/it-it/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
 
 Per ulteriori informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails](http://guides.rubyonrails.org/).
 
 Per ulteriori informazioni sull'utilizzo di Azure SDK for Ruby per l'accesso ai servizi di Azure dall'applicazione Ruby, vedere:
 
--   [Archiviazione di dati non strutturati mediante BLOB](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
+-   [Archiviazione di dati non strutturati mediante BLOB](http://windowsazure.com/it-it/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
--   [Archiviazione di coppie chiave-valore mediante tabelle](http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/)
+-   [Archiviazione di coppie chiave-valore mediante tabelle](http://www.windowsazure.com/it-it/develop/ruby/how-to-guides/table-service/)
 
--   [Distribuzione di contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti](http://www.windowsazure.com/en-us/develop/ruby/app-services/)
+-   [Distribuzione di contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti](http://www.windowsazure.com/it-it/develop/ruby/app-services/)
 
 

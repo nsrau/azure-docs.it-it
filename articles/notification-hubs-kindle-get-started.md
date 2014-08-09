@@ -3,7 +3,7 @@
 Introduzione ad Hub di notifica
 ===============================
 
-[Windows Store C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows Store C#")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+[Windows Store C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows Store C#")[Windows Phone](/it-it/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/it-it/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/it-it/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/it-it/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/it-it/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/it-it/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
 
 In questo argomento viene illustrato come utilizzare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. In questa esercitazione verrà creata un'app Kindle vuota che riceve notifiche push tramite il servizio Google Cloud Messaging (GCM).
 

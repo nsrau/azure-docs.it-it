@@ -86,7 +86,7 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 **Note aggiuntive e informazioni sul numero di versione**
 
--   Il driver JDBC per SQL Server viene utilizzato internamente da HDInsight e non viene utilizzato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC, utilizzare Microsoft Hive ODBC Driver. Per informazioni sull'utilizzo di Hive ODBC, vedere [Connessione di Excel a HDInsight mediante Microsoft Hive ODBC Driver](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
+-   Il driver JDBC per SQL Server viene utilizzato internamente da HDInsight e non viene utilizzato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC, utilizzare Microsoft Hive ODBC Driver. Per informazioni sull'utilizzo di Hive ODBC, vedere [Connessione di Excel a HDInsight mediante Microsoft Hive ODBC Driver](/it-it/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
 
 -   Il cluster HDInsight versione 3.0 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html).
 
@@ -99,9 +99,9 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://www.windowsazure.com/en-us/support/forums/
+[wa-forums]: http://www.windowsazure.com/it-it/support/forums/
 
-[connect-excel-with-hive-ODBC]: /en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
+[connect-excel-with-hive-ODBC]: /it-it/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
 
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 

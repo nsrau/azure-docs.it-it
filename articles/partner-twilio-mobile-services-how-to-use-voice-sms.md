@@ -75,14 +75,14 @@ In alternativa, anziché utilizzare un numero esistente per le applicazioni, è 
 Creazione di un servizio mobile
 -------------------------------
 
-Un servizio mobile che ospita un'applicazione compatibile con Twilio non è diverso da qualsiasi altro servizio mobile. È sufficiente aggiungere la libreria node.js di Twilio, in modo da potervi fare riferimento dagli script di API personalizzate del servizio mobile. Per informazioni sulla creazione di un servizio mobile iniziale, vedere [Introduzione a Servizi mobili](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/).
+Un servizio mobile che ospita un'applicazione compatibile con Twilio non è diverso da qualsiasi altro servizio mobile. È sufficiente aggiungere la libreria node.js di Twilio, in modo da potervi fare riferimento dagli script di API personalizzate del servizio mobile. Per informazioni sulla creazione di un servizio mobile iniziale, vedere [Introduzione a Servizi mobili](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started/).
 
 Configurazione del servizio mobile per l'utilizzo della libreria Node.js di Twilio
 ----------------------------------------------------------------------------------
 
 Twilio fornisce una libreria Node.js che copre vari aspetti di Twilio per fornire modi semplici e pratici per interagire con l'API REST di Twilio e il client Twilio per generare risposte TwiML.
 
-Per utilizzare la libreria Node.js di Twilio nel servizio mobile, è necessario avvalersi del supporto per il modulo npm di Servizi mobili, archiviando a tale scopo gli script nel controllo del codice sorgente. Nell'esercitazione [Archiviazione di script nel controllo del codice sorgente](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) viene illustrato come configurare per la prima volta il controllo del codice sorgente in Servizi mobili e come archiviare gli script del server in un archivio Git.
+Per utilizzare la libreria Node.js di Twilio nel servizio mobile, è necessario avvalersi del supporto per il modulo npm di Servizi mobili, archiviando a tale scopo gli script nel controllo del codice sorgente. Nell'esercitazione [Archiviazione di script nel controllo del codice sorgente](http://www.windowsazure.com/it-it/develop/mobile/tutorials/store-scripts-in-source-control/) viene illustrato come configurare per la prima volta il controllo del codice sorgente in Servizi mobili e come archiviare gli script del server in un archivio Git.
 
 Dopo avere configurato il controllo del codice sorgente per il servizio mobile, aprire la scheda Configure nel dashboard del servizio mobile, quindi individuare e copiare l'URL di Git.
 

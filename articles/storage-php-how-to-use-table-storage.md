@@ -92,7 +92,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 Procedura: Creare una tabella
 -----------------------------
 
-Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per ulteriori informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle](http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx).
+Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per ulteriori informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle](http://msdn.microsoft.com/it-it/library/windowsazure/dd894042.aspx).
 
     require_once 'vendor\autoload.php';
 
@@ -111,10 +111,10 @@ Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il meto
         $error_message = $e->getMessage();
         // Handle exception based on error codes and messages.
         // Error codes and messages can be found here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
     }
 
-Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx).
+Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx).
 
 Procedura: Aggiungere un'entità a una tabella
 ---------------------------------------------
@@ -146,12 +146,12 @@ Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e pa
                          catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
                          }
 
-Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx).
+Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx).
 
 La classe **TableRestProxy** offre due metodi alternativi per l'inserimento delle entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per utilizzare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come utilizzare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Se è stata inserita in precedenza (come illustrato nell'esempio precedente), la proprietà `DueDate` verrà aggiornata e verrà aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
 
@@ -187,7 +187,7 @@ La classe **TableRestProxy** offre due metodi alternativi per l'inserimento dell
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -212,7 +212,7 @@ Il metodo **TableRestProxy-\>getEntity** consente di recuperare una singola enti
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -225,7 +225,7 @@ Il metodo **TableRestProxy-\>getEntity** consente di recuperare una singola enti
 Procedura: Recuperare tutte le entità di una partizione
 -------------------------------------------------------
 
-Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
+Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx)). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
 
     require_once 'vendor\autoload.php';
 
@@ -243,7 +243,7 @@ Le query di entità vengono create utilizzando filtri (per ulteriori informazion
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -258,7 +258,7 @@ Le query di entità vengono create utilizzando filtri (per ulteriori informazion
 Procedura: Recuperare un subset di entità in una partizione
 -----------------------------------------------------------
 
-Lo stesso modello applicato nell'esempio precedente può essere utilizzato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)). Nell'esempio seguente viene illustrato come utilizzare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
+Lo stesso modello applicato nell'esempio precedente può essere utilizzato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx)). Nell'esempio seguente viene illustrato come utilizzare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
 
     require_once 'vendor\autoload.php';
 
@@ -276,7 +276,7 @@ Lo stesso modello applicato nell'esempio precedente può essere utilizzato per r
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -311,7 +311,7 @@ Procedura: Recuperare un subset di proprietà di entità
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -358,7 +358,7 @@ Procedura: Aggiornare un'entità
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -384,7 +384,7 @@ Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKe
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -441,13 +441,13 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Per ulteriori informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità](http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx).
+Per ulteriori informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894038.aspx).
 
 Procedura: Eliminare una tabella
 --------------------------------
@@ -469,7 +469,7 @@ Infine, per eliminare una tabella, passare il nome della tabella al metodo **Tab
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -480,6 +480,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del Servizio tabelle di Azure, visitare i collegamenti seguenti per ulteriori informazioni su come eseguire attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
 -   Blog del team di Archiviazione di Azure: http://blogs.msdn.com/b/windowsazurestorage/
 

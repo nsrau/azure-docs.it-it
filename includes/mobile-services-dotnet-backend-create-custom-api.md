@@ -41,7 +41,7 @@
              }
          }
 
-    Nel codice precedente sostituire `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che dovrà corrispondere al nome del servizio mobile aggiunto con `Context`. In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
+    Nel codice precedente sostituire `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che dovrà corrispondere al nome del servizio mobile aggiunto con `Context`. In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/it-it/library/system.data.entity.database(v=vs.113).aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
     > [WACOM.NOTE] Poiché vengono impostate autorizzazioni predefinite, qualsiasi utente dell'app può chiamare l'API personalizzata. Tuttavia, la chiave dell'applicazione non viene distribuita né archiviata in modo sicuro e non può essere considerata una credenziale di sicurezza. Per questo motivo, è consigliabile limitare l'accesso solo agli utenti autenticati per le operazioni che modificano dati o hanno effetto sul servizio mobile.
 

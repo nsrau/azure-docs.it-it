@@ -3,7 +3,7 @@
 Come utilizzare il database SQL di Azure in Java
 ================================================
 
-Nella procedura seguente viene illustrato come utilizzare il database SQL di Azure con Java. Per semplicità vengono illustrati solo esempi di riga di comando, tuttavia, per applicazioni Web ospitate in locale, all'interno di Azure o in altri ambienti, saranno applicabili passaggi molto simili a quelli illustrati. In questa guida vengono illustrate la creazione di un server e quella di un database dal [portale di gestione di Azure](https://windows.azure.com). Per informazioni su come eseguire queste attività dal portale di produzione, vedere [Utilizzo del database SQL con Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).
+Nella procedura seguente viene illustrato come utilizzare il database SQL di Azure con Java. Per semplicità vengono illustrati solo esempi di riga di comando, tuttavia, per applicazioni Web ospitate in locale, all'interno di Azure o in altri ambienti, saranno applicabili passaggi molto simili a quelli illustrati. In questa guida vengono illustrate la creazione di un server e quella di un database dal [portale di gestione di Azure](https://windows.azure.com). Per informazioni su come eseguire queste attività dal portale di produzione, vedere [Utilizzo del database SQL con Java](http://msdn.microsoft.com/it-it/library/windowsazure/hh749029.aspx).
 
 Informazioni sul database SQL di Azure
 --------------------------------------
@@ -37,7 +37,7 @@ Sommario
 Concetti
 --------
 
-Poiché il database SQL di Azure è basato sulle tecnologie di SQL Server, l'accesso da Java è molto simile in entrambi i casi. È possibile sviluppare un'applicazione in locale, utilizzando SQL Server, e quindi connettersi al database SQL cambiando solo la stringa di connessione. È possibile utilizzare un driver JDBC per SQL Server nell'applicazione. Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+Poiché il database SQL di Azure è basato sulle tecnologie di SQL Server, l'accesso da Java è molto simile in entrambi i casi. È possibile sviluppare un'applicazione in locale, utilizzando SQL Server, e quindi connettersi al database SQL cambiando solo la stringa di connessione. È possibile utilizzare un driver JDBC per SQL Server nell'applicazione. Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/it-it/library/windowsazure/ff394102.aspx).
 
 Per risorse aggiuntive sul database SQL, vedere la sezione [Passaggi successivi](#nextsteps).
 
@@ -48,7 +48,7 @@ Di seguito vengono riportati i prerequisiti per l'utilizzo del database SQL con 
 
 -   Java Developer Kit (JDK) v 1.6 o versione successiva.
 -   Una sottoscrizione di Azure, che può essere acquistata all'indirizzo <http://www.microsoft.com/windowsazure/offers/>.
--   Se si utilizza Eclipse, è necessario IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>. Il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies). Durante l'installazione del plug-in, assicurarsi che sia incluso Microsoft JDBC Driver 4.0 per SQL Server. Per ulteriori informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+-   Se si utilizza Eclipse, è necessario IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>. Il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies). Durante l'installazione del plug-in, assicurarsi che sia incluso Microsoft JDBC Driver 4.0 per SQL Server. Per ulteriori informazioni, vedere [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/it-it/library/windowsazure/hh690946.aspx).
 -   Se non si utilizza Eclipse, è necessario Microsoft JDBC Driver 4.0 per SQL Server, che è possibile scaricare dall'indirizzo <http://www.microsoft.com/it-IT/download/details.aspx?id=11774>.
 
 Creazione di un database SQL di Azure
@@ -132,7 +132,7 @@ Per utilizzare il database SQL di Azure in Java
     4.  Nella finestra di dialogo **Add Library** selezionare **Microsoft JDBC Driver 4.0 per SQL Server**, fare clic su **Next**, quindi scegliere **Finish**.
     5.  Fare clic su **OK** per chiudere la finestra di dialogo **Properties**.
 
-    Se non si utilizza Eclipse, aggiungere il file JAR di Microsoft JDBC Driver 4.0 per SQL Server al percorso della classe. Per informazioni correlate, vedere [Utilizzo del driver JDBC](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    Se non si utilizza Eclipse, aggiungere il file JAR di Microsoft JDBC Driver 4.0 per SQL Server al percorso della classe. Per informazioni correlate, vedere [Utilizzo del driver JDBC](http://msdn.microsoft.com/it-it/library/ms378526.aspx).
 
 4.  Nel codice **HelloSQLAzure.java** aggiungere istruzioni `import` come illustrato di seguito:
 
@@ -713,7 +713,7 @@ Per utilizzare un database SQL in Java all'interno di una distribuzione di Azure
 3.  Nella finestra di dialogo **New Assembly Directive** fare clic su **Java Build Path Entries**, quindi scegliere **Next**.
 4.  Selezionare **Microsoft JDBC Driver 4.0 per SQL Server**, quindi fare clic su **Finish**.
 5.  Fare clic su **OK** per chiudere la finestra di dialogo **Properties**.
-6.  Esportare il file WAR del progetto nella cartella approot e ricompilare il progetto Azure secondo i passaggi forniti in [Creazione di un'applicazione Hello World utilizzando il plug-in di Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). Nell'argomento viene anche descritto come eseguire l'applicazione nell'emulatore di calcolo e in Azure.
+6.  Esportare il file WAR del progetto nella cartella approot e ricompilare il progetto Azure secondo i passaggi forniti in [Creazione di un'applicazione Hello World utilizzando il plug-in di Azure per Eclipse con Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx). Nell'argomento viene anche descritto come eseguire l'applicazione nell'emulatore di calcolo e in Azure.
 
 **Creazione del pacchetto con Microsoft JDBC Driver 4.0 per SQL Server quando non si utilizza Eclipse**
 
@@ -722,5 +722,5 @@ Per utilizzare un database SQL in Java all'interno di una distribuzione di Azure
 Passaggi successivi
 -------------------
 
-Per ulteriori informazioni su Microsoft JDBC Driver per SQL Server, vedere [Panoramica del driver JDBC](http://msdn.microsoft.com/en-us/library/ms378749.aspx). Per ulteriori informazioni sul database SQL, vedere [Panoramica dei database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
+Per ulteriori informazioni su Microsoft JDBC Driver per SQL Server, vedere [Panoramica del driver JDBC](http://msdn.microsoft.com/it-it/library/ms378749.aspx). Per ulteriori informazioni sul database SQL, vedere [Panoramica dei database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee336241.aspx).
 

@@ -742,9 +742,9 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [7]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
 [8]: http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 [9]: http://curah.microsoft.com/55636/aspnet-identity
-[10]: http://msdn.microsoft.com/en-us/library/ms228053.aspx
-[11]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute.aspx
-[12]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+[10]: http://msdn.microsoft.com/it-it/library/ms228053.aspx
+[11]: http://msdn.microsoft.com/it-it/library/system.web.mvc.authorizeattribute.aspx
+[12]: http://msdn.microsoft.com/it-it/library/system.web.mvc.requirehttpsattribute.aspx
 [13]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
 [14]: http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership
 [15]: http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/

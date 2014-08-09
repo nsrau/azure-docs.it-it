@@ -81,7 +81,7 @@ Con Siti Web o Macchine virtuali è consigliabile utilizzare il sistema di confi
         </appSettings>
     </configuration>
 
-Per ulteriori informazioni sulle stringhe di connessione di archiviazione, leggere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx).
+Per ulteriori informazioni sulle stringhe di connessione di archiviazione, leggere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/it-it/library/windowsazure/ee758697.aspx).
 
 È ora possibile eseguire le procedure di questa guida.
 
@@ -414,9 +414,9 @@ Passaggi successiviPassaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
 -   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio BLOB:
-    -   [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+    -   [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/it-it/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/it-it/library/windowsazure/dd179355)
+-   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx).
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
     -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/en-us/develop/net/how-to-guides/blob-storage/).
     -   Per archiviare dati relazionali, utilizzare [Database SQL](/en-us/develop/net/how-to-guides/sql-database/).

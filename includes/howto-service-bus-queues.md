@@ -101,4 +101,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx

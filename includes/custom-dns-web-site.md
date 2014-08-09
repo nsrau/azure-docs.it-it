@@ -3,7 +3,7 @@
 
 Quando si crea un sito Web, Azure fornisce un sottodominio descrittivo nel dominio azurewebsites.net in modo che gli utenti possano accedere al sito Web utilizzando un URL come http://<sitopersonale>.azurewebsites.net. Se tuttavia si configurano i siti Web per la modalità condivisa o standard, è possibile eseguire il mapping del sito Web al proprio nome di dominio personalizzato.
 
-Facoltativamente, è possibile utilizzare Gestione traffico di Azure per bilanciare il carico del traffico in ingresso nel sito Web. Per ulteriori informazioni sul funzionamento di Gestione traffico con i siti Web, vedere [Controllo del traffico dei siti Web di Azure con Gestione traffico di Azure](/en-us/documentation/articles/web-sites-traffic-manager/).
+Facoltativamente, è possibile utilizzare Gestione traffico di Azure per bilanciare il carico del traffico in ingresso nel sito Web. Per ulteriori informazioni sul funzionamento di Gestione traffico con i siti Web, vedere [Controllo del traffico dei siti Web di Azure con Gestione traffico di Azure](/it-it/documentation/articles/web-sites-traffic-manager/).
 
 > [WACOM.NOTE] Le procedure descritte in questa attività si applicano
 > a Siti Web di Azure. Per Servizi cloud, vedere [Configurazione di un
@@ -58,7 +58,7 @@ Un record A consente di eseguire il mapping di un dominio, ad esempio **contoso.
 > bilanciamento del carico con Gestione traffico. Per ulteriori
 > informazioni, vedere [Controllo del traffico dei siti Web di Azure con
 > Gestione traffico di
-> Azure](/en-us/documentation/articles/web-sites-traffic-manager/).
+> Azure](/it-it/documentation/articles/web-sites-traffic-manager/).
 
 <a name="bkmk_configsharedmode"></a><h2>Configurazione dei siti Web per la modalità condivisa o standard</h2>
 
@@ -394,16 +394,16 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+[1]: http://www.windowsazure.com/it-it/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/it-it/pricing/details/web-sites/
 [3]: http://en.wikipedia.org/wiki/CNAME_record
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
-[10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
+[7]: http://msdn.microsoft.com/it-it/library/windowsazure/dn339012.aspx
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/hh744839.aspx
+[9]: http://www.windowsazure.com/it-it/manage/install-and-configure-windows-powershell/
+[10]: http://www.windowsazure.com/it-it/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/
-[12]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/
-[13]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+[12]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-manage-websites/
+[13]: http://www.windowsazure.com/it-it/develop/net/common-tasks/enable-ssl-web-site/

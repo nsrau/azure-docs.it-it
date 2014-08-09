@@ -87,5 +87,5 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, utilizzare i collegamenti seguenti per ulteriori informazioni.
 
--   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx)
 

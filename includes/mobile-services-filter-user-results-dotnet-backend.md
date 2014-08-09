@@ -11,7 +11,7 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
 
          public string UserId { get; set; }
 
-    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per ulteriori informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per ulteriori informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
 3.  In Esplora soluzioni espandere la cartella Controllers, aprire il file di progetto TodoItemController.cs e aggiungere l'istruzione **using** seguente:
 

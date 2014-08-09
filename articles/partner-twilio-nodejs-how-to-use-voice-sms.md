@@ -235,7 +235,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
 [2]: https://www.twilio.com/docs/api/twiml
 [3]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
 [4]: http://ahoy.twilio.com/azure
-[5]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[5]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
 [6]: https://www.twilio.com/user/account
 [7]: http://npmjs.org
 [8]: http://expressjs.com
@@ -246,7 +246,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com

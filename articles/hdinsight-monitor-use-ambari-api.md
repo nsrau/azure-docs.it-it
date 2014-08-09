@@ -129,7 +129,7 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 -   [Amministrazione di cluster HDInsight tramite il portale di gestione](../hdinsight-administer-use-management-portal/)
 -   [Amministrazione di cluster HDInsight tramite Azure PowerShell](../hdinsight-administer-use-powershell/)
 -   [Amministrazione di cluster HDInsight tramite l'interfaccia della riga di comando](../hdinsight-administer-use-command-line/)
--   [Documentazione relativa a HDInsight](/en-us/documentation/services/hdinsight/)
+-   [Documentazione relativa a HDInsight](/it-it/documentation/services/hdinsight/)
 -   [Introduzione all'utilizzo di HDInsight](../hdinsight-get-started/)
 
 [ambari-home]: http://ambari.apache.org/
@@ -146,7 +146,7 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
 [hdinsight-admin-cli]: ../hdinsight-administer-use-command-line/
-[hdinsight-documentation]: /en-us/documentation/services/hdinsight/
+[hdinsight-documentation]: /it-it/documentation/services/hdinsight/
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 

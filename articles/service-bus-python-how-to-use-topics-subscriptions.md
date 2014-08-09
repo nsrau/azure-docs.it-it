@@ -148,6 +148,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, utilizzare i collegamenti seguenti per ulteriori informazioni.
 
--   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/en-us/library/hh367516.aspx)
--   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
+-   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/it-it/library/hh367516.aspx)
+-   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 

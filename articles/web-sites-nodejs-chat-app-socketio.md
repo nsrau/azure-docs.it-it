@@ -7,7 +7,7 @@ Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client
 
 **Nota**
 
-Le procedure descritte in questa attività si applicano a Siti Web di Azure. Per Servizi cloud, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/).
+Le procedure descritte in questa attività si applicano a Siti Web di Azure. Per Servizi cloud, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure](http://www.windowsazure.com/it-it/develop/nodejs/tutorials/app-using-socketio/).
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -68,7 +68,7 @@ Per creare un sito Web di Azure e quindi abilitare la pubblicazione Git, attener
 
 **Nota**
 
-Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E).
+Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E).
 
 1.  Dalla riga di comando passare alla directory **\\node\\chat** e utilizzare il comando seguente per creare un nuovo sito Web di Azure e abilitare un archivio Git per il sito Web e la directory locale. Verrà inoltre creato un archivio Git remoto denominato 'azure'.
 

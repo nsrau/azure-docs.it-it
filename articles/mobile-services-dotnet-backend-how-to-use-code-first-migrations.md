@@ -135,10 +135,10 @@ Con il codice seguente è possibile eseguire il seeding nella sola colonna UserI
 Nel codice viene chiamato il metodo [AddOrUpdate] con estensione helper per aggiungere dati di seeding alla nuova colonna UserId. Utilizzando [AddOrUpdate] non vengono creati duplicati di riga.
 
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k("System.Data.Entity.DropCreateDatabaseIfModelChanges\`1");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.5);k(DevLang-csharp)&rd=true 
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx 
+[Seed]: http://msdn.microsoft.com/it-it/library/hh829453(v=vs.113).aspx 
 [Azure Management Portal]: https://manage.windowsazure.com/ 
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx 
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=vs.113).aspx 
+[AddOrUpdate]: http://msdn.microsoft.com/it-it/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 
 <!-- Anchors -->
 [Migrations]: #migrations
@@ -151,7 +151,7 @@ Nel codice viene chiamato il metodo [AddOrUpdate] con estensione helper per aggi
 
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k("System.Data.Entity.DropCreateDatabaseIfModelChanges`1");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.5);k(DevLang-csharp)&rd=true
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/it-it/library/hh829453(v=vs.113).aspx
 [Azure Management Portal]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/it-it/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

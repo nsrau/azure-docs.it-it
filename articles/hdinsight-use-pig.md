@@ -18,7 +18,7 @@ Per ulteriori informazioni su Pig Latin, vedere il [manuale di riferimento di Pi
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 -   Disporre di un cluster HDInsight di Azure. Per istruzioni, vedere [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/) o [Provisioning di cluster HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
--   Installare e configurare Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installare e configurare Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 **Tempo previsto per il completamento:** 30 minuti
 
@@ -175,7 +175,7 @@ In questa sezione sono disponibili le istruzioni per utilizzare i cmdlet di Powe
 
 **Per eseguire Pig Latin mediante PowerShell**
 
-1.  Aprire una finestra della console di Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Aprire una finestra della console di Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
 
          Add-AzureAccount

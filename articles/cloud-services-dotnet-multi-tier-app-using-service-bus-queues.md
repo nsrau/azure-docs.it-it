@@ -693,13 +693,13 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx
 [2]: http://go.microsoft.com/fwlink/?LinkId=271920
 [3]: http://manage.windowsazure.com
-[4]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-[6]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-[7]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+[4]: http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/ee732537.aspx
+[6]: http://www.windowsazure.com/it-it/develop/net/fundamentals/compute/
+[7]: http://www.windowsazure.com/it-it/develop/net/tutorials/get-started/
 
  [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
   [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.jpg
@@ -728,8 +728,8 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/it-it/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://www.windowsazure.com/it-it/develop/net/fundamentals/compute/

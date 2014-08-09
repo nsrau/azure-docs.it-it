@@ -167,7 +167,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
     
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
     
-    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per ulteriori informazioni, vedere l'articolo [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
+    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per ulteriori informazioni, vedere l'articolo [http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx][].
     
     **Aggiornamento distribuzione ed eliminazione distribuzione-> Nuova distribuzione**
     
@@ -486,7 +486,7 @@ In questo passaggio verrà collegato TFS Team Build con lo script creato nel pas
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
 [Librerie di Azure][]: http://go.microsoft.com/fwlink/?LinkId=257862
 [Strumenti di Azure per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-[Riferimenti per la riga di comando di MSBuild]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx 
+[Riferimenti per la riga di comando di MSBuild]: http://msdn.microsoft.com/it-it/library/ms164311(v=VS.90).aspx 
 [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966 
 [Informazioni sul sistema di compilazione di Team Foundation]: http://go.microsoft.com/fwlink/?LinkId=238798 
 [Configurazione di un computer di compilazione]: http://go.microsoft.com/fwlink/?LinkId=238799 

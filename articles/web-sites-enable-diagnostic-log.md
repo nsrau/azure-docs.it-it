@@ -31,13 +31,13 @@ La diagnostica del sito consente di abilitare o disabilitare le opzioni seguenti
 
 ### Diagnostica applicazioni
 
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/it-it/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 La diagnostica applicazioni consente di risolvere i problemi dell'applicazione in esecuzione mediante il rilascio di informazioni quando vengono utilizzati determinati frammenti di codice. Si tratta di una funzione piuttosto utile quando si tenta di determinare il motivo per cui il codice intraprende un percorso specifico e, di solito, quando tale percorso produce un errore o un altro comportamento indesiderato.
 
-Per informazioni sull'utilizzo della diagnostica applicazioni in Visual Studio vedere [Risoluzione dei problemi di Siti Web di Azure in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Per informazioni sull'utilizzo della diagnostica applicazioni in Visual Studio vedere [Risoluzione dei problemi di Siti Web di Azure in Visual Studio](http://www.windowsazure.com/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [WACOM.NOTE] Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
 
@@ -51,7 +51,7 @@ Quando si abilita la **diagnostica applicazioni** è inoltre necessario selezion
 
 Quando si abilita la **diagnostica del sito** è necessario selezionare **storage** o **file system** per **web server logging**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
 
-> [WACOM.NOTE] Le informazioni memorizzate nell'**archiviazione tabelle** o nell'**archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](http://www.windowsazure.com/en-us/downloads/#).
+> [WACOM.NOTE] Le informazioni memorizzate nell'**archiviazione tabelle** o nell'**archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](http://www.windowsazure.com/it-it/downloads/#).
 
 Le impostazioni seguenti sono disponibili quando si abilita la **diagnostica applicazioni**:
 
@@ -63,7 +63,7 @@ Le impostazioni seguenti sono disponibili quando si abilita la **diagnostica app
 
 > [WACOM.NOTE] È possibile abilitare contemporaneamente qualsiasi combinazione di file system, archiviazione tabelle e archiviazione BLOB e disporre di singole configurazioni del livello di log. Ad esempio, può essere opportuno registrare gli errori e gli avvisi nell'archiviazione BLOB come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato.
 
-> [WACOM.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ## Procedura: Scaricare i log
 
@@ -95,7 +95,7 @@ Per scaricare i file di log, avviare una nuova istanza di Azure PowerShell e uti
 
 In tal modo, i log del sito Web specificato dal parametro **-Name** verranno salvati in un file denominato **logs.zip** nella directory corrente.
 
-> [WACOM.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Download con gli strumenti da riga di comando di Azure
 
@@ -105,7 +105,7 @@ Per scaricare i file di log mediante gli strumenti da riga di comando di Azure, 
 
 In tal modo, i log del sito Web denominato "nomesitoWeb" verranno salvati in un file denominato **diagnostics.zip** nella directory corrente.
 
-> [WACOM.NOTE] Se gli strumenti da riga di comando di Azure non sono stati installati o configurati per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Se gli strumenti da riga di comando di Azure non sono stati installati o configurati per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/).
 
 ## Procedura: Eseguire lo streaming dei log
 
@@ -133,7 +133,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, utilizzare il parametro **-
 
 Per visualizzare un elenco di percorsi disponibili utilizzare il parametro -ListPath.
 
-> [WACOM.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Streaming con gli strumenti da riga di comando di Azure
 
@@ -151,7 +151,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, utilizzare il parametro **-
 
     azure site log tail nomesitoWeb --path http
 
-> [WACOM.NOTE] Se gli strumenti da riga di comando di Azure non sono stati installati o configurati per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Se gli strumenti da riga di comando di Azure non sono stati installati o configurati per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/).
 
 ## Procedura: Comprendere i log di diagnostica
 

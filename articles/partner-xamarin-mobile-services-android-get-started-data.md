@@ -21,7 +21,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 **Nota**
 
-Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5).
+Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A9C9624B5).
 
 Per completare questa esercitazione, è necessario disporre del [componente Servizi mobili di Azure](http://components.xamarin.com/view/azure-mobile-services/) [Xamarin.Android] e di Android SDK 4.2 o versione successiva.
 

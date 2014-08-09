@@ -43,7 +43,7 @@ Fare clic sull'icona **Service Bus** nella barra di spostamento a sinistra per o
 
 **Nota** Lo spazio dei nomi potrebbe non venire visualizzato immediatamente. La creazione dello spazio dei nomi servizio e l'aggiornamento dell'interfaccia del portale richiedono alcuni secondi.
 
-**Nota** L'utilizzo di **Quick Create** per un inoltro non crea un nuovo endpoint di inoltro ma crea solamente uno spazio dei nomi sotto cui è possibile creare endpoint di inoltro a livello di codice. Per ulteriori informazioni, vedere la [documentazione del bus di servizio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/).
+**Nota** L'utilizzo di **Quick Create** per un inoltro non crea un nuovo endpoint di inoltro ma crea solamente uno spazio dei nomi sotto cui è possibile creare endpoint di inoltro a livello di codice. Per ulteriori informazioni, vedere la [documentazione del bus di servizio](http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-relay/).
 
 ### Custom Create
 

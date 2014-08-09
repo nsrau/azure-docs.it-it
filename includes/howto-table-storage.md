@@ -57,4 +57,4 @@ Il servizio tabelle contiene i componenti seguenti:
 
 
 [1]: http://www.odata.org/
-[2]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/it-it/library/dn249410.aspx

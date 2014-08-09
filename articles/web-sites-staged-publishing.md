@@ -240,5 +240,5 @@ eliminare uno slot di distribuzione non più necessario, utilizzare il comando *
 
 
 
-[1]: http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell
-[2]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli
+[1]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell
+[2]: http://www.windowsazure.com/it-it/documentation/articles/xplat-cli

@@ -207,5 +207,5 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367512.aspx

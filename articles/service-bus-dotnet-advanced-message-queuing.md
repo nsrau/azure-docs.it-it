@@ -27,7 +27,7 @@ Compilazione di applicazioni .NETCompilazione di applicazioni .NET
 
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per utilizzare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane essenzialmente invariato durante l'utilizzo di AMQP 1.0.
 
-Nella versione corrente alcune funzionalità API non sono supportate con l'utilizzo di AMQP. Tali funzionalità sono elencate più avanti nella sezione "Funzionalità non supportate e restrizioni". Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP. In questa breve guida queste impostazioni non vengono utilizzate, ma ulteriori dettagli sono disponibili nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+Nella versione corrente alcune funzionalità API non sono supportate con l'utilizzo di AMQP. Tali funzionalità sono elencate più avanti nella sezione "Funzionalità non supportate e restrizioni". Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP. In questa breve guida queste impostazioni non vengono utilizzate, ma ulteriori dettagli sono disponibili nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx).
 
 ### Configurazione tramite App.config
 
@@ -50,7 +50,7 @@ Il valore dell'impostazione **Microsoft.ServiceBus.ConnectionString** corrispond
 
     Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
-Dove [namespace], [issuer name] e [issuer key] si ottengono dal portale di gestione di Azure. Per ulteriori informazioni, vedere [Come utilizzare le code del bus di servizio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/).
+Dove [namespace], [issuer name] e [issuer key] si ottengono dal portale di gestione di Azure. Per ulteriori informazioni, vedere [Come utilizzare le code del bus di servizio](http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/).
 
 Quando si utilizza AMQP, la stringa di connessione viene aggiunta alla fine di ";TransportType=Amqp", che indica alla libreria client di effettuare questa connessione con il bus di servizio tramite AMQP 1.0.
 
@@ -212,7 +212,7 @@ In questa guida è stato illustrato come inviare messaggi al bus di sevizio e co
 
 Utilizzando l'applicazione .NET di esempio descritta in precedenza e un'applicazione Java simile presa dalla guida complementare, [Come utilizzare l'API JMS (Java Message Service) con Service Bus e AMQP 1.0](http://aka.ms/ll1fm3), è possibile scambiare messaggi tra .NET e Java.
 
-Per ulteriori informazioni sulla messaggistica multipiattaforma con Service Bus e AMQP 1.0, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+Per ulteriori informazioni sulla messaggistica multipiattaforma con Service Bus e AMQP 1.0, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx).
 
 ### Da JMS a .NET
 
@@ -284,20 +284,20 @@ Le seguenti funzionalità dell'API .NET di Service Bus non sono al momento suppo
 -   Rinnovo del blocco della sessione
 -   Alcune piccole differenze nel comportamento
 
-Per ulteriori informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx). In questo argomento è riportato un elenco dettagliato delle API non supportate.
+Per ulteriori informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx). In questo argomento è riportato un elenco dettagliato delle API non supportate.
 
 RiepilogoRiepilogo
 ------------------
 
 In questa guida dettagliata è stato illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP1.0 e l'API .NET di Service Bus.
 
-È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per ulteriori informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per ulteriori informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx).
 
 Ulteriori informazioniUlteriori informazioni
 --------------------------------------------
 
 -   [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](http://aka.ms/pgr3dp)
 -   [Come utilizzare l'API JMS (Java Message Service) con Service Bus e AMQP 1.0](http://aka.ms/ll1fm3)
--   [AMQP 1.0 per Service Bus - Guida per sviluppatori](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
--   [Come utilizzare le code del bus di servizio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [AMQP 1.0 per Service Bus - Guida per sviluppatori](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx)
+-   [Come utilizzare le code del bus di servizio](http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/)
 

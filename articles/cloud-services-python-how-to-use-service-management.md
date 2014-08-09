@@ -34,12 +34,12 @@ Informazioni sulla gestione dei servizi
 
 L'API di gestione dei servizi fornisce l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di gestione](https://manage.windowsazure.com/). Azure SDK per Python consente di gestire i servizi cloud, gli account di archiviazione e i gruppi di affinità.
 
-Per utilizzare l'API di gestione dei servizi, sarà necessario [creare un account Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+Per utilizzare l'API di gestione dei servizi, sarà necessario [creare un account Azure](http://www.windowsazure.com/it-it/pricing/free-trial/).
 
 Concetti
 --------
 
-Azure SDK per Python include l'[API di Gestione servizi di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
+Azure SDK per Python include l'[API di Gestione servizi di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx), ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
 Procedura: Connettersi alla gestione dei servizi
 ------------------------------------------------
@@ -52,7 +52,7 @@ Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sotto
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-Il comando consente di creare il file `CER` e di installarlo nell'archivio certificati **Personal**. Per ulteriori informazioni, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+Il comando consente di creare il file `CER` e di installarlo nell'archivio certificati **Personal**. Per ulteriori informazioni, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx).
 
 Dopo avere creato il certificato sarà necessario caricare il file `CER` in Azure selezionando l'opzione "Upload" della scheda "Settings" del [portale di gestione](https://manage.windowsazure.com/).
 
@@ -78,7 +78,7 @@ Per creare il certificato `CER`, eseguire il comando seguente:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per ulteriori informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
+Per ulteriori informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
 
 Dopo avere creato questi file sarà necessario caricare il file `CER` in Azure selezionando l'opzione "Upload" della scheda "Settings" del [portale di gestione](https://manage.windowsazure.com/). Sarà inoltre necessario prendere nota del percorso di salvataggio del file `PEM`.
 
@@ -122,7 +122,7 @@ Quando si crea un servizio cloud, un servizio di archiviazione o un gruppo di af
 Procedura: Creare un servizio cloud
 -----------------------------------
 
-Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud](http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is) di Azure (noto come *servizio ospitato* in versioni precedenti di Azure). Il metodo **create\_hosted\_service** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato (che deve essere univoco in Azure), un'etichetta (con codifica Base 64 automatica), una descrizione e una località. È possibile specificare un gruppo di affinità anziché una località per il servizio.
+Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud](http://windowsazure.com/it-it/documentation/articles/cloud-services-what-is) di Azure (noto come *servizio ospitato* in versioni precedenti di Azure). Il metodo **create\_hosted\_service** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato (che deve essere univoco in Azure), un'etichetta (con codifica Base 64 automatica), una descrizione e una località. È possibile specificare un gruppo di affinità anziché una località per il servizio.
 
     from azure import *
     from azure.servicemanagement import *
@@ -171,12 +171,12 @@ Si noti che prima di eliminare un servizio è necessario eliminare tutte le dist
 Procedura: Creare una distribuzione
 -----------------------------------
 
-Il metodo **create\_Deployment** consente di caricare un nuovo [pacchetto del servizio](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx) e di creare una nuova distribuzione nell'ambiente di gestione temporanea o di produzione. I parametri per questo metodo sono i seguenti:
+Il metodo **create\_Deployment** consente di caricare un nuovo [pacchetto del servizio](http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx) e di creare una nuova distribuzione nell'ambiente di gestione temporanea o di produzione. I parametri per questo metodo sono i seguenti:
 
 -   **name**: nome del servizio ospitato.
 -   **deployment\_name**: nome della distribuzione.
 -   **slot**: stringa indicante lo slot di `gestione temporanea` o di `produzione`.
--   **package\_url**: URL del pacchetto di distribuzione (file con estensione cspgk). Il file del pacchetto deve essere archiviato in un account di archiviazione BLOB di Azure nella stessa sottoscrizione del servizio ospitato nel quale viene caricato il pacchetto. È possibile creare un pacchetto di distribuzione con i [cmdlet di Azure PowerShell](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) oppure con lo [strumento da riga di comando cspack](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx).
+-   **package\_url**: URL del pacchetto di distribuzione (file con estensione cspgk). Il file del pacchetto deve essere archiviato in un account di archiviazione BLOB di Azure nella stessa sottoscrizione del servizio ospitato nel quale viene caricato il pacchetto. È possibile creare un pacchetto di distribuzione con i [cmdlet di Azure PowerShell](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) oppure con lo [strumento da riga di comando cspack](http://msdn.microsoft.com/it-it/library/windowsazure/gg432988.aspx).
 -   **configuration**: file di configurazione del servizio (con estensione cscfg) con codifica Base 64.
 -   **label**: etichetta del nome del servizio ospitato (con codifica Base 64 automatica).
 
@@ -221,7 +221,7 @@ Procedura: Aggiornare una distribuzione
 
 È possibile aggiornare una distribuzione utilizzando il metodo **change\_deployment\_configuration** o **update\_deployment\_status**.
 
-Il metodo **change\_deployment\_configuration** consente di caricare un nuovo file di configurazione del servizio (`cscfg`). Ciò comporterà la modifica di tutte le impostazioni del servizio desiderate, incluso il numero di istanze in una distribuzione. Per ulteriori informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx). Nell'esempio seguente viene illustrato come caricare un nuovo file di configurazione del servizio:
+Il metodo **change\_deployment\_configuration** consente di caricare un nuovo file di configurazione del servizio (`cscfg`). Ciò comporterà la modifica di tutte le impostazioni del servizio desiderate, incluso il numero di istanze in una distribuzione. Per ulteriori informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione cscfg)](http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx). Nell'esempio seguente viene illustrato come caricare un nuovo file di configurazione del servizio:
 
     from azure import *
     from azure.servicemanagement import *
@@ -255,7 +255,7 @@ Il metodo **update\_deployment\_status** consente di impostare uno stato di dist
 Procedura: Spostare distribuzioni tra gestione temporanea e produzione
 ----------------------------------------------------------------------
 
-Azure offre due ambienti di distribuzione: gestione temporanea e produzione. In genere un servizio viene distribuito nell'ambiente di gestione temporanea per testarlo prima di distribuirlo nell'ambiente di produzione. L'operazione di innalzamento di livello del servizio dall'ambiente di gestione temporanea a quello di produzione può essere effettuata senza ridistribuire il servizio, ma semplicemente scambiando le distribuzioni. Per ulteriori informazioni sullo scambio di distribuzioni, vedere [Gestire le distribuzioni in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx).
+Azure offre due ambienti di distribuzione: gestione temporanea e produzione. In genere un servizio viene distribuito nell'ambiente di gestione temporanea per testarlo prima di distribuirlo nell'ambiente di produzione. L'operazione di innalzamento di livello del servizio dall'ambiente di gestione temporanea a quello di produzione può essere effettuata senza ridistribuire il servizio, ma semplicemente scambiando le distribuzioni. Per ulteriori informazioni sullo scambio di distribuzioni, vedere [Gestire le distribuzioni in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433027.aspx).
 
 Nell'esempio seguente viene illustrato come utilizzare il metodo **swap\_deployment** per scambiare due distribuzioni i cui nomi sono `v1` e `v2`. Nell'esempio, prima di chiamare il metodo **swap\_deployment**, la distribuzione `v1` si trova nello slot di produzione, mentre la distribuzione `v2` si trova nello slot di gestione temporanea. Dopo la chiamata a **swap\_deployment** la distribuzione `v2` risulterà in produzione e la distribuzione `v1` in gestione temporanea.
 
@@ -510,6 +510,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, visitare i collegamenti seguenti per informazioni su come eseguire attività più complesse.
 
--   Riferimento in MSDN: [Servizi cloud](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)
--   Riferimento in MSDN: [Macchine virtuali](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
+-   Riferimento in MSDN: [Servizi cloud](http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx)
+-   Riferimento in MSDN: [Macchine virtuali](http://msdn.microsoft.com/it-it/library/windowsazure/jj156003.aspx)
 

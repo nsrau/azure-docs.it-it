@@ -53,13 +53,13 @@ Per ulteriori informazioni, vedere [AzCopy - Caricamento e download di file per 
 
 ## <a id="powershell" ></a>Caricamento di dati nell'archiviazione BLOB tramite Azure PowerShell
 
-Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. È possibile utilizzare Azure PowerShell per caricare dati nell'archiviazione BLOB in modo che possano essere elaborati da processi MapReduce. Per informazioni sulla configurazione della workstation per l'esecuzione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. È possibile utilizzare Azure PowerShell per caricare dati nell'archiviazione BLOB in modo che possano essere elaborati da processi MapReduce. Per informazioni sulla configurazione della workstation per l'esecuzione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 **Per caricare un file locale nell'archiviazione BLOB**
 
 1.  Aprire la finestra della console Azure PowerShell come illustrato in
     [Come installare e configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Impostare i valori delle prime cinque variabili nello script
     seguente:
     
@@ -187,7 +187,7 @@ Nella procedura seguente viene utilizzato PowerShell per inviare un processo Sqo
 
 1.  Aprire la finestra della console Azure PowerShell come illustrato in
     [Come installare e configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Impostare i valori delle prime otto variabili nello script seguente:
     
          $subscriptionName = "<WindowsAzureSubscriptionName>"
@@ -236,7 +236,7 @@ Dopo aver appreso come importare dati in HDInsight, utilizzare gli articoli segu
 
 
 [1]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://www.cerebrata.com/Products/CloudStorageStudio/
 [5]: http://clumsyleaf.com/products/cloudxplorer

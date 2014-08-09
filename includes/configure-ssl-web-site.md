@@ -563,7 +563,7 @@ Benché sia possibile creare un certificato autofirmato in molti modi, in questo
 [3]: http://www.openssl.org/
 [4]: http://technet.microsoft.com/library/cc725793.aspx
 [5]: https://manage.windowsazure.com/
-[6]: http://www.windowsazure.com/en-us/support/options/
+[6]: http://www.windowsazure.com/it-it/support/options/
 [7]: http://en.wikipedia.org/wiki/Server_Name_Indication
 [8]: http://en.wikipedia.org/wiki/Transport_Layer_Security
 [9]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx

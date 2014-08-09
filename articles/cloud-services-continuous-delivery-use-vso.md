@@ -45,7 +45,7 @@ Iscrizione a Visual Studio Online:Passaggio 1: Iscrizione a Visual Studio Online
 Archiviazione di un progetto nel controllo del codice sorgente.Passaggio 2: Archiviazione di un progetto nel controllo del codice sorgente
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-1.  In Visual Studio, aprire la soluzione che si desidera distribuire o crearne una nuova. È possibile distribuire un sito Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. Quando richiesto, scegliere **Applicazione Internet**. Per creare un sito Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Introduzione ad Azure e ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+1.  In Visual Studio, aprire la soluzione che si desidera distribuire o crearne una nuova. È possibile distribuire un sito Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. Quando richiesto, scegliere **Applicazione Internet**. Per creare un sito Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Introduzione ad Azure e ASP.NET](http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-get-started/).
 
 2.  Aprire il menu di scelta rapida relativo alla soluzione e selezionare **Aggiungi soluzione al controllo del codice sorgente**.
 
@@ -157,7 +157,7 @@ Attivazione di una ricompilazionePassaggio 4: Attivazione di una ricompilazione 
 	</table>  
 
 
- Se la proprietà dell'account di archiviazione viene lasciata vuota, Azure eseguirà la ricerca di una proprietà. Se esiste un account di archiviazione con lo stesso nome del servizio cloud, verrà utilizzato questo account. Altrimenti, verrà utilizzato un altro account di archiviazione oppure, in assenza di account di archiviazione, ne verrà creato uno nuovo. L'account di archiviazione rappresenta un archivio per file e altri dati in Azure. Per ulteriori informazioni, vedere la pagina [Informazioni sull'account di archiviazione](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account).
+ Se la proprietà dell'account di archiviazione viene lasciata vuota, Azure eseguirà la ricerca di una proprietà. Se esiste un account di archiviazione con lo stesso nome del servizio cloud, verrà utilizzato questo account. Altrimenti, verrà utilizzato un altro account di archiviazione oppure, in assenza di account di archiviazione, ne verrà creato uno nuovo. L'account di archiviazione rappresenta un archivio per file e altri dati in Azure. Per ulteriori informazioni, vedere la pagina [Informazioni sull'account di archiviazione](http://www.windowsazure.com/it-it/documentation/articles/storage-whatis-account).
 
 1.  A questo punto la compilazione sarà stata completata correttamente.
 
@@ -197,5 +197,5 @@ Questo passaggio si applica solo ai servizi cloud, non ai siti Web. Quando si è
 
   ![](./media/cloud-services-continuous-delivery-use-vso/tfs35.png)
 
-Per ulteriori informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Se si utilizza Git, vedere [Condivisione del codice in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
+Per ulteriori informazioni, vedere [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Se si utilizza Git, vedere [Condivisione del codice in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e [Pubblicazione da controllo del codice sorgente in Siti Web di Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-publish-source-control).
 

@@ -17,7 +17,7 @@ analisi di volumi di dati molto elevati. In questo articolo si utilizzerà HiveQ
 
 * È necessario avere installato **Azure PowerShell** nella workstation.
   Per le relative istruzioni, vedere [Installazione e configurazione di Azure
-  PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+  PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 **Tempo previsto per il completamento:** 30 minuti
 
@@ -83,7 +83,7 @@ Le query Hive possono essere eseguite in PowerShell utilizzando il cmdlet **Star
 
 1.  Aprire una finestra della console di Azure PowerShell. Per
     istruzioni, vedere [Come installare e configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Eseguire il comando seguente per connettersi alla sottoscrizione di
     Azure:
     
@@ -205,9 +205,9 @@ Mentre Hive semplifica l'interrogazione dei dati utilizzando un linguaggio di qu
 * [Introduzione all'utilizzo di Azure
   HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Analisi dei dati sui ritardi dei voli utilizzando
-  HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
+  HDInsight](/it-it/documentation/articles/hdinsight-analyze-flight-delay-data/)
 * [Utilizzo di Oozie con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-oozie/)
 * [Invio di processi Hadoop a livello di
   codice](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
 * [Caricamento di dati in

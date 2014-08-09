@@ -808,14 +808,14 @@ L'applicazione è ora in esecuzione nel cloud e utilizza il database SQL per arc
 Passaggi successivi
 -------------------
 
-Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe utilizzato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MCV sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
+Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe utilizzato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MCV sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
 
 Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'utilizzare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per ulteriori informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
 
 -   [Introduzione a Entity Framework con MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
 -   [Introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 -   [Creare la prima API Web ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
--   [Debug di WAWS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+-   [Debug di WAWS](http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con il supporto di Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
@@ -839,7 +839,7 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
 <!-- links -->
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-[dbcontext-link]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx
+[dbcontext-link]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=VS.103).aspx
 
 
 <!-- images-->

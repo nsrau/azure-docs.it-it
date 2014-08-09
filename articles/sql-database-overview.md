@@ -93,7 +93,7 @@ Management Studio è uno strumento di amministrazione che consente di gestire pi
 
 Management Studio include funzionalità non attualmente disponibili nel portale di gestione, ad esempio un correttore sintattico e la possibilità di salvare script e query denominate in modo da poterli riutilizzare. Il database SQL è semplicemente un endpoint di flusso TDS (Tabular Data Stream). Tutti gli strumenti utilizzabili con il flusso TDS, incluso Management Studio, possono essere utilizzati anche per operazioni del database SQL. Gli script sviluppati per il server locale verranno eseguiti in un server logico di database SQL.
 
-Nel passaggio seguente verrà utilizzato Management Studio per la connessione a un server logico su Azure. Per questo passaggio è necessario disporre di SQL Server Management Studio versione 2008 R2 o 2012. Per informazioni sul download o sulla connessione a Management Studio, vedere [Gestione del database SQL mediante Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/) in questo sito.
+Nel passaggio seguente verrà utilizzato Management Studio per la connessione a un server logico su Azure. Per questo passaggio è necessario disporre di SQL Server Management Studio versione 2008 R2 o 2012. Per informazioni sul download o sulla connessione a Management Studio, vedere [Gestione del database SQL mediante Management Studio](http://www.windowsazure.com/it-it/develop/net/common-tasks/sql-azure-management/) in questo sito.
 
 Prima di potere effettuare la connessione, è a volte necessario creare un'eccezione del firewall per consentire richieste in uscita sulla porta 1433 nel sistema locale. La porta 1433 non è in genere aperta nei computer protetti per impostazione predefinita.
 
@@ -134,7 +134,7 @@ Il database di esempio School è convenientemente semplice. Tutti i relativi ogg
 
 ### Creare il database school su un server locale
 
-Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL](http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/). In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
+Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL](http://www.windowsazure.com/it-it/manage/tutorials/sql-azure-management/). In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
 
 1.  In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Databases** e quindi fare clic su **New Database**, infine immettere *school*.
 
@@ -764,14 +764,14 @@ Il secondo script consente di assegnare autorizzazioni utente database. Per ques
 
 6.  Aprire una seconda finestra Query e cambiare il contesto di connessione in *sqlwriter*. Dovrebbe essere ora possibile eseguire correttamente la stessa query.
 
-Sono stati ora creati e testati diversi account di accesso. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) e [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Sono stati ora creati e testati diversi account di accesso. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee336235.aspx) e [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx).
 
 Monitoraggio di server logici e di istanze di database
 ------------------------------------------------------
 
 Gli strumenti e le tecniche di monitoraggio che si utilizzerebbero abitualmente su un server locale, quali il controllo degli accessi, l'esecuzione di tracce e i contatori di prestazioni, non sono disponibili per il database SQL. In Azure vengono impiegate le viste di gestione dati (DMV, Data Management Views) per monitorare la capacità dei dati, i problemi correlati alle query e le connessioni attuali.
 
-Per ulteriori informazioni, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Per ulteriori informazioni, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx).
 
 Scalabilità di una soluzione di database SQL
 --------------------------------------------
@@ -796,7 +796,7 @@ In scenari limitati è possibile creare copie di un database e quindi allocare a
 
 Nel database SQL le federazioni vengono utilizzate per raggiungere livelli superiori di scalabilità e prestazioni. Una o più tabelle all'interno di un database vengono divise per riga e distribuite tra più database, ovvero i membri della federazione. Si tratta in sostanza di un partizionamento orizzontale. I principali scenari in cui questo approccio risulta utile sono quelli in cui è necessario ottenere scalabilità e prestazioni oppure gestire la capacità.
 
-Le federazioni sono supportate nell'edizione Business. Per ulteriori informazioni, vedere [Federazioni in database SQL di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) e [Esercitazione sulle federazioni del database SQL - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx).
+Le federazioni sono supportate nell'edizione Business. Per ulteriori informazioni, vedere [Federazioni in database SQL di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh597452.aspx) e [Esercitazione sulle federazioni del database SQL - DBA](http://msdn.microsoft.com/it-it/library/windowsazure/hh778416.aspx).
 
 **Valutare altri tipi di archiviazione**
 
@@ -807,6 +807,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base dell'amministrazione di database SQL, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di amministrazione più complesse.
 
--   Vedere [Database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386) in MSDN
+-   Vedere [Database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/gg619386) in MSDN
 -   Vedere la pagina relativa al [database SQL in TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
 

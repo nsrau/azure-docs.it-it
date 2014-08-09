@@ -3,8 +3,8 @@
 Introduzione ai dati in Servizi mobili
 ======================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
-[Back-end .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Back-end .NET") | [Back-end JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/ "Back-end JavaScript")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#") [Windows Store JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript") [Windows Phone](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
+[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-phone-get-started-data/ "Back-end JavaScript")
 
 In questo argomento viene illustrato come utilizzare Servizi mobili di Azure come origine dati di back-end per un'app per Windows Phone 8. In questa esercitazione si scaricherà un progetto di Visual Studio 2012 per un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si visualizzeranno le modifiche apportate ai dati durante l'esecuzione dell'app.
 
@@ -23,7 +23,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 Per completare questa esercitazione, è necessario disporre di Visual Studio 2012 e di [Windows Phone 8 SDK in esecuzione in Windows 8](http://go.microsoft.com/fwlink/p/?linkid=268374).
 **Nota**
 
-Per completare l'esercitazione, sarà inoltre necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
+Per completare l'esercitazione, sarà inoltre necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
 
 Download del progettoDownload del progetto GetStartedWithData
 -------------------------------------------------------------
@@ -277,7 +277,7 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 
 Una volta completata la serie relativa ai dati, provare a eseguire una delle esercitazioni seguenti:
 
--   [Introduzione all'autenticazione](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
+-   [Introduzione all'autenticazione](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
     Informazioni sull'autenticazione degli utenti dell'app.
 
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
@@ -326,10 +326,10 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Get started with authentication]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Get started with push notifications]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
 

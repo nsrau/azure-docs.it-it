@@ -4,19 +4,19 @@
 
  
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store" class="current">Windows Store</a>
-	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> 
-	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a  href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> 
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> 
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> 
-	<a  href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+	<a href="/it-it/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store" class="current">Windows Store</a>
+	<a href="/it-it/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/it-it/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> 
+	<a href="/it-it/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a  href="/it-it/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> 
+	<a href="/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> 
+	<a href="/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> 
+	<a  href="/it-it/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> 
+	<a href="/it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
  
 <div  class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/" title="Back-end .NET">Back-end .NET</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started/" title="Back-end JavaScript" class="current">Back-end JavaScript</a>
+	<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/" title="Back-end .NET">Back-end .NET</a> | 
+	<a href="/it-it/documentation/articles/mobile-services-windows-store-get-started/" title="Back-end JavaScript" class="current">Back-end JavaScript</a>
 </div>
  
 <div class="dev-onpage-video-clear clearfix">
@@ -123,7 +123,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[1]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+[1]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
 [2]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 
@@ -137,5 +137,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
-[Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[.NET backend version]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
+[Get started with data in Mobile Services using Visual Studio 2012]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012

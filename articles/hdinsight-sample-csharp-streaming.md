@@ -5,11 +5,11 @@ Esempio relativo al conteggio di parole con flusso in C\# di HDInsight
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java. In questa esercitazione viene spiegato come scrivere programmi MapReduce in C\# che utilizza l'interfaccia di flusso Hadoop e come scrivere programmi in Azure HDInsight utilizzando Azure PowerShell.
 
-Nell'esempio sia il mapper che il reducer sono file eseguibili che leggono l'input da [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) (riga per riga) e inviano l'output a [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx). Il programma consente di contare tutte le parole del testo.
+Nell'esempio sia il mapper che il reducer sono file eseguibili che leggono l'input da [stdin](http://msdn.microsoft.com/it-it/library/3x292kth(v=vs.110).aspx) (riga per riga) e inviano l'output a [stdout](http://msdn.microsoft.com/it-it/library/3x292kth(v=vs.110).aspx). Il programma consente di contare tutte le parole del testo.
 
-Quando si specifica un file eseguibile per **mapper**, ogni attività del mapper avvia il file eseguibile come processo distinto all'avvio del mapper. Durante l'esecuzione dell'attività del mapper, gli input vengono convertiti in righe che vengono quindi inviate al flusso [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del processo. Nel frattempo il mapper raccoglie gli output basati su riga dal flusso stdout del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del mapper. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore. Se la riga non contiene caratteri di tabulazione, come chiave viene considerata l'intera riga e il valore è Null.
+Quando si specifica un file eseguibile per **mapper**, ogni attività del mapper avvia il file eseguibile come processo distinto all'avvio del mapper. Durante l'esecuzione dell'attività del mapper, gli input vengono convertiti in righe che vengono quindi inviate al flusso [stdin](http://msdn.microsoft.com/it-it/library/3x292kth(v=vs.110).aspx) del processo. Nel frattempo il mapper raccoglie gli output basati su riga dal flusso stdout del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del mapper. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore. Se la riga non contiene caratteri di tabulazione, come chiave viene considerata l'intera riga e il valore è Null.
 
-Quando si specifica un file eseguibile per **reducer**, ogni attività del reducer avvia il file eseguibile come processo distinto all'avvio del reducer. Durante l'esecuzione dell'attività del mapper, le coppie chiave-valore di input vengono convertite in righe che vengono quindi inviate al flusso [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del processo. Nel frattempo il reducer raccoglie gli output basati su riga dal flusso [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del reducer. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore.
+Quando si specifica un file eseguibile per **reducer**, ogni attività del reducer avvia il file eseguibile come processo distinto all'avvio del reducer. Durante l'esecuzione dell'attività del mapper, le coppie chiave-valore di input vengono convertite in righe che vengono quindi inviate al flusso [stdin](http://msdn.microsoft.com/it-it/library/3x292kth(v=vs.110).aspx) del processo. Nel frattempo il reducer raccoglie gli output basati su riga dal flusso [stdout](http://msdn.microsoft.com/it-it/library/3x292kth(v=vs.110).aspx) del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del reducer. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore.
 
 Per ulteriori informazioni sull'interfaccia Hadoop Streaming, vedere la pagina relativa all'utilità [Hadoop Streaming](http://wiki.apache.org/hadoop/HadoopStreaming).
 
@@ -20,11 +20,11 @@ Per ulteriori informazioni sull'interfaccia Hadoop Streaming, vedere la pagina r
 
 **Prerequisiti**:
 
--   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://www.windowsazure.com/it-it/pricing/free-trial/).
 
 -   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
 
--   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 Contenuto dell'articolo
 -----------------------
@@ -41,7 +41,7 @@ Esecuzione dell'esempio con Azure PowerShell
 
 **Per eseguire il processo MapReduce**
 
-1.  Aprire **Azure PowerShell**. Per istruzioni sull'apertura della finestra della console Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Aprire **Azure PowerShell**. Per istruzioni sull'apertura della finestra della console Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 2.  Impostare le due variabili necessarie nei comandi seguenti, quindi eseguirli:
 
@@ -144,7 +144,7 @@ Nel codice del mapper nel file cat.cs viene utilizzato un oggetto StreamReader p
                     }
                 }
 
-Nel codice del reducer nel file wc.cs viene utilizzato un oggetto [StreamReader](http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx) per leggere dal flusso di input standard i caratteri che sono stati trasmessi dal mapper cat.exe. Durante la lettura dei caratteri con il metodo [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline) viene effettuato il conteggio delle parole, inclusi gli spazi e caratteri di fine riga alla fine di ogni parola. Il totale viene quindi scritto nel flusso di output standard con il metodo [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline).
+Nel codice del reducer nel file wc.cs viene utilizzato un oggetto [StreamReader](http://msdn.microsoft.com/it-it/library/system.io.streamreader.aspx) per leggere dal flusso di input standard i caratteri che sono stati trasmessi dal mapper cat.exe. Durante la lettura dei caratteri con il metodo [Console.Writeline](http://msdn.microsoft.com/it-it/library/system.console.writeline) viene effettuato il conteggio delle parole, inclusi gli spazi e caratteri di fine riga alla fine di ogni parola. Il totale viene quindi scritto nel flusso di output standard con il metodo [Console.Writeline](http://msdn.microsoft.com/it-it/library/system.console.writeline).
 
 Riepilogo
 ---------

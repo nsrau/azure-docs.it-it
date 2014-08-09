@@ -36,7 +36,7 @@ Creazione della cache
 Configurazione del progetto ASP.NET
 -----------------------------------
 
-1.  In primo luogo, assicurarsi di aver [installato l'ultimo](http://www.windowsazure.com/en-us/downloads/?sdk=net) **Azure SDK per .NET**.
+1.  In primo luogo, assicurarsi di aver [installato l'ultimo](http://www.windowsazure.com/it-it/downloads/?sdk=net) **Azure SDK per .NET**.
 
 2.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto ASP.NET in **Esplora soluzioni** e quindi selezionare **Manage NuGet Packages** (se si utilizza WebMatrix, fare invece clic sul pulsante **NuGet** sulla barra degli strumenti).
 

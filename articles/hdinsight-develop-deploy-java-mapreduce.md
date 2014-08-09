@@ -10,7 +10,7 @@ In questa esercitazione viene illustrato in modo dettagliato uno scenario end-to
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 -   Installare Azure HDInsight Emulator. Per istruzioni, vedere [Introduzione all'utilizzo di HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/).
--   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 -   Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto](https://www.windowsazure.com/en-us/pricing/purchase-options/), [Offerte per i membri](https://www.windowsazure.com/en-us/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/).
 
 Contenuto dell'articolo
@@ -234,7 +234,7 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
          $containerName_Data = "<ContainerName>"
          $location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-    Il valore **$subscripionName** è associato alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName\_Data** e **$containerName\_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx).
+    Il valore **$subscripionName** è associato alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName\_Data** e **$containerName\_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/it-it/library/windowsazure/dd135715.aspx).
 
 3.  Eseguire il comando seguente per creare un account di archiviazione e un contenitore di archiviazione BLOB nell'account.
 
@@ -486,7 +486,7 @@ Passaggi successivi
 
 In questa esercitazione si è appreso come sviluppare un processo MapReduce Java, come testare l'applicazione in HDInsight Emulator e come scrivere uno script di PowerShell per eseguire il provisioning di un cluster HDInsight ed eseguire un processo MapReduce sul cluster. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Sviluppo di programmi MapReduce di streaming Hadoop in C\# per HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Sviluppo di programmi MapReduce di streaming Hadoop in C\# per HDInsight](/it-it/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 -   [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 -   [Introduzione a HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
 -   [Utilizzo dell'archivio BLOB di Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/)
@@ -494,6 +494,6 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 -   [Caricamento di dati in HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
 -   [Utilizzo di Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [Utilizzo di Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Connessione di Excel a HDInsight mediante Power Query](/en-us/documentation/articles/hdinsight-connect-excel-power-query/)
+-   [Connessione di Excel a HDInsight mediante Power Query](/it-it/documentation/articles/hdinsight-connect-excel-power-query/)
 -   [Connessione di Excel a HDInsight mediante Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-ODBC-driver/)
 

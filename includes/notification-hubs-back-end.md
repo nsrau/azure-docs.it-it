@@ -8,7 +8,7 @@ Entrambi i back-end inviano notifiche sia a Windows Store sia a dispositivi iOS.
 <h3><a name="console"></a>Per inviare notifiche da un'app console in C#</h3>
 
 
-Se è stata creata un'app console quando è stata completata l'esercitazione [Introduzione agli Hub di notifica](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), ignorare i passaggi da 1 a 3.
+Se è stata creata un'app console quando è stata completata l'esercitazione [Introduzione agli Hub di notifica](/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), ignorare i passaggi da 1 a 3.
 
 1.  In Visual Studio creare una nuova applicazione console in Visual C#:
     
@@ -162,6 +162,6 @@ Questo codice supporta Windows Store, Windows Phone e client iOS. I metodi Send 
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx
 [2]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [3]: https://manage.windowsazure.com/

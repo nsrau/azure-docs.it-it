@@ -21,7 +21,7 @@ Gestione traffico di Azure utilizza tre metodi diversi per il bilanciamento del 
 
 -   **Prestazioni**: il metodo Prestazioni consente di distribuire il traffico in base al tempo di round trip più breve per il raggiungimento dei client. Questo metodo può essere utilizzato sia per siti Web all'interno della stessa area che per siti in aree diverse.
 
-Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/en-us/library/windowsazure/dn339010.aspx).
+Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/dn339010.aspx).
 
 Siti Web di Azure e profili di Gestione traffico
 ------------------------------------------------
@@ -40,16 +40,16 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 
 -   Dopo l'aggiunta di un sito Web a un profilo, in **Site URL** nel dashboard della pagina del portale del sito Web verrà visualizzato l'URL del dominio personalizzato del sito Web, se configurato. In caso contrario, verrà visualizzato l'URL del profilo di Gestione traffico, ad esempio `contoso.trafficmgr.com`. Sia il nome di dominio diretto del sito Web che l'URL di Gestione traffico saranno visibili nella pagina Configure del sito Web nella sezione **Domain Names**.
 
--   I nomi di dominio personalizzato funzioneranno come previsto, ma oltre ad aggiungerli ai siti Web sarà necessario configurare il mapping DNS in modo da puntare all'URL di Gestione traffico. Per informazioni sulla configurazione di un nome di dominio personalizzato per un sito Web di Azure, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](https://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
+-   I nomi di dominio personalizzato funzioneranno come previsto, ma oltre ad aggiungerli ai siti Web sarà necessario configurare il mapping DNS in modo da puntare all'URL di Gestione traffico. Per informazioni sulla configurazione di un nome di dominio personalizzato per un sito Web di Azure, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](https://www.windowsazure.com/it-it/documentation/articles/web-sites-custom-domain-name/).
 
 -   È possibile aggiungere a Gestione traffico di Azure solo siti Web che si trovano in modalità standard.
 
 Passaggi successivi
 -------------------
 
-Per una panoramica concettuale e tecnica di Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx).
+Per una panoramica concettuale e tecnica di Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/hh744833.aspx).
 
-Per informazioni sulla configurazione di Gestione traffico di Azure, anche per l'utilizzo con Siti Web di Azure, vedere [Attività di configurazione di Gestione traffico](http://msdn.microsoft.com/en-us/library/windowsazure/hh744830.aspx).
+Per informazioni sulla configurazione di Gestione traffico di Azure, anche per l'utilizzo con Siti Web di Azure, vedere [Attività di configurazione di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/hh744830.aspx).
 
-Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/en-us/library/windowsazure/dn339010.aspx).
+Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/dn339010.aspx).
 

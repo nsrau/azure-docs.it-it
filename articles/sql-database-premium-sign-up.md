@@ -37,7 +37,7 @@ Il primo passaggio per avvalersi di questa funzionalità consiste nell'effettuar
 
     Solo le sottoscrizioni di Azure attive e pagate sono idonee per l'anteprima. È possibile iscrivere più sottoscrizioni, ma ognuna di esse può essere iscritta una sola volta.
 
-    L'iscrizione di una sottoscrizione all'anteprima non comporterà addebiti aggiuntivi, ma una volta attivata e ottenuta la quota Premium, la creazione o l'aggiornamento a un database Premium comporterà addebiti in base ai prezzi indicati nella pagina [Dettagli prezzi del database SQL](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
+    L'iscrizione di una sottoscrizione all'anteprima non comporterà addebiti aggiuntivi, ma una volta attivata e ottenuta la quota Premium, la creazione o l'aggiornamento a un database Premium comporterà addebiti in base ai prezzi indicati nella pagina [Dettagli prezzi del database SQL](http://www.windowsazure.com/it-it/pricing/details/sql-database/).
 
     Lo stato attuale della richiesta di iscrizione è riflesso nell'elenco delle funzionalità in anteprima.
 

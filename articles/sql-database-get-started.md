@@ -828,13 +828,13 @@ Sono disponibili altri metodi per spostare un database locale nel database SQL. 
 [1]: http://www.windowsazure.com
 [2]: http://manage.windowsazure.com
 [3]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "articolo di MSDN"
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621790.aspx "articolo di MSDN"
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336258.aspx
+[6]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336286.aspx
+[7]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336284.aspx
 [8]: http://www.microsoft.com/en-us/bi/powerpivot.aspx
 [9]: http://go.microsoft.com/fwlink/?LinkId=274959
-[10]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
-[11]: http://msdn.microsoft.com/en-us/library/ms365303.aspx
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx
-[13]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx
+[10]: http://www.windowsazure.com/it-it/develop/net/common-tasks/sql-azure-management/
+[11]: http://msdn.microsoft.com/it-it/library/ms365303.aspx
+[12]: http://msdn.microsoft.com/it-it/library/windowsazure/ee730904.aspx
+[13]: http://msdn.microsoft.com/it-it/library/windowsazure/ff951624.aspx

@@ -5,7 +5,7 @@
 Una funzionalità chiave della soluzione Big Data di Microsoft è l'integrazione dei componenti di Microsoft Business Intelligence (BI) con i cluster Apache Hadoop sviluppati da Azure HDInsight. Un esempio di questa integrazione è la possibilità di connettere Excel al data warehouse Hive di un cluster HDInsight Hadoop mediante Microsoft Hive Open Database Connectivity (ODBC) Driver.
 
 È inoltre possibile connettere i dati associati a un cluster HDInsight e ad altre origini dati, inclusi altri cluster Hadoop (non HDInsight), da Excel mediante il componente aggiuntivo Microsoft Power Query per Excel. Per informazioni sull'installazione e l'utilizzo di Power Query, vedere [Connessione di Excel a HDInsight con Power
-Query](/en-us/documentation/articles/hdinsight-connect-excel-power-query/).
+Query](/it-it/documentation/articles/hdinsight-connect-excel-power-query/).
 
 **Prerequisiti**:
 
@@ -13,7 +13,7 @@ Per eseguire le procedure descritte nell'articolo, è necessario disporre di qua
 
 * Un cluster HDInsight. Per configurarne uno, vedere [Introduzione
   all'utilizzo di Azure
-  HDInsight](/en-us/documentation/articles/hdinsight-get-started/).
+  HDInsight](/it-it/documentation/articles/hdinsight-get-started/).
 * Un computer che esegue Windows 8, Windows 7, Windows Server 2012 o
   Windows Server 2008 R2.
 * Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013
@@ -139,7 +139,7 @@ I passaggi seguenti descrivono come importare dati da una tabella hive in una ca
 4.  Nelle origini dati ODBC selezionare il nome dell'origine dati creato nel passaggio precedente e quindi fare clic su **Avanti**.
 5.  Immettere nuovamente la password per il cluster nella procedura guidata e quindi fare clic su **Test** per verificare la configurazione.
 6.  Fare clic su **OK** per chiudere la finestra di dialogo Test. 7.  Fare clic su **OK**. Attendere l'apertura della finestra di dialogo **Seleziona database e tabella**. Questa operazione potrebbe richiedere alcuni secondi.
-8.  Selezionare la tabella che si desidera importare e quindi fare clic su **Avanti**. *hivesampletable* è una tabella hive di esempio disponibile con i cluster HDInsight. È possibile sceglierla se non ne è stata creata una. Per ulteriori informazioni sull'esecuzione di query Hive e sulla creazione di tabelle Hive, vedere [Utilizzo di Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/).
+8.  Selezionare la tabella che si desidera importare e quindi fare clic su **Avanti**. *hivesampletable* è una tabella hive di esempio disponibile con i cluster HDInsight. È possibile sceglierla se non ne è stata creata una. Per ulteriori informazioni sull'esecuzione di query Hive e sulla creazione di tabelle Hive, vedere [Utilizzo di Hive con HDInsight](/it-it/documentation/articles/hdinsight-use-hive/).
 9.  Fare clic su **Finish**. 10. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A questo scopo, fare clic su **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
 11. Fare clic sulla scheda **Definizione** e quindi aggiungere **LIMIT 200** all'istruzione di selezione Hive nella casella di testo **Testo comando**. La modifica limiterà a 200 il set di record restituiti.
     
@@ -155,9 +155,9 @@ I passaggi seguenti descrivono come importare dati da una tabella hive in una ca
 In questo articolo è stato illustrato come utilizzare Microsoft Hive ODBC Driver per recuperare dati dal servizio HDInsight in Excel. È analogamente possibile recuperare dati dal servizio HDInsight nel database SQL. È inoltre possibile caricare dati in un servizio HDInsight. Per ulteriori informazioni, vedere:
 
 * [Analisi dei dati sui ritardi dei voli utilizzando
-  HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
+  HDInsight](/it-it/documentation/articles/hdinsight-analyze-flight-delay-data/)
 * [Caricamento di dati in
-  HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
+  HDInsight](/it-it/documentation/articles/hdinsight-upload-data/)
 * [Utilizzo di Sqoop con HDInsight.](../hdinsight-use-sqoop/)
 
 

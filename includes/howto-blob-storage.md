@@ -55,5 +55,5 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[1]: http://msdn.microsoft.com/it-it/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/ee691964.aspx

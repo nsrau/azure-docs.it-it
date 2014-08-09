@@ -175,4 +175,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [1]: http://en.wikipedia.org/wiki/CNAME_record
 [2]: http://tools.ietf.org/html/rfc1035
 [3]: https://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx

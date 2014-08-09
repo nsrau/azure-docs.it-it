@@ -5,7 +5,7 @@ Creazione di certificati di gestione per Linux in Azure
 
 Un certificato di gestione è necessario quando si desidera utilizzare l'API di gestione del servizio per interagire con la piattaforma di immagini di Azure.
 
-La documentazione su come creare e gestire questi certificati è già disponibile all'indirizzo <http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx>. Per creare il certificato di gestione, è possibile utilizzare anche OpenSSL. Per ulteriori informazioni, vedere [OpenSSL](http://openssl.org/). Questa documentazione, tuttavia, è dedicata principalmente all'utilizzo del portale Silverlight che potrebbe non essere accessibile per tutti gli utenti Linux. Viene descritto come ottenere l'accesso a questi certificati, come integrarli con i nostri diversi strumenti e partner e come utilizzarli autonomamente fino a quando questa funzionalità non verrà aggiunta nel portale di gestione di Azure.
+La documentazione su come creare e gestire questi certificati è già disponibile all'indirizzo <http://msdn.microsoft.com/it-it/library/windowsazure/gg551721.aspx>. Per creare il certificato di gestione, è possibile utilizzare anche OpenSSL. Per ulteriori informazioni, vedere [OpenSSL](http://openssl.org/). Questa documentazione, tuttavia, è dedicata principalmente all'utilizzo del portale Silverlight che potrebbe non essere accessibile per tutti gli utenti Linux. Viene descritto come ottenere l'accesso a questi certificati, come integrarli con i nostri diversi strumenti e partner e come utilizzarli autonomamente fino a quando questa funzionalità non verrà aggiunta nel portale di gestione di Azure.
 
 Sommario
 --------
@@ -76,7 +76,7 @@ Se la chiave privata risulta compromessa sarà necessario utilizzare un browser 
 Installazione di un certificato di gestione mediante il portale di gestione di Azure
 ------------------------------------------------------------------------------------
 
-Per creare un certificato di gestione è possibile procedere in diversi modi. Per ulteriori informazioni sulla creazione di certificati, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). Dopo avere creare il certificato, aggiungerlo alla propria sottoscrizione in Azure.
+Per creare un certificato di gestione è possibile procedere in diversi modi. Per ulteriori informazioni sulla creazione di certificati, vedere [Creare e caricare un certificato di gestione per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx). Dopo avere creare il certificato, aggiungerlo alla propria sottoscrizione in Azure.
 
 1.  Accedere al portale di gestione di Azure.
 

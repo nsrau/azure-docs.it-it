@@ -2,19 +2,19 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 <div class="dev-center-tutorial-selector sublanding">
-	<a  href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
-	<a  href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
-	<a  href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS" class="current">iOS</a> <a  href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a  href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
-	<a  href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
-	<a  href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
-	<a  href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
-	<a  href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+	<a  href="/it-it/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a  href="/it-it/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a  href="/it-it/documentation/articles/mobile-services-ios-get-started" title="iOS" class="current">iOS</a> <a  href="/it-it/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a  href="/it-it/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
+	<a  href="/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a  href="/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+	<a  href="/it-it/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
+	<a  href="/it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
 
  
 <div class="dev-center-tutorial-subselector">
-	<a  href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/" title="Back-end .NET">Back-end .NET</a> | 
-	<a  href="/en-us/documentation/articles/mobile-services-ios-get-started/" title="Back-end JavaScript" class="current">Back-end JavaScript</a>
+	<a  href="/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started/" title="Back-end .NET">Back-end .NET</a> | 
+	<a  href="/it-it/documentation/articles/mobile-services-ios-get-started/" title="Back-end JavaScript" class="current">Back-end JavaScript</a>
 </div>
 
  
@@ -33,7 +33,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 Per completare questa esercitazione, è necessario disporre di XCode 4.5 e iOS 5.0 o versioni successive.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
@@ -114,5 +114,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[.NET backend version]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
     

@@ -55,7 +55,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 **Per installare l'interfaccia della riga di comando mediante Windows Installer**
 
-1.  Andare a **http://www.windowsazure.com/en-us/downloads/**.
+1.  Andare a **http://www.windowsazure.com/it-it/downloads/**.
 2.  Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 Download e importazione di impostazioni di pubblicazione dell'account Azure

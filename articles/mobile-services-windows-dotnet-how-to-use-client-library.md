@@ -5,7 +5,7 @@ Come utilizzare un client .NET per Servizi mobili di Azure
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando un client .NET per Servizi mobili di Azure in app di Windows Store e Windows Phone. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, è consigliabile completare prima le esercitazioni relative alla guida introduttiva a Servizi mobili ([esercitazione basata sulla guida introduttiva per Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/)/[esercitazione basata sulla guida introduttiva per Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/)) e all'introduzione ai dati in .NET ([esercitazione relativa ai dati in Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/)/[esercitazione relativa ai dati in Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/)). Per completare l'esercitazione relativa alla guida introduttiva, che consente di configurare il proprio account e di creare il primo servizio mobile, è necessario disporre di [Mobile Services SDK](http://nuget.org/packages/WindowsAzure.MobileServices/).
+In questa guida viene illustrato come eseguire scenari comuni utilizzando un client .NET per Servizi mobili di Azure in app di Windows Store e Windows Phone. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, è consigliabile completare prima le esercitazioni relative alla guida introduttiva a Servizi mobili ([esercitazione basata sulla guida introduttiva per Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started/)/[esercitazione basata sulla guida introduttiva per Windows Phone](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-wp8/)) e all'introduzione ai dati in .NET ([esercitazione relativa ai dati in Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-dotnet/)/[esercitazione relativa ai dati in Windows Phone](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-wp8/)). Per completare l'esercitazione relativa alla guida introduttiva, che consente di configurare il proprio account e di creare il primo servizio mobile, è necessario disporre di [Mobile Services SDK](http://nuget.org/packages/WindowsAzure.MobileServices/).
 
 Sommario
 --------
@@ -71,7 +71,7 @@ Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio
 Creare un riferimento alla tabellaProcedura: Creare un riferimento alla tabella
 -------------------------------------------------------------------------------
 
-Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`.
+Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -149,7 +149,7 @@ Nel codice seguente viene illustrato come ordinare i dati includendo una funzion
 
 ### Procedura: Restituire i dati in pagine
 
-Per impostazione predefinita, il server restituisce solo le prime 50 righe. È possibile aumentare il numero di righe restituite mediante una chiamata al metodo [Take](http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx). Utilizzare `Take` insieme al metodo [Skip](http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx) per richiedere una "pagina" specifica dell'intero dataset restituito dalla query. La query seguente, se eseguita, restituisce le prime tre voci della tabella.
+Per impostazione predefinita, il server restituisce solo le prime 50 righe. È possibile aumentare il numero di righe restituite mediante una chiamata al metodo [Take](http://msdn.microsoft.com/it-it/library/windowsazure/dn250574.aspx). Utilizzare `Take` insieme al metodo [Skip](http://msdn.microsoft.com/it-it/library/windowsazure/dn250573.aspx) per richiedere una "pagina" specifica dell'intero dataset restituito dalla query. La query seguente, se eseguita, restituisce le prime tre voci della tabella.
 
     // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
@@ -164,7 +164,7 @@ La query modificata riportata di seguito ignora i primi tre risultati e restitui
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-È anche possibile utilizzare il metodo [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx) per assicurarsi che la query consenta di ottenere il conteggio totale di *tutti* i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
+È anche possibile utilizzare il metodo [IncludeTotalCount](http://msdn.microsoft.com/it-it/library/windowsazure/dn250560.aspx) per assicurarsi che la query consenta di ottenere il conteggio totale di *tutti* i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
 
     query = query.IncludeTotalCount();
 
@@ -242,7 +242,7 @@ Il valore per `id` deve essere univoco e non deve includere caratteri appartenen
 -   Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Gli ID "." e ".."
 
-In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Per inserire dati non tipizzati, è possibile utilizzare Json.NET come illustrato di seguito.
 
@@ -377,7 +377,7 @@ Nel codice seguente viene illustrato come risolvere un conflitto di scrittura, q
 	    await msgDialog.ShowAsync();
 	}
 
-Per un'esempio più completo dell'utilizzo della concorrenza ottimistica per Servizi mobili, vedere l'[esercitazione relativa alla concorrenza ottimistica](http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/).
+Per un'esempio più completo dell'utilizzo della concorrenza ottimistica per Servizi mobili, vedere l'[esercitazione relativa alla concorrenza ottimistica](http://www.windowsazure.com/it-it/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/).
 
 Visualizzare i datiProcedura: Associare dati all'interfaccia utente in un servizio mobile
 -----------------------------------------------------------------------------------------
@@ -396,7 +396,7 @@ In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti
     ListBox lb = new ListBox();
     lb.ItemsSource = items;
 
-Alcuni controlli di Windows Runtime supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/en-us/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows Store è disponibile un supporto incorporato tramite `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per utilizzare `MobileServiceIncrementalLoadingCollection` nelle app di Windows Store, eseguire le operazioni seguenti:
+Alcuni controlli di Windows Runtime supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/it-it/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows Store è disponibile un supporto incorporato tramite `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per utilizzare `MobileServiceIncrementalLoadingCollection` nelle app di Windows Store, eseguire le operazioni seguenti:
 
          MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
         items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -417,15 +417,15 @@ Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri
 AutenticareProcedura: Autenticare gli utenti
 --------------------------------------------
 
-Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/))
+Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-users-wp8/))
 
 Sono supportati due flussi di autenticazione: un *flusso server* e un *flusso client*. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
 
 ### Flusso server
 
-Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o per Windows Phone, è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per ulteriori informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/)).
+Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o per Windows Phone, è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per ulteriori informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-users-wp8/)).
 
-Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) con il valore del provider [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx). Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
+Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) con il valore del provider [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx). Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -451,9 +451,9 @@ Dopo aver effettuato la registrazione del provider di identità, è sufficiente 
 		}
 	}
 
-Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) con il nome del provider.
+Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) con il nome del provider.
 
-In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) restituisce un utente [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), che fornisce sia un elemento [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx) sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
+In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) restituisce un utente [MobileServiceUser](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), che fornisce sia un elemento [userId](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx) sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
 
 **App di Windows Store**
 
@@ -506,7 +506,7 @@ Per un esempio di utilizzo di un account Microsoft per consentire l'uso di un un
 
 ### Memorizzazione nella cache del token di autenticazione
 
-In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx), le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
+In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault](http://msdn.microsoft.com/it-it/library/windows/apps/windows.security.credentials.passwordvault.aspx), le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -533,7 +533,7 @@ In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la pr
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
-Nel caso delle app per Windows Phone, è possibile crittografare i dati e memorizzarli nella cache utilizzando la classe [ProtectedData](http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) e archiviare i dati sensibili in uno spazio di memorizzazione isolato.
+Nel caso delle app per Windows Phone, è possibile crittografare i dati e memorizzarli nella cache utilizzando la classe [ProtectedData](http://msdn.microsoft.com/it-it/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) e archiviare i dati sensibili in uno spazio di memorizzazione isolato.
 
 Gestire gli erroriProcedura: Gestire gli errori
 -----------------------------------------------
@@ -619,7 +619,7 @@ Personalizzare il clientProcedura: Personalizzare il client
 
 ### Procedura: Personalizzare la serializzazione
 
-La classe [MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) espone una proprietà `SerializerSettings` di tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
+La classe [MobileServiceClient](http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) espone una proprietà `SerializerSettings` di tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
 Con questa proprietà è possibile impostare numerose proprietà di Json.NET come, ad esempio, la proprietà che consente di convertire tutte le proprietà in lettere minuscole:
 

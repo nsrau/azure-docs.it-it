@@ -9,7 +9,7 @@ In questo argomento vengono descritte le attività di gestione che è consigliab
 
 2.  Verificare i provider di identità, le identità del servizio, le regole e gli amministratori del portale e rimuovere quelli non aggiornati.
 
-Per ulteriori informazioni sul servizio di controllo di accesso, vedere [Servizio di controllo di accesso 2.0](http://msdn.microsoft.com/en-us/library/gg429786.aspx).
+Per ulteriori informazioni sul servizio di controllo di accesso, vedere [Servizio di controllo di accesso 2.0](http://msdn.microsoft.com/it-it/library/gg429786.aspx).
 
 Linee guida per la gestione di certificati e chiavi
 ---------------------------------------------------
@@ -38,13 +38,13 @@ Procedura generale per la sostituzione di un certificato per la firma di token (
 
 Quando un certificato o una chiave scade, il servizio ACS non riesce a rilasciare i token impedendo così al relying party di funzionare normalmente. Le chiavi e i certificati scaduti verranno ignorati dal servizio ACS, generando eccezioni come se non fosse configurato alcun certificato o chiave. Nelle sezioni seguenti verranno fornite informazioni per i certificati e le chiavi gestiti dal servizio ACS, verrà illustrato come rinnovarli e come riconoscere se sono scaduti e devono essere rinnovati.
 
--   Utilizzare la sezione Certificates and Keys nel portale di gestione ACS per gestire i certificati e le chiavi relativi allo spazio dei nomi servizio e alle applicazioni relying party. Per ulteriori informazioni su questi tipi di credenziali, vedere [Certificati e chiavi](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
--   Utilizzare la sezione relativa alle identità del servizio nel portale di gestione ACS per gestire le credenziali (certificati, chiavi o password) relative alle identità del servizio. Per ulteriori informazioni sulle identità del servizio, vedere [Identità del servizio](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
--   Utilizzare la sezione Management Service nel portale di gestione ACS per gestire le credenziali (certificati, chiavi o password) relative agli account del servizio di gestione ACS. Per ulteriori informazioni sul servizio di gestione ACS, vedere [Servizio di gestione ACS](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
+-   Utilizzare la sezione Certificates and Keys nel portale di gestione ACS per gestire i certificati e le chiavi relativi allo spazio dei nomi servizio e alle applicazioni relying party. Per ulteriori informazioni su questi tipi di credenziali, vedere [Certificati e chiavi](http://msdn.microsoft.com/it-it/library/gg185932.aspx).
+-   Utilizzare la sezione relativa alle identità del servizio nel portale di gestione ACS per gestire le credenziali (certificati, chiavi o password) relative alle identità del servizio. Per ulteriori informazioni sulle identità del servizio, vedere [Identità del servizio](http://msdn.microsoft.com/it-it/library/gg185945.aspx).
+-   Utilizzare la sezione Management Service nel portale di gestione ACS per gestire le credenziali (certificati, chiavi o password) relative agli account del servizio di gestione ACS. Per ulteriori informazioni sul servizio di gestione ACS, vedere [Servizio di gestione ACS](http://msdn.microsoft.com/it-it/library/gg185972.aspx).
 
-Alcuni tipi di certificati e chiavi non sono visibili nel portale di gestione ACS. In particolare, per i provider di identità WS-Federation, come ADFS, è necessario verificare attivamente la validità dei certificati utilizzati dai provider di identità. Attualmente, i certificati disponibili tramite i metadati del provider di identità WS-Federica non sono visibili nel portale di gestione ACS. Per verificare la validità dei certificati è necessario utilizzare il servizio di gestione per visualizzare le date di validità e di scadenza per le proprietà StartDate e EndDate di [IdentityProviderKey](http://msdn.microsoft.com/en-us/library/hh124084.aspx). Quando una chiave o un certificato scade diventando quindi non valido, il servizio ACS inizierà a generare eccezioni [Codici di errore ACS](http://msdn.microsoft.com/en-us/library/gg185949.aspx) specifici per il certificato o la chiave. Per informazioni sui codici di errore specifici, vedere le sezioni seguenti.
+Alcuni tipi di certificati e chiavi non sono visibili nel portale di gestione ACS. In particolare, per i provider di identità WS-Federation, come ADFS, è necessario verificare attivamente la validità dei certificati utilizzati dai provider di identità. Attualmente, i certificati disponibili tramite i metadati del provider di identità WS-Federica non sono visibili nel portale di gestione ACS. Per verificare la validità dei certificati è necessario utilizzare il servizio di gestione per visualizzare le date di validità e di scadenza per le proprietà StartDate e EndDate di [IdentityProviderKey](http://msdn.microsoft.com/it-it/library/hh124084.aspx). Quando una chiave o un certificato scade diventando quindi non valido, il servizio ACS inizierà a generare eccezioni [Codici di errore ACS](http://msdn.microsoft.com/it-it/library/gg185949.aspx) specifici per il certificato o la chiave. Per informazioni sui codici di errore specifici, vedere le sezioni seguenti.
 
-È possibile aggiornare i certificati e le chiavi a livello di codice tramite il [servizio di gestione ACS](http://msdn.microsoft.com/en-us/library/gg185972.aspx). È consigliabile esaminare l'esempio di codice KeyManagement disponibile per il download nell'ambito dell'[Esempio di codice: Servizio di gestione](http://msdn.microsoft.com/en-us/library/gg185970.aspx).
+È possibile aggiornare i certificati e le chiavi a livello di codice tramite il [servizio di gestione ACS](http://msdn.microsoft.com/it-it/library/gg185972.aspx). È consigliabile esaminare l'esempio di codice KeyManagement disponibile per il download nell'ambito dell'[Esempio di codice: Servizio di gestione](http://msdn.microsoft.com/it-it/library/gg185970.aspx).
 
 Certificati e chiavi disponibili
 --------------------------------
@@ -104,7 +104,7 @@ ACS firma tutti i token di sicurezza rilasciati. Quando si creano applicazioni c
 
 10. Trascorso un periodo di tolleranza ragionevole, utilizzare il pulsante Delete nella sezione Token Signing della pagina Certificates and Keys per rimuovere il certificato precedente dalla configurazione ACS.
 
-Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/it-it/library/gg185932.aspx).
 
 Quando i certificati di firma scadono, si riceveranno i messaggi di errore seguenti durante il tentativo di richiedere un token:
 
@@ -165,7 +165,7 @@ ACS firma tutti i token di sicurezza rilasciati. Quando si creano applicazioni c
 
 10. Trascorso un periodo di tolleranza ragionevole, utilizzare il pulsante Delete nella sezione Token Signing della pagina Certificates and Keys per rimuovere la chiave precedente dalla configurazione ACS.
 
-Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/it-it/library/gg185932.aspx).
 
 Quando le chiavi di firma scadono, si riceveranno i messaggi di errore seguenti durante il tentativo di richiedere un token:
 
@@ -220,7 +220,7 @@ La crittografia dei token è necessaria se un'applicazione relying party è un s
 7.  Utilizzare il pulsante Add per configurare il nuovo certificato per la crittografia in ACS accanto al certificato esistente prossimo alla scadenza.
 8.  Utilizzare il pulsante Delete per rimuovere il certificato di crittografia precedente.
 
-Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/it-it/library/gg185932.aspx).
 
 Quando i certificati di crittografia scadono, si riceveranno i messaggi di errore seguenti durante il tentativo di richiedere un token:
 
@@ -281,7 +281,7 @@ ACS può accettare token crittografati di provider di identità WS-Federation, a
 
 10. Trascorso un periodo di tolleranza ragionevole, utilizzare il pulsante Delete nella sezione Token Signing della pagina Certificates and Keys per rimuovere il certificato precedente dalla configurazione ACS.
 
-Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+Per ulteriori informazioni, vedere [Certificati e chiavi](http://msdn.microsoft.com/it-it/library/gg185932.aspx).
 
 Quando i certificati di decrittografia scadono, si riceveranno i messaggi di errore seguenti durante il tentativo di richiedere un token:
 
@@ -338,7 +338,7 @@ Le identità del servizio sono credenziali configurate a livello globale per lo 
 
 9.  Al termine dell'aggiornamento di tutti i client (o dopo un periodo di tolleranza ragionevole), utilizzare il pulsante Delete per rimuovere la chiave o il certificato precedente.
 
-Per ulteriori informazioni, vedere [Identità del servizio](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
+Per ulteriori informazioni, vedere [Identità del servizio](http://msdn.microsoft.com/it-it/library/gg185945.aspx).
 
 Di seguito sono riportate le eccezioni generate da ACS quando le credenziali sono scadute:
 
@@ -364,7 +364,7 @@ Di seguito sono riportate le eccezioni generate da ACS quando le credenziali son
 </tr>
 </table>
 
-Per verificare e aggiornare le date di scadenza di chiavi simmetriche o password o per caricare un nuovo certificato come credenziali dell'identità del servizio, seguire le istruzioni fornite in [Procedura: Aggiungere identità del servizio con un certificato X.509, una password o una chiave simmetrica](http://msdn.microsoft.com/en-us/library/gg185924.aspx). L'elenco delle credenziali delle identità del servizio è disponibile nella pagina Edit Service Identity.
+Per verificare e aggiornare le date di scadenza di chiavi simmetriche o password o per caricare un nuovo certificato come credenziali dell'identità del servizio, seguire le istruzioni fornite in [Procedura: Aggiungere identità del servizio con un certificato X.509, una password o una chiave simmetrica](http://msdn.microsoft.com/it-it/library/gg185924.aspx). L'elenco delle credenziali delle identità del servizio è disponibile nella pagina Edit Service Identity.
 
 Credenziali del servizio di gestione
 ------------------------------------
@@ -405,7 +405,7 @@ Il servizio di gestione ACS è un componente essenziale che consente di gestire 
 
 9.  Al termine dell'aggiornamento di tutti i client (o dopo un periodo di tolleranza ragionevole), utilizzare il pulsante Delete per rimuovere la chiave o il certificato precedente.
 
-Per ulteriori informazioni, vedere [Servizio di gestione ACS](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
+Per ulteriori informazioni, vedere [Servizio di gestione ACS](http://msdn.microsoft.com/it-it/library/gg185972.aspx).
 
 Se le credenziali sono scadute, ACS genererà le eccezioni seguenti:
 
@@ -436,7 +436,7 @@ L'elenco delle credenziali per l'account del servizio di gestione ACS è disponi
 Certificato del provider di identità WS-Federation
 --------------------------------------------------
 
-Il certificato del provider di identità WS-Federation è disponibile tramite i relativi metadati. Quando si configura il provider di identità WS-Federation, ad esempio ADFS, il certificato di firma di WS-Federation viene configurato tramite i metadati di WS-Federation disponibili via URL o come file. Per ulteriori informazioni, vedere [Provider di identità WS-Federation](http://msdn.microsoft.com/en-us/library/gg185933.aspx) e [Procedura: Configurare ADFS 2.0 come provider di identità](http://msdn.microsoft.com/en-us/library/gg185961.aspx). Dopo aver configurato il provider di identità WS-Federation in ACS, utilizzare il servizio di gestione ACS per eseguire una query e verificare la validità dei relativi certificati. Si noti che per ogni caricamento consecutivo di metadati tramite il portale di gestione ACS o il servizio di gestione ACS, le chiavi vengono sostituite.
+Il certificato del provider di identità WS-Federation è disponibile tramite i relativi metadati. Quando si configura il provider di identità WS-Federation, ad esempio ADFS, il certificato di firma di WS-Federation viene configurato tramite i metadati di WS-Federation disponibili via URL o come file. Per ulteriori informazioni, vedere [Provider di identità WS-Federation](http://msdn.microsoft.com/it-it/library/gg185933.aspx) e [Procedura: Configurare ADFS 2.0 come provider di identità](http://msdn.microsoft.com/it-it/library/gg185961.aspx). Dopo aver configurato il provider di identità WS-Federation in ACS, utilizzare il servizio di gestione ACS per eseguire una query e verificare la validità dei relativi certificati. Si noti che per ogni caricamento consecutivo di metadati tramite il portale di gestione ACS o il servizio di gestione ACS, le chiavi vengono sostituite.
 
 Di seguito sono riportate le eccezioni generate da ACS quando il certificato è scaduto:
 

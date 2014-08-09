@@ -384,4 +384,4 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
 [1]: http://go.microsoft.com/fwlink/?LinkID=212360
 [2]: http://go.microsoft.com/fwlink/?LinkID=245849
 [3]: http://manage.WindowsAzure.com
-[4]: http://msdn.microsoft.com/en-us/library/hh377151.aspx
+[4]: http://msdn.microsoft.com/it-it/library/hh377151.aspx

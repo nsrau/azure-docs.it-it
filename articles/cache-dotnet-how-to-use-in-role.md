@@ -170,7 +170,7 @@ Il pacchetto NuGet aggiunte inoltre un'impostazione **ClientDiagnosticLevel** a 
       </ConfigurationSettings>
     </Role>
 
-> Cache nel ruolo fornisce inoltre un livello diagnostico del server di cache e del client della cache. Il livello diagnostico consiste in una singola impostazione che consente di configurare il livello di informazioni diagnostiche raccolte per la memorizzazione nella cache. Per ulteriori informazioni, vedere [Diagnostica e risoluzione dei problemi di In-Role Cache](http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx)
+> Cache nel ruolo fornisce inoltre un livello diagnostico del server di cache e del client della cache. Il livello diagnostico consiste in una singola impostazione che consente di configurare il livello di informazioni diagnostiche raccolte per la memorizzazione nella cache. Per ulteriori informazioni, vedere [Diagnostica e risoluzione dei problemi di In-Role Cache](http://msdn.microsoft.com/it-it/library/windowsazure/hh914135.aspx)
 
 Il pacchetto NuGet aggiunge inoltre riferimenti agli assembly seguenti:
 
@@ -296,7 +296,7 @@ Il provider di stato della sessione per Cache nel ruolo è un meccanismo di arch
 
 Per abilitare il provider di stato della sessione per Cache nel ruolo, rimuovere il commento dalla sezione specificata. La cache predefinita è specificata nel frammento di codice fornito. Per utilizzare una cache diversa, specificare la cache desiderata nell'attributo **cacheName**.
 
-Per ulteriori informazioni sull'utilizzo del provider di stato della sessione del servizio di caching, vedere l'argomento relativo al [provider di stato della sessione per Cache nel ruolo](http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Per ulteriori informazioni sull'utilizzo del provider di stato della sessione del servizio di caching, vedere l'argomento relativo al [provider di stato della sessione per Cache nel ruolo](http://msdn.microsoft.com/it-it/library/windowsazure/gg185668.aspx).
 
 ## Procedura: Archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET
 
@@ -325,14 +325,14 @@ Aggiungere una direttiva **OutputCache** a ogni pagina per cui si desidera memor
 
 In questo esempio i dati delle pagine rimarranno memorizzati nella cache per 60 secondi e per ogni combinazione di parametri verrà memorizzata nella cache una versione diversa della pagina. Per ulteriori informazioni sulle opzioni disponibili, vedere [Direttiva OutputCache](http://go.microsoft.com/fwlink/?LinkId=251979).
 
-Per ulteriori informazioni sull'utilizzo del provider di cache di output per Cache nel ruolo, vedere l'argomento relativo al [provider di cache di output per Cache nel ruolo](http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx).
+Per ulteriori informazioni sull'utilizzo del provider di cache di output per Cache nel ruolo, vedere l'argomento relativo al [provider di cache di output per Cache nel ruolo](http://msdn.microsoft.com/it-it/library/windowsazure/gg185662.aspx).
 
 ## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di memorizzazione nella cache più complesse.
 
 -   Riferimento in MSDN: [In-Role Cache](http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching)
--   Informazioni sulla migrazione a Cache nel ruolo: [Migrazione a In-Role Cache](http://msdn.microsoft.com/en-us/library/hh914163.aspx)
--   Consultare gli esempi: [Esempi di In-Role Cache](http://msdn.microsoft.com/en-us/library/jj189876.aspx)
+-   Informazioni sulla migrazione a Cache nel ruolo: [Migrazione a In-Role Cache](http://msdn.microsoft.com/it-it/library/hh914163.aspx)
+-   Consultare gli esempi: [Esempi di In-Role Cache](http://msdn.microsoft.com/it-it/library/jj189876.aspx)
 -   Guardare la sessione sulla Cache nel ruolo in TechEd 2013 che illustra [come ottenere le massime prestazioni accelerando le applicazioni di Servizi cloud con Cache di Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU)
 

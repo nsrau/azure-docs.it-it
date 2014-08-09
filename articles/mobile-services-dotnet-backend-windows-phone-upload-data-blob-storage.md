@@ -27,7 +27,7 @@ Per completare questa esercitazione, è necessario disporre di:
 -   Programma per la gestione dei pacchetti Nuget installato per Microsoft Visual Studio.
 -   [Account di archiviazione di Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-phone-get-started).
 
 Installazione del client di archiviazione per le app di Windows Store
 ---------------------------------------------------------------------
@@ -60,7 +60,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
     Informazioni su come aggiungere funzionalità di posta elettronica a un servizio mobile tramite il servizio di posta elettronica SendGrid. Questo argomento illustra come aggiungere script sul lato server per inviare messaggi di posta elettronica tramite SendGrid.
 
--   [Pianificazione di processi back-end in Servizi mobili](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+-   [Pianificazione di processi back-end in Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
 
     Informazioni su come utilizzare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
 
@@ -81,8 +81,8 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
-[Schedule backend jobs in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[Schedule backend jobs in Mobile Services]: /it-it/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-windows-phone-get-started
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account

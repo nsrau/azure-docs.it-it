@@ -91,7 +91,7 @@ In alternativa, anziché utilizzare un numero esistente per le applicazioni, è 
 Creazione di un'applicazione Azure
 ----------------------------------
 
-Un'applicazione Azure che ospita un'applicazione compatibile con Twilio non è diversa da qualsiasi altra applicazione Azure. È sufficiente aggiungere la libreria .NET Twilio e configurare il ruolo per l'utilizzo delle librerie .NET Twilio. Per informazioni sulla creazione di un progetto Azure iniziale, vedere [Creazione di un progetto Azure con Visual Studio](http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx).
+Un'applicazione Azure che ospita un'applicazione compatibile con Twilio non è diversa da qualsiasi altra applicazione Azure. È sufficiente aggiungere la libreria .NET Twilio e configurare il ruolo per l'utilizzo delle librerie .NET Twilio. Per informazioni sulla creazione di un progetto Azure iniziale, vedere [Creazione di un progetto Azure con Visual Studio](http://msdn.microsoft.com/it-it/library/windowsazure/ee405487.aspx).
 
 Configurazione dell'applicazione per l'utilizzo delle librerie Twilio
 ---------------------------------------------------------------------

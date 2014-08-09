@@ -34,7 +34,7 @@ Installare Azure SDK per .NET Framework per configurare l'ambiente di sviluppo.
 
 Sarà inoltre necessario disporre di un emulatore del browser per dispositivi mobili. Eseguire una o più delle operazioni seguenti:
 
--   [Emulatore Windows Phone 7](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx) (l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
+-   [Emulatore Windows Phone 7](http://msdn.microsoft.com/it-it/library/ff402530(VS.92).aspx) (l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
 -   Modificare la stringa agente utente in modo da emulare un iPhone. Vedere questo [post del blog](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) How-To Geek.
 -   [Emulatore mobile di Opera](http://www.opera.com/developer/tools/mobile/).
 -   [Apple Safari](http://www.apple.com/safari/download/) con l'agente utente impostato su iPhone. Per istruzioni su come impostare l'agente utente in Safari su "iPhone", vedere il post su [come configurare Safari in modo da emulare IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) sul blog di David Alison.

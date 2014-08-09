@@ -240,5 +240,5 @@ Dopo avere completato questa esercitazione, provare a eseguire quelle seguenti:
 -   **[Utilizzo di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services)**
     Questa esercitazione costituisce un'estensione di quella **Utilizzo di Hub di notifica per inviare notifiche agli utenti** e include informazioni relative all'utilizzo di modelli specifici delle piattaforme per la registrazione per le notifiche. In questo modo sarà possibile inviare notifiche da un unico metodo nel codice lato server.
 
-Per ulteriori informazioni su Hub di notifica, vedere [Hub di notifica di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Per ulteriori informazioni su Hub di notifica, vedere [Hub di notifica di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj927170.aspx).
 

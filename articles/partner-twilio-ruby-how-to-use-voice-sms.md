@@ -194,7 +194,7 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, utiliz
 [7]: https://www.twilio.com/user/account
 [8]: https://www.twilio.com/user/account/phone-numbers/verified#
 [9]: https://www.twilio.com/docs/ruby/install
-[10]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[10]: http://www.windowsazure.com/it-it/develop/ruby/tutorials/web-app-with-linux-vm/
 [11]: http://www.sinatrarb.com/
 [12]: http://www.twilio.com/docs/security
 [13]: http://www.twilio.com/docs/howto
@@ -217,4 +217,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, utiliz
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: http://www.windowsazure.com/it-it/develop/ruby/tutorials/web-app-with-linux-vm/

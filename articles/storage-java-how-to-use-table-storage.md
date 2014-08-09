@@ -37,7 +37,7 @@ Creazione di un account di archiviazione di Azure
 Creazione di un'applicazione Java
 ---------------------------------
 
-In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure. Si presuppone che sia stato scaricato e installato Java Development Kit (JDK), che siano stati installati Azure SDK e le librerie di Azure per Java in base alle istruzioni riportate in [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/) e che sia stato creato un account di archiviazione di Azure nella sottoscrizione di Azure.
+In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure. Si presuppone che sia stato scaricato e installato Java Development Kit (JDK), che siano stati installati Azure SDK e le librerie di Azure per Java in base alle istruzioni riportate in [Azure SDK for Java](http://www.windowsazure.com/it-it/develop/java/) e che sia stato creato un account di archiviazione di Azure nella sottoscrizione di Azure.
 
 Per creare l'applicazione, è possibile utilizzare qualsiasi strumento di sviluppo, incluso il Blocco note. È sufficiente essere in grado di compilare un progetto Java e di fare riferimento alle librerie di Azure per Java.
 

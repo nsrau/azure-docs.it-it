@@ -615,16 +615,16 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB si 
 [2]: http://manage.windowsazure.com
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
-[5]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
+[5]: http://msdn.microsoft.com/it-it/library/jj156209.aspx
 [6]: http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
-[8]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
+[7]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405486.aspx
+[8]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
 [9]: http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP"
 [10]: http://msdn.microsoft.com/library/windowsazure/hh535756.aspx "pub wiz"
-[11]: http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"
+[11]: http://www.windowsazure.com/it-it/pricing/free-trial/ "free-trial account"
 [12]: http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure"
-[13]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter"
-[14]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes"
+[13]: http://msdn.microsoft.com/it-it/library/windowsazure/ff683669.aspx "WCF filter"
+[14]: http://msdn.microsoft.com/it-it/library/windowsazure/ee814754.aspx "VM sizes"
 [15]: http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"
 
 

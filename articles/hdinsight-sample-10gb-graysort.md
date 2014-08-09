@@ -21,11 +21,11 @@ Il formato di input e il formato di output, utilizzati da tutte e tre le applica
 
 **Prerequisiti**:
 
--   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://www.windowsazure.com/it-it/pricing/free-trial/).
 
 -   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
 
--   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 Contenuto dell'articolo
 -----------------------
@@ -48,7 +48,7 @@ L'esempio richiede tre attività, ognuna delle quali corrisponde a uno dei progr
 
 **Per eseguire il programma TeraGen**
 
-1.  Aprire Azure PowerShell. Per istruzioni sull'apertura della finestra della console Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Aprire Azure PowerShell. Per istruzioni sull'apertura della finestra della console Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Impostare le due variabili necessarie nei comandi seguenti, quindi eseguirli:
 
          # Provide the Azure subscription name and the HDInsight cluster name.

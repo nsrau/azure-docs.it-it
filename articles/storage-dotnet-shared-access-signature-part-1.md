@@ -263,8 +263,8 @@ Passaggi successivi
 
 [Firme di accesso condiviso, parte 2: creazione e utilizzo di una firma di accesso condiviso con il servizio BLOB](../storage-dotnet-shared-access-signature-part-2/)
 
-[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee393343.aspx)
 
-[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/it-it/library/windowsazure/ee395415.aspx)
 
 [Introduzione alla firma di accesso condiviso per tabelle e code](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

@@ -80,7 +80,7 @@ Con Siti Web o Macchine virtuali è consigliabile utilizzare il sistema di confi
         </appSettings>
     </configuration>
 
-Per ulteriori informazioni sulle stringhe di connessione di archiviazione, leggere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx).
+Per ulteriori informazioni sulle stringhe di connessione di archiviazione, leggere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/it-it/library/windowsazure/ee758697.aspx).
 
 È ora possibile eseguire le procedure di questa guida.
 
@@ -100,7 +100,7 @@ Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio
 Creare una codaProcedura: Creare una coda
 -----------------------------------------
 
-Per ottenere oggetti di riferimento per le code, è possibile utilizzare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questa guida viene utilizzata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx).
+Per ottenere oggetti di riferimento per le code, è possibile utilizzare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questa guida viene utilizzata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount](http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx).
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -265,9 +265,9 @@ Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
 -   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
-    -   [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+    -   [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/it-it/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/it-it/library/windowsazure/dd179355)
+-   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx).
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
     -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/en-us/develop/net/how-to-guides/table-services/).
     -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/en-us/develop/net/how-to-guides/blob-storage/).

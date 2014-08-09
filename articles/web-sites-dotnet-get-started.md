@@ -249,7 +249,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 ### Altri modi per distribuire un progetto Web
 
-In questa esercitazione è stata illustrata la procedura più rapida per creare un sito Web e distribuirlo con un'unica operazione. Per una panoramica su altre modalità di distribuzione, tramite Visual Studio o [automatizzando la distribuzione][2] da un [sistema di controllo del codice sorgente][3], vedere [Come distribuire un sito Web di Azure](/en-us/documentation/articles/web-sites-deploy/").
+In questa esercitazione è stata illustrata la procedura più rapida per creare un sito Web e distribuirlo con un'unica operazione. Per una panoramica su altre modalità di distribuzione, tramite Visual Studio o [automatizzando la distribuzione][2] da un [sistema di controllo del codice sorgente][3], vedere [Come distribuire un sito Web di Azure](/it-it/documentation/articles/web-sites-deploy/").
 
 Uno dei modi per automatizzare la distribuzione consiste nell'utilizzare script di Windows PowerShell. L'uso combinato di Visual Studio e Azure consente di semplificare tale attività mediante la generazione di script di PowerShell che possibile utilizzare per eseguire le stesse operazioni di distribuzione eseguibili in Visual Studio. Per ulteriori informazioni, vedere l'articolo relativo a come [automatizzare tutto e creare app per cloud reali con Azure][4].
 

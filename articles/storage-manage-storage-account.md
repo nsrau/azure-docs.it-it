@@ -25,7 +25,7 @@ Sono disponibili tre opzioni per replicare l'account di archiviazione:
 
 -   **Replica con ridondanza geografica con accesso in lettura (solo anteprima).** La replica con ridondanza geografica con accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. La replica con ridondanza geografica con accesso in lettura consente di accedere ai dati dalla posizione primaria o secondaria, qualora una posizione non sia disponibile.
 
-Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere [Dettagli prezzi di archiviazione](http://www.windowsazure.com/en-us/pricing/details/storage/).
+Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere [Dettagli prezzi di archiviazione](http://www.windowsazure.com/it-it/pricing/details/storage/).
 
 ### Per specificare le impostazioni di replica per un account di archiviazione
 
@@ -46,7 +46,7 @@ Nel [portale di gestione](http://manage.windowsazure.com) utilizzare **Manage Ke
 
 ### Copia di una chiave di accesso alle risorse di archiviazione
 
-È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da utilizzare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
+È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da utilizzare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/it-it/library/ee758697.aspx).
 
 1.  Nel [portale di gestione](http://manage.windowsazure.com) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 

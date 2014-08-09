@@ -4,12 +4,12 @@
 
  
 <div  class="dev-center-tutorial-selector sublanding">
-	<a  href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a> <a  href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a  href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> <a  href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android" class="current">Android</a> <a  href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a  href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a  href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a  href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a  href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+	<a  href="/it-it/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a> <a  href="/it-it/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a  href="/it-it/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> <a  href="/it-it/documentation/articles/mobile-services-android-get-started" title="Android" class="current">Android</a> <a  href="/it-it/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a  href="/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a  href="/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a  href="/it-it/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a  href="/it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
 
  
 <div  class="dev-center-tutorial-subselector">
-	<a  href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/" title=".NET backend">Back-end .NET</a> | <a  href="/en-us/documentation/articles/mobile-services-android-get-started/" title="JavaScript backend" class="current">Back-end JavaScript</a>
+	<a  href="/it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started/" title=".NET backend">Back-end .NET</a> | <a  href="/it-it/documentation/articles/mobile-services-android-get-started/" title="JavaScript backend" class="current">Back-end JavaScript</a>
 </div>
 
  
@@ -29,7 +29,7 @@ Per completare questa esercitazione, è necessario disporre di [Android Develope
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili per Android. Questo progetto richiede Android 4.2 o versione successiva, invece l'SDK di Servizi mobili richiede solo Android 2.2 o versione successiva.
 
  
-<div  class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+<div  class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 

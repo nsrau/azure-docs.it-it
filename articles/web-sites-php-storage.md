@@ -111,7 +111,7 @@ Prima di poter memorizzare i dati è necessario aver creato il relativo contenit
           
         >
 
-    I codici di errore e la scansione dei messaggi sono disponibili all'indirizzo: <http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx>
+    I codici di errore e la scansione dei messaggi sono disponibili all'indirizzo: <http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx>
 
 Query di una tabella
 --------------------
@@ -278,7 +278,7 @@ L'app di elenco attività è in grado di contrassegnare un elemento come complet
 
           $result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq 
 
-    Come è possibile notare, il filtro query passato è sotto forma di `Key eq 'Value'`. Una descrizione completa della sintassi della query è disponibile [qui](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx).
+    Come è possibile notare, il filtro query passato è sotto forma di `Key eq 'Value'`. Una descrizione completa della sintassi della query è disponibile [qui](http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx).
 
 -   Sarà quindi possibile modificare qualsiasi proprietà:
 

@@ -494,15 +494,15 @@ Per ulteriori informazioni su distribuzione, aggiornamento e riconfigurazione de
 
  
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
-[3]: http://www.windowsazure.com/en-us/pricing/calculator/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[6]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-[7]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
-[8]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-[9]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-[10]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-[11]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+[1]: http://www.windowsazure.com/it-it/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/it-it/develop/net/fundamentals/cloud-storage/
+[3]: http://www.windowsazure.com/it-it/pricing/calculator/
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
+[6]: http://msdn.microsoft.com/it-it/library/hh560567.aspx
+[7]: http://msdn.microsoft.com/it-it/library/ee924680.aspx
+[8]: http://www.windowsazure.com/it-it/develop/net/fundamentals/deploying-applications/
+[9]: http://msdn.microsoft.com/it-it/library/gg432967.aspx
+[10]: http://msdn.microsoft.com/it-it/library/gg433038.aspx
+[11]: http://msdn.microsoft.com/it-it/library/gg186051.aspx
+[12]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405486.aspx

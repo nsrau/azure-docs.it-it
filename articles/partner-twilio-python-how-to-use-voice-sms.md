@@ -282,7 +282,7 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, utiliz
 [8]: https://www.twilio.com/help/faq/phone-numbers
 [9]: https://github.com/twilio/twilio-php
 [10]: http://readthedocs.org/docs/twilio-php/en/latest/index.html
-[11]: http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call
+[11]: http://windowsazure.com/it-it/documentation/articles/partner-twilio-php-make-phone-call
 [12]: https://github.com/twilio/twilio-php/blob/master/README.md
 [13]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [14]: http://twimlets.com/message
@@ -299,7 +299,7 @@ A questo punto, dopo aver appreso le nozioni di base del servizio Twilio, utiliz
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 
-[howto_phonecall_php]: http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call
+[howto_phonecall_php]: http://windowsazure.com/it-it/documentation/articles/partner-twilio-php-make-phone-call
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

@@ -3,7 +3,7 @@
 Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili
 ============================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 In questo argomento verrà illustrato come utilizzare Servizi mobili di Azure per consentire alla propria app di caricare e archiviare immagini generate dall'utente in Archiviazione di Azure. Servizi mobili utilizza un database SQL per archiviare i dati. I dati BLOB vengono tuttavia archiviati in modo più efficiente nel servizio di archiviazione BLOB di Azure.
 
@@ -23,7 +23,7 @@ Per completare questa esercitazione, è necessario disporre di:
 -   Programma per la gestione dei pacchetti Nuget installato per Microsoft Visual Studio.
 -   [Account di archiviazione di Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-phone-get-started).
 
 Installazione del client di archiviazione per le app di Windows Store
 ---------------------------------------------------------------------

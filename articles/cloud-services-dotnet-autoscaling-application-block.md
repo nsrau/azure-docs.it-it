@@ -344,19 +344,19 @@ A questo punto, dopo aver appreso le nozioni di base sull'utilizzo del blocco ap
 [Procedura: Definire il modello del servizio]: #DefineServiceModel
 [Procedura: Definire le regole di scalabilità automatica]: #DefineAutoscalingRules
 [Procedura: Configurare il blocco applicazione per la scalabilità automatica]: #Configure
-[Utilizzo dei contatori di prestazioni in Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+[Utilizzo dei contatori di prestazioni in Azure]: http://www.windowsazure.com/it-it/develop/net/common-tasks/performance-profiling/
 [NuGet]: http://nuget.org/
 [portale di gestione di Azure]: http://manage.windowsazure.com
-[Archiviazione delle informazioni del servizio]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-[Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
-[Implementazione del comportamento di limitazione]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
-[Informazioni sulle classificazioni delle regole e sulla riconciliazione]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
-[Estensione e modifica del blocco applicazione per la scalabilità automatica]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx
-[Utilizzo dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx
-[Utilizzo delle notifiche e della scalabilità manuale]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-[Definizione di gruppi di scala]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
-[Utilizzo dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
-[Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-[Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-[Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+[Archiviazione delle informazioni del servizio]: http://msdn.microsoft.com/it-it/library/hh680878(PandP.50).aspx
+[Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]: http://msdn.microsoft.com/it-it/library/hh680914(PandP.50).aspx
+[Implementazione del comportamento di limitazione]: http://msdn.microsoft.com/it-it/library/hh680896(PandP.50).aspx
+[Informazioni sulle classificazioni delle regole e sulla riconciliazione]: http://msdn.microsoft.com/it-it/library/hh680923(PandP.50).aspx
+[Estensione e modifica del blocco applicazione per la scalabilità automatica]: http://msdn.microsoft.com/it-it/library/hh680889(PandP.50).aspx
+[Utilizzo dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi]: http://msdn.microsoft.com/it-it/library/hh680951(PandP.50).aspx
+[Utilizzo delle notifiche e della scalabilità manuale]: http://msdn.microsoft.com/it-it/library/hh680885(PandP.50).aspx
+[Definizione di gruppi di scala]: http://msdn.microsoft.com/it-it/library/hh680902(PandP.50).aspx
+[Utilizzo dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell]: http://msdn.microsoft.com/it-it/library/hh680938(PandP.50).aspx
+[Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]: http://msdn.microsoft.com/it-it/library/hh680949(PandP.50).aspx
+[Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]: http://msdn.microsoft.com/it-it/library/jj838716(PandP.50).aspx
+[Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/it-it/library/jj838718(PandP.50).aspx
 

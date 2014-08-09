@@ -52,7 +52,7 @@ Si procederà quindi a verificare che i dispositivi effettuino la registrazione 
 	  </visual>
 	</toast>
 
-I modelli rappresentano uno strumento particolarmente efficace. Per ulteriori informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica](http://msdn.microsoft.com/en-us/library/jj927170.aspx). In [Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/en-us/library/jj927172.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
+I modelli rappresentano uno strumento particolarmente efficace. Per ulteriori informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica](http://msdn.microsoft.com/it-it/library/jj927170.aspx). In [Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/it-it/library/jj927172.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
 
 Interfaccia utente dell'appInterfaccia utente dell'app
 ------------------------------------------------------
@@ -156,5 +156,5 @@ Invio di notifiche localizzateInvio di notifiche localizzate dal back-end
 Passaggi successivi
 -------------------
 
-Per ulteriori informazioni sull'utilizzo del modelli, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili](/en-us/manage/services/notification-hubs/notify-users), nonché l'articolo sulle [linee guida su Hub di notifica](http://msdn.microsoft.com/en-us/library/jj927170.aspx). In [Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/en-us/library/jj927172.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
+Per ulteriori informazioni sull'utilizzo del modelli, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili](/en-us/manage/services/notification-hubs/notify-users), nonché l'articolo sulle [linee guida su Hub di notifica](http://msdn.microsoft.com/it-it/library/jj927170.aspx). In [Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/it-it/library/jj927172.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
 

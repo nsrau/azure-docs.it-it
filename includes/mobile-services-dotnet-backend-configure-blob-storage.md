@@ -17,7 +17,7 @@ L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostT
 
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-    La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per ulteriori informazioni, vedere [Impostazioni app](http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
+    La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per ulteriori informazioni, vedere [Impostazioni app](http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
 
 3.  In Esplora soluzioni di Visual Studio aprire il file Web.config relativo al progetto di servizio mobile e aggiungere le nuove impostazioni dell'app seguenti, sostituendo i segnaposto con il nome dell'account di archiviazione e la chiave di accesso specificati come impostazioni dell'app nel portale:
 

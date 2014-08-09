@@ -3,12 +3,12 @@
 Introduzione alle notifiche push in Servizi mobili
 ==================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#")[Windows Store JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
-[Back-end .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Back-end .NET") | [Back-end JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/ "Back-end JavaScript")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#")[Windows Store JavaScript](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript")[Windows Phone](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone")[iOS](/it-it/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
+[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/ "Back-end JavaScript")
 
 In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per inviare notifiche push a un'app di Windows Store. In questa esercitazione si utilizzerà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
-> [WACOM.NOTE]In questa esercitazione viene illustrata l'integrazione di Servizi mobili con Hub di notifica, attualmente in versione di anteprima. Per impostazione predefinita, l'invio di notifiche push mediante Hub di notifica non è abilitata da un back-end JavaScript. Dopo aver creato il nuovo hub di notifica, non è possibile annullare il processo di integrazione. Attualmente le notifiche push per iOS e Android sono disponibili solo utilizzando il supporto push predefinito descritto in [questa versione dell'argomento](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/).
+> [WACOM.NOTE]In questa esercitazione viene illustrata l'integrazione di Servizi mobili con Hub di notifica, attualmente in versione di anteprima. Per impostazione predefinita, l'invio di notifiche push mediante Hub di notifica non è abilitata da un back-end JavaScript. Dopo aver creato il nuovo hub di notifica, non è possibile annullare il processo di integrazione. Attualmente le notifiche push per iOS e Android sono disponibili solo utilizzando il supporto push predefinito descritto in [questa versione dell'argomento](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/).
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
@@ -17,7 +17,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 3.  [Aggiornamento degli script del server per l'invio di notifiche push](#update-scripts)
 4.  [Inserimento di dati per la ricezione di notifiche push](#test)
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data) per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data) per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione.
 
 Registrazione dell'app con Servizi notifica Push Windows e configurazione di Servizi mobili
 -------------------------------------------------------------------------------------------
@@ -89,16 +89,16 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 
 Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data) <br/>
+-   [Introduzione ai dati](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data) <br/>
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione all'autenticazione](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users) <br/>
+-   [Introduzione all'autenticazione](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users) <br/>
     Informazioni sull'autenticazione degli utenti dell'app con l'account Windows.
 
 -   [Riferimento per gli script del server di Servizi mobili](http://go.microsoft.com/fwlink/?LinkId=262293) <br/>
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/en-us/documentation/articles/mobile-services-html-how-to-use-client-library) <br/>
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/it-it/documentation/articles/mobile-services-html-how-to-use-client-library) <br/>
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
 <!-- Images. -->
@@ -113,10 +113,10 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-windows-store-get-started
+[Get started with data]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+[Get started with authentication]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[Get started with push notifications]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push
 
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
@@ -124,4 +124,4 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
 [Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library

@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/it-it/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
 
 Creazione di un'applicazione Node.js in Azure con MongoDB in una macchina virtuale
 ==================================================================================
@@ -67,7 +67,7 @@ Sebbene sia possibile creare una nuova macchina virtuale e quindi installarvi Mo
 
     > [WACOM.NOTE] Per questa esercitazione, non è necessario utilizzare il protocollo SSH per la connessione remota alla macchina virtuale. Selezionare **Use a password** e fornire una password se non si ha familiarità con l'utilizzo dei certificati tramite SSH.
     >
-    > Per ulteriori informazioni sull'utilizzo del protocollo SSH per accedere a una macchina virtuale Linux in Azure, vedere la pagina relativa all'[utilizzo di SSH con Linux in Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/).
+    > Per ulteriori informazioni sull'utilizzo del protocollo SSH per accedere a una macchina virtuale Linux in Azure, vedere la pagina relativa all'[utilizzo di SSH con Linux in Azure](http://www.windowsazure.com/it-it/documentation/articles/linux-use-ssh-key/).
 
 7.  Selezionare se utilizzare un servizio cloud nuovo o esistente e l'area in cui verrà creata la macchina virtuale. Fare clic sulla freccia per continuare.
 
@@ -380,7 +380,7 @@ Nei passaggi di questa sezione vengono utilizzati gli strumenti da riga di coman
 
 ### Installare l'interfaccia della riga di comando multipiattaforma di Azure
 
-L'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) consente di effettuare operazioni di gestione per i servizi di Azure. Se l'interfaccia della riga di comando multipiattaforma (xplat-cli) non è ancora stata installata e configurata nell'ambiente di sviluppo, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure](/en-us/documentation/articles/xplat-cli/) per istruzioni.
+L'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) consente di effettuare operazioni di gestione per i servizi di Azure. Se l'interfaccia della riga di comando multipiattaforma (xplat-cli) non è ancora stata installata e configurata nell'ambiente di sviluppo, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure](/it-it/documentation/articles/xplat-cli/) per istruzioni.
 
 ### Creare un sito Web di Azure
 

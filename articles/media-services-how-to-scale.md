@@ -59,7 +59,7 @@ Per impostazione predefinita, ogni account di Media Services può includere fino
 Per aprire un ticket di supporto, eseguire le operazioni seguenti:
 
 1.  Accedere all'account Azure nel [portale di gestione](http://manage.windowsazure.com).
-2.  Passare a [Support](http://www.windowsazure.com/en-us/support/contact/).
+2.  Passare a [Support](http://www.windowsazure.com/it-it/support/contact/).
 3.  Fare clic su "Get Support".
 4.  Selezionare la propria sottoscrizione.
 5.  Per il tipo di supporto, selezionare "Technical".

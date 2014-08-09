@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
+<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/it-it/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
 
 Configurazione dei RAID software in Linux
 =========================================
@@ -8,9 +8,9 @@ I RAID software vengono spesso utilizzati nelle macchine virtuali Linux in Azure
 Collegamento di dischi dati
 ---------------------------
 
-Per configurare un dispositivo RAID sono in genere necessari due dischi dati. In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty).
+Per configurare un dispositivo RAID sono in genere necessari due dischi dati. In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/#attachempty).
 
-    >[WACOM.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Per istruzioni dettagliate sulle dimensioni delle VM e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).
+    >[WACOM.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Per istruzioni dettagliate sulle dimensioni delle VM e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx).
 
 Installazione dell'utility mdadm
 --------------------------------

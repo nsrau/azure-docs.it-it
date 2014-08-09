@@ -58,7 +58,7 @@ Il servizio BLOB è composto dai componenti seguenti:
 Creazione di un account di archiviazione di Azure
 -------------------------------------------------
 
-Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito (è possibile creare un account di archiviazione anche [utilizzando l'API REST](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx)).
+Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito (è possibile creare un account di archiviazione anche [utilizzando l'API REST](http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx)).
 
 1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
@@ -235,7 +235,7 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
 -   [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Archivio [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) su GitHub
 

@@ -739,8 +739,8 @@ In questa esercitazione è stata sviluppata un'applicazione Django utilizzando [
 [3]: http://pytools.codeplex.com
 [4]: http://www.python.org/download/
 [5]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
-[6]: http://www.windowsazure.com/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/
-[7]: http://www.windowsazure.com/en-us/services/web-sites/
-[8]: http://www.windowsazure.com/en-us/services/cloud-services/
-[9]: http://www.windowsazure.com/en-us/services/virtual-machines/
+[6]: http://www.windowsazure.com/it-it/manage/linux/common-tasks/mysql-on-a-linux-vm/
+[7]: http://www.windowsazure.com/it-it/services/web-sites/
+[8]: http://www.windowsazure.com/it-it/services/cloud-services/
+[9]: http://www.windowsazure.com/it-it/services/virtual-machines/
 [10]: https://manage.windowsazure.com/publishsettings/index?client=vs&schemaversion=2.0

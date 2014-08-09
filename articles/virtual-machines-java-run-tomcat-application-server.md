@@ -130,7 +130,7 @@ Considerazioni sul ciclo di vita delle applicazioni
 
 Passaggi successivi
 -------------------
--   Per informazioni su altri servizi, ad esempio Archiviazione, bus di servizio, database SQL di Azure e altri ancora che può essere utile includere nelle applicazioni Java, fare riferimento alle informazioni disponibili all'indirizzo <http://www.windowsazure.com/en-us/develop/java/>.
+-   Per informazioni su altri servizi, ad esempio Archiviazione, bus di servizio, database SQL di Azure e altri ancora che può essere utile includere nelle applicazioni Java, fare riferimento alle informazioni disponibili all'indirizzo <http://www.windowsazure.com/it-it/develop/java/>.
 
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png

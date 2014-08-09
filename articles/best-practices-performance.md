@@ -104,7 +104,7 @@ Un modello di progettazione comune in cui è possibile valutare l'utilizzo di Ar
 
 Per ulteriori informazione su Archiviazione tabelle, vedere:
 
--   [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+-   [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/it-it/library/jj553018.aspx)
 -   [Considerazioni relative alle prestazioni di Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkId=252663)
 -   [Database SQL e Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkId=252664)
 -   [Ottimizzazione delle prestazioni tramite l'invio in batch di inserimenti di Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkID=252665) in cui sono illustrati alcuni risultati relativi alle prestazioni.
@@ -202,8 +202,8 @@ Esistono quattro tipi principali di archiviazione di dati non SQL:
 Azure offre il supporto diretto per Hadoop e consente inoltre l'utilizzo di altre tecnologie. Per informazioni sul servizio HDInsight di Azure, vedere:
 
 -   [Big Data](/en-us/solutions/big-data/)
--   [Servizio HDInsight di Azure](/en-us/documentation/services/hdinsight/)
--   [Introduzione al servizio HDInsight di Azure](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Servizio HDInsight di Azure](/it-it/documentation/services/hdinsight/)
+-   [Introduzione al servizio HDInsight di Azure](/it-it/documentation/articles/hdinsight-get-started/)
 
 Per informazioni sulle discussioni relative ai problemi riscontrati con vari metodi di archiviazione NoSQL, vedere:
 

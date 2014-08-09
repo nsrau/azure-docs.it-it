@@ -20,4 +20,4 @@ La chiave dell applicazione viene distribuita con lapplicazione. Poiché la dist
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193161.aspx

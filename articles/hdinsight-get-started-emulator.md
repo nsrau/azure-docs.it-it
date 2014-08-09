@@ -3,7 +3,7 @@
 Introduzione a HDInsight Emulator
 =================================
 
-In questa esercitazione vengono utilizzate le operazioni iniziali per l'utilizzo di Microsoft HDInsight Emulator per Azure (in precedenza HDInsight Server Developer Preview). HDInsight Emulator include gli stessi componenti dell'ecosistema Hadoop disponibili in Azure HDInsight. Per informazioni dettagliate, incluse informazioni sulle versioni distribuite, vedere [Versione di Hadoop disponibile in Azure HDInsight](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions").
+In questa esercitazione vengono utilizzate le operazioni iniziali per l'utilizzo di Microsoft HDInsight Emulator per Azure (in precedenza HDInsight Server Developer Preview). HDInsight Emulator include gli stessi componenti dell'ecosistema Hadoop disponibili in Azure HDInsight. Per informazioni dettagliate, incluse informazioni sulle versioni distribuite, vedere [Versione di Hadoop disponibile in Azure HDInsight](http://www.windowsazure.com/it-it/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions").
 
 HDInsight Emulator offre un ambiente di sviluppo locale per Azure HDInsight. Se si ha familiarità con Hadoop, sarà possibile iniziare a utilizzare HDInsight Emulator tramite HDFS. In HDInsight, tuttavia, il file system predefinito corrisponde all'archivio BLOB di Azure. Sarà quindi necessario, prima o poi, sviluppare i processi utilizzando tale file system. È possibile iniziare lo sviluppo sull'archiviazione BLOB mediante l'emulatore di archiviazione di Azure e utilizzando solo un sottoinsieme ridotto dei dati disponibili. In HDInsight Emulator non sono necessarie modifiche a livello di configurazione, ma solo un nome di account di archiviazione diverso. È quindi possibile verificare localmente i processi sull'archivio BLOB di Azure, utilizzando anche in questo caso solo un sottoinsieme dei dati. Sarà necessario apportare una modifica a livello di configurazione in HDInsight Emulator. Sarà infine possibile spostare la parte del processo relativa al calcolo in HDInsight ed eseguire il processo sui dati di produzione.
 
@@ -20,7 +20,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     -   Windows Server 2008 R2 Service Pack1
     -   Windows 8
     -   Windows Server 2012
--   Installare e configurare Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installare e configurare Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 Contenuto dell'esercitazione:
 -----------------------------
@@ -426,7 +426,7 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 
 ### Effettuare la connessione all'emulatore di archiviazione
 
-L'emulatore di archiviazione di Azure è incluso in [Azure SDK per .NET](http://www.windowsazure.com/en-us/downloads/). L'emulatore di archiviazione non viene avviato automaticamente. È necessario avviarlo manualmente. Il nome dell'applicazione è *Emulatore di archiviazione di Azure*. Per avviare o interrompere gli emulatori, fare clic con il pulsante destro del mouse sull'icona blu di Azure sulla barra delle applicazioni di Windows, quindi scegliere Show Storage Emulator UI.
+L'emulatore di archiviazione di Azure è incluso in [Azure SDK per .NET](http://www.windowsazure.com/it-it/downloads/). L'emulatore di archiviazione non viene avviato automaticamente. È necessario avviarlo manualmente. Il nome dell'applicazione è *Emulatore di archiviazione di Azure*. Per avviare o interrompere gli emulatori, fare clic con il pulsante destro del mouse sull'icona blu di Azure sulla barra delle applicazioni di Windows, quindi scegliere Show Storage Emulator UI.
 
 
 > [WACOM.NOTE] Quando si avvia l'emulatore di archiviazione, è possibile che venga visualizzato il messaggio di errore seguente:
@@ -578,7 +578,7 @@ Di seguito viene riportato un esempio per l'invio di un processo Hadoop:
 
 Quando si chiama Get-Credential, verrà visualizzato un prompt. È necessario utilizzare **hadoop** come nome utente. Per la password è possibile utilizzare qualsiasi stringa. Il nome del cluster è sempre **http://localhost:50111**.
 
-Per ulteriori informazioni sull'invio di processi Hadoop, vedere [Invio di processi Hadoop a livello di codice](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/). Per ulteriori informazioni sui cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Per ulteriori informazioni sull'invio di processi Hadoop, vedere [Invio di processi Hadoop a livello di codice](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/). Per ulteriori informazioni sui cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx).
 
 Passaggi successivi
 -------------------
@@ -586,7 +586,7 @@ Passaggi successivi
 In questa esercitazione è stato installato HDInsight Emulator e sono stati eseguiti alcuni processi Hadoop. Per ulteriori informazioni, vedere gli articoli seguenti:
 
 -   [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Sviluppo di programmi MapReduce Java per HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Sviluppo di programmi MapReduce Java per HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 -   [Sviluppo di programmi MapReduce di streaming Hadoop in C\# per HDInsight](/en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/)
 -   [Note sulla versione di HDInsight Emulator](https://gettingstarted.hadooponazure.com/releaseNotes.html)
 -   [Forum MSDN relativo a HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)

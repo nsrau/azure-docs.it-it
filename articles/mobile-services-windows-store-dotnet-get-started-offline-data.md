@@ -3,13 +3,13 @@
 Introduzione ai dati offline in Servizi mobili
 ==============================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#")
 
 In questo argomento viene illustrato come utilizzare le funzionalità offline di Servizi mobili di Azure. Servizi mobili di Azure consente di interagire con un database locale quando si utilizza un servizio mobile in modalità offline. Le funzionalità offline consentono di sincronizzare le modifiche locali con il servizio mobile utilizzato quando si torna online.
 
-In questa esercitazione verrà aggiornata l'app creata nell'esercitazione [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) per supportare le funzionalità offline di Servizi mobili di Azure. Quindi, verranno aggiunti dati in uno scenario offline, verrà effettuata la sincronizzazione di tali elementi con il database online, quindi si effettuerà l'acesso al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
+In questa esercitazione verrà aggiornata l'app creata nell'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) per supportare le funzionalità offline di Servizi mobili di Azure. Quindi, verranno aggiunti dati in uno scenario offline, verrà effettuata la sincronizzazione di tali elementi con il database online, quindi si effettuerà l'acesso al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
 
-> [WACOM.NOTE] In questa esercitazione viene descritto come utilizzare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Windows Store e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started/).
+> [WACOM.NOTE] In questa esercitazione viene descritto come utilizzare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Windows Store e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/).
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
@@ -21,12 +21,12 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 Per completare questa esercitazione, è necessario disporre di:
 
 -   Visual Studio 2013 in esecuzione su Windows 8.1.
--   Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
+-   Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
 -   Pacchetto Azure Mobile Services SDK NuGe 1.3.0 alfa.
 -   Pacchetto Azure Mobile Services SQLite Store NuGe 0.1.0 alpha
 -   SQLite for Windows 8.1
 
-> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 Aggiornamento dell'app per supportare le funzionalità offline
 -------------------------------------------------------------
@@ -41,7 +41,7 @@ In questa sezione viene utilizzato SQLite come archivio locale per le funzionali
 
     > [WACOM.NOTE] Se si utilizza Internet Explorer, facendo clic sul link di installazione di SQLite potrebbe essere visualizzato un messaggio in cui viene chiesto di scaricare .vsix come file .zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file .vsix file in Esplora risorse per eseguire l'installazione.
 
-2.  In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Aggiungere un riferimento di **estensione di Windows** a **SQLite for Windows Runtime (Windows 8.1)**.
+2.  In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Aggiungere un riferimento di **estensione di Windows** a **SQLite for Windows Runtime (Windows 8.1)**.
 
     ![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png)
 
@@ -244,7 +244,7 @@ Per sincronizzare l'archivio locale con il server sono stati utilizzati i metodi
 Passaggi successivi
 -------------------
 
--   [Gestione dei conflitti con il supporto offline per Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
+-   [Gestione dei conflitti con il supporto offline per Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -268,12 +268,12 @@ Passaggi successivi
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Getting Started]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 
 

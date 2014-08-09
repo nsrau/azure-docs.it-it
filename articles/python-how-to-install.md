@@ -144,7 +144,7 @@ Risorse e software aggiuntivi:
 -   [Serie di librerie numeriche NumPy per Python](http://www.numpy.org)
 -   [Progetto Django: framework/CMS Web avanzato](http://www.djangoproject.com)
 -   [IPython: REPL/Notebook avanzato per Python](http://ipython.org)
--   [IPython Notebook in Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook)
+-   [IPython Notebook in Azure](http://windowsazure.com/it-it/documentation/articles/virtual-machines-python-ipython-notebook)
 -   [Python Tools per Visual Studio su CodePlex](http://pytools.codeplex.com)
 -   [Virtualenv](http://pypi.python.org/pypi/virtualenv)
 

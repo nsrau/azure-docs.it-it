@@ -18,7 +18,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 -   Microsoft Visual Studio 2012 Express per Windows o versione successiva.
 -   Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/develop/mobile/tutorials/get-started).
--   [Account Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Account Azure](http://www.windowsazure.com/it-it/pricing/free-trial/)
 -   Pacchetto NuGet per Servizi mobili di Azure 1.1.0 o versione successiva. Per ottenere l'ultima versione, eseguire la procedura seguente:
     1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**.
 

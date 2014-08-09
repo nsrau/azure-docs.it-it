@@ -66,7 +66,7 @@ Per creare un sito Web di Azure e un database SQL, eseguire la procedura seguent
 
     ![Inserimento di dettagli sul sito Web](./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg)
 
-4.  Immettere un valore per il campo **NAME** relativo al database, selezionare l'opzione per **EDITION** [(WEB o BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx), selezionare il valore per **MAX SIZE** relativo al database, scegliere il valore per **COLLATION** e selezionare **NEW SQL Database Server**. Fare clic sulla freccia nella parte inferiore della finestra di dialogo.
+4.  Immettere un valore per il campo **NAME** relativo al database, selezionare l'opzione per **EDITION** [(WEB o BUSINESS)](http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx), selezionare il valore per **MAX SIZE** relativo al database, scegliere il valore per **COLLATION** e selezionare **NEW SQL Database Server**. Fare clic sulla freccia nella parte inferiore della finestra di dialogo.
 
     ![Compilazione delle impostazioni del database SQL](./media/sql-database-nodejs-use-web-site/database_settings.jpg)
 

@@ -36,4 +36,4 @@ viene eseguito esclusivamente tramite un account di archiviazione. Per informazi
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[1]: http://msdn.microsoft.com/it-it/library/dn249410.aspx

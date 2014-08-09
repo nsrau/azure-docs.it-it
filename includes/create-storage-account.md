@@ -22,5 +22,5 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
 [2]: http://manage.windowsazure.com

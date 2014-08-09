@@ -120,7 +120,7 @@ Creazione di una distribuzione
 
     4.  Dopo la selezione del file, fare clic su **Upload**.
 
-4.  Fare clic su **+ Create new** per creare un nuovo servizio ospitato. Un *servizio ospitato* è il contenitore nel quale l'applicazione è ospitata quando viene distribuita in Azure. Per ulteriori informazioni, vedere [Creazione di un servizio ospitato per Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+4.  Fare clic su **+ Create new** per creare un nuovo servizio ospitato. Un *servizio ospitato* è il contenitore nel quale l'applicazione è ospitata quando viene distribuita in Azure. Per ulteriori informazioni, vedere [Creazione di un servizio ospitato per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx).
 
     ![Creazione di una nuova distribuzione](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
@@ -151,9 +151,9 @@ Distribuzione nell'ambiente di produzione di Azure
 
     ![Messaggio relativo al file web.config non trovato](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
-5.  Se questa è la prima distribuzione del progetto in Azure, verrà visualizzato l'errore **'No 'csdef' file present'**. Selezionare **Yes** per creare il file con estensione csdef. Un file 'ServiceDefinition.csdef' verrà aggiunto al progetto. ServiceDefinition.csdef è un file specifico di Azure, necessario per la pubblicazione dell'applicazione. Per ulteriori informazioni, vedere [Creazione di un servizio ospitato per Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+5.  Se questa è la prima distribuzione del progetto in Azure, verrà visualizzato l'errore **'No 'csdef' file present'**. Selezionare **Yes** per creare il file con estensione csdef. Un file 'ServiceDefinition.csdef' verrà aggiunto al progetto. ServiceDefinition.csdef è un file specifico di Azure, necessario per la pubblicazione dell'applicazione. Per ulteriori informazioni, vedere [Creazione di un servizio ospitato per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx).
 
-6.  Verrà richiesta la selezione delle dimensioni delle istanze per l'applicazione. Selezionare **Small** e quindi fare clic su **Create**. Per informazioni dettagliate sulle dimensioni delle macchine virtuali di Azure, vedere [Come configurare le dimensioni della macchina virtuale](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx).
+6.  Verrà richiesta la selezione delle dimensioni delle istanze per l'applicazione. Selezionare **Small** e quindi fare clic su **Create**. Per informazioni dettagliate sulle dimensioni delle macchine virtuali di Azure, vedere [Come configurare le dimensioni della macchina virtuale](http://msdn.microsoft.com/it-it/library/windowsazure/ee814754.aspx).
 
     ![Definizione dei valori del file con estensione csdef](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
@@ -201,7 +201,7 @@ Distribuzione dell'aggiornamento nell'ambiente di gestione temporanea di Azure
 Spostamento dell'aggiornamento in produzione tramite lo scambio VIP
 -------------------------------------------------------------------
 
-Quando un servizio viene distribuito in ambienti di produzione o di gestione temporanea, al servizio in questo ambiente viene assegnato un indirizzo IP virtuale (VIP). Se si desidera spostare un servizio dall'ambiente di gestione temporanea all'ambiente di produzione, è possibile eseguire tale operazione senza ripetere la distribuzione effettuando uno scambio VIP, che consente di scambiare le distribuzioni di gestione temporanea e di produzione. Uno scambio VIP consente di inserire in produzione l'applicazione di gestione temporanea testata, senza tempi di inattività nell'ambiente di produzione. Per ulteriori informazioni, vedere [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx).
+Quando un servizio viene distribuito in ambienti di produzione o di gestione temporanea, al servizio in questo ambiente viene assegnato un indirizzo IP virtuale (VIP). Se si desidera spostare un servizio dall'ambiente di gestione temporanea all'ambiente di produzione, è possibile eseguire tale operazione senza ripetere la distribuzione effettuando uno scambio VIP, che consente di scambiare le distribuzioni di gestione temporanea e di produzione. Uno scambio VIP consente di inserire in produzione l'applicazione di gestione temporanea testata, senza tempi di inattività nell'ambiente di produzione. Per ulteriori informazioni, vedere [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433027.aspx).
 
 1.  Nella finestra di dialogo di distribuzione fare clic sul collegamento **Open portal** per aprire il portale di gestione di Azure.
 

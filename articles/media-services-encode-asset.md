@@ -5,7 +5,7 @@ Procedura: Codificare un asset
 
 Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Ottenere un'istanza del processore di contenuti multimediali](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
 
-È possibile codificare il contenuto multimediale nel server utilizzando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È inoltre possibile utilizzare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace](https://datamarket.azure.com/). È possibile specificare i dettagli relativi alle attività di codifica utilizzando stringhe di [set di impostazioni per il codificatore](http://msdn.microsoft.com/en-us/library/hh973610.aspx) oppure file di configurazione.
+È possibile codificare il contenuto multimediale nel server utilizzando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È inoltre possibile utilizzare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace](https://datamarket.azure.com/). È possibile specificare i dettagli relativi alle attività di codifica utilizzando stringhe di [set di impostazioni per il codificatore](http://msdn.microsoft.com/it-it/library/hh973610.aspx) oppure file di configurazione.
 
 Codifica in formato MP4
 -----------------------
@@ -107,9 +107,9 @@ Se si desidera codificare un video in formato Smooth Streaming, sono disponibili
 -   Eseguire la codifica direttamente nel formato Smooth Streaming
 -   Eseguire la codifica nel formato MP4 e quindi eseguire la conversione in formato Smooth Streaming
 
-Per eseguire la codifica direttamente nel formato Smooth Streaming, utilizzare il codice riportato sopra con uno dei set di impostazioni del codificatore per Smooth Streaming. Per un elenco completo dei set di impostazioni del codificatore, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/en-us/library/jj129582.aspx).
+Per eseguire la codifica direttamente nel formato Smooth Streaming, utilizzare il codice riportato sopra con uno dei set di impostazioni del codificatore per Smooth Streaming. Per un elenco completo dei set di impostazioni del codificatore, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/it-it/library/jj129582.aspx).
 
-Per convertire un file MP4 in formato Smooth Streaming, utilizzare Azure Media Packager. Azure Media Packager non supporta set di impostazioni in formato stringa. È quindi necessario specificare le opzioni di configurazione in XML. Il codice XML necessario per la conversione dal formato MP4 al formato Smooth Streaming è disponibile nel [set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx). Copiare e incollare il codice XML in un file denominato MediaPackager\_MP4ToSmooth.xml nel progetto. Nel codice seguente viene illustrato come convertire un asset MP4 nel formato Smooth Streaming. Il metodo seguente accetta un asset esistente e lo converte.
+Per convertire un file MP4 in formato Smooth Streaming, utilizzare Azure Media Packager. Azure Media Packager non supporta set di impostazioni in formato stringa. È quindi necessario specificare le opzioni di configurazione in XML. Il codice XML necessario per la conversione dal formato MP4 al formato Smooth Streaming è disponibile nel [set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx). Copiare e incollare il codice XML in un file denominato MediaPackager\_MP4ToSmooth.xml nel progetto. Nel codice seguente viene illustrato come convertire un asset MP4 nel formato Smooth Streaming. Il metodo seguente accetta un asset esistente e lo converte.
 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
@@ -151,8 +151,8 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 
 Per ulteriori informazioni sull'elaborazione di asset, vedere:
 
--   [Elaborazione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/en-us/library/jj129580.aspx)
--   [Elaborazione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/en-us/library/jj129574.aspx)
+-   [Elaborazione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/jj129580.aspx)
+-   [Elaborazione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/jj129574.aspx)
 
 Passaggi successivi
 -------------------

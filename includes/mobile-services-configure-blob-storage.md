@@ -86,4 +86,4 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

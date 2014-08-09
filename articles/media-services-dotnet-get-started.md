@@ -27,7 +27,7 @@ Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, s
 
 **Nota**
 
-Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5).
+Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5).
 
 Configurazione del progetto
 ---------------------------
@@ -179,7 +179,7 @@ Aggiungere una chiamata al metodo dopo la riga **\_context = new CloudMediaConte
 Codifica di un asset nel server e download di un asset di output
 ----------------------------------------------------------------
 
-In Servizi multimediali è possibile creare processi che eseguono diversi tipi di elaborazione sui contenuti multimediali: codifica, crittografia, conversioni di formato e così via. Un processo di Servizi multimediali contiene sempre una o più attività che specificano i dettagli dell'elaborazione da eseguire. In questa sezione verrà creata un'attività di codifica di base e verrà eseguito un processo che effettua tale attività mediante Azure Media Encoder. L'attività utilizza una stringa di set di impostazioni per specificare il tipo di codifica da eseguire. Per verificare i valori di codifica disponibili nel set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx). Servizi multimediali supporta gli stessi formati di input e di output dei file multimediali di Microsoft Expression Encoder. Per un elenco dei formati supportati, vedere l'articolo relativo ai [tipi di file supportati per Servizi multimediali](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
+In Servizi multimediali è possibile creare processi che eseguono diversi tipi di elaborazione sui contenuti multimediali: codifica, crittografia, conversioni di formato e così via. Un processo di Servizi multimediali contiene sempre una o più attività che specificano i dettagli dell'elaborazione da eseguire. In questa sezione verrà creata un'attività di codifica di base e verrà eseguito un processo che effettua tale attività mediante Azure Media Encoder. L'attività utilizza una stringa di set di impostazioni per specificare il tipo di codifica da eseguire. Per verificare i valori di codifica disponibili nel set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx). Servizi multimediali supporta gli stessi formati di input e di output dei file multimediali di Microsoft Expression Encoder. Per un elenco dei formati supportati, vedere l'articolo relativo ai [tipi di file supportati per Servizi multimediali](http://msdn.microsoft.com/it-it/library/windowsazure/hh973634.aspx).
 
 1.  Aggiungere alla classe la definizione del metodo **CreateEncodingJob** riportata di seguito. Questo metodo mostra come eseguire numerose attività obbligatorie per un processo di codifica.
 
@@ -651,6 +651,6 @@ Passaggi successivi
 
 In questa procedura dettagliata è stata illustrata una sequenza di attività di programmazione per la compilazione di un'applicazione Servizi multimediali semplice. Sono state illustrate le attività di programmazione fondamentali di Servizi multimediali, tra cui il recupero del contesto del server, la creazione e la codifica di asset nonché il download di asset presenti nel server o il relativo accesso. Per i passaggi successivi e attività di sviluppo più avanzate, vedere:
 
--   [Come utilizzare Servizi multimediali](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
--   [Creazione di applicazioni con l'API REST di Servizi multimediali](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx)
+-   [Come utilizzare Servizi multimediali](http://www.windowsazure.com/it-it/develop/net/how-to-guides/media-services/)
+-   [Creazione di applicazioni con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/windowsazure/hh973618.aspx)
 

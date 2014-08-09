@@ -99,6 +99,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso come configurare PHP in Siti Web di Azure, selezionare i collegamenti seguenti per informazioni su ulteriori attività.
 
--   [Configurazione, monitoraggio e ridimensionamento dei siti Web in Azure](http://www.windowsazure.com/en-us/manage/services/web-sites/)
--   [Download di Azure SDK per PHP](http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/)
+-   [Configurazione, monitoraggio e ridimensionamento dei siti Web in Azure](http://www.windowsazure.com/it-it/manage/services/web-sites/)
+-   [Download di Azure SDK per PHP](http://www.windowsazure.com/it-it/develop/php/common-tasks/download-php-sdk/)
 

@@ -13,7 +13,7 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 ![Sito Web PHP di Azure](./media/web-sites-php-mysql-deploy-use-git/running_app_2.png)
  
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">versione di valutazione gratuita di Azure</a>.</p> </div>
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a  href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">versione di valutazione gratuita di Azure</a>.</p> </div>
 
 ## Configurazione dell'ambiente di sviluppo
 

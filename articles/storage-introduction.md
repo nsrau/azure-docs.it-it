@@ -129,7 +129,7 @@ Passaggi successivi
 
 Per iniziare a utilizzare Archiviazione di Azure, vedere le risorse seguenti:
 
--   [Documentazione di Archiviazione di Azure](/en-us/documentation/services/storage/)
+-   [Documentazione di Archiviazione di Azure](/it-it/documentation/services/storage/)
 -   [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)
 
 ### Per gli sviluppatori .NET

@@ -3,11 +3,11 @@
 Gestione dei conflitti con dati offline in Servizi mobili
 =========================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#")
 
 In questo argomento viene descritto come sincronizzare e gestire i conflitti quando di utilizzano le funzionalità offline di Servizi mobili di Azure. In questa esercitazione si scaricherà un'app che supporta sia i dati offline che online, si integrerà il servizio mobile con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare e aggiornare il database durante l'esecuzione dell'app.
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati offline](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data). Prima di iniziare questa esercitazione è necessario completare [Introduzione ai dati offline in Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data).
+Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati offline](/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data). Prima di iniziare questa esercitazione è necessario completare [Introduzione ai dati offline in Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data).
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
@@ -24,7 +24,7 @@ Per completare questa esercitazione, è necessario disporre di Visual Studio 201
 Download del progetto di esempio
 --------------------------------
 
-Questa esercitazione è basata sull'[esempio di codice per la gestione dei conflitti](http://go.microsoft.com/fwlink/?LinkId=394787), che è un progetto di app di Windows Store disponibile in Visual Studio 2013. L'interfaccia utente di questa app è simile a quella dell'app dell'esercitazione [Introduzione ai dati offline](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data), ma in questo caso è presente una nuova colonna di data per ciascun TodoItem.
+Questa esercitazione è basata sull'[esempio di codice per la gestione dei conflitti](http://go.microsoft.com/fwlink/?LinkId=394787), che è un progetto di app di Windows Store disponibile in Visual Studio 2013. L'interfaccia utente di questa app è simile a quella dell'app dell'esercitazione [Introduzione ai dati offline](/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data), ma in questo caso è presente una nuova colonna di data per ciascun TodoItem.
 
 1.  Scaricare la versione C\# dell'[esempio di codice per la gestione dei conflitti](http://go.microsoft.com/fwlink/?LinkId=394787).
 
@@ -132,7 +132,7 @@ Aggiornamento dei dati nel back-end per creare un conflitto
 
 In uno scenario reale un conflitto di sincronizzazione si verifica quando un'app effettua il push di aggiornamenti a un record del database, quindi un'altra app tenta di effettuare il push di una modifica allo stesso record che è basato su una versione non aggiornata di tale record. Se un'istanza dell'app tenta di aggiornare lo stesso record, senza effettuare il pull del record aggiornato, si verificherà un conflitto, che verrà rilevato come `MobileServicePreconditionFailedException` nell'app.
 
-Se si desidera distribuire l'app in un altro computer in modo da eseguire due istanze dell'app per generare un conflitto, è possibile attenersi alle istruzioni di distribuzione riportate nell'esercitazione [Gestione di conflitti di scrittura nel database](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app).
+Se si desidera distribuire l'app in un altro computer in modo da eseguire due istanze dell'app per generare un conflitto, è possibile attenersi alle istruzioni di distribuzione riportate nell'esercitazione [Gestione di conflitti di scrittura nel database](/it-it/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app).
 
 Nella procedura seguente viene illustrato come aggiornare il database in Visual Studio in modo da causare un conflitto.
 
@@ -212,8 +212,8 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with offline data]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling Database Conflicts]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app

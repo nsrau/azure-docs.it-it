@@ -100,7 +100,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 -------------------------------------------------------------------------------------
 
-1.  Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
+1.  Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](http://www.windowsazure.com/it-it/develop/java/).
 2.  Creare un'applicazione di console Java utilizzando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 3.  Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.jar** come nome dell'archivio JAR generato.
 

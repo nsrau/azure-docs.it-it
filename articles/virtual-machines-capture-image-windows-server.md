@@ -5,7 +5,7 @@ Come acquisire un'immagine di una macchina virtuale in cui viene eseguito Window
 
 È possibile utilizzare le immagini della raccolta per creare facilmente macchine virtuali oppure acquisire e utilizzare proprie immagini per creare macchine virtuali personalizzate. Un'immagine è un file del disco rigido virtuale (con estensione vhd) che viene utilizzato come modello per la creazione di una macchina virtuale. Un'immagine è un modello poiché a esso non sono associate impostazioni specifiche come per una macchina virtuale configurata, ad esempio quelle relative al nome del computer e all'account utente. Per creare più macchine virtuali con la stessa configurazione, è possibile acquisire l'immagine di una macchina virtuale configurata e utilizzarla come modello.
 
-1.  Connettersi alla macchina virtuale utilizzando i passaggi descritti in precedenza in [Come accedere a una macchina virtuale che esegue Windows Server](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/).
+1.  Connettersi alla macchina virtuale utilizzando i passaggi descritti in precedenza in [Come accedere a una macchina virtuale che esegue Windows Server](http://www.windowsazure.com/it-it/manage/windows/how-to-guides/log-on-a-windows-vm/).
 
 2.  Aprire una finestra del prompt dei comandi come amministratore.
 

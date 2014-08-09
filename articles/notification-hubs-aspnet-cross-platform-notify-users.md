@@ -62,7 +62,7 @@ Dopo avere completato questa esercitazione, è possibile reperire ulteriori info
 -   **[Informazioni generali sugli hub di notifica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
      Panoramica con informazioni dettagliate sui modelli.
 
--   **[Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx)**
+-   **[Procedure di Hub di notifica per Windows Store](http://msdn.microsoft.com/it-it/library/windowsazure/jj927172.aspx)**
     Include un riferimento al linguaggio di espressione dei modelli.
 
 

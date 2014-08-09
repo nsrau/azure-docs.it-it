@@ -269,7 +269,7 @@ Nella griglia seguente vengono indicate le proprietà delle righe contenenti le 
 
 <td>Generata quando l'indirizzo di posta elettronica viene aggiunto a un elenco. Utilizzata nei collegamenti per la sottoscrizione e l'annullamento della sottoscrizione in modo che sia difficile sottoscrivere l'indirizzo di posta elettronica di qualcun altro o annullarne la sottoscrizione. <br  />
 <br  />
- Alcune query per le pagine Web Subscribe e Unsubscribe specificano solo l'oggetto PartitionKey e questa proprietà. L'esecuzione di query di una partizione senza utilizzare l'oggetto RowKey limita la scalabilità dell'applicazione, perché le query richiederanno più tempo in quanto aumentano le dimensioni della lista di distribuzione. Un'opzione per migliorare la scalabilità è quella di aggiungere righe di ricerca con SubscriberGUID nella proprietà RowKey. Per ogni indirizzo di posta elettronica, ad esempio, una riga potrebbe avere "email:student1@domain.com" in RowKey e un'altra riga per lo stesso sottoscrittore potrebbe avere "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in RowKey. Questo è semplice da implementare perché le transazioni batch atomiche nelle righe all'interno di una partizione sono facili da codificare. Microsoft spera di implementarlo nella prossima versione dell'applicazione di esempio. Per ulteriori informazioni, vedere <a  href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">Mondo reale: progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure</a>
+ Alcune query per le pagine Web Subscribe e Unsubscribe specificano solo l'oggetto PartitionKey e questa proprietà. L'esecuzione di query di una partizione senza utilizzare l'oggetto RowKey limita la scalabilità dell'applicazione, perché le query richiederanno più tempo in quanto aumentano le dimensioni della lista di distribuzione. Un'opzione per migliorare la scalabilità è quella di aggiungere righe di ricerca con SubscriberGUID nella proprietà RowKey. Per ogni indirizzo di posta elettronica, ad esempio, una riga potrebbe avere "email:student1@domain.com" in RowKey e un'altra riga per lo stesso sottoscrittore potrebbe avere "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in RowKey. Questo è semplice da implementare perché le transazioni batch atomiche nelle righe all'interno di una partizione sono facili da codificare. Microsoft spera di implementarlo nella prossima versione dell'applicazione di esempio. Per ulteriori informazioni, vedere <a  href="http://msdn.microsoft.com/it-it/library/windowsazure/hh508997.aspx">Mondo reale: progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure</a>
 
 </td>
 
@@ -1281,15 +1281,15 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB si 
  
 
 [1]: http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336279.aspx
 [3]: http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd"
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP swap"
-[9]: http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/
-[10]: http://www.windowsazure.com/en-us/pricing/calculator/
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433059.aspx
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/jj154098.aspx
+[6]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433122.aspx
+[7]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/ee517253.aspx "VIP swap"
+[9]: http://www.windowsazure.com/it-it/manage/windows/fundamentals/compute/
+[10]: http://www.windowsazure.com/it-it/pricing/calculator/
 [11]: http://sendgrid.com/windowsazure.html
 [12]: https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"
 [13]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

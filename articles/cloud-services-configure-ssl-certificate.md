@@ -204,7 +204,7 @@ Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anzic
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/gg432987.aspx
+[2]: http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx
 [3]: http://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx

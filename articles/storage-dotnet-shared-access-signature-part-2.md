@@ -18,7 +18,7 @@ In questa esercitazione verrà illustrata in dettaglio la procedura di creazione
 Parte 1: creazione di un'applicazione console per generare firme di accesso condiviso
 =====================================================================================
 
-In primo luogo verificare che la libreria client di archiviazione di Azure per .NET (versione 2.0) sia installata. È possibile installare il [pacchetto NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "pacchetto NuGet") contenente gli assembly più aggiornati per la libreria client. Questa è la procedura consigliata per essere certi di disporre delle correzioni più recenti. È inoltre possibile scaricare la libreria client inclusa nella versione più recente di [Azure SDK per .NET](http://www.windowsazure.com/en-us/downloads/).
+In primo luogo verificare che la libreria client di archiviazione di Azure per .NET (versione 2.0) sia installata. È possibile installare il [pacchetto NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "pacchetto NuGet") contenente gli assembly più aggiornati per la libreria client. Questa è la procedura consigliata per essere certi di disporre delle correzioni più recenti. È inoltre possibile scaricare la libreria client inclusa nella versione più recente di [Azure SDK per .NET](http://www.windowsazure.com/it-it/downloads/).
 
 In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **GenerateSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, utilizzando uno dei seguenti approcci:
 
@@ -524,9 +524,9 @@ Passaggi successivi
 
 [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/)
 
-[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee393343.aspx)
 
-[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/it-it/library/windowsazure/ee395415.aspx)
 
 [Introduzione alla firma di accesso condiviso per tabelle e code](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

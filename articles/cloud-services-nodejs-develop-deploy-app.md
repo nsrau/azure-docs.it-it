@@ -22,7 +22,7 @@ Questa esercitazione consente di creare una semplice applicazione Web ospitata i
 Di seguito è riportata una schermata dell'applicazione completata:
 
 ![Finestra del browser in cui è visualizzata la pagina hello
-world. L'URL indica che la pagina è ospitata su Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+world. L'URL indica che la pagina è ospitata su Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 ## Creare una nuova applicazione Node
 
@@ -275,7 +275,7 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 	di archiviazione creato quando il servizio è stato pubblicato e lo
 	spazio di archiviazione utilizzato continuerà a essere addebitato.
 	Per ulteriori informazioni sull'eliminazione di un account di
-	archiviazione, vedere <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">Come eliminare un account di archiviazione da una sottoscrizione Azure</a>.
+	archiviazione, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh531562.aspx">Come eliminare un account di archiviazione da una sottoscrizione Azure</a>.
 
 	</p>
 	</div>
@@ -285,8 +285,8 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/jj218759.aspx
 [2]: ../create-a-website-(mac)
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx
 [4]: http://nodejs.org/
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531562.aspx

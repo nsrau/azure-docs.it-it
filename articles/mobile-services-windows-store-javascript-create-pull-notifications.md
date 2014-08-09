@@ -5,7 +5,7 @@ Definizione di un'API personalizzata che supporta le notifiche periodiche
 
 [Windows Store C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows Store JavaScript")
 
-In questo argomento viene illustrato come utilizzare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start. Per ulteriori informazioni, vedere [Notifiche periodiche](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx).
+In questo argomento viene illustrato come utilizzare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start. Per ulteriori informazioni, vedere [Notifiche periodiche](http://msdn.microsoft.com/it-it/library/windows/apps/jj150587.aspx).
 
 Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili](/en-us/develop/mobile/tutorials/get-started/#create-new-service) o [Introduzione ai dati](/en-us/develop/mobile/tutorials/started-with-data-js). A questo scopo, verranno eseguiti i passaggi seguenti:
 
@@ -84,7 +84,7 @@ Definizione dell'API personalizzata
    	<div class="dev-callout"><b>Nota</b>
             <p>Lo script di questa API personalizzata utilizza il <a href="http://go.microsoft.com/fwlink/p/
             LinkId=306750">modulo wns</a> di Node.js, al quale viene fatto riferimento utilizzando la funzione <strong>require</strong>. Questo modulo è diverso rispetto all'<a href="http://go.microsoft.com/fwlink/p/
-            LinkId=260591">oggetto wns</a> restituito dall'<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">oggetto push</a>, che viene utilizzato per l'invio di notifiche push da script del server.</p>
+            LinkId=260591">oggetto wns</a> restituito dall'<a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx">oggetto push</a>, che viene utilizzato per l'invio di notifiche push da script del server.</p>
    	</div>
 
 Si procederà quindi alla modifica dell'app di guida introduttiva per avviare notifiche periodiche che aggiornano il riquadro animato richiedendo la nuova API personalizzata.
@@ -154,6 +154,6 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+[Periodic notifications]: http://msdn.microsoft.com/it-it/library/windows/apps/jj150587.aspx
 
 

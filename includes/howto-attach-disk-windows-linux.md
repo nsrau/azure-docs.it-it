@@ -233,9 +233,9 @@ Dopo aver creato e caricato un file con estensione vhd da utilizzare come disco 
 
 
 [1]: http://go.microsoft.com/fwlink/p/?LinkId=391661
-[2]: http://www.windowsazure.com/en-us/downloads/
+[2]: http://www.windowsazure.com/it-it/downloads/
 [3]: http://go.microsoft.com/FWLink/p/?LinkID=294683
-[4]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
+[4]: http://www.windowsazure.com/it-it/manage/linux/how-to-guides/linux-agent-guide/
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/jj672979.aspx
 [6]: http://manage.windowsazure.com
 [7]: http://go.microsoft.com/FWLink/p/?LinkID=391684

@@ -5,7 +5,7 @@ Come utilizzare un client HTML/JavaScript per Servizi mobili di Azure
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando un client HTML/JavaScript per Servizi mobili di Azure. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Per i nuovi utenti di Servizi mobili si consiglia di completare prima il progetto di [guida introduttiva JavaScript per Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) o [guida introduttiva HTML](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html) per Servizi mobili. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
+In questa guida viene illustrato come eseguire scenari comuni utilizzando un client HTML/JavaScript per Servizi mobili di Azure. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Per i nuovi utenti di Servizi mobili si consiglia di completare prima il progetto di [guida introduttiva JavaScript per Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started) o [guida introduttiva HTML](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-html) per Servizi mobili. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
 
 Sommario
 --------
@@ -41,7 +41,7 @@ Aprire il file HTML nell'editor Web e aggiungere il codice seguente ai riferimen
 
             <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-Nell'editor aprire o creare un file JavaScript e aggiungere il codice seguente per definire la variabile `MobileServiceClient`, infine specificare l'URL e la chiave dell'applicazione indicati nel servizio mobile nel costruttore `MobileServiceClient`, senza modificare l'ordine. È necessario sostituire il segnaposto `AppUrl` con l'URL dell'applicazione del servizio mobile e `AppKey` con la chiave dell'applicazione. Per informazioni su come recuperare l'URL e la chiave dell'applicazione del servizio mobile, vedere l'esercitazione [Introduzione ai dati in JavaScript per Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js) o [Introduzione ai dati in HTML/JavaScript](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/).
+Nell'editor aprire o creare un file JavaScript e aggiungere il codice seguente per definire la variabile `MobileServiceClient`, infine specificare l'URL e la chiave dell'applicazione indicati nel servizio mobile nel costruttore `MobileServiceClient`, senza modificare l'ordine. È necessario sostituire il segnaposto `AppUrl` con l'URL dell'applicazione del servizio mobile e `AppKey` con la chiave dell'applicazione. Per informazioni su come recuperare l'URL e la chiave dell'applicazione del servizio mobile, vedere l'esercitazione [Introduzione ai dati in JavaScript per Windows Store](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-js) o [Introduzione ai dati in HTML/JavaScript](http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-html/).
 
             var MobileServiceClient = WindowsAzure.MobileServiceClient;
             var client = new MobileServiceClient('AppUrl', 'AppKey');
@@ -303,7 +303,7 @@ Il valore per `id` deve essere univoco e non deve includere caratteri appartenen
 -   Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Gli ID "." e ".."
 
-In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Modificare datiProcedura: Modificare dati in un servizio mobile
 ---------------------------------------------------------------
@@ -372,7 +372,7 @@ In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti
                alert("Error: " + err);
             });
 
-In un'app di Windows Store, i risultati di una query possono essere utilizzati per creare un oggetto [WinJS.Binding.List], che può essere associato come origine dati per un oggetto [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx). Per ulteriori informazioni, vedere [Associazione dati (app di Windows Store con JavaScript e HTML)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx).
+In un'app di Windows Store, i risultati di una query possono essere utilizzati per creare un oggetto [WinJS.Binding.List], che può essere associato come origine dati per un oggetto [ListView](http://msdn.microsoft.com/it-it/library/windows/apps/br211837.aspx). Per ulteriori informazioni, vedere [Associazione dati (app di Windows Store con JavaScript e HTML)](http://msdn.microsoft.com/it-it/library/windows/apps/hh758311.aspx).
 
 AutenticareProcedura: Autenticare gli utenti
 --------------------------------------------
@@ -395,7 +395,7 @@ Dopo aver effettuato la registrazione del provider di identità, è sufficiente 
 
 Se si utilizza un provider di identità diverso da Facebook, sostituire il valore passato al metodo `login` riportato in precedenza con uno dei seguenti: `microsoftaccount`, `facebook`, `twitter`, `google` o `windowsazureactivedirectory`.
 
-In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx), quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili nei campi **userId** e **authenticationToken**, rispettivamente. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzare nella cache il token di autenticazione].
+In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login](http://msdn.microsoft.com/it-it/library/windowsazure/jj554236.aspx), quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili nei campi **userId** e **authenticationToken**, rispettivamente. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzare nella cache il token di autenticazione].
 
 **App di Windows Store**
 
@@ -419,7 +419,7 @@ Nell'esempio seguente viene utilizzato Live SDK, che supporta Single-Sign-On per
               });
         });
 
-Questo esempio semplificato ottiene un token da Live Connect, che viene passato a Servizi mobili chiamando la funzione [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx). Per un esempio più completo di utilizzo di un account Microsoft per consentire l'uso di un unico accesso, vedere [Autenticare un'app con Single-Sign-On](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/).
+Questo esempio semplificato ottiene un token da Live Connect, che viene passato a Servizi mobili chiamando la funzione [login](http://msdn.microsoft.com/it-it/library/windowsazure/jj554236.aspx). Per un esempio più completo di utilizzo di un account Microsoft per consentire l'uso di un unico accesso, vedere [Autenticare un'app con Single-Sign-On](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/).
 
 Se si utilizzano le API di Facebook o Google per l'autenticazione client, l'esempio cambia leggermente.
 
@@ -436,7 +436,7 @@ In questo esempio si presuppone che il token fornito dall'SDK del rispettivo pro
 
 ### Memorizzazione nella cache del token di autenticazione
 
-In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) o [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) per memorizzare nella cache l'identità dell'utente corrente al primo accesso e a ogni controllo della presenza dell'identità dell'utente nella cache effettuato in seguito. Se la cache è vuota o le chiamate non vengono eseguite (in quanto la sessione di accesso corrente è scaduta), è comunque necessario ripetere la procedura di accesso.
+In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare [sessionStorage](http://msdn.microsoft.com/it-it/library/cc197062(v=vs.85).aspx) o [localStorage](http://msdn.microsoft.com/it-it/library/cc197062(v=vs.85).aspx) per memorizzare nella cache l'identità dell'utente corrente al primo accesso e a ogni controllo della presenza dell'identità dell'utente nella cache effettuato in seguito. Se la cache è vuota o le chiamate non vengono eseguite (in quanto la sessione di accesso corrente è scaduta), è comunque necessario ripetere la procedura di accesso.
 
         // After logging in
         sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -496,7 +496,7 @@ PromesseProcedura: Utilizzare le promesse
 
 Le promesse offrono un meccanismo per pianificare il lavoro da eseguire su un valore che non è ancora stato calcolato. Si tratta di un'astrazione per la gestione delle interazioni con le API asincrone.
 
-La promessa `done` viene eseguita non appena la funzione specificata viene completata o riceve un errore. A differenza della promessa `then`, genera sicuramente gli errori non gestiti all'interno della funzione e, dopo che i gestori hanno terminato l'esecuzione, la funzione genera gli errori che sarebbero stati restituiti da then come promessa nello stato di errore. Per ulteriori informazioni, vedere [done](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx).
+La promessa `done` viene eseguita non appena la funzione specificata viene completata o riceve un errore. A differenza della promessa `then`, genera sicuramente gli errori non gestiti all'interno della funzione e, dopo che i gestori hanno terminato l'esecuzione, la funzione genera gli errori che sarebbero stati restituiti da then come promessa nello stato di errore. Per ulteriori informazioni, vedere [done](http://msdn.microsoft.com/it-it/library/windows/apps/hh701079.aspx).
 
          promise.done(onComplete, onError);
 
@@ -509,7 +509,7 @@ In questo modo:
                alert("Error: " + err);
             });
 
-La promessa `then` corrisponde alla promessa `done`, ma, a differenza della promessa `then`, `done` garantisce la generazione di errori non gestiti all'interno della funzione. Se non si fornisce un gestore errori a `then` e l'operazione include un'errore, non viene generata un'eccezione, ma viene restituita invece una promessa nello stato di errore. Per ulteriori informazioni, vedere [then](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx).
+La promessa `then` corrisponde alla promessa `done`, ma, a differenza della promessa `then`, `done` garantisce la generazione di errori non gestiti all'interno della funzione. Se non si fornisce un gestore errori a `then` e l'operazione include un'errore, non viene generata un'eccezione, ma viene restituita invece una promessa nello stato di errore. Per ulteriori informazioni, vedere [then](http://msdn.microsoft.com/it-it/library/windows/apps/br229728.aspx).
 
          promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -522,7 +522,7 @@ In questo modo:
                alert("Error: " + err);
             });
 
-È possibile utilizzare le promesse in molti modi diversi. È possibile concatenare operazioni di promessa chiamando `then` o `done` sulla promessa restituita dalla funzione `then` precedente. Utilizzare `then` per una fase intermedia dell'operazione, ad esempio `.then().then()`, e `done` per la fase finale dell'operazione, ad esempio `.then().then().done()`. È possibile concatenare più funzioni `then`, in quanto `then` restituisce una promessa. Non è possibile concatenare più di un metodo `done`, in quanto restituisce un valore indefinito. [Ulteriori informazioni sulle differenze tra then e done](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx).
+È possibile utilizzare le promesse in molti modi diversi. È possibile concatenare operazioni di promessa chiamando `then` o `done` sulla promessa restituita dalla funzione `then` precedente. Utilizzare `then` per una fase intermedia dell'operazione, ad esempio `.then().then()`, e `done` per la fase finale dell'operazione, ad esempio `.then().then().done()`. È possibile concatenare più funzioni `then`, in quanto `then` restituisce una promessa. Non è possibile concatenare più di un metodo `done`, in quanto restituisce un valore indefinito. [Ulteriori informazioni sulle differenze tra then e done](http://msdn.microsoft.com/it-it/library/windows/apps/hh700334.aspx).
 
 todoItemTable.insert({ text: "foo" }).then(function (inserted) { inserted.newField = 123; return todoItemTable.update(inserted); }).done(function (insertedAndUpdated) { alert(JSON.stringify(insertedAndUpdated)); })
 

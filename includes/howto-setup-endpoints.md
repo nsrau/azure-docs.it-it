@@ -77,4 +77,4 @@ Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un e
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
 [2]: http://go.microsoft.com/fwlink/p/?LinkId=303816
 [3]: http://manage.windowsazure.com
-[4]: http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/
+[4]: http://www.windowsazure.com/it-it/manage/windows/common-tasks/how-to-load-balance-virtual-machines/

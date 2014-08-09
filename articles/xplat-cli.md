@@ -1,4 +1,4 @@
-<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/it-it/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 # Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure
  
@@ -250,7 +250,7 @@ Per tornare alla modalità Gestione servizi di Azure, utilizzare il comando segu
 
 > [WACOM.NOTE] La modalità Gestione risorse e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
-Per ulteriori informazioni sull'utilizzo della modalità Gestione risorse con xplat-cli, vedere [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](/en-us/documentation/articles/xplat-cli-azure-resource-manager/).
+Per ulteriori informazioni sull'utilizzo della modalità Gestione risorse con xplat-cli, vedere [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](/it-it/documentation/articles/xplat-cli-azure-resource-manager/).
 
 ### Utilizzo dei servizi in modalità Gestione servizi di Azure
 
@@ -394,9 +394,9 @@ Se si scrive uno script che si basa sullo stato di uscita, verificare che i coma
 [4]: http://go.microsoft.com/fwlink/?LinkId=252249
 [5]: http://nodejs.org/
 [6]: https://manage.windowsazure.com
-[7]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
-[9]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[7]: http://www.windowsazure.com/it-it/documentation/articles/sign-up-organization/
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[9]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E
 [10]: http://tldp.org/LDP/abs/html/
 [11]: http://en.wikipedia.org/wiki/Shell_script
 [12]: http://technet.microsoft.com/en-us/library/bb490890.aspx

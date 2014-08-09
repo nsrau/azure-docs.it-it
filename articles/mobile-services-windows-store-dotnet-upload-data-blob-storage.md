@@ -3,7 +3,7 @@
 Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili
 ============================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 In questo argomento verrà illustrato come utilizzare Servizi mobili di Azure per consentire alla propria app di caricare e archiviare immagini generate dall'utente in Archiviazione di Azure. Servizi mobili utilizza un database SQL per archiviare i dati. I dati BLOB vengono tuttavia archiviati in modo più efficiente nel servizio di archiviazione BLOB di Azure.
 
@@ -22,7 +22,7 @@ Per completare questa esercitazione, è necessario disporre di:
 -   [Account di archiviazione di Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
 -   Una fotocamera o un altro dispositivo per l'acquisizione di immagini collegato al computer.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started).
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started).
 
 Installazione del client di archiviazione per le app di Windows Store
 ---------------------------------------------------------------------
@@ -55,7 +55,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
     Informazioni su come aggiungere funzionalità di posta elettronica a un servizio mobile tramite il servizio di posta elettronica SendGrid. Questo argomento illustra come aggiungere script sul lato server per inviare messaggi di posta elettronica tramite SendGrid.
 
--   [Pianificazione di processi back-end in Servizi mobili](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks)
+-   [Pianificazione di processi back-end in Servizi mobili](/it-it/documentation/articles/mobile-services-schedule-recurring-tasks)
 
     Informazioni su come utilizzare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
 

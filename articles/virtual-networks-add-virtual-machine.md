@@ -144,6 +144,6 @@ Per installare un controller di dominio aggiuntivo per il dominio Active Directo
 
 <!-- LINKS -->
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx
 [2]: http://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156097.aspx

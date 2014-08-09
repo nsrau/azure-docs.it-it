@@ -42,7 +42,7 @@ Tali comandi aggiungono le librerie e i riferimenti al progetto corrente di Visu
 Preparazione dell'esercitazione
 -------------------------------
 
-Prima di continuare, è necessario disporre di una [sottoscrizione di Azure](http://www.windowsazure.com/en-us/pricing/free-trial/) e di un [account di archiviazione di Azure](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/). È inoltre necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Prima di continuare, è necessario disporre di una [sottoscrizione di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/) e di un [account di archiviazione di Azure](http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/). È inoltre necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
 È inoltre necessario scaricare il file Actors.txt utilizzato in questa esercitazione. Per scaricare tale file nell'ambiente di sviluppo, eseguire la procedura seguente:
 

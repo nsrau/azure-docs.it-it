@@ -18,7 +18,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 -   Microsoft Visual Studio 2013 Express per Windows o versione successiva.
 -   Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili](/en-us/develop/mobile/tutorials/get-started), scaricando la versione del linguaggio JavaScript del progetto iniziale.
--   [Account Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Account Azure](http://www.windowsazure.com/it-it/pricing/free-trial/)
 -   Pacchetto Azure Mobile Services NuGet 1.1.5 o versione successiva. Per ottenere l'ultima versione, eseguire la procedura seguente:
     1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**.
 
@@ -273,18 +273,18 @@ Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per abilitare la gestione dei conflitti di scrittura in un'app di Windows Store quando si utilizzano i dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti della serie relativa ai dati:
 
--   [Utilizzo di script per la convalida e la modifica di dati](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [Utilizzo di script per la convalida e la modifica di dati](/it-it/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     <br/>Ulteriori informazioni sull'utilizzo di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
--   [Utilizzo del paging per ridefinire le query](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [Utilizzo del paging per ridefinire le query](/it-it/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     <br/>Ulteriori informazioni su come utilizzare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, è possibile provare a eseguire una delle esercitazioni per Windows Store seguenti:
 
--   [Introduzione all'autenticazione](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [Introduzione all'autenticazione](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
--   [Introduzione alle notifiche push](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
 
@@ -321,12 +321,12 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Windows Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Windows Azure Account]: http://www.windowsazure.com/it-it/pricing/free-trial/
+[Validate and modify data with scripts]: /it-it/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /it-it/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with authentication]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

@@ -3,7 +3,7 @@
 Come utilizzare gli argomenti e le sottoscrizioni del bus di servizio
 =====================================================================
 
-In questa guida verrà descritto come utilizzare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/). Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**.
+In questa guida verrà descritto come utilizzare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java](http://www.windowsazure.com/it-it/develop/java/). Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**.
 
 Sommario
 --------

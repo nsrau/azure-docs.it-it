@@ -50,7 +50,7 @@ Si procederà quindi a verificare che i dispositivi effettuino la registrazione 
         }
     }
 
-I modelli rappresentano uno strumento particolarmente efficace. Per ulteriori informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Un riferimento al linguaggio di espressione dei modelli è disponibile in [Procedura: Hub notifiche di Service Bus (app per iOS)](http://msdn.microsoft.com/en-us/library/jj927168.aspx).
+I modelli rappresentano uno strumento particolarmente efficace. Per ulteriori informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica](http://msdn.microsoft.com/it-it/library/jj927170.aspx). Un riferimento al linguaggio di espressione dei modelli è disponibile in [Procedura: Hub notifiche di Service Bus (app per iOS)](http://msdn.microsoft.com/it-it/library/jj927168.aspx).
 
 Interfaccia utente dell'appInterfaccia utente dell'app
 ------------------------------------------------------
@@ -165,9 +165,9 @@ Per ulteriori informazioni sull'utilizzo dei modelli, vedere:
 
 -   [Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)
 -   [Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili](/en-us/manage/services/notification-hubs/notify-users)
--   [Linee guida su Hub di notifica](http://msdn.microsoft.com/en-us/library/jj927170.aspx)
+-   [Linee guida su Hub di notifica](http://msdn.microsoft.com/it-it/library/jj927170.aspx)
 
-In [Procedure di Hub di notifica per iOS](http://msdn.microsoft.com/en-us/library/jj927168.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
+In [Procedure di Hub di notifica per iOS](http://msdn.microsoft.com/it-it/library/jj927168.aspx) è disponibile un riferimento al linguaggio di espressione dei modelli.
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -195,7 +195,7 @@ In [Procedure di Hub di notifica per iOS](http://msdn.microsoft.com/en-us/librar
 
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/it-it/library/jj927168.aspx
 [Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /en-us/develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /en-us/manage/services/notification-hubs/notify-users-aspnet
@@ -214,5 +214,5 @@ In [Procedure di Hub di notifica per iOS](http://msdn.microsoft.com/en-us/librar
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/it-it/library/jj927168.aspx

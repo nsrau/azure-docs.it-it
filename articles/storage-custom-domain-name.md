@@ -150,5 +150,5 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 Risorse aggiuntive
 ------------------
 
--   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx)
+-   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx)
 

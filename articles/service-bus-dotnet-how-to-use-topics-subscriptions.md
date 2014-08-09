@@ -277,7 +277,7 @@ Passaggi successiviPassaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sottoscrizioni del bus di servizio, utilizzare i collegamenti seguenti per ulteriori informazioni.
 
--   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/en-us/library/hh367516.aspx).
--   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx).
--   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata di Service Bus - .NET](http://msdn.microsoft.com/en-us/library/hh367512.aspx).
+-   Riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/it-it/library/hh367516.aspx).
+-   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/it-it/library/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata di Service Bus - .NET](http://msdn.microsoft.com/it-it/library/hh367512.aspx).
 

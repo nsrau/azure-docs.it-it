@@ -35,7 +35,7 @@ Per utilizzare l'API di gestione dei servizi, sarà necessario [creare un accoun
 Concetti
 --------
 
-Azure SDK per PHP include l'[API di Gestione servizi di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
+Azure SDK per PHP include l'[API di Gestione servizi di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx), ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
 Creazione di un'applicazione PHP
 --------------------------------
@@ -62,7 +62,7 @@ Per creare il certificato `CER`, eseguire il comando seguente:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per ulteriori informazioni sui certificati Azure, vedere la pagina relativa alla [panoramica dei certificati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
+Per ulteriori informazioni sui certificati Azure, vedere la pagina relativa alla [panoramica dei certificati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg981935.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
 
 Se il file delle impostazioni di pubblicazione è stato scaricato e importato tramite gli [strumenti da riga di comando di Azure](../command-line-tools/), è possibile utilizzare il file `PEM` creato dagli strumenti anziché crearne uno personalizzato. Il file `CER` creato dagli strumenti viene caricato in Azure e contestualmente il file `PEM` viene inserito nella sottodirectory `.azure` della directory utente del computer.
 
@@ -104,7 +104,7 @@ Per elencare le località disponibili per i servizi di hosting, utilizzare il me
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -154,7 +154,7 @@ Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codi
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -199,12 +199,12 @@ Si noti che prima di eliminare un servizio è necessario eliminare tutte le dist
 Procedura: Creare una distribuzione
 -----------------------------------
 
-Il metodo **createDeployment** consente di caricare un nuovo [pacchetto del servizio](http://msdn.microsoft.com/en-us/library/windowsazure/gg433093) e di creare una nuova distribuzione nell'ambiente di gestione temporanea o di produzione. I parametri per questo metodo sono i seguenti:
+Il metodo **createDeployment** consente di caricare un nuovo [pacchetto del servizio](http://msdn.microsoft.com/it-it/library/windowsazure/gg433093) e di creare una nuova distribuzione nell'ambiente di gestione temporanea o di produzione. I parametri per questo metodo sono i seguenti:
 
 -   **$name**: nome del servizio ospitato.
 -   **$deploymentName**: nome della distribuzione.
 -   **$slot**: enumerazione indicante lo slot di gestione temporanea o di produzione.
--   **$packageUrl**: URL del pacchetto di distribuzione (file con estensione cspgk). Il file del pacchetto deve essere archiviato in un account di archiviazione BLOB di Azure nella stessa sottoscrizione del servizio ospitato nel quale viene caricato il pacchetto. È possibile creare un pacchetto di distribuzione con i [cmdlet di Azure PowerShell](../install-configure-powershell/) oppure con lo [strumento da riga di comando cspack](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx).
+-   **$packageUrl**: URL del pacchetto di distribuzione (file con estensione cspgk). Il file del pacchetto deve essere archiviato in un account di archiviazione BLOB di Azure nella stessa sottoscrizione del servizio ospitato nel quale viene caricato il pacchetto. È possibile creare un pacchetto di distribuzione con i [cmdlet di Azure PowerShell](../install-configure-powershell/) oppure con lo [strumento da riga di comando cspack](http://msdn.microsoft.com/it-it/library/windowsazure/gg432988.aspx).
 -   **$configuration**: file di configurazione del servizio con estensione cscfg.
 -   **$label**: nome del servizio ospitato con codifica Base 64.
 
@@ -240,7 +240,7 @@ Nell'esempio seguente viene creata una nuova distribuzione nello slot di produzi
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -273,7 +273,7 @@ Procedura: Aggiornare una distribuzione
 
 È possibile aggiornare una distribuzione utilizzando il metodo **changeDeploymentConfiguration** o **updateDeploymentStatus**.
 
-Il metodo **changeDeploymentConfiguration** consente di caricare un nuovo file di configurazione del servizio (`.cscfg`). Ciò comporterà la modifica di tutte le impostazioni del servizio desiderate, incluso il numero di istanze in una distribuzione. Per ulteriori informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx). Nell'esempio seguente viene illustrato come caricare un nuovo file di configurazione del servizio:
+Il metodo **changeDeploymentConfiguration** consente di caricare un nuovo file di configurazione del servizio (`.cscfg`). Ciò comporterà la modifica di tutte le impostazioni del servizio desiderate, incluso il numero di istanze in una distribuzione. Per ulteriori informazioni, vedere [Schema di configurazione dei servizi di Azure (con estensione cscfg)](http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx). Nell'esempio seguente viene illustrato come caricare un nuovo file di configurazione del servizio:
 
     require_once 'vendor\autoload.php';
 
@@ -299,7 +299,7 @@ Il metodo **changeDeploymentConfiguration** consente di caricare un nuovo file d
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -329,7 +329,7 @@ Il metodo **updateDeploymentStatus** consente di impostare uno stato di distribu
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@ Il metodo **updateDeploymentStatus** consente di impostare uno stato di distribu
 Procedura: Spostare distribuzioni tra gestione temporanea e produzione
 ----------------------------------------------------------------------
 
-Azure offre due ambienti di distribuzione: gestione temporanea e produzione. In genere un servizio viene distribuito nell'ambiente di gestione temporanea per testarlo prima di distribuirlo nell'ambiente di produzione. L'operazione di innalzamento di livello del servizio dall'ambiente di gestione temporanea a quello di produzione può essere effettuata senza ridistribuire il servizio, ma semplicemente scambiando le distribuzioni. Per ulteriori informazioni sullo scambio delle distribuzioni, vedere [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx).)
+Azure offre due ambienti di distribuzione: gestione temporanea e produzione. In genere un servizio viene distribuito nell'ambiente di gestione temporanea per testarlo prima di distribuirlo nell'ambiente di produzione. L'operazione di innalzamento di livello del servizio dall'ambiente di gestione temporanea a quello di produzione può essere effettuata senza ridistribuire il servizio, ma semplicemente scambiando le distribuzioni. Per ulteriori informazioni sullo scambio delle distribuzioni, vedere [Panoramica della gestione delle distribuzioni in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh386336.aspx).)
 
 Nell'esempio seguente viene illustrato come utilizzare il metodo **swapDeployment** per scambiare due distribuzioni i cui nomi sono `v1` e `v2`. Nell'esempio, prima di chiamare il metodo **swapDeployment**, la distribuzione `v1` si trova nello slot di produzione, mentre la distribuzione `v2` si trova nello slot di gestione temporanea. Dopo la chiamata a **swapDeployment** la distribuzione `v2` risulterà in produzione e la distribuzione `v1` in gestione temporanea.
 
@@ -356,7 +356,7 @@ Nell'esempio seguente viene illustrato come utilizzare il metodo **swapDeploymen
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -386,7 +386,7 @@ Per eliminare una distribuzione, utilizzare il metodo **deleteDeployment**. Nell
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -422,7 +422,7 @@ Un [servizio di archiviazione](../storage-whatis-account/) offre l'accesso ai [B
      catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -464,7 +464,7 @@ Procedura: Eliminare un servizio di archiviazione
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -499,7 +499,7 @@ Per creare un gruppo di affinità, sono necessari un nome, un'etichetta (con cod
      catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -541,7 +541,7 @@ Procedura: Eliminare un gruppo di affinità
         catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/it-it/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";

@@ -142,6 +142,6 @@ Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
 -   [Blog del team di archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 

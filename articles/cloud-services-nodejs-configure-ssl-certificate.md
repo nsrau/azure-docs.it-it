@@ -99,7 +99,7 @@ L'applicazione deve essere configurata per fare riferimento al certificato ed è
         ...
         </WebRole>
 
-    Nella sezione **Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui si trova. Poiché il certificato è stato installato nell'archivio certificati dell'utente, viene utilizzato il valore "My". È inoltre possibile utilizzare altri percorsi per l'archivio certificati. Per ulteriori informazioni, vedere [Come associare un certificato a un servizio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx).
+    Nella sezione **Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui si trova. Poiché il certificato è stato installato nell'archivio certificati dell'utente, viene utilizzato il valore "My". È inoltre possibile utilizzare altri percorsi per l'archivio certificati. Per ulteriori informazioni, vedere [Come associare un certificato a un servizio](http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx).
 
 2.  Nel file di definizione del servizio aggiornare l'elemento **InputEndpoint** all'interno della sezione **Endpoints** per abilitare HTTPS:
 
@@ -154,11 +154,11 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 Risorse aggiuntive
 ------------------
 
-[Come associare un certificato a un servizio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[Come associare un certificato a un servizio](http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx)
 
 [Configurazione di SSL per un'applicazione Node.js in un ruolo di lavoro di Azure](/en-us/develop/nodejs/common-tasks/enable-ssl-worker-role/)
 
-[Come configurare un certificato SSL su un endpoint HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[Come configurare un certificato SSL su un endpoint HTTPS](http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx)
 
 
 [Step 1: Create a Node.js service and publish the service to the cloud]: #step1
@@ -177,11 +177,11 @@ Risorse aggiuntive
   [Azure Management Portal]: http://manage.windowsazure.com
   
   
-  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx
   
   [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx
   [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
   [cert-wizard]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [key-protection]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png

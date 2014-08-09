@@ -23,7 +23,7 @@ Sommario
 Concetti
 --------
 
-Poiché il database SQL di Azure è basato sulle tecnologie di SQL Server, l'accesso da PHP è molto simile in entrambi i casi. È possibile sviluppare un'applicazione in locale, utilizzando SQL Server, e quindi connettersi al database SQL cambiando solo la stringa di connessione. Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+Poiché il database SQL di Azure è basato sulle tecnologie di SQL Server, l'accesso da PHP è molto simile in entrambi i casi. È possibile sviluppare un'applicazione in locale, utilizzando SQL Server, e quindi connettersi al database SQL cambiando solo la stringa di connessione. Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/it-it/library/windowsazure/ff394102.aspx).
 
 L'approccio consigliato per l'accesso al database SQL da PHP consiste nell'utilizzare i [driver Microsoft per PHP per SQL Server](http://www.microsoft.com/download/en/details.aspx?id=20098). Negli esempi di questo articolo verranno utilizzati questi driver. I driver Microsoft per PHP per SQL Server sono compatibili solo con Windows.
 
@@ -113,7 +113,7 @@ Negli esempi seguenti viene illustrato come utilizzare le estensioni **SQLSRV** 
 Passaggi successivi
 -------------------
 
-Come accennato in precedenza, l'utilizzo del database SQL è simile a quello di SQL Server. Dopo aver stabilito una connessione a un database SQL, come illustrato sopra, è possibile utilizzare le API **SQLSRV** o **PDO\_SQLSRV** per inserire, recuperare, aggiornare ed eliminare dati. Per informazioni sulle API **SQLSRV** e **PDO\_SQLSRV**, vedere la [documentazione sui driver Microsoft per PHP per SQL Server](http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx). Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+Come accennato in precedenza, l'utilizzo del database SQL è simile a quello di SQL Server. Dopo aver stabilito una connessione a un database SQL, come illustrato sopra, è possibile utilizzare le API **SQLSRV** o **PDO\_SQLSRV** per inserire, recuperare, aggiornare ed eliminare dati. Per informazioni sulle API **SQLSRV** e **PDO\_SQLSRV**, vedere la [documentazione sui driver Microsoft per PHP per SQL Server](http://msdn.microsoft.com/it-it/library/dd638075(SQL.10).aspx). Tuttavia, tra il database SQL e SQL Server esistono alcune differenze che potrebbero influire sull'applicazione. Per ulteriori informazioni, vedere [Linee guida e limitazioni (database SQL)](http://msdn.microsoft.com/it-it/library/windowsazure/ff394102.aspx).
 
 Un esempio in cui viene illustrato l'utilizzo del database SQL con PHP in Azure è disponibile all'indirizzo &lt;https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure\>.
 

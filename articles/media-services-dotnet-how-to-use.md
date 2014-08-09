@@ -9,7 +9,7 @@ In questa guida viene illustrato come iniziare a programmare tramite Servizi mul
 
 Per iniziare a programmare con l'API REST di Servizi multimediali o Media Services SDK, è innanzitutto necessario abilitare l'account Azure per Servizi multimediali come descritto nella sezione [Configurare un account Azure per Servizi multimediali](#setup-account).
 
-Fare clic [qui](http://msdn.microsoft.com/en-us/library/hh973613.aspx) per accedere alla documentazione più aggiornata relativa a Media Services SDK.
+Fare clic [qui](http://msdn.microsoft.com/it-it/library/hh973613.aspx) per accedere alla documentazione più aggiornata relativa a Media Services SDK.
 
 Informazioni su Servizi multimediali
 ------------------------------------
@@ -28,7 +28,7 @@ Nella versione corrente di Servizi multimediali viene fornito il set di funziona
 -   **Codifica**. Le operazioni di codifica consentono di codificare, trasformare e convertire asset multimediali. È possibile eseguire le attività di codifica nel cloud tramite Azure Media Encoder. Di seguito sono riportate le opzioni di codifica disponibili:
     -   Utilizzo di Azure Media Encoder e di un'ampia gamma di codec e formati standard, inclusi quelli principali, come ad esempio IIS Smooth Streaming, MP4 e conversione in Apple HTTP Live Streaming.
     -   Conversione di intere librerie o singoli file con controllo completo su input e output.
-    -   Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali](http://msdn.microsoft.com/en-us/library/hh973634)).
+    -   Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali](http://msdn.microsoft.com/it-it/library/hh973634)).
     -   Conversioni tra formati supportati. Servizi multimediali consente di convertire file MP4 ISO (con estensione mp4) al formato di file Smooth Streaming (PIFF 1.3) ( con estensione ismv o isma). Consente inoltre di convertire il formato di file Smooth Streaming (PIFF) al formato Apple HTTP Live Streaming (con estensione msu8 o ts).
 -   **Protezione**. Per proteggere il contenuto è necessario crittografare il contenuto Live Streaming o su richiesta per il trasporto, l'archiviazione e la distribuzione sicuri. Servizi multimediali fornisce una soluzione DRM indipendente dalla tecnologia per la protezione del contenuto. Le tecnologie DRM attualmente supportate sono Microsoft PlayReady e MPEG Common Encryption. A breve sarà disponibile il supporto per altre tecnologie DRM.
 -   **Streaming**. Durante lo streaming il contenuto viene distribuito in diretta o su richiesta ai client oppure vengono scaricati file multimediali specifici dal cloud. Servizi multimediali fornisce una soluzione indipendente dal formato per i contenuti in streaming. Servizi multimediali offre il supporto dell'origine di streaming per i formati Smooth Streaming, Apple HTTP Live Streaming ed MP4. A breve sarà disponibile il supporto per altri formati. È inoltre possibile distribuire contenuti in streaming mediante una rete CDN di terze parti che offre la scalabilità per la distribuzione a milioni di utenti.
@@ -70,7 +70,7 @@ Per i PC e i Mac è possibile creare un'esperienza di streaming utilizzando Micr
 
 Per Windows 8, è possibile creare app di Windows Store utilizzando uno qualsiasi dei costrutti e dei linguaggi di sviluppo supportati come HTML, JavaScript, XAML, C\# e C+.
 
--   [Smooth Streaming Client SDK per Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Per ulteriori informazioni su come creare un'app di Windows Store utilizzando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming](http://go.microsoft.com/fwlink/?LinkId=271647). Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx).
+-   [Smooth Streaming Client SDK per Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Per ulteriori informazioni su come creare un'app di Windows Store utilizzando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming](http://go.microsoft.com/fwlink/?LinkId=271647). Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5](http://msdn.microsoft.com/it-it/library/jj573656(v=vs.90).aspx).
 
 -   [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -135,14 +135,14 @@ Dopo avere acquisito una panoramica su Servizi multimediali, è possibile passar
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
   [Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Installing the Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
+  [Installing the Azure SDK on Windows 8]: http://www.windowsazure.com/it-it/develop/net/other-resources/windows-azure-on-windows-8/
   [Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
-  [Getting Started with the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919705.aspx
+  [Getting Started with the Azure CDN]: http://msdn.microsoft.com/it-it/library/windowsazure/ff919705.aspx
   [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Azure Management Portal]: https://manage.windowsazure.com/
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
+  [Supported File Types for Media Services]: http://msdn.microsoft.com/it-it/library/hh973634
 
 

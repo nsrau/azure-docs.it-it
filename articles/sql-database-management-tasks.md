@@ -18,7 +18,7 @@ Management Studio è uno strumento di amministrazione che consente di gestire pi
 
 Management Studio include funzionalità non attualmente disponibili nel portale di gestione, ad esempio un correttore sintattico e la possibilità di salvare script e query denominate in modo da poterli riutilizzare. Il database SQL è semplicemente un endpoint di flusso TDS (Tabular Data Stream). Tutti gli strumenti utilizzabili con il flusso TDS, incluso Management Studio, possono essere utilizzati anche per operazioni del database SQL. Gli script sviluppati per il server locale verranno eseguiti in un server logico di database SQL.
 
-Nel passaggio seguente verrà utilizzato Management Studio per la connessione a un server logico su Azure. Per questo passaggio è necessario disporre di SQL Server Management Studio versione 2008 R2 o 2012. Per informazioni sul download o sulla connessione a Management Studio, vedere [Gestione del database SQL mediante Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/) in questo sito.
+Nel passaggio seguente verrà utilizzato Management Studio per la connessione a un server logico su Azure. Per questo passaggio è necessario disporre di SQL Server Management Studio versione 2008 R2 o 2012. Per informazioni sul download o sulla connessione a Management Studio, vedere [Gestione del database SQL mediante Management Studio](http://www.windowsazure.com/it-it/develop/net/common-tasks/sql-azure-management/) in questo sito.
 
 Prima di potere effettuare la connessione, è a volte necessario creare un'eccezione del firewall per consentire richieste in uscita sulla porta 1433 nel sistema locale. La porta 1433 non è in genere aperta nei computer protetti per impostazione predefinita.
 
@@ -125,5 +125,5 @@ Visualizzazione e test degli account di accesso
 
 6.  Aprire una seconda finestra Query e cambiare il contesto di connessione in *sqlwriter*. Dovrebbe essere ora possibile eseguire correttamente la stessa query.
 
-Sono stati ora creati e testati diversi account di accesso. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) e [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Sono stati ora creati e testati diversi account di accesso. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee336235.aspx) e [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx).
 

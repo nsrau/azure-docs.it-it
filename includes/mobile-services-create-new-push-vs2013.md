@@ -1,6 +1,6 @@
 Utilizzare innanzitutto la procedura guidata Aggiungi notifica Push di Visual Studio 2013 per registrare l'app in Windows Store, configurare il servizio mobile in modo da abilitare le notifiche push, quindi aggiungere codice all'app per registrare un canale di dispositivi.
 
-1.  Attenersi alla procedura riportata in [Importazione del file di impostazioni di pubblicazione in Visual Studio 2013](/en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/), se questa operazione non è ancora stata completata, per importare il file publisher.settings in Visual Studio.
+1.  Attenersi alla procedura riportata in [Importazione del file di impostazioni di pubblicazione in Visual Studio 2013](/it-it/documentation/articles/mobile-services-windows-how-to-import-publishsettings/), se questa operazione non è ancora stata completata, per importare il file publisher.settings in Visual Studio.
     
     Non è necessario eseguire questa operazione se è già stato utilizzato Visual Studio per creare o gestire servizi mobili nella sottoscrizione Azure.
 

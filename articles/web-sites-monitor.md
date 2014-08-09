@@ -134,7 +134,7 @@ Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di 
 
 È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**.
 
-Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 **Nota**
 
@@ -206,7 +206,7 @@ La registrazione e la traccia sottopongono il sito Web a una domanda significati
 
     **Nota**
 
-    Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
+    Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
 
 2.  Dal prompt di Azure PowerShell, utilizzare i comandi seguenti per scaricare i file di log:
 
@@ -236,7 +236,7 @@ Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessi
 
 **Nota**
 
-Se il comando **azure**non è installato, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
+Se il comando **azure**non è installato, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
 
 ### Lettura dei file di log
 
@@ -300,8 +300,8 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 
 Per ulteriori informazioni sul monitoraggio degli endpoint del sito Web, vedere i video seguenti:
 
--   [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint](http://www.windowsazure.com/it-it/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
--   [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 

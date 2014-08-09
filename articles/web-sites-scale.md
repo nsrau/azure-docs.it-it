@@ -9,7 +9,7 @@ La scalabilità verticale nei siti Web di Azure prevede due operazioni correlate
 
 È possibile eseguire le operazioni di modifica della modalità e di configurazione nella scheda Scale del portale di gestione. È possibile aumentare o ridurre le risorse in base alle esigenze. Le modifiche diventano effettive in pochi secondi e interessano tutti i siti Web nel piano di hosting Web. Non richiedono alcuna modifica del codice o la ridistribuzione delle applicazioni.
 
-Per informazioni sui piani di hosting Web, vedere l'articolo relativo ai [piani di hosting Web di Siti Web di Azure](http://go.microsoft.com/fwlink/?LinkId=9845584). Per informazioni sui prezzi e le funzionalità dei singoli piani di hosting Web, vedere l'articolo [Dettagli prezzi - Siti Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+Per informazioni sui piani di hosting Web, vedere l'articolo relativo ai [piani di hosting Web di Siti Web di Azure](http://go.microsoft.com/fwlink/?LinkId=9845584). Per informazioni sui prezzi e le funzionalità dei singoli piani di hosting Web, vedere l'articolo [Dettagli prezzi - Siti Web](http://www.windowsazure.com/it-it/pricing/details/web-sites/).
 
 > [WACOM.NOTE] Prima di passare dalla modalità del piano di hosting Web **Free** alla modalità **Basic** o **Standard** è innanzitutto necessario rimuovere i limiti di spesa applicati alla sottoscrizione per il sito Web. Per visualizzare o modificare le opzioni per la sottoscrizione di Siti Web di Microsoft Azure nella pagina relativa alle [sottoscrizioni di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=235288).
 
@@ -153,35 +153,35 @@ A seconda della modalità del piano di hosting Web scelta, sono disponibili le f
 
 **Monitoraggio degli endpoint Web**
 
--   Il monitoraggio degli endpoint Web è disponibile nelle modalità del piano di hosting Web standard e base. Per ulteriori informazioni sul monitoraggio degli endpoint, vedere [Come monitorare i siti Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+-   Il monitoraggio degli endpoint Web è disponibile nelle modalità del piano di hosting Web standard e base. Per ulteriori informazioni sul monitoraggio degli endpoint, vedere [Come monitorare i siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-monitor/).
 
--   Per informazioni dettagliate su tutte le altre funzionalità disponibili nei piani di hosting Web, inclusi i prezzi e le funzionalità di interesse per tutti gli utenti (compresi gli sviluppatori), vedere [Dettagli prezzi - Siti Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+-   Per informazioni dettagliate su tutte le altre funzionalità disponibili nei piani di hosting Web, inclusi i prezzi e le funzionalità di interesse per tutti gli utenti (compresi gli sviluppatori), vedere [Dettagli prezzi - Siti Web](http://www.windowsazure.com/it-it/pricing/details/web-sites/).
 
 ## Passaggi successivi 
 - Per informazioni sulle procedure consigliate per Siti Web di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere l'articolo di blog relativo alle [procedure consigliate per Siti Web di Microsoft Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 -   Per informazioni su prezzi, supporto e contratti di servizio, visitare i collegamenti seguenti:
 
-    [Dettagli prezzi dei trasferimenti di dati](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+    [Dettagli prezzi dei trasferimenti di dati](http://www.windowsazure.com/it-it/pricing/details/data-transfers/)
 
-    [Piani di supporto per Azure](http://www.windowsazure.com/en-us/support/plans/)
+    [Piani di supporto per Azure](http://www.windowsazure.com/it-it/support/plans/)
 
-    [Contratti di servizio](http://www.windowsazure.com/en-us/support/legal/sla/)
+    [Contratti di servizio](http://www.windowsazure.com/it-it/support/legal/sla/)
 
-    [Dettagli prezzi - Database SQL](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+    [Dettagli prezzi - Database SQL](http://www.windowsazure.com/it-it/pricing/details/sql-database/)
 
     [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://go.microsoft.com/fwlink/?LinkId=309169)
 
-    [Dettagli prezzi - Siti Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+    [Dettagli prezzi - Siti Web](http://www.windowsazure.com/it-it/pricing/details/web-sites/)
 
-    [Dettagli prezzi - Siti Web - Connessioni SSL](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+    [Dettagli prezzi - Siti Web - Connessioni SSL](http://www.windowsazure.com/it-it/pricing/details/web-sites/#ssl-connections)
 
 -   Di seguito sono riportati collegamenti a video relativi alla scalabilità dei siti Web di Azure:
 
-    [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 
-    [Scalabilità automatica per i siti Web di Azure, pianificata o in base alla CPU - con Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+    [Scalabilità automatica per i siti Web di Azure, pianificata o in base alla CPU - con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/auto-scaling-azure-web-sites/)
 
-    [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+    [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/how-azure-web-sites-scale/)
 
 

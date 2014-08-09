@@ -3,8 +3,8 @@
 Introduzione alle notifiche push in Servizi mobili
 ==================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
-[Back-end .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Back-end .NET") | [Back-end JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "Back-end JavaScript")
+[Windows Store C\#](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows Store C#") [Windows Store JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows Store JavaScript") [Windows Phone](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
+[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "Back-end JavaScript")
 
 In questo argomento viene illustrato come utilizzare i servizi mobili di runtime .NET di Azure per inviare notifiche push a un'app per Windows Phone 8. In questa esercitazione si utilizzerà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile di runtime .NET invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
@@ -14,7 +14,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 2.  [Aggiornamento del server per l'invio di notifiche push](#update-server)
 3.  [Inserimento di dati per la ricezione di notifiche push](#test)
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili](/en-us/documentation/articles/mobile-services-windows-store-get-started) o [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) per collegare il progetto al servizio mobile.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) per collegare il progetto al servizio mobile.
 
 Aggiornamento dell'app per la registrazione per le notifiche
 ------------------------------------------------------------
@@ -103,7 +103,7 @@ Aggiornamento del server per l'invio di notifiche push
 
 ![](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
-> [WACOM.NOTE]In questa esercitazione verrà utilizzato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su **Upload** e selezionando il certificato. Per ulteriori informazioni sulla generazione del certificato, vedere [Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx).
+> [WACOM.NOTE]In questa esercitazione verrà utilizzato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su **Upload** e selezionando il certificato. Per ulteriori informazioni sulla generazione del certificato, vedere [Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone](http://msdn.microsoft.com/it-it/library/windowsphone/develop/ff941099(v=vs.105).aspx).
 
 In questo modo il servizio mobile verrà abilitato per la connessione al Servizio di notifica Push di Microsof in modalità senza autenticazione per l'invio di notifiche push.
 
@@ -137,16 +137,16 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 
 Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) <br/>
+-   [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) <br/>
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante i servizi mobili di runtime .NET.
 
--   [Introduzione all'autenticazione](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users) <br/>
+-   [Introduzione all'autenticazione](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users) <br/>
     Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante i servizi mobili di runtime .NET.
 
 -   [Riferimento per gli script del server di Servizi mobili](http://go.microsoft.com/fwlink/?LinkId=262293) <br/>
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library) <br/>
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET](/it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library) <br/>
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
 <!-- Images. -->
@@ -161,10 +161,10 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push
+[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-windows-store-get-started
+[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Get started with authentication]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
+[Get started with push notifications]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push
 
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
@@ -172,4 +172,4 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
 [Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

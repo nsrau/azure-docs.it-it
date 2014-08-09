@@ -30,7 +30,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
  
 <div  class="dev-callout">
 <strong>Nota</strong>
-<p>Per informazioni sull'esecuzione di questa operazione tramite l'API di gestione servizi di Azure, vedere l'argomento di riferimento <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Creare un account di archiviazione</a>.</p>
+<p>Per informazioni sull'esecuzione di questa operazione tramite l'API di gestione servizi di Azure, vedere l'argomento di riferimento <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx">Creare un account di archiviazione</a>.</p>
 </div>
 
  **Per creare un account di archiviazione per una sottoscrizione ad Azure**
@@ -119,12 +119,12 @@ Per la rete CDN di Azure non è attualmente disponibile alcuno strumento esplici
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+[1]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680302.aspx
 [2]: https://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-[5]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-[6]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[3]: http://msdn.microsoft.com/it-it/library/windowsazure/ee924681.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531560.aspx
+[5]: http://msdn.microsoft.com/it-it/library/gg680306.aspx
+[6]: http://msdn.microsoft.com/it-it/library/dd179354.aspx
+[7]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531567.aspx
+[8]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460807.aspx
+[9]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx

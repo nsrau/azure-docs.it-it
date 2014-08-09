@@ -15,7 +15,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
   HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
 * Installare e configurare Azure PowerShell. Per istruzioni, vedere
   [Come installare e configurare Azure
-  PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+  PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 ## Contenuto dell'articolo
 
@@ -44,7 +44,7 @@ utilizzando PowerShell**
 1.  Aprire **Azure PowerShell**. Per istruzioni sull'apertura della
     finestra della console Azure PowerShell, vedere [Come installare e
     configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 2.  Impostare le due variabili necessarie eseguendo i comandi di
     PowerShell seguenti:
@@ -171,7 +171,7 @@ eseguire un processo Hive per ottenere un elenco di dati dalla tabella Hive.
 1.  Aprire **Azure PowerShell**. Per istruzioni sull'apertura della
     finestra della console Azure PowerShell, vedere [Come installare e
     configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 2.  Impostare le prime due variabili necessarie nei comandi seguenti,
     quindi eseguirli:
@@ -569,5 +569,5 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 [1]: http://hive.apache.org/
 [2]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
 [3]: http://manage.windowsazure.com/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[4]: http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx
+[5]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx

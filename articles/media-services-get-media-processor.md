@@ -21,17 +21,17 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
     <tr>
        <td>Azure Media Encoder</td>
        <td>Consente di eseguire attività di codifica utilizzando il codificatore multimediale.</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+       <td><a href="http://msdn.microsoft.com/it-it/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
     </tr>
     <tr>
         <td>Azure Media Packager</td>
         <td>Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/it-it/library/hh973635.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Encryptor</td>
         <td>Consente di crittografare asset di file multimediali utilizzando PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/it-it/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Storage Decryption</td>
@@ -42,7 +42,7 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 </table>
 
 
-Il metodo seguente illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si utilizzi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice](http://www.windowsazure.com/en-us/develop/media-services/how-to-guides/set-up-computer-for-media-services).
+Il metodo seguente illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si utilizzi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice](http://www.windowsazure.com/it-it/develop/media-services/how-to-guides/set-up-computer-for-media-services).
 
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)

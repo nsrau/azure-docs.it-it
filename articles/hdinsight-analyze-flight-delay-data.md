@@ -9,8 +9,8 @@ Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un lingu
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
--   Un cluster HDInsight di Azure. Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione a HDInsight](/en-us/documentation/articles/hdinsight-get-started/) o [Provisioning di cluster HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
--   Una workstation in cui sia stato installato e configurato Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Un cluster HDInsight di Azure. Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione a HDInsight](/it-it/documentation/articles/hdinsight-get-started/) o [Provisioning di cluster HDInsight](/it-it/documentation/articles/hdinsight-provision-clusters/).
+-   Una workstation in cui sia stato installato e configurato Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 **Tempo previsto per il completamento:** 30 minuti
 
@@ -34,9 +34,9 @@ In questa esercitazioni vengono utilizzati dati relativi alle prestazioni rispet
 
 **Informazioni sull'archiviazione in HDInsight**
 
-HDInsight utilizza l'archivio BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+HDInsight utilizza l'archivio BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/it-it/documentation/articles/hdinsight-use-blob-storage/).
 
-Durante il provisioning di un cluster HDInsight, un contenitore di archiviazione BLOB viene designato come file system predefinito, come in HDFS. Oltre a tale contenitore, è possibile aggiungere ulteriori contenitori dallo stesso account di archiviazione di Azure o da account di archiviazione di Azure diversi durante il processo di provisioning. Per istruzioni sull'aggiunta di ulteriori account di archiviazione, vedere [Provisioning di cluster HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
+Durante il provisioning di un cluster HDInsight, un contenitore di archiviazione BLOB viene designato come file system predefinito, come in HDFS. Oltre a tale contenitore, è possibile aggiungere ulteriori contenitori dallo stesso account di archiviazione di Azure o da account di archiviazione di Azure diversi durante il processo di provisioning. Per istruzioni sull'aggiunta di ulteriori account di archiviazione, vedere [Provisioning di cluster HDInsight](/it-it/documentation/articles/hdinsight-provision-clusters/).
 
 Per semplificare lo script di PowerShell utilizzato in questa esercitazione, tutti i file vengono archiviati nel contenitore del file system predefinito, presente in */tutorials/flightdelays*. Per impostazione predefinita, il nome di questo contenitore corrisponde al nome del cluster HDInsight.
 
@@ -46,7 +46,7 @@ La sintassi WASB è la seguente:
 
 > [WACOM.NOTE] Nella versione 3.0 del cluster HDInsight è supportata solo la sintassi *wasb://*. La sintassi *asv://*, meno recente, è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
 
-> Il percorso di WASB è un percorso virtuale. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+> Il percorso di WASB è un percorso virtuale. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/it-it/documentation/articles/hdinsight-use-blob-storage/).
 
 È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito utilizzando uno degli URI seguenti (utilizzare come esempio flightdelays.hql):
 
@@ -103,7 +103,7 @@ Per ulteriori informazioni, vedere l'articolo introduttivo a [HDInsight e alle t
 
 **Per caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure**
 
-1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 2.  Eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
 
          Add-AzureAccount
@@ -386,7 +386,7 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 Esecuzione dello script HiveQL
 ------------------------------
 
-Per eseguire Hive, è possibile utilizzare alcuni cmdlet di Azure PowerShell. In questa esercitazione viene utilizzato Invoke-Hive. Per informazioni sugli altri metodi, vedere [Utilizzo di Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/). Se si utilizza Invoke-Hive, sarà possibile eseguire un'istruzione HiveQL o uno script HiveQL. Verrà utilizzato lo script HiveQL creato e caricato nell'archivio BLOB di Azure.
+Per eseguire Hive, è possibile utilizzare alcuni cmdlet di Azure PowerShell. In questa esercitazione viene utilizzato Invoke-Hive. Per informazioni sugli altri metodi, vedere [Utilizzo di Hive con HDInsight](/it-it/documentation/articles/hdinsight-use-hive/). Se si utilizza Invoke-Hive, sarà possibile eseguire un'istruzione HiveQL o uno script HiveQL. Verrà utilizzato lo script HiveQL creato e caricato nell'archivio BLOB di Azure.
 
 Il percorso di Hive è caratterizzato da un problema noto Le istruzioni per la risoluzione del problema sono disponibili nella [Wiki di TechNet](http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx).
 
@@ -521,11 +521,11 @@ Passaggi successivi
 
 È stato illustrato come caricare file nell'archiviazione BLOB, come popolare una tabella Hive utilizzando i dati disponibili nell'archiviazione BLOB, come eseguire query Hive e come utilizzare Sqoop per esportare i dati da HDFS nel database SQL di Azure. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'utilizzo di HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
--   [Utilizzo di Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
--   [Utilizzo di Oozie con HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+-   [Introduzione all'utilizzo di HDInsight](/it-it/documentation/articles/hdinsight-get-started/)
+-   [Utilizzo di Hive con HDInsight](/it-it/documentation/articles/hdinsight-use-hive/)
+-   [Utilizzo di Oozie con HDInsight](/it-it/documentation/articles/hdinsight-use-oozie/)
 -   [Utilizzo di Sqoop con HDInsight.](../hdinsight-use-sqoop/)
--   [Utilizzo di Pig con HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
--   [Sviluppo di programmi MapReduce Java per HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [Sviluppo di programmi per la creazione di flussi Hadoop in C\# per HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Utilizzo di Pig con HDInsight](/it-it/documentation/articles/hdinsight-use-pig/)
+-   [Sviluppo di programmi MapReduce Java per HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Sviluppo di programmi per la creazione di flussi Hadoop in C\# per HDInsight](/it-it/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 

@@ -58,9 +58,9 @@ Authentication](./media/multi-factor-authentication/mfacomparison1.png)
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249466.aspx
-[2]: http://msdn.microsoft.com/en-us/library/dn249467.aspx
-[3]: http://msdn.microsoft.com/en-us/library/dn249464.aspx
-[4]: http://msdn.microsoft.com/en-us/library/dn383636.aspx
-[5]: http://msdn.microsoft.com/en-us/library/dn249471.aspx
+[1]: http://msdn.microsoft.com/it-it/library/dn249466.aspx
+[2]: http://msdn.microsoft.com/it-it/library/dn249467.aspx
+[3]: http://msdn.microsoft.com/it-it/library/dn249464.aspx
+[4]: http://msdn.microsoft.com/it-it/library/dn383636.aspx
+[5]: http://msdn.microsoft.com/it-it/library/dn249471.aspx
 [6]: http://technet.microsoft.com/en-us/library/dn249471.aspx

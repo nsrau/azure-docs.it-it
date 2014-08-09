@@ -280,11 +280,11 @@ Per ottenere le credenziali dell'account di archiviazione la procedura è analog
 
     Lo scopo della sospensione è quello di ridurre al minimo i costi delle transazioni di archiviazione Azure, come illustrato nell'[esercitazione precedente](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/).
 
-    Quando un elemento della coda viene estratto tramite il metodo [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx) diverrà visibile per 30 secondi a tutti gli altri ruoli lavoro e Web che accedono alla coda. È in questo modo che è possibile assicurarsi che solo un'istanza del ruolo di lavoro selezioni eventuali messaggi in coda per elaborarli. È possibile impostare esplicitamente questo intervallo di *lease esclusivo* (la durata per cui l'elemento della coda è invisibile) passando un parametro di [scadenza della visibilità](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) al metodo `GetMessage`. Se il ruolo di lavoro impiega oltre 30 secondi per elaborare un messaggio della coda, sarà opportuno aumentare l'intervallo di lease esclusivo allo scopo di impedire l'elaborazione dello stesso messaggio da parte di altre istanze del ruolo.
+    Quando un elemento della coda viene estratto tramite il metodo [GetMessage](http://msdn.microsoft.com/it-it/library/windowsazure/ee741827.aspx) diverrà visibile per 30 secondi a tutti gli altri ruoli lavoro e Web che accedono alla coda. È in questo modo che è possibile assicurarsi che solo un'istanza del ruolo di lavoro selezioni eventuali messaggi in coda per elaborarli. È possibile impostare esplicitamente questo intervallo di *lease esclusivo* (la durata per cui l'elemento della coda è invisibile) passando un parametro di [scadenza della visibilità](http://msdn.microsoft.com/it-it/library/windowsazure/ee758454.aspx) al metodo `GetMessage`. Se il ruolo di lavoro impiega oltre 30 secondi per elaborare un messaggio della coda, sarà opportuno aumentare l'intervallo di lease esclusivo allo scopo di impedire l'elaborazione dello stesso messaggio da parte di altre istanze del ruolo.
 
     D'altro canto, non è consigliabile impostare l'intervallo di lease esclusivo su un valore eccessivamente lungo. Ad esempio, se si imposta questo intervallo su 48 ore e il ruolo di lavoro si arresta in maniera imprevista dopo aver rimosso un messaggio dalla coda, un altro ruolo di lavoro non sarà in grado di elaborare il messaggio per 48 ore. La durata massima dell'intervallo di lease esclusivo è di 7 giorni.
 
-    Il metodo [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (notare la "s" alla fine del nome) è utile per estrarre fino a 32 messaggi dalla coda con una sola chiamata. Ogni accesso alla coda implica un costo della transazione contenuto, che rimane invariato qualora vengano restituiti 32 messaggi o zero messaggi. Il codice seguente recupera fino a 32 messaggi con una sola chiamata e quindi li elabora.
+    Il metodo [GetMessages](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (notare la "s" alla fine del nome) è utile per estrarre fino a 32 messaggi dalla coda con una sola chiamata. Ogni accesso alla coda implica un costo della transazione contenuto, che rimane invariato qualora vengano restituiti 32 messaggi o zero messaggi. Il codice seguente recupera fino a 32 messaggi con una sola chiamata e quindi li elabora.
 
     foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 
@@ -593,14 +593,14 @@ Per ulteriori informazioni sul servizio tabelle di Azure, vedere le risorse segu
 
 -   [Articolo sulle](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx)nozioni fondamentali sull'archiviazione tabelle di Azure nel blog di Bruno Terkaly
 -   [Articolo su](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx)come ottenere il massimo dalle tabelle di Microsoft Azure nel blog del team di Servizio di archiviazione di Azure
--   [Articolo su come utilizzare il servizio di archiviazione tabelle in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [Articolo su come utilizzare il servizio di archiviazione tabelle in .NET](http://www.windowsazure.com/it-it/develop/net/how-to-guides/table-services/)
 -   [Articolo di](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)approfondimento sulle tabelle della libreria client di archiviazione 2.0 di Microsoft Azure sul blog del team di Servizio di archiviazione di Azure
--   [Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
+-   [Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh508997.aspx)
 
 Per ulteriori informazioni sul servizio di accodamento di Azure e sulle code del bus di servizio Azure, vedere le risorse seguenti:
 
 -   [Articolo sullo schema di lavoro incentrato sulle code (creazione di applicazioni per cloud funzionanti con Microsoft Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+-   [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx)
 -   [Articolo su come utilizzare il servizio di archiviazione di accodamento in .NET](/en-us/develop/net/how-to-guides/queue-service/)
 
 Per ulteriori informazioni sul servizio Blob di Azure, vedere le risorse seguenti:
@@ -611,7 +611,7 @@ Per ulteriori informazioni sul servizio Blob di Azure, vedere le risorse seguent
 Per ulteriori informazioni sul ridimensionamento automatico dei ruoli del servizio cloud di Azure, vedere le risorse seguenti:
 
 -   [Come utilizzare il blocco applicazione per la scalabilità automatica](/en-us/develop/net/how-to-guides/autoscaling/)
--   [Scalabilità automatica e Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [Scalabilità automatica e Azure](http://msdn.microsoft.com/it-it/library/hh680945(v=PandP.50).aspx)
 -   [Articolo sulla](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04)creazione di soluzioni elastiche e scalabili automaticamente con Azure (video del Channel 9 di MSDN)
 
 RingraziamentiRingraziamenti

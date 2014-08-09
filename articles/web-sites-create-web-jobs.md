@@ -215,9 +215,9 @@ Se non si desidera utilizzare la pagina del portale WebJobs per caricare gli scr
 [3]: http://blog.amitapple.com/post/74215124623/deploy-azure-webjobs
 [4]: http://blog.amitapple.com/post/73574681678/git-deploy-console-app
 [5]: http://go.microsoft.com/fwlink/?LinkId=390226
-[6]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-basics/
-[7]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-schedule-and-dashboard/
-[8]: http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/
+[6]: http://www.windowsazure.com/it-it/documentation/videos/azure-webjobs-basics/
+[7]: http://www.windowsazure.com/it-it/documentation/videos/azure-webjobs-schedule-and-dashboard/
+[8]: http://www.windowsazure.com/it-it/documentation/videos/azure-scheduler-how-to/
 
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png

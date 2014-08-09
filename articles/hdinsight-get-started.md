@@ -10,9 +10,9 @@ In questa esercitazione verrà eseguito il provisioning di un cluster HDInsight 
 > cluster Hadoop 1.2 su HDInsight. Per l'esercitazione sull'utilizzo
 > di cluster Hadoop 2.2 su HDInsight, vedere [Introduzione all'utilizzo
 > di cluster Hadoop 2.2 con
-> HDInsight](/en-us/documentation/articles/hdinsight-get-started-30/).
+> HDInsight](/it-it/documentation/articles/hdinsight-get-started-30/).
 
-In concomitanza con la fase GA (General Availability) di Azure HDInsight, Microsoft ha rilasciato anche HDInsight Emulator per Azure, noto in precedenza come Microsoft HDInsight Developer Preview. Questo prodotto è stato progettato per scenari relativi allo sviluppo e supporta pertanto solo distribuzioni a nodo singolo. Per informazioni sull'utilizzo di HDInsight Emulator, vedere [Introduzione a HDInsight Emulator](/en-us/documentation/articles/hdinsight-get-started-emulator/).
+In concomitanza con la fase GA (General Availability) di Azure HDInsight, Microsoft ha rilasciato anche HDInsight Emulator per Azure, noto in precedenza come Microsoft HDInsight Developer Preview. Questo prodotto è stato progettato per scenari relativi allo sviluppo e supporta pertanto solo distribuzioni a nodo singolo. Per informazioni sull'utilizzo di HDInsight Emulator, vedere [Introduzione a HDInsight Emulator](/it-it/documentation/articles/hdinsight-get-started-emulator/).
 
 **Prerequisiti:**
 
@@ -44,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 È possibile inviare processi MapReduce a HDInsight in molti modi. In
 questa esercitazione verrà utilizzato Azure PowerShell. Per installare Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft][5]. Quando richiesto, fare clic su **Esegui**, quindi su
 **Installa** e infine seguire le istruzioni visualizzate. Per ulteriori
-informazioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+informazioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 Per poter gestire i servizi tramite i cmdlet di PowerShell, è necessario specificare le informazioni della sottoscrizione.
 
@@ -52,7 +52,7 @@ Per poter gestire i servizi tramite i cmdlet di PowerShell, è necessario specif
 
 1.  Aprire la console di Azure PowerShell come descritto in [Procedura:
     Installare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/#install).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/#install).
 2.  Eseguire il comando seguente:
     
          Add-AzureAccount
@@ -62,7 +62,7 @@ Per poter gestire i servizi tramite i cmdlet di PowerShell, è necessario specif
     vengono autenticate e salvate in Azure, quindi la finestra viene
     chiusa.
 
-Per connettersi alla sottoscrizione è anche possibile utilizzare il metodo basato sul certificato. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+Per connettersi alla sottoscrizione è anche possibile utilizzare il metodo basato sul certificato. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 ## <a name="provision"></a>Eseguire il provisioning di un cluster HDInsight
 
@@ -98,7 +98,7 @@ l'account di archiviazione di Azure.
     ACCESS KEY**. Sarà necessario utilizzarli più avanti
     nell'esercitazione.
 
-Per istruzioni dettagliate, vedere [Come creare un account di archiviazione](/en-us/documentation/articles/storage-create-storage-account/) e [Utilizzo dell'archiviazione BLOB di Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+Per istruzioni dettagliate, vedere [Come creare un account di archiviazione](/it-it/documentation/articles/storage-create-storage-account/) e [Utilizzo dell'archiviazione BLOB di Azure con HDInsight](/it-it/documentation/articles/hdinsight-use-blob-storage/).
 
 **Per eseguire il provisioning di un cluster HDInsight**
 
@@ -156,7 +156,7 @@ Per istruzioni dettagliate, vedere [Come creare un account di archiviazione](/en
 
 Per informazioni sull'utilizzo dell'opzione **CUSTOM CREATE**, vedere
 [Provisioning di cluster
-HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
+HDInsight](/it-it/documentation/articles/hdinsight-provision-clusters/).
 
 ## <a name="sample"></a>Eseguire un processo WordCount MapReduce
 
@@ -171,12 +171,12 @@ Per eseguire un processo MapReduce è necessario disporre degli elementi seguent
   */example/jars/hadoop-examples.jar*. Per istruzioni sulla scrittura di
   un processo MapReduce personalizzato, vedere [Sviluppo di programmi
   MapReduce Java per
-  HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
+  HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
 
 * Un file di input. Come file di input verrà utilizzato il file
   */example/data/gutenberg/davinci.txt*. Per informazioni sul
   caricamento di file, vedere [Caricamento di dati in
-  HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+  HDInsight](/it-it/documentation/articles/hdinsight-upload-data/).
 * Una cartella di file di output. Come cartella di file di output verrà
   utilizzata la cartella */example/data/WordCountOutput*. Se non esiste,
   tale cartella verrà creata dal sistema.
@@ -204,14 +204,14 @@ Per accedere, ad esempio, a hadoop-examples.jar, è possibile utilizzare una del
 L'utilizzo del prefisso *wasb://* nei percorsi di tali file è necessario per indicare che si utilizza l'archiviazione BLOB di Azure per i file di input e output. La directory di output presuppone un percorso predefinito relativo alla cartella
 *wasb:///utente/<nomeutente>*.
 
-Per ulteriori informazioni, vedere [Utilizzo dell'archiviazione BLOB di Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+Per ulteriori informazioni, vedere [Utilizzo dell'archiviazione BLOB di Azure con HDInsight](/it-it/documentation/articles/hdinsight-use-blob-storage/).
 
 **Per eseguire l'esempio WordCount**
 
 1.  Aprire **Azure PowerShell**. Per istruzioni sull'apertura della
     finestra della console Azure PowerShell, vedere [Come installare e
     configurare Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 2.  Per impostare le variabili, eseguire i comandi seguenti.
     
@@ -375,27 +375,27 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 In questa esercitazione si è appreso come eseguire il provisioning di un cluster con HDInsight, eseguire un processo MapReduce su tale cluster e importare i risultati in Excel per un'ulteriore elaborazione e per la visualizzazione grafica mediante gli strumenti di Business Intelligence. Per ulteriori informazioni, vedere gli articoli seguenti:
 
 * [Introduzione all'utilizzo di cluster Hadoop 2.2 con
-  HDInsight](/en-us/documentation/articles/hdinsight-get-started-30/)
+  HDInsight](/it-it/documentation/articles/hdinsight-get-started-30/)
 * [Introduzione a HDInsight
-  Emulator](/en-us/documentation/articles/hdinsight-get-started-emulator/)
+  Emulator](/it-it/documentation/articles/hdinsight-get-started-emulator/)
 * [Utilizzo dell'archiviazione BLOB di Azure con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-blob-storage/)
 * [Amministrazione di HDInsight tramite
-  PowerShell](/en-us/documentation/articles/hdinsight-administer-use-powershell/)
+  PowerShell](/it-it/documentation/articles/hdinsight-administer-use-powershell/)
 * [Caricamento di dati in
-  HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
+  HDInsight](/it-it/documentation/articles/hdinsight-upload-data/)
 * [Utilizzo di MapReduce con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-mapreduce)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-mapreduce)
 * [Utilizzo di Hive con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-hive/)
 * [Utilizzo di Pig con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-pig/)
 * [Utilizzo di Oozie con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+  HDInsight](/it-it/documentation/articles/hdinsight-use-oozie/)
 * [Sviluppo di programmi di streaming Hadoop in C# per
-  HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+  HDInsight](/it-it/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 * [Sviluppo di programmi MapReduce Java per
-  HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+  HDInsight](/it-it/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 
 
 

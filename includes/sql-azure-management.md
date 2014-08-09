@@ -344,7 +344,7 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere ut
   [Recupero del nome del server database SQL dal portale di gestione]: /media/portal_get_database_name.png
   [Connessione a SSMS]: /media/ssms_connect.png
   [Connessione a SSMS - proprietà]: /media/ssms_connect_properties.png
-  [Riferimento a Transact-SQL (database SQL)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
+  [Riferimento a Transact-SQL (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336281.aspx
   [CREATE DATABASE (SQL Database)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336274.aspx
   [ALTER DATABASE (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ff394109.aspx
   [DROP DATABASE (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336259.aspx
@@ -360,4 +360,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere ut
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[1]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/sql-azure/

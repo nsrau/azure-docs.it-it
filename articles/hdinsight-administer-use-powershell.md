@@ -3,7 +3,7 @@
 Amministrazione di HDInsight tramite PowerShell
 ===============================================
 
-Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo verrà illustrato come gestire cluster HDInsight utilizzando una console di Azure PowerShell tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo verrà illustrato come gestire cluster HDInsight utilizzando una console di Azure PowerShell tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight](http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx).
 
 **Prerequisiti:**
 
@@ -11,7 +11,7 @@ Per eseguire le procedure descritte nell'articolo, è necessario disporre di qua
 
 -   Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. I cmdlet di PowerShell HDInsight eseguono le attività con la sottoscrizione. Per ulteriori informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](https://www.windowsazure.com/en-us/pricing/purchase-options/), [Offerte per i membri](https://www.windowsazure.com/en-us/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/).
 
--   Workstation con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Workstation con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
 
 Contenuto dell'articolo
 -----------------------
@@ -136,7 +136,7 @@ Nell'esempio *hdiv2* è un nome del cluster HDInsight.
 
 > [WACOM.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-È possibile effettuare tale operazione anche tramite il portale di gestione di Azure. Vedere [Amministrazione di HDInsight tramite il portale di gestione](/en-us/documentation/articles/hdinsight-administer-use-management-portal/).
+È possibile effettuare tale operazione anche tramite il portale di gestione di Azure. Vedere [Amministrazione di HDInsight tramite il portale di gestione](/it-it/documentation/articles/hdinsight-administer-use-management-portal/).
 
 Invio di processi MapReduce
 ---------------------------
@@ -176,7 +176,7 @@ Lo script di PowerShell seguente consente di recuperare l'output del processo Ma
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Per ulteriori informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Utilizzo di MapReduce con HDInsight](/en-us/documentation/articles/hdinsight-use-mapreduce/).
+Per ulteriori informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Utilizzo di MapReduce con HDInsight](/it-it/documentation/articles/hdinsight-use-mapreduce/).
 
 Invio di processi Hive
 ----------------------
@@ -202,12 +202,12 @@ Lo script seguente consente di inviare un processo Hive per visualizzare l'elenc
 
 Il processo Hive visualizzerà innanzitutto le tabelle Hive create nel cluster e i dati restituiti da hivesampletable.
 
-Per ulteriori informazioni sull'utilizzo di Hive, vedere [Utilizzo di Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/).
+Per ulteriori informazioni sull'utilizzo di Hive, vedere [Utilizzo di Hive con HDInsight](/it-it/documentation/articles/hdinsight-use-hive/).
 
 Caricamento di dati nell'archiviazione BLOB
 -------------------------------------------
 
-Vedere [Caricamento di dati in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+Vedere [Caricamento di dati in HDInsight](/it-it/documentation/articles/hdinsight-upload-data/).
 
 Download dei dati di output di MapReduce dall'archiviazione BLOB
 ----------------------------------------------------------------
@@ -217,11 +217,11 @@ Vedere la sezione [Invio di processi MapReduce](#mapreduce) in questo articolo.
 Vedere anche
 ------------
 
--   [Documentazione di riferimento relativa ai cmdlet di HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)
--   [Amministrazione di HDInsight tramite il portale di gestione](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)
--   [Amministrazione di HDInsight tramite l'interfaccia della riga di comando](/en-us/documentation/articles/hdinsight-administer-use-command-line/)
--   [Provisioning di cluster HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/)
--   [Caricamento di dati in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
--   [Invio di processi Hadoop a livello di codice](/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
--   [Introduzione all'utilizzo di Azure HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Documentazione di riferimento relativa ai cmdlet di HDInsight](http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx)
+-   [Amministrazione di HDInsight tramite il portale di gestione](/it-it/documentation/articles/hdinsight-administer-use-management-portal/)
+-   [Amministrazione di HDInsight tramite l'interfaccia della riga di comando](/it-it/documentation/articles/hdinsight-administer-use-command-line/)
+-   [Provisioning di cluster HDInsight](/it-it/documentation/articles/hdinsight-provision-clusters/)
+-   [Caricamento di dati in HDInsight](/it-it/documentation/articles/hdinsight-upload-data/)
+-   [Invio di processi Hadoop a livello di codice](/it-it/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
+-   [Introduzione all'utilizzo di Azure HDInsight](/it-it/documentation/articles/hdinsight-get-started/)
 

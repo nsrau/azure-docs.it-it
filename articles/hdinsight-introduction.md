@@ -102,7 +102,7 @@ Passaggi successivi: Risorse per HDInsight
 
 -   [Esecuzione degli esempi relativi a HDInsight](/en-us/manage/services/hdinsight/howto-run-samples/): esercitazione relativa alle procedure per l'esecuzione degli esempi inclusi in HDInsight.
 
--   [Big Data e Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): scenari relativi a Big Data, che illustrano i risultati che è possibile ottenere con Azure.
+-   [Big Data e Azure](http://www.windowsazure.com/it-it/home/scenarios/big-data/): scenari relativi a Big Data, che illustrano i risultati che è possibile ottenere con Azure.
 
 -   [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): documentazione di riferimento per HDinsight SDK.
 
@@ -110,9 +110,9 @@ Passaggi successivi: Risorse per HDInsight
 
 -   [Home page di Azure](https://www.windowsazure.com/en-us/): scenari, iscrizione alla versione di valutazione gratuita, strumenti per lo sviluppo e documentazione necessaria per iniziare a creare applicazioni.
 
--   [Database SQL di Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): documentazione MSDN relativa a database SQL.
+-   [Database SQL di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee336279.aspx): documentazione MSDN relativa a database SQL.
 
--   [Portale di gestione per database SQL](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): uno strumento semplificato e di facile utilizzo per la gestione di database, che consente di gestire database SQL nel cloud.
+-   [Portale di gestione per database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/gg442309.aspx): uno strumento semplificato e di facile utilizzo per la gestione di database, che consente di gestire database SQL nel cloud.
 
 -   [Adventure Works per database SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): pagina per il download del database di esempio per database SQL.
 

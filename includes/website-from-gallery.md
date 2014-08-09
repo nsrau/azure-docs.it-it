@@ -10,7 +10,7 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 
 ![Wordpress blog](./media/website-from-gallery/wordpressgallery-09.png)
 <div class="dev-callout"><strong>Nota</strong>
-<p>Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Creazione di un account Azure</a>.</p>
+<p>Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere <a href="http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Creazione di un account Azure</a>.</p>
 </div>
 
 ## Creazione di un sito Web nel portale

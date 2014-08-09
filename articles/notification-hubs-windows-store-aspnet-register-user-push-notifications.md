@@ -3,7 +3,7 @@
 Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 =========================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows Store C#")[iOS](/en-us/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS")
+[Windows Store C\#](/it-it/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows Store C#")[iOS](/it-it/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS")
 
 In questo argomento viene illustrato come chiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti](/en-us/manage/services/notification-hubs/notify-users-aspnet). Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti](/en-us/manage/services/notification-hubs/notify-users-aspnet).
 
