@@ -53,15 +53,15 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
 7.  Dopo l'installazione di MongoDB, è necessario configurare un endpoint in modo da potervi accedere in remoto. Nel portale di gestione fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
     
-    ![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png)
+	![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png)
 
 8.  Fare clic su **Add Endpoint** nella parte inferiore della pagina.
     
-    ![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png)
+	![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png)
 
 9.  Aggiungere un endpoint denominato "Mongo", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "27017". In questo modo sarà possibile accedere a MongoDB in remoto.
     
-    ![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png)
+	![Endpoint](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png)
 
 
 

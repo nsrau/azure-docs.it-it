@@ -6,8 +6,8 @@
 
 3.  Le impostazioni **Virtual Machine Name**, **Storage Location** e **File Name** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Size**.
     
-    ![Attach Empty
-    Disk](./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png)
+	![Attach Empty Disk](./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png)
+
     
     **Nota:** tutti i dischi vengono creati da un file VHD in  Archiviazione di Azure. È possibile specificare un nome per il file VHD aggiunto alla risorsa di archiviazione, tuttavia il nome del disco viene generato automaticamente in Azure.
 
@@ -17,8 +17,8 @@
     
     A questo punto la macchina virtuale è collegata a due dischi. Il disco collegato verrà visualizzato nella tabella **Disks**.
     
-    ![Attach Empty
-    Disk](./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM3.png)
+	![Attach Empty Disk](./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM3.png)
+
     
     Quando viene collegato alla macchina virtuale, il disco dati è offline e non inizializzato. Prima di poter archiviare i dati, è necessario accedere alla macchina virtuale e inizializzare il disco.
 
@@ -60,8 +60,8 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
     
     `$ sudo mkfs -t ext4 /dev/sdc1`
     
-    ![Creare il file
-    system](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
+
+	![Creare il file system](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
 
 9.  È quindi necessario disporre di una directory per il montaggio del nuovo file system. Digitare, ad esempio, il comando seguente per creare una nuova directory per il montaggio dell'unità, quindi immettere la password per l'account:
     

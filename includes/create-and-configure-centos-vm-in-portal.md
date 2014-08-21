@@ -5,8 +5,8 @@
 1.  Accedere al portale di gestione di Azure con il proprio account Azure.
 2.  Nel portale di gestione fare clic su **+New** nella parte inferiore sinistra della pagina Web, scegliere **Virtual Machine** e quindi **From Gallery**.
     
-    ![Creare una nuova macchina
-    virtuale](./media/create-and-configure-centos-vm-in-portal/CreateVM.png)
+	![Creare una nuova macchina virtuale](./media/create-and-configure-centos-vm-in-portal/CreateVM.png)
+
 
 3.  Selezionare un'immagine della macchina virtuale CentOS da **Platform Images**, quindi fare clic sulla freccia Next nella parte inferiore destra della pagina.
 
@@ -59,7 +59,8 @@ Se si utilizza un computer Windows, connettersi alla macchina virtuale tramite P
 
 1.  Scaricare e salvare il file **putty.exe** in una directory del computer. Aprire un prompt dei comandi, passare a questa cartella ed eseguire **putty.exe**.
 
-2.  Immettere "testlinuxvm.cloudapp.net" come nome **host** e "22" per la **porta**. ![Schermata di PuTTY](./media/create-and-configure-centos-vm-in-portal/putty.png)
+2.  Immettere "testlinuxvm.cloudapp.net" come nome **host** e "22" per la **porta**. 
+![Schermata di PuTTY](./media/create-and-configure-centos-vm-in-portal/putty.png)
 
 ## Aggiornare la macchina virtuale (facoltativo)
 

@@ -68,8 +68,8 @@ Per creare uno spazio dei nomi servizio:
     ![Finestra di dialogo Create a namespace](./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png)
 
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di utilizzare la stessa area in cui è ospitata la macchina virtuale.
-
-    **Importante**
+    <div class="dev-callout">
+    <strong>Importante</strong>
 
     Selezionare la **stessa area** che si utilizza si intende utilizzare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
 

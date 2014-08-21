@@ -95,17 +95,18 @@ A questo punto è possibile inviare il messaggio tramite SMTP o con l'API Web. L
         if(success) console.log('Email sent');
         else console.log(err);
         });
-**Nota**
 
-Anche se gli esempi precedenti illustrano il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente le funzioni send e smtp specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:
 
-``` {.prettyprint}
-sender.send({
+<div class="dev-callout">
+<strong>Nota</strong>
+<p>Anche se gli esempi precedenti illustrano il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente le funzioni send e smtp specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio: </p>
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
     subject: 'test mail',
-    text: 'This is a sample email message.'?});?
-```
+    text: 'This is a sample email message.'
+});
+</pre>
+</div>
 
 Procedura: Aggiungere un allegato
 ---------------------------------
@@ -123,9 +124,10 @@ Per aggiungere allegati a un messaggio, specificare i nomi e i percorsi dei file
         }
     });
 
-**Nota**
-
-Quando si utilizza la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in un'archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato utilizzando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
+<div class="dev-callout">
+<strong>Nota</strong>
+<p>Quando si utilizza la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in un'archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato utilizzando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.</p>
+</div>
 
 Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e Twitter
 --------------------------------------------------------------------------------

@@ -341,24 +341,12 @@ Per inviare notifiche tramite un'app .NET:
 
 4.  Nella classe `Program` aggiungere il metodo seguente:
 
-         private static async void SendNotificationAsync()
-         {
-             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{ private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;aps private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;:{ private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;alert private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;: private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;Hello from .NET! private static async void SendNotificationAsync()? {?     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-             await hub.SendAppleNativeNotificationAsync(alert);? }?quot;}}";
-             await hub.SendAppleNativeNotificationAsync(alert);
-         }
+        private static async void SendNotificationAsync()
+        {
+            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            await hub.SendAppleNativeNotificationAsync(alert);
+        }
 
 5.  Aggiungere quindi la riga seguente nel metodo `Main`:
 
