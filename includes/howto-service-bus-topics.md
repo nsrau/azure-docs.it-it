@@ -5,8 +5,8 @@ Gli argomenti e le code del bus di servizio supportano un modello di
 **comunicazione con messaggistica di pubblicazione-sottoscrizione**.
 Quando si utilizzano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro ma scambiano messaggi tramite un argomento, che agisce da intermediario.
 
-![Concetti relativi agli
-argomenti](./media/howto-service-bus-topics/sb-topics-01.png)
+	![Concetti relativi agli argomenti](./media/howto-service-bus-topics/sb-topics-01.png)
+
 
 Diversamente dalle code del bus di servizio, in cui ogni messaggio viene elaborato da un unico consumer, gli argomenti e le sottoscrizioni offrono una forma di comunicazione **uno a molti** tramite un modello di pubblicazione-sottoscrizione. È possibile registrare più sottoscrizioni a un argomento. Quando un messaggio viene inviato a un argomento, viene reso disponibile affinché ogni sottoscrizione possa gestirlo o elaborarlo in modo indipendente.
 
@@ -49,7 +49,7 @@ Per creare uno spazio dei nomi servizio:
     necessari alcuni minuti per consentire al sistema di effettuare il
     provisioning delle risorse per lo spazio dei nomi creato.
     
-    ![](./media/howto-service-bus-topics/getting-started-multi-tier-27.png)
+	![](./media/howto-service-bus-topics/getting-started-multi-tier-27.png)
 
 <h2><a name="obtain-default-credentials"></a>Recupero delle credenziali di gestione predefinite per lo spazio dei nomi</h2>
 
@@ -61,14 +61,14 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service
     Bus** per visualizzare l'elenco degli spazi dei nomi disponibili:  
     
-     ![](./media/howto-service-bus-topics/sb-queues-13.png)
+    ![](./media/howto-service-bus-topics/sb-queues-13.png)
 
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco
     visualizzato:   
-     ![](./media/howto-service-bus-topics/sb-queues-09.png)
+	![](./media/howto-service-bus-topics/sb-queues-09.png)
 
 3.  Fare clic su **Connection Information**.   
-     ![](./media/howto-service-bus-topics/sb-queues-06.png)
+    ![](./media/howto-service-bus-topics/sb-queues-06.png)
 
 4.  Nella finestra di dialogo **Access connection information**
     individuare le voci **Default Issuer** e **Default Key**. Prendere
