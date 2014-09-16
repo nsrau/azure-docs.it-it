@@ -3,7 +3,7 @@
 Come inviare messaggi di posta elettronica utilizzando SendGrid Node.js
 =======================================================================
 
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti utilizzando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **utilizzo di filtri** e **aggiornamento delle proprietà**. Per ulteriori informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/blob-storage/#next-steps).
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti utilizzando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **utilizzo di filtri** e **aggiornamento delle proprietà**. Per ulteriori informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps).
 
 Sommario
 --------
@@ -95,11 +95,10 @@ A questo punto è possibile inviare il messaggio tramite SMTP o con l'API Web. L
         if(success) console.log('Email sent');
         else console.log(err);
         });
-
-
 <div class="dev-callout">
 <strong>Nota</strong>
-<p>Anche se gli esempi precedenti illustrano il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente le funzioni send e smtp specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio: </p>
+<p>Anche se gli esempi precedenti illustrano il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente le funzioni send e smtp specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:</p>
+<pre class="prettyprint">sender.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
     subject: 'test mail',
@@ -124,10 +123,9 @@ Per aggiungere allegati a un messaggio, specificare i nomi e i percorsi dei file
         }
     });
 
-<div class="dev-callout">
-<strong>Nota</strong>
-<p>Quando si utilizza la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in un'archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato utilizzando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.</p>
-</div>
+**Nota**
+
+Quando si utilizza la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in un'archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato utilizzando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
 
 Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e Twitter
 --------------------------------------------------------------------------------

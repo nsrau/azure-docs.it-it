@@ -68,11 +68,10 @@ Per creare uno spazio dei nomi servizio:
     ![Finestra di dialogo Create a namespace](./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png)
 
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di utilizzare la stessa area in cui è ospitata la macchina virtuale.
-    <div class="dev-callout">
+	<div class="dev-callout">
     <strong>Importante</strong>
-
-    Selezionare la **stessa area** che si utilizza si intende utilizzare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
-
+    <p>Selezionare la **stessa area** che si utilizza si intende utilizzare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.</p>
+    </div>
 6.  Se si dispone di più sottoscrizioni di Azure per l'account con cui è stato eseguito l'accesso, selezionare la sottoscrizione da utilizzare per lo spazio dei nomi. Se si dispone di una sola sottoscrizione per l'account con cui è stato eseguito l'accesso, l'elenco a discesa contenente le sottoscrizioni non verrà visualizzato.
 7.  Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -99,7 +98,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo.
 --------------------------------------------------------------------------------------
 
-1.  Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://www.windowsazure.com/it-it/develop/net/).
+1.  Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://www.windowsazure.com/en-us/develop/net/).
 2.  Creare un'applicazione console .NET con il progetto denominato **TSPSolver**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4** (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto effettuando le operazioni riportate di seguito. Nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
 3.  Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, scegliere **Aggiungi riferimento**, quindi fare clic sulla scheda **Sfoglia**, passare a **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** e selezionare **Microsoft.ServiceBus.dll** come riferimento.
 4.  Aggiungere la libreria System Runtime Serialization. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, scegliere su **Aggiungi riferimento**, quindi fare clic sulla scheda **.NET** e selezionare **System.Runtime.Serialization** come riferimento.

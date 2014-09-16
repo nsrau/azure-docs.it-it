@@ -161,23 +161,23 @@ Verrà ora creato un modulo molto semplice per l'esecuzione di una chiamata vers
 
 Creare quindi una directory denominata "views". All'interno di tale directory creare un file denominato "index.ejs" con il contenuto seguente:
 
-  &lt;!DOCTYPE html&gt;
-  &lt;html&gt;
-  &lt;head&gt;
-      &lt;title&gt;Twilio Test&lt;/title&gt;
-      &lt;style&gt;
-      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
-      &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-      &lt;h1&gt;Twilio Test&lt;/h1&gt;
-      &lt;form action="/call" method="POST"&gt;
-          &lt;input placeholder="Enter a phone number" name="number"/&gt;
-          &lt;br/&gt;
-          &lt;input type="submit" value="Call the number above"/&gt;
-      &lt;/form&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;
+  	<DOCTYPE html>
+  		<html>
+  			<head>
+      			<title>Twilio Test</title>
+      			<style>
+      			input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
+      			</style>
+  			</head>
+  			<body>
+      			<h1>Twilio Test</h1>
+      				<form action="/call" method="POST">
+          				<input placeholder="Enter a phone number" name="number"/>
+          				<br/>
+          				<input type="submit" value="Call the number above"/>
+      				</form>
+  			</body>
+  	    </html>
 
 Distribuire ora il sito Web in Azure e aprire la Home page. Dovrebbe essere possibile immettere il proprio numero di telefono nel campo di testo e ricevere una chiamata dal numero Twilio.
 
@@ -186,34 +186,34 @@ Distribuire ora il sito Web in Azure e aprire la Home page. Dovrebbe essere poss
 
 Verranno ora create un'interfaccia utente e la logica di gestione dei moduli per l'invio di un SMS. Aprire il file "server.js" e aggiungere il codice seguente dopo l'ultima chiamata ad "app.post":
 
-  app.post('/sms', function(request, response) {
-      var client = twilio();
-      client.sendSms({
-          // send a text to this number
-          to:request.body.number,
+  	app.post('/sms', function(request, response) {
+      	var client = twilio();
+      	client.sendSms({
+          	// send a text to this number
+         	to:request.body.number,
 
-          // A Twilio number you bought - see:
-          // https://www.twilio.com/user/account/phone-numbers/incoming
-          from:'+15558675309',
+           // A Twilio number you bought - see:
+           // https://www.twilio.com/user/account/phone-numbers/incoming
+           from:'+15558675309',
 
-          // The body of the text message
-          body: request.body.message
+           // The body of the text message
+           body: request.body.message
           
-      }, function(error, data) {
+      	   }, function(error, data) {
           // Go back to the home page
           response.redirect('/');
-      });
-  });
+        });
+  	 });
 
 In "views/index.ejs" aggiungere un altro modulo sotto il primo per inviare un numero e un messaggio di testo:
 
-  &lt;form action="/sms" method="POST"&gt;
-      &lt;input placeholder="Enter a phone number" name="number"/&gt;
-      &lt;br/&gt;
-      &lt;input placeholder="Enter a message to send" name="message"/&gt;
-      &lt;br/&gt;
-      &lt;input type="submit" value="Send text to the number above"/&gt;
-  &lt;/form&gt;
+  	<form action="/sms" method="POST">
+      	<input placeholder="Enter a phone number" name="number"/>
+      	<br/>
+      	<input placeholder="Enter a message to send" name="message"/>
+      	<br/>
+     	<input type="submit" value="Send text to the number above"/>
+    </form>
 
 Ridistribuire l'applicazione in Azure. Dovrebbe essere possibile inviare il modulo e inviare un SMS.
 
@@ -235,7 +235,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
 [2]: https://www.twilio.com/docs/api/twiml
 [3]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
 [4]: http://ahoy.twilio.com/azure
-[5]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
+[5]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [6]: https://www.twilio.com/user/account
 [7]: http://npmjs.org
 [8]: http://expressjs.com
@@ -246,7 +246,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
