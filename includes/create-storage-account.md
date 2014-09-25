@@ -5,12 +5,11 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 2.  Nella parte inferiore del pannello di navigazione fare clic su
     **NEW**.
     
-    ![+nuovo](./media/create-storage-account/plus-new.png)
+    ![+nuovo](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/it-it/documentation/articles/storage-php-how-to-use-table-storage/20140821074622/includes/create-storage-account/plus-new.png)
 
 3.  Fare clic su **DATA SERVICES**, quindi su **STORAGE** e infine su **QUICK CREATE**.
     
-    ![Finestra di dialogo Creazione
-    rapida](./media/create-storage-account/quick-storage-2.png)
+    ![quick-create-storage](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/storage-php-how-to-use-table-storage/20140815090453/includes/create-storage-account/quick-storage-2.png)
 
 4.  Nel campo URL, digitare un nome di sottodominio da utilizzare nell'URI per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
 
@@ -22,5 +21,5 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 
 
-[1]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
+[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
 [2]: http://manage.windowsazure.com
