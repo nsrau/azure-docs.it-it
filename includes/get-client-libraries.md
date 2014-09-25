@@ -3,10 +3,12 @@
 
 1.  [Installare Git][1].
     
-    <div  class="dev-callout" markdown="1">
+	<div class="dev-callout"> 
+	<b>Nota</b>
+	<p>In Windows sarà inoltre necessario aggiungere l</p>
+	</div>
 
-**Nota**
-In Windows sarà inoltre necessario aggiungere l
+
 
 2.  Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
     
