@@ -1,7 +1,7 @@
 <properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Shared Access Signature Part 1" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="" editor="" />
 
 Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft
-==================================================
+===================================================
 
 Servizi mobili di Azure supporta metodi di autenticazione sia basati su client che basati su server. L'autenticazione basata su server utilizza i provider di identità, tra cui l'account Microsoft. Quando si utilizza un account Microsoft con l'autenticazione basata su server senza registrare l'app con Servizi mobili, agli utenti viene chiesto di fornire le credenziali ogni volta che è richiesta l'autenticazione. Quando si registra l'app, le credenziali di accesso dell'account Microsoft vengono memorizzate nella cache e possono essere utilizzate per l'autenticazione senza richiesta all'utente di specificarle nuovamente. In questo argomento viene illustrato come registrare il pacchetto di app di Windows Store per migliorare l'esperienza di accesso tramite account Microsoft quando si utilizza Servizi mobili di Azure per l'autenticazione.
 

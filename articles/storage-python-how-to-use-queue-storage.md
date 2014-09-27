@@ -6,7 +6,7 @@ Come utilizzare il servizio di archiviazione di accodamento di Python
 In questa guida viene illustrato come eseguire scenari comuni del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti utilizzando l'API Python. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi](#next-steps).
 
 Sommario
------
+----
 
 [Informazioni sull'archiviazione di accodamento](#what-is)
  [Concetti](#concepts)
