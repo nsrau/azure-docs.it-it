@@ -1,17 +1,17 @@
 
 
 Come gestire database SQL in Azure
-==================================
+================================
 
 In questa guida viene illustrato come eseguire attività amministrative per server logici e istanze di database nel database SQL di Azure.
 
 Informazioni sul database SQL
------------------------------
+---------------------
 
 Il database SQL offre servizi di gestione di database relazionali per Azure e si basa sulla tecnologia SQL Server. Con il database SQL, è possibile eseguire facilmente il provisioning e la distribuzione di istanze di database e usufruire di un data center distribuito che offre disponibilità, scalabilità e sicurezza di livello aziendale, con i vantaggi delle funzionalità predefinite di riparazione automatica e protezione dati.
 
 Sommario
---------
+----
 
 -   [Accesso ad Azure](#PreReq1)
 -   [Configurazione di un database SQL](#PreReq2)
@@ -23,7 +23,7 @@ Sommario
 -   [Passaggi successivi](#NextSteps)
 
 Accesso ad Azure
-----------------
+----------
 
 Database SQL offre servizi di archiviazione di dati relazionali, di accesso e di gestione in Azure. Per utilizzarlo, è necessario disporre di una sottoscrizione di Azure.
 
@@ -32,7 +32,7 @@ Database SQL offre servizi di archiviazione di dati relazionali, di accesso e di
 2.  Verrà creato l'account e sarà possibile iniziare.
 
 Creazione e configurazione di un database SQL
----------------------------------------------
+-----------------------
 
 Verranno quindi illustrate le procedure per la creazione e la configurazione di un server logico. Nel nuovo portale di gestione di Azure (anteprima) i flussi di lavoro revisionati consentono di creare prima un database e quindi un server.
 
@@ -87,7 +87,7 @@ A questo punto sono stati configurati un server logico, una regola del firewall 
 **Nota:** il server logico appena creato è temporaneo e verrà ospitato dinamicamente nei server fisici di un data center. Se si elimina il server, tenere presente che si tratta di un'azione irreversibile. Assicurarsi di eseguire il backup di tutti i database caricati in seguito nel server.
 
 Connessione mediante Management Studio
---------------------------------------
+-------------------------------
 
 Management Studio è uno strumento di amministrazione che consente di gestire più istanze e server di SQL Server in un'unica area di lavoro. Se si dispone già di un'istanza locale di SQL Server, sarà possibile aprire una connessione sia all'istanza locale che a un server logico su Azure per eseguire le attività affiancate.
 
@@ -124,7 +124,7 @@ Prima di potere effettuare la connessione, è a volte necessario creare un'eccez
 2.  In Autenticazione scegliere **Autenticazione di Windows** e quindi immettere un account Windows appartenente al ruolo sysadmin.
 
 Distribuzione di un database in Azure
--------------------------------------
+--------------------
 
 Sono disponibili diversi approcci per lo spostamento di un database locale di SQL Server in Azure. In questa attività, si utilizzerà la procedura guidata di distribuzione del database al database SQL per il caricamento di un database di esempio.
 
@@ -142,7 +142,7 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
 
 3.  Copiare e quindi eseguire lo script Create Schema dall'esercitazione.
 
-<div style="width:auto; height:300px; overflow:auto"><pre>
+``` {}
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 	   	WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
@@ -378,11 +378,11 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
-</pre></div>
+```
 
 Quindi, copiare ed eseguire lo script Insert Data.
 
-<div style="width:auto; height:300px; overflow:auto"><pre>
+``` {}
 	-- Insert data into the Person table.
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
@@ -632,8 +632,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
 	VALUES (1061, 30, 4);
 	GO
-</pre></div>
-
+```
 
 Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file .bacpac, caricarlo in Azure e importarlo nel database SQL.
 
@@ -694,7 +693,7 @@ Il database locale appena creato può essere esportato in Azure. In seguito, una
 ```
 
 Aggiunta di account di accesso e di utenti
-------------------------------------------
+----------------
 
 Dopo la distribuzione di un database, sarà necessario configurare gli account di accesso e assegnare le autorizzazioni. Nel passaggio successivo verranno eseguiti due script.
 
@@ -767,14 +766,14 @@ Il secondo script consente di assegnare autorizzazioni utente database. Per ques
 Sono stati ora creati e testati diversi account di accesso. Per ulteriori informazioni, vedere [Gestione di database e account di accesso in database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee336235.aspx) e [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx).
 
 Monitoraggio di server logici e di istanze di database
-------------------------------------------------------
+------------------------------
 
 Gli strumenti e le tecniche di monitoraggio che si utilizzerebbero abitualmente su un server locale, quali il controllo degli accessi, l'esecuzione di tracce e i contatori di prestazioni, non sono disponibili per il database SQL. In Azure vengono impiegate le viste di gestione dati (DMV, Data Management Views) per monitorare la capacità dei dati, i problemi correlati alle query e le connessioni attuali.
 
 Per ulteriori informazioni, vedere [Monitoraggio di database SQL mediante le viste a gestione dinamica](http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx).
 
 Scalabilità di una soluzione di database SQL
---------------------------------------------
+--------------------------
 
 In Azure la scalabilità dei database è sinonimo di scalabilità orizzontale, in cui un carico di lavoro viene ridistribuito tra più commodity server in un data center. La scalabilità orizzontale rientra in una strategia tesa ad affrontare i problemi di capacità dei dati o prestazioni, che si rende necessaria per database di dimensioni molto grandi e per cui è prevista una crescita elevata, indipendentemente dal numero di utenti che vi accederanno.
 
@@ -803,7 +802,7 @@ Le federazioni sono supportate nell'edizione Business. Per ulteriori informazion
 Tenere presente che Azure supporta più tipi di archiviazione dati, tra cui tabelle e BLOB. Se non sono necessarie caratteristiche relazionali, l'archiviazione tabelle o BLOB può risultare più economicamente vantaggiosa.
 
 Passaggi successivi
--------------------
+--------
 
 A questo punto, dopo aver appreso le nozioni di base dell'amministrazione di database SQL, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di amministrazione più complesse.
 
