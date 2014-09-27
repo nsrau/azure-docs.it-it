@@ -1,12 +1,12 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
 Come utilizzare il Servizio di accodamento da PHP
-=================================================
+=========================
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del Servizio di accodamento di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps).
 
 Sommario
---------
+----
 
 -   [Informazioni sull'archiviazione di accodamento](#what-is)
 -   [Concetti](#concepts)
@@ -27,24 +27,24 @@ Sommario
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 Creazione di un account di Archiviazione di Azure
--------------------------------------------------
+---------------------
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 Creazione di un'applicazione PHP
---------------------------------
+-----------------
 
 Per creare un'applicazione PHP che accede al Servizio di accodamento di Azure, è sufficiente fare riferimento alle classi di Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile utilizzare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
 In questa guida si utilizzeranno le funzionalità del Servizio di accodamento che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
 Acquisizione delle librerie client di Azure
--------------------------------------------
+-----------------------
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 Configurazione dell'applicazione per accedere al Servizio di accodamento
-------------------------------------------------------------------------
+------------------------------
 
 Per utilizzare le API del Servizio di accodamento di Azure, è necessario:
 
@@ -61,7 +61,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 Negli esempi seguenti, l'istruzione `require_once` verrà sempre visualizzata, ma si farà riferimento solo alle classi necessarie per eseguire l'esempio.
 
 Configurazione di una connessione di Archiviazione di Azure
------------------------------------------------------------
+---------------------
 
 Per creare un'istanza di un client del Servizio di accodamento di Azure, è necessario innanzitutto disporre di una stringa di connessione valida. Il formato della stringa di connessione del servizio di accodamento è:
 
@@ -89,7 +89,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
     $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
 Procedura: Creare una coda
---------------------------
+--------------
 
 Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo **createQueue**. Quando si crea una coda, è possibile impostare le opzioni per la coda, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare i metadati in una coda.
 
@@ -123,7 +123,7 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
 > [WACOM.NOTE] Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
 
 Procedura: Aggiungere un messaggio a una coda
----------------------------------------------
+----------------------
 
 Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy-\>createMessage**. Il metodo utilizza il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
 
@@ -151,7 +151,7 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy-\>createMess
     }
 
 Procedura: Visualizzare il messaggio successivo
------------------------------------------------
+--------------------
 
 È possibile visualizzare il messaggio successivo (o i messaggi successivi) di una coda senza rimuoverlo dalla coda chiamando il metodo **QueueRestProxy-\>peekMessages**. Per impostazione predefinita, il metodo **peekMessage** restituisce un solo messaggio, ma è possibile modificare tale valore con il metodo **PeekMessagesOptions-\>setNumberOfMessages**
 
@@ -197,7 +197,7 @@ Procedura: Visualizzare il messaggio successivo
     }
 
 Procedura: Rimuovere il messaggio successivo dalla coda
--------------------------------------------------------
+--------------------------
 
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamare innanzitutto **QueueRestProxy-\>listMessages**, per rendere il messaggio invisibile a tutte le altre letture del codice dalla coda. Per impostazione predefinita, il messaggio resta invisibile per 30 secondi (se il messaggio non viene eliminato in questo intervallo di tempo, sarà di nuovo visibile nella coda). Per completare la rimozione del messaggio dalla coda, è necessario chiamare **QueueRestProxy-\>deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
@@ -236,7 +236,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
     }
 
 Procedura: Cambiare il contenuto di un messaggio in coda
---------------------------------------------------------
+------------------------
 
 È possibile modificare il contenuto di un messaggio inserito nella coda chiamando **QueueRestProxy-\>updateMessage**. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di n tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
@@ -279,7 +279,7 @@ Procedura: Cambiare il contenuto di un messaggio in coda
     }
 
 Opzioni aggiuntive per rimuovere i messaggi dalla coda
-------------------------------------------------------
+------------------------
 
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di visibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **getMessages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
@@ -327,7 +327,7 @@ Opzioni aggiuntive per rimuovere i messaggi dalla coda
     }
 
 Procedura: Recuperare la lunghezza della coda
----------------------------------------------
+------------------
 
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **QueueRestProxy-\>getQueueMetadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda. La chiamata al metodo **getApproximateMessageCount** sull'oggetto restituito fornisce il numero di messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
 
@@ -356,7 +356,7 @@ Procedura: Recuperare la lunghezza della coda
     echo $approx_msg_count;
 
 Procedura: Eliminare una coda
------------------------------
+--------------
 
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **QueueRestProxy-\>deleteQueue**.
 
@@ -382,7 +382,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
     }
 
 Passaggi successivi
--------------------
+--------
 
 A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento di Azure, visitare i collegamenti seguenti per ulteriori informazioni su come eseguire attività di archiviazione più complesse.
 

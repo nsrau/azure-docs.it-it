@@ -1,12 +1,12 @@
 <properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
 
 Come utilizzare il Servizio tabelle da PHP
-==========================================
+===========================
 
 In questa guida verranno illustrati diversi scenari di utilizzo comuni del Servizio tabelle di Azure. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP](http://go.microsoft.com/fwlink/?LinkID=252473). Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per ulteriori informazioni sul Servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#NextSteps).
 
 Sommario
---------
+----
 
 -   [Informazioni sul Servizio tabelle](#what-is)
 -   [Concetti](#concepts)
@@ -28,24 +28,24 @@ Sommario
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 Creazione di un account di archiviazione di Azure
--------------------------------------------------
+---------------------
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 Creazione di un'applicazione PHP
---------------------------------
+-----------------
 
 Per creare un'applicazione PHP che accede al Servizio tabelle di Azure, è sufficiente fare riferimento alle classi in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile utilizzare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
 In questa guida si utilizzeranno le funzionalità del Servizio tabelle che possono essere chiamate da un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
 Acquisizione delle librerie client di Azure
--------------------------------------------
+-----------------------
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 Configurazione dell'applicazione per accedere al Servizio tabelle
------------------------------------------------------------------
+--------------------------------
 
 Per utilizzare le API del Servizio tabelle di Azure, è necessario:
 
@@ -62,7 +62,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 Negli esempi seguenti, l'istruzione `require_once` verrà sempre visualizzata, ma si farà riferimento solo alle classi necessarie per eseguire l'esempio.
 
 Configurazione di una connessione di archiviazione di Azure
------------------------------------------------------------
+---------------------
 
 Per creare un'istanza di un client del Servizio tabelle di Azure, è necessario innanzitutto disporre di una stringa di connessione valida. Il formato della stringa di connessione del Servizio tabelle è:
 
@@ -90,7 +90,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 Procedura: Creare una tabella
------------------------------
+----------------
 
 Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per ulteriori informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle](http://msdn.microsoft.com/it-it/library/windowsazure/dd894042.aspx).
 
@@ -117,7 +117,7 @@ Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il meto
 Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx).
 
 Procedura: Aggiungere un'entità a una tabella
----------------------------------------------
+------------------------
 
 Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e passarlo a **TableRestProxy-\>insertEntity**. Si noti che durante la creazione di un'entità è necessario specificare le chiavi `PartitionKey` e `RowKey`. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente rispetto ad altre proprietà dell'entità. Il sistema utilizza `PartitionKey` per distribuire automaticamente le entità della tabella su molti nodi di archiviazione. Le entità con lo stesso oggetto `PartitionKey` vengono archiviate nello stesso nodo. Operazioni su più entità archiviate sullo stesso nodo verranno eseguite più efficacemente che non su entità archiviate in nodi diversi. L'oggetto `RowKey` è l'ID univoco di un'entità all'interno di una partizione.
 
@@ -194,7 +194,7 @@ La classe **TableRestProxy** offre due metodi alternativi per l'inserimento dell
     }
 
 Procedura: Recuperare una singola entità
-----------------------------------------
+------------------
 
 Il metodo **TableRestProxy-\>getEntity** consente di recuperare una singola entità eseguendo una query su `PartitionKey` e `RowKey`. Nell'esempio seguente, la chiave di partizione `tasksSeattle` e la chiave di riga `1` vengono passate al metodo **getEntity**.
 
@@ -223,7 +223,7 @@ Il metodo **TableRestProxy-\>getEntity** consente di recuperare una singola enti
     echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 Procedura: Recuperare tutte le entità di una partizione
--------------------------------------------------------
+------------------------------
 
 Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx)). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
 
@@ -256,7 +256,7 @@ Le query di entità vengono create utilizzando filtri (per ulteriori informazion
     }
 
 Procedura: Recuperare un subset di entità in una partizione
------------------------------------------------------------
+------------------------------
 
 Lo stesso modello applicato nell'esempio precedente può essere utilizzato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per ulteriori informazioni, vedere [Query di tabelle ed entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx)). Nell'esempio seguente viene illustrato come utilizzare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
 
@@ -289,7 +289,7 @@ Lo stesso modello applicato nell'esempio precedente può essere utilizzato per r
     }
 
 Procedura: Recuperare un subset di proprietà di entità
-------------------------------------------------------
+------------------------
 
 È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query-\>addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy-\>queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, utilizzare un filtro come illustrato nelle query precedenti.
 
@@ -328,7 +328,7 @@ Procedura: Recuperare un subset di proprietà di entità
     }
 
 Procedura: Aggiornare un'entità
--------------------------------
+--------------
 
 È possibile aggiornare un'entità esistente utilizzando i metodi **Entity-\>setProperty** e **Entity-\>addProperty** sull'entità e quindi chiamando **TableRestProxy-\>updateEntity**. Nell'esempio seguente viene recuperata un'entità, modificata una proprietà, rimossa un'altra proprietà e aggiunta una nuova proprietà. Si noti che la rimozione di una proprietà è effettuata impostando il suo valore su **null**.
 
@@ -365,7 +365,7 @@ Procedura: Aggiornare un'entità
     }
 
 Procedura: Eliminare un'entità
-------------------------------
+--------------
 
 Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKey` e `RowKey` dell'entità al metodo **TableRestProxy-\>deleteEntity**.
 
@@ -393,7 +393,7 @@ Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKe
 Si noti che per effettuare controlli di concorrenza è possibile impostare il valore Etag per un'entità da eliminare utilizzando il metodo **DeleteEntityOptions-\>setEtag** e passando l'oggetto **DeleteEntityOptions** a **deleteEntity** come quarto parametro.
 
 Procedura: Operazioni batch su tabella
---------------------------------------
+--------------------
 
 Il metodo **TableRestProxy-\>batch** consente di eseguire più operazioni in una sola richiesta. In questo caso, è necessario aggiungere operazioni all'oggetto **BatchRequest** e quindi passare l'oggetto **BatchRequest** al metodo **TableRestProxy-\>batch**. Per aggiungere un'operazione all'oggetto **BatchRequest**, è possibile chiamare più volte uno dei metodi seguenti:
 
@@ -450,7 +450,7 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
 Per ulteriori informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità](http://msdn.microsoft.com/it-it/library/windowsazure/dd894038.aspx).
 
 Procedura: Eliminare una tabella
---------------------------------
+----------------
 
 Infine, per eliminare una tabella, passare il nome della tabella al metodo **TableRestProxy-\>deleteTable**.
 
@@ -476,7 +476,7 @@ Infine, per eliminare una tabella, passare il nome della tabella al metodo **Tab
     }
 
 Passaggi successivi
--------------------
+--------
 
 A questo punto, dopo aver appreso le nozioni di base del Servizio tabelle di Azure, visitare i collegamenti seguenti per ulteriori informazioni su come eseguire attività di archiviazione più complesse.
 

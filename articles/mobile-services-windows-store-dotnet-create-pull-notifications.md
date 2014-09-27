@@ -1,7 +1,7 @@
 <properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
 Definizione di un'API personalizzata che supporta le notifiche periodiche
-=========================================================================
+==========================
 
 [Windows Store C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows Store JavaScript")
 
@@ -16,7 +16,7 @@ Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Int
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/en-us/develop/mobile/tutorials/get-started/#create-new-service) o [Introduzione ai dati](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
 <a name="define-custom-api"></a>
 Definizione dell'API personalizzata
------------------------------------
+------------
 
 1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/), fare clic su **Mobile Services** e quindi sull'app.
 
@@ -120,7 +120,7 @@ Test dell'app
    	![](./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png)
 
 Passaggi successivi
--------------------
+--------
 
 Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anche gli articoli relativi a Servizi mobili seguenti:
 
