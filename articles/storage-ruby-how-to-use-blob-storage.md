@@ -1,12 +1,12 @@
 <properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
 Come utilizzare il servizio BLOB da Ruby
-========================================
+==========================
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio BLOB di Azure. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **caricamento, visualizzazione dell'elenco, download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#next-steps).
 
 Sommario
---------
+----
 
 -   [Informazioni sul servizio BLOB](#what-is)
 -   [Concetti](#concepts)
@@ -24,17 +24,17 @@ Sommario
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 Creazione di un account di archiviazione di Azure
--------------------------------------------------
+---------------------
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 Creazione di un'applicazione Ruby
----------------------------------
+------------------
 
 Creare un'applicazione Ruby. Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 Configurazione dell'applicazione per l'accesso all'archiviazione
-----------------------------------------------------------------
+----------------------------
 
 Per utilizzare l'archiviazione di Azure, è necessario scaricare e utilizzare il pacchetto Ruby Azure, che comprende un set di librerie che comunicano con i servizi di archiviazione REST.
 
@@ -51,7 +51,7 @@ Utilizzando l'editor di testo preferito aggiungere quanto segue alla parte super
     require "azure"
 
 Configurazione di una connessione di archiviazione di Azure
------------------------------------------------------------
+---------------------
 
 Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::BlobService** con il codice seguente:
 
@@ -66,7 +66,7 @@ Per ottenere questi valori:
 4.  Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile scegliere la primaria o la secondaria.
 
 Procedura: Creare un contenitore
---------------------------------
+--------------
 
 L'oggetto **Azure::BlobService** consente di lavorare con contenitori e BLOB. Per creare un contenitore utilizzare il metodo **create\_container()**.
 
@@ -99,7 +99,7 @@ Nell'esempio seguente viene illustrata la modifica del livello di accesso pubbli
     azure_blob_service.set_container_acl('test-container', "container")
 
 Procedura: Caricare un BLOB in un contenitore
----------------------------------------------
+------------------------
 
 Per caricare contenuto in un BLOB, utilizzare il metodo **create\_block\_blob()** per crearne uno, utilizzando un file o una stringa come contenuto del BLOB.
 
@@ -111,7 +111,7 @@ Il codice seguente consentirà di caricare il file **test.png** come nuovo BLOB 
     puts blob.name
 
 Procedura: Elencare i BLOB in un contenitore
---------------------------------------------
+-----------------------
 
 Per elencare i contenitori utilizzare il metodo **list\_containers()**. Per elencare i BLOB all'interno di un contenitore utilizzare il metodo **list\_blobs()**.
 
@@ -126,7 +126,7 @@ L'output sarà costituito dagli URL di tutti i BLOB in tutti i contenitori relat
     end
 
 Procedura: Scaricare BLOB
--------------------------
+---------------
 
 Per scaricare i BLOB utilizzare il metodo **get\_blob()** per recuperare il contenuto.
 
@@ -136,14 +136,14 @@ Nell'esempio seguente viene illustrato l'utilizzo di **get\_blob()** per scarica
     File.open("download.png","wb") {|f| f.write(content)}
 
 Procedura: Eliminare un BLOB
-----------------------------
+---------------
 
 Per eliminare un BLOB, infine, utilizzare il metodo **delete\_blob()**. Nell'esempio seguente viene illustrato come eliminare un BLOB.
 
     azure_blob_service.delete_blob(container.name, "image-blob")
 
 Passaggi successivi
--------------------
+--------
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 

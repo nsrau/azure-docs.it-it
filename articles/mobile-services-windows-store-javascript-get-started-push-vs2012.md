@@ -1,7 +1,7 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="" />
 
 Introduzione alle notifiche push in Servizi mobili tramite Visual Studio 2012
-=============================================================================
+====================================================
 
 [Windows Store C\#](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
 
@@ -27,7 +27,7 @@ Per completare questa esercitazione, è necessario disporre di:
 Questa esercitazione si basa sull'esercitazione [Introduzione ai dati](/en-us/develop/mobile/tutorials/get-started-with-data-js). Prima di iniziare questa esercitazione, è necessario completare [l'esercitazione seguente](/en-us/develop/mobile/tutorials/get-started-with-data-js).
 
 Registrazione dell'appRegistrazione dell'app di Windows Store
--------------------------------------------------------------
+---------------------------------------
 
 Per poter inviare notifiche push ad app di Windows Store da Servizi mobili, è necessario inviare l'app a Windows Store e quindi configurare il servizio mobile per l'integrazione con Servizi notifica Push Windows.
 
@@ -36,7 +36,7 @@ Per poter inviare notifiche push ad app di Windows Store da Servizi mobili, è n
 Il servizio mobile e l'app sono ora configurati per funzionare con Servizi notifica Push Windows. Ora si creerà una nuova tabella in cui archiviare le registrazioni.
 
 Creazione di una nuova tabella
-------------------------------
+------------
 
 [WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
@@ -71,7 +71,7 @@ Aggiunta di notifiche pushAggiunta di notifiche push all'app
     In questo modo si garantirà che l'app sia in grado di generare notifiche di tipo avviso popup. 
 
 Aggiornamento dello script insertAggiornamento dello script insert registrato nel portale di gestione
------------------------------------------------------------------------------------------------------
+------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
@@ -110,7 +110,7 @@ Aggiornamento dello script insertAggiornamento dello script insert registrato ne
     Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutti i canali archiviati nella tabella **Registrations**.
 
 Test dell'appEsecuzione del test delle notifiche push nell'app
---------------------------------------------------------------
+----------------------------------------
 
 1.  In Visual Studio premere F5 per eseguire l'app.
 
@@ -123,7 +123,7 @@ Test dell'appEsecuzione del test delle notifiche push nell'app
     ![][14]
 
 Passaggi successivi
--------------------
+--------
 
 In questa esercitazione viene illustrata la funzionalità di notifica push di base fornita da Servizi mobili. Se per l'app sono richieste funzionalità più avanzate, ad esempio l'invio di notifiche tra piattaforme diverse, il routing basato sulla sottoscrizione o la gestione di volumi molto elevati, con il servizio mobile è consigliabile utilizzare Hub di notifica di Azure. Per ulteriori informazioni, vedere uno degli argomenti seguenti relativi a Hub di notifica:
 

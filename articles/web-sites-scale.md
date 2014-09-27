@@ -1,7 +1,7 @@
 <properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Microsoft Azure service management" metaKeywords="Azure scaling web sites" description="Learn how to scale web sites in Azure to use Free, Shared, Basic and Standard web hosting plans." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors="timamm" solutions="" writer="timamm" manager="paulettm" editor="mollybos" />
 
 Come applicare la scalabilità ai siti Web
-=========================================
+============
 
 Per aumentare le prestazioni e la velocità effettiva per i siti Web in Microsoft Azure, è possibile utilizzare il portale di gestione di Azure per scalare la modalità del piano di hosting Web da gratuita a condivisa, a base o standard.
 

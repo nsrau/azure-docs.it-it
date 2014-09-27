@@ -1,7 +1,7 @@
 <properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
 Applicazione Web Python con Archiviazione tabelle
-=================================================
+======================================
 
 In questa esercitazione si apprenderà come creare un'applicazione che utilizza Archiviazione tabelle con le librerie client di Azure per Python. Se questa è la prima applicazione Azure per Python è consigliabile consultare prima l'articolo [Applicazione Web Hello World Django](http://windowsazure.com/it-it/documentation/articles/virtual-machines-python-django-web-app-windows-server).
 
@@ -20,19 +20,19 @@ La schermata dell'applicazione completata avrà un aspetto simile al seguente (l
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 Configurazione dell'ambiente di sviluppo
-----------------------------------------
+------------
 
 **Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python](http://windowsazure.com/it-it/documentation/articles/python-how-to-install).
 
 *Nota per Windows*: se è stato utilizzato il programma di installazione WebPI di Windows sono stati già installati Django e le librerie client.
 
 Creare un account di archiviazione in Azure
--------------------------------------------
+-------------------------
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 Creare un progetto Django
--------------------------
+----------------
 
 Di seguito sono descritti i passaggi per la creazione dell'applicazione:
 
@@ -90,14 +90,14 @@ Di seguito sono descritti i passaggi per la creazione dell'applicazione:
 ```
 
 Importazione del modulo di archiviazione di Azure
--------------------------------------------------
+----------------------------
 
 Aggiungere il codice seguente all'inizio del file **views.py**, poco dopo le importazioni di Django
 
     from azure.storage import TableService
 
 Individuazione del nome e della chiave dell'account di archiviazione
---------------------------------------------------------------------
+----------------------------
 
 Aggiungere il codice seguente al file **views.py** poco dopo l'importazione di Azure e sostituire 'youraccount' e 'yourkey' con il nome e la chiave dell'account effettivi. È possibile ottenere un nome e una chiave dal portale di gestione di Azure.
 
@@ -105,7 +105,7 @@ Aggiungere il codice seguente al file **views.py** poco dopo l'importazione di A
     account_key = 'yourkey'
 
 Creazione di TableService
--------------------------
+-----------------
 
 Aggiungere il codice seguente dopo **account\_name**:
 
@@ -113,7 +113,7 @@ Aggiungere il codice seguente dopo **account\_name**:
     table_service.create_table('mytasks')
 
 Elenco delle attività
----------------------
+--------
 
 Aggiungere la funzione list\_tasks al file **views.py**:
 
@@ -123,7 +123,7 @@ Aggiungere la funzione list\_tasks al file **views.py**:
         return HttpResponse(html)
 
 Aggiunta di un'attività
------------------------
+--------
 
 Aggiungere la funzione add\_task al file **views.py**:
 
@@ -137,7 +137,7 @@ Aggiungere la funzione add\_task al file **views.py**:
         return HttpResponse(html)
 
 Aggiornamento dello stato dell'attività
----------------------------------------
+------------
 
 Aggiungere la funzione update\_task al file **views.py**:
 
@@ -153,7 +153,7 @@ Aggiungere la funzione update\_task al file **views.py**:
         return HttpResponse(html)
 
 Mapping degli URL
------------------
+--------
 
 A questo punto è necessario eseguire il mapping degli URL nell'applicazione Django. Aprire **urls.py** e aggiungere i mapping seguenti agli urlpattern:
 
@@ -163,7 +163,7 @@ A questo punto è necessario eseguire il mapping degli URL nell'applicazione Dja
     url(r'^update_task$', 'TableserviceSample.views.update_task'),
 
 Esecuzione dell'applicazione
-----------------------------
+------------
 
 -   Qualora non sia già stato fatto, passare alla directory **TableserviceSample** ed eseguire il comando:
 
@@ -174,12 +174,12 @@ Esecuzione dell'applicazione
 È ora possibile fare clic su **Add Task** per creare un'attività e quindi fare clic sul pulsante **Complete** per aggiornare l'attività e impostarne lo stato su Yes.
 
 Esecuzione dell'applicazione nell'emulatore di calcolo, pubblicazione e arresto/eliminazione dell'applicazione
---------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------
 
 Dopo aver eseguito correttamente l'applicazione sul server Django incorporato è possibile testarla ulteriormente eseguendone la distribuzione nell'emulatore di Azure (solo Windows) e quindi pubblicandola in Azure. Per istruzioni generali su come procedere, consultare l'articolo [Applicazione Web Hello World Django](http://windowsazure.com/it-it/documentation/articles/virtual-machines-python-django-web-app-windows-server) in cui si discute questa procedura nel dettaglio.
 
 Passaggi successivi
--------------------
+--------
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di archiviazione tabelle di Azure, visitare i collegamenti seguenti per ulteriori informazioni su come eseguire attività di archiviazione più complesse.
 
