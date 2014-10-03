@@ -1,8 +1,7 @@
-<blockquote>
+> [WACOM.NOTE] **Le procedure descritte in questo articolo si applicano a Siti Web di Azure**. Per Servizi cloud, vedere [Configurazione di un nome di dominio personalizzato in Azure][].
 
-> [WACOM.NOTE] Le procedure descritte in questa attività si applicano a Siti Web. Per Servizi cloud, vedere [Configurazione di un nome di dominio personalizzato in Azure](http://www.windowsazure.com/it-it/develop/net/common-tasks/custom-dns/).
+> [WACOM.NOTE] **Per le istruzioni sull'utilizzo di Gestione traffico per il bilanciamento del traffico ai siti Web**, usare il selettore nella parte superiore di questo articolo per selezionare le procedure specifiche per Gestione traffico.
 
-> [WACOM.NOTE] I passaggi illustrati in questa attività sono specifici di Siti Web che non utilizza Gestione traffico per bilanciare il carico del traffico. Se il sito Web utilizza Gestione traffico, utilizzare il selettore all'inizio di questo articolo per selezionare i passaggi specifici di Gestione traffico.
+> [WACOM.NOTE] **Non è possibile usare nomi di dominio personalizzati con i siti Web del livello gratuito**. È necessario configurare i siti Web in modalità Condivisa, Basic o Standard e quindi è possibile che gli importi fatturati per la sottoscrizione subiscano delle modifiche. Per altre informazioni, vedere \<a href=/en-us/pricing/details/web-sites/"\>Dettagli dei prezzi di Siti Web\</a\>.\</p\> \</blockquote\>
 
-> [WACOM.NOTE] I passaggi illustrati in questa attività prevedono la configurazione dei siti Web in modalità condivisa, di base o standard, il che potrebbe modificare la modalità di addebito della sottoscrizione. Per ulteriori informazioni, vedere [Dettagli prezzi - Siti Web](http://www.windowsazure.com/it-it/pricing/details/web-sites/).
-
+  [Configurazione di un nome di dominio personalizzato in Azure]: /en-us/develop/net/common-tasks/custom-dns/

@@ -1,25 +1,35 @@
-Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito (è possibile creare un account di archiviazione anche [utilizzando l'API REST][1]).
+Per usare il servizio di archiviazione di Azure, è necessario un account di archiviazione. Per
+creare un account di archiviazione, attenersi alla procedura seguente. È anche possibile
+creare un account di archiviazione [usando l'API REST][].
 
-1.  Accedere al [portale di gestione di Azure][2].
+1.  Accedere al [portale di gestione di Azure][].
 
-2.  Nella parte inferiore del pannello di navigazione fare clic su
-    **NEW**.
-    
-    ![+nuovo](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/it-it/documentation/articles/storage-php-how-to-use-table-storage/20140821074622/includes/create-storage-account/plus-new.png)
+2.  Nella parte inferiore del pannello di navigazione fare clic su **NEW**.
+
+    ![+nuovo][]
 
 3.  Fare clic su **DATA SERVICES**, quindi su **STORAGE** e infine su **QUICK CREATE**.
-    
-    ![quick-create-storage](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/storage-php-how-to-use-table-storage/20140815090453/includes/create-storage-account/quick-storage-2.png)
 
-4.  Nel campo URL, digitare un nome di sottodominio da utilizzare nell'URI per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
+    ![Finestra di dialogo Creazione rapida][]
 
-5.  Scegliere una regione o un gruppo di affinità in cui situare l'archiviazione. Se si utilizzerà l'archiviazione dalla propria applicazione Azure, selezionare la stessa area in cui verrà distribuita l'applicazione.
+4.  Nel campo URL digitare un nome di sottodominio da usare nell'URI per l'
+    account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole
+    e numeri. Questo valore diventa il nome host all'interno dell'URI
+    usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la
+    sottoscrizione.
 
-6.  Facoltativamente, è possibile abilitare la replica geografica.
+5.  Scegliere una regione o un gruppo di affinità per l'
+    archiviazione. Se si userà l'archiviazione dalla propria applicazione
+    Azure, selezionare la stessa area in cui verrà distribuita l'
+    applicazione.
+
+6.  Facoltativamente, è possibile scegliere il tipo di replica desiderato per l'account. Per impostazione predefinita, è selezionata la replica con ridondanza geografica che offre la massima durabilità. Per informazioni dettagliate sulle opzioni di replica, vedere [Opzioni di ridondanza di Archiviazione di Azure][] e il [Blog del team di Archiviazione di Azure][]
 
 7.  Fare clic su **CREATE STORAGE ACCOUNT**.
 
-
-
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-[2]: http://manage.windowsazure.com
+  [usando l'API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [+nuovo]: ./media/create-storage-account/plus-new.png
+  [Finestra di dialogo Creazione rapida]: ./media/create-storage-account/quick-storage-2.png
+  [Opzioni di ridondanza di Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx
+  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

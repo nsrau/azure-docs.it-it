@@ -3,15 +3,15 @@ Nell'app back-end è ora necessario passare all'invio di notifiche modello anzic
 Quando si inviano notifiche modello, è necessario solo fornire un set di proprietà. In questo caso verrà inviato il set di proprietà contenente la versione localizzata delle notizie correnti, ad esempio:
 
     {
-		"News_English": "World News in English!",
-    	"News_French": "World News in French!",
-    	"News_Mandarin": "World News in Mandarin!"
-	}
+        "News_English": "World News in English!",
+        "News_French": "World News in French!",
+        "News_Mandarin": "World News in Mandarin!"
+    }
 
 In questa sezione viene illustrato come inviare notifiche in due modi diversi:
 
-* Da un'app console
-* Da uno script di Servizi mobili
+-   Da un'app console
+-   Da uno script di Servizi mobili
 
 Il codice incluso trasmette le notifiche sia Windows Store che a dispositivi iOS, poiché il back-end è in grado di trasmettere a qualsiasi dispositivo supportato.
 
@@ -19,9 +19,9 @@ Il codice incluso trasmette le notifiche sia Windows Store che a dispositivi iOS
 
 Il metodo *SendNotificationAsync* verrà modificato con l'invio di una singola notifica modello.
 
-    var hub = NotificationHubClient.CreateClientFromConnectionString("<connection  string>", "<hub  name>");
-    var notification = new Dictionary<string , string>() {
-    						{"News_English", "World News in English!"},
+    var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
+    var notification = new Dictionary<string, string>() {
+                            {"News_English", "World News in English!"},
                             {"News_French", "World News in French!"},
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
@@ -35,14 +35,15 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
     var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
     var notification = {
-			"News_English": "World News in English!",
-			"News_French": "World News in French!",
-			"News_Mandarin", "World News in Mandarin!"
-	}
-	notificationHubService.send('World', notification, function(error) {
-		if (!error) {
-			console.warn("Notification successful");
-		}
-	});
+            "News_English": "World News in English!",
+            "News_French": "World News in French!",
+            "News_Mandarin", "World News in Mandarin!"
+    }
+    notificationHubService.send('World', notification, function(error) {
+        if (!error) {
+            console.warn("Notification successful");
+        }
+    });
 
 Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
+

@@ -16,7 +16,7 @@ L'implementazione di HDInsight usa l'architettura di scalabilità orizzontale di
 
 ## In che modo sono gestiti i dati in HBase di HDInsight?
 
-I dati possono essere gestiti in HBase tramite i comandi `create` `get`, `put` e `scan` dalla shell di HBase. I dati sono scritti nel database tramite `put` e sono letti tramite i comandi `get`. Il comando `scan` è usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C\# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][]. Sono anche disponibili coprocessori che permettono l'elaborazione di dati nei nodi che ospitano il database.
+I dati possono essere gestiti in HBase tramite i comandi `create` `get`, `put` e `scan` dalla shell di HBase. I dati sono scritti nel database tramite `put` e sono letti tramite i comandi `get`. Il comando `scan` è usato per ottenere i dati da più righe in una tabella. I dati possono essere gestiti anche tramite l'API C# di HBase, che offre una libreria client, oltre all'API REST di HBase. È anche possibile eseguire query in un database di HBase tramite Hive. Per informazioni introduttive su questi modelli di programmazione, vedere [Introduzione a HBase con Hadoop in HDInsight][]. Sono anche disponibili coprocessori che permettono l'elaborazione di dati nei nodi che ospitano il database.
 
 ## Scenari: Quali sono i casi di utilizzo per HBase?
 
