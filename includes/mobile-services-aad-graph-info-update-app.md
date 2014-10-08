@@ -1,0 +1,46 @@
+1.  In Visual Studio aprire il file MainPage.xaml.cs e aggiungere l'istruzione `using` seguente all'inizio del file.
+
+        using System.Net.Http;
+
+2.  Nel file MainPage.xaml.cs aggiungere la definizione di classe seguente allo spazio dei nomi per serializzare le informazioni dell'utente.
+
+        public class UserInfo
+        {
+            public String displayName { get; set; }
+            public String streetAddress { get; set; }
+            public String city { get; set; }
+            public String state { get; set; }
+            public String postalCode { get; set; }
+        }
+
+3.  Nel file MainPage.xaml.cs aggiornare il metodo `AuthenticateAsync` affinché chiami l'API personalizzata per restituire le informazioni aggiuntive sull'utente da Azure Active Directory.
+
+        private async System.Threading.Tasks.Task AuthenticateAsync()
+        {
+            while (user == null)
+            {
+                string message;
+                try
+                {
+                    user = await App.MobileService
+                        .LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory);
+                    UserInfo userInfo = await App.MobileService.InvokeApiAsync<UserInfo>("getuserinfo", 
+                        HttpMethod.Get, null);
+                    message = string.Format("{0}, you are now logged in.\n\nYour address is...\n\n{1}\n{2}, {3} {4}", 
+                        userInfo.displayName, userInfo.streetAddress, userInfo.city, userInfo.state, 
+                        userInfo.postalCode);
+                }
+                catch (InvalidOperationException)
+                {
+                    message = "You must log in. Login Required";
+                }
+
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+
+4.  Salvare le modifiche e compilare il servizio per verificare che non vi siano errori di sintassi.
+
+
