@@ -1,13 +1,15 @@
 <properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="migree" solutions="" manager="" editor="" />
 
-Procedura: Gestire gli asset in archivio
-========================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Proteggere un asset](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
+# Procedura: Gestire gli asset in archivio
+
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Proteggere un asset][].
 
 Dopo avere creato gli asset multimediali e averli caricati in Servizi multimediali, è possibile accedervi e gestirli sul server. Sul server è possibile gestire anche altri oggetti che fanno parte di Servizi multimediali, tra cui processi, attività, criteri di accesso, localizzatori e altro ancora.
 
 Nell'esempio seguente viene mostrato come eseguire una query per ottenere un asset in base all'ID asset.
+
 <pre><code>
 static IAsset GetAsset(string assetId)
 {
@@ -23,8 +25,9 @@ static IAsset GetAsset(string assetId)
 }
 </code></pre>
 
-Per elencare tutti gli asset disponibili sul server, è possibile utilizzare il metodo riportato di seguito, che scorre la raccolta di asset e visualizza i dettagli su ogni asset.
-<pre><code>
+Per elencare tutti gli asset disponibili sul server, è possibile usare il metodo riportato di seguito, che scorre la raccolta di asset e visualizza i dettagli su ogni asset.
+
+<pre><code> 
 static void ListAssets()
 {
     string waitMessage = "Building the list. This may take a few "
@@ -61,7 +64,9 @@ static void ListAssets()
     Console.Write(builder.ToString());
 }
 </code></pre>
+
 Il frammento di codice seguente elimina tutti gli asset dall'account di Servizi multimediali.
+
 <pre><code>
 foreach (IAsset asset in _context.Assets)
 {
@@ -69,13 +74,17 @@ foreach (IAsset asset in _context.Assets)
 }
 </code></pre>
 
-Per ulteriori informazioni sulla gestione di asset, vedere:
+Per altre informazioni sulla gestione di asset, vedere:
 
--   [Gestione di asset con Media Services SDK for .NET](http://msdn.microsoft.com/it-it/library/jj129589.aspx)
--   [Gestione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/jj129583.aspx)
+-   [Gestione di asset con Media Services SDK for .NET][]
+-   [Gestione di asset con l'API REST di Servizi multimediali][]
 
-Passaggi successivi
--------------------
 
-Dopo avere acquisito le nozioni necessarie per gestire gli asset, è possibile passare all'argomento [Distribuire un asset mediante download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
+## Passaggi successivi
 
+Dopo avere acquisito le nozioni necessarie per gestire gli asset, è possibile passare all'argomento [Distribuire un asset mediante download][].
+
+  [Procedura: Proteggere un asset]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409
+  [Gestione di asset con Media Services SDK for .NET]: http://msdn.microsoft.com/en-us/library/jj129589.aspx
+  [Gestione di asset con l'API REST di Servizi multimediali]: http://msdn.microsoft.com/en-us/library/jj129583.aspx
+  [Distribuire un asset mediante download]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409

@@ -1,7 +1,8 @@
 <properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
 
-Gestione dati: Informazioni sulle tecnologie NoSQL in Azure
-===========================================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+
+# Gestione dati: Informazioni sulle tecnologie NoSQL in Azure
 
 **Riepilogo:** Azure offre un'ampia gamma di opzioni per i carichi di lavoro NoSQL, ma può essere difficile stabilire quale sia quella più appropriata. In questo documento vengono illustrate le tecnologie NoSQL in Azure e viene spiegato come scegliere il servizio adatto per gestire i dati non relazionali, compresi i cosiddetti "big data", ovvero set di dati non strutturati o particolarmente vasti.
 
@@ -12,11 +13,13 @@ La tecnologia relazionale è data tempo l'approccio predominante per l'utilizzo 
 -   Dati in Azure: quadro generale
 -   Tecnologie relazionali di Azure: descrizione sintetica
 -   Tecnologie NoSQL di Azure: dati operativi
+
     -   Archivi di chiavi/valori
     -   Archivi di famiglie di colonne
     -   Archivi di documenti
     -   Database di grafici
 -   Tecnologie NoSQL di Azure: dati analitici
+
     -   Hadoop MapReduce
     -   HDInsight
 
@@ -26,5 +29,6 @@ La tecnologia relazionale è data tempo l'approccio predominante per l'utilizzo 
 
 **Revisione:** 1.0
 
-**Download:** [Informazioni sulle tecnologie NoSQL in Azure - file PDF](http://go.microsoft.com/fwlink/p/?LinkId=330292)
+**Download:** [Informazioni sulle tecnologie NoSQL in Azure - file PDF][]
 
+  [Informazioni sulle tecnologie NoSQL in Azure - file PDF]: http://go.microsoft.com/fwlink/p/?LinkId=330292

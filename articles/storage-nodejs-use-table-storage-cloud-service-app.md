@@ -1,13 +1,25 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-Creazione di un'applicazione Web Node.js con Archiviazione
-==========================================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
-In questa esercitazione, si estenderà l'applicazione creata nell'esercitazione [Creazione di un'applicazione Node.js con Express](http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/) utilizzando le librerie client di Azure per Node.js per lavorare con i servizi di gestione dati. L'applicazione verrà estesa in modo da creare un'applicazione elenco di attività basata sul Web che sarà possibile distribuire in Azure. L'elenco di attività consente a un utente di recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
+# Creazione di un'applicazione Web Node.js con Archiviazione
 
-Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure include diverse strutture di dati in cui è possibile archiviare i dati e accedervi ed è possibile utilizzare i servizi di archiviazione dalle API incluse in Azure SDK per Node.js o tramite le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx).
+In questa esercitazione, si estenderà l'applicazione creata nell'esercitazione
+[Creazione di un'applicazione Node.js con Express][] usando le librerie client di
+Azure per Node.js per l'uso con i servizi di gestione dati. L'applicazione
+verrà estesa in modo da creare un'applicazione elenco attività basata sul Web
+che sarà possibile distribuire in Azure. L'elenco attività consente a un utente di
+recuperare le attività, aggiungerne di nuove e contrassegnarle come completate.
 
-In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure](http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/) e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure](http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/).
+Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione
+di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a
+disponibilità elevata. Archiviazione di Azure include diverse strutture di dati
+in cui è possibile archiviare i dati e accedervi ed è possibile usare i servizi
+di archiviazione dalle API incluse in Azure SDK per Node.js o tramite
+le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure][].
+
+In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js
+a un Servizio cloud di Azure][] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
 
 Si apprenderà come:
 
@@ -16,18 +28,24 @@ Si apprenderà come:
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![Pagina Web completata in Internet Explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Pagina Web completata in Internet Explorer][]
 
-Impostazione delle credenziali di archiviazione in Web.Config
--------------------------------------------------------------
+## Impostazione delle credenziali di archiviazione in Web.Config
 
-Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. A questo scopo, si utilizzano le impostazioni dell'applicazione web.config. Tali impostazioni verranno passate a Node come variabili di ambiente, che verranno quindi lette da Azure SDK.
+Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di
+archiviazione. A questo scopo, si usano le impostazioni web.config dell'applicazione.
+Tali impostazioni verranno passate a Node come variabili di ambiente, che
+verranno quindi lette da Azure SDK.
 
-**Nota**
+<div class="dev-callout">
+<strong>Nota</strong>
+<p>Le credenziali di archiviazione vengono usate solo quando l'applicazione viene
+distribuita in Azure. Quando l'applicazione &egrave; in esecuzione nell'emulatore,
+verr&agrave; usato l'emulatore di archiviazione.</p>
+</div>
 
-Le credenziali di archiviazione vengono utilizzate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
-
-Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione e aggiungerle alle impostazioni di web.config:
+Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione
+e aggiungerle alle impostazioni di web.config:
 
 1.  Se non è già aperta, avviare Azure PowerShell dal menu **Start** espandendo **Tutti i programmi, Azure**, fare clic con il pulsante destro del mouse su **Azure PowerShell** e quindi scegliere **Esegui come amministratore**.
 
@@ -39,325 +57,347 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
     Verrà recuperato l'elenco di account di archiviazione e di chiavi dell'account associati al servizio ospitato.
 
-    **Nota**
+    <div class="dev-callout">
+<strong>Nota</strong>
+	<p>Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esister&agrave; gi&agrave; un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.</p>
+</div>
 
-    Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
+4.  Aprire il file **ServiceDefinition.csdef** contenente le impostazioni dell'ambiente usate quando l'applicazione viene distribuita in Azure:
 
-4.  Aprire il file web.cloud.config contenente le impostazioni dell'ambiente utilizzate quando l'applicazione viene distribuita in Azure:
+        PS C:\node\tasklist> notepad ServiceDefinition.csdef
 
-        PS C:\node\tasklist\WebRole1> notepad web.cloud.config
+5.  Inserire il blocco seguente sotto l'elemento **Environment**, sostituendo {STORAGE ACCOUNT} e {STORAGE ACCESS KEY} con il nome account e con la chiave primaria per l'account di archiviazione che si intende usare per la distribuzione:
 
-5.  Inserire il blocco seguente sotto l'elemento **configuration**, sostituendo {STORAGE ACCOUNT} e {STORAGE ACCESS KEY} con il nome account e con la chiave primaria per l'account di archiviazione che si desidera utilizzare per la distribuzione:
+        <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
+        <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-        <appSettings>
-          <add key="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}"/>
-          <add key="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}"/>
-        </appSettings>
-
-    ![Contenuto file web.cloud.config](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+    ![Contenuto file web.cloud.config][]
 
 6.  Salvare il file e chiudere Blocco note.
 
-Installare i moduli
--------------------
+### Installare moduli aggiuntivi
 
-Per utilizzare i servizi di gestione dati di Azure, è necessario installare il modulo Azure per il nodo. È inoltre necessario installare il modulo node-uuid, che verrà utilizzato per generare gli identificatori univoci universali (UUID). Per installare questi moduli, immettere il comando seguente:
+1.  Usare quindi il comando seguente per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file **package.json**:
 
-    PS C:\node\tasklist\WebRole1> npm install node-uuid azure
+        PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-Al termine dell'esecuzione del comando, i moduli risulteranno aggiunti alla cartella **node\_modules**. Eseguire i passaggi seguenti per utilizzare questi moduli nell'applicazione:
+    L'output di questo comando dovrebbe apparire simile al seguente:
 
-1.  Aprire il file server.js:
+        node-uuid@1.4.1 node_modules\node-uuid
 
-        PS C:\node\tasklist\WebRole1> notepad server.js
+        nconf@0.6.9 node_modules\nconf
+        ├── ini@1.1.0
+        ├── async@0.2.9
+        └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
-2.  Aggiungere il codice seguente dopo la riga che termina con express.createServer() per includere i moduli node-uuid, home e azure. Il modulo home non esiste ancora, ma verrà creato a breve.
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
+        ├── underscore@1.4.4
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-    ![Codice di server.js code con la riga line app = modules.exports evidenziata](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
+## Utilizzo del servizio tabelle in un'applicazione Node
 
+In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js** esistente e si creerà un nuovo file **tasklist.js** che utilizzi il modello.
+
+### Creare il modello
+
+1.  Nella directory **WebRole1** creare una nuova directory denominata **models**.
+
+2.  Nella directory **models** creare un nuovo file denominato **task.js**. Questo file conterrà il modello per le attività create dall'applicazione.
+
+3.  All'inizio del file **task.js**, aggiungere il codice seguente per fare riferimento alle librerie necessarie:
+
+        var azure = require('azure-storage');
         var uuid = require('node-uuid');
-        var Home = require('./home');
-        var azure = require('azure');
+        var entityGen = azure.TableUtilities.entityGenerator;
 
-3.  Aggiungere il codice per creare un client tabelle di archiviazione che passa le informazioni sugli account di archiviazione e sulle chiavi di accesso.
+4.  Quindi, aggiungere il codice per definire ed esportare l'oggetto Task. Tale oggetto è responsabile per la connessione alla tabella.
 
-    **Nota**
+        module.exports = Task;
 
-    L'SDK, quando viene eseguito nell'emulatore, utilizzerà automaticamente l'emulatore anche se le informazioni sugli account di archiviazione sono state fornite tramite web.config.
-
-        var client = azure.createTableService();
-
-4.  Creare quindi in Archiviazione di Azure una tabella denominata tasks. La logica seguente crea una nuova tabella, se non esiste, e la popola con alcuni dati predefiniti.
-
-        //table creation
-        client.createTableIfNotExists('tasks', function(error){
-            if(error){
-                throw error;
+        function Task(storageClient, tableName, partitionKey) {
+          this.storageClient = storageClient;
+          this.tableName = tableName;
+          this.partitionKey = partitionKey;
+          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+            if(error) {
+              throw error;
             }
+          });
+        };
 
-            var item = {
-                name: 'Add readonly task list',
-                category: 'Site work',
-                date: '12/01/2011',
-                RowKey: uuid(),
-                PartitionKey: 'partition1',
-                completed: false
+5.  Aggiungere quindi il codice seguente per definire metodi aggiuntivi nell'oggetto Task che consentano l'interazione con i dati archiviati nella tabella:
+
+        Task.prototype = {
+          find: function(query, callback) {
+            self = this;
+            self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+              if(error) {
+                callback(error);
+              } else {
+                callback(null, result.entries);
+              }
+            });
+          },
+
+          addItem: function(item, callback) {
+            self = this;
+            // use entityGenerator to set types
+            // NOTE: RowKey must be a string type, even though
+            // it contains a GUID in this example.
+            var itemDescriptor = {
+              PartitionKey: entityGen.String(self.partitionKey),
+              RowKey: entityGen.String(uuid()),
+              name: entityGen.String(item.name),
+              category: entityGen.String(item.category),
+              completed: entityGen.Boolean(false)
             };
 
-            client.insertEntity('tasks', item, function(){});
+            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+              if(error){  
+                callback(error);
+              }
+              callback(null);
+            });
+          },
 
-        });
+          updateItem: function(rKey, callback) {
+            self = this;
+            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+              if(error) {
+                callback(error);
+              }
+              entity.completed._ = true;
+              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+                if(error) {
+                  callback(error);
+                }
+                callback(null);
+              });
+            });
+          }
+        }
 
-5.  Sostituire il codice esistente nella sezione route con il codice seguente, che crea un'istanza del controller home a cui instrada tutte le richieste per **/** o **/home**.
+6.  Salvare e chiudere il file **task.js**.
 
-    ![File server.js con la sezione routes evidenziata.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
+### Creare il controller
 
-        var home = new Home(client);
-        app.get('/', home.showItems.bind(home));
-        app.get('/home', home.showItems.bind(home));
+1.  Nella directory **WebRole1/routes** creare un nuovo file denominato **tasklist.js** e aprirlo in un editor di testo.
 
-    Si noti che, invece di gestire la richiesta inline, si sta ora delegando il comando a un oggetto Home. Il comando **bind** è necessario per garantire che questi riferimenti vengano risolti correttamente in locale all'interno del controller home.
+2.  Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, utilizzati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
 
-Creazione del controller home
------------------------------
+        var azure = require('azure-storage');
+        var async = require('async');
 
-È ora necessario creare un controller home, che gestisce tutte le richieste per il sito dell'elenco di attività. Procedere come descritto di seguito per creare il controller:
+        module.exports = TaskList;
 
-1.  Creare un nuovo file home.js file nel Blocco note. Questo file conterrà il codice del controller che gestisce la logica per l'elenco di attività.
+        function TaskList(task) {
+          this.task = task;
+        }
 
-        PS C:\node\tasklist\WebRole1> notepad home.js
+3.  Continuare ad aggiungere codice al file **tasklist.js** aggiungendo i metodi **showTasks**, **addTask** e **completeTasks**:
 
-2.  Sostituire i contenuti con il codice seguente e salvare il file. Il codice seguente utilizza il pattern del modulo JavaScript. Esporta una funzione Home. Il prototipo Home contiene le funzioni per gestire le richieste effettive.
+        TaskList.prototype = {
+          showTasks: function(req, res) {
+            self = this;
+            var query = azure.TableQuery()
+              .where('completed eq ?', false);
+            self.task.find(query, function itemsFound(error, items) {
+              res.render('index',{title: 'My ToDo List ', tasks: items});
+            });
+          },
 
-        var azure=require('azure');
-        module.exports = Home;
+          addTask: function(req,res) {
+            var self = this      
+            var item = req.body.item;
+            self.task.addItem(item, function itemAdded(error) {
+              if(error) {
+                throw error;
+              }
+              res.redirect('/');
+            });
+          },
 
-        function Home (client) {
-            this.client = client;
-            };
-            
-            Home.prototype = {
-            showItems: function (req, res) {
-                var self = this;
-                this.getItems(false, function (resp, tasklist) {
-                    if (!tasklist) {
-                        tasklist = [];
-                        }           
-                        self.showResults(res, tasklist);
-                    });
-                },
-            
-                getItems: function (allItems, callback) {
-                var query = azure.TableQuery
-                    .select()
-                    .from('tasks');
-                
-                if (!allItems) {
-                    query = query.where('completed eq 
-            ', 'false');
-                    }
-                    this.client.queryEntities(query, callback);
-                 },
-            
-                 showResults: function (res, tasklist) {
-                res.render('home', { 
-                    title: 'Todo list', 
-                    layout: false, 
-                    tasklist: tasklist });
-                 },
-            };
+          completeTask: function(req,res) {
+            var self = this;
+            var completedTasks = Object.keys(req.body);
+            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+              self.task.updateItem(completedTask, function itemsUpdated(error) {
+                if(error){
+                  callback(error);
+                } else {
+                  callback(null);
+                }
+              });
+            }, function goHome(error){
+              if(error) {
+                throw error;
+              } else {
+               res.redirect('/');
+              }
+            });
+          }
+        }
 
-    Il controller home include ora tre funzioni:
+4.  Salvare il file **tasklist.js**.
 
-    -   *showItems* gestisce la richiesta.
-    -   *getItems* utilizza il client tabelle per recuperare gli elementi attività aperte per la tabella tasks. Si noti che alla query possono essere applicati ulteriori filtri. I filtri della query precedente, ad esempio, mostrano solo le attività in cui completed è uguale a false.
-    -   *showResults* chiama la funzione di rendering di Express per eseguire il rendering della pagina utilizzando la visualizzazione home che si creerà nella sezione successiva.
+### Modificare il file app.js
 
-### Modifica della visualizzazione Home
+1.  Nella directory **WebRole1** aprire il file **app.js** in un editor di testo.
 
-Il motore dei modelli Jade utilizza una sintassi di markup meno dettagliata di quella HTML ed è il motore predefinito per utilizzare Express. Eseguire i passaggi seguenti per creare una visualizzazione che consenta di visualizzare gli elementi dell'elenco di attività:
+2.  Aggiungere quanto riportato di seguito all'inizio del file per caricare il modulo azure e impostare il nome della tabella e la chiave della partizione:
 
-1.  Nella finestra di comando di Windows PowerShell modificare il file home.jade utilizzando il comando seguente:
+        var azure = require('azure-storage');
+        var tableName = 'tasks';
+        var partitionKey = 'hometasks';
 
-        PS C:\node\tasklist\WebRole1\views> notepad home.jade
+3.  Nel file app.js scorrere verso il basso fino a individuare la riga seguente:
 
-2.  Sostituire i contenuti del file home.jade con il codice seguente e salvare il file. Il form seguente contiene la funzionalità per leggere e aggiornare gli elementi attività. Si noti che attualmente il controller home supporta solo la lettura. Questa impostazione verrà modificata in seguito. Il form contiene i dettagli per ogni elemento dell'elenco di attività.
+        app.use('/', routes);
+        app.use('/users', users);
 
+    Sostituire le righe sopra con il codice seguente. Ciò inizializzerà un'istanza di **Task** con una connessione all'account di archiviazione. Questa viene quindi passata a **TaskList**, che la utilizzerà per la comunicazione con il servizio tabelle:
+
+        var TaskList = require('./routes/tasklist');
+        var Task = require('./models/task');
+        var task = new Task(azure.createTableService(), tableName, partitionKey);
+        var taskList = new TaskList(task);
+
+        app.get('/', taskList.showTasks.bind(taskList));
+        app.post('/addtask', taskList.addTask.bind(taskList));
+        app.post('/completetask', taskList.completeTask.bind(taskList));
+
+4.  Salvare il file **app.js**.
+
+### Modificare la visualizzazione dell'indice
+
+1.  Passare alla directory **views** e aprire il file **index.jade** in un editor di testo.
+
+2.  Sostituire il contenuto del file **index.jade** con il codice seguente. Verrà definita la visualizzazione delle attività esistenti, nonché un formato per aggiungere nuove attività e contrassegnare quelle esistenti come completate.
+
+        extends layout
+
+        block content
+          h1= title
+          br
+
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if tasks != []
+                tr
+                  td 
+              else
+                each task in tasks
+                  tr
+                    td #{task.name._}
+                    td #{task.category._}
+                    - var day   = task.Timestamp._.getDate();
+                    - var month = task.Timestamp._.getMonth() + 1;
+                    - var year  = task.Timestamp._.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name: 
+            input(name="item[name]", type="textbox")
+            label Item Category: 
+            input(name="item[category]", type="textbox")
+            br
+            button.btn(type="submit") Add item
+
+3.  Salvare e chiudere il file **index.jade**.
+
+### Modificare il layout globale
+
+Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+
+1.  Scaricare ed estrarre i file per [Twitter Bootstrap][1]. Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
+
+2.  Dalla cartella **views** aprire **layout.jade** nell'editor di testo e sostituire il contenuto con quello seguente:
+
+        doctype html
         html
-        head
-            title Index
-        body
-            h1 My ToDo List
+          head
+            title= title
+            link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body.app
+            nav.navbar.navbar-default
+              div.navbar-header
+                a.navbar-brand(href='/') My Tasks
+            block content
 
-            form
-                table(border="1")
-                    tr
-                        td Name
-                        td Category
-                        td Date
-                        td Complete
-
-                        each item in tasklist
-                            tr
-                                td #{item.name}
-                                td #{item.category} 
-                                td #{item.date} 
-                                td 
-                                    input(type="checkbox", name="completed", value="#{item.RowKey}") 
-
-Esecuzione dell'applicazione nell'emulatore di calcolo
-------------------------------------------------------
-
-1.  Nella finestra di Windows PowerShell immettere il cmdlet seguente per avviare il servizio nell'emulatore di calcolo e visualizzare una pagina Web che chiama il servizio.
-
-        PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch
-
-    Nel browser viene visualizzata la pagina seguente, che mostra l'elemento attività recuperato da Archiviazione di Azure:
-
-    ![In Internet Explorer viene visualizzata una pagina My Tasklist con un elemento in una tabella.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
-
-Aggiunta della funzionalità per le nuove attività
--------------------------------------------------
-
-In questa sezione l'applicazione viene aggiornata per supportare l'aggiunta di nuovi elementi attività.
-
-### Aggiunta di una nuova route a Server.js
-
-Nel file server.js aggiungere la riga seguente dopo la voce dell'ultima route per **/home** e quindi salvare il file.
-
-![File server.js con la riga contenente la route per home evidenziata.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
-
-        app.post('/home/newitem', home.newItem.bind(home));
-
-    La sezione routes sarà ora come indicato di seguito:
-
-       // Routes
-
-       var home = new Home(client);
-       app.get('/', home.showItems.bind(home));
-       app.get('/home', home.showItems.bind(home));
-       app.post('/home/newitem', home.newItem.bind(home));
-
-### Aggiunta del modulo Node-UUID
-
-Per utilizzare il modulo node-uuid per creare un identificatore univoco, aggiungere la riga seguente nella parte superiore del file home.js dopo la prima riga in cui il modulo viene esportato.
-
-![File home.js con la riga module.exports = Home evidenziata.](./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png)
-
-       var uuid = require('node-uuid');
-
-### Aggiunta della funzione per un nuovo elemento al controller home
-
-Per implementare la funzionalità per un nuovo elemento, creare una funzione **newItem**. Nel file home.js incollare il codice seguente dopo l'ultima funzione e quindi salvare il file.
-
-![Funzione showresults evidenziata](./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png)
-
-       newItem: function (req, res) {
-           var self = this;
-           var createItem = function (resp, tasklist) {
-               if (!tasklist) {
-                   tasklist = [];
-               }
-
-               var count = tasklist.length;
-
-               var item = req.body.item;
-               item.RowKey = uuid();
-               item.PartitionKey = 'partition1';
-               item.completed = false;
-
-               self.client.insertEntity('tasks', item, function (error) {
-                   if(error){  
-                       throw error;
-                   }
-                   self.showItems(req, res);
-               });
-           };
-
-           this.getItems(true, createItem);
-       },
-
-La funzione **newItem** esegue le attività seguenti:
-
--   Estrae l'elemento l'elemento inviato dal corpo.
--   Imposta i valori **RowKey** e **PartitionKey** per il nuovo elemento. Questi valori sono necessari per inserire l'elemento nella tabella di Azure. Per il valore **RowKey** viene generato uno UUID.
--   Inserisce l'elemento nella tabella tasks chiamando la funzione **insertEntity**.
--   Esegue il rendering della pagina chiamando la funzione **getItems**.
-
-### Aggiunta del form per un nuovo elemento alla visualizzazione Home
-
-Aggiornare ora la visualizzazione aggiungendo un nuovo form per consentire all'utente di aggiungere un elemento. Nel file home.jade incollare il codice seguente alla fine del file e salvare.
-
-**Nota**
-
-Poiché in Jade gli spazi vuoti sono significativi, non rimuovere nessuna delle spaziature sotto.
-
-        hr
-        form(action="/home/newitem", method="post")
-            table(border="1")    
-                tr
-                    td Item Name: 
-                    td 
-                        input(name="item[name]", type="textbox")
-                tr
-                    td Item Category: 
-                    td 
-                        input(name="item[category]", type="textbox")
-                tr
-                    td Item Date: 
-                    td 
-                        input(name="item[date]", type="textbox")
-            input(type="submit", value="Add item")
+3.  Salvare il file **layout.jade**.
 
 ### Esecuzione dell'applicazione nell'emulatore
 
-1.  Poiché l'emulatore di Azure è già in esecuzione, è possibile sfogliare l'applicazione aggiornata:
+Usare il comando seguente per avviare l'applicazione nell'emulatore.
 
-        PS C:\node\tasklist\WebRole1> start http://localhost:81/home
+    PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 
-    Il browser si apre e visualizza la pagina seguente:
+Si aprirà il browser e verrà visualizzata la pagina seguente:
 
-    ![Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.][]
 
-2.  Per **Item Name:** immettere "New task functionality", per **Item Category:** "Site work"? e per **Item Date:** "12/02/2011". Fare quindi clic su **Add item**.
+Usare il modulo per aggiungere elementi o rimuovere elementi esistenti contrassegnandoli come completati.
 
-    L'elemento viene aggiunto alla tabella tasks in Archiviazione di Azure e visualizzato come nella schermata seguente.
+## Pubblicazione dell'applicazione in Azure
 
-    ![Pagina Web intitolata My Task List con una tabella contenente le attività, dopo aver aggiunto un attività all'elenco.](./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png)
+Nella finestra di Windows PowerShell chiamare il cmdlet seguente per ridistribuire il servizio ospitato in Azure.
 
-Nuova pubblicazione dell'applicazione in Azure
-----------------------------------------------
+    PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 
-Ora che l'applicazione è stata completata, pubblicarla in Azure aggiornando la distribuzione nel servizio ospitato esistente.
+Sostituire **myuniquename** con un nome univoco per questa applicazione. Sostituire **datacentername** con il nome di un data center di Azure, ad esempio **West US**.
 
-1.  Nella finestra di Windows PowerShell chiamare il cmdlet seguente per ridistribuire il servizio ospitato in Azure. Le impostazioni e il percorso di archiviazione sono stati salvati in precedenza e pertanto non è necessario immetterli nuovamente.
+Al termine della distribuzione, verrà visualizzata una risposta analoga alla seguente:
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
+    PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
+    WARNING: Publishing tasklist to Windows Azure. This may take several minutes...
+    WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
+    WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
+    WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
+    WARNING: 2:19:01 PM - Connecting...
+    WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+    WARNING: 2:19:40 PM - Upgrading...
+    WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
+    WARNING: 2:22:48 PM - Initializing...
+    WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
+    WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 
-    Al termine della distribuzione, verrà visualizzata una risposta analoga alla seguente:
+Come in precedenza, poiché è stata specificata l'opzione **-launch**, il browser si apre e visualizza l'applicazione in esecuzione in Azure al termine della pubblicazione.
 
-    ![Messaggio di stato visualizzato durante la distribuzione.](./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png)
+![Finestra del browser in cui è visualizzata la pagina My Task List. L'URL indica che la pagina è ora ospitata su Azure.][Pagina Web completata in Internet Explorer]
 
-    Come in precedenza, poiché è stata specificata l'opzione **-launch**, il browser si apre e visualizza l'applicazione in esecuzione in Azure al termine della pubblicazione.
+## Arrestare ed eliminare l'applicazione
 
-    ![Finestra del browser in cui è visualizzata la pagina My Task List. L'URL indica che la pagina è ora ospitata su Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png)
+Dopo aver distribuito l'applicazione, se necessario è possibile disabilitarla per evitare
+costi o creare e distribuire altre applicazioni entro il termine del periodo di
+valutazione gratuita.
 
-Arrestare ed eliminare l'applicazione
--------------------------------------
-
-Dopo aver distribuito l'applicazione, se necessario è possibile disabilitarla per evitare costi o creare e distribuire altre applicazioni entro il termine del periodo di valutazione gratuita.
-
-Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di tempo del server su base oraria. Un'applicazione distribuita utilizza tempo del server anche se le istanze non sono in esecuzione e sono in stato arrestato.
+Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di tempo del server su base oraria e un'applicazione
+in fase di distribuzione usa tempo del server anche se le
+istanze non sono in esecuzione e sono in stato arrestato.
 
 Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicazione.
 
-1.  Nella finestra di Windows PowerShell arrestare la distribuzione del servizio creato nella sezione precedente con il cmdlet seguente:
+1.  Nella finestra di Windows PowerShell arrestare la distribuzione
+    del servizio creato nella sezione precedente con il cmdlet seguente:
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
     L'arresto del servizio può richiedere diversi minuti. Dopo l'arresto del servizio, viene visualizzato un messaggio di conferma dell'arresto.
-
-    ![Messaggi di stato indicanti che il servizio è stato arrestato.](./media/storage-nodejs-use-table-storage-cloud-service-app/node48.png)
 
 2.  Per eliminare il servizio, chiamare il cmdlet seguente:
 
@@ -367,6 +407,12 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
     L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
-    ![Messaggi di stato indicanti che il servizio è stato eliminato.](./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png)
-
-
+  [Creazione di un'applicazione Node.js con Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Creazione e distribuzione di un'applicazione Node.js
+  a un Servizio cloud di Azure]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Pagina Web completata in Internet Explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
+  [Contenuto file web.cloud.config]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
+  [Twitter Bootstrap]: https://github.com/twbs/bootstrap
+  [1]: http://getbootstrap.com/
+  [Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png

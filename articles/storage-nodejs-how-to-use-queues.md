@@ -1,280 +1,361 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-Come utilizzare il Servizio di accodamento da Node.js
-=====================================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
-In questa guida viene illustrato come eseguire scenari comuni del Servizio di accodamento di Azure. Gli esempi sono scritti utilizzando l'API Node.js. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi](#next-steps).
+# Come utilizzare il Servizio di accodamento da Node.js
 
-Sommario
---------
+In questa guida viene illustrato come eseguire scenari comuni con il servizio di accodamento di Windows
+Azure. Gli esempi sono scritti usando l'API Node.js
+. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il
+**recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed
+eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
 
--   [Informazioni sul Servizio di accodamento](#what-is)
--   [Concetti](#concepts)
--   [Creazione di un account di archiviazione di Azure](#create-account)
--   [Creazione di un'applicazione Node.js](#create-app)
--   [Configurazione dell'applicazione per l'accesso all'archiviazione](#configure-access)
--   [Configurazione di una stringa di connessione di archiviazione di Azure](#setup-connection-string)
--   [Procedura: Creare una coda](#create-queue)
--   [Procedura: Inserire un messaggio in una coda](#insert-message)
--   [Procedura: Visualizzare il messaggio successivo](#peek-message)
--   [Procedura: Rimuovere il messaggio successivo dalla coda](#get-message)
--   [Procedura: Cambiare il contenuto di un messaggio in coda](#change-contents)
--   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda](#advanced-get)
--   [Procedura: Recuperare la lunghezza della coda](#get-queue-length)
--   [Procedura: Eliminare una coda](#delete-queue)
--   [Passaggi successivi](#next-steps)
+## Sommario
 
-Informazioni sul Servizio di accodamento
-----------------------------------------
+-   [Informazioni sul Servizio di accodamento][]
+-   [Concetti][]
+-   [Creazione di un account di archiviazione di Azure][]
+-   [Creazione di un'applicazione Node.js][]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][]
+-   [Procedura: Creare una coda][]
+-   [Procedura: Inserire un messaggio in una coda][]
+-   [Procedura: Visualizzare il messaggio successivo][]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][]
+-   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][]
+-   [Procedura: Recuperare la lunghezza della coda][]
+-   [Procedura: Eliminare una coda][]
+-   [Procedura: Utilizzo delle firme di accesso condiviso][]
+-   [Passaggi successivi][]
 
-Il Servizio di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione pari a 100 TB. Di seguito sono riportati gli utilizzi più comuni per il Servizio di accodamento.
+[WACOM.INCLUDE [howto-queue-storage][]]
 
--   Creazione di un backlog di lavoro da elaborare in modo asincrono
--   Recapito dei messaggi da un ruolo Web di Azure a un ruolo di lavoro
+## <a name="create-account"></a>Creare un account di archiviazione di Azure
 
-Concetti
---------
+[WACOM.INCLUDE [create-storage-account][]]
 
-Il Servizio di accodamento contiene i componenti seguenti:
+## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-![Queue1](./media/storage-nodejs-how-to-use-queues/queue1.png)
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][], [Servizio cloud Node.js][] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][].
 
--   **Formato dell'URL:** è possibile fare riferimento alle code utilizzando il formato di URL seguente:
+## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
-        http://storageaccount.queue.core.windows.net/queue  
-
-    L'URL seguente fa riferimento a una delle code nel diagramma:
-
-        http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. L'account di archiviazione è il livello più elevato dello spazio dei nomi per accedere alle code. La dimensione totale dei contenuti di BLOB, tabelle e code in un account di archiviazione non può superare 100 TB.
-
--   **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda.
-
--   **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
-
-Creazione di un account di archiviazione di Azure
--------------------------------------------------
-
-Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito (È possibile creare un account di archiviazione anche [utilizzando l'API REST](http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx)).
-
-1.  Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
-
-2.  Nella parte inferiore del pannello di navigazione fare clic su **+NEW**.
-
-    ![+new](./media/storage-nodejs-how-to-use-queues/plus-new.png)
-
-3.  Fare clic su **Storage Account** e quindi su **Quick Create**.
-
-    ![Finestra di dialogo Creazione rapida](./media/storage-nodejs-how-to-use-queues/quick-storage.png)
-
-4.  Nel campo URL, digitare un nome di sottodominio da utilizzare nell'URI per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
-
-5.  Scegliere una regione o un gruppo di affinità in cui situare l'archiviazione. Se si utilizzerà l'archiviazione dalla propria applicazione Azure, selezionare la stessa area in cui verrà distribuita l'applicazione.
-
-6.  Fare clic su **Create storage account**.
-
-Creazione di un'applicazione Node.js
-------------------------------------
-
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servizio cloud Node.js](/it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (utilizzando Windows PowerShell) o [Sito Web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
-
-Configurazione dell'applicazione per l'accesso all'archiviazione
-----------------------------------------------------------------
-
-Per utilizzare l'archiviazione di Azure, è necessario scaricare e utilizzare il pacchetto Node.js Azure, che comprende un set di librerie che comunicano con i servizi di archiviazione REST.
+Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK per Node.js, che comprende un set di librerie che
+comunicano con i servizi di archiviazione REST.
 
 ### Utilizzare Node Package Manager (NPM) per ottenere il pacchetto
 
 1.  Utilizzare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 
-2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire il seguente output:
+2.  Digitare **npm install azure-storage** nella finestra di comando, che dovrebbe
+    restituire il seguente output:
 
-        azure@0.7.5 node_modules\azure
-        |-- dateformat@1.0.2-1.2.3
-        |-- xmlbuilder@0.4.2
-        |-- node-uuid@1.2.0
-        |-- mime@1.2.9
-        |-- underscore@1.4.4
-        |-- validator@1.1.1
-        |-- tunnel@0.0.2
-        |-- wns@0.5.3
-        |-- xml2js@0.2.7 (sax@0.5.2)
-        |-- request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
+        ├── underscore@1.4.4
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di tale cartella sarà presente il pacchetto **azure**, che contiene le librerie necessarie per accedere all'archiviazione.
+3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella
+    **node\_modules**. Nella cartella si
+    trova il pacchetto **azure-storage** che contiene le librerie necessarie per
+    accedere all'archiviazione.
 
 ### Importare il pacchetto
 
-Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
+Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file
+**server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
 
-    var azure = require('azure');
+    var azure = require('azure-storage');
 
-Configurazione di una connessione di archiviazione di Azure
------------------------------------------------------------
+## <a name="setup-connection-string"> </a>Configurazione di una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createQueueService**.
+Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createQueueService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con archiviazione](/en-us/develop/nodejs/tutorials/web-app-with-storage/).
+Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][]
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione](/en-us/develop/nodejs/tutorials/web-site-with-storage/)
+## <a name="create-queue"> </a>Procedura: Creare una coda
 
-Procedura: Creare una coda
---------------------------
+La seguente coda crea un oggetto **QueueService** che consente di usare le
+code.
 
-La coda seguente crea un oggetto **QueueService** che consente di utilizzare le code.
+    var queueSvc = azure.createQueueService();
 
-    var queueService = azure.createQueueService();
+Usare il metodo **createQueueIfNotExists** che restituisce la coda
+specificata se esiste già o, in caso contrario, crea una nuova coda con il nome
+specificato.
 
-Utilizzare il metodo **createQueueIfNotExists** che restituisce la coda specificata se esiste già o, in caso contrario, crea una nuova coda con il nome specificato.
-
-    queueService.createQueueIfNotExists(queueName, function(error){
-        if(!error){
-            // Queue exists
-        }
+    queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+      if(!error){
+        // Queue created or exists
+      }
     });
+
+Se la coda viene creata, `result` è true. Se la coda esiste già, `result` è false.
 
 ### Filtri
 
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **QueueService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite con **QueueService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-     function handle (requestOptions, next)
+        function handle (requestOptions, next)
 
 Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare "next" passando un callback con la firma seguente:
 
-     function (returnObject, finalCallback, next)
+        function (returnObject, finalCallback, next)
 
 In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
-Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **QueueService** che utilizza **ExponentialRetryPolicyFilter**:
+Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **QueueService** che usa **ExponentialRetryPolicyFilter**:
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var queueService = azure.createQueueService().withFilter(retryOperations);
+    var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-Procedura: Inserire un messaggio in una coda
---------------------------------------------
+## <a name="insert-message"> </a>Procedura: Inserire un messaggio in una coda
 
-Per inserire un messaggio in una coda, utilizzare il metodo **createMessage** per creare un nuovo messaggio e aggiungerlo alla coda.
+Per inserire un messaggio in una coda, usare il metodo **createMessage** per
+creare un nuovo messaggio e aggiungerlo alla coda.
 
-    queueService.createMessage(queueName, "Hello world!", function(error){
-        if(!error){
-            // Message inserted
-        }
+    queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+      if(!error){
+        // Message inserted
+      }
     });
 
-Procedura: Visualizzare il messaggio successivo
------------------------------------------------
+## <a name="peek-message"> </a>Procedura: Visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peekMessages**. Per impostazione predefinita, **peekMessages** visualizza un singolo messaggio.
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo
+dalla coda chiamando il metodo **peekMessages**. Per impostazione predefinita,
+**peekMessages** visualizza un singolo messaggio.
 
-    queueService.peekMessages(queueName, function(error, messages){
-        if(!error){
-            // Messages peeked
-            // Text is available in messages[0].messagetext
-        }
+    queueSvc.peekMessages('myqueue', function(error, result, response){
+      if(!error){
+        // Messages peeked
+      }
     });
 
-> [WACOM.NOTE] Se si utilizza **peekMessage** in assenza di messaggi in coda non verrà visualizzato un errore, ma non verrà restituito alcun messaggio.
+`result` contiene il messaggio.
 
-Procedura: Rimuovere il messaggio successivo dalla coda
--------------------------------------------------------
+> [WACOM.NOTE] Se si usa **peekMessages** in assenza di messaggi nella coda non viene visualizzato un errore, ma non vengono restituiti messaggi.
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Per impostazione predefinita, chiamando **getMessages**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **getMessages** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
+## <a name="get-message"> </a>Procedura: Rimuovere il messaggio successivo dalla coda
 
-    queueService.getMessages(queueName, function(error, messages){
-        if(!error){
-            // Process the message in less than 30 seconds, the message
-            // text is available in messages[0].messagetext 
-            var message = messages[0]
-            queueService.deleteMessage(queueName
-                , message.messageid
-                , message.popreceipt
-                , function(error){
-                    if(!error){
-                        // Message deleted
-                    }
-                });
-        }
+L'elaborazione di un messaggio prevede un processo a due fasi:
+
+1.  Rimozione del messaggio dalla coda.
+
+2.  Eliminazione del messaggio.
+
+Per rimuovere un messaggio dalla coda usare **getMessage**. Il messaggio viene reso invisibile nella coda, in modo che gli altri client non possano elaborarlo. Dopo che l'applicazione ha elaborato il messaggio, chiamare **deleteMessage** per eliminarlo dalla coda. Nell'esempio seguente il messaggio viene prima richiamato, quindi eliminato:
+
+    queueSvc.getMessages('myqueue', function(error, result, response){
+      if(!error){
+        // message dequed
+        var message = result[0];
+        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+          if(!error){
+            //message deleted
+          }
+        });
+      }
     });
 
-> [WACOM.NOTE] Se si utilizza **getMessage** in assenza di messaggi in coda non verrà visualizzato un errore, ma non verrà restituito alcun messaggio.
+> [WACOM.NOTE] Per impostazione predefinita, un messaggio viene nascosto solo per 30 secondi, dopo i quali torna visibile agli altri client. È possibile specificare un valore diverso usando `options.visibilityTimeout` con **getMessages**.
 
-Procedura: Cambiare il contenuto di un messaggio in coda
---------------------------------------------------------
+> [WACOM.NOTE]
+> Se si usa **getMessages** in assenza di messaggi nella coda non viene visualizzato un errore, ma non vengono restituiti messaggi.
 
-È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. La coda seguente utilizza il metodo **updateMessage** per aggiornare un messaggio.
+## <a name="change-contents"> </a>Procedura: Cambiare il contenuto di un messaggio in coda
 
-    queueService.getMessages(queueName, function(error, messages){
-        if(!error){
-            // Got the message
-            var message = messages[0];
-            queueService.updateMessage(queueName
-                , message.messageid
-                , message.popreceipt
-                , 10
-                , { messagetext: 'in your message, doing stuff.' }
-                , function(error){
-                    if(!error){
-                        // Message updated successfully
-                    }
-                });
-        }
+È possibile cambiare il contenuto di un messaggio inserito nella coda con **updateMessage**. Nell'esempio seguente viene aggiornato il testo di un messaggio:
+
+    queueSvc.getMessages('myqueue', function(error, result, response){
+      if(!error){
+        // Got the message
+        var message = result[0];
+        queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
+          if(!error){
+            // Message updated successfully
+          }
+        });
+      }
     });
 
-Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda
------------------------------------------------------------------
+## <a name="advanced-get"> </a>Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda
 
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **getMessages** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+È possibile personalizzare il recupero di messaggi da una coda in due modi:
 
-    queueService.getMessages(queueName
-        , {numofmessages: 15, visibilitytimeout: 5 * 60}
-        , function(error, messages){
-        if(!error){
-            // Messages retreived
-            for(var index in messages){
-                // text is available in messages[index].messagetext
-                var message = messages[index];
-                queueService.deleteMessage(queueName
-                    , message.messageid
-                    , message.popreceipt
-                    , function(error){
-                        if(!error){
-                            // Message deleted
-                        }
-                    });
+-   `options.numOfMessages`: recuperare un batch di messaggi (massimo 32.)
+-   `options.visibilityTimeout`: impostare un timeout di invisibilità più lungo o più breve.
+
+Nell'esempio seguente viene usato il metodo **getMessages** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio
+viene elaborato con un ciclo for. Per tutti i messaggi restituiti dal metodo, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+
+    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+      if(!error){
+        // Messages retreived
+        for(var index in result){
+          // text is available in result[index].messageText
+          var message = result[index];
+          queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
+            if(!error){
+              // Message deleted
             }
+          });
         }
+      }
     });
 
-Procedura: Recuperare la lunghezza della coda
----------------------------------------------
+## <a name="get-queue-length"> </a>Procedura: Recuperare la lunghezza della coda
 
-È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **getQueueMetadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda e la proprietà della risposta **approximatemessagecount** contiene un conteggio del numero di messaggi in coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
+**getQueueMetadata** restituisce metadati relativi alla coda, includendo il numero approssimativo di messaggi in attesa nella coda.
 
-    queueService.getQueueMetadata(queueName, function(error, queueInfo){
-        if(!error){
-            // Queue length is available in queueInfo.approximatemessagecount
-        }
+    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+      if(!error){
+        // Queue length is available in result.approximatemessagecount
+      }
     });
 
-Procedura: Eliminare una coda
------------------------------
+## <a name="list-queue"> </a>Procedura: Elenco delle code
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **deleteQueue** sull'oggetto coda.
+Per recuperare un elenco di code, usare **listQueuesSegmented**. Per recuperare un elenco filtrato in base a uno specifico prefisso, usare **listQueuesSegmentedWithPrefix**.
 
-    queueService.deleteQueue(queueName, function(error){
+    queueSvc.listQueuesSegmented(null, function(error, result, response){
+      if(!error){
+        // result.entries contains the list of queues
+      }
+    });
+
+Se non possono essere restituite tutte le code, è possibile usare `result.continuationToken` come primo parametro di **listQueuesSegmented** o secondo parametro di **listQueuesSegmentedWithPrefix** per recuperare più risultati.
+
+## <a name="delete-queue"> </a>Procedura: Eliminare una coda
+
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo
+**deleteQueue** sull'oggetto coda.
+
+    queueSvc.deleteQueue(queueName, function(error, response){
         if(!error){
             // Queue has been deleted
         }
     });
 
-Passaggi successivi
--------------------
+Per deselezionare tutti i messaggi da una coda senza eliminarla, usare **clearMessages**.
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
+## <a name="sas"></a>Procedura: Usare le firme di accesso condiviso di Azure
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
--   [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--   Archivio [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) su GitHub
+Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare alle code senza specificare il nome o le chiavi dell'account di archiviazione. Le firme di accesso condiviso vengono spesso usate per fornire accesso limitato alle code, ad esempio per consentire a un'app per dispositivi mobili di inviare messaggi.
 
-  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"]: {localLink:2221} "Web App with Express"
+Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una firma di accesso condiviso tramite il metodo **generateSharedAccessSignature** dell'oggetto **QueueService** e la fornisce a un'applicazione non attendibile o parzialmente attendibile. Si prenda ad esempio un'app per dispositivi mobili. La firma di accesso condiviso viene generata tramite un criterio che indica le date di inizio e di fine del periodo di validità della firma, nonché il livello di accesso concesso al titolare della firma di accesso condiviso.
+
+Nell'esempio seguente viene generato un nuovo criterio di accesso condiviso che consentirà al titolare della firma di accesso condiviso di aggiungere i messaggi alla coda e che scadrà 100 minuti dopo la data di creazione.
+
+    var startDate = new Date();
+    var expiryDate = new Date(startDate);
+    expiryDate.setMinutes(startDate.getMinutes() + 100);
+    startDate.setMinutes(startDate.getMinutes() - 100);
+
+    var sharedAccessPolicy = {
+      AccessPolicy: {
+        Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+        Start: startDate,
+        Expiry: expiryDate
+      }
+    };
+
+    var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
+    var host = queueSvc.host;
+
+Si noti che è necessario fornire anche le informazioni sull'host, in quanto sono necessarie quando il titolare della firma di accesso condiviso tenta di accedere alla coda.
+
+L'applicazione client usa quindi la firma di accesso condiviso con il metodo **QueueServiceWithSAS** per eseguire operazioni sulla coda. Nell'esempio seguente viene eseguita la connessione alla coda e viene creato un messaggio.
+
+    var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
+    sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
+      if(!error){
+        //message added
+      }
+    });
+
+Poiché la firma di accesso condiviso è stata generata con accesso di aggiunta, se si tentasse di leggere, aggiornare o eliminare i messaggi verrebbe restituito un errore.
+
+### Elenchi di controllo di accesso
+
+Per impostare i criteri di accesso per una firma di accesso condiviso è anche possibile usare un elenco di controllo di accesso. Questa soluzione è utile quando si vuole consentire a più client di accedere alla coda, impostando tuttavia criteri di accesso diversi per ogni client.
+
+Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. Nell'esempio seguente vengono definiti due criteri, uno per 'user1' e uno per 'user2':
+
+    var sharedAccessPolicy = [
+      {
+        AccessPolicy: {
+          Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user1'
+      },
+      {
+        AccessPolicy: {
+          Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user2'
+      }
+    ];
+
+Nell'esempio seguente viene recuperato l'elenco di controllo di accesso corrente per **myqueue** e vengono aggiunti i nuovi criteri tramite **setQueueAcl**. Risultato:
+
+    queueSvc.getQueueAcl('myqueue', function(error, result, response) {
+      if(!error){
+        //push the new policy into signedIdentifiers
+        result.signedIdentifiers.push(sharedAccessPolicy);
+        queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+          if(!error){
+            // ACL set
+          }
+        });
+      }
+    });
+
+Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una firma di accesso condiviso in base all'ID di un criterio. Nell'esempio seguente viene creata una nuova firma di accesso condiviso per 'user2':
+
+    queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
+
+## <a name="next-steps"> </a>Passaggi successivi
+
+A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre
+informazioni sulle attività di archiviazione più complesse.
+
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][].
+-   [Blog del team di Archiviazione di Azure][].
+-   Archivio [Azure SDK for Node][] su GitHub.
+
+  [Passaggi successivi]: #next-steps
+  [Informazioni sul Servizio di accodamento]: #what-is
+  [Concetti]: #concepts
+  [Creazione di un account di archiviazione di Azure]: #create-account
+  [Creazione di un'applicazione Node.js]: #create-app
+  [Configurazione dell'applicazione per l'accesso all'archiviazione]: #configure-access
+  [Configurazione di una stringa di connessione di archiviazione di Azure]: #setup-connection-string
+  [Procedura: Creare una coda]: #create-queue
+  [Procedura: Inserire un messaggio in una coda]: #insert-message
+  [Procedura: Visualizzare il messaggio successivo]: #peek-message
+  [Procedura: Rimuovere il messaggio successivo dalla coda]: #get-message
+  [Procedura: Cambiare il contenuto di un messaggio in coda]: #change-contents
+  [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
+  [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
+  [Procedura: Eliminare una coda]: #delete-queue
+  [Procedura: Utilizzo delle firme di accesso condiviso]: #sas
+  [howto-queue-storage]: ../includes/howto-queue-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Servizio cloud Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Sito Web con WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Applicazione Web Node.js con archiviazione]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Azure SDK for Node]: https://github.com/Azure/azure-storage-node

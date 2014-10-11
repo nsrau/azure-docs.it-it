@@ -1,67 +1,63 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-Come utilizzare il Servizio di accodamento da PHP
-=========================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del Servizio di accodamento di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps).
+# Come utilizzare il Servizio di accodamento da PHP
 
-Sommario
-----
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del Servizio di accodamento di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi][].
 
--   [Informazioni sull'archiviazione di accodamento](#what-is)
--   [Concetti](#concepts)
--   [Creazione di un account di Archiviazione di Azure](#create-account)
--   [Creazione di un'applicazione PHP](#create-app)
--   [Configurazione dell'applicazione per l'utilizzo del Servizio di accodamento](#configure-app)
--   [Configurazione di una connessione di Archiviazione di Azure](#connection-string)
--   [Procedura: Creare una coda](#create-queue)
--   [Procedura: Aggiungere un messaggio a una coda](#add-message)
--   [Procedura: Visualizzare il messaggio successivo](#peek-message)
--   [Procedura: Rimuovere il messaggio successivo dalla coda](#dequeue-message)
--   [Procedura: Cambiare il contenuto di un messaggio in coda](#change-message)
--   [Opzioni aggiuntive per rimuovere i messaggi dalla coda](#additional-options)
--   [Procedura: Recuperare la lunghezza della coda](#get-queue-length)
--   [Procedura: Eliminare una coda](#delete-queue)
--   [Passaggi successivi](#next-steps)
+## Sommario
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+-   [Informazioni sull'archiviazione di accodamento][]
+-   [Concetti][]
+-   [Creazione di un account di Archiviazione di Azure][]
+-   [Creazione di un'applicazione PHP][]
+-   [Configurazione dell'applicazione per l'utilizzo del Servizio di accodamento][]
+-   [Configurazione di una connessione di Archiviazione di Azure][]
+-   [Procedura: Creare una coda][]
+-   [Procedura: Aggiungere un messaggio a una coda][]
+-   [Procedura: Visualizzare il messaggio successivo][]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][]
+-   [Opzioni aggiuntive per rimuovere i messaggi dalla coda][]
+-   [Procedura: Recuperare la lunghezza della coda][]
+-   [Procedura: Eliminare una coda][]
+-   [Passaggi successivi][1]
 
-Creazione di un account di Archiviazione di Azure
----------------------
+[WACOM.INCLUDE [howto-queue-storage][]]
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+## <span id="create-account"></span></a>Creazione di un account di archiviazione di Azure
 
-Creazione di un'applicazione PHP
------------------
+[WACOM.INCLUDE [create-storage-account][]]
+
+## <span id="create-app"></span></a>Creazione di un'applicazione PHP
 
 Per creare un'applicazione PHP che accede al Servizio di accodamento di Azure, è sufficiente fare riferimento alle classi di Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile utilizzare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
-In questa guida si utilizzeranno le funzionalità del Servizio di accodamento che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
+In questa guida si useranno le funzionalità del Servizio di accodamento che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
-Acquisizione delle librerie client di Azure
------------------------
+## <span id="GetClientLibrary"></span></a>Acquisizione delle librerie client di Azure
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[WACOM.INCLUDE [get-client-libraries][]]
 
-Configurazione dell'applicazione per accedere al Servizio di accodamento
-------------------------------
+## <span id="configure-app"></span></a>Configurazione dell'applicazione per accedere al Servizio di accodamento
 
 Per utilizzare le API del Servizio di accodamento di Azure, è necessario:
 
-1.  Fare riferimento al file autoloader mediante l'istruzione [require\_once](http://www.php.net/manual/en/function.require-once.php).
+1.  Fare riferimento al file autoloader mediante l'istruzione [require\_once][].
 2.  Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [WACOM.NOTE] In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
+> [WACOM.NOTE]
+> In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
 
 Negli esempi seguenti, l'istruzione `require_once` verrà sempre visualizzata, ma si farà riferimento solo alle classi necessarie per eseguire l'esempio.
 
-Configurazione di una connessione di Archiviazione di Azure
----------------------
+## <span id="connection-string"></span></a>Configurazione di una connessione di archiviazione di Azure
 
 Per creare un'istanza di un client del Servizio di accodamento di Azure, è necessario innanzitutto disporre di una stringa di connessione valida. Il formato della stringa di connessione del servizio di accodamento è:
 
@@ -88,8 +84,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 
     $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
-Procedura: Creare una coda
---------------
+## <span id="create-queue"></span></a>Procedura: Creare una coda
 
 Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo **createQueue**. Quando si crea una coda, è possibile impostare le opzioni per la coda, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare i metadati in una coda.
 
@@ -114,16 +109,16 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-> [WACOM.NOTE] Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
+> [WACOM.NOTE]
+> Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
 
-Procedura: Aggiungere un messaggio a una coda
-----------------------
+## <span id="add-message"></span></a>Procedura: Aggiungere un messaggio a una coda
 
 Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy-\>createMessage**. Il metodo utilizza il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
 
@@ -144,14 +139,13 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy-\>createMess
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Procedura: Visualizzare il messaggio successivo
---------------------
+## <span id="peek-message"></span></a>Procedura: Visualizzare il messaggio successivo
 
 È possibile visualizzare il messaggio successivo (o i messaggi successivi) di una coda senza rimuoverlo dalla coda chiamando il metodo **QueueRestProxy-\>peekMessages**. Per impostazione predefinita, il metodo **peekMessage** restituisce un solo messaggio, ma è possibile modificare tale valore con il metodo **PeekMessagesOptions-\>setNumberOfMessages**
 
@@ -174,7 +168,7 @@ Procedura: Visualizzare il messaggio successivo
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -196,8 +190,7 @@ Procedura: Visualizzare il messaggio successivo
         }
     }
 
-Procedura: Rimuovere il messaggio successivo dalla coda
---------------------------
+## <span id="dequeue-message"></span></a>Procedura: Rimuovere il messaggio successivo dalla coda
 
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamare innanzitutto **QueueRestProxy-\>listMessages**, per rendere il messaggio invisibile a tutte le altre letture del codice dalla coda. Per impostazione predefinita, il messaggio resta invisibile per 30 secondi (se il messaggio non viene eliminato in questo intervallo di tempo, sarà di nuovo visibile nella coda). Per completare la rimozione del messaggio dalla coda, è necessario chiamare **QueueRestProxy-\>deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
@@ -229,14 +222,13 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Procedura: Cambiare il contenuto di un messaggio in coda
-------------------------
+## <span id="change-message"></span></a>Procedura: Cambiare il contenuto di un messaggio in coda
 
 È possibile modificare il contenuto di un messaggio inserito nella coda chiamando **QueueRestProxy-\>updateMessage**. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di n tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
@@ -272,14 +264,13 @@ Procedura: Cambiare il contenuto di un messaggio in coda
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Opzioni aggiuntive per rimuovere i messaggi dalla coda
-------------------------
+## <span id="additional-options"></span></a>Opzioni aggiuntive per rimuovere i messaggi dalla coda
 
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di visibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **getMessages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
@@ -320,14 +311,13 @@ Opzioni aggiuntive per rimuovere i messaggi dalla coda
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Procedura: Recuperare la lunghezza della coda
-------------------
+## <span id="get-queue-length"></span></a>Procedura: Recuperare la lunghezza della coda
 
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **QueueRestProxy-\>getQueueMetadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda. La chiamata al metodo **getApproximateMessageCount** sull'oggetto restituito fornisce il numero di messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
 
@@ -347,7 +337,7 @@ Procedura: Recuperare la lunghezza della coda
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -355,8 +345,7 @@ Procedura: Recuperare la lunghezza della coda
 
     echo $approx_msg_count;
 
-Procedura: Eliminare una coda
---------------
+## <span id="delete-queue"></span></a>Procedura: Eliminare una coda
 
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **QueueRestProxy-\>deleteQueue**.
 
@@ -375,17 +364,37 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Passaggi successivi
---------
+## <span id="next-steps"></span></a>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento di Azure, visitare i collegamenti seguenti per ulteriori informazioni su come eseguire attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
--   Blog del team di Archiviazione di Azure: http://blogs.msdn.com/b/windowsazurestorage/
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
+-   Blog del team di Archiviazione di Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
+  [Passaggi successivi]: #NextSteps
+  [Informazioni sull'archiviazione di accodamento]: #what-is
+  [Concetti]: #concepts
+  [Creazione di un account di Archiviazione di Azure]: #create-account
+  [Creazione di un'applicazione PHP]: #create-app
+  [Configurazione dell'applicazione per l'utilizzo del Servizio di accodamento]: #configure-app
+  [Configurazione di una connessione di Archiviazione di Azure]: #connection-string
+  [Procedura: Creare una coda]: #create-queue
+  [Procedura: Aggiungere un messaggio a una coda]: #add-message
+  [Procedura: Visualizzare il messaggio successivo]: #peek-message
+  [Procedura: Rimuovere il messaggio successivo dalla coda]: #dequeue-message
+  [Procedura: Cambiare il contenuto di un messaggio in coda]: #change-message
+  [Opzioni aggiuntive per rimuovere i messaggi dalla coda]: #additional-options
+  [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
+  [Procedura: Eliminare una coda]: #delete-queue
+  [1]: #next-steps
+  [howto-queue-storage]: ../includes/howto-queue-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

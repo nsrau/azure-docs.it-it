@@ -1,9 +1,10 @@
 <properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="" />
 
-Procedura: Distribuire contenuti in streaming
-=============================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire un asset mediante download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
+# Procedura: Distribuire contenuti in streaming
+
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire un asset mediante download][].
 
 Oltre al download di contenuti multimediali da Servizi multimediali, è possibile utilizzare flussi a velocità in bit adattiva per distribuire contenuti. Ad esempio, è possibile creare un URL diretto, denominato localizzatore, per i contenuti in streaming su un server di origine di Servizi multimediali. Le applicazioni client come Microsoft Silverlight possono riprodurre i contenuti in streaming direttamente dal localizzatore.
 
@@ -16,12 +17,9 @@ Per creare un localizzatore di origine per contenuti in streaming:
 3.  Creare il localizzatore di origine mediante una chiamata al metodo CreateLocator
 4.  Creare un URL del file manifesto
 
-Nel codice seguente viene illustrato come implementare i passaggi:
+Il codice seguente illustra come implementare i passaggi:
 
-``` {}
-private static ILocator GetStreamingOriginLocator( string targetAssetID)?{?    // Get a reference to the asset you want to stream.
-    IAsset assetToStream = GetAsset(targetAssetID);
-
+    private static ILocator GetStreamingOriginLocator( string targetAssetID){ // Get a reference to the asset you want to stream. IAsset assetToStream = GetAsset(targetAssetID);
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
     var theManifest =
@@ -45,31 +43,40 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)?{?    /
         DateTime.UtcNow.AddMinutes(-5));
             
     // Display some useful values based on the locator.
-    Console.WriteLine("Streaming asset base path on origin: ");?    Console.WriteLine(originLocator.Path);
+    Console.WriteLine("Streaming asset base path on origin: ");
+    Console.WriteLine(originLocator.Path);
     Console.WriteLine();
-    
+
     // Create a full URL to the manifest file. Use this for playback
     // in streaming media clients. 
     string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
-    Console.WriteLine("URL to manifest for client streaming: ");?    Console.WriteLine(urlForClientStreaming);
+    Console.WriteLine("URL to manifest for client streaming: ");
+    Console.WriteLine(urlForClientStreaming);
     Console.WriteLine();
-    
+
     // Display the ID of the origin locator, the access policy, and the asset.
     Console.WriteLine("Origin locator Id: " + originLocator.Id);
     Console.WriteLine("Access policy Id: " + policy.Id);
     Console.WriteLine("Streaming asset Id: " + assetToStream.Id);
 
     // Return the locator. 
-    return originLocator;?}?
-```
+    return originLocator;
+	}
+</code>
 
-Per ulteriori informazioni sulla distribuzione di asset, vedere:
+</pre>
 
--   [Distribuzione di asset con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/jj129575.aspx)
--   [Distribuzione di asset con l'API REST di Servizi multimediali](http://msdn.microsoft.com/it-it/library/jj129578.aspx)
+Per altre informazioni sulla distribuzione di asset, vedere:
 
-Passaggi successivi
--------------------
+-   [Distribuzione di asset con Media Services SDK per .NET][]
+-   [Distribuzione di asset con l'API REST di Servizi multimediali][]
 
-Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e utilizzando Smooth Streaming. Nell'argomento successivo dedicato alla [distribuzione di contenuti HLS](http://go.microsoft.com/fwlink/?LinkId=301817) viene illustrata la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS).
+</p>
+## Passaggi successivi
 
+Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e utilizzando Smooth Streaming. Nell'argomento successivo dedicato alla [distribuzione di contenuti HLS][] viene illustrata la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS).
+
+  [Procedura: Distribuire un asset mediante download]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409
+  [Distribuzione di asset con Media Services SDK per .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
+  [Distribuzione di asset con l'API REST di Servizi multimediali]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [distribuzione di contenuti HLS]: http://go.microsoft.com/fwlink/?LinkId=301817
