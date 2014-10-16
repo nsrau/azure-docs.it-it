@@ -175,9 +175,9 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di archiviazio
 -   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   Blog del team di Archiviazione di Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Applicazione Web Hello World Django]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Applicazione Web Hello World Django]: http://windowsazure.com/it-it/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   
   [create-account-note]: ../includes/create-account-note.md
-  [guida all'installazione di Python]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [guida all'installazione di Python]: http://windowsazure.com/it-it/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

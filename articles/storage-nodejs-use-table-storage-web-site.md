@@ -656,15 +656,15 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [Immagine del nuovo elemento nell'elenco delle attività]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-signup]: ../includes/antares-iaas-signup.md
-  [Strumento da riga di comando di Azure per Mac e Linux]: /en-us/documentation/articles/xplat-cli/
-  [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]: /en-us/documentation/articles/xplat-cli/
+  [Strumento da riga di comando di Azure per Mac e Linux]: /it-it/documentation/articles/xplat-cli/
+  [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]: /it-it/documentation/articles/xplat-cli/
   [Pagina di download]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [archivio Git remoto]: http://git-scm.com/docs/git-remote
   [Apertura del dashboard del sito Web]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [Collegamento Configura]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [Salvataggio impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [applicazione Web Node.js con MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Pubblicazione in Siti Web di Azure con Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+  [applicazione Web Node.js con MongoDB]: /it-it/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [Pubblicazione in Siti Web di Azure con Git]: /it-it/documentation/articles/web-sites-publish-source-control/

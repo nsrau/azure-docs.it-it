@@ -475,7 +475,7 @@ Per altre informazioni sull'utilizzo di Azure SDK for Ruby per l'accesso ai serv
   [qui]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Capistrano]: http://capistranorb.com
-  [Come utilizzare SSH con Linux in Azure]: http://azure.microsoft.com/en-us/documentation/articles/linux-use-ssh-key/
+  [Come utilizzare SSH con Linux in Azure]: http://azure.microsoft.com/it-it/documentation/articles/linux-use-ssh-key/
   [Pagina di benvenuto di Nginx]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/welcomenginx.png
   [Azure, Ruby on Rails, Capistrano 3 e PostgreSQL]: http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql
   [Esercitazione su Capistrano 3]: http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/

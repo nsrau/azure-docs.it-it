@@ -73,4 +73,4 @@ La funzionalità Farm di SharePoint Server usa Gestione risorse di Azure e scrip
   [http://[nome di dominio completo]]: http://[FQDN]
   [Configurare SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [portale di anteprima di Azure]: https://portal.azure.com/
-  [Utilizzo di Windows PowerShell con Gestione risorse]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Utilizzo di Windows PowerShell con Gestione risorse]: http://azure.microsoft.com/it-it/documentation/articles/powershell-azure-resource-manager/

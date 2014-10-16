@@ -113,7 +113,7 @@ Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per rich
 È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure][].
 
   [introduzione]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure Machine Learning Center]: http://azure.microsoft.com/en-us/documentation/services/machine-learning/
+  [Azure Machine Learning Center]: http://azure.microsoft.com/it-it/documentation/services/machine-learning/
   [http://azure.microsoft.com/it-it/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
   [http://azure.microsoft.com/it-it/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
   [forum con i commenti e suggerimenti degli utenti]: http://go.microsoft.com/fwlink/?LinkId=404231

@@ -6,7 +6,7 @@
 
 ### Introduzione all'Archiviazione di Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Queues">Code</a><a href="/en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tables">Tabelle</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Queues">Code</a><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tables">Tabelle</a></div>
 
 Il servizio di archiviazione di accodamento di Azure permette di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Come utilizzare l'archiviazione di accodamento da .NET][Come utilizzare l'archiviazione di accodamento da .NET].
 
@@ -29,8 +29,8 @@ Prima di eseguire operazioni relative a una coda, è necessario ottenere la stri
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [BLOB]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
-  [Code]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-queues "Queues"
-  [Tabelle]: /en-us/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tables"
-  [Come utilizzare l'archiviazione di accodamento da .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET"
+  [BLOB]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
+  [Code]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-queues "Queues"
+  [Tabelle]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tables"
+  [Come utilizzare l'archiviazione di accodamento da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET"
   [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md

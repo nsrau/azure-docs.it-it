@@ -198,7 +198,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [Come creare un account di archiviazione]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [Come creare un account di archiviazione]: http://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/
   [Eseguire il provisioning di un cluster HBase nel portale di Azure]: #create-hbase-cluster
   [Creare una tabella di esempio HBase dalla shell HBase]: #create-sample-table
   [Usare Hive per interrogare una tabella HBase]: #hive-query

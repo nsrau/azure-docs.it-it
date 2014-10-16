@@ -446,8 +446,8 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
   [Registered users in on-premises database]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
   [Josh Twist presenta le connessioni ibride (video Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [Sito Web delle connessioni ibride]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida]: http://azure.microsoft.com/it-it/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
-  [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections
   [Panoramica dell'identità ASP.NET]: http://www.asp.net/identity

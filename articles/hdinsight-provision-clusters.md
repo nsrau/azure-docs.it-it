@@ -547,7 +547,7 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 -   [Invio di processi Hadoop a livello di codice][]
 -   [Documentazione di Azure HDInsight SDK][]
 
-  [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-get-started/
   [differenze tra Hadoop e HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Introduzione a Hadoop in HDInsight]: ../hdinsight-introduction/

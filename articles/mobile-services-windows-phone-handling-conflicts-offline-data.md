@@ -5,8 +5,8 @@
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows Store C#</a>
+<a href="/it-it/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 In questo argomento viene descritto come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. In questa esercitazione si scaricherà un'app che supporta sia i dati offline che online, si integrerà il servizio mobile con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare e aggiornare il database durante l'esecuzione dell'app.
@@ -196,9 +196,9 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 <!-- Images --> 
 <!-- URLs -->
 
-  [Windows Store C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Introduzione ai dati offline]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
+  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [Introduzione ai dati offline]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Download del progetto dell'app per Windows Phone]: #download-app
   [Aggiunta di una colonna di scadenza per il database]: #add-column
   [Aggiornamento del database per i servizi mobili back-end .NET]: #dotnet-backend
@@ -209,7 +209,7 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
   [esempio di codice per la gestione dei conflitti]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

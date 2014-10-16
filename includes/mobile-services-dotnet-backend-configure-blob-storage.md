@@ -134,7 +134,7 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
    
-  [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Come creare un account di archiviazione]: /en-us/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png

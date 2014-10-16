@@ -67,4 +67,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
     await todoTable.DeleteAsync(item);
 
-  [Introduzione all'autenticazione]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [Introduzione all'autenticazione]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/

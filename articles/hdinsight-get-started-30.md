@@ -277,7 +277,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [HDFS]: http://go.microsoft.com/fwlink/?LinkId=510087
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
   [Introduzione a HDInsight Emulator]: ../hdinsight-get-started-emulator/
-  [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-get-started/
   [differenze tra Hadoop e HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -293,7 +293,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
   [Come creare un account di archiviazione]: ../storage-create-storage-account/
-  [controllo delle versioni del componente HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [controllo delle versioni del componente HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.CustomCreateCluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
   [HDI.CustomCreateCluster.ClusterUser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png

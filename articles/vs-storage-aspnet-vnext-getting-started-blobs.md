@@ -6,7 +6,7 @@
 
 ### Introduzione all'Archiviazione di Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Queues">Code</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Tables">Tabelle</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Queues">Code</a><a href="/it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Tables">Tabelle</a></div>
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 
@@ -35,8 +35,8 @@ Prima di eseguire operazioni relative a un BLOB, è necessario ottenere la strin
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
 
   [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
-  [BLOB]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blobs"
-  [Code]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Queues"
-  [Tabelle]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Tables"
-  [Come utilizzare l'archiviazione BLOB da .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET"
+  [BLOB]: /it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blobs"
+  [Code]: /it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Queues"
+  [Tabelle]: /it-it/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Tables"
+  [Come utilizzare l'archiviazione BLOB da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET"
   [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md

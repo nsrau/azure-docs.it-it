@@ -352,10 +352,10 @@ informazioni sulle attività di archiviazione più complesse.
   [Procedura: Utilizzo delle firme di accesso condiviso]: #sas
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Servizio cloud Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Sito Web con WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Applicazione Web Node.js con archiviazione]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Node]: https://github.com/Azure/azure-storage-node

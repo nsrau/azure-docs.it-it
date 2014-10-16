@@ -563,12 +563,12 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
   [Servizi multimediali]: #media
   [E-commerce]: #commerce
   [Per iniziare]: #start
-  [l'infografica su Windows Azure]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"
+  [l'infografica su Windows Azure]: http://azure.microsoft.com/it-it/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"
   [Azure components]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Azure Virtual Machines]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Azure Websites]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
   [Azure Cloud Service]: ./media/intro-to-azure/CloudServicesIntroNew.png
-  [http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/]: http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/
   [Azure Storage SQL Database]: ./media/intro-to-azure/StorageAzureSQLDatabaseIntroNew.png
   [Azure Storage Tables]: ./media/intro-to-azure/StorageTablesIntroNew.png
   [Azure Storage Blobs]: ./media/intro-to-azure/StorageBlobsIntroNew.png
@@ -593,7 +593,7 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Azure Media Services]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [poster di Servizi multimediali di Azure]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [poster di Servizi multimediali di Azure]: http://azure.microsoft.com/it-it/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Azure Store]: /en-us/store/overview/
   [Azure Commerce]: ./media/intro-to-azure/CommerceIntroNew.png

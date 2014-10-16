@@ -339,7 +339,7 @@ informazioni sulle attività di archiviazione più complesse.
   [Informazioni di riferimento sulla libreria client di archiviazione per .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Introduzione all'uso dell'SDK di Processi Web di Azure]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Archiviazione tabelle]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/
-  [Archiviazione BLOB]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Database SQL]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Introduzione all'uso dell'SDK di Processi Web di Azure]: /it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Archiviazione tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/
+  [Archiviazione BLOB]: /it-it/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Database SQL]: /it-it/documentation/articles/sql-database-dotnet-how-to-use/

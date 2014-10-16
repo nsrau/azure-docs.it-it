@@ -74,7 +74,7 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Creare app Windows universali per Windows e Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
   [Guida introduttiva: Aggiungere un servizio mobile (back-end JavaScript)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
-  [Introduzione ai dati per Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+  [Introduzione ai dati per Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express per Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -82,7 +82,7 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Introduzione ai dati]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-  [Introduzione all'autenticazione]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-  [Introduzione alle notifiche push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  [Supporto di piattaforme per più dispositivi da un singolo servizio mobile]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+  [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+  [Supporto di piattaforme per più dispositivi da un singolo servizio mobile]: /it-it/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

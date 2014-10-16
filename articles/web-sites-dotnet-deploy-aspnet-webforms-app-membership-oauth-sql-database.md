@@ -709,7 +709,7 @@ Questa esercitazione è basata sull'esercitazione MVC [Distribuzione di un'app A
 
 Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. È inoltre possibile richiedere nuovi argomenti e votare gli argomenti esistenti alla pagina [Show Me How With Code][].
 
-  [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: http://azure.microsoft.com/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Pagina Contatti - Modifica]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [attivare i benefici della sottoscrizione MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [iscriversi per ottenere una versione di valutazione gratuita]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -783,7 +783,7 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
   [AspNetUserRoles data]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [13]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [informazioni si Web Form ASP.NET]: http://www.asp.net/web-forms
-  [guide ed esercitazioni per Microsoft Azure]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [guide ed esercitazioni per Microsoft Azure]: http://azure.microsoft.com/it-it/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Show Me How With Code]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

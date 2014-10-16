@@ -54,5 +54,5 @@ Per individuare l'indirizzo IP, oltre al nome **awverify** e ai nomi **.azureweb
   [implementazione e specifiche dei nomi di dominio]: http://tools.ietf.org/html/rfc1035
   [portale di gestione di Azure]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [Come applicare la scalabilità ai siti Web]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [Come applicare la scalabilità ai siti Web]: http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

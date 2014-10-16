@@ -774,5 +774,5 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Bus di servizio di Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [Procedure relative al bus di servizio]: /en-us/documentation/services/service-bus/
+  [Procedure relative al bus di servizio]: /it-it/documentation/services/service-bus/
   [Come utilizzare le code del bus di servizio]: /en-us/develop/net/how-to-guides/service-bus-queues/

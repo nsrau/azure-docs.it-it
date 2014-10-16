@@ -192,4 +192,4 @@ Per informazioni più complete e dettagliate sulla creazione, il training, l'ass
   [Score Model module]: ./media/machine-learning-create-experiment/screen8a.png
   [Evaluation results]: ./media/machine-learning-create-experiment/screen9.png
   [Complete experiment]: ./media/machine-learning-create-experiment/screen10.png
-  [Procedura dettagliata: Sviluppare una soluzione predittiva con Azure Machine Learning]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [Procedura dettagliata: Sviluppare una soluzione predittiva con Azure Machine Learning]: http://azure.microsoft.com/it-it/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

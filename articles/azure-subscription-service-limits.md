@@ -42,12 +42,12 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 <td align="left"><p>200</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Account di archiviazione</a> per sottoscrizione</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/storage-whatis-account/">Account di archiviazione</a> per sottoscrizione</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>50</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>200</p></td>
 </tr>
@@ -105,7 +105,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Ruoli di lavoro/Web per distribuzione<sup>1</sup></a></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-what-is/">Ruoli di lavoro/Web per distribuzione<sup>1</sup></a></p></td>
 <td align="left"><p>25</p></td>
 <td align="left"><p>25</p></td>
 </tr>
@@ -146,7 +146,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">Macchine virtuali</a> per servizio cloud<sup>1</sup></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/it-it/documentation/services/virtual-machines/">Macchine virtuali</a> per servizio cloud<sup>1</sup></p></td>
 <td align="left"><p>50</p></td>
 <td align="left"><p>50</p></td>
 </tr>
@@ -289,15 +289,15 @@ Per i limiti relativi al database SQL, vedere i seguenti argomenti:
   [assistenza clienti]: http://azure.microsoft.com/en-us/support/faq/
   [sottoscrizione]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [Coamministratori]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [Account di archiviazione]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [Servizi cloud]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [Account di archiviazione]: http://azure.microsoft.com/it-it/documentation/articles/storage-whatis-account/
+  [Servizi cloud]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-what-is/
   [Reti virtuali]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [Reti locali]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [Gruppi di affinità]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [Endpoint di input istanza]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [Endpoint di input]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [Endpoint interni]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [Macchine virtuali]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [Macchine virtuali]: http://azure.microsoft.com/it-it/documentation/services/virtual-machines/
   [gateway di rete virtuale]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Livelli di servizio (edizioni) del database SQL di Azure]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

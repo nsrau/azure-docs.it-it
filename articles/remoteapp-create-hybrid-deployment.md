@@ -192,7 +192,7 @@ La procedura è stata completata e la distribuzione ibrida RemoteApp è stata cr
 
   [aggiornamenti obbligatori]: http://support.microsoft.com/kb/2977219
   [anteprima di RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Configurare una VPN da sito a sito nel portale di gestione]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [Roadmap sulla sincronizzazione della directory]: http://msdn.microsoft.com//library/azure/hh967642.aspx

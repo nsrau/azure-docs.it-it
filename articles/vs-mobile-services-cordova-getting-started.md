@@ -82,6 +82,6 @@ Eliminare una voce nella tabella dati usando il metodo del. Chiamare il metodo [
         items.splice(items.indexOf(todoItem), 1);
     });
 
-  [Introduzione all'autenticazione]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/
+  [Introduzione all'autenticazione]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-html-get-started-users/
  
   [query]: (http://msdn.microsoft.com/library/azure/jj613353.aspx)

@@ -63,7 +63,7 @@
 
 -   Connessione a più cluster, compresa l'installazione locale e quelli in esecuzione in remoto mediante il servizio Azure HDInsight.
 
--   Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/en-us/documentation/services/hdinsight/](http://azure.microsoft.com/en-us/documentation/services/hdinsight/).
+-   Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/](http://azure.microsoft.com/it-it/documentation/services/hdinsight/).
 
 -   Configurare WASB in un cluster locale
 
@@ -245,6 +245,6 @@ Numeri di porta
 
 -   [Introduzione all'utilizzo di HDInsight Emulator][]
 
-  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  []: http://azure.microsoft.com/it-it/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [Introduzione all'utilizzo di HDInsight Emulator]: ../hdinsight-get-started-emulator/

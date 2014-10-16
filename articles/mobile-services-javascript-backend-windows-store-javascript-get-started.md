@@ -75,7 +75,7 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
   []: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Introduzione ai dati]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [Introduzione all'autenticazione]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [Introduzione alle notifiche push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
-  [Supporto di piattaforme per più dispositivi da un singolo servizio mobile]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+  [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+  [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+  [Supporto di piattaforme per più dispositivi da un singolo servizio mobile]: /it-it/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

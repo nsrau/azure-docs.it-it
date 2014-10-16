@@ -134,7 +134,7 @@ Per un elenco completo, vedere [Estensioni della VM di Azure][].
 
   [Docker]: https://www.docker.com/
   [contenitori Linux]: http://en.wikipedia.org/wiki/LXC
-  [Agente Linux di Azure]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+  [Agente Linux di Azure]: http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-linux-agent-user-guide/
   [annuncio sul blog di MS Open Tech]: http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/
   [Contenitori Docker e Linux]: #Docker-and-Linux-Containers
   [Come usare l'estensione della VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -149,11 +149,11 @@ Per un elenco completo, vedere [Estensioni della VM di Azure][].
   [AppArmor]: http://wiki.apparmor.net/index.php/Main_Page
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
-  [qui]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install
+  [qui]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/#install
   [Node Package Manager (NPM)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [programma di installazione per Mac]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
-  [Come connettersi alla sottoscrizione di Azure]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure
+  [Come connettersi alla sottoscrizione di Azure]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/#configure
   [istruzioni di installazione di Docker]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
   []: ./media/virtual-machines-docker/dockercreateresults.png

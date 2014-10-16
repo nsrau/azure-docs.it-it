@@ -169,7 +169,7 @@ HDInsight e le tecnologie Hadoop in generale risultano ottimali per la gestione 
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [Documentazione relativa a HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
-  [Note sulla versione di HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [Note sulla versione di HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-release-notes/
   [Introduzione ad Azure HDInsight]: ../hdinsight-get-started/
   [Esecuzione degli esempi relativi a HDInsight]: ../hdinsight-run-samples/
   [Big data e Azure]: http://azure.microsoft.com/en-us/solutions/big-data/

@@ -254,5 +254,5 @@ In alcuni scenari è consigliabile eseguire l'applicazione in un servizio cloud 
   [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Modelli di esecuzione di Azure]: /en-us/develop/net/fundamentals/compute/
-  [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]: http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/
   [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

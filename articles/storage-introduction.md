@@ -178,7 +178,7 @@ Per iniziare a utilizzare Archiviazione di Azure, vedere le risorse seguenti:
   [versione di valutazione gratuita]: /en-us/pricing/free-trial/
   [opzioni di vendita]: /en-us/pricing/purchase-options/
   [iscritti a MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [Servizio Importazione/Esportazione di Azure]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [Servizio Importazione/Esportazione di Azure]: http://azure.microsoft.com/it-it/documentation/articles/storage-import-export-service/
   [firma di accesso condiviso]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Dettagli prezzi di archiviazione]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@ Per iniziare a utilizzare Archiviazione di Azure, vedere le risorse seguenti:
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Documentazione di Archiviazione di Azure]: /en-us/documentation/services/storage/
+  [Documentazione di Archiviazione di Azure]: /it-it/documentation/services/storage/
   [Come utilizzare l'archiviazione BLOB da .NET]: ../storage-dotnet-how-to-use-blobs/
   [Come utilizzare l'archiviazione tabelle da .NET]: ../storage-dotnet-how-to-use-tables/
   [Come utilizzare l'archiviazione di accodamento da .NET]: ../storage-dotnet-how-to-use-queues/

@@ -6,7 +6,7 @@
 
 ### Introduzione all'Archiviazione di Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Queues">Code</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Tables">Tabelle</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/it-it/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Queues">Code</a><a href="/it-it/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Tables">Tabelle</a></div>
 
 Il servizio di archiviazione tabelle di Azure permette di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come utilizzare l'archiviazione tabelle da .NET][Come utilizzare l'archiviazione tabelle da .NET].
 
@@ -29,8 +29,8 @@ Prima di eseguire operazioni relative a una tabella, è necessario ottenere la s
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [BLOB]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blobs"
-  [Code]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-queues "Queues"
-  [Tabelle]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-tables "Tables"
-  [Come utilizzare l'archiviazione tabelle da .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET"
+  [BLOB]: /it-it/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blobs"
+  [Code]: /it-it/documentation/articles/vs-storage-aspnet-getting-started-queues "Queues"
+  [Tabelle]: /it-it/documentation/articles/vs-storage-aspnet-getting-started-tables "Tables"
+  [Come utilizzare l'archiviazione tabelle da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET"
   [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

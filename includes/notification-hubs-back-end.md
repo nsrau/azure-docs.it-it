@@ -83,9 +83,9 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 
 <!-- Anchors --> <!-- Images. --> <!-- URLs. -->
 
-  [Introduzione alle notifiche push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Come usare Hub di notifica da Java/PHP]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [Come usare Hub di notifica da Java/PHP]: /it-it/documentation/articles/notification-hubs-java-backend-how-to/
   [interfaccia REST degli Hub di notifica]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [Introduzione agli Hub di notifica]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [Introduzione agli Hub di notifica]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [ ]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [pacchetto NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

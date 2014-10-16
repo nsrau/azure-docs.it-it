@@ -43,6 +43,6 @@ In questa sezione verrà registrato il servizio mobile in Azure Active Directory
 
 <!-- URLs. -->
 
-  [Come eseguire la registrazione ad Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Come eseguire la registrazione ad Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   

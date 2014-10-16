@@ -336,7 +336,7 @@ La **data di dichiarazione obsolescenza** è la data dopo la quale non è possib
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [documentazione di Ambari]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-  [Note sulla versione di HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [Note sulla versione di HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-release-notes/
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
   [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html

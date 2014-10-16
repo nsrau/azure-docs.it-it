@@ -305,7 +305,7 @@ visitare i collegamenti seguenti per altre informazioni su come eseguire attivit
   [Configurare la cache]: #enable-caching
   [New cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
   [Create cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
-  [Uso di Gruppi di risorse per gestire le risorse di Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [Uso di Gruppi di risorse per gestire le risorse di Azure]: http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups/
   [Cache created]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
   [Browse blade]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
   [Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png

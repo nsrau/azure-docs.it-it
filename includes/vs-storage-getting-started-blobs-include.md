@@ -90,5 +90,5 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
     // Delete the blob.
     blockBlob.Delete();
 
-  [Come utilizzare l'archiviazione BLOB da .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
-  [1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
+  [Come utilizzare l'archiviazione BLOB da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
+  [1]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
