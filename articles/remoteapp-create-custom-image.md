@@ -20,10 +20,10 @@ Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare t
 
 Prima di creare il servizio, è necessario eseguire le seguenti operazioni:
 
--   Effettuare l'iscrizione per l'anteprima di RemoteApp all'indirizzo [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>.
+-   Effettuare l'iscrizione per l'anteprima di RemoteApp all'indirizzo [][]<http://azure.microsoft.com/it-it/services/remoteapp/></a>.
 -   Creare in Active Directory un account utente da usare come account del servizio RemoteApp. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 -   Raccogliere informazioni sulla rete locale, ovvero indirizzi IP e dettagli sui dispositivi VPN.
--   Installare il modulo [Azure PowerShell][].
+-   Installare il modulo [Azure PowerShell][Azure PowerShell].
 -   Raccogliere informazioni sugli utenti e sui gruppi a cui concedere l'accesso. Possono essere informazioni sugli account Microsoft o sugli account aziendali Active Directory per utenti o gruppi.
 
 ## **Creazione di un'immagine modello**
@@ -110,10 +110,10 @@ I passaggi dettagliati per creare una nuova immagine sono:
 
 Ora che si dispone di un'immagine modello personalizzata, è necessario caricarla nelle propria distribuzione di RemoteApp. Per creare la propria distribuzione, consultare i seguenti articoli:
 
--   [Come creare una distribuzione ibrida di RemoteApp][]
--   [Come creare una distribuzione cloud di RemoteApp][]
+-   [Come creare una distribuzione ibrida di RemoteApp][Come creare una distribuzione ibrida di RemoteApp]
+-   [Come creare una distribuzione cloud di RemoteApp][Come creare una distribuzione cloud di RemoteApp]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/it-it/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
   [Come creare una distribuzione ibrida di RemoteApp]: http://azure.microsoft.com/it-it/documentation/articles/remoteapp-create-hybrid-deployment/
   [Come creare una distribuzione cloud di RemoteApp]: http://azure.microsoft.com/it-it/documentation/articles/remoteapp-create-cloud-deployment/

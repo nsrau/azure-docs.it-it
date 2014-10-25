@@ -22,7 +22,7 @@ Prima di procedere con la connessione del proprio sito a una rete virtuale, è o
 
 Se il proprio sito Web non è di livello standard, l'interfaccia lo comunica all'utente e consente di accedere ai livelli di prezzo facendo clic sul pulsante corrispondente.
 
-![][]
+![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png)
 
 ## Funzionamento del sistema
 
@@ -30,7 +30,7 @@ Questa funzionalità utilizza la tecnologia VPN da punto a sito per connettere i
 
 Permettendo solo a determinati siti Web di connettersi alle proprie reti si evita la creazione di connessioni SMB. Sebbene sia possibile accedere a risorse remote, non è possibile montare un'unità in remota.
 
-![][1]
+![](./media/web-sites-integrate-with-vnet/how-it-works.png)
 
 Se non è stato configurato un server DNS con la propria rete virtuale, è necessario usare gli indirizzi IP. Assicurarsi di esporre le porte per gli endpoint desiderati attraverso il proprio firewall. Per testare la connessione, l'unico metodo attualmente disponibile è il ricorso a un sito Web o a un WebJob che effettua una chiamata all'endpoint desiderato. Strumenti come ping o nslookup al momento non funzionano con la console Kudu. Presto verranno apportati miglioramenti in tale ambito.
 
@@ -38,7 +38,7 @@ Se non è stato configurato un server DNS con la propria rete virtuale, è neces
 
 Per connettere un sito a una rete virtuale, accedere al blade del proprio sito Web, fare clic sul riquadro della rete virtuale nella sezione delle reti e selezionare una delle reti esistenti.
 
-![][2]
+![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
 
 Se si tratta del primo sito Web della propria sottoscrizione che effettua la connessione alla rete, il sistema crea un certificato per l'autenticazione della VNET. Per visualizzare il certificato, accedere al portale corrente, passare alla sezione delle reti virtuali, selezionare la rete desiderata e, in seguito, la scheda Certificates.
 
@@ -48,17 +48,17 @@ Nell'immagine in alto è presente una rete chiamata cantConnectVnet visualizzata
 
 Oltre a effettuare la connessione a una VNET esistente, è possibile crearne una nuova dall'interfaccia utente del sito Web e connettersi automaticamente a tale VNET. Per farlo, seguire lo stesso percorso per raggiungere l'interfaccia della rete virtuale e selezionare Crea nuova rete virtuale. L'interfaccia utente che si apre consente di assegnare un nome alla rete, specificare lo spazio di indirizzi e impostare gli indirizzi per i server DNS utilizzati dalla rete virtuale.
 
-![][3]
+![](./media/web-sites-integrate-with-vnet/create-new-vnet.png)
 
 La creazione di una nuova rete virtuale con i gateway configurati può richiedere fino a 30 minuti. Durante questo intervallo di tempo, viene visualizzato il seguente messaggio che comunica l'operazione in corso.
 
-![][4]
+![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
 Una volta collegata la rete al sito Web, quest'ultimo può accedere alle risorse della VNET su TCP o UDP. Se si desidera accedere alle risorse disponibili tramite VPN da sito a sito nella propria VNET dal sistema in sede, è necessario aggiungere le route alla propria rete aziendale per consentire al traffico di passare dalla rete agli indirizzi da punto a sito configurati nella VNET.
 
 Una volta completata correttamente l'integrazione, nel portale è possibile visualizzare i dati principali sulla connessione, disconnettere il sito Web dalla rete e sincronizzare i certificati utilizzati per autenticare la connessione. Se un certificato è scaduto o è stato revocato, potrebbe essere necessario procedere con la sincronizzazione.
 
-![][5]
+![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 Gestione della connessione alla rete virtuale
 Per visualizzare un elenco di tutte le reti virtuali associate ai siti di un piano di hosting Web, visitare il blade di tale piano. È possibile disporre di un massimo di 5 reti associate a un piano di hosting Web standard.
@@ -71,19 +71,19 @@ Al momento Azure non consente di prelevare una macchina virtuale esistente e tra
 
 Durante l'uso di una VNET configurata con una VPN da sito a sito, è necessario effettuare un'altra operazione per accedere alle proprie risorse in sede dal proprio sito Web di Azure. Le route devono essere aggiunte alla propria rete in sede per consentire al traffico di passare dalla propria rete agli indirizzi da punto a sito configurati nella propria VNET. Per visualizzare l'intervallo IP per la propria connettività da punto a sito, accedere all'area di rete del portale corrente come mostrato nella seguente immagine.
 
-![][6]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
 ## Certificati
 
 Per stabilire una connessione protetta con la propria VNET, è necessario procedere con uno scambio di certificati. Nella seguente immagine viene visualizzata l'identificazione personale del certificato pubblico generata dai siti Web di Azure per il portale di rete corrente.
 
-![][7]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
 
 Se i certificati risultano non sincronizzati per qualunque motivo, ad esempio l'eliminazione involontaria dal portale di rete, la connettività si interrompe. L'opzione Sync Connection nell'interfaccia della rete virtuale consente di ristabilire la connettività.
 
 Questa opzione deve essere utilizzata anche se si aggiunge un DNS alla propria rete virtuale o una VPN da sito a sito alla propria rete.
 
-![][8]
+![](./media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
 
 ## Confronto con le connessioni ibride
 

@@ -8,12 +8,12 @@ Scegliendo di pubblicare e gestire le API tramite Gestione API di Azure è possi
 
 Per risolvere i problemi di disponibilità che colpiscono l'area in cui è ospitato il servizio di Gestione API, è necessario essere pronti a ripristinare il servizio in un'area diversa in qualsiasi momento. In base ai propri obiettivi in termini di disponibilità e tempi di ripristino, è consigliabile riservare un servizio di backup in una o più aree e provare a mantenere sincronizzati la configurazione e il contenuto con il servizio attivo. La funzionalità di backup e ripristino dei servizi fornisce il blocco predefinito necessario per implementare la propria strategia di ripristino di emergenza.
 
-La funzionalità di backup e ripristino dei servizi è disponibile tramite l'API REST di Gestione servizi. Per le istruzioni su come ottenere l'accesso all'API, vedere [Autenticazione delle richieste di Gestione risorse di Azure][].
+La funzionalità di backup e ripristino dei servizi è disponibile tramite l'API REST di Gestione servizi. Per le istruzioni su come ottenere l'accesso all'API, vedere [Autenticazione delle richieste di Gestione risorse di Azure][Autenticazione delle richieste di Gestione risorse di Azure].
 
 ## Contenuto dell'argomento
 
--   [Backup di un servizio di Gestione API][]
--   [Ripristino di un servizio di Gestione API][]
+-   [Backup di un servizio di Gestione API][Backup di un servizio di Gestione API]
+-   [Ripristino di un servizio di Gestione API][Ripristino di un servizio di Gestione API]
 
 ## <a name="step1"> </a>Backup di un servizio di Gestione API
 
@@ -46,7 +46,7 @@ Il backup è un'operazione a lunga esecuzione che potrebbe richiedere diversi mi
 -   Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
 -   Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi**, ad esempio l'aggiornamento o il downgrade di livelli, la modifica di nomi di dominio e così via.
 -   Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione.
--   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Utilizzare l'[API REST di Gestione API di Azure][] per recuperare periodicamente i report analitici e custodirli al sicuro.
+-   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Utilizzare l'[API REST di Gestione API di Azure][API REST di Gestione API di Azure] per recuperare periodicamente i report analitici e custodirli al sicuro.
 -   La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
 
@@ -81,7 +81,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 -   Il **livello** del servizio in cui si effettua il ripristino **deve corrispondere** al livello del servizio sottoposto a backup da ripristinare.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
 
-  [Autenticazione delle richieste di Gestione risorse di Azure]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+  [Autenticazione delle richieste di Gestione risorse di Azure]: http://msdn.microsoft.com/it-it/library/dn790557.aspx
   [Backup di un servizio di Gestione API]: #step1
   [Ripristino di un servizio di Gestione API]: #step2
-  [API REST di Gestione API di Azure]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+  [API REST di Gestione API di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn781421.aspx

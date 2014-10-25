@@ -1,13 +1,13 @@
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
 
--   [(iOS | .NET)][]
--   [(iOS | JavaScript)][]
--   [(Windows C# | .NET)][]
--   [(Windows C# | Javascript)][]
--   [(Windows JavaScript | .NET)][]
--   [(Windows JavaScript | Javascript)][]
--   [(Android | .NET)][]
--   [(Android | Javascript)][]
+-   [(iOS | .NET)][(iOS | .NET)]
+-   [(iOS | JavaScript)][(iOS | JavaScript)]
+-   [(Windows C# | .NET)][(Windows C# | .NET)]
+-   [(Windows C# | Javascript)][(Windows C# | Javascript)]
+-   [(Windows JavaScript | .NET)][(Windows JavaScript | .NET)]
+-   [(Windows JavaScript | Javascript)][(Windows JavaScript | Javascript)]
+-   [(Android | .NET)][(Android | .NET)]
+-   [(Android | Javascript)][(Android | Javascript)]
 
   [(iOS | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
   [(iOS | JavaScript)]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/

@@ -18,6 +18,6 @@ Questo documento affronta inoltre i seguenti concetti fondamentali:
 
 **Data di pubblicazione:** 10 settembre 2014
 
-**Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure][]
+**Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure][Introducing DocumentDB - A NoSQL Database for Microsoft Azure]
 
   [Introducing DocumentDB - A NoSQL Database for Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=511318

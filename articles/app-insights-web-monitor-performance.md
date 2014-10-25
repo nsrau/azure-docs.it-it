@@ -6,22 +6,22 @@
 
 *Application Insights è disponibile in anteprima.*
 
-Questo prodotto consente di accertarsi che le prestazioni della propria applicazione siano ottimali e di scoprire rapidamente eventuali errori. [Application Insights][] rileverà qualsiasi problema ed eccezione relativi alle prestazioni e aiuterà a individuare e diagnosticare le cause principali.
+Questo prodotto consente di accertarsi che le prestazioni della propria applicazione siano ottimali e di scoprire rapidamente eventuali errori. [Application Insights][start] rileverà qualsiasi problema ed eccezione relativi alle prestazioni e aiuterà a individuare e diagnosticare le cause principali.
 
 Application Insights è in grado di monitorare le applicazioni Web ASP.NET ospitate localmente o su macchine virtuali, oltre ai siti Web Microsoft Azure.
 
--   [Configurazione del monitoraggio delle prestazioni][]
--   [Visualizzazione dei dati][]
--   [Interpretazione dei dati][]
--   [Diagnostica dei problemi][]
--   [Passaggi successivi][]
+-   [Configurazione del monitoraggio delle prestazioni](#setup)
+-   [Visualizzazione dei dati](#view)
+-   [Interpretazione dei dati](#metrics)
+-   [Diagnostica dei problemi](#diagnosis)
+-   [Passaggi successivi](#next)
 
 ## <a name="setup"></a>Configurazione del monitoraggio delle prestazioni
 
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
 
--   [Aggiungere Application Insights al progetto dell'app in Visual Studio][Application Insights]: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'utilizzo.
--   [Monitorare ora le prestazioni di un sito Web live][]: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
+-   [Aggiungere Application Insights al progetto dell'app in Visual Studio][start]: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'utilizzo.
+-   [Monitorare ora le prestazioni di un sito Web live][redfield]: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
 
 ## <a name="view"></a>Visualizzazione dei report
 
@@ -29,15 +29,15 @@ Eseguire l'applicazione con F5 e provarla aprendo diverse pagine.
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati ricevuti.
 
-![][]
+![](./media/appinsights/appinsights-09eventcount.png)
 
 Aprire Application Insights dal progetto.
 
-![Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure][]
+![Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure](./media/appinsights/appinsights-04-openPortal.png)
 
 Cercare i dati nei riquadri **Integrità applicazione**. All'inizio si vedranno solo uno o due punti. Ad esempio:
 
-![Fare clic per visualizzare altri dati][]
+![Fare clic per visualizzare altri dati](./media/appinsights/appinsights-41firstHealth.png)
 
 Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
 
@@ -47,11 +47,11 @@ Se all'inizio i dati non vengono visualizzati, attendere un minuto e quindi fare
 
 Fare clic su qualsiasi riquadro per visualizzare più dettagli e per vedere i risultati relativi a un periodo più lungo. Ad esempio, fare clic sul riquadro delle richieste e quindi selezionare un intervallo di tempo:
 
-![Fare clic per visualizzare più dati e selezionare un intervallo di tempo][]
+![Fare clic per visualizzare più dati e selezionare un intervallo di tempo](./media/appinsights/appinsights-48metrics.png)
 
 Fare clic su un grafico per scegliere quali metriche visualizzare:
 
-![Fare clic su un grafico per scegliere le metriche][]
+![Fare clic su un grafico per scegliere le metriche](./media/appinsights/appinsights-61perfchoices.png)
 
 > [AZURE.NOTE] **Deselezionare tutte le metriche** per visualizzare la selezione completa disponibile. Le metriche sono suddivise in gruppi; quando si seleziona qualsiasi membro di un gruppo, vengono visualizzati solo gli altri membri di quel gruppo.
 
@@ -77,17 +77,17 @@ Cercare picchi inconsueti. In genere, il tempo di risposta aumenta con l'aumento
 
 Fare clic sul riquadro per visualizzare i tempi per URL specifici.
 
-![][1]
+![](./media/appinsights/appinsights-42reqs.png)
 
 ### Richieste lente
 
-![][2]
+![](./media/appinsights/appinsights-44slowest.png)
 
 Mostra quali richieste potrebbero necessitare di un'ottimizzazione delle prestazioni.
 
 ### Richieste non riuscite
 
-![][3]
+![](./media/appinsights/appinsights-46failed.png)
 
 La quantità di richieste che hanno restituito eccezioni non rilevate.
 
@@ -99,7 +99,7 @@ Viene conservato solo un campione di errori rappresentativi per l'analisi indivi
 
 Per sapere quali altri metriche è possibile visualizzare, fare clic su un grafico e deselezionare tutte le metriche per vedere l'intero set disponibile. Fare clic su (i) per visualizzare la definizione di ciascuna metrica.
 
-![Deselezionare tutte le metriche per visualizzare l'intero set][]
+![Deselezionare tutte le metriche per visualizzare l'intero set](./media/appinsights/appinsights-62allchoices.png)
 
 La selezione di una metrica nasconderà le altre metriche che non possono essere visualizzate nello stesso grafico.
 
@@ -107,50 +107,37 @@ La selezione di una metrica nasconderà le altre metriche che non possono essere
 
 Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare i problemi di prestazioni:
 
--   Configurare i [test Web][] in modo da ricevere un avviso se il sito Web non risponde o risponde in maniera non corretta o lentamente.
+-   Configurare i [test Web][availability] in modo da ricevere un avviso se il sito Web non risponde o risponde in maniera non corretta o lentamente.
 -   Confrontare il conteggio delle richieste con altre metriche per verificare se gli errori o la risposta lenta sono collegati al carico.
--   [Inserire e cercare istruzioni di traccia][] nel codice per individuare i problemi.
+-   [Inserire e cercare istruzioni di traccia][diagnostic] nel codice per individuare i problemi.
 
 ## <a name="next"></a>Passaggi successivi
 
-[Test Web][test Web]: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
+[Test Web][availability]: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
 
-[Acquisire e cercare tracce diagnostiche][Inserire e cercare istruzioni di traccia]: possibilità di inserire chiamate di traccia ed esaminare i risultati per individuare i problemi.
+[Acquisire e cercare tracce diagnostiche][diagnostic]: possibilità di inserire chiamate di traccia ed esaminare i risultati per individuare i problemi.
 
-[Monitoraggio dell'utilizzo][]: possibilità di scoprire come le persone usano l'applicazione.
+[Monitoraggio dell'utilizzo][usage]: possibilità di scoprire come le persone usano l'applicazione.
 
-[Risoluzione dei problemi][] e domande e risposte
+[Risoluzione dei problemi][qna] e domande e risposte
 
 ## Ulteriori informazioni
 
--   [Application Insights - Guida introduttiva][Application Insights]
--   [Monitoraggio di un server Web live][Monitorare ora le prestazioni di un sito Web live]
--   [Monitoraggio delle prestazioni delle applicazioni Web][]
--   [Ricerca nei registri di diagnostica][Inserire e cercare istruzioni di traccia]
--   [Monitoraggio della disponibilità con test Web][test Web]
--   [Monitoraggio dell'utilizzo][]
--   [Domande e risposte e risoluzione dei problemi][Risoluzione dei problemi]
+-   [Application Insights - Guida introduttiva][start]
+-   [Monitoraggio di un server Web live][redfield]
+-   [Monitoraggio delle prestazioni delle applicazioni Web][perf]
+-   [Ricerca nei registri di diagnostica][diagnostic]
+-   [Monitoraggio della disponibilità con test Web][availability]
+-   [Monitoraggio dell'utilizzo][usage]
+-   [Domande e risposte e risoluzione dei problemi][qna]
 
 <!--Link references-->
 
-  [Application Insights]: ../app-insights-start-monitoring-app-health-usage/
-  [Configurazione del monitoraggio delle prestazioni]: #setup
-  [Visualizzazione dei dati]: #view
-  [Interpretazione dei dati]: #metrics
-  [Diagnostica dei problemi]: #diagnosis
-  [Passaggi successivi]: #next
-  [Monitorare ora le prestazioni di un sito Web live]: ../app-insights-monitor-performance-live-website-now/
-  []: ./media/appinsights/appinsights-09eventcount.png
-  [Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure]: ./media/appinsights/appinsights-04-openPortal.png
-  [Fare clic per visualizzare altri dati]: ./media/appinsights/appinsights-41firstHealth.png
-  [Fare clic per visualizzare più dati e selezionare un intervallo di tempo]: ./media/appinsights/appinsights-48metrics.png
-  [Fare clic su un grafico per scegliere le metriche]: ./media/appinsights/appinsights-61perfchoices.png
-  [1]: ./media/appinsights/appinsights-42reqs.png
-  [2]: ./media/appinsights/appinsights-44slowest.png
-  [3]: ./media/appinsights/appinsights-46failed.png
-  [Deselezionare tutte le metriche per visualizzare l'intero set]: ./media/appinsights/appinsights-62allchoices.png
-  [test Web]: ../app-insights-monitor-web-app-availability/
-  [Inserire e cercare istruzioni di traccia]: ../app-insights-search-diagnostic-logs/
-  [Monitoraggio dell'utilizzo]: ../app-insights-web-track-usage/
-  [Risoluzione dei problemi]: ../app-insights-troubleshoot-faq/
-  [Monitoraggio delle prestazioni delle applicazioni Web]: ../app-insights-web-monitor-performance/
+[start]: ../app-insights-start-monitoring-app-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[perf]: ../app-insights-web-monitor-performance/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-web-track-usage/
+[qna]: ../app-insights-troubleshoot-faq/
+[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient

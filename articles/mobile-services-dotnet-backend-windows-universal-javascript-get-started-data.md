@@ -4,36 +4,36 @@
 
 # Introduzione ai dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 In questo argomento viene illustrato come utilizzare Servizi mobili di Azure come origine dati di back-end per un'app di Windows Store. In questa esercitazione si scaricherà un progetto di Visual Studio 2013 per un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si visualizzeranno le modifiche apportate ai dati durante l'esecuzione dell'app.
 
 Il servizio mobile che verrà creato in questa esercitazione è un servizio mobile back-end di .NET. Il Back-end .NET consente di utilizzare i linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile; inoltre è possibile eseguire il servizio mobile ed effettuarne il debugging sul computer locale in uso. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per back-end JavaScript di questo argomento.
 
-> [WACOM.NOTE]In questo argomento viene illustrato come utilizzare gli strumenti in Visual Studio Professional 2013 con aggiornamento 3 per connettere un nuovo servizio mobile a un'app di Windows universale. Se non è possibile eseguire l'aggiornamento a Visual Studio Professional 2013 aggiornamento 3 o si preferisce aggiungere manualmente il progetto di servizio mobile a una soluzione app di Windows Store, vedere [questa versione][] dell'argomento.
+> [WACOM.NOTE]In questo argomento viene illustrato come utilizzare gli strumenti in Visual Studio Professional 2013 con aggiornamento 3 per connettere un nuovo servizio mobile a un'app di Windows universale. Se non è possibile eseguire l'aggiornamento a Visual Studio Professional 2013 aggiornamento 3 o si preferisce aggiungere manualmente il progetto di servizio mobile a una soluzione app di Windows Store, vedere [questa versione][questa versione] dell'argomento.
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Download del progetto dell'app di Windows Store][]
-2.  [Creazione di un nuovo servizio mobile da Visual Studio][]
-3.  [Test del progetto di servizio mobile in locale][]
-4.  [Aggiornamento dell'app per l'utilizzo del servizio mobile][]
-5.  [Pubblicazione del servizio mobile in Azure][]
-6.  [Test dell'app con il servizio ospitato in Azure][]
-7.  [Visualizzazione dei dati archiviati nel database SQL][]
+1.  [Download del progetto dell'app di Windows Store][Download del progetto dell'app di Windows Store]
+2.  [Creazione di un nuovo servizio mobile da Visual Studio][Creazione di un nuovo servizio mobile da Visual Studio]
+3.  [Test del progetto di servizio mobile in locale][Test del progetto di servizio mobile in locale]
+4.  [Aggiornamento dell'app per l'utilizzo del servizio mobile][Aggiornamento dell'app per l'utilizzo del servizio mobile]
+5.  [Pubblicazione del servizio mobile in Azure][Pubblicazione del servizio mobile in Azure]
+6.  [Test dell'app con il servizio ospitato in Azure][Test dell'app con il servizio ospitato in Azure]
+7.  [Visualizzazione dei dati archiviati nel database SQL][Visualizzazione dei dati archiviati nel database SQL]
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
--   Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
--   [Visual Studio Professional 2013][]. È disponibile una versione di valutazione gratuita.
+-   Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
+-   [Visual Studio Professional 2013][Visual Studio Professional 2013]. È disponibile una versione di valutazione gratuita.
 
 ## <a name="download-app"></a>Download del progetto GetStartedWithData
 
-[WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project][]]
+[WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-javascript-download-project.md)]
 
 ## <a name="create-service"></a>Creazione di un nuovo servizio mobile da Visual Studio
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
 1.  In Esplora soluzioni passare alla sottocartella **services\\mobileService\\scripts**, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:
 
@@ -57,27 +57,27 @@ A questo punto, l'app di Windows Store e l'app di Windows Phone Store sono entra
 
 ## <a name="test-the-service-locally"></a>Test del progetto di servizio mobile in locale
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
 
 ## <a name="update-app"></a>Aggiornamento dell'app per l'utilizzo del servizio mobile
 
 In questa sezione l'app per Windows universale verrà aggiornata per l'utilizzo del servizio mobile come servizio back-end per l'applicazione. È necessario apportare modifiche solo al file di progetto default.js nella cartella di progetto GetStartedWithData.Shared.
 
-[WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app][]]
+[WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
 ## <a name="publish-mobile-service"></a>Pubblicazione del servizio mobile in Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>Test del servizio mobile ospitato in Azure
 
 Ora è possibile testare entrambe le versioni dell'app di Windows universale con il servizio mobile ospitato in Azure.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-test-app][]]
+[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
 ## <a name="view-stored-data"></a>Visualizzazione dei dati archiviati nel database SQL
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
 L'esercitazione **Introduzione ai dati** è terminata.
 
@@ -85,21 +85,21 @@ L'esercitazione **Introduzione ai dati** è terminata.
 
 In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows universale di utilizzare dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
--   [Utilizzo di script per la convalida e la modifica di dati][]
+-   [Utilizzo di script per la convalida e la modifica di dati][Utilizzo di script per la convalida e la modifica di dati]
     Ulteriori informazioni sull'utilizzo di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
--   [Utilizzo del paging per ridefinire le query][]
+-   [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query]
     Ulteriori informazioni su come utilizzare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, provare a eseguire una delle esercitazioni seguenti:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per i concetti e le procedure di .NET per Servizi mobili][]
+-   [Riferimento per i concetti e le procedure di .NET per Servizi mobili][Riferimento per i concetti e le procedure di .NET per Servizi mobili]
     Ulteriori informazioni su come utilizzare Servizi mobili con HTML e JavaScript.
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
@@ -113,7 +113,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [Pubblicazione del servizio mobile in Azure]: #publish-mobile-service
   [Test dell'app con il servizio ospitato in Azure]: #test-azure-hosted
   [Visualizzazione dei dati archiviati nel database SQL]: #view-stored-data
-  [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-javascript-get-started-data%2F
+  [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-javascript-get-started-data%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-windows-universal-javascript-download-project]: ../includes/mobile-services-windows-universal-javascript-download-project.md
   [mobile-services-dotnet-backend-create-new-service-vs2013]: ../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md
@@ -122,8 +122,8 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
   [mobile-services-dotnet-backend-view-sql-data]: ../includes/mobile-services-dotnet-backend-view-sql-data.md
-  [Utilizzo di script per la convalida e la modifica di dati]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
-  [Utilizzo del paging per ridefinire le query]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
+  [Utilizzo di script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-js
+  [Utilizzo del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-js
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
   [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
   [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library/

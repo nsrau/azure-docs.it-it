@@ -1,16 +1,16 @@
 1.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto del servizio e selezionare **Avvia nuova istanza** dal menu di scelta rapida **Debug**.
 
-    ![avvio del progetto di servizio mobile a livello locale][]
+    ![avvio del progetto di servizio mobile a livello locale][avvio del progetto di servizio mobile a livello locale]
 
     Visual Studio aprirà la pagina Web predefinita per il servizio. Per impostazione predefinita, Visual Studio ospita il servizio mobile localmente in IIS Express.
 
 2.  Fare clic con il pulsante destro del mouse sull'icona di IIS Express nella barra delle applicazioni di Windows e verificare che il servizio mobile sia stato avviato.
 
-    ![verifica del servizio mobile nella barra delle applicazioni][]
+    ![verifica del servizio mobile nella barra delle applicazioni][verifica del servizio mobile nella barra delle applicazioni]
 
 3.  Nella pagina di avvio del servizio mobile, fare clic su **Provalo**.
 
-    ![pagina di avvio del servizio mobile][]
+    ![pagina di avvio del servizio mobile][pagina di avvio del servizio mobile]
 
     Viene visualizzata la pagina di documentazione sull'API, che può essere utilizzata per effettuare il test del servizio mobile.
 
@@ -26,7 +26,7 @@
 
     ![][1]
 
-    Al servizio mobile locale viene inviata una richiesta GET di restituzione di tutte le righe nella tabella TodoItem. Poiché l'inizializzatore esegue il seeding della tabella, nel corpo del messaggio di risposta vengono restituiti due oggetti TodoItem. Per maggiori informazioni sugli inizializzatori, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET][].
+    Al servizio mobile locale viene inviata una richiesta GET di restituzione di tutte le righe nella tabella TodoItem. Poiché l'inizializzatore esegue il seeding della tabella, nel corpo del messaggio di risposta vengono restituiti due oggetti TodoItem. Per maggiori informazioni sugli inizializzatori, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET][Come modificare un modello di dati in un servizio mobile back-end .NET].
 
     ![][2]
 

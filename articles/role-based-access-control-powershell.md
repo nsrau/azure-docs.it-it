@@ -16,11 +16,11 @@ In questa esercitazione vengono fornite informazioni sull'utilizzo di Windows Po
 
 Per poter utilizzare Windows PowerShell per gestire RBAC, è necessario disporre dei seguenti programmi:
 
--   Windows PowerShell 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare:`$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0][] o [Windows Management Framework 4.0][].
+-   Windows PowerShell 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare:`$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0][Windows Management Framework 3.0] o [Windows Management Framework 4.0][Windows Management Framework 4.0].
 
--   Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell][].
+-   Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 
-Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per ulteriori informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell][].
+Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per ulteriori informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell][Introduzione a Windows PowerShell].
 
 Per informazioni dettagliate sui cmdlet utilizzati in questa esercitazione, utilizzare il cmdlet Get-Help.
 
@@ -33,15 +33,15 @@ Ad esempio, per informazioni sul cmdlet Add-AzureAccount, digitare:
 Leggere inoltre le seguenti esercitazioni per acquisire familiarità con l'utilizzo di Gestione risorse di Azure in Windows PowerShell:
 
 -   [Come installare e configurare Azure PowerShell][1]
--   [Utilizzo di Windows PowerShell con Gestione risorse][]
+-   [Utilizzo di Windows PowerShell con Gestione risorse][Utilizzo di Windows PowerShell con Gestione risorse]
 
 ## Contenuto dell'esercitazione:
 
--   [Connessione alle sottoscrizioni][]
--   [Controllo delle assegnazioni di ruoli esistenti][]
--   [Creazione di un'assegnazione di ruolo][]
--   [Verifica delle autorizzazioni][]
--   [Passaggi successivi][]
+-   [Connessione alle sottoscrizioni][Connessione alle sottoscrizioni]
+-   [Controllo delle assegnazioni di ruoli esistenti][Controllo delle assegnazioni di ruoli esistenti]
+-   [Creazione di un'assegnazione di ruolo][Creazione di un'assegnazione di ruolo]
+-   [Verifica delle autorizzazioni][Verifica delle autorizzazioni]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <span id="connect"></span></a>Connessione alle sottoscrizioni
 
@@ -49,7 +49,7 @@ Poiché RBAC funziona solo con Gestione risorse di Azure, occorre innanzitutto p
 
     PS C:PS C:\> Switch-AzureMode -Name AzureResourceManagergt; Switch-AzureMode -Name AzureResourceManager
 
-Per maggiori informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse][].
+Per maggiori informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse][Utilizzo di Windows PowerShell con Gestione risorse].
 
 Per connettersi alle proprie sottoscrizioni di Azure, digitare:
 
@@ -135,21 +135,21 @@ Quando si tenterà di eseguire un altro cmdlet, ad esempio `New-AzureResourceGro
 
 Per ulteriori informazioni sulla gestione del controllo degli accessi in base al ruolo con Windows PowerShell e argomenti correlati:
 
--   [Controllo degli accessi in base al ruolo in Windows Azure][]
--   [Cmdlet di Gestione risorse di Azure][]: informazioni sull'utilizzo dei cmdlet nel modulo AzureResourceManager.
--   [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure][]: per informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
--   [Blog di Azure][]: informazioni sulle nuove funzionalità di Azure.
--   [Blog di Windows PowerShell][]: informazioni sulle nuove funzionalità di Windows PowerShell.
--   [Blog "Hey, Scripting Guy!":][] suggerimenti e consigli basati sull'esperienza dei membri della community Windows PowerShell.
--   [Configurazione del controllo degli accessi in base al ruolo utilizzando XPLAT CLI][]
--   [Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo][]
+-   [Controllo degli accessi in base al ruolo in Windows Azure][Controllo degli accessi in base al ruolo in Windows Azure]
+-   [Cmdlet di Gestione risorse di Azure][Cmdlet di Gestione risorse di Azure]: informazioni sull'utilizzo dei cmdlet nel modulo AzureResourceManager.
+-   [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure][Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: per informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
+-   [Blog di Azure][Blog di Azure]: informazioni sulle nuove funzionalità di Azure.
+-   [Blog di Windows PowerShell][Blog di Windows PowerShell]: informazioni sulle nuove funzionalità di Windows PowerShell.
+-   [Blog "Hey, Scripting Guy!":][Blog "Hey, Scripting Guy!":] suggerimenti e consigli basati sull'esperienza dei membri della community Windows PowerShell.
+-   [Configurazione del controllo degli accessi in base al ruolo utilizzando XPLAT CLI][Configurazione del controllo degli accessi in base al ruolo utilizzando XPLAT CLI]
+-   [Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo][Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo]
 
   [Windows PowerShell]: /it-it/documentation/articles/powershell-rbac.md "Windows PowerShell"
   [Interfaccia della riga di comando multipiattaforma]: /it-it/documentation/articles/xplat-cli-rbac.md "Interfaccia della riga di comando multipiattaforma"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/it-it/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=40855
   [Come installare e configurare Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/
-  [Introduzione a Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Introduzione a Windows PowerShell]: http://technet.microsoft.com/it-it/library/hh857337.aspx
   [1]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
   [Utilizzo di Windows PowerShell con Gestione risorse]: http://azure.microsoft.com/it-it/documentation/articles/powershell-azure-resource-manager/
   [Connessione alle sottoscrizioni]: #connect

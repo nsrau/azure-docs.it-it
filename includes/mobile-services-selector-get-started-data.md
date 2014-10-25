@@ -1,16 +1,16 @@
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
 
--   [(iOS | .NET)][]
--   [(iOS | JavaScript)][]
--   [(Windows C# | .NET)][]
--   [(Windows C# | Javascript)][]
--   [(Windows JavaScript | .NET)][]
--   [(Windows JavaScript | Javascript)][]
--   [(Android | .NET)][]
--   [(Android | Javascript)][]
--   [(Xamarin iOS | Javascript)][]
--   [(Xamarin Android | Javascript)][]
--   [(HTML | Javascript)][]
+-   [(iOS | .NET)][(iOS | .NET)]
+-   [(iOS | JavaScript)][(iOS | JavaScript)]
+-   [(Windows C# | .NET)][(Windows C# | .NET)]
+-   [(Windows C# | Javascript)][(Windows C# | Javascript)]
+-   [(Windows JavaScript | .NET)][(Windows JavaScript | .NET)]
+-   [(Windows JavaScript | Javascript)][(Windows JavaScript | Javascript)]
+-   [(Android | .NET)][(Android | .NET)]
+-   [(Android | Javascript)][(Android | Javascript)]
+-   [(Xamarin iOS | Javascript)][(Xamarin iOS | Javascript)]
+-   [(Xamarin Android | Javascript)][(Xamarin Android | Javascript)]
+-   [(HTML | Javascript)][(HTML | Javascript)]
 
   [(iOS | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
   [(iOS | JavaScript)]: /it-it/documentation/articles/mobile-services-ios-get-started-data/

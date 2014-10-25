@@ -4,40 +4,40 @@
 
 # Creazione di un'app di ricerca geospaziale mediante Ricerca di Azure
 
--   [Prerequisiti][]
--   [Bing Mappe][]
--   [Geocodifica degli indirizzi in C# utilizzando l'API DataFlow di Bing Mappe][]
--   [Aggiunta della mappatura a un'applicazione MVC4 utilizzando Ricerca di Azure e Bing Mappe][]
--   [Esplorazione di AdventureWorksWebGeo][]
--   [Passaggi successivi][]
+-   [Prerequisiti](#sub-1)
+-   [Bing Mappe](#sub-2)
+-   [Geocodifica degli indirizzi in C# utilizzando l'API DataFlow di Bing Mappe](#sub-3)
+-   [Aggiunta della mappatura a un'applicazione MVC4 utilizzando Ricerca di Azure e Bing Mappe](#sub-4)
+-   [Esplorazione di AdventureWorksWebGeo](#sub-5)
+-   [Passaggi successivi](#next-steps)
 
 ## Panoramica
 
 In questa esercitazione viene illustrata la procedura di aggiunta della ricerca geospaziale alle applicazioni Web utilizzando Ricerca di Azure e Bing Mappe. La ricerca geografica consente di individuare gli elementi desiderati entro una determinata distanza da un punto (ad esempio entro 5 km dall'ubicazione corrente). La funzionalità geospaziale di Ricerca di Azure supporta le tecniche di mappatura più comuni. Ad esempio, se si desidera usare delle forme poligonali in un'app immobiliare per mostrare le proprietà in vendita all'interno di un poligono, è possibile farlo facilmente usando OData o la sintassi di ricerca semplice.
 
-Per maggiori informazioni, guardare questo filmato di Channel 9 [su Ricerca di Azure e sui dati geospaziali][]
+Per maggiori informazioni, guardare questo filmato di Channel 9 [su Ricerca di Azure e sui dati geospaziali](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
-![][]
+![][7]
 
 Durante l'esercitazione l'applicazione verrà creata utilizzando il servizio di mappatura di Bing per geocodificare gli indirizzi caricati da un file CSV, memorizzando in seguito i dati risultanti in un indice di ricerca.
 
-Questa esercitazione è basata sulla [demo Ricerca di Azure - Adventure Works][]. La demo rappresenta un buon punto di partenza per familiarizzarsi con la creazione di un indice e la chiamata dell'API di Ricerca di Azure da un'app Web.
+Questa esercitazione è basata sulla [demo Ricerca di Azure - Adventure Works](http://azuresearchadventureworksdemo.codeplex.com). La demo rappresenta un buon punto di partenza per familiarizzarsi con la creazione di un indice e la chiamata dell'API di Ricerca di Azure da un'app Web.
 
 ## Prerequisiti
 
--   Visual Studio 2012 o versione successiva con ASP.NET MVC 4 e SQL Server installati. È possibile scaricare Visual Studio 2013 Express online nel [Download Center][].
--   Un servizio di Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Per ulteriori dettagli vedere [Configurazione del servizio di ricerca nel Portale di anteprima Azure][].
+-   Visual Studio 2012 o versione successiva con ASP.NET MVC 4 e SQL Server installati. È possibile scaricare Visual Studio 2013 Express online nel [Download Center](http://www.microsoft.com/it-it/download/details.aspx?id=40747).
+-   Un servizio di Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Per ulteriori dettagli vedere [Configurazione del servizio di ricerca nel Portale di anteprima Azure](../search-configure/).
 -   Un servizio di mappa Bing e una chiave per accedervi. Le istruzioni sono specificate nella sezione successiva.
--   [Esempio di ricerca geografica in Ricerca di Azure su CodePlex][]. Nella scheda Source fare clic su **Download** per scaricare un file compresso della soluzione.
+-   [Esempio di ricerca geografica in Ricerca di Azure su CodePlex](https://azuresearchgeospatial.codeplex.com/). Nella scheda Source fare clic su **Download** per scaricare un file compresso della soluzione.
 
-    ![][1]
+    ![][12]
 
 Questa soluzione contiene due progetti:
 
 -   **StoreIndexer** crea un indice di Ricerca di Azure e carica i dati.
 -   **AdventureWorksWebGeo** è un'applicazione basata su MVC4 che interroga l'indice di Ricerca di Azure e mostra i percorsi di archiviazione su una mappa Bing.
 
-[WACOM.INCLUDE [Per completare l'esercitazione, è necessario un account Azure:][]]
+[WACOM.INCLUDE [Per completare l'esercitazione, è necessario un account Azure:](../includes/free-trial-note.md)]
 
 ## Bing Mappe
 
@@ -49,7 +49,7 @@ L'API di Bing Mappe viene utilizzata per due motivi.
 
 ### Creazione di un account per Bing Mappe
 
-1.  Accedere al [portale di Bing Mappe][] e creare un nuovo account. Immettere i dati richiesti per creare l'account.
+1.  Accedere al [portale di Bing Mappe](https://www.bingmapsportal.com/) e creare un nuovo account. Immettere i dati richiesti per creare l'account.
 
 2.  Dopo aver creato l'account, selezionare **Crea o visualizza chiavi** e immettere i dati richiesti per creare una chiave. Ai fini di questa demo è possibile scegliere **Codice di valutazione**.
 
@@ -63,7 +63,7 @@ I dati provengono da un file CSV chiamato store\_locations.csv ubicato nell'orig
 
 Segue una spiegazione dettagliata del codice.
 
-1.  Aprire la soluzione AdventureWorksGeo in Visual Studio, espandere il progetto **StoreIndexer** in Esplora soluzioni e aprire Program.cs. Poiché la creazione dell'indice è già stata illustrata nella [demo del servizio di Ricerca di Azure - Adventure Works][], la spiegazione sul funzionamento in Program.cs viene saltata.
+1.  Aprire la soluzione AdventureWorksGeo in Visual Studio, espandere il progetto **StoreIndexer** in Esplora soluzioni e aprire Program.cs. Poiché la creazione dell'indice è già stata illustrata nella [demo del servizio di Ricerca di Azure - Adventure Works](http://azuresearchadventureworksdemo.codeplex.com/), la spiegazione sul funzionamento in Program.cs viene saltata.
 
 2.  Passando alla funzione **Main**, si noti come quest'ultima chiama **ApplyStoreData**. Passare a questa funzione e consultarne il codice.
 
@@ -97,7 +97,7 @@ In questo passaggio verrò compilata ed eseguita l'applicazione di ricerca in un
 
 4.  Salvare Web.config
 
-5.  Premere **F5** per avviare il progetto. Se si verifica un errore di compilazione, seguire questi consigli sulla [risoluzione dei problemi][].
+5.  Premere **F5** per avviare il progetto. Se si verifica un errore di compilazione, seguire questi consigli sulla [risoluzione dei problemi](#err-mvc).
 
 Si noti che i negozi sono visualizzati come punti sulla mappa. Facendo clic su un negozio, viene visualizzato un messaggio popup con i dettagli del negozio. Tutte queste informazioni provengono dall'indice di Ricerca di Azure chiamato "stores" creato nei passaggi precedenti.
 
@@ -140,22 +140,15 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di ulteriori c
 
 -   Funzionalità di selezione definite dall'utente per specificare le regioni in cui eseguire le ricerche selezionando un'area sulla mappa. In seguito, l'area viene filtrata dalla funzione di Ricerca di Azure utilizzando l'API di geo-convergenza e tracciata sulla mappa.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+[Prerequisites]: #sub-1
+[Bing Maps]: #sub-2
+[Geocode Addresses in C# using Bing Maps DataFlow API]: #sub-3
+[Add Mapping to an MVC4 Application using Azure Search and Bing Maps]: #sub-4
+[Explore AdventureWorksWebGeo]: #sub-5
+[Next steps]: #next-steps
 
-  [Prerequisiti]: #sub-1
-  [Bing Mappe]: #sub-2
-  [Geocodifica degli indirizzi in C# utilizzando l'API DataFlow di Bing Mappe]: #sub-3
-  [Aggiunta della mappatura a un'applicazione MVC4 utilizzando Ricerca di Azure e Bing Mappe]: #sub-4
-  [Esplorazione di AdventureWorksWebGeo]: #sub-5
-  [Passaggi successivi]: #next-steps
-  [su Ricerca di Azure e sui dati geospaziali]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
-  []: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
-  [demo Ricerca di Azure - Adventure Works]: http://azuresearchadventureworksdemo.codeplex.com
-  [Download Center]: http://www.microsoft.com/en-us/download/details.aspx?id=40747
-  [Configurazione del servizio di ricerca nel Portale di anteprima Azure]: ../search-configure/
-  [Esempio di ricerca geografica in Ricerca di Azure su CodePlex]: https://azuresearchgeospatial.codeplex.com/
-  [1]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
-  [Per completare l'esercitazione, è necessario un account Azure:]: ../includes/free-trial-note.md
-  [portale di Bing Mappe]: https://www.bingmapsportal.com/
-  [demo del servizio di Ricerca di Azure - Adventure Works]: http://azuresearchadventureworksdemo.codeplex.com/
-  [risoluzione dei problemi]: #err-mvc
+
+<!--Image references-->
+[7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
+[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG

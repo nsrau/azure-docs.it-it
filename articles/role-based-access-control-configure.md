@@ -2,29 +2,31 @@
 
 <tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com"></tags>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.--> <!--Properties section (above): this is required in all topics. Please fill it out!--> <!--The next line, with one pound sign at the beginning, is the page title-->
+<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.--> 
+<!--Properties section (above): this is required in all topics. Please fill it out!--> 
+<!--The next line, with one pound sign at the beginning, is the page title-->
 
 # Controllo degli accessi in base al ruolo nel Portale di anteprima Azure
 
-Il Portale di anteprima Azure offre ora il supporto del Controllo degli accessi in base al ruolo (RBAC), che aiuta le organizzazioni a gestire gli accessi in maniera più semplice e precisa. Questo [post di blog][] include una rapida introduzione a tale funzionalità. In questo argomento vengono descritti i concetti nei dettagli e i casi di utilizzo aggiuntivi.
+Il Portale di anteprima Azure offre ora il supporto del Controllo degli accessi in base al ruolo (RBAC), che aiuta le organizzazioni a gestire gli accessi in maniera più semplice e precisa. Questo <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">post di blog</a> include una rapida introduzione a tale funzionalità. In questo argomento vengono descritti i concetti nei dettagli e i casi di utilizzo aggiuntivi.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 ## Sommario
 
--   [Controllo degli accessi in base al ruolo (RBAC) in Azure][]
--   [Coesistenza tra il controllo degli accessi in base al ruolo (RBAC) e le attività dei coamministratori delle sottoscrizioni][]
--   [Autorizzazioni per le operazioni di gestione e per le operazioni di dati][]
--   [Aggiunta e rimozione degli accessi][]
--   [Problemi noti del controllo degli accessi in base al ruolo][]
--   [Invio di commenti][]
--   [Passaggi successivi][]
+-   [Controllo degli accessi in base al ruolo (RBAC) in Azure](#whatisrbac)
+-   [Coesistenza tra il controllo degli accessi in base al ruolo (RBAC) e le attività dei coamministratori delle sottoscrizioni](#coexist)
+-   [Autorizzazioni per le operazioni di gestione e per le operazioni di dati](#authmgmt)
+-   [Aggiunta e rimozione degli accessi](#addremoveaccess)
+-   [Problemi noti del controllo degli accessi in base al ruolo](#knownissues)
+-   [Invio di commenti](#feedback)
+-   [Passaggi successivi](#next)
 
 ## <span id="whatisrbac"></span></a>Controllo degli accessi in base al ruolo (RBAC) in Azure
 
 Ogni sottoscrizione di Azure è associata a una Azure Active Directory. Gli utenti e i servizi che accedono alle risorse della sottoscrizione utilizzando il portale di gestione di Azure o l'API di Gestione risorse di Azure devono prima eseguire l'autenticazione con tale Azure Active Directory.
 
-![][]
+![][1] 
 
 Il controllo degli accessi in base al ruolo di Azure consente di concedere gli accessi pertinenti agli utenti, ai gruppi e ai servizi di Azure AD, assegnando loro i ruoli in qualità di sottoscrizione, di gruppo di risorse o di risorsa indipendente. Il ruolo assegnato definisce il livello di accesso alla risorsa di Azure assegnato agli utenti, ai gruppi e ai servizi.
 
@@ -108,16 +110,16 @@ L'accesso viene concesso agli utenti e ai servizi di Azure AD assegnando loro il
 
 I ruoli possono essere assegnati ai seguenti tipi di entità di sicurezza di Azure AD:
 
--   **Utenti**: i ruoli possono essere assegnati agli utenti organizzativi presenti nell'Azure AD a cui è associata la sottoscrizione di Azure. I ruoli possono essere assegnati anche a utenti di account Microsoft esterni (ad esempio [giovanni@outlook.com][]), utilizzando l'azione di invito per assegnare l'utente a un ruolo nel Portale di anteprima Azure. L'assegnazione di un ruolo a un utente di un account Microsoft esterno provoca la creazione di un account guest in Azure AD. Se l'account guest viene disabilitato nella directory, l'utente esterno non potrà utilizzare alcuna risorsa di Azure a cui è autorizzato ad accedere.
+-   **Utenti**: i ruoli possono essere assegnati agli utenti organizzativi presenti nell'Azure AD a cui è associata la sottoscrizione di Azure. I ruoli possono essere assegnati anche a utenti di account Microsoft esterni (ad esempio giovanni@outlook.com), utilizzando l'azione di invito per assegnare l'utente a un ruolo nel Portale di anteprima Azure. L'assegnazione di un ruolo a un utente di un account Microsoft esterno provoca la creazione di un account guest in Azure AD. Se l'account guest viene disabilitato nella directory, l'utente esterno non potrà utilizzare alcuna risorsa di Azure a cui è autorizzato ad accedere.
 -   **Gruppi**: i ruoli possono essere assegnati ai gruppi di sicurezza di Azure AD. Se l'utente diventa un membro che dispone dell'accesso a una risorsa, l'accesso gli viene assegnato automaticamente. Allo stesso modo, se viene rimosso dal gruppo, l'utente perde automaticamente l'accesso alla risorsa. La gestione degli accessi attraverso i gruppi (assegnando i ruoli ai gruppi e aggiungendo gli utenti a tali gruppi) è la prassi consigliata, piuttosto che l'assegnazione diretta dei ruoli agli utenti. In Azure non è possibile assegnare ruoli alle liste di distribuzione.
-    La possibilità di assegnare ruoli ai gruppi consente a un'organizzazione di estendere il controllo degli accessi dalla directory in sede al cloud. Pertanto, i gruppi di sicurezza già composti per controllare l'accesso in sede possono essere utilizzati per controllare l'accesso alle risorse nel Portale di anteprima Azure. Per maggiori informazioni sulle diverse opzioni di sincronizzazione degli utenti e dei gruppi da una directory in sede, vedere [Panoramica sull'integrazione della directory][]. Azure AD Premium offre una [funzionalità di delega della gestione dei gruppi][] che consente di delegare le attività di creazione e gestione dei gruppi a utenti non amministratori in Azure AD.
+    La possibilità di assegnare ruoli ai gruppi consente a un'organizzazione di estendere il controllo degli accessi dalla directory in sede al cloud. Pertanto, i gruppi di sicurezza già composti per controllare l'accesso in sede possono essere utilizzati per controllare l'accesso alle risorse nel Portale di anteprima Azure. Per maggiori informazioni sulle diverse opzioni di sincronizzazione degli utenti e dei gruppi da una directory in sede, vedere [Panoramica sull'integrazione della directory](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium offre una [funzionalità di delega della gestione dei gruppi](http://msdn.microsoft.com/library/azure/dn641267.aspx) che consente di delegare le attività di creazione e gestione dei gruppi a utenti non amministratori in Azure AD.
 -   **Entità di servizio**: le identità di servizio, rappresentate dalle entità di servizio presenti nella directory, consentono di eseguire le autenticazioni con Azure AD e possono comunicare in maniera sicura tra loro. I servizi possono ottenere l'accesso alle risorse di Azure assegnando i ruoli all'entità Azure AD che rappresenta il servizio pertinente tramite il modulo Azure per Windows PowerShell.
 
 #### Ambito delle risorse
 
 Non è necessario assegnare l'accesso all'intera sottoscrizione. I ruoli possono essere assegnati sia a gruppi di risorse sia a singole risorse. In Azure, una risorsa eredita le assegnazioni dei ruoli dalle sue risorse principali. Pertanto, se un utente, un gruppo o un servizio è autorizzato ad accedere solo a un gruppo di risorse di sottoscrizione, potrà accedere solo a tale gruppo e alle sue risorse e non agli altri gruppi di risorse della sottoscrizione. Per fare un altro esempio, un gruppo di sicurezza può essere aggiunto al ruolo di lettore per un gruppo di risorse e al ruolo di collaboratore per un database all'interno di tale gruppo.
 
-![][1]
+![][2]
 
 ## <span id="coexist"></span></a>Coesistenza tra il controllo degli accessi in base al ruolo (RBAC) e le attività dei coamministratori delle sottoscrizioni
 
@@ -134,9 +136,9 @@ Il controllo degli accessi in base al ruolo (RBAC) è supportato solo per le ope
 
 Nel prossimo esempio viene illustrata la gestione degli accessi da parte di un proprietario di risorse di un'organizzazione. In questo scenario, più persone lavorano a diversi progetti di collaudo e produzione creati utilizzando risorse di Azure. Uno degli obiettivi consiste nel concedere gli accessi nel modo più efficace. In effetti, è necessario permettere agli utenti di accedere a tutte le risorse necessarie, ma non a ulteriori elementi. Un altro obiettivo consiste nello sfruttamento degli investimenti stanziati per i processi e gli strumenti, al fine di utilizzare i gruppi di sicurezza controllati in un'Active Directory in sede. Nelle sezioni successive viene spiegato come impostare l'accesso a tali risorse:
 
--   [Aggiunta dell'accesso][]
--   [Rimozione dell'accesso][]
--   [Aggiunta e rimozione dell'accesso per un utente esterno][]
+-   [Aggiunta dell'accesso](#add)
+-   [Rimozione dell'accesso](#remove)
+-   [Aggiunta e rimozione dell'accesso per un utente esterno](#addremoveext)
 
 ### 
 
@@ -155,25 +157,25 @@ Di seguito è riportato un riepilogo dei requisiti di accesso e di come vengono 
 
 Aggiungere innanzitutto l'accesso in lettura a tutte le risorse della sottoscrizione. Fare clic su **Browse \> Everything \> Subscriptions**.
 
-![][2]
+![][3] 
 
 Fare clic su *nome sottoscrizione* \*\* \> Reader \> Add\*\*. Nell'elenco di utenti e gruppi, selezionare o digitare il nome del gruppo di Active Directory.
 
-![][3]
+![][4]
 
 Aggiungere lo stesso team al ruolo di collaboratore del gruppo di risorse Test. Fare clic sul gruppo di risorse per aprire il blade delle proprietà. In **Roles** fare clic su **Contributor \> Add** e digitare il nome del team.
 
-![][4]
+![][5]
 
 Per aggiungere Brock al ruolo di collaboratore del gruppo di risorse Prod, fare clic sul gruppo di risorse, selezionare **Contributor \> Add** e digitare il nome di Brock.
 
-![][5]
+![][6]
 
 Le assegnazioni dei ruoli possono essere gestite anche utilizzando il modulo Microsoft Azure per Windows PowerShell. Segue un esempio dell'aggiunta di un account di Brock utilizzando il cmdlet New-AzureRoleAssignment al posto del portale:
 
     PS C:PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDBgt; New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Per ulteriori informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell][].
+Per ulteriori informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-powershell/).
 
 ### 
 
@@ -184,7 +186,7 @@ Per ulteriori informazioni sull'aggiunta e sulla rimozione degli accessi tramite
 </p>
 Le assegnazioni possono essere rimosse facilmente. Prendiamo l'esempio della rimozione di un utente chiamato Brad Adams dal ruolo di lettore per il gruppo di risorse TestDB. Aprire il blade del gruppo di risorse e fare clic su **Reader \> Brad Adams \> Remove**.
 
-![][6]
+![][7]
 
 Segue un esempio di come rimuovere Brad Adams utilizzando il cmdlet Remove-AzureRoleAssignment:
 
@@ -200,7 +202,7 @@ Segue un esempio di come rimuovere Brad Adams utilizzando il cmdlet Remove-Azure
 La scheda **Configure** di una directory include le opzioni per il controllo degli accessi per gli utenti esterni. Tali opzioni possono essere modificate unicamente da un amministratore globale di directory all'interno dell'interfaccia utente (non sono disponibili i metodi Windows PowerShell e API) del portale Azure completo.
 Aprire la scheda **Configure** del portale Azure completo facendo clic su **Active Directory**, quindi selezionare il nome della directory.
 
-![][7]
+![][10]
 
 In seguito è possibile modificare le opzioni di controllo degli accessi per gli utenti esterni.
 
@@ -224,55 +226,32 @@ Durante l'aggiunta di un utente esterno, un ospite viene creato nella directory.
 
 ## <span id="knownissues"></span></a>Problemi noti del controllo degli accessi in base al ruolo
 
-In caso di problemi durante l'uso della funzionalità di controllo degli accessi in base al ruolo in modalità di anteprima, vedere la sezione [Risoluzione dei problemi di controllo degli accessi in base al ruolo][] per consultare tutti i problemi noti in tale ambito.
+In caso di problemi durante l'uso della funzionalità di controllo degli accessi in base al ruolo in modalità di anteprima, vedere la sezione [Risoluzione dei problemi di controllo degli accessi in base al ruolo](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-troubleshooting/) per consultare tutti i problemi noti in tale ambito.
 
 ## <span id="feedback"></span></a>Invio di commenti
 
-È possibile inviare commenti sul controllo degli accessi in base al ruolo in Azure facendo clic [qui][].
+È possibile inviare commenti sul controllo degli accessi in base al ruolo in Azure facendo clic [qui](http://aka.ms/azurerbacfeedback).
 
 ## <span id="next"></span></a>Passaggi successivi
 
 Di seguito sono riportate ulteriori risorse utili per l'uso del controllo degli accessi in base al ruolo:
 
--   [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell][]
--   [Gestione del controllo degli accessi in base al ruolo con XPLAT CLI][]
--   [Risoluzione dei problemi di controllo degli accessi in base al ruolo][]
--   [Azure Active Directory][]
--   [Azure Active Directory Premium e Basic][]
--   [Come vengono associate le sottoscrizioni di Azure e Azure AD][]
--   Per un'introduzione alla gestione self-service dei gruppi di sicurezza, consultare il [blog del team di Active Directory][]
+-   [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-powershell/)
+-   [Gestione del controllo degli accessi in base al ruolo con XPLAT CLI](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-xplat-cli/)
+-   [Risoluzione dei problemi di controllo degli accessi in base al ruolo](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-troubleshooting/)
+-   [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
+-   [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/it-it/library/azure/dn532272.aspx)
+-   [Come vengono associate le sottoscrizioni di Azure e Azure AD](http://msdn.microsoft.com/it-it/library/azure/dn629581.aspx)
+-   Per un'introduzione alla gestione self-service dei gruppi di sicurezza, consultare il [blog del team di Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 <!--Image references-->
-
-  [post di blog]: http://go.microsoft.com/fwlink/?LinkId=511576
-  [Controllo degli accessi in base al ruolo (RBAC) in Azure]: #whatisrbac
-  [Coesistenza tra il controllo degli accessi in base al ruolo (RBAC) e le attività dei coamministratori delle sottoscrizioni]: #coexist
-  [Autorizzazioni per le operazioni di gestione e per le operazioni di dati]: #authmgmt
-  [Aggiunta e rimozione degli accessi]: #addremoveaccess
-  [Problemi noti del controllo degli accessi in base al ruolo]: #knownissues
-  [Invio di commenti]: #feedback
-  [Passaggi successivi]: #next
-  []: ./media/role-based-access-control-configure/RBACSubAuthDir.png
-  [giovanni@outlook.com]: mailto:joe@outlook.com
-  [Panoramica sull'integrazione della directory]: http://technet.microsoft.com/library/jj573653.aspx
-  [funzionalità di delega della gestione dei gruppi]: http://msdn.microsoft.com/library/azure/dn641267.aspx
-  [1]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
-  [Aggiunta dell'accesso]: #add
-  [Rimozione dell'accesso]: #remove
-  [Aggiunta e rimozione dell'accesso per un utente esterno]: #addremoveext
-  [2]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
-  [3]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
-  [4]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
-  [5]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
-  [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell]: http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-powershell/
-  [6]: ./media/role-based-access-control-configure/RBACRemoveRole.png
-  [7]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
-  [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
-  [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
-  [Risoluzione dei problemi di controllo degli accessi in base al ruolo]: http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-troubleshooting/
-  [qui]: http://aka.ms/azurerbacfeedback
-  [Gestione del controllo degli accessi in base al ruolo con XPLAT CLI]: http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-xplat-cli/
-  [Azure Active Directory]: http://msdn.microsoft.com/library/azure/jj673460.aspx
-  [Azure Active Directory Premium e Basic]: http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx
-  [Come vengono associate le sottoscrizioni di Azure e Azure AD]: http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx
-  [blog del team di Active Directory]: http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx
+[1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
+[2]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
+[3]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
+[4]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
+[5]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
+[6]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
+[7]: ./media/role-based-access-control-configure/RBACRemoveRole.png
+[8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
+[9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
+[10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png

@@ -32,7 +32,7 @@
 
     Se si utilizza un provider di identità diverso da Facebook, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: *microsoftaccount*, *twitter*, *google* o *windowsazureactivedirectory*.
 
-    > [WACOM.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo [login][] specificando il valore **true** per il parametro *useSingleSignOn*. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
+    > [WACOM.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo [login][login] specificando il valore **true** per il parametro *useSingleSignOn*. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
 
 2.  Nel progetto dell'app di Windows Store, aprire il file di progetto default.html e aggiungere il seguente elemento **button** esattamente prima dell'elemento che definisce il pulsante **save**:
 

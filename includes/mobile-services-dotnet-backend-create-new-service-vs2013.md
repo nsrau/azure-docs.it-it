@@ -4,7 +4,7 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 
 2.  Nella finestra di dialogo Gestione servizi fare clic su **Crea servizio...**, quindi selezionare **\<Gestisci...\>** da **Sottoscrizione** nella finestra di dialogo Crea servizio mobile.
 
-    ![creazione servizio gestione sottoscrizioni][]
+    ![creazione servizio gestione sottoscrizioni][creazione servizio gestione sottoscrizioni]
 
 3.  In Gestione sottoscrizioni Microsoft Azure, fare clic su **Accedi...** per accedere al proprio account Azure (se richiesto), selezionare una sottoscrizione disponibile, quindi fare clic su **Chiudi**.
 
@@ -16,7 +16,7 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 
 5.  In **Database** selezionare **\<Crea un database SQL gratuito\>**, specificare i valori per **Nome utente server**, **Password server** e **Conferma password server**, quindi fare clic su **Crea**.
 
-    ![creazione di un nuovo servizio mobile in VS 2013][]
+    ![creazione di un nuovo servizio mobile in VS 2013][creazione di un nuovo servizio mobile in VS 2013]
 
     > [WACOM.NOTE]
     > Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. È possibile disporre di un'unica istanza di database gratuita. Se si dispone già di un database nella stessa area del nuovo servizio mobile, è possibile scegliere il database esistente. In questo caso, assicurarsi di specificare le credenziali di accesso corrette. Se si specificano credenziali di accesso non corrette, il servizio mobile viene creato in uno stato non integro.

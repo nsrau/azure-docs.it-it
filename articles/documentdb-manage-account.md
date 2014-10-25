@@ -6,11 +6,11 @@
 
 ## Sommario
 
--   [Procedura: per visualizzare, copiare e rigenerare le chiavi di accesso a DocumentDB][]
--   [Procedura: per gestire le impostazioni di coerenza di DocumentDB][]
--   [Procedura: per gestire le impostazioni di capacità di DocumentDB][]
--   [Procedura: per eliminare un account DocumentDB][]
--   [Passaggi successivi][]
+-   [Procedura: per visualizzare, copiare e rigenerare le chiavi di accesso a DocumentDB](#keys)
+-   [Procedura: per gestire le impostazioni di coerenza di DocumentDB](#consistency)
+-   [Procedura: per gestire le impostazioni di capacità di DocumentDB](#capacity)
+-   [Procedura: per eliminare un account DocumentDB](#delete)
+-   [Passaggi successivi](#next)
 
 ## <span id="keys"></span></a>Procedura: visualizzare, copiare e rigenerare le chiavi di accesso
 
@@ -21,16 +21,15 @@ di rigenerare le chiavi senza interruzioni dell'account
 DocumentDB.
 
 Nel [portale di anteprima di gestione di Azure
-][][][]
+](https://portal.azure.com/)[](http://manage.windowsazure.com)
 accedere alla parte relativa alle **chiavi** dalla falda dell'account DocumentDB per visualizzare,
 copiare e rigenerare le chiavi che vengono utilizzate per accedere all'account.
 
-![][]
+![](./media/documentdb-manage-account/image002.jpg)
 
 ### Per visualizzare e copiare una chiave di accesso
 
-1.      Nel [portale di anteprima di gestione di Azure
-][] accedere all'account DocumentDB. 
+1.      Nel [portale di anteprima di gestione di Azure]https://portal.azure.com/) accedere all'account DocumentDB. 
 
 2.      Nel filtro di riepilogo, fare clic su **Keys**.
 
@@ -39,7 +38,7 @@ che si desidera copiare.
 
 4.      Premere Ctrl+C per copiare la chiave.
 
-  ![][1]
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### Per rigenerare le chiavi di accesso
 
@@ -62,8 +61,7 @@ le chiavi. Di seguito è riportata una delle procedure che è possibile eseguire
 alla chiave di accesso secondaria dell'account DocumentDB.
 
 2.      Rigenerare la chiave di accesso primaria dell'account DocumentDB.
-Nel [portale di anteprima di gestione di Azure][portale di anteprima di gestione di Azure
-],
+Nel [portale di anteprima di gestione di Azure](https://portal.azure.com/),
 accedere all'account DocumentDB.
 
 3.      Nel filtro di riepilogo, fare clic su **Keys**.
@@ -104,12 +102,11 @@ leggano sempre un subset di scritture valido e che alla fine convergano.
 *Si noti che, per impostazione predefinita, gli account DocumentDB sono sottoposti a provisioning con la coerenza a livello di sessione
 . Per ulteriori informazioni sulle impostazioni di coerenza di
 DocumentDB, vedere la sezione [Livello di
-coerenza][].*
+coerenza](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
 ### Per specificare la coerenza predefinita per un account DocumentDB
 
-1.      Nel [portale di anteprima di gestione di Azure
-][] accedere all'account DocumentDB. 
+1.      Nel [portale di anteprima di gestione di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
 2.      Nel filtro di configurazione, fare clic su **Consistency**.
 
@@ -121,9 +118,9 @@ coerenza predefinito desiderato per l'account DocumentDB.
 5.      L'avanzamento dell'operazione può essere monitorato tramite
 l'hub delle notifiche del portale di anteprima di gestione di Azure.
 
-![][2]
+ ![](./media/documentdb-manage-account/image005.png)
 
-![][3]
+ ![](./media/documentdb-manage-account/image006.png)
 
 *Si noti che potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni
 di coerenza predefinite si propaghino nell'intero account DocumentDB.*
@@ -143,7 +140,8 @@ o rimuovendo unità di capacità tramite il portale di anteprima di gestione di 
 ### Per aggiungere o rimuovere unità di capacità
 
 1.      Nel [portale di anteprima di gestione di Azure
-][] accedere all'account DocumentDB. 
+][portale di anteprima di gestione di Azure
+] accedere all'account DocumentDB. 
 
 2.      Nel filtro di utilizzo, fare clic su **Scale**.
 
@@ -157,7 +155,7 @@ l'hub delle notifiche del portale di anteprima di gestione di Azure).
 *Si noti che l'anteprima di DocumentDB supporta massimo 5 unità
 di capacità per ogni account DocumentDB.*
 
-![][4]
+![](./media/documentdb-manage-account/image007.png)
 
  
 
@@ -173,10 +171,9 @@ DocumentDB eliminato. L'eliminazione di un account DocumentDB comporterà l'eli
 di tutte le risorse dell'account, inclusi database, raccolte,
 documenti e allegati.*
 
-![][5]
+![](./media/documentdb-manage-account/image009.png)
 
-1.      Nel [portale di anteprima di gestione di Azure
-][] accedere all'account DocumentDB
+1.      Nel [portale di anteprima di gestione di Azure](https://portal.azure.com/) accedere all'account DocumentDB
 che si desidera eliminare. 
 
 2.      Nella falda dell'account, fare clic sul comando **Elimina**.
@@ -189,10 +186,10 @@ per confermarne l'eliminazione.
 ## <span id="next"></span></a>Passaggi successivi
 
 -   Ulteriori informazioni su come [iniziare a utilizzare l'account
-    DocumentDB][].
+    DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 -   Per ulteriori informazioni su DocumentDB, vedere la documentazione di
     Azure DocumentDB su
-    [azure.com][]
+    [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)
 
  
 
@@ -201,17 +198,14 @@ per confermarne l'eliminazione.
   [Procedura: per gestire le impostazioni di capacità di DocumentDB]: #capacity
   [Procedura: per eliminare un account DocumentDB]: #delete
   [Passaggi successivi]: #next
-  [portale di anteprima di gestione di Azure
-  ]: https://portal.azure.com/
+  [portale di anteprima di gestione di Azure  ]: https://portal.azure.com/
   []: http://manage.windowsazure.com
   []: ./media/documentdb-manage-account/image002.jpg
   [1]: ./media/documentdb-manage-account/image004.jpg
-  [Livello di
-  coerenza]: http://go.microsoft.com/fwlink/p/?LinkId=402365
+  [Livello di coerenza]: http://go.microsoft.com/fwlink/p/?LinkId=402365
   [2]: ./media/documentdb-manage-account/image005.png
   [3]: ./media/documentdb-manage-account/image006.png
   [4]: ./media/documentdb-manage-account/image007.png
   [5]: ./media/documentdb-manage-account/image009.png
-  [iniziare a utilizzare l'account
-  DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkId=402364
+  [iniziare a utilizzare l'account DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkId=402364
   [azure.com]: http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409

@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>Configurazione dell'analisi di utilizzo Web
 
-Se non lo si è ancora fatto, [aggiungere Application Insights al progetto Web][].
+Se non lo si è ancora fatto, [aggiungere Application Insights al progetto Web][start].
 
 ## <a name="usage"></a>Analisi di utilizzo
 
 Nella falda della panoramica dell'applicazione verranno visualizzati i seguenti riquadri di utilizzo:
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### Sessioni per browser
 
@@ -26,13 +26,13 @@ Mostra i conteggi totali nelle ultime 24 ore.
 
 Fare clic sulle visualizzazioni di pagina per ottenere una cronologia più dettagliata.
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 Fare clic su Intervallo di tempo per visualizzare una cronologia più lunga che arriva fino a sette giorni.
 
 Fare clic su un grafico per vedere le altre metriche che è possibile visualizzare.
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## Conteggi di pagina personalizzati
 
@@ -50,13 +50,13 @@ In genere la telemetria delle visualizzazioni di pagina viene analizzata da Appl
 
 Nella falda di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 Selezionare qualsiasi evento per visualizzare altri dettagli.
 
-> [WACOM.NOTE] Se si utilizza la [ricerca][], tenere presente che è necessario cercare parole intere: "Circ" e "irca" non troveranno "Circa", ma "Circ\* " sì. Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "\*irc" non si troverà "Circa".
+> [WACOM.NOTE] Se si utilizza la [ricerca][diagnostic], tenere presente che è necessario cercare parole intere: "Circ" e "irca" non troveranno "Circa", ma "Circ\* " sì. Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "\*irc" non si troverà "Circa".
 
-> [Ulteriori informazioni sulla ricerca diagnostica][ricerca]
+> [Ulteriori informazioni sulla ricerca diagnostica][diagnostic]
 
 ## Monitoraggio dell'utilizzo
 
@@ -64,24 +64,24 @@ Selezionare qualsiasi evento per visualizzare altri dettagli.
 
 ## Ulteriori informazioni
 
--   [Application Insights - Guida introduttiva][aggiungere Application Insights al progetto Web]
--   [Monitoraggio di un server Web live][]
--   [Monitoraggio delle prestazioni delle applicazioni Web][]
--   [Ricerca nei registri di diagnostica][ricerca]
--   [Monitoraggio della disponibilità con test Web][]
--   [Monitoraggio dell'utilizzo][]
--   [Domande e risposte e risoluzione dei problemi][]
+-   [Application Insights - Guida introduttiva][start]
+-   [Monitoraggio di un server Web live][redfield]
+-   [Monitoraggio delle prestazioni delle applicazioni Web][perf]
+-   [Ricerca nei registri di diagnostica][diagnostic]
+-   [Monitoraggio della disponibilità con test Web][availability]
+-   [Monitoraggio dell'utilizzo][usage]
+-   [Domande e risposte e risoluzione dei problemi][qna]
 
 <!--Link references-->
 
-  [aggiungere Application Insights al progetto Web]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [ricerca]: ../app-insights-search-diagnostic-logs/
-  [Monitoraggio di un server Web live]: ../app-insights-monitor-performance-live-website-now/
-  [Monitoraggio delle prestazioni delle applicazioni Web]: ../app-insights-web-monitor-performance/
-  [Monitoraggio della disponibilità con test Web]: ../app-insights-monitor-web-app-availability/
-  [Monitoraggio dell'utilizzo]: ../app-insights-web-track-usage/
-  [Domande e risposte e risoluzione dei problemi]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/
