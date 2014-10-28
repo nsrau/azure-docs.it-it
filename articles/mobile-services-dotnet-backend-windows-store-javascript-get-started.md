@@ -1,75 +1,62 @@
-<properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-Introduzione a Servizi mobili
-=============================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[Windows Store C\#](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows Store C#")[Windows Store JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows Store JavaScript")[Windows Phone](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
-[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-store-get-started/ "Back-end JavaScript")
+# <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app di Windows Store mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* in HTML e JavaScript che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato utilizza i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per JavaScript](/it-it/documentation/articles/mobile-services-windows-store-get-started) di questo argomento.
+[WACOM.INCLUDE [mobile-services-selector-get-started][]]
 
-Di seguito è riportata una schermata dell'app completata:
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app Windows universale mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* in HTML e JavaScript che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per JavaScript di questo argomento.
 
-![](./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-completed.png)
+[WACOM.INCLUDE [mobile-services-windows-universal-get-started][]]
 
-Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app di Windows Store.
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-> [WACOM.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started%2F).
-> Per completare questa esercitazione, è necessario disporre di [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). È disponibile una versione di valutazione gratuita.
+-   Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+-   [Visual Studio Professional 2013][]. È disponibile una versione di valutazione gratuita.
 
-Creazione di un nuovo servizio mobile
--------------------------------------
+## Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
 
-Creazione di una nuova app di Windows Store
--------------------------------------------
+## Creare una nuova app Windows universale
 
 Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app o modificare un'app esistente per connettersi al servizio mobile.
 
-In questa sezione si creerà una nuova app di Windows Store connessa al servizio mobile.
+In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
 
 1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
 
 2.  Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
 
-    ![][6]
+    ![][]
 
     Di seguito sono visualizzati i tre semplici passaggi per creare un'app di Windows Store connessa al servizio mobile.
 
-	![](./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png)
+    ![][1]
 
-1.  Se necessario, scaricare e installare [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546) nel computer locale o nella macchina virtuale.
+3.  Se necessario, scaricare e installare [Visual Studio Professional 2013][] nel computer locale o nella macchina virtuale.
 
-2.  In **Download and run your app and service locally** selezionare un linguaggio per l'app di Windows Store, quindi fare clic su **Download**.
+4.  In **Download and run your app and service locally** selezionare un linguaggio per l'app di Windows Store, quindi fare clic su **Download**.
 
-	Verrà scaricata una soluzione che contiene progetti sia per il servizio mobile, sia per l'applicazione *To do list* di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+    Verrà scaricata una soluzione che contiene progetti sia per il servizio mobile, sia per l'applicazione *To do list* di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
-1.  In **Publish your service to the cloud** fare clic per scaricare il profilo di pubblicazione. Salvare il file scaricato nel computer locale e prendere nota del percorso.
+## Test dell'app nel servizio mobile locale
 
-    **Nota sulla sicurezza**
-
-    Dopo l'importazione del profilo di pubblicazione, è consigliabile eliminare il file pubblicato, in quanto contiene informazioni che possono essere utilizzate da altri utenti per accedere ai servizi.
-
-Test dell'app nel servizio mobile locale
-----------------------------------------
-
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet][]]
 
 > [WACOM.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
 
-Pubblicazione del servizio mobile
----------------------------------
+## Pubblicazione del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
 
-1.  Nel progetto di app di Windows Store aprire il file App.xaml.cs, individuare il codice che crea un'istanza di [MobileServiceClient](http://msdn.microsoft.com/it-it/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx), rimuovere i simboli di commento dal codice che crea il client utilizzando *localhost*, quindi rimuovere i simboli di commento dal codice che crea il client utilizzando l'URL del servizio remoto, che ha un aspetto simile al seguente:
+1.  Nel progetto di codice condiviso aprire il file default.js, individuare il codice che crea un'istanza di [WindowsAzure.MobileServiceClient][], impostare come commento il codice per la creazione del client usando *localhost*, quindi rimuovere il commento dal codice per la creazione del client usando l'URL del servizio mobile, simile al seguente:
 
-    ``` {}
-    var client = new WindowsAzure.MobileServiceClient(
-                "https://todolist.azure-mobile.net/",
-                "XXXXXX-APPLICATION-KEY-XXXXXX"?        );
-    ```
+        var client = new WindowsAzure.MobileServiceClient(
+                    "https://todolist.azure-mobile.net/",
+                    "XXXXXX-APPLICATION-KEY-XXXXXX"
+                );
 
     Il client accederà al servizio mobile pubblicato in Azure.
 
@@ -79,48 +66,38 @@ Pubblicazione del servizio mobile
 
     Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure.
 
-![](./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-startup.png)
+4.  (Facoltativo) In una soluzione Windows universale, cambiare il progetto di avvio predefinito specificando l'altra app e premere di nuovo **F5**.
 
-Passaggi successivi
--------------------
+    Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
+
+## Passaggi successivi
 
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
--   [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data) <br/>
+-   [Introduzione ai dati][]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione all'autenticazione](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users) <br/>
+-   [Introduzione all'autenticazione][]
     Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
--   [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push) <br/>
+-   [Introduzione alle notifiche push][]
     Informazioni sull'invio di una notifica push di base all'app.
 
+Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaforme per più dispositivi da un singolo servizio mobile][].
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]:#getting-started
-[Create a new mobile service]:#create-new-service
-[Define the mobile service instance]:#define-mobile-service-instance
-[Next Steps]:#next-steps
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-<!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-completed.png
-
-[6]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
-[7]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
-[8]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-service-startup.png
-
-[10]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-startup.png
-[11]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-publish.png
-[12]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-data-browse.png
-
-
-<!-- URLs. -->
-[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
-[Get started with authentication]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[Get started with push notifications]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
-[Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
-[JavaScript version]: /it-it/documentation/articles/mobile-services-windows-store-get-started
-[Get started with data in Mobile Services using Visual Studio 2012]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+  [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
+  [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
+  [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
+  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
+  []: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
+  [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
+  [mobile-services-dotnet-backend-test-local-service-dotnet]: ../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md
+  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
+  [WindowsAzure.MobileServiceClient]: http://msdn.microsoft.com/library/azure/jj554219.aspx
+  [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
+  [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
+  [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
+  [Supporto di piattaforme per più dispositivi da un singolo servizio mobile]: /it-it/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

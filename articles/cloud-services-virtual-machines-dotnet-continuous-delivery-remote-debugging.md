@@ -86,11 +86,11 @@ Contenuto dell'argomento:
   [distribuzione continua]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [Abilitazione del debug remoto per i servizi cloud]: #cloudservice
   [Abilitazione del debug remoto per le macchine virtuali]: #virtualmachine
-  [Compilazione da riga di comando per Azure]: http://msdn.microsoft.com/en-us/library/hh535755.aspx
-  [Remote Tools per Visual Studio 2013]: http://www.microsoft.com/en-us/download/details.aspx?id=40781
-  [Remote Tools per Visual Studio 2012 Update 4]: http://www.microsoft.com/en-us/download/details.aspx?id=38184
+  [Compilazione da riga di comando per Azure]: http://msdn.microsoft.com/it-it/library/hh535755.aspx
+  [Remote Tools per Visual Studio 2013]: http://www.microsoft.com/it-it/download/details.aspx?id=40781
+  [Remote Tools per Visual Studio 2012 Update 4]: http://www.microsoft.com/it-it/download/details.aspx?id=38184
   [Creare un certificato di servizio per Azure]: http://msdn.microsoft.com/library/azure/gg432987.aspx
   [Creazione di una macchina virtuale che esegue Windows Server]: http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-windows-tutorial/
-  [Creazione di macchine virtuali di Azure in Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx
+  [Creazione di macchine virtuali di Azure in Visual Studio]: http://msdn.microsoft.com/it-it/library/azure/dn569263.aspx
   [pagina del portale di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=269851
   [Azure Powershell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409

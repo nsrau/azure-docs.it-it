@@ -1,25 +1,24 @@
-<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-Come distribuire un database in Azure
-=====================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+
+# <span id="howtodeploySQLdb"></span></a>Come distribuire un database in Azure
 
 È possibile spostare un database SQL Server locale su Azure in molti modi diversi. In questa attività, si utilizzerà la procedura guidata di distribuzione del database al database SQL per il caricamento di un database di esempio.
 
-Il database di esempio School è convenientemente semplice. Tutti i relativi oggetti sono compatibili con il database SQL, eliminando la necessità di modificare o preparare un database per la migrazione. In qualità di nuovo amministratore, prima di iniziare a utilizzare i propri database provare innanzitutto a distribuire un database semplice in modo da apprendere la procedura corretta.
+Il database di esempio School è convenientemente semplice. Tutti i relativi oggetti sono compatibili con il database SQL, eliminando la necessità di modificare o preparare un database per la migrazione. In qualità di nuovo amministratore, prima di iniziare a usare i propri database provare innanzitutto a distribuire un database semplice in modo da apprendere la procedura corretta.
 
 **Nota:** per istruzioni dettagliate su come preparare un database locale per la migrazione in Azure, rivedere la guida alla migrazione dei database SQL. Si prenda inoltre in considerazione il download del Kit di formazione di Azure, che include un lab in cui è illustrato un approccio alternativo alla migrazione di un database locale.
 
-Sommario
---------
+## Sommario
 
--   [Procedura: Creare il database school su un server locale](#schooldb)
--   [Procedura: Distribuire nel database SQL](#deploydb)
--   [Procedura: Verificare la distribuzione del database](#verify)
+-   [Procedura: Creare il database school su un server locale][Procedura: Creare il database school su un server locale]
+-   [Procedura: Distribuire nel database SQL][Procedura: Distribuire nel database SQL]
+-   [Procedura: Verificare la distribuzione del database][Procedura: Verificare la distribuzione del database]
 
-Procedura: Creare il database school su un server locale
---------------------------------------------------------
+## <span id="schooldb"></span></a>Procedura: Creare il database school su un server locale
 
-Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL](/en-us/manage/services/sql-databases/getting-started-w-sql-databases/). In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
+Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL][guida introduttiva all'amministrazione dei database SQL]. In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
 
 1.  In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Databases** e quindi fare clic su **New Database**, infine immettere *school*.
 
@@ -27,7 +26,7 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
 
 3.  Copiare e quindi eseguire lo script Create Schema dall'esercitazione.
 
-``` {}
+<div style="width:auto; height:300px; overflow:auto"><pre>
     -- Create the Department table.
     IF NOT EXISTS (SELECT * FROM sys.objects 
         WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
@@ -39,8 +38,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [Budget] [money] NOT NULL,
         [StartDate] [datetime] NOT NULL,
         [Administrator] [int] NULL,
-     CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED ?    (?   [DepartmentID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?    )?    END;
+     CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED      (     [DepartmentID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )     END;
     GO
 
     -- Create the Person table.
@@ -54,8 +53,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [FirstName] [nvarchar](50) NOT NULL,
         [HireDate] [datetime] NULL,
         [EnrollmentDate] [datetime] NULL,
-     CONSTRAINT [PK_School.Student] PRIMARY KEY CLUSTERED   ?   (?  [PersonID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   ) ? END;
+     CONSTRAINT [PK_School.Student] PRIMARY KEY CLUSTERED        (     [PersonID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )      END;
     GO
 
     -- Create the OnsiteCourse table.
@@ -68,8 +67,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [Location] [nvarchar](50) NOT NULL,
         [Days] [nvarchar](50) NOT NULL,
         [Time] [smalldatetime] NOT NULL,
-     CONSTRAINT [PK_OnsiteCourse] PRIMARY KEY CLUSTERED ?   (?      [CourseID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   ) ? END;
+     CONSTRAINT [PK_OnsiteCourse] PRIMARY KEY CLUSTERED      (         [CourseID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )      END;
     GO
 
     -- Create the OnlineCourse table.
@@ -80,8 +79,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
     CREATE TABLE [dbo].[OnlineCourse](
         [CourseID] [int] NOT NULL,
         [URL] [nvarchar](100) NOT NULL,
-     CONSTRAINT [PK_OnlineCourse] PRIMARY KEY CLUSTERED ?   (?      [CourseID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   ) ? END;
+     CONSTRAINT [PK_OnlineCourse] PRIMARY KEY CLUSTERED      (         [CourseID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )      END;
     GO
 
     --Create the StudentGrade table.
@@ -94,8 +93,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [CourseID] [int] NOT NULL,
         [StudentID] [int] NOT NULL,
         [Grade] [decimal](3, 2) NULL,
-     CONSTRAINT [PK_StudentGrade] PRIMARY KEY CLUSTERED ?   (?      [EnrollmentID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   ) ? END;
+     CONSTRAINT [PK_StudentGrade] PRIMARY KEY CLUSTERED      (         [EnrollmentID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )      END;
     GO
 
     -- Create the CourseInstructor table.
@@ -106,9 +105,9 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
     CREATE TABLE [dbo].[CourseInstructor](
         [CourseID] [int] NOT NULL,
         [PersonID] [int] NOT NULL,
-     CONSTRAINT [PK_CourseInstructor] PRIMARY KEY CLUSTERED ?   (?      [CourseID] ASC,
+     CONSTRAINT [PK_CourseInstructor] PRIMARY KEY CLUSTERED      (         [CourseID] ASC,
         [PersonID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   ) ? END;
+    )WITH (IGNORE_DUP_KEY = OFF)     )      END;
     GO
 
     -- Create the Course table.
@@ -121,8 +120,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [Title] [nvarchar](100) NOT NULL,
         [Credits] [int] NOT NULL,
         [DepartmentID] [int] NOT NULL,
-     CONSTRAINT [PK_School.Course] PRIMARY KEY CLUSTERED ?  (?      [CourseID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   )?  END;
+     CONSTRAINT [PK_School.Course] PRIMARY KEY CLUSTERED      (         [CourseID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )     END;
     GO
 
     -- Create the OfficeAssignment table.
@@ -134,8 +133,8 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
         [InstructorID] [int] NOT NULL,
         [Location] [nvarchar](50) NOT NULL,
         [Timestamp] [timestamp] NOT NULL,
-     CONSTRAINT [PK_OfficeAssignment] PRIMARY KEY CLUSTERED ?   (?      [InstructorID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)?   )?  END;
+     CONSTRAINT [PK_OfficeAssignment] PRIMARY KEY CLUSTERED      (         [InstructorID] ASC
+    )WITH (IGNORE_DUP_KEY = OFF)     )     END;
     GO
 
     -- Define the relationship between OnsiteCourse and Course.
@@ -231,11 +230,11 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
     ALTER TABLE [dbo].[OfficeAssignment] CHECK 
      CONSTRAINT [FK_OfficeAssignment_Person];
     GO
-```
+</pre></div>
 
 Quindi, copiare ed eseguire lo script Insert Data.
 
-``` {}
+<div style="width:auto; height:300px; overflow:auto"><pre>
     -- Insert data into the Person table.
     SET IDENTITY_INSERT dbo.Person ON;
     GO
@@ -413,7 +412,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (2030, 3, 4);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (2021, 6, 2.5);
+    VALUES (2021, 6, 2,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (2042, 6, 3.5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -429,7 +428,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4041, 10, null);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (4041, 11, 2.5);
+    VALUES (4041, 11, 2,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4041, 12, null);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -443,7 +442,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4041, 14, 3);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (4022, 15, 2.5);
+    VALUES (4022, 15, 2,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4022, 16, 2);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -459,11 +458,11 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4041, 22, 3.5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (4061, 22, 2.5);
+    VALUES (4061, 22, 2,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (4022, 23, 3);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (1045, 23, 1.5);
+    VALUES (1045, 23, 1,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (1061, 24, 4);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -475,7 +474,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (1061, 27, 3);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-    VALUES (1045, 28, 2.5);
+    VALUES (1045, 28, 2,5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (1050, 28, 3.5);
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -485,12 +484,11 @@ Quindi, copiare ed eseguire lo script Insert Data.
     INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
     VALUES (1061, 30, 4);
     GO
-```
+</pre></div>
 
 Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file .bacpac, caricarlo in Azure e importarlo nel database SQL.
 
-Procedura: Distribuire nel database SQL
----------------------------------------
+## <span id="deploydb"></span></a>Procedura: Distribuire nel database SQL
 
 1.  In Management Studio connettersi a un'istanza di SQL Server locale che dispone di un database di cui si desidera eseguire la migrazione.
 
@@ -506,7 +504,7 @@ Procedura: Distribuire nel database SQL
 
 7.  Immettere il nome di accesso e la password dell'amministratore forniti durante la creazione del server logico del database SQL.
 
-8.  Fare clic su **Options**.
+8.  Fare clic su **Opzioni**.
 
 9.  Nella sezione Connection Properties digitare **master** in Connect to database.
 
@@ -514,8 +512,7 @@ Procedura: Distribuire nel database SQL
 
 11. Per eseguire la procedura guidata, fare clic su **Next** e quindi fare clic su **Finish**.
 
-Procedura: Verificare la distribuzione del database
----------------------------------------------------
+## <span id="verify"></span></a>Procedura: Verificare la distribuzione del database
 
 1.  Nella sezione Object Explorer di Management Studio aggiornare l'elenco dei database per visualizzare quello appena creato.
 
@@ -525,14 +522,14 @@ Procedura: Verificare la distribuzione del database
 
 4.  Eseguire la query seguente per verificare l'accessibilità dei dati.
 
-``` {}
+<div style="width:auto; height:auto; overflow:auto"><pre>
     SELECT
-        Course.Title as "Course Title"
-        ,Department.Name as "Department"
-        ,Person.LastName as "Instructor"
-        ,OnsiteCourse.Location as "Location"
-        ,OnsiteCourse.Days as "Days"
-        ,OnsiteCourse.Time as "Time"
+        Course.Title as &quot;Course Title&quot;
+        ,Department.Name as &quot;Department&quot;
+        ,Person.LastName as &quot;Instructor&quot;
+        ,OnsiteCourse.Location as &quot;Location&quot;
+        ,OnsiteCourse.Days as &quot;Days&quot;
+        ,OnsiteCourse.Time as &quot;Time&quot;
     FROM
      Course
      INNER JOIN Department
@@ -543,4 +540,9 @@ Procedura: Verificare la distribuzione del database
        ON CourseInstructor.PersonID = Person.PersonID
      INNER JOIN OnsiteCourse
         ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-```
+</pre></div>
+
+  [Procedura: Creare il database school su un server locale]: #schooldb
+  [Procedura: Distribuire nel database SQL]: #deploydb
+  [Procedura: Verificare la distribuzione del database]: #verify
+  [guida introduttiva all'amministrazione dei database SQL]: /it-it/manage/services/sql-databases/getting-started-w-sql-databases/

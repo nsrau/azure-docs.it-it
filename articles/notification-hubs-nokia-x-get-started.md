@@ -16,7 +16,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 -   [Come inviare una notifica all'app][Come inviare una notifica all'app]
 -   [Test dell'app][Test dell'app]
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario disporre di un account Azure attivo. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario disporre di un account Azure attivo. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -298,7 +298,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 È possibile usare Hub di notifica per inviare notifiche da qualsiasi back-end che usa l'[interfaccia REST][interfaccia REST]. In questa esercitazione verrà illustrato l'utilizzo di un'app console .NET.
 
-1.  Creare una nuova applicazione console in Visual C\#:
+1.  Creare una nuova applicazione console in Visual C#:
 
     ![][15]
 
@@ -359,7 +359,7 @@ Se &egrave; possibile registrare correttamente l'app per Android con l'hub di no
   [Connessione dell'app all'hub di notifica]: #connect-hub
   [Come inviare una notifica all'app]: #send
   [Test dell'app]: #test-app
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [collegamento]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
@@ -378,6 +378,6 @@ Se &egrave; possibile registrare correttamente l'app per Android con l'hub di no
   [12]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
   [13]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
   [14]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
-  [interfaccia REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [interfaccia REST]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx
   [15]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
   [pacchetto NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

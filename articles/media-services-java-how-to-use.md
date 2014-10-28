@@ -8,11 +8,11 @@ In questa guida viene illustrato come iniziare a programmare con Servizi multime
 
 ## Sommario
 
--   [Informazioni su Servizi multimediali][]
--   [Configurare un account Azure per Servizi multimediali][]
--   [Configurazioni per lo sviluppo con Servizi multimediali][]
--   [Procedura: Usare Servizi multimediali con Java][]
--   [Risorse aggiuntive][]
+-   [Informazioni su Servizi multimediali][Informazioni su Servizi multimediali]
+-   [Configurare un account Azure per Servizi multimediali][Configurare un account Azure per Servizi multimediali]
+-   [Configurazioni per lo sviluppo con Servizi multimediali][Configurazioni per lo sviluppo con Servizi multimediali]
+-   [Procedura: Usare Servizi multimediali con Java][Procedura: Usare Servizi multimediali con Java]
+-   [Risorse aggiuntive][Risorse aggiuntive]
 
 ## <a name="what-are"></a><span class="short header">Informazioni su Servizi multimediali</span>Informazioni su Servizi multimediali
 
@@ -20,7 +20,7 @@ Servizi multimediali di Azure costituisce una piattaforma multimediale estensibi
 
 Nel diagramma riportato di seguito viene illustrata l'architettura di Servizi multimediali di base.
 
-![Architettura di Servizi multimediali][]
+![Architettura di Servizi multimediali][Architettura di Servizi multimediali]
 
 ### Supporto delle funzionalità di Servizi multimediali
 
@@ -30,7 +30,7 @@ Nella versione corrente di Servizi multimediali viene fornito il set di funziona
 -   **Codifica**. Le operazioni di codifica consentono di codificare, trasformare e convertire asset multimediali. È possibile eseguire le attività di codifica nel cloud tramite il codificatore multimediale incluso in Servizi multimediali. Di seguito sono riportate le opzioni di codifica disponibili:
 	-   Utilizzo di Azure Media Encoder e di un'ampia gamma di codec e formati standard, inclusi quelli principali, come ad esempio IIS Smooth Streaming, MP4 e conversione in Apple HTTP Live Streaming.
 	-   Conversione di intere librerie o singoli file con controllo completo su input e output.
-	-   Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali][]).
+	-   Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali][Tipi di file supportati per Servizi multimediali]).
 	-   Conversioni tra formati supportati. Servizi multimediali consente di convertire file MP4 ISO (con estensione mp4) al formato di file Smooth Streaming (PIFF 1.3) ( con estensione ismv o isma). Consente inoltre di convertire il formato di file Smooth Streaming (PIFF) al formato Apple HTTP Live Streaming (con estensione msu8 o ts).
 -   **Protezione**. Per proteggere il contenuto è necessario crittografare il contenuto Live Streaming o su richiesta per il trasporto, l'archiviazione e la distribuzione sicuri. Servizi multimediali fornisce una soluzione DRM indipendente dalla tecnologia per la protezione del contenuto. Le tecnologie DRM attualmente supportate sono Microsoft PlayReady e MPEG Common Encryption. A breve sarà disponibile il supporto per altre tecnologie DRM.
 -   **Streaming**. Durante lo streaming il contenuto viene distribuito in diretta o su richiesta ai client oppure è possibile recuperare o scaricare file multimediali specifici dal cloud. Servizi multimediali fornisce una soluzione indipendente dal formato per i contenuti in streaming. Servizi multimediali offre il supporto dell'origine di streaming per i formati Smooth Streaming, Apple HTTP Live Streaming ed MP4. A breve sarà disponibile il supporto per altri formati. È inoltre possibile distribuire contenuti in streaming mediante una rete CDN di Azure o una rete CDN di terze parti che offre la scalabilità per la distribuzione a milioni di utenti.
@@ -111,23 +111,23 @@ Supporto cloud per lettori multimediali
 
 È possibile estendere la copertura della soluzione Servizi multimediali utilizzando SDK e Player framework per creare applicazioni client multimediali. Questi client sono concepiti per gli sviluppatori che desiderano creare applicazioni Servizi multimediali che offrono un'esperienza utente accattivante su un'ampia gamma di dispositivi e piattaforme. A seconda dei dispositivi per i quali si intende compilare applicazioni client, sono disponibili varie opzioni di SDK e Player Framework di Microsoft e altri partner di terze parti.
 
-Di seguito è riportato un elenco di SDK e Player Framework client disponibili. Per maggiori informazioni su questi e altri SDK e Player Framework pianificati e le relative funzionalità supportate, vedere gli argomenti relativi allo [sviluppo di client per Servizi multimediali][].
+Di seguito è riportato un elenco di SDK e Player Framework client disponibili. Per maggiori informazioni su questi e altri SDK e Player Framework pianificati e le relative funzionalità supportate, vedere gli argomenti relativi allo [sviluppo di client per Servizi multimediali][sviluppo di client per Servizi multimediali].
 
 #### Supporto client Mac e PC
 
 Per i PC e i Mac è possibile creare un'esperienza di streaming utilizzando Microsoft Silverlight o Adobe Open Source Media Framework.
 
--   [Smooth Streaming Client per Silverlight][]
--   [Microsoft Media Platform: Player Framework per Silverlight][]
--   [Plug-in Smooth Streaming per OSMF 2.0][]. Per informazioni sull'utilizzo di questo plug-in, vedere [Come utilizzare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework][].
+-   [Smooth Streaming Client per Silverlight][Smooth Streaming Client per Silverlight]
+-   [Microsoft Media Platform: Player Framework per Silverlight][Microsoft Media Platform: Player Framework per Silverlight]
+-   [Plug-in Smooth Streaming per OSMF 2.0][Plug-in Smooth Streaming per OSMF 2.0]. Per informazioni sull'utilizzo di questo plug-in, vedere [Come utilizzare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework][Come utilizzare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework].
 
 #### Applicazioni per Windows 8
 
 Per Windows 8, è possibile creare app di Windows Store utilizzando uno qualsiasi dei costrutti e dei linguaggi di sviluppo supportati come HTML, JavaScript, XAML, C# e C+.
 
--   [Smooth Streaming Client SDK per Windows 8][]. Per ulteriori informazioni su come creare un'app di Windows Store utilizzando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming][]. Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata: relativa alla creazione del primo lettore Smooth Streaming in HTML5][].
+-   [Smooth Streaming Client SDK per Windows 8][Smooth Streaming Client SDK per Windows 8]. Per ulteriori informazioni su come creare un'app di Windows Store utilizzando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming][Come creare un'applicazione Windows Store Smooth Streaming]. Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata: relativa alla creazione del primo lettore Smooth Streaming in HTML5][procedura dettagliata: relativa alla creazione del primo lettore Smooth Streaming in HTML5].
 
--   [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8][]
+-   [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8][Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8]
 
 #### XBox
 
@@ -140,19 +140,19 @@ Xbox supporta le applicazioni Xbox LIVE che possono utilizzare contenuto Smooth 
 
 Dispositivi quali TV connessi, set-top box, lettori Blu-Ray, OTT TV box e dispositivi mobili che dispongono di un framework di sviluppo applicazioni personalizzato e di una pipeline multimediale personalizzata. Microsoft fornisce i kit per il porting seguenti che possono essere concessi in licenza e che consentono ai partner di eseguire il porting della riproduzione Smooth Streaming per la piattaforma.
 
--   [Microsoft Smooth Streaming Client Porting Kit][]
--   [Microsoft PlayReady Device Porting Kit][]
+-   [Microsoft Smooth Streaming Client Porting Kit][Microsoft Smooth Streaming Client Porting Kit]
+-   [Microsoft PlayReady Device Porting Kit][Microsoft PlayReady Device Porting Kit]
 
 #### Windows Phone
 
 Microsoft fornisce un SDK che può essere utilizzato per creare applicazioni video premium per Windows Phone.
 
--   [Smooth Streaming Client per Silverlight][]
--   [Microsoft Media Platform: Player Framework per Silverlight][]
+-   [Smooth Streaming Client per Silverlight][Smooth Streaming Client per Silverlight]
+-   [Microsoft Media Platform: Player Framework per Silverlight][Microsoft Media Platform: Player Framework per Silverlight]
 
 #### Dispositivi iOS
 
-Per i dispositivi iOS, ad esempio iPhone, iPod e iPad, Microsoft fornisce un SDK che consente di creare applicazioni per queste piattaforme e distribuire contenuti video premium: Smooth Streaming SDK per dispositivi iOS con PlayReady. L'SDK è disponibile solo per i titolari di una licenza. Per richiedere ulteriori informazioni [inviare un messaggio di posta elettronica a Microsoft][]. Per informazioni sullo sviluppo per iOS, visitare il [sito dedicato agli sviluppatori per iOS][].
+Per i dispositivi iOS, ad esempio iPhone, iPod e iPad, Microsoft fornisce un SDK che consente di creare applicazioni per queste piattaforme e distribuire contenuti video premium: Smooth Streaming SDK per dispositivi iOS con PlayReady. L'SDK è disponibile solo per i titolari di una licenza. Per richiedere ulteriori informazioni [inviare un messaggio di posta elettronica a Microsoft][inviare un messaggio di posta elettronica a Microsoft]. Per informazioni sullo sviluppo per iOS, visitare il [sito dedicato agli sviluppatori per iOS][sito dedicato agli sviluppatori per iOS].
 
 #### Dispositivi Android
 
@@ -160,7 +160,7 @@ Numerosi partner Microsoft forniscono SDK per la piattaforma Android che consent
 
 ## <a name="setup-account"></a><span class="short header">Configurare un account</span>Configurare un account Azure per Servizi multimediali
 
-Per configurare l'account di Servizi multimediali, usare il portale di gestione di Azure. Vedere l'argomento [Come creare un account di Servizi multimediali][]. Dopo avere creato l'account nel portale di gestione, sarà possibile configurare il computer per lo sviluppo in Servizi multimediali.
+Per configurare l'account di Servizi multimediali, usare il portale di gestione di Azure. Vedere l'argomento [Come creare un account di Servizi multimediali][Come creare un account di Servizi multimediali]. Dopo avere creato l'account nel portale di gestione, sarà possibile configurare il computer per lo sviluppo in Servizi multimediali.
 
 ## <a name="setup-dev"> </a><span class="short header">Configurazioni per lo sviluppo con Servizi multimediali</span>
 
@@ -168,8 +168,8 @@ In questa sezione vengono illustrati i prerequisiti generali per lo sviluppo di 
 
 ### Prerequisiti
 
--   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali][].
--   Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][].
+-   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali][Come creare un account di Servizi multimediali].
+-   Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure].
 
 ## <a name="connect"> </a><span class="short header">Usare Servizi multimediali con Java</span>Procedura: Usare Servizi multimediali con Java
 
@@ -334,7 +334,7 @@ Sostituire le variabili `clientId` e `clientSecret` con i valori personali. Ques
 
             // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
             // Information on the various configurations can be found at
-            // http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
+            // http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx.
             // This example uses only one task, but others could be added.
             Task.CreateBatchOperation task = Task.create(
                     mediaProcessor.getId(),
@@ -493,7 +493,7 @@ Se occorre annullare un processo che è ancora in corso di elaborazione, usare i
 
 ## <a name="additional-resources"></a><span class="short header">Risorse aggiuntive</span>Risorse aggiuntive
 
-Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][].
+Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][librerie di Azure per la documentazione Java].
 
   [Informazioni su Servizi multimediali]: #what-are
   [Configurare un account Azure per Servizi multimediali]: #setup-account
@@ -501,21 +501,21 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
   [Procedura: Usare Servizi multimediali con Java]: #connect
   [Risorse aggiuntive]: #additional-resources
   [Architettura di Servizi multimediali]: ./media/media-services-dotnet-how-to-use/wams-01.png
-  [sviluppo di client per Servizi multimediali]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
+  [sviluppo di client per Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223283.aspx
   [Smooth Streaming Client per Silverlight]: http://www.iis.net/download/smoothclient
   [Microsoft Media Platform: Player Framework per Silverlight]: http://smf.codeplex.com/documentation
   [Plug-in Smooth Streaming per OSMF 2.0]: http://go.microsoft.com/fwlink/?LinkId=275022
   [Come utilizzare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework]: http://go.microsoft.com/fwlink/?LinkId=275034
   [Smooth Streaming Client SDK per Windows 8]: http://go.microsoft.com/fwlink/?LinkID=246146
   [Come creare un'applicazione Windows Store Smooth Streaming]: http://go.microsoft.com/fwlink/?LinkId=271647
-  [procedura dettagliata: relativa alla creazione del primo lettore Smooth Streaming in HTML5]: http://msdn.microsoft.com/en-us/library/jj573656.aspx
+  [procedura dettagliata: relativa alla creazione del primo lettore Smooth Streaming in HTML5]: http://msdn.microsoft.com/it-it/library/jj573656.aspx
   [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8]: http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home
-  [Microsoft Smooth Streaming Client Porting Kit]: http://www.microsoft.com/en-us/mediaplatform/sspk.aspx
+  [Microsoft Smooth Streaming Client Porting Kit]: http://www.microsoft.com/it-it/mediaplatform/sspk.aspx
   [Microsoft PlayReady Device Porting Kit]: http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx
   [inviare un messaggio di posta elettronica a Microsoft]: mailto:askdrm@microsoft.com
   [sito dedicato agli sviluppatori per iOS]: https://developer.apple.com/devcenter/ios/index.action
   [1]: mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices
   [Come creare un account di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Centro per sviluppatori Java in Azure]: http://www.windowsazure.com/en-us/develop/java/
-  [2]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+  [Centro per sviluppatori Java in Azure]: http://www.windowsazure.com/it-it/develop/java/
+  [2]: http://www.windowsazure.com/it-it/manage/services/media-services/how-to-create-a-media-services-account/
   [librerie di Azure per la documentazione Java]: http://dl.windowsazure.com/javadoc/

@@ -41,8 +41,8 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Per completare l'esercitazione, &egrave; necessario un account Azure.</h5>
   <ul>
-    <li>&Egrave; possibile <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
-    <li>&Egrave; possibile <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
+    <li>&Egrave; possibile <a href="http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
+    <li>&Egrave; possibile <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
   <ul>
 </div>
 
@@ -638,10 +638,10 @@ La classe [Bundle][Bundle] contiene una proprietà denominata [CdnFallbackExpres
   [Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure]: #controller
   [Gestire contenuto in bundle e minimizzato attraverso la rete CDN di Azure mantenendo contemporaneamente l'esperienza di debug dello script in Visual Studio]: #bundling
   [Configurare il fallback degli script e i file CSS quando la rete CDN di Azure non è in linea]: #fallback
-  [account Microsoft Azure]: http://azure.microsoft.com/en-us/account/
+  [account Microsoft Azure]: http://azure.microsoft.com/it-it/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [aprire un account Azure gratuitamente]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [attivare i benefici della sottoscrizione MSDN]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [aprire un account Azure gratuitamente]: http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A261C142F
+  [attivare i benefici della sottoscrizione MSDN]: http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
@@ -650,7 +650,7 @@ La classe [Bundle][Bundle] contiene una proprietà denominata [CdnFallbackExpres
   [5]: media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png
   [6]: media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png
   [7]: media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png
-  [Pubblicazione di un servizio cloud con gli strumenti di Azure]: http://msdn.microsoft.com/en-us/library/ff683672.aspx
+  [Pubblicazione di un servizio cloud con gli strumenti di Azure]: http://msdn.microsoft.com/it-it/library/ff683672.aspx
   [portale di gestione di Azure]: http://manage.windowsazure.com/
   [8]: media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png
   [9]: media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png
@@ -666,14 +666,14 @@ La classe [Bundle][Bundle] contiene una proprietà denominata [CdnFallbackExpres
   [15]: media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG
   [16]: media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG
   [TODO]: #integrate
-  [costruttore di bundle]: http://msdn.microsoft.com/en-us/library/jj646464.aspx
-  [Bundle]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.aspx
-  [CdnFallbackExpression]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
+  [costruttore di bundle]: http://msdn.microsoft.com/it-it/library/jj646464.aspx
+  [Bundle]: http://msdn.microsoft.com/it-it/library/system.web.optimization.bundle.aspx
+  [CdnFallbackExpression]: http://msdn.microsoft.com/it-it/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
   [bug in System.Web.Optimization]: https://aspnetoptimization.codeplex.com/workitem/104
   [Ember Consulting Group]: https://github.com/EmberConsultingGroup
   [fallback StyleBundle]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [codice illustrato su GitHub]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
   [Panoramica della Rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web]: http://azure.microsoft.com/it-it/documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
+  [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web]: http://azure.microsoft.com/it-it/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [Creazione di bundle e minimizzazione ASP.NET]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
   [Utilizzo della rete CDN per Azure]: http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/

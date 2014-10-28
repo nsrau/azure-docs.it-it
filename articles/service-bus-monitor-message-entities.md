@@ -1,16 +1,16 @@
-<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="" solutions="" />
+<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-Come monitorare le entità di messaggistica del bus di servizio
-==============================================================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
 
-In questo argomento vengono descritti la gestione e il monitoraggio delle entità del bus di servizio mediante l'utilizzo del [portale di gestione di Azure](http://manage.windowsazure.com). Grazie al portale, è possibile ottenere una vista completa dello stato delle query e degli argomenti. È anche possibile monitorarne l'utilizzo.
+# Come monitorare le entità di messaggistica del bus di servizio
 
-Come monitorare l'attività delle code del bus di servizio
----------------------------------------------------------
+In questo argomento vengono descritti la gestione e il monitoraggio delle entità del bus di servizio mediante l'uso del [portale di gestione di Azure][portale di gestione di Azure]. Grazie al portale, è possibile ottenere una vista completa dello stato delle query e degli argomenti. È anche possibile monitorarne l'uso.
+
+## Come monitorare l'attività delle code del bus di servizio
 
 Per monitorare una coda del bus di servizio, eseguire le operazioni seguenti:
 
-1.  accedere al [portale di gestione di Azure (anteprima)](http://manage.windowsazure.com).
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Fare clic sull'icona **Service Bus** nella barra di spostamento a sinistra per ottenere l'elenco di spazi dei nomi servizio.
 3.  Fare clic sullo spazio dei nomi che contiene la coda che si desidera monitorare.
 4.  Sulla barra pivot nella parte superiore della pagina fare clic su **Queues**.
@@ -28,14 +28,13 @@ Per qualsiasi coda è possibile visualizzare i grafici relativi a:
 
 **Quick Glance** nel dashboard riflette la dimensione attuale della coda come **Queue Length**. Vengono inoltre visualizzate altra proprietà della coda o dell'argomento. Queste informazioni vengono aggiornate ogni 10 secondi.
 
-![](./media/service-bus-monitor-message-entities/QueueDashboard.png)
+![][]
 
-Come monitorare l'attività degli argomenti del bus di servizio
---------------------------------------------------------------
+## Come monitorare l'attività degli argomenti del bus di servizio
 
 Per monitorare un argomento del bus di servizio, eseguire le operazioni seguenti:
 
-1.  accedere al [portale di gestione di Azure (anteprima)](http://manage.windowsazure.com).
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Fare clic sull'icona **Service Bus** nella barra di spostamento a sinistra per ottenere l'elenco di spazi dei nomi servizio.
 3.  Fare clic sullo spazio dei nomi che contiene l'argomento che si desidera monitorare.
 4.  Sulla barra pivot nella parte superiore della pagina fare clic su **Topics**.
@@ -43,5 +42,8 @@ Per monitorare un argomento del bus di servizio, eseguire le operazioni seguenti
 
 Un dashboard dell'argomento è simile a un dashboard della coda, ad eccezione delle metriche di utilizzo. I messaggi in uscita e le relative lunghezze non sono presenti nel dashboard degli argomenti, poiché tali informazioni sarebbero diverse per ognuna delle sottoscrizioni per un argomento. La scheda **Monitor** consente di aggiungere metriche di utilizzo (numero di messaggi in uscita e relative lunghezze) per ogni sottoscrizione a un argomento. Per aggiungere tali metriche, fare clic sul pulsante **Monitor**. Fare quindi clic su **Add Metrics** nella parte inferiore della pagina, quindi scegliere tra le sottoscrizioni presenti nell'argomento.
 
-![](./media/service-bus-monitor-message-entities/AddMetrics.png)
+![][1]
 
+  [portale di gestione di Azure]: http://manage.windowsazure.com
+  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

@@ -8,40 +8,40 @@
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando un client iOS per Servizi mobili di Azure. Gli esempi sono scritti in objective-C ed è necessario avere installato [Mobile Services SDK][]. Per completare questa esercitazione, è inoltre necessario installare [iOS SDK][]. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima il progetto di [guida introduttiva per Servizi mobili][]. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
+In questa guida viene illustrato come eseguire scenari comuni utilizzando un client iOS per Servizi mobili di Azure. Gli esempi sono scritti in objective-C ed è necessario avere installato [Mobile Services SDK][Mobile Services SDK]. Per completare questa esercitazione, è inoltre necessario installare [iOS SDK][iOS SDK]. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima il progetto di [guida introduttiva per Servizi mobili][guida introduttiva per Servizi mobili]. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
 
 ## Sommario
 
--   [Informazioni su Servizi mobili][]
--   [Concetti][]
--   [Installazione e prerequisiti][]
--   [Procedura: Creare il client di Servizi mobili][]
--   [Procedura: Creare un riferimento alla tabella][]
--   [Procedura: Eseguire query sui dati da un servizio mobile][]
+-   [Informazioni su Servizi mobili][Informazioni su Servizi mobili]
+-   [Concetti][Concetti]
+-   [Installazione e prerequisiti][Installazione e prerequisiti]
+-   [Procedura: Creare il client di Servizi mobili][Procedura: Creare il client di Servizi mobili]
+-   [Procedura: Creare un riferimento alla tabella][Procedura: Creare un riferimento alla tabella]
+-   [Procedura: Eseguire query sui dati da un servizio mobile][Procedura: Eseguire query sui dati da un servizio mobile]
 
-    -   [Filtrare i dati restituiti][]
-    -   [Utilizzare l'oggetto MSQuery][]
-    -   [Selezionare colonne specifiche][]
--   [Procedura: Inserire dati in un servizio mobile][]
--   [Procedura: Modificare dati in un servizio mobile][]
--   [Procedura: Associare dati all'interfaccia utente][]
--   [Procedura: Autenticare gli utenti][]
--   [Procedura: Gestire gli errori][]
+    -   [Filtrare i dati restituiti][Filtrare i dati restituiti]
+    -   [Utilizzare l'oggetto MSQuery][Utilizzare l'oggetto MSQuery]
+    -   [Selezionare colonne specifiche][Selezionare colonne specifiche]
+-   [Procedura: Inserire dati in un servizio mobile][Procedura: Inserire dati in un servizio mobile]
+-   [Procedura: Modificare dati in un servizio mobile][Procedura: Modificare dati in un servizio mobile]
+-   [Procedura: Associare dati all'interfaccia utente][Procedura: Associare dati all'interfaccia utente]
+-   [Procedura: Autenticare gli utenti][Procedura: Autenticare gli utenti]
+-   [Procedura: Gestire gli errori][Procedura: Gestire gli errori]
 
-<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][]-->
+<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
 
 ## <a name="Setup"></a>Installazione e prerequisiti
 
-In questa guida si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella][] o riutilizzare la tabella `ToDoItem` creata nell'esercitazione [Introduzione a Servizi mobili][guida introduttiva per Servizi mobili]. Negli esempi illustrati in questo argomento viene usata una tabella denominata `ToDoItem` e costituita dalle colonne seguenti:
+In questa guida si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella][Creare una tabella] o riutilizzare la tabella `ToDoItem` creata nell'esercitazione [Introduzione a Servizi mobili][guida introduttiva per Servizi mobili]. Negli esempi illustrati in questo argomento viene usata una tabella denominata `ToDoItem` e costituita dalle colonne seguenti:
 
 -   `id`
 -   `text`
 -   `complete`
 -   `duration`
 
-Se è la prima volta che si crea l'applicazione per iOS, assicurarsi di aggiungere `WindowsAzureMobileServices.framework` all'impostazione [**Link Binary With Libraries**][] dell'applicazione. Durante questo passaggio, fare clic su "Add Other…", passare al percorso del pacchetto Windows Azure Mobile Services SDK scaricato e selezionarlo.
+Se è la prima volta che si crea l'applicazione per iOS, assicurarsi di aggiungere `WindowsAzureMobileServices.framework` all'impostazione [**Link Binary With Libraries**][**Link Binary With Libraries**] dell'applicazione. Durante questo passaggio, fare clic su "Add Other…", passare al percorso del pacchetto Windows Azure Mobile Services SDK scaricato e selezionarlo.
 
 È inoltre necessario aggiungere il riferimento seguente nei file appropriati o nel file con estensione pch dell'applicazione.
 
@@ -84,7 +84,7 @@ Si noti che in questo caso il testo dell'attività viene semplicemente scritto n
 Nel callback vengono forniti i parametri seguenti:
 
 -   *items*: matrice **NSArray** dei record corrispondenti alla query.
--   *totalCount*: numero totale di elementi in tutte le pagine della query, non solo di quelli restituiti nella pagina corrente. Questo valore è impostato su -1 a meno che nella richiesta non venga richiesto in modo esplicito il numero totale. Per altre informazioni, vedere [Restituire i dati in pagine][].
+-   *totalCount*: numero totale di elementi in tutte le pagine della query, non solo di quelli restituiti nella pagina corrente. Questo valore è impostato su -1 a meno che nella richiesta non venga richiesto in modo esplicito il numero totale. Per altre informazioni, vedere [Restituire i dati in pagine][Restituire i dati in pagine].
 -   *error*: eventuali errori che si sono verificati. In caso contrario `nil`.
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
@@ -197,11 +197,11 @@ La libreria client consente di includere parametri QueryString aggiuntivi nella 
     };
 
 Questi parametri vengono aggiunti all'URI della query come `myKey1=value1&myKey2=value2`.
-Per altre informazioni, vedere [Procedura: Accedere ai parametri personalizzati][].
+Per altre informazioni, vedere [Procedura: Accedere ai parametri personalizzati][Procedura: Accedere ai parametri personalizzati].
 
 ## <a name="inserting"></a><span class="short-header">Inserire dati</span>Procedura: Inserire dati in un servizio mobile
 
-Per inserire una nuova riga nella tabella, è necessario creare un nuovo [oggetto NSDictionary][] e passarlo alla funzione insert. Il codice seguente consente di inserire un nuovo elemento Todo nella tabella:
+Per inserire una nuova riga nella tabella, è necessario creare un nuovo [oggetto NSDictionary][oggetto NSDictionary] e passarlo alla funzione insert. Il codice seguente consente di inserire un nuovo elemento Todo nella tabella:
 
     NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
     [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -244,13 +244,13 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
--   Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1][].
+-   Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1][codici di controllo ASCII C0 e C1].
 -   Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Gli ID "." e ".."
 
-In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili][].
+In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili][Comandi per la gestione delle tabelle di Servizi mobili].
 
-Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sui campi dell'oggetto nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][].
+Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sui campi dell'oggetto nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][Schema dinamico].
 
 ## <a name="modifying"></a><span class="short-header">Modificare dati</span>Procedura: Modificare dati in un servizio mobile
 
@@ -292,7 +292,7 @@ In Servizi mobili è possibile utilizzare i provider di identità seguenti per a
 -   Twitter
 -   Azure Active Directory
 
-Per altre informazioni su come configurare un provider di identità, vedere [Introduzione all'autenticazione][].
+Per altre informazioni su come configurare un provider di identità, vedere [Introduzione all'autenticazione][Introduzione all'autenticazione].
 
 Servizi mobili supporta i due flussi di lavoro di autenticazione seguenti:
 
@@ -300,9 +300,9 @@ Servizi mobili supporta i due flussi di lavoro di autenticazione seguenti:
 
 -   In una procedura di accesso gestita dal client, l'app deve richiedere un token al provider di identità e quindi presentare il token a Servizi mobili per l'autenticazione.
 
-Quando l'autenticazione ha esito positivo, viene restituito un oggetto utente che contiene il valore ID utente assegnato e il token di autenticazione. È possibile utilizzare questo ID utente in script server per convalidare o modificare le richieste. Per altre informazioni, vedere [Utilizzo di script][]. Il token stesso può essere memorizzato nella cache in modo sicuro per gli accessi successivi.
+Quando l'autenticazione ha esito positivo, viene restituito un oggetto utente che contiene il valore ID utente assegnato e il token di autenticazione. È possibile utilizzare questo ID utente in script server per convalidare o modificare le richieste. Per altre informazioni, vedere [Utilizzo di script][Utilizzo di script]. Il token stesso può essere memorizzato nella cache in modo sicuro per gli accessi successivi.
 
-È inoltre possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per altre informazioni, vedere [Autorizzazioni][].
+È inoltre possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per altre informazioni, vedere [Autorizzazioni][Autorizzazioni].
 
 ### Accesso gestito dal server
 
@@ -335,7 +335,7 @@ Nota: Se si utilizza un provider di identità diverso dall'account Microsoft, so
 
 In alcuni casi, il processo di accesso viene eseguito all'esterno del client di Servizi mobili, ad esempio per abilitare una funzionalità Single Sign-On o se l'app deve contattare direttamente il provider di identità per ottenere informazioni sull'utente. In questi casi, è possibile eseguire l'accesso a Servizi mobili fornendo un token ottenuto in modo indipendente da un provider di identità supportato.
 
-Nell'esempio seguente viene usato [Live Connect SDK][] per abilitare l'accesso Single Sign-On per le app per iOS.
+Nell'esempio seguente viene usato [Live Connect SDK][Live Connect SDK] per abilitare l'accesso Single Sign-On per le app per iOS.
 
     [client loginWithProvider:@"microsoftaccount" 
         token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
@@ -416,7 +416,7 @@ Per evitare agli utenti di doversi autenticare ogni volta che eseguono l'applica
 <p>I token sono dati sensibili, pertanto &egrave; necessario archiviarli crittografati per proteggerli in caso di smarrimento o furto del dispositivo.</p>
 </div>
 
-Quando si utilizza un token memorizzato nella cache, l'utente non deve eseguire di nuovo l'accesso fintanto che il token non è scaduto. Quando un utente tenta di eseguire l'accesso con un token scaduto, viene restituita una risposta con codice di errore 401 (Non autorizzato). A questo punto, l'utente deve eseguire di nuovo l'accesso per ottenere un nuovo token, che può, a sua volta, essere memorizzato di nuovo nella cache. Per evitare di scrivere codice che gestisce i token scaduti ogni volta che l'app chiama il servizio mobile, è possibile utilizzare i filtri che consentono di intercettare le chiamate al servizio mobile e le risposte ricevute da questo. Il codice nel filtro testa le risposte per rilevare codici di errore 401, attiva il processo di accesso qualora il token sia scaduto e quindi invia di nuovo la richiesta che ha generato l'errore 401. Per altre informazioni, vedere il post di blog relativo alla [gestione dei token scaduti][].
+Quando si utilizza un token memorizzato nella cache, l'utente non deve eseguire di nuovo l'accesso fintanto che il token non è scaduto. Quando un utente tenta di eseguire l'accesso con un token scaduto, viene restituita una risposta con codice di errore 401 (Non autorizzato). A questo punto, l'utente deve eseguire di nuovo l'accesso per ottenere un nuovo token, che può, a sua volta, essere memorizzato di nuovo nella cache. Per evitare di scrivere codice che gestisce i token scaduti ogni volta che l'app chiama il servizio mobile, è possibile utilizzare i filtri che consentono di intercettare le chiamate al servizio mobile e le risposte ricevute da questo. Il codice nel filtro testa le risposte per rilevare codici di errore 401, attiva il processo di accesso qualora il token sia scaduto e quindi invia di nuovo la richiesta che ha generato l'errore 401. Per altre informazioni, vedere il post di blog relativo alla [gestione dei token scaduti][gestione dei token scaduti].
 
 ## <a name="errors"></a><span class="short-header">Gestire gli errori</span>Procedura: Gestire gli errori
 
@@ -433,7 +433,7 @@ Questo file definisce le costanti seguenti che possono essere utilizzate per acc
 
 Viene inoltre definita una costante per ogni codice di errore. Nel file MSError.h è possibile visualizzare una spiegazione di questi codici.
 
-Per un esempio che illustra come eseguire la convalida e la gestione degli errori, vedere [Convalida e modifica dei dati in Servizi mobili mediante gli script server][]. In questo argomento la convalida lato server è implementata tramite script del server. Quando vengono inviati dati non validi, viene restituita una risposta e errore che viene quindi gestita dal client.
+Per un esempio che illustra come eseguire la convalida e la gestione degli errori, vedere [Convalida e modifica dei dati in Servizi mobili mediante gli script server][Convalida e modifica dei dati in Servizi mobili mediante gli script server]. In questo argomento la convalida lato server è implementata tramite script del server. Quando vengono inviati dati non validi, viene restituita una risposta e errore che viene quindi gestita dal client.
 
 <!-- 
 <h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>  _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._  <h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>  _(Optional) This section shows how to send customize client behaviors._  ###<a name="custom-headers"></a>How to: Customize request headers  _(Optional) This section shows how to send custom request headers._  For more information see, New topic about processing headers in the server-side.  ###<a name="custom-serialization"></a>How to: Customize serialization  _(Optional) This section shows how to use attributes to customize how data types are serialized._  For more information see, New topic about processing headers in the server-side.  ## <a name="next-steps"></a>Next steps --> 

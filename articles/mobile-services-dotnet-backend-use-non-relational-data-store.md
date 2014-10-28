@@ -95,6 +95,6 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [pagina del componente aggiuntivo MongoLab]: /en-us/gallery/store/mongolab/mongolab
+  [pagina del componente aggiuntivo MongoLab]: /it-it/gallery/store/mongolab/mongolab
   []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

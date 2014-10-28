@@ -161,7 +161,7 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows Store C#"
   [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET backend"
   [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript backend"
   [libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536

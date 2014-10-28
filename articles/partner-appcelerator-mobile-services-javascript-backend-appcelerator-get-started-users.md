@@ -100,7 +100,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-users "iOS"

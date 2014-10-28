@@ -427,8 +427,8 @@ Le note sulla versione relative alle piattaforme HDP usate dalle versioni del cl
 
 -   Il cluster HDInsight versione 1.6 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1].
 
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [HDInsight SDK]: http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/it-it/library/dn593744.aspx
+  [HDInsight SDK]: http://msdn.microsoft.com/it-it/library/azure/dn469975.aspx
   [controllo delle versioni del componente HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/
   []: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/

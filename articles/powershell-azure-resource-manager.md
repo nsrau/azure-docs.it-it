@@ -1,26 +1,28 @@
-<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="juneb" solutions="" manager="mbaldwin" editor="mollybos" />
+<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-Utilizzo di Windows PowerShell con Gestione risorse
-===================================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+
+# Utilizzo di Windows PowerShell con Gestione risorse
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/it-it/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">CLI multipiattaforma</a></div>
 
 Con Gestione risorse è stato introdotto un metodo completamente nuovo per gestire le risorse di Azure. Anziché creare e gestire le singole risorse, si inizia immaginando un servizio complesso, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si utilizza un modello di risorsa del servizio per creare un gruppo contenente le risorse desiderate per supportare il servizio. A questo punto, è possibile gestire e distribuire il gruppo di risorse come unità logica.
 
-In questa esercitazione viene descritto come utilizzare Windows PowerShell con Gestione risorse per Microsoft Azure. Verrà illustrato il processo di creazione e distribuzione di un gruppo di risorse per un sito Web o un'applicazione Web ospitata in Azure con un database SQL, completo di tutte le risorse necessarie per supportarlo.
+In questa esercitazione viene descritto come usare Windows PowerShell con Gestione risorse per Microsoft Azure. Verrà illustrato il processo di creazione e distribuzione di un gruppo di risorse per un sito Web o un'applicazione Web ospitata in Azure con un database SQL, completo di tutte le risorse necessarie per supportarlo.
 
 **Tempo previsto per il completamento:** 15 minuti
 
-Prerequisiti
-------------
+## Prerequisiti
 
-Per utilizzare Windows PowerShell con Gestione risorse, è necessario disporre dei programmi seguenti:
+Per usare Windows PowerShell con Gestione risorse, è necessario disporre dei programmi seguenti:
 
--   Windows PowerShell 3.0 o versione successiva. Per trovare la versione di Windows PowerShell in uso, digitare `$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o maggiore. Per installare una versione più recente, vedere [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855).
+-   Windows PowerShell, versione 3.0 o 4.0. Per trovare la versione più recente di Windows PowerShell, digitare:`$PSVersionTable` e assicurarsi che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0][Windows Management Framework 3.0] o [Windows Management Framework 4.0][Windows Management Framework 4.0].
 
--   Azure PowerShell 0.8.0 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/).
+-   Azure PowerShell 0.8.0 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 
-Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per ulteriori informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/en-us/library/hh857337.aspx).
+Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per altre informazioni su Windows PowerShell, vedere[Introduzione a Windows PowerShell][Introduzione a Windows PowerShell].
 
-Per informazioni dettagliate sui cmdlet utilizzati in questa esercitazione, utilizzare il cmdlet Get-Help.
+Per informazioni dettagliate sui cmdlet utilizzati in questa esercitazione, usare il cmdlet Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
@@ -28,51 +30,49 @@ Ad esempio, per informazioni sul cmdlet Add-AzureAccount, digitare:
 
     Get-Help Add-AzureAccount -Detailed
 
-Contenuto dell'esercitazione:
------------------------------
+## Contenuto dell'esercitazione:
 
--   [Informazioni sui moduli di Azure Powershell](#about)
--   [Creazione di un gruppo di risorse](#create)
--   [Gestione di un gruppo di risorse](#manage)
--   [Risoluzione dei problemi relativi a un gruppo di risorse](#troubleshoot)
--   [Passaggi successivi](#next)
+-   [Informazioni sui moduli di Azure Powershell][Informazioni sui moduli di Azure Powershell]
+-   [Creare un gruppo di risorse][Creare un gruppo di risorse]
+-   [Gestione di un gruppo di risorse][Gestione di un gruppo di risorse]
+-   [Risoluzione dei problemi relativi a un gruppo di risorse][Risoluzione dei problemi relativi a un gruppo di risorse]
+-   [Passaggi successivi][Passaggi successivi]
 
-Informazioni sui moduli di Azure Powershell
--------------------------------------------
+## <span id="about"></span></a>Informazioni sui moduli di Azure Powershell
 
 A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include tre moduli di Windows PowerShell:
 
--   **Azure**: include i cmdlet tradizionali per la gestione delle singole risorse, ad esempio gli account di archiviazione, i siti Web, i database, le macchine virtuali e i servizi multimediali. Per ulteriori informazioni, vedere i [cmdlet di Gestione servizi di Azure](http://msdn.microsoft.com/it-it/library/jj152841.aspx).
+-   **Azure**: include i cmdlet tradizionali per la gestione delle singole risorse, ad esempio gli account di archiviazione, i siti Web, i database, le macchine virtuali e i servizi multimediali. Per altre informazioni, vedere i [cmdlet di Gestione servizi di Azure][cmdlet di Gestione servizi di Azure].
 
--   **AzureResourceManager**: include cmdlet per la creazione, gestione e distribuzione delle risorse di Azure per un gruppo di risorse. Per ulteriori informazioni, vedere i [cmdlet di Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkID=394765).
+-   **AzureResourceManager**: include cmdlet per la creazione, gestione e distribuzione delle risorse di Azure per un gruppo di risorse. Per altre informazioni, vedere i [cmdlet di Gestione risorse di Azure][cmdlet di Gestione risorse di Azure].
 
--   **AzureProfile**: include cmdlet comuni a entrambi i moduli, come Add-AzureAccount, Get-AzureSubscription e Switch-AzureMode. Per ulteriori informazioni, vedere i [cmdlet del profilo di Azure](http://go.microsoft.com/fwlink/?LinkID=394766).
+-   **AzureProfile**: include cmdlet comuni a entrambi i moduli, come Add-AzureAccount, Get-AzureSubscription e Switch-AzureMode. Per altre informazioni, vedere i [cmdlet del profilo di Azure][cmdlet del profilo di Azure].
 
-> [ WACOM.NOTE] Il modulo AzureResourceManager è al momento in anteprima. Potrebbe non garantire le funzionalità di gestione del modulo AzureServiceManagement.
+> [ WACOM.NOTE] Il modulo AzureResourceManager è al momento in anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.
 
 I moduli Azure e AzureResourceManager non sono stati progettati per essere utilizzati nella stessa sessione di Windows PowerShell. Per facilitare il passaggio da un modulo all'altro, al modulo AzureProfile è stato aggiunto il nuovo cmdlet **Switch-AzureMode**.
 
-Quando si utilizza Azure PowerShell, i cmdlet dei moduli Azure e AzureProfile vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, utilizzare il cmdlet Switch-AzureMode. Il modulo Azure verrà rimosso dalla sessione e i moduli AzureResourceManager (e AzureProfile) verranno importati.
+Quando si usa Azure PowerShell, i cmdlet inclusi nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet Switch-AzureMode. Il modulo Azure verrà rimosso dalla sessione e i moduli AzureResourceManager e AzureProfile verranno importati.
 
 Per passare al modulo AzureResoureManager, digitare:
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:PS C:\> Switch-AzureMode -Name AzureResourceManagergt
 
 Per tornare al modulo Azure, digitare:
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureServiceManagement
+    PS C:PS C:\> Switch-AzureMode -Name AzureServiceManagementgt
 
-Per impostazione predefinita, Switch-AzureMode viene applicato solo alla sessione corrente. Per applicare l'opzione a tutte le sessioni di Windows PowerShell, utilizzare il parametro **Global** di Switch-AzureMode.
+Per impostazione predefinita, Switch-AzureMode viene applicato solo alla sessione corrente. Per applicare l'opzione a tutte le sessioni di Windows PowerShell, usare il parametro **Global** di Switch-AzureMode.
 
-Per informazioni sul cmdlet Switch-AzureMode, digitare: `Get-Help Switch-AzureMode` o vedere [Switch-AzureMode](http://go.microsoft.com/fwlink/?LinkID=394398).
+Per informazioni sul cmdlet Switch-AzureMode, digitare: `Get-Help Switch-AzureMode` oppure vedere [Switch-AzureMode][Switch-AzureMode].
 
 Per un elenco dei cmdlet del modulo AzureResourceManager con un riepilogo di supporto, digitare:
 
-    PS C:PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
 
     Name                                   Synopsis
-	----                                   --------
-	Get-AzureLocation                      Gets the Azure data center locations and the resource types that they support
+    ----                                   --------
+    Get-AzureLocation                      Gets the Azure data center locations and the resource types that they support
     Get-AzureResource                      Gets Azure resources
     Get-AzureResourceGroup                 Gets Azure resource groups
     Get-AzureResourceGroupDeployment       Gets the deployments in a resource group.
@@ -87,7 +87,7 @@ Per un elenco dei cmdlet del modulo AzureResourceManager con un riepilogo di sup
     Set-AzureResource                      Changes the properties of an Azure resource.
     Stop-AzureResourceGroupDeployment      Cancels a resource group deployment
     Test-AzureResourceGroupTemplate        Detects errors in a resource group template or template parameters
-    
+
 Per informazioni complete per un cmdlet, digitare un comando con il formato seguente:
 
     Get-Help <cmdlet-name> -Full
@@ -96,23 +96,21 @@ Ad esempio:
 
     Get-Help Get-AzureLocation -Full
 
-Creazione di un gruppo di risorse per un sito Web e un database
-===============================================================
+# <span id="create"></span></a> Creare un gruppo di risorse
 
 Questa sezione dell'esercitazione descrive il processo di creazione e distribuzione di un gruppo di risorse per un sito Web con un database SQL.
 
 Non è necessario essere esperti di Azure, SQL, dei siti Web o della gestione delle risorse per eseguire questa attività. I modelli consentono di creare il gruppo di risorse con tutte le risorse che potrebbero essere necessarie. Poiché si utilizza Windows PowerShell per automatizzare le attività, è possibile servirsi di questo processo come modello per la creazione di script per attività su vasta scala.
 
-Passaggio 1: Passare a Gestione risorse di Azure
-------------------------------------------------
+## Passaggio 1: Passare a Gestione risorse di Azure
 
-1.  Avviare Windows PowerShell. È possibile utilizzare il programma host desiderato, ad esempio la console di Windows PowerShell o Windows PowerShell ISE.
+1.  Avviare Windows PowerShell. È possibile usare il programma host desiderato, ad esempio la console di Windows PowerShell o Windows PowerShell ISE.
 
-2.  Utilizzare il cmdlet **Switch-AzureMode** per importare i cmdlet nei moduli AzureResourceManager e AzureProfile.
+2.  Usare il cmdlet **Switch-AzureMode** per importare i cmdlet nei moduli AzureResourceManager e AzureProfile.
 
     `PS C:PS C:\>Switch-AzureMode AzureResourceManager`
 
-3.  Per aggiungere l'account Azure alla sessione di Windows PowerShell, utilizzare il cmdlet **Add-AzureAccount**.
+3.  Per aggiungere l'account Azure alla sessione di Windows PowerShell, usare il cmdlet **Add-AzureAccount**.
 
     `PS C:PS C:\> Add-AzureAccount`
 
@@ -122,18 +120,17 @@ Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarl
 
 > [ WACOM.NOTE] Il modulo AzureResourceManager richiede Add-AzureAccount. Non è sufficiente un file di impostazioni di pubblicazione.
 
-Passaggio 2: Selezionare un modello di raccolta
------------------------------------------------
+## Passaggio 2: Selezionare un modello di raccolta
 
-Esistono modi diversi per creare un gruppo di risorse con le relative risorse, ma la soluzione più semplice consiste nell'utilizzare un modello di gruppo di risorse. Un *modello di gruppo di risorse* è una stringa JSON che definisce le risorse di un gruppo. La stringa include segnaposto chiamati "parametri" per i valori definiti dall'utente, come i nomi e le dimensioni.
+Esistono modi diversi per creare un gruppo di risorse con le relative risorse, ma la soluzione più semplice consiste nell'usare un modello di gruppo di risorse. Un *modello di gruppo di risorse* è una stringa JSON che definisce le risorse di un gruppo. La stringa include segnaposto chiamati "parametri" per i valori definiti dall'utente, come i nomi e le dimensioni.
 
-Azure ospita una raccolta di modelli di gruppi di risorse ed è possibile creare modelli personalizzati da zero o modificando un modello della raccolta. In questa esercitazione verrà utilizzato un modello della raccolta.
+Azure ospita una raccolta di modelli di gruppi di risorse ed è possibile creare modelli personalizzati da zero o modificando un modello della raccolta. In questa esercitazione verrà usato un modello della raccolta.
 
-Per cercare un modello nella raccolta di modelli di gruppo di risorse di Azure, utilizzare il cmdlet **Get-AzureResourceGroupGalleryTemplate**.
+Per cercare un modello nella raccolta di modelli di gruppo di risorse di Azure, usare il cmdlet **Get-AzureResourceGroupGalleryTemplate**.
 
 Al prompt di Windows Powershell digitare:
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplate
+    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplategt
 
 Il cmdlet restituisce un elenco dei modelli di raccolta con le proprietà Publisher e Identity. La proprietà **Identity** viene utilizzata per identificare il modello nei comandi.
 
@@ -149,39 +146,38 @@ Il cmdlet restituisce un elenco dei modelli di raccolta con le proprietà Publis
 
 SUGGERIMENTO: per richiamare l'ultimo comando, premere la freccia SU.
 
-Il modello Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json sembra interessante. Per ulteriori informazioni su un modello della raccolta, utilizzare il parametro **Identity**. Il valore del parametro Identity è l'identità del modello.
+Il modello Microsoft.WebSiteSQLDatabase.0.1.0-preview1 sembra interessante. Per altre informazioni su un modello della raccolta, usare il parametro **Identity**. Il valore del parametro Identity è l'identità del modello.
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json
+    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1gt; Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 Il cmdlet restituisce un oggetto con maggiori informazioni sul modello, inclusa una descrizione.
 
-    <p>Windows Azure Web Sites offers secure and flexible development, 
+    <p>Windows Azure Websites offers secure and flexible development, 
     deployment and scaling options for any sized web application. Leverage 
     your existing tools to create and deploy applications without the hassle 
     of managing infrastructure.</p>
 
 Questo modello sembra adatto per lo scopo dell'esercitazione. Salvarlo su disco ed esaminarlo più attentamente.
 
-Passaggio 3: Esaminare il modello
----------------------------------
+## Passaggio 3: Esaminare il modello
 
-Salvare il modello in un file JSON su disco. Questo passaggio non è obbligatorio, ma facilita la visualizzazione del modello. Per salvare il modello, utilizzare il cmdlet **Save-AzureResourceGroupGalleryTemplate**. Utilizzare il relativo parametro **Identity** per specificare il modello e il parametro **Path** per specificare un percorso su disco.
+Salvare il modello in un file JSON su disco. Questo passaggio non è obbligatorio, ma facilita la visualizzazione del modello. Per salvare il modello, usare il cmdlet **Save-AzureResourceGroupGalleryTemplate**. Usare il relativo parametro **Identity** per specificare il modello e il parametro **Path** per specificare un percorso su disco.
 
 Save-AzureResourceGroupGalleryTemplate salva il modello e restituisce il percorso e il nome del file del modello JSON.
 
-    PS C:PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json -Path D:\Azure\Templates
+    PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
 
     Path
-	----
-	D:\Azure\Templates\Microsoft.WebSite.0.1.0-preview1.json
-    
+    ----
+    D:\Azure\Templates\Microsoft.WebSite.0.1.0-preview1.json
+
 È possibile visualizzare il file del modello in un editor di testo, come il Blocco note. Ogni modello contiene una sezione **resources** e una sezione **parameters**.
 
 Nella sezione **resources** del modello sono elencate le risorse create dal modello. Questo modello crea un server di database SQL e un database SQL, una server farm e un sito Web, nonché numerose impostazioni di gestione.
 
 La definizione di ogni risorsa ne include le proprietà, quali il nome, il tipo e la posizione, e i parametri per i valori definiti dall'utente. Questa sezione del modello definisce ad esempio il database SQL. Include i parametri per il nome del database ([parameters('databaseName')]), la posizione del server di database [parameters('serverLocation')] e la proprietà collation [parameters('collation')].
 
-     {
+        {
           "name": "[parameters('databaseName')]",
           "type": "databases",
           "location": "[parameters('serverLocation')]",
@@ -199,29 +195,29 @@ La definizione di ogni risorsa ne include le proprietà, quali il nome, il tipo 
 La sezione **parameters** del modello è un insieme dei parametri definiti in tutte le risorse. Include le proprietà databaseName, serverLocation e collation.
 
     "parameters": {
-      ...    
-      
-      "serverLocation": {
-        "type": "string"
-      }, 
-      ...
-      
-      "databaseName": {
-        "type": "string"
-      },
-      "collation": {
-        "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-      }
+    ...    
 
-Alcuni parametri hanno un valore predefinito. Quando si utilizza un modello, non è necessario fornire i valori per questi parametri. Se non si specifica un valore, viene utilizzato il valore predefinito.
+    "serverLocation": {
+      "type": "string"
+    }, 
+    ...
+
+    "databaseName": {
+      "type": "string"
+    },
+    "collation": {
+      "type": "string",
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    }
+
+Alcuni parametri hanno un valore predefinito. Quando si utilizza un modello, non è necessario fornire i valori per questi parametri. Se non si specifica un valore, viene usato il valore predefinito.
 
     "collation": {
           "type": "string",
           "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
         }
 
-Quando i parametri hanno valori enumerati, i valori validi sono elencati con il parametro. Il parametro **sku** ad esempio accetta i valori Free, Shared, Basic e Standard. Se non si specifica un valore per il parametro **sku**, viene utilizzato il valore predefinito Free.
+Quando i parametri hanno valori enumerati, i valori validi sono elencati con il parametro. Il parametro **sku** ad esempio accetta i valori Free, Shared, Basic e Standard. Se non si specifica un valore per il parametro **sku**, viene usato il valore predefinito Free.
 
     "sku": {
       "type": "string",
@@ -240,21 +236,20 @@ Si noti che il parametro **administratorLoginPassword** utilizza una stringa sic
       "type": "securestring"
     },
 
-A questo punto, è quasi possibile utilizzare il modello, ma prima occorre trovare una posizione per ciascuna delle risorse.
+A questo punto, è quasi possibile usare il modello, ma prima occorre trovare una posizione per ciascuna delle risorse.
 
-Passaggio 4: Recuperare la posizione dei tipi di risorsa
---------------------------------------------------------
+## Passaggio 4: Recuperare la posizione dei tipi di risorsa
 
 Per la maggior parte dei modelli è necessario specificare una posizione per ognuna delle risorse di un gruppo di risorse. Tutte le risorse si trovano in un data center di Azure, ma non tutti i data center di Azure supportano qualsiasi tipo di risorsa.
 
 Selezionare una posizione che supporti il tipo di risorsa. Non è necessario che le risorse di un gruppo di risorse si trovino nella stessa posizione e che si trovino nella stessa posizione del gruppo di risorse o della sottoscrizione.
 
-Per recuperare le posizioni che supportano ciascun tipo di risorsa, utilizzare il cmdlet **Get-AzureLocation**. Di seguito è riportata una parte dell'output (l'output ottenuto potrebbe essere diverso, in quanto i dettagli possono variare con il tempo).
+Per recuperare le posizioni che supportano ciascun tipo di risorsa, usare il cmdlet **Get-AzureLocation**. Di seguito è riportata una parte dell'output (l'output ottenuto potrebbe essere diverso, in quanto i dettagli possono variare con il tempo).
 
     Name                                 Locations
-	----                                 ---------
-	ResourceGroup                        East Asia, South East Asia, East US, West US, North Central US, 
-										 South Central US, Central US, North Europe, West Europe
+    ----                                 ---------
+    ResourceGroup                        East Asia, South East Asia, East US, West US, North Central US,
+                                         South Central US, Central US, North Europe, West Europe
 
     Microsoft.Sql/servers/databases      Brazil South, Central US, East Asia, East US, East US 2, Japan
                                          East, Japan West, North Central US, North Europe, South Central US,
@@ -268,16 +263,15 @@ Per recuperare le posizioni che supportano ciascun tipo di risorsa, utilizzare i
 
 Ora sono disponibili le informazioni necessarie per creare il gruppo di risorse.
 
-Passaggio 5: Creare un gruppo di risorse
-----------------------------------------
+## Passaggio 5: Creare un gruppo di risorse
 
-In questo passaggio il modello di gruppo di risorse verrà utilizzato per creare il gruppo di risorse. Aprire come riferimento il file Microsoft.WebSiteSQLDatabase.0.1.0-preview1 JSON su disco e seguire la procedura.
+In questo passaggio il modello di gruppo di risorse verrà usato per creare il gruppo di risorse. Aprire come riferimento il file Microsoft.WebSiteSQLDatabase.0.1.0-preview1 JSON su disco e seguire la procedura.
 
-Per creare un gruppo di risorse, utilizzare il cmdlet **New-AzureResourceGroup**.
+Per creare un gruppo di risorse, usare il cmdlet **New-AzureResourceGroup**.
 
-Il comando utilizza il parametro **Name** per specificare un nome per il gruppo di risorse e il parametro **Location** per specificarne la posizione. Utilizzare l'output di **Get-AzureLocation** per selezionare una posizione per il gruppo di risorse. Il parametro **GalleryTemplateIdentity** viene utilizzato per specificare il modello della raccolta.
+Il comando utilizza il parametro **Name** per specificare un nome per il gruppo di risorse e il parametro **Location** per specificarne la posizione. Usare l'output di **Get-AzureLocation** per selezionare una posizione per il gruppo di risorse. Il parametro **GalleryTemplateIdentity** viene usato per specificare il modello della raccolta.
 
-    PS C:PS C:\> New-AzureResourceGroup ` 
+    PS C:\> New-AzureResourceGroup ` 
             -Name TestRG1 `
             -Location "East Asia" `
             -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -289,30 +283,30 @@ Quando si digita il nome del modello, New-AzureResourceGroup lo recupera, lo ana
 
 Per ottenere i parametri, digitare un segno meno (-) per indicare un nome di parametro e quindi premere TAB. In alternativa, digitare le prime lettere di un nome di parametro, ad esempio siteName, quindi premere TAB.
 
-     PS C: PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -si<TAB>
 
 Il nome del parametro viene completato automaticamente. Per spostarsi tra i nomi dei parametri, premere ripetutamente TAB.
 
-     PS C: PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName 
 
 Immettere un nome per il sito Web e ripetere il processo con TAB per ognuno dei parametri. I parametri con un valore predefinito sono facoltativi. Per accettare un valore predefinito, omettere il parametro dal comando.
 
 Quando un parametro di un modello include valori enumerati, ad esempio il parametro sku di questo modello, premere TAB per passare da un valore all'altro.
 
-	    PS C: PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku <TAB>
-	
-		PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
-		-siteName TestSite -sku Free<TAB>
-		
-		PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
-		-siteName TestSite -sku Basic<TAB>
+
+        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        -siteName TestSite -sku Free<TAB>
+
+        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        -siteName TestSite -sku Basic<TAB>
 
 Di seguito è riportato un esempio di comando New-AzureResourceGroup che specifica solo i parametri obbligatori e il parametro comune **Verbose**. Si noti che **administratorLoginPassword** viene omesso (il carattere di apice inverso (\`) è il carattere di continuazione della riga di Windows PowerShell).
 
-    PS C:PS C:\> New-AzureResourceGroup 
+    PS C:\> New-AzureResourceGroup 
     -Name TestRG `
     -Location "East Asia" `
     -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -324,13 +318,12 @@ Di seguito è riportato un esempio di comando New-AzureResourceGroup che specifi
     -administratorLogin Admin01 `
     -databaseName TestDB `
     -Verbose
-    
+
 Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancante **administratorLoginPassword**. Inoltre, quando si digita la password, il valore della stringa sicura viene oscurato. Questa strategia elimina il rischio di fornire la password in testo normale.
 
     cmdlet New-AzureResourceGroup at command pipeline position 1
     Supply values for the following parameters:
-    (Type !
-     for Help.)
+    (Type !? for Help.)
     administratorLoginPassword: **********
 
 **New-AzureResourcGroup** restituisce il gruppo di risorse creato e distribuito. Di seguito è riportato l'output del comando, incluso l'output di verbose.
@@ -368,116 +361,135 @@ Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancan
                     TestPlan               Microsoft.Web/serverFarms             westus
                     TestSite               Microsoft.Web/sites                   westus
 
-In pochi passaggi sono stati create e distribuite le risorse necessarie per un sito Web complesso. Il modello della raccolta ha fornito quasi tutte le informazioni necessarie per questa attività. Inoltre, l'attività è stata automatizzata facilmente.
+In pochi passaggi sono stati create e distribuite le risorse necessarie per un sito Web complesso.
+Il modello della raccolta ha fornito quasi tutte le informazioni necessarie per questa attività.
+Inoltre, l'attività è stata automatizzata facilmente.
 
-Gestione di un gruppo di risorse
-================================
+# <span id="manage"></span></a> Gestione di un gruppo di risorse
 
-Dopo aver creato un gruppo di risorse, è possibile utilizzare i cmdlet del modulo AzureResourceManager per gestirlo, modificarlo, aggiungervi risorse o rimuoverlo.
+Dopo aver creato un gruppo di risorse, è possibile usare i cmdlet del modulo AzureResourceManager per gestirlo, modificarlo, aggiungervi risorse o rimuoverlo.
 
--   Per ottenere i gruppi di risorse della propria sottoscrizione, utilizzare il cmdlet **Get-AzureResourceGroup**:
+-   Per ottenere i gruppi di risorse della propria sottoscrizione, usare il cmdlet **Get-AzureResourceGroup**:
 
-          PS C:>Get-AzureResourceGroup
+        PS C:>Get-AzureResourceGroup
 
-          ResourceGroupName : TestRG
-          Location          : eastasia
-          ProvisioningState : Succeeded
-          Resources         :
-                          Name                   Type                                  Location
-                          =====================  ====================================  =========
-                          ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-                          TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-                          TestSite               microsoft.insights/components         centralus
-                          testserver             Microsoft.Sql/servers                 westus
-                          TestDB                 Microsoft.Sql/servers/databases       westus
-                          TestPlan               Microsoft.Web/serverFarms             westus
-                          TestSite               Microsoft.Web/sites                   westus
+        ResourceGroupName : TestRG
+        Location          : eastasia
+        ProvisioningState : Succeeded
+        Resources         :
+                        Name                   Type                                  Location
+                        =====================  ====================================  =========
+                        ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+                        TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
+                        TestSite               microsoft.insights/components         centralus
+                        testserver             Microsoft.Sql/servers                 westus
+                        TestDB                 Microsoft.Sql/servers/databases       westus
+                        TestPlan               Microsoft.Web/serverFarms             westus
+                        TestSite               Microsoft.Web/sites                   westus
 
--   Per ottenere le risorse del gruppo di risorse, utilizzare il cmdlet **GetAzureResource** e il relativo parametro ResourceGroupName. Senza parametri, Get-AzureResource recupera tutte le risorse della sottoscrizione di Azure.
+-   Per ottenere le risorse del gruppo di risorse, usare il cmdlet **GetAzureResource** e il relativo parametro ResourceGroupName. Senza parametri, Get-AzureResource recupera tutte le risorse della sottoscrizione di Azure.
 
-          PS C:\> Get-AzureResource -ResourceGroupName TestRG
-            
-          Name                   ResourceType                          Location
-		  ----                   ------------                          --------
-		  ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-          TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-          TestSite               microsoft.insights/components         centralus
-          testserver             Microsoft.Sql/servers                 westus
-          TestDB                 Microsoft.Sql/servers/databases       westus
-          TestPlan               Microsoft.Web/serverFarms             westus
-          TestSite               Microsoft.Web/sites                   westus
+        PS C:\> Get-AzureResource -ResourceGroupName TestRG
 
--   Per aggiungere una risorsa al gruppo di risorse, utilizzare il cmdlet **New-AzureResource**. Questo comando aggiunge un nuovo sito Web al gruppo di risorse TestRG. Questo comando è leggermente più complesso, in quanto non utilizza un modello.
+        Name                   ResourceType                          Location
+        ----                   ------------                          --------
+        ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+        TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
+        TestSite               microsoft.insights/components         centralus
+        testserver             Microsoft.Sql/servers                 westus
+        TestDB                 Microsoft.Sql/servers/databases       westus
+        TestPlan               Microsoft.Web/serverFarms             westus
+        TestSite               Microsoft.Web/sites                   westus
 
-          PS C:\>New-AzureResource -Name TestSite2 `
-          -Location "North Europe" `
-          -ResourceGroupName TestRG `
-          -ResourceType "Microsoft.Web/sites" `
-          -ApiVersion 2004-04-01 `
-          -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
+-   Per aggiungere una risorsa al gruppo di risorse, usare il cmdlet **New-AzureResource**. Questo comando aggiunge un nuovo sito Web al gruppo di risorse TestRG. Questo comando è leggermente più complesso, in quanto non utilizza un modello.
 
--   Per aggiungere una nuova distribuzione basata su un modello al gruppo di risorse, utilizzare il comando **New-AzureResourceGroupDeployment**.
+        PS C:\>New-AzureResource -Name TestSite2 `
+        -Location "North Europe" `
+        -ResourceGroupName TestRG `
+        -ResourceType "Microsoft.Web/sites" `
+        -ApiVersion 2004-04-01 `
+        -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
 
-          PS C:\>New-AzureResourceGroupDeployment ` 
-          -ResourceGroupName TestRG `
-          -GalleryTemplateIdentity Microsoft.WebSite.0.1.0-preview1 `
-          -siteName TestWeb2 `
-          -hostingPlanName TestDeploy2 `
-          -siteMode Limited `
-          -computeMode Dedicated `
-          -siteLocation "North Europe" 
-          -subscriptionID "9b14a38b-4b93-4554-8bb0-3cefb47abcde" `
-          -resourceGroup TestRG
+-   Per aggiungere una nuova distribuzione basata su un modello al gruppo di risorse, usare il comando **New-AzureResourceGroupDeployment**.
 
--   Per eliminare una risorsa dal gruppo di risorse, utilizzare il cmdlet **Remove-AzureResource**. Questo cmdlet elimina la risorsa, ma non il gruppo di risorse.
+        PS C:\>New-AzureResourceGroupDeployment ` 
+        -ResourceGroupName TestRG `
+        -GalleryTemplateIdentity Microsoft.WebSite.0.1.0-preview1 `
+        -siteName TestWeb2 `
+        -hostingPlanName TestDeploy2 `
+        -siteMode Limited `
+        -computeMode Dedicated `
+        -siteLocation "North Europe" `
+        -subscriptionID "9b14a38b-4b93-4554-8bb0-3cefb47abcde" `
+        -resourceGroup TestRG
+
+-   Per eliminare una risorsa dal gruppo di risorse, usare il cmdlet **Remove-AzureResource**. Questo cmdlet elimina la risorsa, ma non il gruppo di risorse.
 
     Il comando rimuove il sito Web TestSite2 dal gruppo di risorse TestRG.
 
-          Remove-AzureResource -Name TestSite2 `
-              -Location "North Europe" `
-              -ResourceGroupName TestRG `
-              -ResourceType "Microsoft.Web/sites" `
-              -ApiVersion 2004-04-01
+        Remove-AzureResource -Name TestSite2 `
+            -Location "North Europe" `
+            -ResourceGroupName TestRG `
+            -ResourceType "Microsoft.Web/sites" `
+            -ApiVersion 2004-04-01
 
--   Per eliminare un gruppo di risorse, utilizzare il cmdlet **Remove-AzureResourceGroup**. Questo cmdlet elimina il gruppo di risorse e le relative risorse.
+-   Per eliminare un gruppo di risorse, usare il cmdlet **Remove-AzureResourceGroup**. Questo cmdlet elimina il gruppo di risorse e le relative risorse.
 
-          PS C:\ps-test> Remove-AzureResourceGroup -Name TestRG
-            
-          Confirm
-          Are you sure you want to remove resource group 'TestRG'
-          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+        PS C:\ps-test> Remove-AzureResourceGroup -Name TestRG
 
-Risoluzione dei problemi relativi a un gruppo di risorse
-========================================================
+        Confirm
+        Are you sure you want to remove resource group 'TestRG'
+        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-Quando si sperimentano i cmdlet dei moduli AzureResourceManager, è possibile che si verifichino errori. Utilizzare i suggerimenti di questa sezione per risolverli.
+# <span id="troubleshoot"></span></a> Risoluzione dei problemi relativi a un gruppo di risorse
 
-Evitare gli errori
-------------------
+Quando si sperimentano i cmdlet dei moduli AzureResourceManager, è possibile che si verifichino errori. Usare i suggerimenti di questa sezione per risolverli.
+
+## Evitare gli errori
 
 Il modulo AzureResourceManager include cmdlet che aiutano a evitare gli errori.
 
--   **Get-AzureLocation**: questo cmdlet ottiene le posizioni che supportano ciascun tipo di risorsa. Prima di specificare una posizione per una risorsa, utilizzare questo cmdlet per verificare che la posizione supporti il tipo di risorsa.
+-   **Get-AzureLocation**: questo cmdlet ottiene le posizioni che supportano ciascun tipo di risorsa. Prima di specificare una posizione per una risorsa, usare questo cmdlet per verificare che la posizione supporti il tipo di risorsa.
 
--   **Test-AzureResourceGroupTemplate**: testare il modello e il relativo parametro prima di utilizzarli. Immettere un modello personalizzato o di una raccolta e i valori dei parametri del modello che si intende utilizzare. Questo cmdlet verifica se il modello è coerente al suo interno e se il valore impostato per il parametro corrisponde al modello.
+-   **Test-AzureResourceGroupTemplate**: testare il modello e il relativo parametro prima di utilizzarli. Immettere un modello personalizzato o di una raccolta e i valori dei parametri del modello che si intende usare. Questo cmdlet verifica se il modello è coerente al suo interno e se il valore impostato per il parametro corrisponde al modello.
 
-Correggere gli errori
----------------------
+## Correggere gli errori
 
 -   **Get-AzureResourceGroupLog**: questo cmdlet recupera le voci del log per ogni distribuzione del gruppo di risorse. Se si verificano problemi, esaminare innanzitutto i log di distribuzione.
 
--   **Verbose e Debug**: i cmdlet del modulo AzureResourceManager chiamano le API REST che eseguono le operazioni effettive. Per visualizzare i messaggi restituiti dalle API, impostare la variabile \$DebugPreference su "Continue" e utilizzare il parametro comune Verbose nei propri comandi. I messaggi spesso forniscono indicazioni importanti sulla causa degli errori.
+-   **Verbose e Debug**: i cmdlet del modulo AzureResourceManager chiamano le API REST che eseguono le operazioni effettive. Per visualizzare i messaggi restituiti dalle API, impostare la variabile $DebugPreference su "Continue" e usare il parametro comune Verbose nei propri comandi. I messaggi spesso forniscono indicazioni importanti sulla causa degli errori.
 
--   **Le credenziali di Azure non sono state configurate o sono scadute**: per aggiornare le credenziali nella sessione di Windows PowerShell, utilizzare il cmdlet Add-AzureAccount. Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
+-   **Le credenziali di Azure non sono state configurate o sono scadute**: per aggiornare le credenziali nella sessione di Windows PowerShell, usare il cmdlet Add-AzureAccount. Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
 
-Passaggi successivi
-===================
+# <span id="next"></span></a>Passaggi successivi
 
-Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Gestione risorse:
+Per altre informazioni sull'utilizzo di Windows PowerShell con Gestione risorse:
 
--   [Cmdlet di Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): informazioni sull'utilizzo dei cmdlet nei moduli AzureResourceManager.
--   [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
--   [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
--   [Blog "Hey, Scripting Guy!":](http://blogs.technet.com/b/heyscriptingguy/) suggerimenti e consigli basati sull'esperienza dei membri della community.
--   [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://www.windowsazure.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/): informazioni sulle soluzioni alternative per automatizzare le operazioni di Gestione risorse.
+-   [Cmdlet di Gestione risorse di Azure][Cmdlet di Gestione risorse di Azure]: informazioni sull'utilizzo dei cmdlet nel modulo AzureResourceManager.
+-   [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure][Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: Informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
+-   [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse][Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse]: Informazioni su come creare e gestire i gruppi di risorse tramite gli strumenti da riga di comando compatibili con molte piattaforme di sistema operativo.
+-   [Blog di Azure][Blog di Azure]: informazioni sulle nuove funzionalità di Azure.
+-   [Blog di Windows PowerShell][Blog di Windows PowerShell]: informazioni sulle nuove funzionalità di Windows PowerShell.
+-   [Blog "Hey, Scripting Guy!":][Blog "Hey, Scripting Guy!":] suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
+  [Windows PowerShell]: /it-it/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
+  [CLI multipiattaforma]: /it-it/documentation/articles/xplat-cli-azure-resource-manager.md "Cross-Platform CLI"
+  [Windows Management Framework 3.0]: http://www.microsoft.com/it-it/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=40855
+  [Come installare e configurare Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/
+  [Introduzione a Windows PowerShell]: http://technet.microsoft.com/it-it/library/hh857337.aspx
+  [Informazioni sui moduli di Azure Powershell]: #about
+  [Creare un gruppo di risorse]: #create
+  [Gestione di un gruppo di risorse]: #manage
+  [Risoluzione dei problemi relativi a un gruppo di risorse]: #troubleshoot
+  [Passaggi successivi]: #next
+  [cmdlet di Gestione servizi di Azure]: http://msdn.microsoft.com/it-it/library/jj152841.aspx
+  [cmdlet di Gestione risorse di Azure]: http://go.microsoft.com/fwlink/?LinkID=394765
+  [cmdlet del profilo di Azure]: http://go.microsoft.com/fwlink/?LinkID=394766
+  [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
+  [Cmdlet di Gestione risorse di Azure]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
+  [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups
+  [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse]: http://www.windowsazure.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/
+  [Blog di Azure]: http://blogs.msdn.com/windowsazure
+  [Blog di Windows PowerShell]: http://blogs.msdn.com/powershell
+  [Blog "Hey, Scripting Guy!":]: http://blogs.technet.com/b/heyscriptingguy/

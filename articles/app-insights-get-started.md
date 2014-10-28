@@ -55,7 +55,7 @@ Application Insights consente di monitorare disponibilità, prestazioni e utiliz
 
   [Aggiungere Application Insights al progetto in Visual Studio]: ../app-insights-monitor-application-health-usage/
   [Diagnosticare i problemi in un servizio Web attivo ora]: ../app-insights-monitor-performance-live-website-now/
-  [versione precedente di Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
+  [versione precedente di Application Insights]: http://msdn.microsoft.com/it-it/library/dn481095.aspx
   [Esempio di monitoraggio delle applicazioni in Application Insights]: ./media/appinsights/appinsights-00-appblade.png
   [Application Insights]: ../app-insights-get-started/
   [Esaminare le metriche in Application Insights]: ../app-insights-explore-metrics/

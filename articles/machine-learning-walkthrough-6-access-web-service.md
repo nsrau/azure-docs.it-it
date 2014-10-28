@@ -25,7 +25,7 @@ Per l'uso come servizio Web, gli utenti devono essere in grado di inviare dati a
 
 Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a informazioni utili agli sviluppatori per scrivere codice per l'accesso al servizio. Fare clic sul collegamento alla **pagina della guida dell'API** nella riga **RICHIESTA/RISPOSTA** e verrà visualizzata una pagina contenente codice di esempio per l'uso del protocollo di richiesta/risposta del servizio. Analogamente, il collegamento nella riga **ESECUZIONE BATCH** offre accesso a codice di esempio per l'esecuzione di una richiesta batch al servizi.
 
-La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C\#e Python. Ad esempio, ecco il codice R che è possibile usare per accedere al servizio Web pubblicato (nel codice di esempio dell'utente verrà visualizzato il reale URL del servizio):
+La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C#e Python. Ad esempio, ecco il codice R che è possibile usare per accedere al servizio Web pubblicato (nel codice di esempio dell'utente verrà visualizzato il reale URL del servizio):
 
 	library("RCurl")
 	library("RJSONIO")

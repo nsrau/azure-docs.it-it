@@ -115,7 +115,7 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
   [Published web site page]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
   [Documentazione su Umbraco]: http://our.umbraco.org/documentation
   [Esercitazioni video di Umbraco]: https://umbraco.com/help-and-support/video-tutorials.aspx
-  [Panoramica del portale di anteprima di Microsoft Azure]: http://azure.microsoft.com/en-us/overview/preview-portal/
+  [Panoramica del portale di anteprima di Microsoft Azure]: http://azure.microsoft.com/it-it/overview/preview-portal/
   [Documentazione sul portale di anteprima di Microsoft Azure]: http://azure.microsoft.com/it-it/documentation/preview-portal/
   [Portale di anteprima di Azure (Channel 9)]: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal
   [Documentazione su Siti Web di Microsoft Azure]: http://azure.microsoft.com/it-it/documentation/services/web-sites/

@@ -6,7 +6,7 @@
 
 ## Opzioni di replica dell'account di archiviazione
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Endpoint dell'account di archiviazione
 
@@ -28,13 +28,13 @@ Quando si crea un account di archiviazione, Azure genera due chiavi di accesso a
 
 È consigliabile non condividere le chiavi di accesso dell'account di archiviazione con altri utenti. Se si sospetta che l'account sia stato compromesso, è possibile rigenerare le chiavi di accesso dal portale. Selezionare l'account di archiviazione e scegliere **Gestisci chiavi di accesso**.
 
-Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere l'[esercitazione sulla firma di accesso condiviso][].
+Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere l'[esercitazione sulla firma di accesso condiviso][esercitazione sulla firma di accesso condiviso].
 
 ## Metriche e registrazione per l'account di archiviazione
 
--   **Metriche minime e dettagliate** Nelle impostazioni di monitoraggio per l'account di archiviazione è possibile configurare metriche minime o dettagliate. Le *metriche minime* consentono di raccogliere metriche sui dati come ingresso/uscita, disponibilità, latenza e percentuali di successo aggregate per i servizi BLOB, tabelle e di accodamento. Le *metriche dettagliate* consentono di raccogliere i dettagli a livello delle operazioni oltre ad aggregati a livello del servizio per le stesse metriche. Le metriche dettagliate consentono un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione][]. Per ulteriori informazioni sul monitoraggio dell'archiviazione, vedere [Informazioni sulle metriche di Analisi archiviazione][].
+-   **Metriche minime e dettagliate** Nelle impostazioni di monitoraggio per l'account di archiviazione è possibile configurare metriche minime o dettagliate. Le *metriche minime* consentono di raccogliere metriche sui dati come ingresso/uscita, disponibilità, latenza e percentuali di successo aggregate per i servizi BLOB, tabelle e di accodamento. Le *metriche dettagliate* consentono di raccogliere i dettagli a livello delle operazioni oltre ad aggregati a livello del servizio per le stesse metriche. Le metriche dettagliate consentono un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione][Schema di tabella della metrica di Analisi di archiviazione]. Per ulteriori informazioni sul monitoraggio dell'archiviazione, vedere [Informazioni sulle metriche di Analisi archiviazione][Informazioni sulle metriche di Analisi archiviazione].
 
--   **Registrazione** La registrazione è una funzionalità configurabile degli account di archiviazione che consente la registrazione delle richieste di lettura, scrittura ed eliminazione di BLOB, tabelle e code. È possibile utilizzare il portale di gestione di Azure per configurare la registrazione, ma per visualizzare i log, in quanto questi sono archiviati nel contenitore $logs dell'account di archiviazione. Per ulteriori informazioni, vedere le informazioni generali fornite in [Analisi archiviazione][].
+-   **Registrazione** La registrazione è una funzionalità configurabile degli account di archiviazione che consente la registrazione delle richieste di lettura, scrittura ed eliminazione di BLOB, tabelle e code. È possibile utilizzare il portale di gestione di Azure per configurare la registrazione, ma per visualizzare i log, in quanto questi sono archiviati nel contenitore $logs dell'account di archiviazione. Per ulteriori informazioni, vedere le informazioni generali fornite in [Analisi archiviazione][Analisi archiviazione].
 
 ## Gruppi di affinità per la condivisione di percorso tra l'Archiviazione di Azure e altri servizi
 
@@ -42,6 +42,6 @@ Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM 
 
   [storage-replication-options]: ../includes/storage-replication-options.md
   [esercitazione sulla firma di accesso condiviso]: ../storage-dotnet-shared-access-signature-part-1/
-  [Schema di tabella della metrica di Analisi di archiviazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343264.aspx
-  [Informazioni sulle metriche di Analisi archiviazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Analisi archiviazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343268.aspx
+  [Schema di tabella della metrica di Analisi di archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343264.aspx
+  [Informazioni sulle metriche di Analisi archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343258.aspx
+  [Analisi archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343268.aspx

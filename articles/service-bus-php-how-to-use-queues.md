@@ -107,7 +107,7 @@ Nell'esempio seguente viene illustrato come creare un'istanza di **ServiceBusRes
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/it-it/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -141,7 +141,7 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiamerÃ
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/it-it/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -201,7 +201,7 @@ Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi usand
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/it-it/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -255,4 +255,4 @@ l'argomento [Code, argomenti e sottoscrizioni][Code, argomenti e sottoscrizioni]
   [OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

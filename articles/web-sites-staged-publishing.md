@@ -1,147 +1,151 @@
-<properties  linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Web Sites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Web Sites" authors="timamm" solutions="" writer="timamm" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin"></tags>
+
+<a name="Overview"></a>
 
 # Distribuzione temporanea su Siti Web di Microsoft Azure
 
+Quando si distribuisce un'applicazione su Siti Web di Azure, è possibile eseguire questa operazione su uno slot di distribuzione separato anziché sullo slot di produzione predefinito. Tali slot sono in realtà siti attivi con i rispettivi nomi host. Questa opzione è disponibile nel piano di hosting Web **Standard**. È inoltre possibile scambiare i siti e le configurazioni di sito tra due slot di distribuzione o produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+
+-   È possibile convalidare le modifiche ai siti Web in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
+
+-   Dopo uno scambio, lo slot con il sito gestito temporaneamente includerà il sito di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
+
+-   La distribuzione preliminare di un sito in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione del sito. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio.
+
+Per ogni sito Web nel piano **Standard** sono supportati quattro slot di distribuzione oltre a quello di produzione.
+
 ## Sommario
 
-* [Panoramica](#Overview)
-* [Per aggiungere uno slot di distribuzione a un sito Web](#Add)
-* [Informazioni sulla configurazione degli slot di
-  distribuzione](#AboutConfiguration)
-* [Per scambiare gli slot di distribuzione](#Swap)
-* [Per eseguire il rollback di un sito di produzione alla gestione
-  temporanea](#Rollback)
-* [Per eliminare uno slot di sito](#Delete)
-* [Cmdlet di Azure PowerShell per gli slot di sito](#PowerShell)
-* [Comandi dell'interfaccia della riga di comando multipiattaforma di
-  Azure (xplat-cli) per gli slot di sito](#CLI)
-
-<a name="Overview"></a>
-## Panoramica ##
-L'opzione che consente di creare slot di sito per i siti in modalità Standard in esecuzione su Siti Web di Microsoft Azure consente di abilitare un flusso di lavoro di distribuzione di gestione temporanea. È possibile creare uno slot di sito di sviluppo o di gestione temporanea per ciascun sito di produzione predefinito (che diventa uno slot di produzione) e scambiare questi slot senza tempi di inattività. La distribuzione di gestione temporanea si rivela particolarmente utile negli scenari seguenti:
-
-* **Convalida prima della distribuzione**: dopo la distribuzione di contenuti o configurazione a uno slot di sito di gestione temporanea, è possibile convalidare le modifiche prima di applicarle al sito di produzione.
-
-* **Creazione e integrazione di contenuti del sito**: è possibile aggiungere in modo incrementale gli aggiornamenti dei contenuti allo slot di distribuzione di gestione temporanea e poi applicare quest'ultimo al sito di produzione quando gli aggiornamenti saranno stati completati.
-
-* **Rollback di un sito di produzione**: se il risultato delle modifiche applicate al sito di produzione non è quello previsto, è possibile ripristinare immediatamente i contenuti originali.
-
-Microsoft Azure avvia a caldo tutte le istanze dello slot di sito di origine prima di applicarle al sito di produzione, eliminando gli avvii a freddo durante la distribuzione dei contenuti. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. Attualmente per ogni sito web Standard è supportato un unico slot di distribuzione oltre a quello predefinito.
+-   [Per aggiungere uno slot di distribuzione a un sito Web][Per aggiungere uno slot di distribuzione a un sito Web]
+-   [Informazioni sulla configurazione degli slot di distribuzione][Informazioni sulla configurazione degli slot di distribuzione]
+-   [Per scambiare gli slot di distribuzione][Per scambiare gli slot di distribuzione]
+-   [Per eseguire il rollback di un sito di produzione alla gestione temporanea][Per eseguire il rollback di un sito di produzione alla gestione temporanea]
+-   [Per eliminare uno slot di sito][Per eliminare uno slot di sito]
+-   [Cmdlet di Azure PowerShell per gli slot di sito][Cmdlet di Azure PowerShell per gli slot di sito]
+-   [Comandi dell'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) per gli slot di sito][Comandi dell'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) per gli slot di sito]
 
 <a name="Add"></a>
-## Per aggiungere uno slot di distribuzione a un sito Web ##
 
-Il sito deve essere in esecuzione in modalità Standard per consentire la creazione di siti slot.
+## Per aggiungere uno slot di distribuzione a un sito Web
 
-1.  Fare clic su **Add a new deployment slot** nella pagina Quick Start oppure nella sezione Quick Glance della pagina Dashboard del proprio sito Web.
-    
-    ![Add a new deployment
-    slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+Per abilitare l'uso di più slot di distribuzione è necessario che il sito Web sia in esecuzione nel piano di hosting **Standard**.
 
+1.  Nella pagina Avvio rapido o nella sezione Riepilogo rapido della pagina Dashboard del proprio sito Web fare clic su **Aggiungi nuovo slot di distribuzione**.
 
-   
+    ![Aggiungi nuovo slot di distribuzione][Aggiungi nuovo slot di distribuzione]
+
     > [WACOM.NOTE]
-    > Se il sito Web non è già in modalità Standard si riceverà il messaggio **You must be in the standard mode to enable staged publishing**. A questo punto è possibile selezionare **Upgrade** e passare alla scheda **Scale** del sito Web prima di continuare.
+    > Se il sito Web non è già in modalità **Standard** si riceverà il messaggio **Per abilitare la pubblicazione di gestione temporanea, è necessario essere in modalità Standard**. A questo punto è possibile selezionare **Aggiorna** e passare alla scheda **Scala** del sito Web prima di continuare.
 
-2.  Verrà visualizzata la finestra di dialogo **Add New Deployment
-    Slot**.
-    
-    ![Finestra di dialogo Add New Deployment Slot](./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png)
-    
-    Specificare un nome per lo slot di distribuzione. Il nome non può superare i 60 caratteri alfanumerici. Non sono ammessi caratteri speciali o spazi.
+2.  Nella finestra di dialogo **Aggiungi nuovo slot di distribuzione** assegnare un nome allo slot e specificare se si desidera clonare la configurazione del sito Web da un altro slot di distribuzione esistente. Fare clic sul segno di spunta per continuare.
 
-3.  Nell'elenco dei siti Web espandere il segno a sinistra del nome del proprio sito Web per visualizzare lo slot di distribuzione, che avrà il nome del sito di produzione, seguito tra parentesi dal nome dello slot di distribuzione fornito dall'utente.
-    
-    ![Elenco dei siti con slot di distribuzione](./media/web-sites-staged-publishing/SiteListWithStagedSite.png)
+    ![Origine della configurazione][Origine della configurazione]
 
-4.  Quando si seleziona il nome dello slot del sito di distribuzione si aprirà una pagina con un gruppo di schede, proprio come in qualsiasi altro sito Web. Nella parte superiore della pagina del portale sarà visualizzata la dicitura ***nome-sito-Web*(*nome-slot-di-distribuzione*)** per ricordare all'utente che sta visualizzando lo slot del sito di distribuzione.
-    
-    ![Titolo slot di distribuzione](./media/web-sites-staged-publishing/StagingTitle.png)
+    La prima volta che si crea uno slot sono disponibili due opzioni: clonare o non clonare la configurazione dallo slot predefinito in produzione.
 
-È ora possibile aggiornare contenuti e configurazione per lo slot del sito di distribuzione. Utilizzare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot del sito di distribuzione per gli aggiornamenti dei contenuti.
+    Dopo aver creato vari slot, sarà possibile clonare la configurazione da uno slot diverso da quello in produzione:
+
+    ![Origini della configurazione][Origini della configurazione]
+
+3.  Nell'elenco dei siti Web espandere il segno a sinistra del nome del proprio sito Web per visualizzare lo slot di distribuzione, con il nome del sito seguito da quello dello slot.
+
+    ![Elenco dei siti con slot di distribuzione][Elenco dei siti con slot di distribuzione]
+
+4.  Quando si fa clic sul nome dello slot del sito di distribuzione si aprirà una pagina con un gruppo di schede, proprio come in qualsiasi altro sito Web. Nella parte superiore della pagina del portale sarà visualizzata la dicitura ***nome-sito-Web*(*nome-slot-di-distribuzione*)** per ricordare all'utente che sta visualizzando lo slot del sito di distribuzione.
+
+    ![Titolo slot di distribuzione][Titolo slot di distribuzione]
+
+5.  Fare clic sull'URL del sito nella visualizzazione Dashboard. Si noti che lo slot di distribuzione ha un proprio nome host ed è anche un sito attivo. Per limitare l'accesso pubblico allo slot di distribuzione, vedere il post relativo [blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure][blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure].
+
+    -   
+
+Non sono inclusi i contenuti. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti. È ad esempio possibile [pubblicare in questo slot con git][pubblicare in questo slot con git].
 
 <a name="AboutConfiguration"></a>
-## Informazioni sulla configurazione degli slot di distribuzione ##
- Per impostazione predefinita, alla creazione di uno slot di distribuzione la relativa configurazione viene clonata dallo slot del sito di produzione. È possibile modificare la configurazione di tutti gli slot di sito.
 
-**Elementi di configurazione che verranno modificati allo scambio degli
-slot**:
+## Informazioni sulla configurazione degli slot di distribuzione
 
-* Impostazioni generali
-* Stringhe di connessione
-* Mapping dei gestori
-* Impostazioni di monitoraggio e diagnostica
+Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Negli elenchi seguenti sono riportati gli elementi di configurazione che verranno modificati al momento dello scambio degli slot.
 
-**Elementi di configurazione che non verranno modificati allo scambio
-degli slot**:
+**Elementi di configurazione che verranno modificati allo scambio degli slot**:
 
-* Endpoint di pubblicazione
-* Nomi di dominio personalizzati
-* Certificati e associazioni SSL
-* Impostazioni di scalabilità
+-   Impostazioni generali
+-   Stringhe di connessione
+-   Mapping dei gestori
+-   Impostazioni di monitoraggio e diagnostica
+
+**Elementi di configurazione che non verranno modificati allo scambio degli slot**:
+
+-   Endpoint di pubblicazione
+-   Nomi di dominio personalizzati
+-   Certificati e associazioni SSL
+-   Impostazioni di scalabilità
 
 **Note**:
 
-* Gli slot di distribuzione sono disponibili solo per i siti in modalità Standard.
+-   Sono disponibili più slot di distribuzione solo per i siti nel piano di hosting Web **Standard**.
 
-* Se si modifica la modalità di un sito in Free, Shared o Basic, non sarà più possibile eseguire lo scambio.
+-   Quando il sito ha più slot, non è possibile cambiare il piano di hosting.
 
-* Se si intende applicare uno slot di distribuzione al sito di produzione è necessario configurarlo esattamente come dovrebbe essere nell'ambiente di produzione.
+-   Se si intende applicare uno slot al sito di produzione è necessario configurarlo esattamente come dovrebbe essere nell'ambiente di produzione.
 
-* Per impostazione predefinita, uno slot di distribuzione punterà allo stesso database del sito di produzione. Tuttavia, è possibile configurare lo slot di distribuzione in modo che punti a un database alternativo modificando la stringa o le stringhe di connessione al database per lo slot di distribuzione. Sarà quindi possibile ripristinare la stringa o le stringhe di connessione al database originali sullo slot di distribuzione poco prima di applicarlo al sito di produzione.
+-   Per impostazione predefinita, uno slot di distribuzione punterà allo stesso database del sito di produzione. Tuttavia, è possibile configurare lo slot di distribuzione in modo che punti a un database alternativo modificando la stringa o le stringhe di connessione al database per lo slot di distribuzione. Sarà quindi possibile ripristinare la stringa o le stringhe di connessione al database originali sullo slot di distribuzione poco prima di applicarlo al sito di produzione.
 
 <a name="Swap"></a>
-## Per scambiare gli slot di distribuzione ##
 
-1.  Per scambiare gli slot di distribuzione, selezionare lo slot di distribuzione nell'elenco dei siti Web e fare clic sul pulsante **Swap** nella barra dei comandi.
-    
-    ![Pulsante Swap](./media/web-sites-staged-publishing/SwapButtonBar.png)
+## Per scambiare gli slot di distribuzione
 
-2.  Viene visualizzata la finestra di dialogo Swap Deployments. La finestra di dialogo consente di scegliere quale slot di sito dovrebbe essere l'origine e quale sito dovrebbe essere la destinazione.
-    
-    ![Finestra di dialogo Swap Deployments](./media/web-sites-staged-publishing/SwapDeploymentsDialog.png)
+1.  Per scambiare gli slot di distribuzione, selezionare lo slot di distribuzione desiderato nell'elenco dei siti Web e fare clic sul pulsante **Scambia** nella barra dei comandi.
+
+    ![Pulsante Scambia][Pulsante Scambia]
+
+2.  Viene visualizzata la finestra di dialogo Scambia distribuzioni. La finestra di dialogo consente di scegliere quale slot di sito dovrebbe essere l'origine e quale sito dovrebbe essere la destinazione.
+
+    ![Finestra di dialogo Scambia distribuzioni][Finestra di dialogo Scambia distribuzioni]
 
 3.  Fare clic sul segno di spunta per completare l'operazione. Al termine dell'operazione, lo scambio dei siti sarà stato eseguito correttamente.
 
 <a name="Rollback"></a>
-## Per eseguire il rollback di un sito di produzione alla gestione temporanea ##
-Se vengono identificati eventuali errori di contenuti o configurazione applicati al sito di produzione, è possibile semplicemente scambiare uno slot di distribuzione (precedentemente il sito di produzione) riportandolo in ambiente di produzione e poi apportare ulteriori correzioni alla nuova versione del sito, mentre è in modalità di gestione temporanea.
 
-> [WACOM.NOTE]
-> Per la riuscita di un rollback lo slot di sito dovrà comunque contenere i contenuti e la configurazione non modificati del precedente sito di produzione.
+## Per eseguire il rollback di un sito di produzione alla gestione temporanea
+
+Se vengono identificati errori nel sito di produzione dopo lo scambio di uno slot, ripristinare i due slot allo stato precedente scambiandoli immediatamente.
 
 <a name="Delete"></a>
-## Per eliminare uno slot di sito ##
 
-Fare clic su **Delete** nella barra dei comandi nella parte inferiore della pagina del portale Siti Web di Azure. Verrà offerta l'opzione di eliminare il sito Web e tutti gli slot di distribuzione oppure eliminare solo lo slot di distribuzione.
+## Per eliminare uno slot di sito
 
-![Eliminare uno slot di
-sito](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
+Fare clic su **Elimina** nella barra dei comandi nella parte inferiore della pagina del portale di Siti Web di Azure. Sarà possibile scegliere di eliminare il sito Web e tutti gli slot di distribuzione oppure di eliminare solo lo slot di distribuzione.
 
-Dopo aver risposto **Yes** al messaggio di conferma, uno o tutti gli slot verranno eliminati, a seconda dell'opzione selezionata.
+![Eliminare uno slot di sito][Eliminare uno slot di sito]
 
 **Note**:
 
-* Gli slot di sito non di produzione non sono scalabili. Questa funzione è disponibile esclusivamente per gli slot di sito di produzione.
+-   Gli slot non di produzione non sono scalabili. Questa funzione è disponibile esclusivamente per gli slot di produzione.
 
-* La gestione delle risorse collegate non è supportata per gli slot di sito non di produzione.
+-   La gestione delle risorse collegate non è supportata per gli slot non di produzione.
 
-* Se si desidera, è comunque possibile pubblicare direttamente sullo slot del sito di produzione.
+-   Se lo si desidera, è comunque possibile pubblicare direttamente sullo slot di produzione.
 
-* Attualmente, gli slot (siti) di distribuzione condividono le stesse risorse degli slot (siti) di produzione e vengono eseguiti sulle stesse macchine virtuali. Se si esegue il test di stress su uno slot di gestione temporanea, l'ambiente di produzione subirà un carico di stress analogo.
+-   Per impostazione predefinita, gli slot (siti) di distribuzione condividono le stesse risorse degli slot (siti) di produzione e vengono eseguiti sulle stesse macchine virtuali. Se si esegue il test di stress su uno slot di gestione temporanea, l'ambiente di produzione subirà un carico di stress analogo.
+
+    > [WACOM.NOTE] Solo nel [portale di anteprima Azure][portale di anteprima Azure] è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in un piano di hosting Web differente. Si noti che lo slot di test e quello di produzione devono condividere lo stesso piano di hosting Web affinché sia possibile eseguire lo scambio tra i due slot.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
+
 ## Cmdlet di Azure PowerShell per gli slot di sito
 
-Azure PowerShell è un modulo che offre i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione di Siti Web di Azure.
+Azure PowerShell è un modulo che fornisce cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione di Siti Web di Azure.
 
-* Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Windows Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell][1].
+-   Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Windows Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell][procedura di installazione e configurazione di Azure PowerShell].
 
-* Per elencare i cmdlet disponibili per Siti Web di Azure in PowerShell, chiamare `help AzureWebsite`.
+-   Per elencare i cmdlet disponibili per Siti Web di Azure in PowerShell, chiamare `help AzureWebsite`.
 
-* * *
+------------------------------------------------------------------------
 
 ### Get-AzureWebsite
 
@@ -149,15 +153,15 @@ Il cmdlet **Get-AzureWebsite** presenta informazioni su Siti Web di Azure per l'
 
 `Get-AzureWebsite siteslotstest`
 
-* * *
+------------------------------------------------------------------------
 
 ### New-AzureWebsite
 
-È possibile creare un slot di sito per qualsiasi sito Web in modalità Standard utilizzando il cmdlet **New-AzureWebsite** e specificando i nomi del sito e dello slot. Indicare inoltre la stessa area del sito per la creazione dello slot di distribuzione, come nell'esempio seguente.
+È possibile creare un slot di sito per qualsiasi sito Web in modalità Standard usando il cmdlet **New-AzureWebsite** e specificando i nomi del sito e dello slot. Indicare inoltre la stessa area del sito per la creazione dello slot di distribuzione, come nell'esempio seguente.
 
-`New-AzureWebsite siteslotstest –Slot staging –Location “West US”`
+`New-AzureWebsite siteslotstest -Slot staging -Location "West US"`
 
-* * *
+------------------------------------------------------------------------
 
 ### Publish-AzureWebsiteProject
 
@@ -165,7 +169,7 @@ Il cmdlet **Get-AzureWebsite** presenta informazioni su Siti Web di Azure per l'
 
 `Publish-AzureWebsiteProject -Name siteslotstest -Slot staging -Package [path].zip`
 
-* * *
+------------------------------------------------------------------------
 
 ### Show-AzureWebsite
 
@@ -173,7 +177,7 @@ Dopo aver applicato gli aggiornamenti dei contenuti e della configurazione al nu
 
 `Show-AzureWebsite -Name siteslotstest -Slot staging`
 
-* * *
+------------------------------------------------------------------------
 
 ### Switch-AzureWebsiteSlot
 
@@ -181,7 +185,7 @@ Il cmdlet **Switch-AzureWebsiteSlot** può eseguire un'operazione di scambio per
 
 `Switch-AzureWebsiteSlot -Name siteslotstest`
 
-* * *
+------------------------------------------------------------------------
 
 ### Remove-AzureWebsite
 
@@ -189,56 +193,84 @@ Se uno slot di distribuzione non è più necessario, è possibile eliminarlo uti
 
 `Remove-AzureWebsite -Name siteslotstest -Slot staging`
 
-* * *
+------------------------------------------------------------------------
 
 <!-- ======== XPLAT-CLI =========== -->
 
 <a name="CLI"></a>
+
 ## Comandi dell'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) per gli slot di sito
 
-L'interfaccia della riga di comando multipiattaforma (xplat-cli) di Azure fornisce comandi multipiattaforma per l'utilizzo con Azure, incluso il supporto per la gestione degli slot di distribuzione sui siti Web di Azure.
+L'interfaccia della riga di comando multipiattaforma (xplat-cli) di Azure fornisce comandi multipiattaforma per l'uso con Azure, incluso il supporto per la gestione degli slot di distribuzione su Siti Web di Azure.
 
-* Per istruzioni sull'installazione e la configurazione dell'interfaccia   xplat-cli, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure][2].
+-   Per istruzioni sull'installazione e la configurazione dell'interfaccia xplat-cli, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure][Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure].
 
-* Per elencare i comandi disponibili per Siti Web di Azure nell'interfaccia xplat-cli, chiamare `azure site -h`.
+-   Per elencare i comandi disponibili per Siti Web nell'interfaccia xplat-cli, chiamare `azure site -h`.
 
-* * *
+------------------------------------------------------------------------
 
 ### azure site list
+
 Per informazioni sui siti Web di Azure nell'attuale sottoscrizione, chiamare **azure site list**, come nell'esempio seguente.
 
 `azure site list siteslotstest`
 
-* * *
+------------------------------------------------------------------------
 
 ### azure site create
+
 Per creare uno slot di sito per qualsiasi sito Web in modalità Standard, chiamare **azure site create** e specificare il nome di un sito esistente e il nome dello slot da creare, come nell'esempio seguente.
 
 `azure site create siteslotstest --slot staging`
 
 Per abilitare il controllo del codice sorgente per il nuovo slot, utilizzare l'opzione **- git**, come nell'esempio seguente.
 
-`azure site create –-git siteslotstest --slot staging`
+`azure site create --git siteslotstest --slot staging`
 
-* * *
+------------------------------------------------------------------------
 
 ### azure site swap
-Per applicare lo slot di distribuzione aggiornato al sito di produzione, utilizzare il comando **azure site swap** per eseguire un'operazione di scambio, come nell'esempio seguente. Il sito di produzione non sarà caratterizzato da tempi di inattività né subirà un avvio a freddo.
+
+Per applicare lo slot di distribuzione aggiornato al sito di produzione, usare il comando **azure site swap** per eseguire un'operazione di scambio, come nell'esempio seguente. Il sito di produzione non sarà caratterizzato da tempi di inattività né subirà un avvio a freddo.
 
 `azure site swap siteslotstest`
 
-* * *
+------------------------------------------------------------------------
 
-### azure site delete Per
-eliminare uno slot di distribuzione non più necessario, utilizzare il comando **azure site delete**, come nell'esempio seguente.
+### azure site delete
+
+Per eliminare uno slot di distribuzione non più necessario, usare il comando **azure site delete**, come nell'esempio seguente.
 
 `azure site delete siteslotstest --slot staging`
 
-* * *
+------------------------------------------------------------------------
+
+## Passaggi successivi
+
+[Blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure][blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure]
+
+[Versione di valutazione gratuita di Microsoft Azure][Versione di valutazione gratuita di Microsoft Azure]
 
 <!-- IMAGES -->
 
-
-
-[1]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell
-[2]: http://www.windowsazure.com/it-it/documentation/articles/xplat-cli
+  [Per aggiungere uno slot di distribuzione a un sito Web]: #Add
+  [Informazioni sulla configurazione degli slot di distribuzione]: #AboutConfiguration
+  [Per scambiare gli slot di distribuzione]: #Swap
+  [Per eseguire il rollback di un sito di produzione alla gestione temporanea]: #Rollback
+  [Per eliminare uno slot di sito]: #Delete
+  [Cmdlet di Azure PowerShell per gli slot di sito]: #PowerShell
+  [Comandi dell'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) per gli slot di sito]: #CLI
+  [Aggiungi nuovo slot di distribuzione]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
+  [Origine della configurazione]: ./media/web-sites-staged-publishing/ConfigurationSource1.png
+  [Origini della configurazione]: ./media/web-sites-staged-publishing/MultipleConfigurationSources.png
+  [Elenco dei siti con slot di distribuzione]: ./media/web-sites-staged-publishing/SiteListWithStagedSite.png
+  [Titolo slot di distribuzione]: ./media/web-sites-staged-publishing/StagingTitle.png
+  [blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure]: http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/
+  [pubblicare in questo slot con git]: http://azure.microsoft.com/it-it/documentation/articles/web-sites-publish-source-control/
+  [Pulsante Scambia]: ./media/web-sites-staged-publishing/SwapButtonBar.png
+  [Finestra di dialogo Scambia distribuzioni]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+  [Eliminare uno slot di sito]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
+  [portale di anteprima Azure]: https://portal.azure.com
+  [procedura di installazione e configurazione di Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell
+  [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]: http://www.windowsazure.com/it-it/documentation/articles/xplat-cli
+  [Versione di valutazione gratuita di Microsoft Azure]: http://azure.microsoft.com/it-it/pricing/free-trial/

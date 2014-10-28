@@ -4,7 +4,7 @@
 
 # Introduzione a un account DocumentDB
 
-In questa guida viene illustrato come usare **Azure DocumentDB (Anteprima)**. Negli esempi, scritti in codice C\#, viene usato DocumentDB .NET SDK. Gli scenari presentati includono la creazione e la configurazione di un account DocumentDB, la creazione di database, la creazione di raccolte e l'archiviazione di documenti JSON nell'account. Per altre informazioni sull'uso di Azure DocumentDB, fare riferimento alla sezione Passaggi successivi.
+In questa guida viene illustrato come usare **Azure DocumentDB (Anteprima)**. Negli esempi, scritti in codice C#, viene usato DocumentDB .NET SDK. Gli scenari presentati includono la creazione e la configurazione di un account DocumentDB, la creazione di database, la creazione di raccolte e l'archiviazione di documenti JSON nell'account. Per altre informazioni sull'uso di Azure DocumentDB, fare riferimento alla sezione Passaggi successivi.
 
 Per usare questa guida introduttiva, è necessario un account DocumentDB e la chiave d'accesso (primaria o secondaria) dell'account. Per altre informazioni, vedere:
 
@@ -21,9 +21,9 @@ Per usare questa guida introduttiva, è necessario un account DocumentDB e la ch
 
 ## <span id="Connect"></span></a>Connettersi a un account DocumentDB
 
-Sono disponibili diversi SDK e API per usare DocumentDB a livello di codice. Gli esempi seguenti vengono visualizzati in codice C\# e usano DocumentDB .NET SDK.
+Sono disponibili diversi SDK e API per usare DocumentDB a livello di codice. Gli esempi seguenti vengono visualizzati in codice C# e usano DocumentDB .NET SDK.
 
-Si inizia creando DocumentClient per stabilire una connessione all'account DocumentDB. Nell'applicazione C\# sono necessari i seguenti riferimenti:
+Si inizia creando DocumentClient per stabilire una connessione all'account DocumentDB. Nell'applicazione C# sono necessari i seguenti riferimenti:
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;

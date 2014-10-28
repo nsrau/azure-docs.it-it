@@ -5,22 +5,22 @@
 # Come usare il servizio di posta elettronica SendGrid da PHP
 
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP.
-Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**,l'**invio di messaggi di posta elettronica** e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][].
+Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**,l'**invio di messaggi di posta elettronica** e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul servizio di posta elettronica SendGrid][]
--   [Creare un account SendGrid][]
--   [Utilizzo di SendGrid dall'applicazione PHP][]
--   [Procedura: Inviare un messaggio di posta elettronica][]
--   [Procedura: Aggiungere un allegato][]
--   [Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi][]
--   [Passaggi successivi][]
+-   [Informazioni sul servizio di posta elettronica SendGrid][Informazioni sul servizio di posta elettronica SendGrid]
+-   [Creare un account SendGrid][Creare un account SendGrid]
+-   [Utilizzo di SendGrid dall'applicazione PHP][Utilizzo di SendGrid dall'applicazione PHP]
+-   [Procedura: Inviare un messaggio di posta elettronica][Procedura: Inviare un messaggio di posta elettronica]
+-   [Procedura: Aggiungere un allegato][Procedura: Aggiungere un allegato]
+-   [Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi][Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>Informazioni sul servizio di posta elettronica SendGrid
 
-SendGrid è un [servizio di posta elettronica basato sul cloud][] che offre
-[recapito affidabile di messaggi di posta elettronica transazionali][], scalabilità e analisi in tempo reale, oltre ad API
+SendGrid è un [servizio di posta elettronica basato sul cloud][servizio di posta elettronica basato sul cloud] che offre
+[recapito affidabile di messaggi di posta elettronica transazionali][recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API
  flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid
 includono:
 
@@ -37,7 +37,7 @@ Per altre informazioni, visitare il sito [][]<http://sendgrid.com></a>.
 
 ## <a name="bkmk_CreateSendGrid"> </a>Creare un account SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Utilizzo di SendGrid dall'applicazione PHP
 
@@ -128,7 +128,7 @@ appropriate e la chiamata del metodo
 
 ### API Web
 
-Usare la [funzione curl][] di PHP per inviare messaggi di posta elettronica tramite l'API Web di SendGrid.
+Usare la [funzione curl][funzione curl] di PHP per inviare messaggi di posta elettronica tramite l'API Web di SendGrid.
 
     <?php
 

@@ -21,5 +21,5 @@ Questo argomento illustra come usare il [portale di gestione di Azure][portale d
 <!-- URLs. -->
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFit-it%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

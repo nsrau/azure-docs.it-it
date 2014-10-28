@@ -86,7 +86,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 <!--Link references-->
 
   [iscriversi all'anteprima]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Centro protezione Azure]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Centro protezione Azure]: http://azure.microsoft.com/it-it/support/trust-center/compliance/
   [Nozioni di base sul controllo del database SQL di Azure]: #subheading-1
   [Configurare il controllo per il database]: #subheading-2
   [Analizzare i log di controllo e i report]: #subheading-3
@@ -100,6 +100,6 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
   [foglio di calcolo di Excel]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [qui]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [qui]: http://www.microsoft.com/it-it/download/details.aspx?id=39379
   [procedura]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

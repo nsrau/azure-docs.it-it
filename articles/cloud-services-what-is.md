@@ -1,18 +1,18 @@
-<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="" editor="" />
+<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-Informazioni sul servizio cloud
-===============================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+
+# Informazioni sul servizio cloud
 
 Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto servizio cloud di Azure (noto come *servizio ospitato* in versioni precedenti di Azure).
 
-Creando un servizio cloud, è possibile distribuire un'applicazione multilivello in Azure, definendo più ruoli per suddividere l'elaborazione e consentire un ridimensionamento flessibile dell'applicazione. Un servizio cloud è costituito da uno o più ruoli Web e/o ruoli di lavoro, ognuno con i rispettivi file e configurazione dell'applicazione.
+Creando un servizio cloud, è possibile distribuire un'applicazione Web multilivello in Azure, definendo più ruoli per suddividere l'elaborazione e consentire un ridimensionamento flessibile dell'applicazione. Un servizio cloud è costituito da uno o più ruoli Web e/o ruoli di lavoro, ognuno con i rispettivi file e configurazione dell'applicazione. In Azure le applicazioni Web sono supportate anche da Siti Web e Macchine virtuali. Il vantaggio principale di Servizi cloud consiste nella capacità di supportare architetture multilivello più complesse. Per un confronto dettagliato, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure][].
 
-Per un servizio cloud, Azure gestisce automaticamente l'infrastruttura, eseguendo la manutenzione di routine, applicando patch ai sistemi operativi e tentando di correggere gli errori hardware e del servizio. Se si definiscono almeno due istanze di ogni ruolo, è possibile eseguire la maggior parte della manutenzione, oltre che gli aggiornamenti del servizio, senza interrompere il servizio. Un servizio cloud deve disporre di almeno due istanze di ogni ruolo per essere idoneo per il Contratto di servizio di Azure, che garantisce la connettività esterna ai ruoli per Internet per almeno il 99,95 del tempo.
+Per un servizio cloud, Azure gestisce automaticamente l'infrastruttura, eseguendo la manutenzione di routine, applicando patch ai sistemi operativi e tentando di correggere gli errori hardware e del servizio. Se si definiscono almeno due istanze di ogni ruolo, è possibile eseguire la maggior parte della manutenzione, oltre che gli aggiornamenti del servizio, senza interrompere il servizio. Un servizio cloud deve disporre di almeno due istanze di ogni ruolo per essere idoneo per il Contratto di servizio di Azure, che garantisce la connettività esterna ai ruoli per Internet per almeno il 99,95% del tempo.
 
 Ogni servizio cloud dispone di due ambienti in cui è possibile distribuire il pacchetto e la configurazione del servizio. È possibile distribuire un servizio cloud nell'ambiente di gestione temporanea per testarlo prima di promuoverlo alla produzione. Per promuovere un servizio cloud di gestione temporanea alla produzione, è sufficiente scambiare gli indirizzi IP virtuali (VIP) associati ai due ambienti.
 
-Concetti
---------
+## Concetti
 
 -   **ruolo del servizio cloud:** un ruolo del servizio cloud è costituito dai file e dalla configurazione dell'applicazione. Un servizio cloud può disporre di due tipi di ruolo:
 
@@ -38,16 +38,17 @@ Concetti
 
 -   **scambio di distribuzioni:** per promuovere una distribuzione nell'ambiente di gestione temporanea di Azure all'ambiente di produzione, è possibile "scambiare" le distribuzioni invertendo gli indirizzi VIP da cui si accede alle due distribuzioni. Dopo la distribuzione, il nome DNS per il servizio cloud punta alla distribuzione che si trovava nell'ambiente di gestione temporanea.
 
--   **monitoraggio minimo e dettagliato:** *il* monitoraggio minimo, che viene configurato per impostazione predefinita per un servizio cloud, ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il* monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per ulteriori informazioni, vedere [Come monitorare i servizi cloud](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+-   **monitoraggio minimo e dettagliato:** *il* monitoraggio minimo, che viene configurato per impostazione predefinita per un servizio cloud, ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il* monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per ulteriori informazioni, vedere [Come monitorare i servizi cloud][].
 
--   **Diagnostica Azure:** Diagnostica Azure è l'API che consente di raccogliere i dati di diagnostica dalle applicazioni in esecuzione in Azure. È necessario abilitare Diagnostica di Azure per i ruoli del servizio cloud per attivare il monitoraggio dettagliato.
+-   **Diagnostica Azure:** Diagnostica Azure è l'API che consente di raccogliere i dati di diagnostica dalle applicazioni in esecuzione in Azure. È necessario abilitare Diagnostica di Azure per i ruoli del servizio cloud per attivare il monitoraggio dettagliato. Per altre informazioni, vedere [Abilitazione della diagnostica in Azure][].
 
 -   **collegamento di una risorsa:** per visualizzare le dipendenze del servizio cloud da altre risorse, ad esempio un'istanza di database SQL di Azure, è possibile "collegare" la risorsa al servizio cloud. Nel portale di gestione in anteprima, è possibile visualizzare le risorse collegate nella pagina **Risorse collegate**, visualizzarne lo stato nel dashboard e scalare un'istanza di database SQL collegata insieme ai ruoli del servizio nella pagina **Scala**. Collegando una risorsa in questo modo non si connette la risorsa all'applicazione. È necessario configurare le connessioni al codice dell'applicazione.
 
 -   **scalabilità di un servizio cloud:** per scalare orizzontalmente un servizio cloud, è necessario aumentare il numero di istanze del ruolo (macchine virtuali) distribuite per un ruolo. Per ridurre un servizio cloud, è necessario diminuire le istanze del ruolo. Nel portale di gestione in anteprima, è inoltre possibile scalare un'istanza di database SQL collegata, modificando l'edizione del database SQL e la dimensione massima del database, quando si scalano i ruoli del servizio.
 
--   **Contratto di servizio di Azure:** il Contratto di servizio di Calcolo di Azure garantisce che, quando si distribuiscono due o più istanze del ruolo per ogni ruolo, l'accesso al servizio cloud verrà mantenuto per almeno il 99,95% del tempo. Inoltre, il 99,9% delle volte verrà avviata un'azione di rilevamento e correttiva quando un processo dell'istanza del ruolo non è in esecuzione. Per ulteriori informazioni, vedere [Contratti di servizio](https://www.windowsazure.com/en-us/support/legal/sla/).
+-   **Contratto di servizio di Azure:** il Contratto di servizio di Calcolo di Azure garantisce che, quando si distribuiscono due o più istanze del ruolo per ogni ruolo, l'accesso al servizio cloud verrà mantenuto per almeno il 99,95% del tempo. Inoltre, il 99,9% delle volte verrà avviata un'azione di rilevamento e correttiva quando un processo dell'istanza del ruolo non è in esecuzione. Per ulteriori informazioni, vedere [Contratti di servizio][].
 
-
-[HTMonitorCloudServices]:https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
-[SLA]: https://www.windowsazure.com/en-us/support/legal/sla/
+  [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/
+  [Come monitorare i servizi cloud]: http://azure.microsoft.com/it-it/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+  [Abilitazione della diagnostica in Azure]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-dotnet-diagnostics/
+  [Contratti di servizio]: http://azure.microsoft.com/it-it/support/legal/sla/

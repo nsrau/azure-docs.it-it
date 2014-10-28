@@ -1,44 +1,35 @@
-<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-Introduzione all'autenticazione in Servizi mobili
-=================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/18/2014" ms.author="glenga"></tags>
 
-[Windows Store C\#](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#")[Windows Store JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows Store JavaScript")[Windows Phone](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone")[iOS](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS")
-[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/ "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users/ "Back-end JavaScript")
+# Introduzione all'autenticazione in Servizi mobili
 
-In questo argomento viene illustrato come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+[WACOM.INCLUDE [mobile-services-selector-get-started-users][]]
+
+Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app di Windows Store. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+
+> [WACOM.NOTE]L'autenticazione non è attualmente supportata per le app di Windows Phone Store 8.1 quando si usa la libreria client JavaScript di Servizi mobili. Se si ha un progetto di app Windows universale che usa il client JavaScript, non è possibile autenticare contemporaneamente gli utenti su Windows Phone.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1.  [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili](#register)
-2.  [Limitazione delle autorizzazioni per la tabella agli utenti autenticati](#permissions)
-3.  [Aggiunta dell'autenticazione all'app](#add-authentication)
+1.  [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili][]
+2.  [Limitazione delle autorizzazioni per la tabella agli utenti autenticati][]
+3.  [Aggiunta dell'autenticazione all'app][]
+4.  [Archiviazione dei token di autenticazione sul client][]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/).
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili][].
 
-> [WACOM.NOTE]In questa esercitazione viene illustrato il metodo di base disponibile in Servizi mobili per autenticare gli utenti tramite diversi provider di identità. Questo metodo è semplice da configurare e supporta più provider, tuttavia richiede l'accesso da parte degli utenti a ogni avvio dell'app. Per utilizzare invece Live Connect per offrire un ambiente Single Sign-On nella propria app di Windows Store, vedere l'argomento [Single Sign-On per le app di Windows Store tramite Live Connect](/it-it/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on).
+## <a name="register"></a> Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili
 
-Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili
-------------------------------------------------------------------------------
+[WACOM.INCLUDE [mobile-services-register-authentication][]]
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][]]
 
-1.  In Visual Studio aprire il file Web.config per il progetto di servizio mobile, quindi nella sezione appSettings impostare l'identificatore dell'app e i valori segreti condivisi ottenuti dal provider di identità.
+## <a name="permissions"></a> Limitazione delle autorizzazioni agli utenti autenticati
 
-    Queste impostazioni vengono utilizzate durante lo sviluppo locale. Dopo la pubblicazione del progetto di servizio mobile in Azure, le impostazioni verranno sostituite dai valori impostati nel portale.
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
 
-2.  (Facoltativo) Completare la procedura descritta in [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft](/it-it/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/).
-
-    **Nota**
-
-    Questo passaggio è facoltativo perché si applica solo al provider di accesso con account Microsoft. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Completare questo passaggio se si prevede di utilizzare il provider di identità per account Microsoft.
-
-Limitazione delle autorizzazioni agli utenti autenticati
---------------------------------------------------------
-
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
-
-1.  In Visual Studio 2013 aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/).
+1.  In Visual Studio 2013 aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili][1].
 
 2.  Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).
 
@@ -46,35 +37,31 @@ Limitazione delle autorizzazioni agli utenti autenticati
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-Aggiunta dell'autenticazione all'app
-------------------------------------
+## <a name="add-authentication"></a> Aggiunta dell'autenticazione all'app
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app][]]
 
-Passaggi successivi
--------------------
+## <a name="tokens"></a>Archiviazione dei token di autenticazione sul client
 
-Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts), il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per ulteriori informazioni su come utilizzare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token][]]
 
-<!-- Anchors. -->
-[Register your app for authentication and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Next Steps]:#next-steps
+## <a name="next-steps"> </a>Passaggi successivi
 
+Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per ulteriori informazioni su come utilizzare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili][]
 
-<!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on
-[Get started with Mobile Services]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
-[Get started with data]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-[Get started with authentication]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
-[Authorize users with scripts]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts
-[JavaScript and HTML]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+<!-- Anchors. --> <!-- URLs. -->
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /it-it/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+  [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
+  [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
+  [Aggiunta dell'autenticazione all'app]: #add-authentication
+  [Archiviazione dei token di autenticazione sul client]: #tokens
+  [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
+  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
+  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
+  [1]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md
+  [mobile-services-windows-store-javascript-authenticate-app-with-token]: ../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md
+  [Autorizzazione sul lato servizio degli utenti di Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts
+  [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

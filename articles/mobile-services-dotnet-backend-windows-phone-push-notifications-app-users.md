@@ -54,7 +54,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 <!-- Anchors. -->
 
-[Windows Store C\#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
+[Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"
@@ -70,4 +70,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
   [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
   [mobile-services-windows-phone-push-notifications-app-users]: ../includes/mobile-services-windows-phone-push-notifications-app-users.md
   [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

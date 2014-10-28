@@ -130,7 +130,7 @@ Un'aggregazione completa di connessioni include una connessione da ogni nodo del
 
 #### Aggregazioni filtrate
 
-Un specifica di aggregazione di connessioni filtrata include un predicato, espresso sintatticamente in modo analogo a un'espressione lambda in C\#. L'esempio seguente definisce due aggregazioni filtrate:
+Un specifica di aggregazione di connessioni filtrata include un predicato, espresso sintatticamente in modo analogo a un'espressione lambda in C#. L'esempio seguente definisce due aggregazioni filtrate:
 
     input Pixels [10, 20];
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];

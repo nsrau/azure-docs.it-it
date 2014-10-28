@@ -214,7 +214,7 @@ Per altre informazioni sui processi Web Azure e su WebJobs SDK, vedere [Processi
   [Voce del menu Nuovo progetto processo Web Azure]: ./media/websites-dotnet-deploy-webjobs/nawj.png
   [Finestra di dialogo Nuovo progetto con il modello processo Web]: ./media/websites-dotnet-deploy-webjobs/np.png
   [1]: ./media/websites-dotnet-deploy-webjobs/aaw2.png
-  [utilità di pianificazione di Azure]: /en-us/services/scheduler/
+  [utilità di pianificazione di Azure]: /it-it/services/scheduler/
   []: http://schemastore.org/schemas/json/webjob-publish-settings.json
   [2]: http://schemastore.org/schemas/json/webjobs-list.json
   [Come distribuire un sito Web di Azure]: /it-it/documentation/articles/websites-dotnet-deploy/

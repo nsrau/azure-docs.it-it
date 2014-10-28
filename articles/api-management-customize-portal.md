@@ -8,10 +8,10 @@ Questa guida descrive come modificare l'aspetto del portale per sviluppatori in 
 
 ## Contenuto dell'argomento
 
--   [Modificare il testo/logo nelle intestazioni di pagina][]
--   [Modificare lo stile delle intestazioni][]
--   [Modificare i contenuti di una pagina][]
--   [Passaggi successivi][]
+-   [Modificare il testo/logo nelle intestazioni di pagina][Modificare il testo/logo nelle intestazioni di pagina]
+-   [Modificare lo stile delle intestazioni][Modificare lo stile delle intestazioni]
+-   [Modificare i contenuti di una pagina][Modificare i contenuti di una pagina]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="change-page-headers"> </a>Modificare il testo/logo nell'intestazione della pagina
 
@@ -19,11 +19,11 @@ Una delle funzionalità principali della personalizzazione del portale è la sos
 
 È possibile modificare il contenuto nel portale per sviluppatori tramite il portale di pubblicazione, a cui si accede tramite il portale di gestione di Azure. Per passare alla console di Gestione API, fare clic su **Console di gestione** nel portale di Azure per il servizio Gestione API.
 
-![Console di gestione][]
+![Console di gestione][Console di gestione]
 
 Il portale per sviluppatori è basato su un sistema di gestione dei contenuti, o CMS (Content Management System). L'intestazione visualizzata in ogni pagina è un tipo speciale di contenuto noto come widget. Per modificare i contenuti del widget, scegliere **Widget** dal menu **Portale per sviluppatori** a sinistra, quindi selezionare il widget **Intestazione** nell'elenco.
 
-![Widget Intestazione][]
+![Widget Intestazione][Widget Intestazione]
 
 I contenuti dell'intestazione sono modificabili dal campo **Corpo**. Sostituire il testo con "Portale per sviluppatori Fabrikam" e fare clic su **Salva** nella parte inferiore della pagina.
 
@@ -37,7 +37,7 @@ I colori, il tipo di carattere e le dimensioni, la spaziatura e altri elementi r
 
 Il browser passerà a una pagina nascosta nel portale per sviluppatori contenente esempi di contenuto ed esempi per tutte le regole di stile usate in qualsiasi parte del sito. Per aprire l'editor dello stile, spostare il cursore sulla riga verticale sottile nella parte all'estrema sinistra della pagina. Verrà visualizzata la barra degli strumenti dell'editor
 
-![Barra degli strumenti Personalizzazione][]
+![Barra degli strumenti Personalizzazione][Barra degli strumenti Personalizzazione]
 
 Sono disponibili due modalità principali per la modifica delle regole di stile: **Modifica tutte le regole** consente di visualizzare un elenco di tutte le regole di stile usate nel sito, mentre **Seleziona elemento** consente di selezionare un elemento nella pagina e visualizzare gli stili solo per quell'elemento.
 
@@ -45,15 +45,15 @@ In questa sezione verrà modificato solo lo stile delle intestazioni. Fare clic 
 
 Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1 mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family.
 
-> Se si ha familiarità con [Bootstrap][], queste regole sono in effetti [variabili LESS][] all'interno del tema bootstrap usato dal portale per sviluppatori.
+> Se si ha familiarità con [Bootstrap][Bootstrap], queste regole sono in effetti [variabili LESS][variabili LESS] all'interno del tema bootstrap usato dal portale per sviluppatori.
 
 A questo punto, verrà modificato il colore del testo dell'intestazione. Selezionare la voce nel campo **@headings-color** e digitare \#000000. Questo è il codice esadecimale per il colore nero. Durante l'operazione, verrà visualizzato un indicatore di colore quadrato all'estremità della casella di testo. Se si fa clic su questo indicatore, verrà visualizzato uno strumento di selezione dei colori che consente di scegliere un colore.
 
-![Selezione colori][]
+![Selezione colori][Selezione colori]
 
 Dopo avere apportato le modifiche desiderate agli stili dell'elemento selezionato, fare clic su **Anteprima modifiche** per visualizzare i risultati sullo schermo. Al momento, le modifiche sono visibili solo agli amministratori. Per rendere queste modifiche visibili a tutti, fare clic sul pulsante **Pubblica** nell'editor dello stile e confermare le modifiche.
 
-![Menu Pubblica][]
+![Menu Pubblica][Menu Pubblica]
 
 > Per modificare le regole di stile per qualsiasi altro elemento nella pagina, attenersi alla stessa procedura usata per l'intestazione, ovvero fare clic su **Seleziona elemento** nell'edito dello stile, selezionare l'elemento desiderato e iniziare a modificare i valori delle regole di stile visualizzate sullo schermo.
 
@@ -63,7 +63,7 @@ Il portale per sviluppatori è costituito da pagine generate automaticamente com
 
 Per visualizzare l'elenco di tutte le pagine di contenuto esistenti, nella console di gestione scegliere **Contenuto** dal menu **Portale per sviluppatori**.
 
-![Gestione del contenuto][]
+![Gestione del contenuto][Gestione del contenuto]
 
 Fare clic nella pagina di benvenuto per modificare gli elementi visualizzati nella home page del portale per sviluppatori. Apportare le modifiche desiderate, visualizzarle in anteprima, se necessario, e quindi fare clic su **Pubblica** per renderle visibili a tutti.
 
@@ -71,7 +71,7 @@ Fare clic nella pagina di benvenuto per modificare gli elementi visualizzati nel
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
+-   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][Introduzione alla configurazione API avanzata].
 
   [Modificare il testo/logo nelle intestazioni di pagina]: #change-page-headers
   [Modificare lo stile delle intestazioni]: #change-headers-styling

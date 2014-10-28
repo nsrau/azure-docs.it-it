@@ -32,13 +32,13 @@ In questa esercitazione verrà illustrato come aggiornare l'app creata nell'eser
 <!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
   [Xamarin.iOS]: /it-it/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
   [Xamarin.Android]: /it-it/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-ios-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-ios-get-started-data/
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28
   [l'elenco attività offline di esempio per iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
   [post di blog di accompagnamento]: http://aka.ms/iosoffline

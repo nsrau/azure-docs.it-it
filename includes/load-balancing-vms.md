@@ -1,82 +1,75 @@
-<properties  writer="josephd" editor="tysonn" manager="dongill" />
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
 
-# Bilanciamento del carico delle macchine virtuali
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
 
-Tutte le macchine virtuali create in Azure possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Per tutte le altre comunicazioni in ingresso, ad esempio il traffico avviato da host Internet o macchine virtuali di altri servizi cloud o in altre reti virtuali, è necessario un endpoint.
+# Bilanciamento del carico per i servizi di infrastruttura di Azure
 
-Gli endpoint possono essere utilizzati per diversi scopi. Per impostazione predefinita, gli endpoint di una macchina virtuale creata con il portale di gestione di Azure vengono utilizzati e configurati per il traffico delle sessioni remote di Windows PowerShell e per il protocollo Remote Desktop Protocol (RDP). Questi endpoint consentono di amministrare la macchina virtuale in remoto tramite Internet.
+Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
 
-Gli endpoint vengono inoltre utilizzati per configurare il servizio di bilanciamento del carico di Azure e distribuire un tipo specifico di traffico tra più macchine virtuali o servizi. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web o ruoli Web.
+-   **Livello DNS**: bilanciamento del carico per il traffico verso servizi cloud o siti Web Azure diversi ubicati in datacenter differenti o verso endpoint esterni. Questa operazione viene eseguita con Gestione traffico e usando il metodo di bilanciamento del carico Round robin.
+-   **Livello di rete**: bilanciamento del carico del traffico Internet in ingresso nelle diverse macchine virtuali di un servizio cloud oppure bilanciamento del carico del traffico esistente tra le macchine virtuali di un servizio cloud o di una rete virtuale. Questa operazione viene eseguita con il servizio di bilanciamento del carico di Azure.
 
-A ogni endpoint definito per una macchina virtuale vengono assegnate una porta pubblica e una privata, con protocollo TCP o UDP. Gli host Internet inviano il traffico in ingresso all'indirizzo IP pubblico del servizio cloud e a una porta pubblica. Le macchine virtuali e i servizi all'interno del servizio cloud restano in ascolto sul rispettivo indirizzo IP privato e sulla porta privata. Il servizio di bilanciamento del carico mappa l'indirizzo IP pubblico e il numero di porta del traffico in ingresso con l'indirizzo IP privato e il numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale.
+## Bilanciamento del carico di Gestione traffico per servizi cloud e siti Web
 
-Quando si configura il bilanciamento del carico del traffico tra più macchine virtuali o servizi, Azure fornisce una distribuzione casuale del traffico in ingresso.
+Gestione traffico di Azure consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in datacenter ubicati in aree geografiche diverse.
 
-Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è possibile definire un endpoint pubblico nella definizione del servizio. Per un servizio cloud contenente macchine virtuali, è possibile aggiungere un endpoint a una macchina virtuale durante la creazione oppure in seguito.
+Per configurare endpoint esterni o profili di Gestione traffico come endpoint, è necessario usare REST o Windows PowerShell.
+
+Per la distribuzione del traffico, Gestione traffico di Azure usa tre metodi di bilanciamento del carico:
+
+-   **Failover**: questo metodo viene usato quando si desidera servirsi di un endpoint principale per tutto il traffico. È opportuno tuttavia prevedere endpoint di backup nel caso in cui l'endpoint principale non sia disponibile.
+-   **Prestazioni**: questo metodo viene usato quando gli endpoint sono ubicati in aree geografiche diverse e si desidera che i client richiedenti si servano dell'endpoint "più vicino" in termini di minor latenza.
+-   **Round robin:** questo metodo viene usato quando si desidera distribuire il carico su un set di servizi cloud eseguiti nello stesso datacenter oppure su servizi cloud o siti Web eseguiti in datacenter diversi.
+
+Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico][Informazioni sui metodi di bilanciamento del carico di Gestione traffico].
+
+Nella figura seguente viene illustrato un esempio di bilanciamento del carico con metodo Round robin per la distribuzione del traffico tra diversi servizi cloud.
+
+![bilanciamento del carico][bilanciamento del carico]
+
+Il processo di base è il seguente:
+
+1.  Un client Internet esegue una query relativa a un nome di dominio corrispondente a un servizio Web.
+2.  DNS inoltra la richiesta di query a Gestione traffico.
+3.  Gestione traffico risponde inviando il nome DNS del servizio cloud presente nell'elenco round robin. Il server DNS del client Internet risolve il nome in un indirizzo IP e lo invia al client Internet.
+4.  Il client Internet si connette al servizio cloud scelto.
+
+Per altre informazioni, vedere [Gestione traffico][Gestione traffico].
+
+## Bilanciamento del traffico di Azure per macchine virtuali
+
+Le macchine virtuali appartenenti allo stesso servizio cloud o alla stessa rete virtuale possono comunicare direttamente tra loro usando i relativi indirizzi IP privati. I computer e i servizi esterni al servizio cloud o alla rete virtuale possono comunicare solo con le macchine virtuali di un servizio cloud o di una rete virtuale con un endpoint configurato. Un endpoint è un mapping di una porta o di un indirizzo IP pubblico alla porta o all'indirizzo IP privato di una macchina virtuale o di un ruolo Web all'interno di un servizio cloud di Azure.
+
+Il servizio di bilanciamento del carico di Azure distribuisce in modo casuale un tipo specifico di traffico in ingresso tra più macchine virtuali o servizi di una configurazione nota come set con carico bilanciato. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web o ruoli Web.
 
 Nella figura seguente è illustrato un endpoint con carico bilanciato per il traffico Web (non crittografato) condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 
-![bilanciamento del
-carico](./media/load-balancing-vms/LoadBalancing.png)
+![bilanciamento del carico][1]
 
-Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 80, il servizio di bilanciamento del carico esegue un bilanciamento casuale di queste richieste tra le tre macchine virtuali del set con carico bilanciato.
+Per altre informazioni, vedere [Bilanciamento del carico di Azure][Bilanciamento del carico di Azure]. Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato][Configurare un set con carico bilanciato].
 
-Per creare un set di macchine virtuali di Azure con carico bilanciato, attenersi alla procedura seguente:
+Azure è inoltre in grado di bilanciare il carico all'interno di un servizio cloud o una rete virtuale. Questo processo, noto come bilanciamento del carico interno, può essere usato per gli scopi seguenti:
 
-* [Passaggio 1: Creare la prima macchina virtuale](#firstmachine)
-* [Passaggio 2: Creare ulteriori macchine virtuali nello stesso servizio
-  cloud](#addmachines)
-* [Passaggio 3: Creare un set con carico bilanciato con la prima
-  macchina virtuale](#loadbalance)
-* [Passaggio 4: Aggiungere le macchine virtuali al set con carico
-  bilanciato](#addtoset)
+-   Bilanciamento del carico tra server appartenenti a livelli diversi di un'applicazione multilivello, ad esempio tra il livello Web e quello di database.
+-   Bilanciamento del carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico.
+-   Inclusione di server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
 
-## <a id="firstmachine"> </a>Passaggio 1: Creare la prima macchina virtuale
+Analogamente al bilanciamento del carico di Azure, il bilanciamento del carico interno viene facilitato con la configurazione di un set con carico bilanciato interno.
 
-Accedere al [portale di gestione di Azure][1] se questa operazione non è già stata eseguita. È possibile creare la prima macchina virtuale con il metodo From Gallery o Quick Create.
+Nella figura seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business (LOB) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise.
 
-* **From Gallery**: il metodo **From Gallery** consente di creare gli endpoint contestualmente alla macchina virtuale, nonché di specificare un nome per il servizio cloud creato durante la creazione della macchina virtuale. Per le istruzioni, vedere [Creazione di una macchina virtuale che esegue Linux](../virtual-machines-linux-tutorial) o [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial).
+![bilanciamento del carico][2]
 
-* **Quick Create**: consente di creare una macchina virtuale scegliendo un'immagine dalla Raccolta immagini e specificando le informazioni di base. Se si utilizza questo metodo, è necessario aggiungere l'endpoint dopo avere creato la macchina virtuale. Con questo metodo viene inoltre creato un servizio cloud con un nome predefinito. Per ulteriori informazioni, vedere [Come creare rapidamente una macchina virtuale](../virtual-machines-quick-create).
-
-**Nota**: dopo aver creato la macchina virtuale con il metodo Quick Create, nella pagina Cloud Services del portale di gestione viene visualizzato il nome del servizio cloud insieme ad altre informazioni correlate.
-
-## <a id="addmachines"> </a>Passaggio 2: Creare ulteriori macchine virtuali nello stesso servizio cloud
-
-Creare altre macchine virtuali nello stesso servizio cloud della prima utilizzando il metodo From Gallery.
-
-## <a id="loadbalance"> </a>Passaggio 3: Creare un set con carico bilanciato con la prima macchina virtuale
-
-1.  Nel portale di gestione di Azure fare clic su **Virtual Machines** e quindi sul nome della prima macchina virtuale.
-
-2.  Far clic su **Endpoints**, quindi su **Add**.
-
-3.  Nella pagina Add an endpoint to a virtual machine fare clic sulla freccia destra.
-
-4.  Nella pagina Specify the details of the endpoint eseguire le operazioni seguenti:
-    
-    * In **Name** digitare un nome per l'endpoint o selezionarne uno dall'elenco di endpoint predefiniti per i protocolli comuni.
-    * In **Protocol** selezionare il protocollo richiesto dal tipo di endpoint, ossia TCP o UDP.
-    * In **Public Port** e **Private Port** digitare il numero di porta da utilizzare per la macchina virtuale. È possibile utilizzare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
-
-5.  Selezionare **Create a load-balanced set** e quindi fare clic sulla freccia destra.
-
-6.  Nella pagina Configure the load-balanced set immettere un nome per il set con carico bilanciato e quindi assegnare i valori per il comportamento del probe del servizio di bilanciamento del carico di Azure. Il servizio di bilanciamento del carico utilizza i probe per determinare se le macchine virtuali del set con carico bilanciato sono disponibili a ricevere traffico in ingresso.
-
-7.  Fare clic sul segno di spunta per creare l'endpoint con carico bilanciato. Nella colonna **Load-balanced set name** della pagina **Endpoints** relativa alla macchina virtuale verrà visualizzata l'indicazione **Yes**.
-
-## <a id="addtoset"> </a>Passaggio 4: Aggiungere le macchine virtuali al set con carico bilanciato
-
-Dopo avere creato il set con carico bilanciato, aggiungervi le altre macchine virtuali. Per ogni macchina virtuale dello stesso servizio cloud, eseguire le operazioni seguenti:
-
-1.  Nel portale di gestione fare clic su **Virtual Machines**, quindi sul nome della macchina virtuale, su **Endpoints** e infine su **Add**.
-
-2.  Nella pagina Add an endpoint to a virtual machine page fare clic su **Add endpoint to an existing load-balanced set**, selezionare il nome del set con carico bilanciato e quindi fare clic sulla freccia destra.
-
-3.  Nella pagina Specify the details of the endpoint page digitare un nome per l'endpoint e quindi fare clic sul segno di spunta.
+Per altre informazioni, vedere [Bilanciamento del carico interno][Bilanciamento del carico interno]. Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno][Configurare un set con carico bilanciato interno].
 
 <!-- LINKS -->
 
-
-
-[1]: http://manage.windowsazure.com
+  [Informazioni sui metodi di bilanciamento del carico di Gestione traffico]: http://msdn.microsoft.com/it-it/library/azure/dn339010.aspx
+  [bilanciamento del carico]: ./media/load-balancing-vms/TMSummary.png
+  [Gestione traffico]: http://msdn.microsoft.com/it-it/library/azure/hh745750.aspx
+  [1]: ./media/load-balancing-vms/LoadBalancing.png
+  [Bilanciamento del carico di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn655058.aspx
+  [Configurare un set con carico bilanciato]: http://msdn.microsoft.com/it-it/library/azure/dn655055.aspx
+  [2]: ./media/load-balancing-vms/LOBServers.png
+  [Bilanciamento del carico interno]: http://msdn.microsoft.com/it-it/library/azure/dn690121.aspx
+  [Configurare un set con carico bilanciato interno]: http://msdn.microsoft.com/it-it/library/azure/dn690125.aspx

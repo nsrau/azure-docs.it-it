@@ -14,44 +14,42 @@ In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per
 
 In questa esercitazione vengono descritte le operazioni seguenti:
 
-1.  [Abilitazione di Google Cloud Messaging][]
-2.  [Configurare il servizio mobile per l'invio di richieste push][]
-3.  [Aggiornare il server per l'invio di notifiche push][]
-4.  [Aggiungere notifiche push all'app][]
-5.  [Abilitare le notifiche push per test locali][]
-6.  [Eseguire il test dell'app sul servizio mobile pubblicato][]
+1.  [Abilitazione di Google Cloud Messaging][Abilitazione di Google Cloud Messaging]
+2.  [Configurare il servizio mobile per l'invio di richieste push][Configurare il servizio mobile per l'invio di richieste push]
+3.  [Aggiornare il server per l'invio di notifiche push][Aggiornare il server per l'invio di notifiche push]
+4.  [Aggiungere notifiche push all'app][Aggiungere notifiche push all'app]
+5.  [Abilitare le notifiche push per test locali][Abilitare le notifiche push per test locali]
+6.  [Eseguire il test dell'app sul servizio mobile pubblicato][Eseguire il test dell'app sul servizio mobile pubblicato]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili][] o [Introduzione ai dati][] per collegare il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati] per collegare il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
 
-> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
 
 ## <span id="register"></span></a>Abilitazione di Google Cloud Messaging
 
-[WACOM.INCLUDE [Enable GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <span id="configure"></span></a>Configurazione di Servizi mobili per l'invio di richieste push
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Push** e immettere il valore **Chiave API** ottenuto da GCM nella procedura precedente, quindi fare clic su **Salva**.
 
     ![][1]
 
-    <div class="dev-callout"><b>Importante</b>
-<p>Le credenziali GCM per le notifiche push avanzate configurate nella scheda Push del portale vengono condivise con Hub di notifica per configurare l'hub di notifica con l'app.</p>
-</div>
+    <div class="dev-callout"><b>Importante</b><p>Le credenziali GCM per le notifiche push avanzate configurate nella scheda Push del portale vengono condivise con Hub di notifica per configurare l'hub di notifica con l'app.</p></div>
 
 Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
 
 ## <a name="download-the-service"></a><span class="short-header">Scaricare il servizio</span>Scaricare il servizio mobile nel computer locale
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Eseguire il test del servizio</span>Eseguire il test del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a>Aggiornare il server per l'invio di notifiche push
 
@@ -88,13 +86,13 @@ Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
 
 ## <a name="publish-the-service"></a><span class="short-header">Pubblicare il servizio</span>Pubblicare il servizio mobile in Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="update-app"></a>Aggiungere notifiche push all'app
 
 ### Verificare la versione di Android SDK
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e il testing. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti.
 
@@ -102,11 +100,11 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 ### Aggiungere Google Play Services al progetto
 
-[WACOM.INCLUDE [Add Play Services][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Aggiungere codice
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <a name="test-app"></a><span class="short-header">Eseguire il test dell'app</span>Eseguire il test dell'app sul servizio mobile pubblicato
 
@@ -128,7 +126,7 @@ Assicurarsi di usare un emulatore Android Virtual Device (AVD) con il supporto p
 
 ### <span id="local-testing"></span></a> Abilitare le notifiche push per test locali
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ### Esecuzione del test
 
@@ -148,23 +146,23 @@ L'esercitazione è stata completata.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Altre informazioni sull'archiviazione e sulle query dei dati mediante i servizi mobili.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante i servizi mobili.
 
--   [Informazioni su Hub di notifica][]
+-   [Informazioni su Hub di notifica][Informazioni su Hub di notifica]
     Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
--   [Come usare la libreria client di Android per Servizi mobili][]
+-   [Come usare la libreria client di Android per Servizi mobili][Come usare la libreria client di Android per Servizi mobili]
     Altre informazioni su come usare Servizi mobili con Android.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
@@ -179,10 +177,10 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   [Eseguire il test dell'app sul servizio mobile pubblicato]: #test-app
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

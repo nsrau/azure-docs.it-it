@@ -325,7 +325,7 @@ registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in 
 A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere
 l'argomento [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio] su MSDN per altre informazioni.
 
-  [Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure SDK for Java]: http://www.windowsazure.com/it-it/develop/java/
   [Informazioni su argomenti e sottoscrizioni del bus di servizio]: #what-are-service-bus-topics
   [Creare uno spazio dei nomi servizio]: #create-a-service-namespace
   [Recuperare le credenziali di gestione predefinite per lo spazio dei nomi]: #obtain-default-credentials

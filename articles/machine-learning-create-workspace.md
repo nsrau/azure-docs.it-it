@@ -11,13 +11,13 @@ Un'area di lavoro di Microsoft Azure Machine Learning (area di lavoro ML) contie
 1.  Effettuare l'accesso con l'account Microsoft.
 2.  Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 
-![][]
+![][0]
 
 1.  Fare clic su **CREA UN'AREA DI LAVORO ML**.
 2.  Nella pagina **CREAZIONE RAPIDA**:
 
     1.  Immettere le informazioni relative all'area di lavoro.
-        NOTA: Il **PROPRIETARIO DELL'AREA DI LAVORO** corrisponde all'account Microsoft dell'utente ([nome@outlook.com][]) o all'account dell'organizzazione.
+        NOTA: Il **PROPRIETARIO DELL'AREA DI LAVORO** corrisponde all'account Microsoft dell'utente ([nome@outlook.com][nome@outlook.com]) o all'account dell'organizzazione.
     2.  Fare clic su **CREA UN'AREA DI LAVORO ML**.
 
 3.  Dopo avere creato l'area di lavoro, questa sarà visualizzata nella pagina **machine learning**.
@@ -28,6 +28,6 @@ Un'area di lavoro di Microsoft Azure Machine Learning (area di lavoro ML) contie
 <!--Image references--> 
 <!--Link references-->
 
-  []: ./media/machine-learning-create-workspace/cw1.png
+  [0]: ./media/machine-learning-create-workspace/cw1.png
   [nome@outlook.com]: mailto:name@outlook.com
   [1]: ./media/machine-learning-create-workspace/cw2.png

@@ -133,7 +133,7 @@ In seguito sarà necessario unire l'ID sottoscrizione e il file pfx con codifica
 Dove xxxxx è il contenuto del [file codificato] che verrà usato per fornire i dettagli agli strumenti da riga di comando di Azure per Linux con i comandi:
 Azure account import (File)
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/it-it/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [Acquisizione di un certificato di gestione dal file publishsettings]: #createcert
   [Installazione di un certificato di gestione mediante il portale di gestione di Azure]: #management

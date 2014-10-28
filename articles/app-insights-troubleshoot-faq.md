@@ -24,9 +24,9 @@
 ## <a name="q01"></a>Non è presente un'opzione per aggiungere Application Insights al progetto in Visual Studio
 
 -   Assicurarsi di disporre di [Visual Studio Update 3][Visual Studio Update 3]. È preinstallato con Strumenti Application Insights per Visual Studio, che dovrebbe essere presente in Gestione estensioni.
--   Application Insights in Anteprima di Microsoft Azure attualmente è disponibile solo per progetti Web ASP.NET in C\# o Visual Basic.
+-   Application Insights in Anteprima di Microsoft Azure attualmente è disponibile solo per progetti Web ASP.NET in C# o Visual Basic.
 -   Se si dispone di un progetto esistente, passare a Esplora soluzioni e fare clic sul progetto Web (non su un altro progetto o sulla soluzione). Dovrebbe essere presente una voce di menu "Aggiungi telemetria di Application Insights al progetto".
--   Se si crea un nuovo progetto, in Visual Studio scegliere File \> Nuovo progetto e selezionare {Visual C\#|Visual Basic} \> Web \> Applicazione Web ASP.NET. Dovrebbe essere presente un'opzione Aggiungi Application Insights al progetto.
+-   Se si crea un nuovo progetto, in Visual Studio scegliere File \> Nuovo progetto e selezionare {Visual C#|Visual Basic} \> Web \> Applicazione Web ASP.NET. Dovrebbe essere presente un'opzione Aggiungi Application Insights al progetto.
 
 ## <a name="q02"></a>Il nuovo progetto Web è stato creato ma l'aggiunta di Application Insights ha avuto esito negativo.
 

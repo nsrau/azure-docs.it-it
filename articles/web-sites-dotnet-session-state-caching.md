@@ -1,91 +1,99 @@
-<properties linkid="video-center-index" urlDisplayName="index" pageTitle="Video Center Index" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Session State with Azure Web Sites" authors="jroth" solutions="" manager="" editor="" />
+<properties linkid="video-center-index" urlDisplayName="index" pageTitle="Use ASP.NET session state with Azure Websites" metaKeywords="azure cache service session state" description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-Come utilizzare lo stato sessione ASP.NET con Siti Web di Azure
-===============================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
 
-In questo argomento vengono fornite informazioni su come utilizzare il Servizio cache di Azure (Anteprima) per supportare la memorizzazione nella cache dello stato sessione ASP.NET.
+# Come usare lo stato sessione ASP.NET con Siti Web di Azure
 
-Senza un provider esterno, lo stato sessione viene archiviato in-process sul server Web che ospita il sito. Per Siti Web di Azure, lo stato sessione in-process pone due problemi: in primo luogo, per i siti con più istanze, lo stato sessione archiviato in un'unica istanza non è accessibile ad altre istanze. Poiché è possibile indirizzare una richiesta dell'utente a qualsiasi istanza, non è garantita la disponibilità delle informazioni di sessione. In secondo luogo, eventuali cambiamenti di configurazione potrebbero produrre l'esecuzione del sito Web su un server completamente diverso.
+*Autore: [Rick Anderson][Rick Anderson]. Ultimo aggiornamento: 1 luglio 2014.*
 
-Il Servizio cache (Anteprima) fornisce un servizio di memorizzazione nella cache distribuita esterno al sito Web. Ciò consente di risolvere il problema dello stato sessione in-process. Per ulteriori informazioni su come utilizzare lo stato sessione vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/it-it/library/ms178581.aspx).
+In questo argomento vengono fornite informazioni su come usare il servizio Cache Redis di Azure (anteprima) per lo stato della sessione.
+
+Se l'app Web ASP.NET usa lo stato della sessione, sarà necessario usare un provider di stato della sessione esterno (il provider del servizio Cache Redis o un provider di stato della sessione SQL Server). Se si usa lo stato della sessione, e non un provider esterno, verrà applicato il limite di una sola istanza dell'app Web. Il servizio Cache Redis può essere abilitato con la massima rapidità e semplicità.
 
 La procedura di base per l'uso del Servizio cache (Anteprima) per la memorizzazione nella cache dello stato sessione include i seguenti passaggi:
 
--   [Creazione della cache](#createcache)
--   [Configurazione del progetto ASP.NET per l'utilizzo della cache di Azure](#configureproject)
--   [Modifica del file web.config](#configurewebconfig)
--   [Utilizzo dell'oggetto Session per memorizzare e recuperare oggetti memorizzati nella cache](#usesessionobject)
+-   [Creazione della cache][Creazione della cache]
+-   [Aggiungere il pacchetto NuGet package RedisSessionStateProvider all'app Web.][Aggiungere il pacchetto NuGet package RedisSessionStateProvider all'app Web.]
+-   [Modifica del file web.config][Modifica del file web.config]
+-   [Utilizzo dell'oggetto Session per memorizzare e recuperare oggetti memorizzati nella cache][Utilizzo dell'oggetto Session per memorizzare e recuperare oggetti memorizzati nella cache]
 
-Creazione della cache
----------------------
+## <span id="createcache"></span></a>Creazione della cache
 
-1.  Nella parte inferiore del portale di gestione di Azure fare clic sull'icona **New**.
+Per creare la cache, attenersi a [queste istruzioni][queste istruzioni].
 
-    ![NewIcon](./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png)
+## <span id="configureproject"></span></a>Aggiungere il pacchetto NuGet package RedisSessionStateProvider all'app Web
 
-2.  Selezionare **Data Services**, **Cache** e quindi fare clic su **Quick Create**.
+Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (**Strumenti** \> **Gestione pacchetti NuGet** \> **Console di Gestione pacchetti**):
 
-    ![NewCacheDialog](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png)
+`PM> Install-Package RedisSessionStateProvider -IncludePrerelease`
 
-3.  Digitare un nome univoco per la cache nella casella di testo **Endpoint**. Selezionare quindi i valori appropriati per le altre proprietà della cache e fare clic su **Create a New Cache**.
+Per effettuare l'installazione da **Strumenti** \> **Gestione pacchetti NuGet** \> **Gestisci pacchetti NugGet per la soluzione**, cercare `RedisSessionStateProvider` e assicurarsi di specificare **Includi versione preliminare**.
 
-4.  Selezionare l'icona **Cache** nel portale di gestione per visualizzare tutti gli endpoint del Servizio cache.
+Per altre informazioni, vedere la pagina relativa a [RedisSessionStateProvider di NuGet][RedisSessionStateProvider di NuGet] e la pagina [Configurare il client cache][Configurare il client cache].
 
-    ![CacheIcon](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png)
+## <span id="configurewebconfig"></span></a>Modifica del file web.config
 
-5.  Sarà quindi possibile selezionare uno degli endpoint del Servizio cache per visualizzarne le proprietà. Nelle sezioni seguenti si utilizzeranno le impostazioni della scheda **Dashboard** per configurare la memorizzazione nella cache per un progetto ASP.NET.
+Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge voci stub nel file *web.config*.
 
-Configurazione del progetto ASP.NET
------------------------------------
+1.  Aprire *web.config* e trovare l'elemento **sessionState**.
 
-1.  In primo luogo, assicurarsi di aver [installato l'ultimo](http://www.windowsazure.com/it-it/downloads/?sdk=net) **Azure SDK per .NET**.
+2.  Immettere i valori relativi a `host`, `accessKey`, `port` (la porta SSL deve essere 6380) e impostare `SSL` su `true`. Questi valori possono essere ottenuti dal pannello del portale di anteprima di gestione di Azure per l'istanza della cache. Per altre informazioni, vedere l'articolo relativo alla [connessione alla cache][connessione alla cache].
+    Il markup seguente mostra le modifiche apportate al file *web.config*.
 
-2.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto ASP.NET in **Esplora soluzioni** e quindi selezionare **Manage NuGet Packages** (se si utilizza WebMatrix, fare invece clic sul pulsante **NuGet** sulla barra degli strumenti).
+  <pre class="prettyprint">  
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
+          &lt;!--&lt;add name="RedisSessionProvider" 
+            host = "127.0.0.1" [String]
+            port = "" [number]
+            accessKey = "" [String]
+            ssl = "false" [true|false]
+            throwOnError = "true" [true|false]
+            retryTimeoutInMilliseconds = "0" [number]
+            databaseId = "0" [number]
+            applicationName = "" [String]
+          /&gt;--&gt;
+         &lt;add name="RedisSessionProvider" 
+              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+              <mark>port="6380"
+              host="movie2.redis.cache.windows.net" 
+              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;</pre>
 
-3.  Digitare **WindowsAzure.Caching** nella casella di testo **Search Online**.
+</p>
+## <span id="usesessionobject"></span></a>Utilizzo dell'oggetto Session nel codice
 
-    ![NuGetDialog](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png)
+Il passaggio finale consiste nell'iniziare a usare l'oggetto Session nel proprio codice ASP.NET. Aggiungere oggetti allo stato sessione usando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
 
-4.  Selezionare il pacchetto **Azure Caching** e quindi fare clic sul pulsante **Install**.
-
-Modifica del file Web.Config
-----------------------------
-
-Oltre a fare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge voci stub nel file web.config. Per utilizzare la cache per lo stato sessione è necessario apportare diverse modifiche al file web.config.
-
-1.  Aprire il file **web.config** per il progetto ASP.NET.
-
-2.  Trovare l'elemento **sessionState** esistente e aggiungervi un commento (oppure rimuoverlo).
-
-3.  Quindi, rimuovere i simboli di commento dall'elemento **sessionState** che è stato aggiunto dal pacchetto NuGet della cache di Azure. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
-
-    ![SessionStateConfig][SessionStateConfig]
-
-4.  Individuare quindi la sezione **dataCacheClients**. Rimuovere il simbolo di commento dall'elemento figlio **securityProperties**.
-
-    ![CacheConfig](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png)
-
-5.  Nell'elemento **autoDiscover** impostare l'attributo **identifier** sull'URL endpoint della cache in uso. Per trovare il proprio URL endpoint, passare alle proprietà della cache nel portale di gestione di Azure. Nella scheda **Dashboard** copiare il valore **ENDPOINT URL** nella sezione **quick glance**.
-
-    ![EndpointURL](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png)
-
-6.  Nell'elemento **messageSecurity** impostare l'attributo **authorizationInfo** sulla chiave di accesso della cache. Per trovare la chiave di accesso, selezionare la cache nel portale di gestione di Azure e quindi fare clic sull'icona **Manage Keys** nella barra in basso. Fare clic sul pulsante di copia accanto alla casella di testo **PRIMARY ACCESS KEY**.
-
-    ![ManageKeys](./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png)
-
-Utilizzo dell'oggetto Session nel codice
-----------------------------------------
-
-Il passaggio finale consiste nell'iniziare a utilizzare l'oggetto Session nel proprio codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
-
-    string strValue = "valore";
-    Session.Add("chiave", strValue);
+    string strValue = "yourvalue";
+    Session.Add("yourkey", strValue);
 
 Il codice seguente recupera questo valore dallo stato sessione.
 
-    object objValue = Session["chiave"];
+    object objValue = Session["yourkey"];
     if (objValue != null)
        strValue = (string)obj;  
 
-Per ulteriori informazioni su come utilizzare lo stato sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET](http://msdn.microsoft.com/it-it/library/ms178581.aspx).
+È inoltre possibile usare Cache Redis per nascondere gli oggetti nell'app Web. Per altre informazioni, vedere il blog relativo all'[applicazione per filmati MVC con Cache Redis di Azure in 15 minuti][applicazione per filmati MVC con Cache Redis di Azure in 15 minuti].
+Per altre informazioni su come usare lo stato della sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET][Cenni preliminari sullo stato della sessione ASP.NET].
 
+  [Rick Anderson]: https://twitter.com/RickAndMSFT
+  [Creazione della cache]: #createcache
+  [Aggiungere il pacchetto NuGet package RedisSessionStateProvider all'app Web.]: #configureproject
+  [Modifica del file web.config]: #configurewebconfig
+  [Utilizzo dell'oggetto Session per memorizzare e recuperare oggetti memorizzati nella cache]: #usesessionobject
+  [queste istruzioni]: http://azure.microsoft.com/it-it/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache
+  [RedisSessionStateProvider di NuGet]: http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/
+  [Configurare il client cache]: http://azure.microsoft.com/it-it/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet
+  [connessione alla cache]: http://azure.microsoft.com/it-it/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache
+  [applicazione per filmati MVC con Cache Redis di Azure in 15 minuti]: http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+  [Cenni preliminari sullo stato della sessione ASP.NET]: http://msdn.microsoft.com/it-it/library/ms178581.aspx

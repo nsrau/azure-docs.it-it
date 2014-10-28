@@ -8,7 +8,7 @@
 
 <div class="dev-callout"> 
 <b>Nota</b> 
-    <p>Le procedure in questa attivit&agrave; si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.</p> 
+    <p>Le procedure in questa attivit&agrave; si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/it-it/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/it-it/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.</p> 
 </div>
 
 Esistono due modi per puntare il dominio personalizzato all'endpoint BLOB per l'account di archiviazione. Il modo più semplice consiste nel creare un record CNAME per eseguire il mapping del dominio personalizzato e del sottodominio all'endpoint BLOB. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine è rappresentato dal dominio personalizzato e dal relativo sottodominio. Si noti che il sottodominio è sempre obbligatorio. Il dominio di destinazione è l'endpoint del servizio BLOB.
@@ -46,15 +46,15 @@ Nella tabella seguente sono illustrati gli URL di esempio per accedere ai dati B
 </table>
 In questo argomento verranno illustrate le attività seguenti:
 
--   [Registrazione di un dominio personalizzato per l'account di archiviazione][]
--   [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify][]
+-   [Registrazione di un dominio personalizzato per l'account di archiviazione][Registrazione di un dominio personalizzato per l'account di archiviazione]
+-   [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify][Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify]
 -   <a name="#verify-subdomain">Verifica che il dominio personalizzato faccia riferimento all'endpoint del servizio BLOB</a>
 
 ## <a name="register-domain"></a>Registrazione di un dominio personalizzato per l'account di archiviazione
 
 Eseguire questa procedura per registrare il dominio personalizzato se il fatto che il dominio sia temporaneamente non disponibile per gli utenti non costituisce un problema oppure se il dominio personalizzato al momento non ospita un'applicazione.
 
-Se invece il dominio personalizzato supporta un'applicazione per cui non sono consentiti tempi di inattività, eseguire la procedura descritta in [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify][].
+Se invece il dominio personalizzato supporta un'applicazione per cui non sono consentiti tempi di inattività, eseguire la procedura descritta in [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify][Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify].
 
 Per configurare un nome di dominio personalizzato, è necessario creare un nuovo record CNAME con il proprio registrar. Il record CNAME specifica un alias per il nome di dominio. In questo caso viene utilizzato per eseguire il mapping dell'indirizzo del dominio personalizzato all'endpoint del servizio BLOB per l'account di archiviazione.
 
@@ -141,10 +141,10 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 ## Risorse aggiuntive
 
--   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato][]
+-   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato][Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]
 
-  [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure]: /en-us/develop/net/common-tasks/custom-dns/
-  [Configurazione di un nome di dominio personalizzato per un sito Web di Azure]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure]: /it-it/develop/net/common-tasks/custom-dns/
+  [Configurazione di un nome di dominio personalizzato per un sito Web di Azure]: /it-it/develop/net/common-tasks/custom-dns-web-site/
   [Registrazione di un dominio personalizzato per l'account di archiviazione]: #register-domain
   [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify]: #register-asverify
-  [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx

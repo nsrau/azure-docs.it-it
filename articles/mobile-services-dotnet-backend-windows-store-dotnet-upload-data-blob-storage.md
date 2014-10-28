@@ -14,22 +14,22 @@ Non è possibile distribuire in modo sicuro con l'app client le credenziali nece
 
 In questa esercitazione verranno aggiunte funzionalità all'app di guida introduttiva per Servizi mobili per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili. L'esercitazione fornisce istruzioni dettagliate sulle operazioni di base per aggiornare il progetto di guida introduttiva per Servizi mobili in modo da caricare immagini nel servizio di archiviazione BLOB:
 
-1.  [Installazione della libreria client di archiviazione][]
-2.  [Aggiornamento dell'app client per l'acquisizione di immagini][]
-3.  [Installare il client di archiviazione nel progetto di servizio mobile][]
-4.  [Aggiornare la definizione di TodoItem nel modello di dati][]
-5.  [Aggiornamento del controller tabella per generare una firma di accesso condiviso][]
-6.  [Caricamento delle immagini per verificare l'app][]
+1.  [Installazione della libreria client di archiviazione][Installazione della libreria client di archiviazione]
+2.  [Aggiornamento dell'app client per l'acquisizione di immagini][Aggiornamento dell'app client per l'acquisizione di immagini]
+3.  [Installare il client di archiviazione nel progetto di servizio mobile][Installare il client di archiviazione nel progetto di servizio mobile]
+4.  [Aggiornare la definizione di TodoItem nel modello di dati][Aggiornare la definizione di TodoItem nel modello di dati]
+5.  [Aggiornamento del controller tabella per generare una firma di accesso condiviso][Aggiornamento del controller tabella per generare una firma di accesso condiviso]
+6.  [Caricamento delle immagini per verificare l'app][Caricamento delle immagini per verificare l'app]
 
 Per completare questa esercitazione, è necessario disporre di:
 
 -   Microsoft Visual Studio 2013 o versione successiva.
 -   Programma per la gestione dei pacchetti Nuget installato per Microsoft Visual Studio.
--   [Account di archiviazione di Azure][]
+-   [Account di archiviazione di Azure][Account di archiviazione di Azure]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
 
 ## <a name="install-storage-client"></a>Installazione del client di archiviazione per le app di Windows Store
 
@@ -45,7 +45,7 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
 
 A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e caricare le immagini.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
 
 <!-- Anchors. --> 
 <!-- Images. --> 

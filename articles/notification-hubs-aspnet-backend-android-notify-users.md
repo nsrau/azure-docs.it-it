@@ -279,7 +279,7 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
   [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
   [iOS]: /it-it/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
   [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
-  [Registrazione dal back-end dell'app]: http://msdn.microsoft.com/en-us/library/dn743807.aspx
+  [Registrazione dal back-end dell'app]: http://msdn.microsoft.com/it-it/library/dn743807.aspx
   [Introduzione ad Hub di notifica (Android)]: /it-it/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   

@@ -19,7 +19,7 @@ Si apprenderà come:
 -   Usare Inoltro del bus di servizio di Microsoft Azure per condividere dati tra
     un'applicazione Azure e un servizio Web ospitato altrove.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note][create-account-note]]
 
 ### VANTAGGI DERIVANTI DALL'UTILIZZO DI INOLTRO DEL BUS DI SERVIZIO CON LE SOLUZIONI IBRIDE
 
@@ -75,7 +75,7 @@ ottenere gli strumenti idonei e configurare l'ambiente di sviluppo.
 
 1.  Per installare Azure SDK per .NET, fare clic sul pulsante seguente:
 
-    [Get Tools and SDK][]
+    [Get Tools and SDK][Get Tools and SDK]
 
 2.  Fare clic su **install the SDK**.
 
@@ -104,11 +104,11 @@ Per iniziare a usare le funzionalità del bus di servizio in Azure, è prima di 
 creare uno spazio dei nomi servizio che fornisce un contenitore
 di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-È possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio utilizzando il [portale di gestione di Azure][] o Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale.
+È possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio utilizzando il [portale di gestione di Azure][portale di gestione di Azure] o Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale.
 
 ### Per creare uno spazio dei nomi servizio tramite il portale:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
     **Service Bus**.
@@ -158,7 +158,7 @@ spazio dei nomi.
 
 ### Gestire uno spazio dei nomi servizio tramite Esplora server di Visual Studio
 
-Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][], nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
+Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][qui], nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
 ![][10]
 
@@ -178,7 +178,7 @@ semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual S
 in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo
 più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con
 tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e
-sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacchetto NuGet del bus di servizio][].
+sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacchetto NuGet del bus di servizio][uso del pacchetto NuGet del bus di servizio].
 
 ### CREARE IL PROGETTO
 
@@ -207,7 +207,7 @@ sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacche
 
     ![][13]
 
-7.  Se Gestione pacchetti NuGet per Visual Studio è già stato installato, continuare con il passaggio successivo. In caso contrario, visitare [NuGet][] e fare clic sull'opzione per [installare NuGet][]. Seguire le istruzioni visualizzate per installare Gestione pacchetti NuGet, quindi riavviare Visual Studio.
+7.  Se Gestione pacchetti NuGet per Visual Studio è già stato installato, continuare con il passaggio successivo. In caso contrario, visitare [NuGet][NuGet] e fare clic sull'opzione per [installare NuGet][installare NuGet]. Seguire le istruzioni visualizzate per installare Gestione pacchetti NuGet, quindi riavviare Visual Studio.
 
 8.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su
     **Manage NuGet Packages**.
@@ -494,7 +494,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 
     ## <span class="short-header">DISTRIBUZIONE IN AZURE</span>PREPARAZIONE DELL'APPLICAZIONE PER LA DISTRIBUZIONE IN AZURE
 
-    È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure][]. In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
+    È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure][Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]. In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
 
     Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere alla soluzione un progetto di distribuzione del progetto di Servizi cloud.
     Il progetto di distribuzione contiene le informazioni di
@@ -695,7 +695,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 
         ![][33]
 
-Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][].
+Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure].
 
 ## <span class="short-header">ELIMINAZIONE DELL'APPLICAZIONE</span>ARRESTO ED ELIMINAZIONE DELL'APPLICAZIONE
 
@@ -712,7 +712,7 @@ delle macchine virtuali utilizzate per l'hosting di queste istanze del ruolo Web
 Nella procedura seguente viene illustrato come arrestare ed eliminare
 l'applicazione.
 
-1.  Accedere al [portale di gestione di Azure][],
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure],
     fare clic su Servizi cloud e quindi sul nome del servizio.
 
 2.  Fare clic sulla scheda **Dashboard** e quindi su **Stop** per sospendere temporaneamente l'applicazione. Per
@@ -725,9 +725,9 @@ l'applicazione.
 
 Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
--   [Bus di servizio di Azure][]
--   [Procedure relative al bus di servizio][]
--   [Come utilizzare le code del bus di servizio][]
+-   [Bus di servizio di Azure][Bus di servizio di Azure]
+-   [Procedure relative al bus di servizio][Procedure relative al bus di servizio]
+-   [Come utilizzare le code del bus di servizio][Come utilizzare le code del bus di servizio]
 
   [create-account-note]: ../includes/create-account-note.md
   []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png

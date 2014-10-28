@@ -1,10 +1,10 @@
-<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" description="Learn how to create a Java web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="Java" title="Web Single Sign-On with Java and Azure Active Directory" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" description="Learn how to create a Java web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="Java" title="Web Single Sign-On with Java and Azure Active Directory" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-Single Sign-On Web con Java e Azure Active Directory
-====================================================
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
 
-Introduzione
-------------
+# Single Sign-On Web con Java e Azure Active Directory
+
+## <a name="introduction"></a>Introduzione
 
 In questa esercitazione viene illustrato agli sviluppatori Java come sfruttare Azure Active Directory per abilitare Single Sign-On per gli utenti di Office 365. Si apprenderà come:
 
@@ -13,26 +13,25 @@ In questa esercitazione viene illustrato agli sviluppatori Java come sfruttare A
 
 ### Prerequisiti
 
-In questa esercitazione viene utilizzato uno specifico server applicazioni, ma gli sviluppatori Java più esperti possono applicare il processo descritto di seguito anche ad altri ambienti. Per questa esercitazione sono necessari i prerequisiti seguenti nell'ambiente di sviluppo:
+In questa esercitazione viene usato uno specifico server applicazioni, ma gli sviluppatori Java più esperti possono applicare il processo descritto di seguito anche ad altri ambienti. Per questa esercitazione sono necessari i prerequisiti seguenti nell'ambiente di sviluppo:
 
--   [Codice di esempio Java per Azure Active Directory](https://github.com/WindowsAzure/azure-sdk-for-java-samples/tree/master/WAAD.WebSSO.JAVA)
--   [Java Runtime Environment 1.6](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
--   [Server applicazioni JBoss versione 7.1.1.Final](http://www.jboss.org/jbossas/downloads/)
--   [JBoss Developer Studio IDE](https://devstudio.jboss.com/earlyaccess/)
+-   [Codice di esempio Java per Azure Active Directory][Codice di esempio Java per Azure Active Directory]
+-   [Java Runtime Environment 1.6][Java Runtime Environment 1.6]
+-   [Server applicazioni JBoss versione 7.1.1.Final][Server applicazioni JBoss versione 7.1.1.Final]
+-   [JBoss Developer Studio IDE][JBoss Developer Studio IDE]
 -   Internet Information Services (IIS) 7.5 con SSL abilitato
 -   Windows PowerShell
--   [Cmdlet di Office 365 PowerShell](http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx)
+-   [Cmdlet di Office 365 PowerShell][Cmdlet di Office 365 PowerShell]
 
 ### Sommario
 
--   [Introduzione](#introduction)
--   [Passaggio 1: Creare un'applicazione Java](#createapp)
--   [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società](#provisionapp)
--   [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti](#protectapp)
--   [Riepilogo](#summary)
+-   [Introduzione][Introduzione]
+-   [Passaggio 1: Creare un'applicazione Java][Passaggio 1: Creare un'applicazione Java]
+-   [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società][Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società]
+-   [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti][Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti]
+-   [Riepilogo][Riepilogo]
 
-Passaggio 1: Creare un'applicazione Java
-----------------------------------------
+## <a name="createapp"></a>Passaggio 1: Creare un'applicazione Java
 
 In questo passaggio viene descritto come creare una semplice applicazione Java che rappresenterà una risorsa protetta. L'accesso a questa risorsa verrà concesso tramite autenticazione federata gestita dal servizio token di sicurezza della società, descritto più avanti nell'esercitazione.
 
@@ -42,53 +41,53 @@ In questo passaggio viene descritto come creare una semplice applicazione Java c
 4.  Nella finestra di dialogo **New Maven Project** selezionare **Create a simple project (skip archetype selection)** e quindi fare clic su **Next**.
 5.  Nella pagina successiva della finestra di dialogo **New Maven Project** digitare *sample* nelle caselle di testo **Group Id** e **Artifact Id**. Selezionare quindi **war** dal menu a discesa **Packaging** e fare clic su **Finish**.
 6.  Verrà creato il nuovo progetto Maven. Nel menu **Project Explorer** sulla sinistra espandere il progetto **sample**, fare clic con il pulsante destro del mouse sul file **pom.xml**, fare clic su **Open With** e quindi su **Text Editor**.
-7.  Nel file **pom.xml** aggiungere il codice XML seguente nella sezione *&lt;project\>*:
+7.  Nel file **pom.xml** aggiungere il codice XML seguente nella sezione *\<project\>*:
 
-         <repositories>
-             <repository>
-                 <id>jboss-public-repository-group</id>
-                 <name>JBoss Public Maven Repository Group</name>
-                 <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-                 <layout>default</layout>
-                 <releases>
-                     <enabled>true</enabled>
-                     <updatePolicy>never</updatePolicy>
-                 </releases>
-                 <snapshots>
-                     <enabled>true</enabled>
-                     <updatePolicy>never</updatePolicy>
-                 </snapshots>
-             </repository>
-         </repositories>
-         <pluginRepositories>
-             <pluginRepository>
-                 <id>jboss-public-repository-group</id>
-                 <name>JBoss Public Maven Repository Group</name>
-                 <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-                 <layout>default</layout>
-                 <releases>
-                     <enabled>true</enabled>
-                     <updatePolicy>always</updatePolicy>
-                 </releases>
-                 <snapshots>
-                     <enabled>true</enabled>
-                     <updatePolicy>always</updatePolicy>
-                 </snapshots>
-             </pluginRepository>
-         </pluginRepositories>
-         <build>
-             <plugins>
-                 <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-compiler-plugin</artifactId>
-                     <version>2.0.2</version>
-                     <configuration>
-                         <source>1.6</source>
-                         <target>1.6</target>
-                     </configuration>
-                 </plugin>
-             </plugins>
-         </build> 
+        <repositories>
+            <repository>
+                <id>jboss-public-repository-group</id>
+                <name>JBoss Public Maven Repository Group</name>
+                <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+                <layout>default</layout>
+                <releases>
+                    <enabled>true</enabled>
+                    <updatePolicy>never</updatePolicy>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                    <updatePolicy>never</updatePolicy>
+                </snapshots>
+            </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+                <id>jboss-public-repository-group</id>
+                <name>JBoss Public Maven Repository Group</name>
+                <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+                <layout>default</layout>
+                <releases>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                </snapshots>
+            </pluginRepository>
+        </pluginRepositories>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build> 
 
     Dopo aver inserito questo codice XML salvare il file **pom.xml**.
 
@@ -116,10 +115,9 @@ In questo passaggio viene descritto come creare una semplice applicazione Java c
 
 13. Nella finestra di dialogo **Run On Server** assicurarsi che **JBoss Enterprise Application Platform 6.x** sia selezionato e quindi fare clic su **Finished**.
 
-Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società
-------------------------------------------------------------------------------------------------
+## <a name="provisionapp"></a>Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società
 
-In questo passaggio viene descritto il provisioning dell'applicazione Java eseguito da un amministratore di Azure Active Directory nel tenant di un cliente e la configurazione di Single Sign-On. Dopo avere completato questo passaggio, i dipendenti della società potranno eseguire l'autenticazione all'applicazione Web utilizzando gli account Office 365.
+In questo passaggio viene descritto il provisioning dell'applicazione Java eseguito da un amministratore di Azure Active Directory nel tenant di un cliente e la configurazione di Single Sign-On. Dopo avere completato questo passaggio, i dipendenti della società potranno eseguire l'autenticazione all'applicazione Web usando gli account Office 365.
 
 Il processo di provisioning inizia con la creazione di una nuova entità servizio per l'applicazione. In Azure Active Directory le entità servizio vengono utilizzate per registrare e autenticare le applicazioni per la directory.
 
@@ -127,45 +125,45 @@ Il processo di provisioning inizia con la creazione di una nuova entità servizi
 2.  Nel menu **Start** eseguire la console **Modulo dei Microsoft Online Services per Windows PowerShell**. Questa console offre un ambiente da riga di comando per la configurazione di attributi relativi al tenant di Office 365, ad esempio la creazione e la modifica di entità servizio.
 3.  Per importare il modulo **MSOnlineExtended** richiesto, digitare il comando seguente e premere INVIO:
 
-         Import-Module MSOnlineExtended -Force
+        Import-Module MSOnlineExtended -Force
 
 4.  Per connettersi alla directory di Office 365, è necessario fornire le credenziali di amministratore della società. Digitare il comando seguente e premere INVIO, quindi immettere le credenziali quando richiesto:
 
-         Connect-MsolService
+        Connect-MsolService
 
 5.  A questo punto è possibile creare una nuova entità servizio per l'applicazione. Digitare il comando seguente e premere INVIO:
 
-         New-MsolServicePrincipal -ServicePrincipalNames @("javaSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+        New-MsolServicePrincipal -ServicePrincipalNames @("javaSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 
     In questo passaggio verranno visualizzate informazioni simili alle seguenti:
 
-         The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
-         DisplayName           : Federation Sample Java Web Site
-         ServicePrincipalNames : {javaSample/localhost}
-         ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
-         AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
-         TrustedForDelegation  : False
-         AccountEnabled        : True
-         KeyType               : Symmetric
-         KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
-         StartDate             : 12/01/2012 08:00:00 a.m.
-         EndDate               : 12/01/2013 08:00:00 a.m.
-         Usage                 : Verify 
+        The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
+        DisplayName           : Federation Sample Java Website
+        ServicePrincipalNames : {javaSample/localhost}
+        ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
+        AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
+        TrustedForDelegation  : False
+        AccountEnabled        : True
+        KeyType               : Symmetric
+        KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
+        StartDate             : 12/01/2012 08:00:00 a.m.
+        EndDate               : 12/01/2013 08:00:00 a.m.
+        Usage                 : Verify 
 
-    > [WACOM.NOTE] È consigliabile salvare l'output, in particolare la chiave simmetrica generata. Questa chiave viene visualizzata solo durante la creazione dell'entità servizio e non sarà recuperabile in seguito. Gli altri valori sono necessari per utilizzare l'API Graph per leggere e scrivere informazioni nella directory.
+    > [WACOM.NOTE]
+    > È consigliabile salvare l'output, in particolare la chiave simmetrica generata. Questa chiave viene visualizzata solo durante la creazione dell'entità servizio e non sarà recuperabile in seguito. Gli altri valori sono necessari per usare l'API Graph per leggere e scrivere informazioni nella directory.
 
 6.  Con l'ultimo passaggio viene impostato l'URL di risposta per l'applicazione, ossia l'indirizzo a cui vengono inviate le risposte in seguito ai tentativi di autenticazione. Digitare i comandi seguenti e premere INVIO:
 
-         $replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost:8443/sample" 
+        $replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost:8443/sample" 
 
-         Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
+        Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
 
 A questo punto, il provisioning dell'applicazione Web è stato completato nella directory ed è possibile utilizzarla per consentire ai dipendenti della società l'accesso Single Sign-On al Web.
 
-Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti
-------------------------------------------------------------------------------------------
+## <a name="protectapp"></a>Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti
 
-In questo passaggio viene illustrato come aggiungere l'accesso federato utilizzando Windows Identity Foundation (WIF) e la libreria **waad-federation** scaricata come parte del pacchetto di codice di esempio nei prerequisiti. Verrà inoltre aggiunta una pagina di accesso e verranno configurati i criteri di attendibilità tra l'applicazione e il tenant della directory.
+In questo passaggio viene illustrato come aggiungere l'accesso federato usando Windows Identity Foundation (WIF) e la libreria **waad-federation** scaricata come parte del pacchetto di codice di esempio nei prerequisiti. Verrà inoltre aggiunta una pagina di accesso e verranno configurati i criteri di attendibilità tra l'applicazione e il tenant della directory.
 
 1.  In JBoss Developer Studio fare clic su **File** e quindi su **Import**.
 
@@ -175,20 +173,20 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
 
 4.  Espandere il progetto **sample**, fare clic con il pulsante destro del mouse sul file **pom.xml**, scegliere **Open With** e quindi fare clic su **Text Editor**.
 
-5.  Nel file **pom.xml** aggiungere il codice XML seguente nella sezione *&lt;project\>* e quindi salvare il file:
+5.  Nel file **pom.xml** aggiungere il codice XML seguente nella sezione *\<project\>* e quindi salvare il file:
 
-         <dependencies>
-             <dependency>
-                 <groupId>javax.servlet</groupId>
-                 <artifactId>servlet-api</artifactId>
-                 <version>3.0-alpha-1</version>
-             </dependency>
-             <dependency>
-                 <groupId>com.microsoft.samples.waad.federation</groupId>
-                 <artifactId>waad-federation</artifactId>
-                 <version>0.0.1-SNAPSHOT</version>
-             </dependency>
-         </dependencies> 
+        <dependencies>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>3.0-alpha-1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.samples.waad.federation</groupId>
+                <artifactId>waad-federation</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies> 
 
 6.  Fare clic con il pulsante destro del mouse sul progetto **sample**, scegliere **Maven** e quindi fare clic su **Update Project**. Nella finestra di dialogo **Update Maven Project** fare clic su **OK**. Con questo passaggio il progetto verrà aggiornato con le modifiche apportate a **pom.xml**.
 
@@ -198,50 +196,49 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
 
 9.  Verrà aperto il file **FederationFilter.java** generato automaticamente. Sostituire il codice con quello seguente e quindi salvare il file.
 
-         import java.io.IOException;
-         import javax.servlet.Filter;
-         import javax.servlet.FilterChain;
-         import javax.servlet.FilterConfig;
-         import javax.servlet.ServletException;
-         import javax.servlet.ServletRequest;
-         import javax.servlet.ServletResponse;
-         import javax.servlet.http.HttpServletRequest;
-         import javax.servlet.http.HttpServletResponse;
-         import java.util.regex.*;
-         import com.microsoft.samples.federation.FederatedLoginManager; import com.microsoft.samples.federation.URLUTF8Encoder;
+        import java.io.IOException;
+        import javax.servlet.Filter;
+        import javax.servlet.FilterChain;
+        import javax.servlet.FilterConfig;
+        import javax.servlet.ServletException;
+        import javax.servlet.ServletRequest;
+        import javax.servlet.ServletResponse;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        import java.util.regex.*;
+        import com.microsoft.samples.federation.FederatedLoginManager; import com.microsoft.samples.federation.URLUTF8Encoder;
 
-         public class FederationFilter implements Filter {
-             private String loginPage;
-             private String allowedRegex;
-             public void init(FilterConfig config) throws ServletException {
-                 this.loginPage = config.getInitParameter("login-page-url");
-                 this.allowedRegex = config.getInitParameter("allowed-regex");
-             }
-             public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-                     if (request instanceof HttpServletRequest) { 
-                         HttpServletRequest httpRequest = (HttpServletRequest) request;
-                         if (!httpRequest.getRequestURL().toString().contains(this.loginPage)) {
-                             FederatedLoginManager loginManager = FederatedLoginManager.fromRequest(httpRequest);
-                             boolean allowedUrl = Pattern.compile(this.allowedRegex).matcher(httpRequest.getRequestURL().toString()).find();
-                             if (!allowedUrl && !loginManager.isAuthenticated()) {
-                                 HttpServletResponse httpResponse = (HttpServletResponse) response;
-                                 String encodedReturnUrl = URLUTF8Encoder.encode(httpRequest.getRequestURL().toString());
-                                 httpResponse.setHeader("Location", this.loginPage + "
-        returnUrl=" + encodedReturnUrl);
-                                 httpResponse.setStatus(302);
-                                 return;
-                             }
-                         }
-                     }
-                 chain.doFilter(request, response);
-             }
-             public void destroy() {
-             }
-         } 
+        public class FederationFilter implements Filter {
+            private String loginPage;
+            private String allowedRegex;
+            public void init(FilterConfig config) throws ServletException {
+                this.loginPage = config.getInitParameter("login-page-url");
+                this.allowedRegex = config.getInitParameter("allowed-regex");
+            }
+            public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+                    if (request instanceof HttpServletRequest) { 
+                        HttpServletRequest httpRequest = (HttpServletRequest) request;
+                        if (!httpRequest.getRequestURL().toString().contains(this.loginPage)) {
+                            FederatedLoginManager loginManager = FederatedLoginManager.fromRequest(httpRequest);
+                            boolean allowedUrl = Pattern.compile(this.allowedRegex).matcher(httpRequest.getRequestURL().toString()).find();
+                            if (!allowedUrl && !loginManager.isAuthenticated()) {
+                                HttpServletResponse httpResponse = (HttpServletResponse) response;
+                                String encodedReturnUrl = URLUTF8Encoder.encode(httpRequest.getRequestURL().toString());
+                                httpResponse.setHeader("Location", this.loginPage + "?returnUrl=" + encodedReturnUrl);
+                                httpResponse.setStatus(302);
+                                return;
+                            }
+                        }
+                    }
+                chain.doFilter(request, response);
+            }
+            public void destroy() {
+            }
+        } 
 
 10. In **Project Explorer** espandere le cartelle **src**, **main** e **webapp**. Fare clic con il pulsante destro del mouse sul file **web.xml**, scegliere **Open With** e quindi fare clic su **Text Editor**.
 
-11. Nel file **web.xml** verrà aggiunto un filtro per gestire le pagine protette e non protette, che reindirizzerà inoltre gli utenti non autenticati alla pagina di accesso (specificata nel parametro del filtro **login-page-url**). Non verrà tuttavia filtrato un URL che corrisponde al regex specificato nel parametro del filtro **allowed-regex**. Aggiungere il codice XML seguente nella sezione *&lt;web-app\>* e quindi salvare il file **web.xml**.
+11. Nel file **web.xml** verrà aggiunto un filtro per gestire le pagine protette e non protette, che reindirizzerà inoltre gli utenti non autenticati alla pagina di accesso (specificata nel parametro del filtro **login-page-url**). Non verrà tuttavia filtrato un URL che corrisponde al regex specificato nel parametro del filtro **allowed-regex**. Aggiungere il codice XML seguente nella sezione *\<web-app\>* e quindi salvare il file **web.xml**.
 
         <filter>
             <filter-name>FederationFilter</filter-name>
@@ -297,7 +294,8 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
         federation.realm=spn:7829c758-2bef-43df-a685-717089474505
         federation.reply=https://localhost:8443/sample/wsfed-saml 
 
-    > [WACOM.NOTE] I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
+    > [WACOM.NOTE]
+    > I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
 
 20. A questo punto è necessario creare un nuovo servlet. Fare clic con il pulsante destro del mouse sul progetto **sample**, scegliere **New**, fare clic su **Other** e quindi su **Servlet**.
 
@@ -314,7 +312,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
         import com.microsoft.samples.federation.FederatedLoginManager;
         import com.microsoft.samples.federation.FederatedPrincipal;
         import com.microsoft.samples.federation.FederationException;
-            
+
         public class FederationServlet extends HttpServlet {
             private static final long serialVersionUID = 1L;
 
@@ -345,7 +343,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
 
 23. In **Project Explorer** espandere la cartella **src/main/webapp/WEB-INF**. Fare clic con il pulsante destro del mouse sul file **web.xml**, scegliere **Open With** e quindi fare clic su **Text Editor**.
 
-24. Nel file **web.xml** sostituire l'impostazione di **/FederationServlet** nella sezione *&lt;url-pattern\>* con **/ws-saml**. Ad esempio:
+24. Nel file **web.xml** sostituire l'impostazione di **/FederationServlet** nella sezione *\<url-pattern\>* con **/ws-saml**. Ad esempio:
 
         <servlet>
             <description></description>
@@ -383,7 +381,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
 
 27. In **Project Explorer** espandere la cartella **src/main/webapp/WEB-INF**. Fare clic con il pulsante destro del mouse sul file **web.xml**, scegliere **Open With** e quindi fare clic su **Text Editor**.
 
-28. È ora possibile abilitare SSL per l'applicazione. Nel file **web.xml** inserire la sezione *&lt;security-constraint\>* seguente nella sezione *&lt;web-app\>* e quindi salvare il file:
+28. È ora possibile abilitare SSL per l'applicazione. Nel file **web.xml** inserire la sezione *\<security-constraint\>* seguente nella sezione *\<web-app\>* e quindi salvare il file:
 
         <security-constraint>
             <web-resource-collection>
@@ -397,16 +395,26 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato utilizza
             </user-data-constraint>
         </security-constraint> 
 
-    > [WACOM.NOTE] Prima di procedere, assicurarsi che JBoss Server sia già configurato per supportare SSL.
+    > [WACOM.NOTE]
+    >  Prima di procedere, assicurarsi che JBoss Server sia già configurato per supportare SSL.
 
 29. A questo punto è possibile eseguire l'applicazione end-to-end. Fare clic con il pulsante destro del mouse sul progetto **sample**, scegliere **Run As** e quindi fare clic su **Run on Server**. Accettare i valori specificati in precedenza e fare clic su **Finish**.
 
-30. La pagina di accesso verrà aperta nel browser JBoss. Se si fa clic sul collegamento **Awesome Computers**, si verrà reindirizzati alla pagina del provider di identità Office 365, dove è possibile effettuare l'accesso utilizzando le credenziali di tenant della directory, ad esempio *john.doe@fabrikam.onmicrosoft.com*.
+30. La pagina di accesso verrà aperta nel browser JBoss. Se si fa clic sul collegamento **Awesome Computers**, si verrà reindirizzati alla pagina del provider di identità Office 365, dove è possibile effettuare l'accesso usando le credenziali di tenant della directory, ad esempio, *john.doe@fabrikam.onmicrosoft.com*.
 
 31. Dopo aver effettuato l'accesso, si verrà reindirizzati nuovamente alla pagina protetta **sample/index.jsp** come utente autenticato.
 
-Riepilogo
----------
+## <a name="summary"></a>Riepilogo
 
 In questa esercitazione è stato illustrato come creare e configurare un'applicazione Java a singolo tenant che utilizza le funzionalità Single Sign-On di Azure Active Directory.
 
+  [Codice di esempio Java per Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-java-samples/tree/master/WAAD.WebSSO.JAVA
+  [Java Runtime Environment 1.6]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+  [Server applicazioni JBoss versione 7.1.1.Final]: http://www.jboss.org/jbossas/downloads/
+  [JBoss Developer Studio IDE]: https://devstudio.jboss.com/earlyaccess/
+  [Cmdlet di Office 365 PowerShell]: http://onlinehelp.microsoft.com/it-it/office365-enterprises/ff652560.aspx
+  [Introduzione]: #introduction
+  [Passaggio 1: Creare un'applicazione Java]: #createapp
+  [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società]: #provisionapp
+  [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti]: #protectapp
+  [Riepilogo]: #summary

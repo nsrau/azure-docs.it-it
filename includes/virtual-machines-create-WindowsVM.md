@@ -41,7 +41,7 @@
     ![Configurare l'agente di macchine virtuali e gli endpoint della macchina virtuale][Configurare l'agente di macchine virtuali e gli endpoint della macchina virtuale]
 
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  [versione di valutazione gratuita]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [versione di valutazione gratuita]: http://www.windowsazure.com/it-it/pricing/free-trial/
   [Passare a Da raccolta nella barra dei comandi]: ./media/virtual-machines-create-WindowsVM/fromgallery.png
   [Scegli un'immagine]: ./media/virtual-machines-create-WindowsVM/chooseimage.png
   [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://go.microsoft.com/fwlink/p/?LinkId=466520

@@ -22,9 +22,9 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
 -   [Archiviazione][Archiviazione]
 -   [HDInsight][HDInsight]
 
-  [Hub eventi]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Dettagli prezzi degli hub eventi]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [Modello di origine evento]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [Hub eventi]: http://msdn.microsoft.com/it-it/library/dn789973.aspx
+  [Dettagli prezzi degli hub eventi]: http://azure.microsoft.com/it-it/pricing/details/event-hubs/
+  [Modello di origine evento]: http://msdn.microsoft.com/it-it/library/dn589792.aspx
   [Informazioni di riferimento sulle API REST dell'hub eventi]: http://go.microsoft.com/fwlink/?LinkId=403977
   [Esempi di codice degli hub eventi]: http://go.microsoft.com/fwlink/?LinkID=402449
   [Archiviazione]: http://azure.microsoft.com/it-it/documentation/services/storage/

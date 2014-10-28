@@ -1,15 +1,18 @@
-<properties linkid="develop-php-website-from-gallery" urlDisplayName="Web site from Gallery" pageTitle="WordPress Web site from Gallery - Azure tutorial" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" description="A tutorial that teaches you how to create a new Azure web site for a WordPress blog, and then deploy it through the Management Portal." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a WordPress web site from the gallery in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-php-website-from-gallery" urlDisplayName="Website from Gallery" pageTitle="WordPress Website from Gallery - Azure tutorial" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" description="A tutorial that teaches you how to create a new Azure website for a WordPress blog, and then deploy it through the Management Portal." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a WordPress website from the gallery in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-Creazione di un sito Web WordPress dalla raccolta in Azure
-==========================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
+# Creazione di un sito Web WordPress dalla raccolta in Azure
 
-Passaggi successivi
--------------------
+[WACOM.INCLUDE [website-from-gallery][website-from-gallery]]
 
-Si è appreso come creare e distribuire un sito Web dalla raccolta. Per ulteriori informazioni sulla creazione, la configurazione, la distribuzione e la scalabilità dei siti Web di Azure, fare riferimento alle risorse seguenti:
+## <a name="nextsteps"></a>Passaggi successivi
 
--   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/) - Come creare un sito Web PHP da zero e distribuirlo in un sito Web di Azure utilizzando Git
--   [Altre esercitazioni su PHP](/en-us/develop/php/tutorials/) - Come creare ulteriori tipi di applicazioni utilizzando PHP e Azure
+Si è appreso come creare e distribuire un sito Web dalla raccolta. Per altre informazioni sulla creazione, la configurazione, la distribuzione e la scalabilità dei siti Web di Azure, fare riferimento alle risorse seguenti:
 
+-   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git][Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git] - Come creare un sito Web PHP da zero e distribuirlo in un sito Web di Azure utilizzando Git
+-   [Altre esercitazioni su PHP][Altre esercitazioni su PHP] - Come creare ulteriori tipi di applicazioni utilizzando PHP e Azure
+
+  [website-from-gallery]: ../includes/website-from-gallery.md
+  [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git]: /it-it/develop/php/tutorials/website-w-mysql-and-git/
+  [Altre esercitazioni su PHP]: /it-it/develop/php/tutorials/

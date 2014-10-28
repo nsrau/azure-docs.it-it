@@ -1,9 +1,10 @@
-<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
 
-Installazione di MongoDB in una macchina virtuale che esegue CentOS Linux in Azure
-==================================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang ms.topic="article" ms.date="01/01/1900" ms.author="bbenz, MSOpenTech"></tags>
 
-[MongoDB](http://www.mongodb.org/) è un diffuso database NoSQL open source a prestazioni elevate. Dalla raccolta immagini del [portale di gestione di Azure](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue CentOS Linux. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
+# Installazione di MongoDB in una macchina virtuale che esegue CentOS Linux in Azure
+
+[MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Dalla raccolta immagini del [portale di gestione di Azure][portale di gestione di Azure], è possibile creare una macchina virtuale che esegue CentOS Linux. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
 
 Si apprenderà come:
 
@@ -11,25 +12,20 @@ Si apprenderà come:
 -   Connettersi alla macchina virtuale tramite SSH o PuTTY.
 -   Installare MongoDB nella macchina virtuale.
 
-Iscrizione alla funzionalità di anteprima di Macchine virtuali
---------------------------------------------------------------
+## Creazione di una macchina virtuale che esegue CentOS Linux
 
-Per creare una macchina virtuale, è necessario effettuare l'iscrizione alla funzionalità di anteprima di Macchine virtuali di Azure. Se non si dispone di un account Azure, è possibile iscriversi per una versione di valutazione gratuita.
+[WACOM.INCLUDE [create-and-configure-centos-vm-in-portal][create-and-configure-centos-vm-in-portal]]
 
-[WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
+## Installazione ed esecuzione di MongoDB sulla macchina virtuale
 
-Creazione di una macchina virtuale che esegue CentOS Linux
-----------------------------------------------------------
+[WACOM.INCLUDE [install-and-run-mongo-on-centos-vm][install-and-run-mongo-on-centos-vm]]
 
-[WACOM.INCLUDE [create-and-configure-centos-vm-in-portal](../includes/create-and-configure-centos-vm-in-portal.md)]
+## Riepilogo
 
-Installazione ed esecuzione di MongoDB sulla macchina virtuale
---------------------------------------------------------------
+In questa esercitazione è stato illustrato come creare una macchina virtuale e come stabilire una connessione remota a quest'ultima utilizzando SSH o PuTTY. È stato inoltre illustrato come installare e configurare MongoDB sulla macchina virtuale Linux. Per ulteriori informazioni su MongoDB, vedere la [￼Documentazione di MongoDB][￼Documentazione di MongoDB].
 
-[WACOM.INCLUDE [install-and-run-mongo-on-centos-vm](../includes/install-and-run-mongo-on-centos-vm.md)]
-
-Riepilogo
----------
-
-In questa esercitazione è stato illustrato come creare una macchina virtuale e come stabilire una connessione remota a quest'ultima utilizzando SSH o PuTTY. È stato inoltre illustrato come installare e configurare MongoDB sulla macchina virtuale Linux. Per ulteriori informazioni su MongoDB, vedere la [Documentazione di MongoDB](http://www.mongodb.org/display/DOCS/Home).
-
+  [MongoDB]: http://www.mongodb.org/
+  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [create-and-configure-centos-vm-in-portal]: ../includes/create-and-configure-centos-vm-in-portal.md
+  [install-and-run-mongo-on-centos-vm]: ../includes/install-and-run-mongo-on-centos-vm.md
+  [￼Documentazione di MongoDB]: http://www.mongodb.org/display/DOCS/Home

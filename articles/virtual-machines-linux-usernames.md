@@ -1,18 +1,18 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-Selezione dei nomi utente per Linux su Azure
-============================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
 
-Quando si crea un'istanza di macchina virtuale per le immagini Linux su Azure, è possibile selezionare il nome utente di cui eseguire il provisioning.
+# Selezione dei nomi utente per Linux su Azure
 
-Linux definisce un set di nomi utente che non è possibile utilizzare. È molto importante **evitare di utilizzare questi nomi**. Diversamente, non sarà possibile eseguire il provisioning dell'immagine.
+Quando si crea un'istanza di macchina virtuale Linux su Azure, è possibile selezionare il nome utente di cui eseguire il provisioning. Il nome utente predefinito è *azureuser*. Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e verrà creato durante il processo di provisioning. In alcuni casi, se l'utente esiste già nell'immagine della VM di base, l'agente Linux di Azure configurerà la password (e/o la chiave SSH) per tale utente in base alle informazioni di configurazione del provisioning passate durante la creazione della VM.
 
-Inoltre, l'API di gestione servizio restituirà il seguente errore: Creazione dell'utente *xxxxxx* non riucita. Ciò si verificherà anche se si utilizza un nome utente che esiste già nell'immagine per effetto di una precedente operazione di acquisizione che non ha eseguito il deprovisioning del nome utente già creato nell'immagine.
+**Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati quando si creano nuovi utenti. Se si tenta di eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema già esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo**. Un esempio tipico è rappresentato dall'utente `root`, il cui valore UID è 0.
 
-Di seguito sono riportati i nomi utente che non è possibile utilizzare.
+-   Vedere anche la pagina relativa alla [base standard di Linux - Intervalli ID utente][base standard di Linux - Intervalli ID utente]
 
-OpenSUSE
---------
+Gli elenchi seguenti contengono nomi utente che si consiglia di non usare quando si esegue il provisioning di una macchina virtuale Linux. Per sicurezza, si consiglia di **non usare questi nomi utente** quando si esegue il provisioning di una VM Linux per evitare che il processo abbia esito negativo.
+
+## openSUSE
 
 -   abrt
 -   adm
@@ -69,8 +69,7 @@ OpenSUSE
 -   video
 -   wheel
 
-SLES
-----
+## SLES
 
 -   audio
 -   bin
@@ -116,8 +115,7 @@ SLES
 -   wwwrun
 -   xok
 
-CentOS
-------
+## CentOS
 
 -   abrt
 -   adm
@@ -174,8 +172,7 @@ CentOS
 -   video
 -   wheel
 
-UBUNTU
-------
+## Ubuntu
 
 -   adm
 -   admin
@@ -231,3 +228,4 @@ UBUNTU
 -   whoopsie
 -   www-data
 
+  [base standard di Linux - Intervalli ID utente]: http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html

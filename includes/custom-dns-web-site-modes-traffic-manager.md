@@ -1,4 +1,5 @@
-L'impostazione di un nome di dominio personalizzato in un sito Web con carico bilanciato tramite Gestione traffico è disponibile solo per i siti Web in modalità standard. Prima di impostare un sito Web dalla modalità gratuita alla modalità condivisa, di base o standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per il sito Web.
+L'impostazione di un nome di dominio personalizzato in un sito Web con carico bilanciato tramite Gestione traffico è disponibile solo per i siti Web in modalità standard. Prima di impostare un sito Web dal livello Gratuito al livello Condiviso, Basic o Standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per Siti Web.
 
-Per ulteriori informazioni sulle modalità dei siti Web e su come cambiarla, vedere [Come applicare la scalabilità ai siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/).
+Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web][Come applicare la scalabilità ai siti Web].
 
+  [Come applicare la scalabilità ai siti Web]: /it-it/documentation/articles/web-sites-scale/

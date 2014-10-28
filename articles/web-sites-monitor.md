@@ -1,42 +1,41 @@
-<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Web Sites" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-Come monitorare i siti Web
-==========================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-In Siti Web è disponibile una funzionalità di monitoraggio disponibile tramite la pagina di gestione Monitor. Nella pagina di gestione Monitor sono fornite statistiche sulle prestazioni per un sito Web, come descritto di seguito.
+# <a name="howtomonitor"></a>Come monitorare Siti Web
 
-Sommario
---------
+In Siti Web è disponibile una funzionalità di monitoraggio tramite la pagina di gestione Monitoraggio, che fornisce statistiche sulle prestazioni per un sito Web, come descritto di seguito.
 
--   [Procedura: Aggiungere metriche del sito Web](#websitemetrics)
--   [Procedura: Ricevere avvisi dalle metriche del sito Web](#howtoreceivealerts)
--   [Procedura: Visualizzare le quote di utilizzo per un sito Web](#howtoviewusage)
--   [Procedura: Ridurre l'utilizzo delle risorse](#resourceusage)
--   [Cosa succede quando si supera la quota di utilizzo di una risorsa](#exceeded)
--   [Procedura: Configurare i log di diagnostica e download per un sito Web](#howtoconfigdiagnostics)
--   [Procedura: Monitorare lo stato degli endpoint](#webendpointstatus)
+## Sommario
 
-Procedura: Aggiungere metriche del sito Web
--------------------------------------------
+-   [Procedura: Aggiungere metriche del sito Web][Procedura: Aggiungere metriche del sito Web]
+-   [Procedura: Ricevere avvisi dalle metriche del sito Web][Procedura: Ricevere avvisi dalle metriche del sito Web]
+-   [Procedura: Visualizzare le quote di utilizzo per un sito Web][Procedura: Visualizzare le quote di utilizzo per un sito Web]
+-   [Procedura: Ridurre l'utilizzo delle risorse][Procedura: Ridurre l'utilizzo delle risorse]
+-   [Cosa succede quando si supera la quota di utilizzo di una risorsa][Cosa succede quando si supera la quota di utilizzo di una risorsa]
+-   [Procedura: Configurare i log di diagnostica e download per un sito Web][Procedura: Configurare i log di diagnostica e download per un sito Web]
+-   [Procedura: Monitorare lo stato degli endpoint][Procedura: Monitorare lo stato degli endpoint]
 
-1.  Nel [portale di gestione di Azure](http://manage.windowsazure.com/), dalle pagine di gestione del sito fare clic sulla scheda **Monitor** per visualizzare la pagina di gestione **Monitor**. Per impostazione predefinita, il grafico nella pagina **Monitor** visualizza le stesse metriche del grafico nella pagina **Dashboard**.
+## <a name="websitemetrics"></a>Procedura: Aggiungere metriche del sito Web
 
-2.  Per visualizzare altre metriche per il sito Web, fare clic su **Add Metrics** nella parte inferiore della pagina per visualizzare la finestra di dialogo **Choose Metrics**.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure], dalle pagine di gestione del sito fare clic sulla scheda **Monitoraggio** per visualizzare la pagina di gestione **Monitoraggio**. Per impostazione predefinita, il grafico nella pagina **Monitoraggio** visualizza le stesse metriche del grafico nella pagina **Dashboard**.
 
-3.  Fare clic per selezionare altre metriche da visualizzare nella pagina **Monitor**.
+2.  Per visualizzare altre metriche per il sito Web, fare clic su **Aggiungi metriche** nella parte inferiore della pagina per visualizzare la finestra di dialogo **Scegli metriche**.
 
-4.  Dopo avere selezionato le metriche che si desidera aggiungere alla pagina **Monitor**, fare clic su **OK**.
+3.  Fare clic per selezionare altre metriche da visualizzare nella pagina **Monitoraggio**.
 
-5.  Dopo avere aggiunto le metriche alla pagina **Monitor**, fare clic per abilitare o disabilitare la casella di opzione accanto a ogni metrica per aggiungere o rimuovere la metrica dal grafico nella parte superiore della pagina.
+4.  Dopo avere selezionato le metriche che si desidera aggiungere alla pagina **Monitoraggio**, fare clic su **OK**.
 
-6.  Per rimuovere le metriche dalla pagina **Monitor**, selezionare la metrica da rimuovere e quindi fare clic sull'icona **Delete Metric** nella parte inferiore della pagina.
+5.  Dopo avere aggiunto le metriche alla pagina **Monitoraggio**, fare clic per abilitare o disabilitare la casella di opzione accanto a ogni metrica per aggiungere o rimuovere la metrica dal grafico nella parte superiore della pagina.
 
-Nell'elenco seguente sono descritte le metriche che è possibile visualizzare nel grafico nella pagina **Monitor**:
+6.  Per rimuovere le metriche dalla pagina **Monitoraggio**, selezionare la metrica da rimuovere e quindi fare clic sull'icona **Elimina metrica** nella parte inferiore della pagina.
 
--   **CPUTime**: misura dell'utilizzo della CPU del sito Web.
--   **Requests**: conteggio delle richieste client al sito Web.
--   **Data Out**: misura dei dati inviati dal sito Web ai client.
--   **Data In**: misura dei dati ricevuti dal sito Web dai client.
+Nell'elenco seguente sono descritte le metriche che è possibile visualizzare nel grafico nella pagina **Monitoraggio**:
+
+-   **Tempo CPU**: misura dell'utilizzo della CPU del sito Web.
+-   **Richieste**: conteggio delle richieste client al sito Web.
+-   **Dati in uscita**: misura dei dati inviati dal sito Web ai client.
+-   **Dati in entrata**: misura dei dati ricevuti dal sito Web dai client.
 -   **Http Client Errors**: numero di messaggi di errore del client HTTP 4xx inviati.
 -   **Http Server Errors**: numero di messaggi di errore del server HTTP 5xx inviati.
 -   **Http Successes**: numero di messaggi di operazioni HTTP completate 2xx inviati.
@@ -46,57 +45,54 @@ Nell'elenco seguente sono descritte le metriche che è possibile visualizzare ne
 -   **Http 404 errors**: numero di messaggi di errore HTTP 404 - Non trovato inviati.
 -   **Http 406 errors**: numero di messaggi di errore HTTP 406 - Non accettabile inviati.
 
-Procedura: Ricevere avvisi dalle metriche del sito Web
-------------------------------------------------------
+## <a name="howtoreceivealerts"></a>Procedura: Ricevere avvisi dalle metriche del sito Web
 
-Nella modalità del sito Web **Standard** è possibile ricevere avvisi basati sulle metriche di monitoraggio del sito Web. La funzionalità di avviso richiede che venga innanzitutto configurato un endpoint Web per il monitoraggio nella sezione **Monitoring** della pagina **Configure**. Nella pagina **Settings** del portale di gestione di Azure è possibile creare una regola per attivare un avviso quando la metrica scelta raggiunge il valore specificato. È inoltre possibile impostare l'invio di un messaggio di posta elettronica all'attivazione dell'avviso. Per ulteriori informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Nella modalità del sito Web **Standard** è possibile ricevere avvisi basati sulle metriche di monitoraggio del sito Web. La funzionalità di avviso richiede che venga innanzitutto configurato un endpoint Web per il monitoraggio nella sezione **Monitoring** della pagina **Configure**. Nella pagina **Settings** del portale di gestione di Azure è possibile creare una regola per attivare un avviso quando la metrica scelta raggiunge il valore specificato. È inoltre possibile impostare l'invio di un messaggio di posta elettronica all'attivazione dell'avviso. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure][Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
 
-Procedura: Visualizzare le quote di utilizzo per un sito Web
-------------------------------------------------------------
+## <a name="howtoviewusage"></a>Procedura: Visualizzare le quote di utilizzo per un sito Web
 
-È possibile configurare i siti Web per l'esecuzione in modalità **Shared** o **Standard** dalla pagina di gestione **Scale** del sito Web. Ogni sottoscrizione di Azure ha accesso a un pool di risorse fornito allo scopo di eseguire fino a 100 siti Web per area in modalità sito Web **Shared**. Il pool di risorse disponibile per ogni sottoscrizione Sito Web per questo scopo è condiviso da altri siti Web configurati per l'esecuzione in modalità **Shared** nella stessa area geografica. Poiché tali risorse sono condivise con altri siti Web, tutte le sottoscrizioni prevedono un limite per l'utilizzo di tali risorse. I limiti applicati all'utilizzo di queste risorse da parte della sottoscrizione sono espressi come quote di utilizzo visualizzate nella sezione relativa alla panoramica sull'utilizzo della pagina di gestione **Dashboard** di ogni sito Web.
+È possibile configurare i siti Web per l'esecuzione in modalità **Condivisa** o **Standard** dalla pagina di gestione **Scala** del sito Web. Ogni sottoscrizione Azure ha accesso a un pool di risorse fornito allo scopo di eseguire un massimo di 100 siti Web per area in modalità sito Web **Condivisa**. Il pool di risorse disponibile per ogni sottoscrizione di Sito Web per questo scopo è condiviso da altri siti Web configurati per l'esecuzione in modalità **Condivisa** nella stessa area geografica. Poiché tali risorse sono condivise con altri siti Web, tutte le sottoscrizioni prevedono un limite per l'uso di tali risorse. I limiti applicati all'uso di queste risorse da parte della sottoscrizione sono espressi come quote di utilizzo visualizzate nella sezione relativa alla panoramica sull'utilizzo della pagina di gestione **Dashboard** di ogni sito Web.
 
 **Nota**
- Quando un sito Web è configurato per l'esecuzione in modalità **Standard** gli vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Small** (valore predefinito), **Medium** o **Large** come illustrato nella tabella [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://go.microsoft.com/fwlink/?LinkID=309169). Non sono previsti limiti alle risorse che una sottoscrizione può utilizzare per l'esecuzione di siti Web in modalità **Standard**. Tuttavia, il numero di siti Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
+Quando un sito Web è configurato per l'esecuzione in modalità **Standard** gli vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (valore predefinito), **Media** o **Grande**, come illustrato nella tabella [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][Dimensioni delle macchine virtuali e dei servizi cloud per Azure]. Non sono previsti limiti alle risorse che una sottoscrizione può usare per l'esecuzione di siti Web in modalità **Standard**. Tuttavia, il numero di siti Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
 
-### Visualizzazione delle quote di utilizzo per i siti Web configurati per la modalità sito Web Shared
+### Visualizzazione delle quote di utilizzo per i siti Web configurati per la modalità Condivisa
 
-Per determinare il livello di impatto di un sito Web sulle quote di utilizzo delle risorse, eseguire la procedura seguente:
+Per determinare il livello di impatto di un sito Web sulle quote di utilizzo delle risorse, eseguire questa procedura:
 
 1.  Aprire la pagina di gestione **Dashboard** del sito Web.
-2.  Nella sezione **usage overview** sono visualizzate le quote di utilizzo per **Data Out**, **CPU Time** e **File System Storage**. La barra verde visualizzata per ogni risorsa indica la quota di utilizzo delle risorse di una sottoscrizione attualmente utilizzata dal sito Web corrente e la barra grigia visualizzata per ogni risorsa indica la quota di utilizzo delle risorse di una sottoscrizione è utilizzata da tutti gli altri siti Web in modalità condivisa associati alla propria sottoscrizione Sito Web.
+2.  Nella sezione **panoramica sull'utilizzo** sono visualizzate le quote di utilizzo per **Dati in uscita**, **Tempo CPU** e **Archiviazione file system**. La barra verde visualizzata per ogni risorsa indica la quota di utilizzo delle risorse di una sottoscrizione attualmente utilizzata dal sito Web corrente e la barra grigia visualizzata per ogni risorsa indica la quota di utilizzo delle risorse di una sottoscrizione utilizzata da tutti gli altri siti Web in modalità Condivisa associati alla propria sottoscrizione di sito Web.
 
 Le quote di utilizzo delle risorse consentono di prevenire l'uso eccessivo delle risorse seguenti:
 
--   **Data Out**: misura della quantità di dati inviati dai siti Web in esecuzione in modalità **Shared** ai relativi client nell'intervallo di quota corrente (24 ore).
--   **CPU Time**: quantità di tempo di CPU utilizzato dai siti Web in esecuzione in modalità **Shared** per l'intervallo di quota corrente.
--   **File System Storage**: quantità di archiviazione file system utilizzata dai siti Web in esecuzione in modalità **Shared**.
+-   **Dati in uscita**: misura della quantità di dati inviati dai siti Web in esecuzione in modalità **Condivisa** ai relativi client nell'intervallo di quota corrente (24 ore).
+-   **Tempo CPU**: quantità di tempo di CPU utilizzato dai siti Web in esecuzione in modalità **Condivisa** per l'intervallo di quota corrente.
+-   **Archiviazione file system**: quantità di dati archiviati nel file system utilizzata dai siti Web in esecuzione in modalità **Condivisa**.
 
 Quando le quote di utilizzo di una sottoscrizione vengono superate, Azure intraprende misure correttive per impedire l'utilizzo in eccesso delle risorse, al fine di impedire ai sottoscrittori di esaurire le risorse a scapito di altri sottoscrittori.
 
-Procedura: Ridurre l'utilizzo delle risorse
--------------------------------------------
+## <a name="resourceusage"></a>Procedura: Ridurre l'utilizzo delle risorse
 
-Poiché Azure calcola le quote di utilizzo delle risorse misurando le risorse utilizzate dai siti Web in modalità condivisa di una sottoscrizione per un intervallo di quota di 24 ore, tenere conto di quanto riportato di seguito:
+Poiché Azure calcola le quote di utilizzo delle risorse misurando le risorse utilizzate dai siti Web in modalità Condivisa di una sottoscrizione per un intervallo di quota di 24 ore, considerare quanto riportato di seguito:
 
--   Con l'aumentare del numero di siti Web configurati per l'esecuzione in modalità condivisa, aumenta anche la probabilità di superare le quote di utilizzo delle risorse in modalità condivisa. Valutare la possibilità di ridurre il numero di siti Web configurati per l'esecuzione in modalità condivisa qualora si superino le quote di utilizzo delle risorse.
--   Allo stesso modo, con l'aumentare del numero delle istanze dei siti Web in esecuzione in modalità condivisa, aumenta anche la probabilità di superare le quote di utilizzo delle risorse in modalità condivisa. Valutare quindi la possibilità di ridurre le istanze aggiuntive dei siti Web in modalità condivisa qualora si superino le quote di utilizzo delle risorse.
+-   Con l'aumentare del numero di siti Web configurati per l'esecuzione in modalità Condivisa, aumenta anche la probabilità di superare le quote di utilizzo delle risorse in modalità Condivisa.
+    Valutare la possibilità di ridurre il numero di siti Web configurati per l'esecuzione in modalità Condivisa nel caso in cui si superino le quote di utilizzo delle risorse.
+-   Allo stesso modo, con l'aumentare del numero delle istanze di un sito Web in esecuzione in modalità Condivisa, aumenta anche la probabilità di superare le quote di utilizzo delle risorse in modalità Condivisa.
+    Valutare quindi la possibilità di ridurre le istanze aggiuntive dei siti Web in modalità Condivisa nel caso in cui si superino le quote di utilizzo delle risorse.
 
-Cosa succede quando si supera la quota di utilizzo di una risorsa
------------------------------------------------------------------
+## <a name="exceeded"></a>Cosa succede quando si supera la quota di utilizzo di una risorsa
 
 Quando si superano le quote di utilizzo delle risorse di una sottoscrizione durante un intervallo di quota (24 ore), Azure intraprende le misure seguenti:
 
--   **Data Out**: quando si supera questa quota, Azure arresta tutti i siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità **Shared** per il tempo residuo della quota di intervallo corrente. Azure avvierà i siti Web all'inizio dell'intervallo di quota successivo.
+-   **Dati in uscita**: quando si supera questa quota, Azure arresta tutti i siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità **Condivisa** per il tempo residuo della quota di intervallo corrente. Azure avvierà i siti Web all'inizio dell'intervallo di quota successivo.
 
--   **CPU Time**: quando si supera questa quota, Azure arresta tutti i siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità **Shared** per il tempo residuo della quota di intervallo corrente. Azure avvierà i siti Web all'inizio dell'intervallo di quota successivo.
+-   **Tempo CPU**: quando si supera questa quota, Azure arresta tutti i siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità **Condivisa** per il tempo residuo della quota di intervallo corrente. Azure avvierà i siti Web all'inizio dell'intervallo di quota successivo.
 
--   **File System Storage**: Azure impedisce la distribuzione dei siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità condivisa se la distribuzione determina il superamento della quota di utilizzo di archiviazione del file system. Quando raggiungono le dimensioni massime consentite dalla quota, le risorse di archiviazione del file system rimangono accessibili per operazioni in lettura, ma tutte le operazioni in scrittura, incluse quelle necessarie per la normale attività del sito Web, risultano bloccate. In questo caso, è possibile configurare uno o più siti Web in esecuzione in modalità condivisa per l'esecuzione in modalità Standard oppure ridurre l'utilizzo delle risorse di archiviazione del file system al di sotto della quota di utilizzo.
+-   **Archiviazione file system**: Azure impedisce la distribuzione dei siti Web di una sottoscrizione che sono configurati per l'esecuzione in modalità Condivisa se la distribuzione determina il superamento della quota di utilizzo di archiviazione del file system. Quando raggiungono le dimensioni massime consentite dalla quota, le risorse di archiviazione del file system rimangono accessibili per operazioni in lettura, ma tutte le operazioni in scrittura, incluse quelle necessarie per la normale attività del sito Web, risultano bloccate. In questo caso, è possibile configurare uno o più siti Web in esecuzione in modalità Condivisa per l'esecuzione in modalità Standard oppure ridurre l'utilizzo delle risorse di archiviazione del file system al di sotto della quota di utilizzo.
 
-Procedura: Configurare i log di diagnostica e download per un sito Web
-----------------------------------------------------------------------
+## <a name="howtoconfigdiagnostics"></a>Procedura: Configurare i log di diagnostica e download per un sito Web
 
-La diagnostica è abilitata nella pagina di gestione **Configure** per il sito Web. Sono disponibili due tipi di diagnostica: **diagnostica applicazioni** e **diagnostica del sito**.
+La diagnostica è abilitata nella pagina di gestione **Configura** per il sito Web. Sono disponibili due tipi di diagnostica: **diagnostica applicazioni** e **diagnostica del sito**.
 
 #### Diagnostica applicazioni
 
@@ -106,7 +102,7 @@ Nella sezione **application diagnostics** della pagina di gestione **Configure**
 
 -   **Application Logging (File System)**: attiva la registrazione delle informazioni prodotte dall'applicazione. Il campo **Logging Level** determina se vengono registrate le informazioni a livello di errore, avviso o informazioni. È inoltre possibile selezionare l'opzione Verbose per registrare tutte le informazioni generate dall'applicazione.
 
-    I log generati da questa impostazione sono archiviati nel file system del sito Web ed è possibile scaricandoli tramite la procedura descritta nella sezione **Download dei file di log per un sito Web** riportata di seguito.
+    I log generati da questa impostazione sono archiviati nel file system del sito Web ed è possibile scaricarli tramite la procedura descritta nella sezione **Download dei file di log per un sito Web** riportata di seguito.
 
 -   **Application Logging (Table Storage)**: attiva la registrazione delle informazioni generate dall'applicazione, come quando si seleziona l'opzione Application Logging (File System). In questo caso, le informazioni del log vengono archiviate in una tabella in un account di archiviazione di Azure.
 
@@ -118,40 +114,52 @@ Nella sezione **application diagnostics** della pagina di gestione **Configure**
 
     Per specificare l'account di archiviazione di Azure e il BLOB, scegliere **On**, selezionare il **Logging Level** e quindi scegliere **Manage Blob Storage**. Specificare l'account di archiviazione, il contenitore BLOB e il nome BLOB da utilizzare o creare un contenitore e un BLOB nuovi.
 
-Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
+
+<div class="dev-callout">
 
 **Nota**
-
 La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
+
+</div>
 
 Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di un client di archiviazione per visualizzare i dati di log, risulta più utile quando si prevede di utilizzare un servizio o un'applicazione che riconosce come leggere ed elaborare i dati direttamente dall'archivio tabelle o BLOB di Azure. La registrazione nel file system genera file che possono essere scaricati nel computer locale mediante FTP o altre utilità descritte più avanti in questa sezione.
 
-**Nota**
-
-È possibile abilitare contemporaneamente **Application diagnostics (file system)**, **Application diagnostics (table storage)** e **Application diagnostics (blob storage)** ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.
+<div class="dev-callout">
 
 **Nota**
+**È possibile abilitare contemporaneamente** Application diagnostics (file system)**,** Application diagnostics (table storage) **e** Application diagnostics (blob storage) ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.
 
+</div>
+
+<div class="dev-callout">
+
+**Nota**
 È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**.
 
-Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell][Come utilizzare Azure PowerShell].
+
+</div>
+
+<div class="dev-callout">
 
 **Nota**
-
 La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'utilizzo della registrazione delle applicazioni, vedere gli articoli seguenti:
 
--   **.NET**: [Abilitazione della registrazione diagnostica per Siti Web di Azure](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
--   **Node.js**: [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](/en-us/develop/nodejs/how-to-guides/Debug-Website/)
+-   **.NET**: [Abilitazione della registrazione diagnostica per Siti Web di Azure][Abilitazione della registrazione diagnostica per Siti Web di Azure]
+-   **Node.js**: [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure][Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure]
 
 La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
+
+</div>
 
 #### Diagnostica del sito
 
 La sezione **site diagnostics** della pagina di gestione **Configure** consente di controllare la registrazione effettuata dal server Web, ad esempio la registrazione delle richieste Web, la mancata presentazione delle pagine o il tempo impiegato per presentare una pagina. È possibile abilitare o disabilitare le opzioni seguenti:
 
--   **Web Server Logging**: attivare la registrazione del server Web per salvare i log del sito Web utilizzando il formato di file di log esteso W3C. La registrazione del server Web genera un record di tutte le richieste in ingresso al sito Web. Il record contiene informazioni quali indirizzo IP client, URI richiesto, codice di stato HTTP della risposta e stringa agente utente del client. È possibile salvare i log in un account di archiviazione di Azure o nel file system.
+-   **Registrazione del server Web**: attivare la registrazione del server Web per salvare i log del sito Web utilizzando il formato di file di log esteso W3C. La registrazione del server Web genera un record di tutte le richieste in ingresso al sito Web. Il record contiene informazioni quali indirizzo IP client, URI richiesto, codice di stato HTTP della risposta e stringa agente utente del client. È possibile salvare i log in un account di archiviazione di Azure o nel file system.
 
-Per salvare i log del server Web in un account di archiviazione di Azure, scegliere **Storage** e quindi **manage storage** per specificare un account di archiviazione e un contenitore BLOB di Azure in cui conservare i log. Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Per salvare i log del server Web in un account di archiviazione di Azure, scegliere **Storage** e quindi **manage storage** per specificare un account di archiviazione e un contenitore BLOB di Azure in cui conservare i log. Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
 
 Per salvare i log del server Web nel file system, scegliere **File System**. Verrà abilitata la casella **Quota** in cui è possibile impostare la quantità massima di spazio su disco per i file di log. La dimensione minima è 25 MB, la massima è di 100 MB. La dimensione predefinita è 35 MB.
 
@@ -161,11 +169,14 @@ Per impostazione predefinita, i log del server Web non vengono mai eliminati. Pe
 
 -   **Failed Request Tracing**: attivare la traccia delle richieste non riuscite per acquisire informazioni sulle richieste client non riuscite, ad esempio un codice di stato HTTP della serie 400. La traccia delle richieste non riuscite genera un documento XML contenente una traccia dei moduli di richiesta passati tramite IIS, i dettagli restituiti da modulo e l'ora in cui è stato richiamato il modulo. Queste informazioni possono essere utilizzate per isolare il componente in cui si è verificato l'errore.
 
-Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Save** nella parte inferiore della pagina di gestione **Configure** per applicare le opzioni impostate.
+Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salva** nella parte inferiore della pagina di gestione **Configura** per applicare le opzioni impostate.
+
+<div class="dev-callout">
 
 **Importante**
+La registrazione e la traccia sottopongono il sito Web a un carico significativo. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.
 
-La registrazione e la traccia sottopongono il sito Web a una domanda significativa. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.
+</div>
 
 ### Configurazione avanzata
 
@@ -197,26 +208,29 @@ La registrazione e la traccia sottopongono il sito Web a una domanda significati
 
 1.  Aprire la pagina di gestione **Dashboard** del sito Web e prendere nota del sito FTP indicato in **Diagnostics Logs** e dell'account visualizzato in **Deployment User**. Il sito FTP è il sito in cui si trovano i file di log e l'account visualizzato in Deployment User è l'account utilizzato per eseguire l'autenticazione al sito FTP.
 2.  Se non sono ancora state create le credenziali di distribuzione, l'account visualizzato in **Deployment User** indica **Not set**. In questo caso, è necessario creare le credenziali di distribuzione come descritto nella sezione Reset Deployment Credentials del Dashboard in quanto è necessario utilizzare queste credenziali per eseguire l'autenticazione al sito FTP in cui sono archiviati i file di log. In Azure non è supportata l'autenticazione al sito FTP mediante le credenziali Live ID.
-3.  Valutare l'utilizzo di un client FTP, ad esempio [FileZilla](http://go.microsoft.com/fwlink/?LinkId=247914) per connettersi al sito FTP. Un client FTP semplifica l'immissione delle credenziali e la visualizzazione delle cartelle in un sito FTP rispetto al browser.
+3.  Valutare l'utilizzo di un client FTP, ad esempio [FileZilla][FileZilla] per connettersi al sito FTP. Un client FTP semplifica l'immissione delle credenziali e la visualizzazione delle cartelle in un sito FTP rispetto al browser.
 4.  Copiare i file di log dal sito FTP al computer locale.
 
 **Azure PowerShell**
 
 1.  Dalla **schermata Start** o dal **menu Start** cercare **Azure PowerShell**. Fare clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
 
-    **Nota**
+    <div class="dev-callout">
 
-    Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
+    **Nota**
+    Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell][introduzione ai cmdlet di Azure PowerShell] per informazioni sull'installazione e la configurazione.
+
+    </div>
 
 2.  Dal prompt di Azure PowerShell, utilizzare i comandi seguenti per scaricare i file di log:
 
-         Save-AzureWebSiteLog -Name websitename
+        Save-AzureWebSiteLog -Name websitename
 
     Verranno scaricati i file di log per il sito Web specificato da **nomesitoWeb** e verranno salvati in un file denominato **log.zip** nella directory corrente.
 
     È inoltre possibile visualizzare un flusso in diretta degli eventi di log utilizzando il comando seguente:
 
-         Get-AzureWebSiteLog -Name websitename -Tail
+        Get-AzureWebSiteLog -Name websitename -Tail
 
     Verranno visualizzate le informazioni di log nel prompt di Azure PowerShell man mano che si verificano.
 
@@ -224,23 +238,26 @@ La registrazione e la traccia sottopongono il sito Web a una domanda significati
 
 Aprire un nuovo prompt dei comandi o una sessione di PowerShell, bash o terminal e utilizzare il comando seguente per scaricare i file di log:
 
-    azure site log download nomesitoWeb
+    azure site log download websitename
 
 Verranno scaricati i file di log per il sito Web specificato da **nomesitoWeb** e verranno salvati in un file denominato **log.zip** nella directory corrente.
 
 È inoltre possibile visualizzare un flusso in diretta degli eventi di log utilizzando il comando seguente:
 
-    azure site log tail nomesitoWeb
+    azure site log tail websitename
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-**Nota**
+<div class="dev-callout">
 
-Se il comando **azure**non è installato, vedere [Come utilizzare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
+**Nota**
+Se il comando **azure** non è installato, vedere [Come utilizzare gli strumenti da riga di comando di Azure][Come utilizzare gli strumenti da riga di comando di Azure] per informazioni sull'installazione e la configurazione.
+
+</div>
 
 ### Lettura dei file di log
 
-I file di log generati dopo avere abilitato la registrazione e/o la traccia per un sito Web variano in base al livello di registrazione/traccia impostato nella pagina di gestione Configure per il sito Web. Di seguito sono indicati i percorsi dei file di log e i modi in cui è possibile analizzarli:
+I file di log generati dopo avere abilitato la registrazione e/o la traccia per un sito Web variano in base al livello di registrazione/traccia impostato nella pagina di gestione Configura per il sito Web. Di seguito sono indicati i percorsi dei file di log e i modi in cui è possibile analizzarli:
 
 **Tipo di file di log: Application Logging**
 
@@ -250,34 +267,33 @@ I file di log generati dopo avere abilitato la registrazione e/o la traccia per 
 
 **Tipo di file di log: Traccia delle richieste non riuscite**
 
--   Percorso: /LogFiles/W3SVC########\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
+-   Location: /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 
 -   Leggere i file con: Internet Explorer
 
 **Tipo di file di log: Detailed Error Logging**
 
--   Percorso: /LogFiles/DetailedErrors/. La cartella /LogFiles/DetailedErrors/ contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
+-   Location: /LogFiles/DetailedErrors/. La cartella /LogFiles/DetailedErrors/ contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
 
 -   Leggere i file con: Web browser
 
 Nei file HTM sono incluse le sezioni seguenti:
 
--   **Detailed Error Information:** Include informazioni sull'errore, ad esempio *Module*, *Handler*, *Error Code* e *Requested URL*.
+-   **Detailed Error Information:** include informazioni sull'errore, ad esempio *Module*, *Handler*, *Error Code* e *Requested URL*.
 
--   **Most likely causes:** Visualizza un elenco di cause possibili per l'errore.
+-   **Most likely causes:** visualizza un elenco di cause possibili per l'errore.
 
--   **Things you can try:** Visualizza un elenco di soluzioni possibili per risolvere il problema segnalato dall'errore.
+-   **Things you can try:** visualizza un elenco di soluzioni possibili per risolvere il problema segnalato dall'errore.
 
--   **Links and More Information**: Fornisce informazioni di riepilogo aggiuntive sull'errore ed eventualmente i collegamenti ad altre risorse, ad esempio articoli della Microsoft Knowledge Base.
+-   **Links and More Information**: fornisce informazioni di riepilogo aggiuntive sull'errore ed eventualmente i collegamenti ad altre risorse, ad esempio articoli della Microsoft Knowledge Base.
 
 **Tipo di file di log: Registrazione del server Web**
 
--   Percorso: /LogFiles/http/RawLogs. Le informazioni archiviate nei file sono formattate mediante il [formato di log esteso W3C](http://go.microsoft.com/fwlink/?LinkID=90561). I campi s-computername, s-ip e cs-version non sono utilizzati da Siti Web di Azure.
+-   Location: /LogFiles/http/RawLogs. Le informazioni archiviate nei file sono formattate mediante il [formato di log esteso W3C][formato di log esteso W3C]. I campi s-computername, s-ip e cs-version non sono usati da Siti Web di Azure.
 
 -   Leggere i file con: Log Parser. Utilizzato per l'esecuzione di analisi e di query sui file di log IIS. Log Parser 2.2 è disponibile nell'Area download Microsoft all'indirizzo <http://go.microsoft.com/fwlink/?LinkId=246619>.
 
-Procedura: Monitorare lo stato degli endpoint
----------------------------------------------
+## <a name="webendpointstatus"></a>Procedura: Monitorare lo stato degli endpoint
 
 Questa funzionalità, disponibile nella modalità **Standard**, consente di monitorare fino a 2 endpoint da un massimo di 3 posizioni geografiche.
 
@@ -289,19 +305,39 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 
 **Per configurare il monitoraggio degli endpoint:**
 
-1.  Aprire **Web Sites**. Fare clic sul nome del sito Web da configurare.
-2.  Fare clic sulla scheda **Configure**.
+1.  Aprire **Siti Web**. Fare clic sul nome del sito Web da configurare.
+2.  Fare clic sulla scheda **Configura**.
 3.  Passare alla sezione **Monitoring** per immettere le impostazioni dell'endpoint.
 4.  Immettere un nome per l'endpoint.
-5.  Immettere l'URL per il servizio da monitorare. Ad esempio, <http://contoso.cloudapp.net>.
+5.  Immettere l'URL per il servizio da monitorare. Ad esempio, [][]<http://contoso.cloudapp.net></a>.
 6.  Selezionare una o più posizioni geografiche nell'elenco.
 7.  Facoltativamente, ripetere i passaggi precedenti per creare un secondo endpoint.
 8.  Fare clic su **Save**. Potrebbero essere necessari alcuni istanti prima che i dati di monitoraggio dell'endpoint Web siano disponibili nelle schede **Dashboard** e **Monitor**.
 
-Per ulteriori informazioni sul monitoraggio degli endpoint del sito Web, vedere i video seguenti:
+Per altre informazioni sul monitoraggio degli endpoint del sito Web, vedere i video seguenti:
 
--   [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint](http://www.windowsazure.com/it-it/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint][Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint]
 
--   [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow][Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow]
 
-
+  [Procedura: Aggiungere metriche del sito Web]: #websitemetrics
+  [Procedura: Ricevere avvisi dalle metriche del sito Web]: #howtoreceivealerts
+  [Procedura: Visualizzare le quote di utilizzo per un sito Web]: #howtoviewusage
+  [Procedura: Ridurre l'utilizzo delle risorse]: #resourceusage
+  [Cosa succede quando si supera la quota di utilizzo di una risorsa]: #exceeded
+  [Procedura: Configurare i log di diagnostica e download per un sito Web]: #howtoconfigdiagnostics
+  [Procedura: Monitorare lo stato degli endpoint]: #webendpointstatus
+  [portale di gestione di Azure]: http://manage.windowsazure.com/
+  [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
+  [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
+  [Come gestire gli account di archiviazione]: https://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/
+  [Come utilizzare Azure PowerShell]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [Abilitazione della registrazione diagnostica per Siti Web di Azure]: /it-it/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
+  [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure]: /it-it/develop/nodejs/how-to-guides/Debug-Website/
+  [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
+  [introduzione ai cmdlet di Azure PowerShell]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx
+  [Come utilizzare gli strumenti da riga di comando di Azure]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/
+  [formato di log esteso W3C]: http://go.microsoft.com/fwlink/?LinkID=90561
+  []: http://contoso.cloudapp.net
+  [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint]: http://www.windowsazure.com/it-it/documentation/videos/websites-and-endpoint-monitoring-scottgu/
+  [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow]: http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/

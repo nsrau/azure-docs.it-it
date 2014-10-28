@@ -1,5 +1,3 @@
-
-
 1.  In Visual Studio aprire il progetto modificato durante l'esercitazione **Introduzione ai dati**.
 
 2.  Premere **F5** per eseguire l'app, digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
@@ -8,48 +6,48 @@
 
 4.  Nel file MainPage.xaml.cs sostituire il metodo **RefreshTodoItems** con il codice seguente:
 
-         private async void RefreshTodoItems()
-         {
-             // Define a filtered query that returns the top 3 items.
-             IMobileServiceTableQuery<TodoItem> query = todoTable
-                             .Where(todoItem => todoItem.Complete == false)
-                            .Take(3);
-             items = await query.ToCollectionAsync();
-             ListItems.ItemsSource = items;
-         }
-
-	Questa query, se eseguita durante l'associazione dati, restituisce i primi tre elementi non contrassegnati come completati.
-
-1.  Premere **F5** per eseguire l'app.
-
-	Si noti che sono visualizzati solo i primi tre risultati della tabella TodoItem.
-
-1.  (Facoltativo) È possibile visualizzare l'URI della richiesta inviata al servizio mobile utilizzando un software di ispezione dei messaggi come gli strumenti di sviluppo per browser [Fiddler](http://go.microsoft.com/fwlink/?LinkID=262412).
-
-	Si noti che il metodo `Take(3)` è stato convertito nell'opzione di query `$top=3` nell'URI della query.
-
-2.  Aggiornare nuovamente il metodo **RefreshTodoItems** con il codice seguente:
-
-         private async void RefreshTodoItems()
-         {
-             // Define a filtered query that skips the first 3 items and 
-             // then returns the next 3 items.
-             IMobileServiceTableQuery<TodoItem> query = todoTable
+        private async void RefreshTodoItems()
+        {
+            // Define a filtered query that returns the top 3 items.
+            IMobileServiceTableQuery<TodoItem> query = todoTable
                             .Where(todoItem => todoItem.Complete == false)
-                            .Skip(3)
-                            .Take(3);
-             items = await query.ToCollectionAsync();
-             ListItems.ItemsSource = items;
-         }
+                           .Take(3);
+            items = await query.ToCollectionAsync();
+            ListItems.ItemsSource = items;
+        }
 
+    Questa query, se eseguita durante l'associazione dati, restituisce i primi tre elementi non contrassegnati come completati.
 
+5.  Premere **F5** per eseguire l'app.
 
-	Questa query ignora i primi tre risultati e restituisce i tre risultati successivi. In sostanza, si tratta della seconda "pagina" di dati, pagina la cui dimensione corrisponde a tre voci.
+    Si noti che sono visualizzati solo i primi tre risultati della tabella TodoItem.
+
+6.  (Facoltativo) È possibile visualizzare l'URI della richiesta inviata al servizio mobile utilizzando un software di ispezione dei messaggi come gli strumenti di sviluppo per browser [Fiddler][Fiddler].
+
+    Si noti che il metodo `Take(3)` è stato convertito nell'opzione di query `$top=3` nell'URI della query.
+
+7.  Aggiornare nuovamente il metodo **RefreshTodoItems** con il codice seguente:
+
+        private async void RefreshTodoItems()
+        {
+            // Define a filtered query that skips the first 3 items and 
+            // then returns the next 3 items.
+            IMobileServiceTableQuery<TodoItem> query = todoTable
+                           .Where(todoItem => todoItem.Complete == false)
+                           .Skip(3)
+                           .Take(3);
+            items = await query.ToCollectionAsync();
+            ListItems.ItemsSource = items;
+        }
+
+    Questa query ignora i primi tre risultati e restituisce i tre risultati successivi. In sostanza, si tratta della seconda "pagina" di dati, pagina la cui dimensione corrisponde a tre voci.
 
     > [WACOM.NOTE]Nell'esercitazione, lo scenario è stato semplificato con il passaggio di valori di paging hardcoded ai metodi **Take** e **Skip**. In un'app reale è possibile utilizzare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive. È inoltre possibile chiamare il metodo **IncludeTotalCount** per ottenere il conteggio totale degli elementi disponibili sul server, insieme ai dati di paging.
 
-3.  (Facoltativo) Anche in questo caso, è possibile visualizzare l'URI della richiesta inviata al servizio mobile.
+8.  (Facoltativo) Anche in questo caso, è possibile visualizzare l'URI della richiesta inviata al servizio mobile.
 
-	Si noti che il metodo `Skip(3)` è stato convertito nell'opzione di query `$skip=3` nell'URI della query.
+    Si noti che il metodo `Skip(3)` è stato convertito nell'opzione di query `$skip=3` nell'URI della query.
 
+<!-- URLs -->
 
+  [Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412

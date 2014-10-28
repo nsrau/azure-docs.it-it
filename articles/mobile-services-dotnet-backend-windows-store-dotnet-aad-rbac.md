@@ -278,7 +278,7 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
   [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET backend"
   [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript backend"
   [libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536

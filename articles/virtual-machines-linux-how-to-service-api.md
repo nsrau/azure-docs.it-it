@@ -1,12 +1,12 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
 
-Come utilizzare l'API di gestione del servizio
-==============================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
-Inizializzazione
-----------------
+# Come utilizzare l'API di gestione del servizio
 
-Per richiamare l'API di gestione del servizio IaaS di Azure da NodeJS si utilizza il modulo `azure`.
+## Inizializzazione
+
+Per richiamare l'API di gestione del servizio IaaS di Azure da NodeJS, si usa il modulo `azure`.
 
     var azure = require('azure');
 
@@ -16,27 +16,28 @@ Creare innanzitutto un'istanza dell'oggetto ServiceManagementService. Tutte le c
 
 -   Subscriptionid è una stringa obbligatoria e dovrebbe corrispondere all'ID sottoscrizione dell'account a cui si esegue l'accesso.
 -   Auth è un oggetto facoltativo che consente di specificare la chiave privata e il certificato pubblico da utilizzare con questo account.
+
     -   keyfile: percorso del file PEM con chiave privata. Ignorato se si specifica keyvalue.
     -   keyvalue : valore effettivo della chiave privata così come archiviata in un file PEM.
     -   certfile: percorso del file PEM con certificato pubblico. Ignorato se si specifica certvalue.
     -   certvalue : valore effettivo del certificato pubblico così come archiviato in un file PEM.
-    -   Se non si specificano i valori sopra riportati, verranno letti e utilizzati i valori variabili `CLIENT_AUTH_KEYFILE` e `CLIENT_AUTH_CERTFILE`. Se questi ultimi non sono stati impostati, verrà effettuato un tentativo di leggere e utilizzare i valori predefiniti dei file: priv.pem e pub.pem.
+    -   Se non si specificano i valori riportati sopra, verranno letti e usati i valori variabili `CLIENT_AUTH_KEYFILE` e `CLIENT_AUTH_CERTFILE`. Se questi ultimi non sono stati impostati, verrà effettuato un tentativo di leggere e utilizzare i valori predefiniti dei file: priv.pem e pub.pem.
     -   Se non fosse possibile caricare la chiave privata e il certificato pubblico verrà generato un errore.
 -   Options è un oggetto facoltativo che può essere utilizzato per controllare le proprietà utilizzate dal client.
+
     -   host: nome host del server di gestione Azure. Se non specificato, verrà utilizzato l'host predefinito.
     -   apiversion: stringa di versione da utilizzare nell'intestazione HTTP. Se non specificata, verrà utilizzata la versione predefinita.
     -   serializetype: probabilmente XML o JSON. Se non specificato, verrà utilizzata la serializzazione predefinita.
 
 Facoltativamente, è possibile utilizzare un proxy di tunneling per abilitare la il passaggio di una richiesta HTTPS attraverso un proxy. Quando si crea IaasClient verrà elaborata la variabile di ambiente `HTTPS_PROXY`. Se è impostata su un URL valido, il nome host e la porta verranno analizzati dall'URL e utilizzati nelle successive richieste di identificazione del proxy.
 
-     iaasClient.SetProxyUrl(proxyurl)
+        iaasClient.SetProxyUrl(proxyurl)
 
 È possibile chiamare SetProxyUrl per impostare esplicitamente l'host e la porta del proxy. Ciò avrà lo stesso effetto dell'impostare la variabile di ambiente `HTTPS_PROXY` ed eseguirà l'override dell'impostazione dell'ambiente.
 
-Callback
---------
+## Callback
 
-Tutte le APIs sono caratterizzata da un argomento di callback richiesto. Il completamento della richiesta viene segnalato dalla chiamata della funzione passata al callback.
+Tutte le API sono caratterizzate da un argomento di callback richiesto. Il completamento della richiesta viene segnalato dalla chiamata della funzione passata al callback.
 
     callback(rsp)
 
@@ -51,8 +52,7 @@ Tutte le APIs sono caratterizzata da un argomento di callback richiesto. Il comp
 
 Si noti che in alcuni casi il completamento potrebbe indicare solo che la richiesta è stata accettata. In questo caso, utilizzare **GetOperationStatus** per ottenere lo stato finale.
 
-API
----
+## API
 
 **iaasClient.GetOperationStatus(requested, callback)**
 
@@ -75,9 +75,10 @@ API
 -   imageName è un nome stringa richiesto dell'immagine.
 -   mediaLink è un nome stringa richiesto del mediaLink da utilizzare.
 -   imageOptions è un oggetto facoltativo e può contenere le proprietà seguenti:
-    -   Category
+
+    -   Categoria
     -   Label: se non impostato, il valore predefinito è imageName.
-    -   Location
+    -   Percorso
     -   RoleSize
 -   La stringa callback è necessaria. Se imageOptions non è impostato, questo potrebbe essere il terzo parametro.
 -   Se corretto, l'oggetto response conterrà le proprietà dell'immagine creata.
@@ -97,9 +98,10 @@ API
 
 -   serviceName è un nome stringa richiesto del servizio ospitato.
 -   serviceOptions è un oggetto facoltativo e può contenere le proprietà seguenti:
+
     -   Description: il valore predefinito è "Service host"
-    -   Label: se non impostato, il valore predefinito è serviceName.
-    -   Location: il valore predefinito è "Azure Preview" -TODO modificare dopo il rilascio.
+    -   Label: se non impostato, il valore predefinito è serviceName
+    -   Location: l'area in cui creare il servizio
 -   La stringa callback è necessaria.
 
 **iaasClient.GetStorageAccountKeys(serviceName, callback)**
@@ -128,6 +130,7 @@ API
 -   deploymentName è un nome stringa richiesto della distribuzione.
 -   VMRole è un oggetto richiesto per cui è necessario creare proprietà del ruolo per la distribuzione.
 -   deployOptions è un oggetto facoltativo e può contenere le proprietà seguenti:
+
     -   DeploymentSlot: il valore predefinito è "Production"
     -   Label: se non impostato, il valore predefinito è deploymentName.
     -   UpgradeDomainCount: nessun valore predefinito
@@ -208,6 +211,7 @@ API
 -   deploymentName è un nome stringa richiesto della distribuzione.
 -   roleInstance è un nome stringa richiesto dell'istanza del ruolo.
 -   captOptions è un oggetto richiesto che definisce le azioni di acquisizione
+
     -   PostCaptureActions
     -   ProvisioningConfiguration
     -   SupportsStatelessDeployment
@@ -215,12 +219,11 @@ API
     -   TargetImageName
 -   La stringa callback è necessaria.
 
-Oggetti dati
-------------
+## Oggetti dati
 
-Le API considerano gli oggetti come input durante la creazione o la modifica di una distribuzione, un ruolo o un disco. Altre API restituiranno oggetti simili in un'operazione Get o List. In questa sezione vengono illustrati a grandi linee le proprietà dell'oggetto. 
-
-**Distribuzione**
+Le API considerano gli oggetti come input durante la creazione o la modifica di una distribuzione, un ruolo o un disco. Altre API restituiranno oggetti simili in un'operazione Get o List.
+Questa sezione illustra a grandi linee le proprietà dell'oggetto.
+Distribuzione
 
 -   Name: stringa
 -   DeploymentSlot - "Staging" o "Production"
@@ -293,12 +296,11 @@ Le API considerano gli oggetti come input durante la creazione o la modifica di 
 **ExternalEndpoint**
 
 -   LocalPort
--   Name
+-   Nome
 -   Port
 -   Protocol
 
-Codice di esempio
------------------
+## Codice di esempio
 
 Di seguito è riportato codice JavaScript di esempio che consente di creare un servizio ospitato e una distribuzione, quindi di eseguire il polling per lo stato di completamento della distribuzione.
 
@@ -309,8 +311,8 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
       keyfile : '../certs/priv.pem',
       certfile : '../certs/pub.pem'
     }
-      
-    // names and ids for subscription, service, deployment
+
+    // names and IDs for subscription, service, deployment
     var subscriptionId = '167a0c69-cb6f-4522-ba3e-d3bdc9c504e1';
     var serviceName = 'sampleService2';
     var deploymentName = 'sampleDeployment';
@@ -324,35 +326,35 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
       DeploymentSlot: 'Staging',
       Label: 'Deployment Label'
     }
-      
+
     var osDisk = {
       SourceImageName : 'Win2K8SP1.110809-2000.201108-01.en.us.30GB.vhd',
     };
-      
+
     var dataDisk1 = {
       LogicalDiskSizeInGB : 10,
-        LUN : '0'
+      LUN : '0'
     };
-      
+
     var provisioningConfigurationSet = {
       ConfigurationSetType: 'ProvisioningConfiguration',
       AdminPassword: 'myAdminPwd1',
       MachineName: 'sampleMach1',
       ResetPasswordOnFirstLogon: false
     };
-      
+
     var externalEndpoint1 = {
       Name: 'endpname1',
       Protocol: 'tcp',
       Port: '59919',
-        LocalPort: '3395'
+      LocalPort: '3395'
     };
-      
+
     var networkConfigurationSet = {
       ConfigurationSetType: 'NetworkConfiguration',
       InputEndpoints: [externalEndpoint1]
     };
-      
+
     var VMRole = {
       RoleName: 'sampleRole',
       RoleSize: 'Small',
@@ -360,8 +362,8 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
       DataDisks: [dataDisk1],
       ConfigurationSets: [provisioningConfigurationSet, networkConfigurationSet]
     }
-      
-      
+
+
     // function to show error messages if failed
     function showErrorResponse(rsp) {
       console.log('There was an error response from the service');
@@ -369,7 +371,7 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
       console.log('Error Code=' + rsp.error.Code);
       console.log('Error Message=' + rsp.error.Message);
     }
-      
+
     // polling for completion
     function PollComplete(reqid) {
       iaasCli.GetOperationStatus(reqid, function(rspobj) {
@@ -384,15 +386,15 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
             if (rsp.Error) {      
               console.log('Error code: ' + rsp.Error.Code);
               console.log('Error Message: ' + rsp.Error.Message);
-              }
             }
-          } else {
-          showErrorResponse(rspobj);
           }
-        });
-      }
-      
-      
+        } else {
+          showErrorResponse(rspobj);
+        }
+      });
+    }
+
+
     // create the client object
     var iaasCli = azure.createServiceManagementService(subscriptionId, auth);
 
@@ -412,9 +414,9 @@ Di seguito è riportato codice JavaScript di esempio che consente di creare un s
             setTimeout(PollComplete(reqid), pollPeriod);
           } else {
             showErrorResponse(rspobj);
-            }
-          });
-        } else {
+          }
+        });
+      } else {
         showErrorResponse(rspobj);
-        }
-      });
+      }
+    });

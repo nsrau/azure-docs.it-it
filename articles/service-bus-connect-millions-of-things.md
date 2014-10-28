@@ -28,13 +28,13 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
 -   [Azure Active Directory][Azure Active Directory]
 -   [Servizi cloud][Servizi cloud]
 
-  [Hub eventi]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Modello di partizionamento orizzontale]: http://msdn.microsoft.com/en-us/library/dn589797.aspx
-  [Bus di servizio e AMQP 1.0]: http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx
+  [Hub eventi]: http://msdn.microsoft.com/it-it/library/dn789973.aspx
+  [Modello di partizionamento orizzontale]: http://msdn.microsoft.com/it-it/library/dn589797.aspx
+  [Bus di servizio e AMQP 1.0]: http://msdn.microsoft.com/it-it/library/azure/jj841071.aspx
   [Introduzione al bus di servizio]: http://azure.microsoft.com/it-it/documentation/services/service-bus/
-  [Partizionamento delle entità di messaggistica]: http://msdn.microsoft.com/en-us/library/azure/dn520246.aspx
+  [Partizionamento delle entità di messaggistica]: http://msdn.microsoft.com/it-it/library/azure/dn520246.aspx
   [Argomenti del bus di servizio]: http://azure.microsoft.com/it-it/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Utilizzo di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]: http://msdn.microsoft.com/en-us/library/azure/dn235560.aspx
+  [Utilizzo di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]: http://msdn.microsoft.com/it-it/library/azure/dn235560.aspx
   [Comunicazione assistita con i servizi (SAC, Service Assisted Communication) per i dispositivi connessi]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
   [Azure Active Directory]: http://azure.microsoft.com/it-it/documentation/services/active-directory/
   [Servizi cloud]: http://azure.microsoft.com/it-it/documentation/services/cloud-services/

@@ -36,8 +36,8 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Per completare l'esercitazione, &egrave; necessario un account Azure.</h5>
   <ul>
-    <li>&Egrave; possibile <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
-    <li>&Egrave; possibile <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
+    <li>&Egrave; possibile <a href="http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
+    <li>&Egrave; possibile <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
   <ul>
 </div>
 
@@ -273,11 +273,11 @@ Per altre informazioni sull'integrazione della rete CDN di Azure con i Servizi c
   [Automatizzare il caricamento del contenuto dall'applicazione ASP.NET all'endpoint della rete CDN]: #upload
   [Configurare la cache della rete CDN per riflettere l'aggiornamento del contenuto desiderato]: #update
   [Rendere immediatamente disponibile il contenuto aggiornato mediante le stringhe di query]: #query
-  [account Microsoft Azure]: http://azure.microsoft.com/en-us/account/
+  [account Microsoft Azure]: http://azure.microsoft.com/it-it/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [aprire un account Azure gratuitamente]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [attivare i benefici della sottoscrizione MSDN]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [aprire un account Azure gratuitamente]: http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A261C142F
+  [attivare i benefici della sottoscrizione MSDN]: http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [portale di gestione di Azure]: http://manage.windowsazure.com/
   []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
@@ -285,7 +285,7 @@ Per altre informazioni sull'integrazione della rete CDN di Azure con i Servizi c
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
   [www.ip-address.org]: http://www.ip-address.org
   [4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
-  [Ubicazioni dei noti della Rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx
+  [Ubicazioni dei noti della Rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg680302.aspx
   [5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
   [6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
   [7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
@@ -299,9 +299,9 @@ Per altre informazioni sull'integrazione della rete CDN di Azure con i Servizi c
   [Recapito continuo per Servizi cloud in Azure]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [caricamento dei file di contenuto dall'applicazione ASP.NET nei BLOB di Azure]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
   [15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
-  [Servizi cloud di Azure]: http://azure.microsoft.com/en-us/services/cloud-services/
+  [Servizi cloud di Azure]: http://azure.microsoft.com/it-it/services/cloud-services/
   [stackoverflow]: http://stackoverflow.com/a/13736433
   [Integrare un'applicazione cloud con la rete CDN di Azure]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-how-to-create-deploy/
   [Panoramica della Rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [16]: http://azure.microsoft.com/it-it/documentation/Articles/cdn-cloud-service-with-cdn/
+  [16]: http://azure.microsoft.com/it-it/Documentation/Articles/cdn-cloud-service-with-cdn/
   [Utilizzo della rete CDN per Azure]: http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/

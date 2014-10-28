@@ -91,12 +91,12 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 
   [Portale di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial/ "Azure Portal"
   [Portale di anteprima di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure Preview Portal"
-  [Creazione di un account Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [Creazione di un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
   [Come creare la macchina virtuale]: #createvirtualmachine
   [Come accedere alla macchina virtuale dopo averla creata]: #logon
   [Macchine virtuali]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [portale di anteprima di Azure]: https://portal.azure.com
-  [versione di valutazione gratuita]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [versione di valutazione gratuita]: http://www.windowsazure.com/it-it/pricing/free-trial/
   [Selezionare Nuovo nella barra dei comandi]: ./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png
   [Selezionare un'immagine di macchina virtuale dalla raccolta]: ./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png
   [Configurare il nome host e le credenziali di accesso]: ./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png

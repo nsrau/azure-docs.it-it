@@ -248,7 +248,7 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
   [TwiML]: https://www.twilio.com/docs/api/twiml
   [blog per sviluppatori di Twilio]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
   [iscriversi per creare un account]: http://ahoy.twilio.com/azure
-  [La documentazione ufficiale per eseguire la procedura è disponibile qui]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [La documentazione ufficiale per eseguire la procedura è disponibile qui]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
   [disponibili nel dashboard di Twilio]: https://www.twilio.com/user/account
   [Console di amministrazione di Azure]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
   [npm]: http://npmjs.org

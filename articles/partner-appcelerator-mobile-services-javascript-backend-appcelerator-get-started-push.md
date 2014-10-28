@@ -446,7 +446,7 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-push "iOS"

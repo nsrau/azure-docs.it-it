@@ -1,12 +1,12 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Azure Active Directory" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Azure Active Directory" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-Sviluppo di applicazioni con tenant singolo con Azure Active Directory
-======================================================================
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
 
-Introduzione
-------------
+# Sviluppo di applicazioni con tenant singolo con Azure Active Directory
 
-In questa esercitazione verrà illustrato come utilizzare Azure Active Directory per autenticare gli utenti della directory e leggerne i dati dalla directory. Si apprenderà come:
+## <a name="introduction"></a>Introduzione
+
+In questa esercitazione verrà illustrato come usare Azure Active Directory per autenticare gli utenti della directory e leggerne i dati dalla directory. Si apprenderà come:
 
 -   Eseguire il provisioning dell'applicazione Web nel tenant del cliente
 -   Proteggere l'applicazione mediante WS-Federation
@@ -18,25 +18,24 @@ Per questa procedura dettagliata sono necessari i prerequisiti seguenti nell'amb
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3](http://www.microsoft.com/en-us/download/details.aspx?id=4211)
--   [Windows Identity Foundation 1.0 Runtime](http://www.microsoft.com/en-us/download/details.aspx?id=17331)
--   [Windows Identity Foundation 3.5 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=4451)
--   [WCF Data Services per OData V3](http://www.microsoft.com/download/en/details.aspx?id=29306)
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 Runtime][Windows Identity Foundation 1.0 Runtime]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
+-   [WCF Data Services per OData V3][WCF Data Services per OData V3]
 -   Internet Information Services (IIS) 7.5 con SSL abilitato
 -   Windows PowerShell
--   [Cmdlet di Office 365 PowerShell](http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx)
+-   [Cmdlet di Office 365 PowerShell][Cmdlet di Office 365 PowerShell]
 
 ### Sommario
 
--   [Introduzione](#introduction)
--   [Passaggio 1: Creare un'applicazione ASP.NET MVC](#createapp)
--   [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società](#provisionapp)
--   [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti](#protectapp)
--   [Passaggio 4: Leggere i dati della directory tramite l'API Graph](#readdata)
--   [Riepilogo](#summary)
+-   [Introduzione][Introduzione]
+-   [Passaggio 1: Creare un'applicazione ASP.NET MVC][Passaggio 1: Creare un'applicazione ASP.NET MVC]
+-   [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società][Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società]
+-   [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti][Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti]
+-   [Passaggio 4: Leggere i dati della directory tramite l'API Graph][Passaggio 4: Leggere i dati della directory tramite l'API Graph]
+-   [Riepilogo][Riepilogo]
 
-Passaggio 1: Creare un'applicazione ASP.NET MVC
------------------------------------------------
+## <a name="createapp"></a>Passaggio 1: Creare un'applicazione ASP.NET MVC
 
 In questo passaggio viene descritto come creare una semplice applicazione ASP.NET MVC che rappresenterà una risorsa protetta. L'accesso a questa risorsa verrà concesso tramite autenticazione federata gestita dal servizio token di sicurezza della società, descritto più avanti nell'esercitazione.
 
@@ -52,10 +51,9 @@ In questo passaggio viene descritto come creare una semplice applicazione ASP.NE
 10. Nella finestra Proprietà fare clic su **Web** nel menu di sinistra, quindi selezionare **Usa server Web IIS locale**. È possibile che venga visualizzata una finestra di dialogo in cui si chiede di creare una directory virtuale per il progetto. Fare clic su **Sì**.
 11. Compilare ed eseguire l'applicazione. Verrà visualizzata la pagina di indice del controller Home.
 
-Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società
-------------------------------------------------------------------------------------------------
+## <a name="provisionapp"></a>Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società
 
-In questo passaggio vengono descritti il provisioning dell'applicazione MVC nel tenant di un cliente e la configurazione di Single Sign-On. Queste attività devono essere eseguite da un amministratore di Azure Active Directory del cliente. Dopo avere completato questo passaggio, i dipendenti della società potranno eseguire l'autenticazione all'applicazione Web utilizzando gli account Office 365.
+In questo passaggio vengono descritti il provisioning dell'applicazione MVC nel tenant di un cliente e la configurazione di Single Sign-On. Queste attività devono essere eseguite da un amministratore di Azure Active Directory del cliente. Dopo avere completato questo passaggio, i dipendenti della società potranno eseguire l'autenticazione all'applicazione Web usando gli account Office 365.
 
 Il processo di provisioning inizia con la creazione di una nuova entità servizio per l'applicazione. In Azure Active Directory le entità servizio vengono utilizzate per registrare e autenticare le applicazioni per la directory.
 
@@ -63,56 +61,53 @@ Il processo di provisioning inizia con la creazione di una nuova entità servizi
 2.  Nel menu **Start** eseguire la console **Modulo dei Microsoft Online Services per Windows PowerShell**. Questa console offre un ambiente da riga di comando per la configurazione di attributi relativi al tenant di Office 365, ad esempio la creazione e la modifica di entità servizio.
 3.  Per importare il modulo **MSOnlineExtended** richiesto, digitare il comando seguente e premere INVIO:
 
-         Import-Module MSOnlineExtended -Force
+        Import-Module MSOnlineExtended -Force
 
 4.  Per connettersi alla directory di Office 365, è necessario fornire le credenziali di amministratore della società. Digitare il comando seguente e premere INVIO, quindi immettere le credenziali quando richiesto:
 
-         Connect-MsolService
+        Connect-MsolService
 
 5.  A questo punto è possibile creare una nuova entità servizio per l'applicazione. Digitare il comando seguente e premere INVIO:
 
-         New-MsolServicePrincipal -ServicePrincipalNames @("OrgIdFederationSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+        New-MsolServicePrincipal -ServicePrincipalNames @("OrgIdFederationSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 
     In questo passaggio verranno visualizzate informazioni simili alle seguenti:
 
-         The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
-         DisplayName           : Federation Sample Web Site
-         ServicePrincipalNames : {OrgIdFederationSample/localhost}
-         ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
-         AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
-         TrustedForDelegation  : False
-         AccountEnabled        : True
-         KeyType               : Symmetric
-         KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
-         StartDate             : 12/01/2012 08:00:00 a.m.
-         EndDate               : 12/01/2013 08:00:00 a.m.
-         Usage                 : Verify 
+        The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
+        DisplayName           : Federation Sample Website
+        ServicePrincipalNames : {OrgIdFederationSample/localhost}
+        ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
+        AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
+        TrustedForDelegation  : False
+        AccountEnabled        : True
+        KeyType               : Symmetric
+        KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
+        StartDate             : 12/01/2012 08:00:00 a.m.
+        EndDate               : 12/01/2013 08:00:00 a.m.
+        Usage                 : Verify 
 
-    **Nota**
-
-    È consigliabile salvare questo output, in particolare la chiave simmetrica generata. Questa chiave viene visualizzata solo durante la creazione dell'entità servizio e non sarà recuperabile in seguito. Gli altri valori sono necessari per utilizzare l'API Graph per leggere e scrivere informazioni nella directory.
+    <div class="dev-callout"><strong>Nota</strong><p>&Egrave; consigliabile salvare questo output, in particolare la chiave simmetrica generata. Questa chiave viene visualizzata solo durante la creazione dell'entit&agrave; servizio e non sar&agrave; recuperabile in seguito. Gli altri valori sono necessari per usare l'API Graph per leggere e scrivere informazioni nella directory.</p></div>
 
 6.  Con l'ultimo passaggio viene impostato l'URL di risposta per l'applicazione, ossia l'indirizzo a cui vengono inviate le risposte in seguito ai tentativi di autenticazione. Digitare i comandi seguenti e premere INVIO:
 
-         $replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/OrgIdFederationSample" 
+        $replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/OrgIdFederationSample" 
 
-         Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
+        Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
 
 A questo punto, il provisioning dell'applicazione Web è stato completato nella directory ed è possibile utilizzarla per consentire ai dipendenti della società l'accesso Single Sign-On al Web.
 
-Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti
-------------------------------------------------------------------------------------------
+## <a name="protectapp"></a>Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti
 
 In questo passaggio viene illustrato come aggiungere il supporto per l'accesso federato mediante Windows Identity Foundation (WIF). Verrà inoltre aggiunta una pagina di accesso e verranno configurati i criteri di attendibilità tra l'applicazione e il tenant della directory.
 
 1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto **OrgIdFederationSample** e scegliere **"Add STS reference..."**. Questa opzione del menu di scelta rapida è stata aggiunta durante l'installazione di WIF SDK.
 2.  Nella finestra di dialogo **Federation Utility**, specificare l'URI in **Application URI** nel formato seguente:
 
-         spn:<Your AppPrincipalId>@<Your Directory Domain>
+        spn:<Your AppPrincipalId>@<Your Directory Domain>
 
     **spn** specifica che l'URI è il nome di un'entità servizio, **Your AppPrincpalId** è il valore GUID di **AppPrincipalId** generato quando è stata creata un'entità servizio e **Your Directory Domain** è il dominio \*.onmicrosoft.com per il tenant della directory. Per questa applicazione di esempio, viene specificato un valore completo per l'URI dell'applicazione, come illustrato di seguito:
 
-         spn:7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com
+        spn:7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com
 
     Dopo aver immesso l'URI dell'applicazione, fare clic su **Avanti**.
 
@@ -120,11 +115,11 @@ In questo passaggio viene illustrato come aggiungere il supporto per l'accesso f
 
 4.  Nella pagina successiva dell'utilità di federazione selezionare **Use an existing STS**, quindi in **STS WS-Federation metadata document location** immettere l'URL del documento di metadati WS-Federation. Questo URL viene specificato nel formato seguente:
 
-         https://accounts.accesscontrol.windows.net/<Domain Name or Tenant ID>/FederationMetadata/2007-06/FederationMetadata.xml 
+        https://accounts.accesscontrol.windows.net/<Domain Name or Tenant ID>/FederationMetadata/2007-06/FederationMetadata.xml 
 
     Per questa applicazione, il percorso dei metadati di WS-Federation viene specificato come illustrato di seguito:
 
-         https://accounts.accesscontrol.windows.net/fabrikam.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml 
+        https://accounts.accesscontrol.windows.net/fabrikam.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml 
 
     Dopo aver immesso il percorso dei metadati, fare clic su **Avanti**.
 
@@ -146,11 +141,11 @@ In questo passaggio viene illustrato come aggiungere il supporto per l'accesso f
 
 13. In Visual Studio aprire il file **Web.config** da **Esplora soluzioni** nella radice del progetto.
 
-14. Nel file **Web.config** individuare la sezione **wsFederation** e aggiungere un attributo **reply** con lo stesso valore della variabile **\$replyUrl** specificato durante la creazione dell'entità servizio, ad esempio:
+14. Nel file **Web.config** individuare la sezione **wsFederation** e aggiungere un attributo **reply** con lo stesso valore della variabile **$replyUrl** specificato durante la creazione dell'entità servizio, Ad esempio:
 
         <wsFederation passiveRedirectEnabled="true" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn: 7829c758-2bef-43df-a685-717089474505" requireHttps="false" reply="https://localhost/OrgIdFederationSample" /> 
 
-15. Aggiungere un nodo **httpRuntime** all'interno della sezione **system.web** con l'attributo **requestValidationMode** impostato su **2.0**, ad esempio:
+15. Aggiungere un nodo **httpRuntime** all'interno della sezione **system.web** con l'attributo **requestValidationMode** impostato su **2.0**, Ad esempio:
 
         <system.web>
             <httpRuntime requestValidationMode="2.0" /> 
@@ -174,53 +169,64 @@ In questo passaggio viene illustrato come aggiungere il supporto per l'accesso f
             }
         </p> 
 
-18. Dopo aver salvato le modifiche apportate al file **Index.cshtml**, premere **F5** per eseguire l'applicazione. Si verrà reindirizzati alla pagina del provider di identità di Office 365, dove è possibile effettuare l'accesso utilizzando le credenziali del tenant della directory, ad esempio *john.doe@awesomecomputers.onmicrosoft.com*.
+18. Dopo aver salvato le modifiche apportate al file **Index.cshtml**, premere **F5** per eseguire l'applicazione. Si verrà reindirizzati alla pagina del provider di identità di Office 365, dove è possibile effettuare l'accesso usando le credenziali del tenant della directory, ad esempio, *john.doe@awesomecomputers.onmicrosoft.com*.
 
 19. Dopo aver effettuato l'accesso con le proprie credenziali, si verrà reindirizzati alla pagina di indice del controller Home, dove vengono visualizzate le attestazioni dell'account. Ciò dimostra che l'autenticazione all'applicazione è stata eseguita correttamente tramite le funzionalità Single Sign-On fornite da Azure Active Directory.
 
-Passaggio 4: Leggere i dati della directory tramite l'API Graph
----------------------------------------------------------------
+## <a name="readdata"></a>Passaggio 4: Leggere i dati della directory tramite l'API Graph
 
-Questo passaggio illustra come utilizzare l'API Graph per connettersi al tenant di Azure Active Directory e leggere i dati. Per iniziare a utilizzare l'API Graph, scaricare l'applicazione ASP.NET seguente: [Applicazione di esempio con supporto della scrittura per l'API Graph](http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502). Questa applicazione contiene metodi di supporto che semplificano l'autenticazione e l'esecuzione di richieste all'API Graph.
+Questo passaggio illustra come usare l'API Graph per connettersi al tenant di Azure Active Directory e leggere i dati. Per iniziare a usare l'API Graph, scaricare l'applicazione ASP.NET seguente: [Applicazione di esempio con supporto della scrittura per l'API Graph][Applicazione di esempio con supporto della scrittura per l'API Graph]. Questa applicazione contiene metodi di supporto che semplificano l'autenticazione e l'esecuzione di richieste all'API Graph.
 
 Verranno inoltre aggiunte autorizzazioni all'entità servizio dell'applicazione creata al passaggio 2. Per aggiungere queste autorizzazioni, è necessario il valore AppPrincipalId.
 
 1.  Scaricare ed estrarre l'applicazione di esempio nella cartella desiderata.
-2.  Prima di utilizzare il codice di esempio, è necessario concedere autorizzazioni aggiuntive all'entità servizio. Queste autorizzazioni consentiranno all'entità servizio di leggere i dati tramite l'API Graph. Nel menu **Start** eseguire la console **Modulo dei Microsoft Online Services per Windows PowerShell**.
-3.  Per concedere autorizzazioni di lettura all'entità servizio, aggiungerla al ruolo Service Support Administrator. Per ulteriori informazioni sull'assegnazione di ruoli all'entità servizio, vedere [Graph di AD di Azure e controllo di accesso basato sui ruoli](http://msdn.microsoft.com/it-it/library/hh974466.aspx). Digitare il comando seguente e premere INVIO:
+2.  Prima di usare il codice di esempio, è necessario concedere autorizzazioni aggiuntive all'entità servizio. Queste autorizzazioni consentiranno all'entità servizio di leggere i dati tramite l'API Graph. Nel menu **Start** eseguire la console **Modulo dei Microsoft Online Services per Windows PowerShell**.
+3.  Per concedere autorizzazioni di lettura all'entità servizio, aggiungerla al ruolo Service Support Administrator. Per altre informazioni sull'assegnazione di ruoli all'entità servizio, vedere [Graph di AD di Azure e controllo di accesso basato sui ruoli][Graph di AD di Azure e controllo di accesso basato sui ruoli]. Digitare il comando seguente e premere INVIO:
 
-         Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
+        Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
-4.  La variabile **\$appPrincipal.ObjectId** corrisponde al valore objectId dell'entità servizio, che è possibile recuperare digitando il comando seguente e premendo INVIO:
+4.  La variabile **$appPrincipal.ObjectId** corrisponde al valore objectId dell'entità servizio, che è possibile recuperare digitando il comando seguente e premendo INVIO:
 
-         Get-MsolServicePrincipal -AppPrincipalId 7829c758-2bef-43df-a685-717089474505 
+        Get-MsolServicePrincipal -AppPrincipalId 7829c758-2bef-43df-a685-717089474505 
 
-    **Nota**
-
-    Il valore **AppPrincipalId è stato restituito durante la creazione dell'entità servizio al passaggio 2.
+    <div class="dev-callout"><strong>Nota</strong><p>Il valore **AppPrincipalId &egrave; stato restituito durante la creazione dell'entit&agrave; servizio al passaggio 2.</p></div>
 
 5.  Dopo aver aggiunto il ruolo all'entità servizio, avviare Visual Studio e aprire il file **Web.config** radice dell'applicazione di esempio.
 
-6.  Individuare la sezione *&lt;configuration\>* nel file **Web.config**, quindi passare alla sezione *&lt;appSettings\>*. Modificare i valori delle chiavi *TenantDomainName*, *AppPrincipalId* e *SymmetricKey* con i valori relativi alla propria entità servizio. Ad esempio:
+6.  Individuare la sezione *\<configuration\>* nel file **Web.config**, quindi passare alla sezione *\<appSettings\>*. Modificare i valori delle chiavi *TenantDomainName*, *AppPrincipalId* e *SymmetricKey* con i valori relativi alla propria entità servizio. Ad esempio:
 
-         <appSettings> 
-             ...
-             <add key="TenantDomainName" value="awesomecomputers.onmicrosoft.com"/> 
-             ...
-             <add key="AppPrincipalId" value="7829c758-2bef-43df-a685-717089474505"/>     
-             ...
-             <add key="SymmetricKey" value="qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=" /> 
-             ...
-         </appSettings>
+        <appSettings> 
+            ...
+            <add key="TenantDomainName" value="awesomecomputers.onmicrosoft.com"/> 
+            ...
+            <add key="AppPrincipalId" value="7829c758-2bef-43df-a685-717089474505"/>     
+            ...
+            <add key="SymmetricKey" value="qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=" /> 
+            ...
+        </appSettings>
 
 7.  Salvare il file **Web.config** e quindi premere **F5** per eseguire l'applicazione.
 
 8.  Nell'applicazione di esempio verrà visualizzato un menu per accedere a tutti gli utenti, gli amministratori dell'azienda e altro. Facendo clic su uno dei collegamenti verranno restituite le informazioni archiviate nel tenant tramite l'API Graph.
 
-Riepilogo
----------
+## <a name="summary"></a>Riepilogo
 
 In questa esercitazione è stato illustrato come creare e configurare un'applicazione a singolo tenant che utilizza le funzionalità Single Sign-On di Azure Active Directory. È inoltre stato effettuato l'accesso ai dati della directory del tenant tramite l'API Graph. È consigliabile esaminare l'applicazione di esempio per comprendere come sfruttare l'API Graph nella propria applicazione.
 
-Per ulteriori informazioni sull'API Graph, [vedere gli articoli sull'argomento su MSDN](http://msdn.microsoft.com/it-it/library/hh974476.aspx). È anche possibile creare applicazioni multitenant per Azure Active Directory consultando l'esercitazione seguente: [Sviluppo di applicazioni per cloud multitenant con Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
+Per altre informazioni sull'API Graph, [vedere gli articoli sull'argomento su MSDN][vedere gli articoli sull'argomento su MSDN]. È anche possibile creare applicazioni multitenant per Azure Active Directory consultando l'esercitazione seguente: [Sviluppo di applicazioni per cloud multitenant con Azure Active Directory][Sviluppo di applicazioni per cloud multitenant con Azure Active Directory].
 
+  [ASP.NET MVC 3]: http://www.microsoft.com/it-it/download/details.aspx?id=4211
+  [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/it-it/download/details.aspx?id=17331
+  [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/it-it/download/details.aspx?id=4451
+  [WCF Data Services per OData V3]: http://www.microsoft.com/download/en/details.aspx?id=29306
+  [Cmdlet di Office 365 PowerShell]: http://onlinehelp.microsoft.com/it-it/office365-enterprises/ff652560.aspx
+  [Introduzione]: #introduction
+  [Passaggio 1: Creare un'applicazione ASP.NET MVC]: #createapp
+  [Passaggio 2: Eseguire il provisioning dell'applicazione nel tenant della directory della società]: #provisionapp
+  [Passaggio 3: Proteggere l'applicazione mediante WS-Federation per l'accesso dei dipendenti]: #protectapp
+  [Passaggio 4: Leggere i dati della directory tramite l'API Graph]: #readdata
+  [Riepilogo]: #summary
+  [Applicazione di esempio con supporto della scrittura per l'API Graph]: http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502
+  [Graph di AD di Azure e controllo di accesso basato sui ruoli]: http://msdn.microsoft.com/it-it/library/hh974466.aspx
+  [vedere gli articoli sull'argomento su MSDN]: http://msdn.microsoft.com/it-it/library/hh974476.aspx
+  [Sviluppo di applicazioni per cloud multitenant con Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121

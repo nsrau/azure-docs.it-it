@@ -25,7 +25,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetStartedWithMobileServices], ovvero un progetto di app di Windows Store disponibile in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
-1.  Scaricare la versione in C\# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network][app GetStartedWithMobileServices].
+1.  Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network][app GetStartedWithMobileServices].
 
     ![][]
 
@@ -93,7 +93,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetSt
 
     Questo codice consente di inserire un nuovo elemento nella tabella.
 
-    <div class="dev-callout"><strong>Nota</strong><p>Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt, e __version. Quando &egrave; abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Schema dinamico</a>.</p></div>
+    <div class="dev-callout"><strong>Nota</strong><p>Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt, e __version. Quando &egrave; abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx">Schema dinamico</a>.</p></div>
 
 5.  Nel metodo **RefreshTodoItems** aggiungere il modificatore **async** al metodo, quindi rimuovere i simboli di commento dalla riga di codice seguente:
 
@@ -177,7 +177,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-data/ "iOS"
@@ -189,18 +189,18 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [Creazione del servizio mobile da Visual Studio]: #create-service
   [Aggiunta di una tabella dati per l'archiviazione e aggiornamento dell'app]: #add-table
   [Test dell'app in Servizi mobili]: #test-app
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28
   [app GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [Schema dinamico]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+  [Schema dinamico]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx
   [portale di gestione]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
-  [Utilizzo di script per la convalida e la modifica di dati]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [Utilizzo del paging per ridefinire le query]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [Introduzione all'autenticazione]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Utilizzo di script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [Utilizzo del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introduzione alle notifiche push]: ../mobile-services-windows-store-dotnet-get-started-push/
-  [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

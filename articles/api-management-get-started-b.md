@@ -149,7 +149,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 -   Personalizzare il portale per sviluppatori
 -   Tenere traccia delle chiamate usando Controllo API
 
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/
   [portale di gestione]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png

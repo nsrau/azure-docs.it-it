@@ -195,7 +195,7 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
   [Ottenere un token di accesso e chiamare l'API di SharePoint]: #obtain-token
   [Creare e caricare un documento di Word]: #create-document
   [Testare l'applicazione]: #test-application
-  [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
+  [SharePoint Online]: http://office.microsoft.com/it-it/sharepoint/
   [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png

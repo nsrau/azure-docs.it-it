@@ -419,7 +419,7 @@ In questa sezione verranno eseguite le attività seguenti:
 
 1.  In Visual Studio scegliere **Nuovo** \> **Progetto** dal menu **File**.
 
-2.  Nella finestra di dialogo **Nuovo progetto** scegliere **Visual C\#** \> **Web** \> **Applicazione Web ASP.NET**.
+2.  Nella finestra di dialogo **Nuovo progetto** scegliere **Visual C#** \> **Web** \> **Applicazione Web ASP.NET**.
 
 3.  Assegnare al progetto il nome ContosoAdsWeb e alla soluzione il nome ContosoAdsWebJobsSDK (cambiare il nome della soluzione se la si inserirà nella stessa cartella della soluzione scaricata) e quindi fare clic su **OK**.
 
@@ -443,7 +443,7 @@ In questa sezione verranno eseguite le attività seguenti:
 
 8.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non sul progetto, quindi scegliere **Aggiungi** \> **Nuovo progetto**.
 
-9.  Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Visual C\#** \> **Windows Desktop** \> modello **Libreria di classi**.
+9.  Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Visual C#** \> **Windows Desktop** \> modello **Libreria di classi**.
 
 10. Assegnare il nome *ContosoAdsCommon* al progetto, quindi fare clic su **OK**.
 
@@ -890,7 +890,7 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [come gestire gli account di archiviazione]: /it-it/documentation/articles/storage-manage-storage-account/
   [Nuovo account di archiviazione]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png
-  [SQL Server Express LocalDB]: http://msdn.microsoft.com/en-us/library/hh510202.aspx
+  [SQL Server Express LocalDB]: http://msdn.microsoft.com/it-it/library/hh510202.aspx
   [1]: http://manage.windowsazure.com/
   [Manage Access Keys button]: ./media/websites-dotnet-webjobs-sdk-get-started/mak.png
   [Manage Access Keys dialog]: ./media/websites-dotnet-webjobs-sdk-get-started/cpak.png
@@ -924,7 +924,7 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
   [sezione Program.cs]: #programcs
   [ResolveBlobName]: #resolveblobname
   [criterio per l'esecuzione di nuovi tentativi]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-  [HttpPostedFileBase]: http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx
+  [HttpPostedFileBase]: http://msdn.microsoft.com/it-it/library/system.web.httppostedfilebase.aspx
   [l'annuncio della versione beta di WebJobs SDK 0.3.0]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [versione dell'applicazione per i servizi cloud]: /it-it/documentation/articles/cloud-services-dotnet-get-started/
   [https://{nomesitoweb}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions

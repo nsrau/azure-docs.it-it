@@ -112,7 +112,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS"

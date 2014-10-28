@@ -300,7 +300,7 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
   [Windows Phone]: /it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
   [iOS]: /it-it/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
   [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
-  [linee guida per gli hub di notifica]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [linee guida per gli hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
   [Aggiunta della selezione delle categorie all'app]: #adding-categories
   [Registrazione per le notifiche]: #register
   [Invio di notifiche dal back-end]: #send
@@ -308,5 +308,5 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
   [Introduzione ad Hub di notifica]: /it-it/documentation/articles/notification-hubs-android-get-started/
    
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  [Utilizzo di Hub di notifica per la trasmissione di notizie localizzate]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-  [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /en-us/manage/services/notification-hubs/notify-users
+  [Utilizzo di Hub di notifica per la trasmissione di notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-localized-dotnet/
+  [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users

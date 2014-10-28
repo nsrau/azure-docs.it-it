@@ -19,7 +19,7 @@
 
 Questo argomento descrive come usare Servizi mobili di Azure come origine dati di back-end per un'app per Android. In questa esercitazione si creerà un nuovo servizio mobile, si scaricherà un progetto Eclipse Android per un'app che archivia dati in memoria, si integrerà il servizio mobile con l'app e quindi si visualizzeranno le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Sarà quindi possibile usare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][] di questo argomento.
+Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Sarà quindi possibile usare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][versione per back-end JavaScript] di questo argomento.
 
 <div class="dev-callout"><b>Nota</b>
 <p>Per completare questa esercitazione, &egrave; necessario disporre di Visual Studio 2013.</p>
@@ -27,31 +27,31 @@ Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Sar�
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Creazione di un nuovo servizio mobile][]
-2.  [Scaricare il servizio mobile in locale][]
-3.  [Test del servizio mobile][]
-4.  [Pubblicazione del servizio mobile in Azure][]
-5.  [Scaricare il progetto GetStartedWithData][]
-6.  [Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati][]
-7.  [Eseguire il test dell'app sul servizio mobile pubblicato][]
+1.  [Creazione di un nuovo servizio mobile][Creazione di un nuovo servizio mobile]
+2.  [Scaricare il servizio mobile in locale][Scaricare il servizio mobile in locale]
+3.  [Test del servizio mobile][Test del servizio mobile]
+4.  [Pubblicazione del servizio mobile in Azure][Pubblicazione del servizio mobile in Azure]
+5.  [Scaricare il progetto GetStartedWithData][Scaricare il progetto GetStartedWithData]
+6.  [Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati][Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati]
+7.  [Eseguire il test dell'app sul servizio mobile pubblicato][Eseguire il test dell'app sul servizio mobile pubblicato]
 
 <div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 ## <a name="create-service"></a><span class="short-header">Creazione di un nuovo servizio mobile</span>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
 
 ## <a name="download-the-service"></a><span class="short-header">Scaricare il servizio</span>Scaricare il servizio mobile nel computer locale
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally][mobile-services-download-service-locally]]
 
 ## <a name="test-the-service"></a><span class="short-header">Eseguire il test del servizio</span>Eseguire il test del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
 
 ## <a name="publish-the-service"></a><span class="short-header">Pubblicare il servizio</span>Pubblicare il servizio mobile in Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
 
 ## <a name="download-app"></a><span class="short-header">Download del progetto</span>Download del progetto GetStartedWithData
 
@@ -61,15 +61,15 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 ### Verificare la versione di Android SDK
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][mobile-services-verify-android-sdk-version]]
 
 ### Esaminare ed eseguire il codice di esempio
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code][]]
+[WACOM.INCLUDE [mobile-services-android-run-sample-code][mobile-services-android-run-sample-code]]
 
 ## <a name="update-app"></a><span class="short-header">Aggiornamento dell'app</span>Aggiornamento dell'app per l'utilizzo del servizio mobile per l'accesso ai dati
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][mobile-services-android-getting-started-with-data]]
 
 ## <a name="test-app"></a><span class="short-header">Eseguire il test dell'app</span>Eseguire il test dell'app sul servizio mobile pubblicato
 
@@ -105,13 +105,13 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
 
 Provare a eseguire una delle esercitazioni seguenti:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][]
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
 <!-- Anchors. --> 

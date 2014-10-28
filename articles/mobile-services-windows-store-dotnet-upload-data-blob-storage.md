@@ -1,9 +1,12 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
+<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili
-============================================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+# Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#" class="current">Windows Store C#</a><a href="/it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
+
+<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title=".NET backend" >Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="JavaScript backend" class="current">Back-end JavaScript</a></div>
 
 In questo argomento verrà illustrato come utilizzare Servizi mobili di Azure per consentire alla propria app di caricare e archiviare immagini generate dall'utente in Archiviazione di Azure. Servizi mobili utilizza un database SQL per archiviare i dati. I dati BLOB vengono tuttavia archiviati in modo più efficiente nel servizio di archiviazione BLOB di Azure.
 
@@ -11,60 +14,75 @@ Non è possibile distribuire in modo sicuro con l'app client le credenziali nece
 
 In questa esercitazione verranno aggiunte funzionalità all'app di guida introduttiva per Servizi mobili per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili. L'esercitazione fornisce istruzioni dettagliate sulle operazioni di base per aggiornare il progetto di guida introduttiva per Servizi mobili in modo da caricare immagini nel servizio di archiviazione BLOB:
 
-1.  [Installazione della libreria client di archiviazione](#install-storage-client)
-2.  [Aggiornamento dello script insert per generare una firma di accesso condiviso](#update-scripts)
-3.  [Aggiornamento dell'app client per l'acquisizione di immagini](#add-select-images)
-4.  [Caricamento delle immagini per verificare l'app](#test)
+1.  [Installazione della libreria client di archiviazione][Installazione della libreria client di archiviazione]
+2.  [Aggiornamento dello script insert per generare una firma di accesso condiviso][Aggiornamento dello script insert per generare una firma di accesso condiviso]
+3.  [Aggiornamento dell'app client per l'acquisizione di immagini][Aggiornamento dell'app client per l'acquisizione di immagini]
+4.  [Caricamento delle immagini per verificare l'app][Caricamento delle immagini per verificare l'app]
 
 Per completare questa esercitazione, è necessario disporre di:
 
 -   Microsoft Visual Studio 2012 Express per Windows 8 o versione successiva
--   [Account di archiviazione di Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
+-   [Account di archiviazione di Azure][Account di archiviazione di Azure]
 -   Una fotocamera o un altro dispositivo per l'acquisizione di immagini collegato al computer.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started).
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
-Installazione del client di archiviazione per le app di Windows Store
----------------------------------------------------------------------
+## <a name="install-storage-client"></a>Installazione del client di archiviazione per le app di Windows Store
 
 Per poter utilizzare una firma di accesso condiviso per caricare immagini nel servizio di archiviazione BLOB, è necessario aggiungere innanzitutto il pacchetto NuGet che consente di installare la libreria client di archiviazione per le app di Windows Store.
 
 1.  In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Manage NuGet Packages**.
 
-2.  Nel riquadro sinistro selezionare la categoria **Online**, cercare `WindowsAzure.Storage`, fare clic su **Installa** nel pacchetto di **Archiviazione di Azure**, quindi accettare il contratto di licenza.
+2.  Nel riquadro sinistro selezionare la categoria **Online**, cercare `WindowsAzure.Storage`, fare clic su **Installa** nel pacchetto di **Archiviazione di Azure**, quindi accettare i contratti di licenza.
 
-  	![](./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
+    ![][]
 
-  	La libreria client per i servizi di archiviazione di Azure verrà aggiunta al progetto.
+    La libreria client per i servizi di archiviazione di Azure verrà aggiunta al progetto.
 
 A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e caricare le immagini.
 
-Aggiornamento dello script insert registrato nel portale di gestione
---------------------------------------------------------------------
+## <a name="update-scripts"></a>Aggiornamento dello script insert registrato nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[WACOM.INCLUDE [mobile-services-configure-blob-storage][mobile-services-configure-blob-storage]]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
 
-Passaggi successivi
--------------------
+## <a name="next-steps"> </a>Passaggi successivi
 
 Ora che le immagini sono state caricate in modo sicuro integrando il servizio mobile con il servizio BLOB, leggere altri argomenti sul servizio back-end e sull'integrazione:
 
--   [Invio di posta elettronica da Servizi mobili con SendGrid](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/)
+-   [Invio di posta elettronica da Servizi mobili con SendGrid][Invio di posta elettronica da Servizi mobili con SendGrid]
 
-    Informazioni su come aggiungere funzionalità di posta elettronica a un servizio mobile tramite il servizio di posta elettronica SendGrid. Questo argomento illustra come aggiungere script sul lato server per inviare messaggi di posta elettronica tramite SendGrid.
+Informazioni su come aggiungere funzionalità di posta elettronica a un servizio mobile tramite il servizio di posta elettronica SendGrid. Questo argomento illustra come aggiungere script sul lato server per inviare messaggi di posta elettronica tramite SendGrid.
 
--   [Pianificazione di processi back-end in Servizi mobili](/it-it/documentation/articles/mobile-services-schedule-recurring-tasks)
+-   [Pianificazione di processi back-end in Servizi mobili][Pianificazione di processi back-end in Servizi mobili]
 
-    Informazioni su come utilizzare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
+Informazioni su come utilizzare la funzionalità di pianificazione di processi di Servizi mobili per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente.
 
--   [Riferimento per gli script server di Servizi mobili](http://go.microsoft.com/fwlink/p/?LinkId=262293)
+-   [Riferimento per gli script server di Servizi mobili][Riferimento per gli script server di Servizi mobili]
 
-    Argomenti di riferimento per l'utilizzo di script del server per eseguire operazioni sul lato server e per l'integrazione con altri componenti e risorse esterne di Azure.
+Argomenti di riferimento per l'utilizzo di script del server per eseguire operazioni sul lato server e per l'integrazione con altri componenti e risorse esterne di Azure.
 
--   [Riferimento per i concetti e le procedure di .NET per Servizi mobili](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Riferimento per i concetti e le procedure di .NET per Servizi mobili][Riferimento per i concetti e le procedure di .NET per Servizi mobili]
 
-    Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
+Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#"
+  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone"
+  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET backend"
+  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript backend"
+  [Installazione della libreria client di archiviazione]: #install-storage-client
+  [Aggiornamento dello script insert per generare una firma di accesso condiviso]: #update-scripts
+  [Aggiornamento dell'app client per l'acquisizione di immagini]: #add-select-images
+  [Caricamento delle immagini per verificare l'app]: #test
+  [Account di archiviazione di Azure]: /it-it/manage/services/storage/how-to-create-a-storage-account
+  [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
+  []: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
+  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
+  [Invio di posta elettronica da Servizi mobili con SendGrid]: /it-it/develop/mobile/tutorials/send-email-with-sendgrid/
+  [Pianificazione di processi back-end in Servizi mobili]: /it-it/documentation/articles/mobile-services-schedule-recurring-tasks
+  [Riferimento per gli script server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+  [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

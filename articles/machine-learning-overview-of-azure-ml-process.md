@@ -16,7 +16,7 @@ Un tipico progetto Microsoft Azure Machine Learning (Azure ML) comprende i segue
 
 I passaggi 1-3 vengono generalmente completati da un data scientist attraverso più iterazioni, alla fine delle quali un modello ML viene passato ai team di progettazione e operazioni per integrarlo e usarlo nei sistemi di produzione.
 
-Il processo tradizionale di integrazione e distribuzione del modello ML in un sistema di produzione richiede settimane o addirittura mesi, a seconda del codice usato per compilare i modelli come R, Python, C\# o Java, le considerazioni relative a infrastruttura e integrazione delle piattaforme e la pianificazione della distribuzione.
+Il processo tradizionale di integrazione e distribuzione del modello ML in un sistema di produzione richiede settimane o addirittura mesi, a seconda del codice usato per compilare i modelli come R, Python, C# o Java, le considerazioni relative a infrastruttura e integrazione delle piattaforme e la pianificazione della distribuzione.
 
 Azure ML semplifica e ottimizza il processo rendendo semplice e intuitiva la creazione e la valutazione del modello e offrendo un processo di distribuzione dell'esperimento come servizio Web in Azure, riducendo così il tempo complessivo dalla sperimentazione all'esecuzione del modello nella produzione come servizio Web.
 
@@ -153,7 +153,7 @@ Figura 10: Notifica della distribuzione e opzione per la distribuzione in produz
 
 #### RRS
 
-Il servizio Web RRS è un endpoint REST e può essere chiamato dalle applicazioni client mediante diversi linguaggi di programmazione. La pagina della guida API fornisce un collegamento al codice di esempio per chiamare il nuovo servizio Web che include esempi in C\#, R e Python.
+Il servizio Web RRS è un endpoint REST e può essere chiamato dalle applicazioni client mediante diversi linguaggi di programmazione. La pagina della guida API fornisce un collegamento al codice di esempio per chiamare il nuovo servizio Web che include esempi in C#, R e Python.
 
 ![][10]
 

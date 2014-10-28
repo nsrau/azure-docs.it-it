@@ -158,5 +158,5 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
   [Log nel portale di gestione di Azure]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
   [pacchetti NuGet del back-end .NET]: http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22
   [Pagina della guida indicante il conflitto di caricamento dell'assembly]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-  [Migrazioni Code First]: http://msdn.microsoft.com/en-us/data/jj591621
+  [Migrazioni Code First]: http://msdn.microsoft.com/it-it/data/jj591621
   [Come modificare un modello di dati in un servizio mobile back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/

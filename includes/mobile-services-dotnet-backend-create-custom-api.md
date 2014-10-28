@@ -2,9 +2,9 @@
 
     Verrà visualizzata la finestra di dialogo Add Scaffold.
 
-2.  Espandere **Azure Mobile Services** e fare clic su **Azure Mobile Services Custom Controller** e quindi su **Add**, specificare `CompleteAllController` per **Controller name** e infine fare di nuovo clic su **Add**.
+2.  Espandere **Azure Mobile Services** e selezionare **Azure Mobile Services Custom Controller**, quindi fare clic su **Aggiungi**, specificare un valore in **Nome controller** di `CompleteAllController` e infine fare di nuovo clic su **Aggiungi**.
 
-    ![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
+    ![Finestra di dialogo Add Scaffold dell'API Web][Finestra di dialogo Add Scaffold dell'API Web]
 
     Verrà creata una nuova classe controller vuota denominata **CompleteAllController**.
 
@@ -12,38 +12,54 @@
 
 1.  Nel nuovo file di progetto CompleteAllController.cs aggiungere le istruzioni **using** seguenti:
 
-         using System.Threading.Tasks;
-         using todolistService.Models;
+        using System.Threading.Tasks;
+        using todolistService.Models;
 
-    Nel codice precedente sostituire `todolistService` con lo spazio dei nomi del progetto di servizio mobile, che non deve essere il nome del servizio mobile aggiunto con `Service`.
+    Nel codice precedente sostituire `todolistService` con lo spazio dei nomi del progetto di servizio mobile, che deve essere costituito dal nome del servizio mobile a cui viene aggiunto `Service`.
 
-2.  Aggiungere il codice seguente al nuovo controller:
+2.  In CompleteAllController.cs aggiungere allo spazio dei nomi la definizione di classe riportata di seguito. La classe include la risposta inviata al client.
 
-         // POST api/completeall        
-         public Task<int> Post()
-         {
-             using (todolistContext context = new todolistContext())
-             {
-                 // Get the database from the context.
-                 var database = context.Database;
+        // We use this class to keep parity with other Mobile Services
+        // that use the JavaScript backend. This way the same client
+        // code can call either type of Mobile Service backend.
+        public class MarkAllResult
+        {
+            public Int32 count;
+        }
 
-                 // Create a SQL statement that sets all uncompleted items
-                 // to complete and execute the statement asynchronously.
-                 var sql = @"UPDATE TodoItems SET Complete = 1 " +
-                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
-                 var result = database.ExecuteSqlCommandAsync(sql);
+3.  Aggiungere il codice seguente al nuovo controller:
 
-                 // Log the result.
-                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
-                     result.ToString()));
-                    
-                 return result;
-             }
-         }
+        // POST api/completeall        
+        public async Task<MarkAllResult> Post()
+        {
+            using (todolistContext context = new todolistContext())
+            {
+                // Get the database from the context.
+                var database = context.Database;
 
-    Nel codice precedente sostituire `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che dovrà corrispondere al nome del servizio mobile aggiunto con `Context`. In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/it-it/library/system.data.entity.database(v=vs.113).aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
+                // Create a SQL statement that sets all uncompleted items
+                // to complete and execute the statement asynchronously.
+                var sql = @"UPDATE todolistService.TodoItems SET Complete = 1 " +
+                            @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
+
+                var result = new MarkAllResult();
+                result.count = await database.ExecuteSqlCommandAsync(sql);
+
+                // Log the result.
+                Services.Log.Info(string.Format("{0} items set to 'complete'.", 
+                    result.count.ToString()));
+
+                return result;
+            }
+        }
+
+    Nel codice precedente sostituire `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che deve essere costituito dal nome del servizio mobile a cui viene aggiunto `Context`. Sostituire inoltre il nome dello schema nell'istruzione UPDATE con il nome del servizio mobile.
+
+    In questo codice viene utilizzata la [classe di database][classe di database] per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
     > [WACOM.NOTE] Poiché vengono impostate autorizzazioni predefinite, qualsiasi utente dell'app può chiamare l'API personalizzata. Tuttavia, la chiave dell'applicazione non viene distribuita né archiviata in modo sicuro e non può essere considerata una credenziale di sicurezza. Per questo motivo, è consigliabile limitare l'accesso solo agli utenti autenticati per le operazioni che modificano dati o hanno effetto sul servizio mobile.
 
-In seguito, l'app di guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
+In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
 
+  [Finestra di dialogo Add Scaffold dell'API Web]: ./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png
+  [classe di database]: http://msdn.microsoft.com/it-it/library/system.data.entity.database.aspx

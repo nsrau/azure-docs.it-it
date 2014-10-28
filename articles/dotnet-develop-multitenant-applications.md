@@ -1,24 +1,40 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
--   [Calcolo](/en-us/develop/net/compute/)
--   [Servizi dati](/en-us/develop/net/data/)
--   [Servizi app](/en-us/develop/net/app-services/)
--   [Riferimento](/en-us/develop/net/reference/)
--   [Indicazioni](/en-us/develop/net/guidance/)
--   [Architettura](/en-us/develop/net/architecture/)
--   [Esempi](/en-us/develop/net/samples/)
--   [Esercitazioni basate su scenari](/en-us/develop/net/end-to-end-Apps/)
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
--   [Forum](/en-us/support/forums/)
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/it-it/develop/net/compute/">Calcolo</a></li>
+<li class="menu-nodejs-data"><a href="/it-it/develop/net/data/">Servizi dati</a></li>
+<li class="menu-nodejs-appservices"><a href="/it-it/develop/net/app-services/">Servizi app</a></li>
+<li><a href="/it-it/develop/net/reference/">Riferimento</a></li>
+<li><a href="/it-it/develop/net/guidance/">Indicazioni</a></li>
+<li><a href="/it-it/develop/net/architecture/">Architettura</a></li>
+<li><a href="/it-it/develop/net/samples/">Esempi</a></li>
+<li><a href="/it-it/develop/net/end-to-end-Apps/">Esercitazioni basate su scenari</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/it-it/support/forums/">Forum</a></li>
+</ul>
+</div>
 
--   In questa sezione (passare a):
--   [Panoramica dell'architettura dell'applicazione](/en-us/develop/net/architecture/#overviews)
--   **Modello dell'applicazione: App multi-tenant**
--   [Modello dell'applicazione: Test di carico](/en-us/develop/net/architecture/load-testing-pattern/)
--   [Modelli di progettazione](/en-us/develop/net/architecture/#designpatterns)
+<div class="floating-nav jump-to"><br />
+<ul>
+<li>In questa sezione (passare a):</li>
+<li><a href="/it-it/develop/net/architecture/#overviews">Panoramica dell'architettura dell'applicazione</a></li>
+<li><strong>Modello dell'applicazione: App multi-tenant</strong></li>
+<li><a href="/it-it/develop/net/architecture/load-testing-pattern/">Modello dell'applicazione: Test di carico</a></li>
+<li><a href="/it-it/develop/net/architecture/#designpatterns">Modelli di progettazione</a></li>
+</ul>
+</div>
 
-Applicazioni multi-tenant in Azure
-==================================
+</div>
+
+</div>
+
+# Applicazioni multi-tenant in Azure
 
 Un'applicazione multi-tenant è una risorsa condivisa che consente a utenti separati, o "tenant", di visualizzare l'applicazione come se fosse la propria. Uno degli scenari tipici di un'applicazione multi-tenant è quando tutti gli utenti dell'applicazione desiderano personalizzare l'esperienza utente, ma dispongono tutti degli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
 
@@ -40,7 +56,7 @@ Un'applicazione multi-tenant correttamente implementata offre agli utenti i vant
 
 In breve, benché sia necessario prendere in considerazione vari aspetti al fine di fornire un servizio altamente scalabile, vi è anche una serie di obiettivi e requisiti comuni a molte applicazioni multi-tenant. Alcuni potrebbero non essere pertinenti in scenari specifici e l'importanza dei singoli obiettivi e requisiti varierà in ogni scenario. Anche il fornitore di un'applicazione multi-tenant avrà obiettivi e requisiti, ad esempio soddisfare gli obiettivi e i requisiti dei tenant, redditività, fatturazione, vari livelli di servizio, provisioning, monitoraggio della manutenibilità e automazione.
 
-Per ulteriori informazioni sulle considerazioni di progettazione di un'applicazione multi-tenant vedere [Hosting di un'applicazione multi-tenant in Azure](http://msdn.microsoft.com/it-it/library/hh534480.aspx).
+Per altre informazioni sulle considerazioni di progettazione di un'applicazione multi-tenant vedere [Hosting di un'applicazione multi-tenant in Azure][Hosting di un'applicazione multi-tenant in Azure].
 
 Azure offre molte funzionalità che consentono di risolvere i principali problemi riscontrati durante la progettazione di un sistema multi-tenant.
 
@@ -49,6 +65,7 @@ Azure offre molte funzionalità che consentono di risolvere i principali problem
 -   Segmentare i tenant del sito Web in base alle intestazioni host con o senza comunicazione SSL
 -   Segmentare i tenant del sito Web in base ai parametri della query
 -   Servizi Web nei ruoli di lavoro
+
     -   Ruoli di lavoro che solitamente elaborano i dati sul back-end di un'applicazione.
     -   Ruoli Web che solitamente fungono da front-end per le applicazioni.
 
@@ -59,7 +76,7 @@ La gestione dati come SQL Azure Database o i servizi di Azure Storage come il se
 -   Protezione di dati multi-tenant nel database SQL appropriati per l'accesso a SQL Server di ogni tenant
 -   Uso di tabelle Azure per le risorse dell'applicazione - Specificando criteri di accesso a livello di contenitore, sarà possibile modificare le autorizzazioni senza dover generare nuovi URL per le risorse protette mediante firme di accesso condiviso.
 -   Code di Azure per le risorse dell'applicazione - Le code di Azure sono comunemente utilizzate per attivare l'elaborazione per conto dei tenant, ma possono essere utilizzate anche per distribuire il lavoro richiesto per il provisioning o la gestione.
--   Code di bus di servizio - Per le risorse dell'applicazione che effettuano il push del lavoro a un servizio condiviso, è possibile utilizzare una singola coda in cui ogni mittente del tenant dispone solo delle autorizzazioni (in base alle attestazioni generate da ACS) per effettuare il push a quella coda, mentre solo i ricevitori dal servizio dispongono dell'autorizzazione per effettuare il pull dei dati provenienti da più tenant dalla coda.
+-   Code di bus di servizio - Per le risorse dell'applicazione che effettuano il push del lavoro a un servizio condiviso, è possibile usare una singola coda in cui ogni mittente del tenant dispone solo delle autorizzazioni (in base alle attestazioni generate da ACS) per effettuare il push a quella coda, mentre solo i ricevitori dal servizio dispongono dell'autorizzazione per effettuare il pull dei dati provenienti da più tenant dalla coda.
 
 **Servizi di connessione e sicurezza**
 
@@ -78,8 +95,8 @@ Azure offre diversi servizi di rete che supportano l'autenticazione e migliorano
 
 Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l'applicazione. Per le applicazioni multi-tenant che contano un ingente numero di tenant, di solito è necessario automatizzare il processo abilitando il provisioning self-service.
 
--   I ruoli di lavoro consentono di eseguire il provisioning e il deprovisioning delle risorse per ogni tenant (ad esempio quando un nuovo tenant effettua o annulla l'iscrizione), raccogliendo metriche per misurare l'utilizzo e gestendo la scalabilità in base a una determinata pianificazione o in risposta al superamento di soglie degli indicatori di prestazioni chiave. Questo stesso ruolo può essere utilizzato anche per effettuare il push di aggiornamenti alla soluzione.
--   È possibile utilizzare l'archivio BLOB di Azure per effettuare il provisioning delle risorse di calcolo o di archiviazione preinizializzate per i nuovi tenant, fornendo criteri di accesso a livello di contenitore per proteggere i pacchetti del servizio di calcolo, le immagini del disco rigido virtuale e altre risorse.
+-   I ruoli di lavoro consentono di eseguire il provisioning e il deprovisioning delle risorse per ogni tenant (ad esempio quando un nuovo tenant effettua o annulla l'iscrizione), raccogliendo metriche per misurare l'uso e gestendo la scalabilità in base a una determinata pianificazione o in risposta al superamento di soglie degli indicatori di prestazioni chiave. Questo stesso ruolo può essere usato anche per effettuare il push di aggiornamenti alla soluzione.
+-   È possibile usare l'archivio BLOB di Azure per effettuare il provisioning delle risorse di calcolo o di archiviazione preinizializzate per i nuovi tenant, fornendo criteri di accesso a livello di contenitore per proteggere i pacchetti del servizio di calcolo, le immagini del disco rigido virtuale e altre risorse.
 -   Le opzioni per il provisioning delle risorse del database SQL per un tenant includono:
 
     -   DDL in script o incorporate come risorse negli assembly
@@ -87,5 +104,20 @@ Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l
     -   Copia da un database di riferimento master
     -   Utilizzo delle funzionalità di importazione ed esportazione del database per il provisioning di nuovi database da un file
 
-Per un approfondimento sulle modalità di applicazione di Azure alle applicazioni multi-tenant vedere la pagina relativa alla [progettazione di applicazioni multi-tenant in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/hh689716).
 
+
+<!--links-->
+
+  [Calcolo]: /it-it/develop/net/compute/
+  [Servizi dati]: /it-it/develop/net/data/
+  [Servizi app]: /it-it/develop/net/app-services/
+  [Riferimento]: /it-it/develop/net/reference/
+  [Indicazioni]: /it-it/develop/net/guidance/
+  [Architettura]: /it-it/develop/net/architecture/
+  [Esempi]: /it-it/develop/net/samples/
+  [Esercitazioni basate su scenari]: /it-it/develop/net/end-to-end-Apps/
+  [Forum]: /it-it/support/forums/
+  [Panoramica dell'architettura dell'applicazione]: /it-it/develop/net/architecture/#overviews
+  [Modello dell'applicazione: Test di carico]: /it-it/develop/net/architecture/load-testing-pattern/
+  [Modelli di progettazione]: /it-it/develop/net/architecture/#designpatterns
+  [Hosting di un'applicazione multi-tenant in Azure]: http://msdn.microsoft.com/it-it/library/hh534480.aspx

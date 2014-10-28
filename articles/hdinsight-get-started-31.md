@@ -237,7 +237,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 - [Usare Hive con HDInsight][Usare Hive con HDInsight]
 - [Usare Pig con HDInsight][Usare Pig con HDInsight]
 - [Usare Oozie con HDInsight][Usare Oozie con HDInsight]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C\# per HDInsight][Sviluppare programmi per la creazione di flussi Hadoop in C\# per HDInsight]
+- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight]
 - [Sviluppare programmi MapReduce Java per HDInsight][Sviluppare programmi MapReduce Java per HDInsight]
 
   [Hadoop 2.2]: ../hdinsight-get-started "Get started using Hadoop 2.2 in HDInsight"
@@ -246,9 +246,9 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [Apache Hadoop]: http://hadoop.apache.org/
   [Novità delle versioni cluster incluse in HDInsight]: ../hdinsight-component-versioning/
   [Introduzione a HDInsight Emulator]: ../hdinsight-get-started-emulator/
-  [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
+  [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
+  [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Note sulla versione di HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-release-notes/
   [Provisioning di un cluster HDInsight]: #provision
   [Eseguire un processo Hive]: #sample
@@ -264,7 +264,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Area download Microsoft]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [Area download Microsoft]: http://www.microsoft.com/it-it/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [Amministrazione di HDInsight tramite PowerShell]: ../hdinsight-administer-use-powershell/
@@ -273,5 +273,5 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [Usare Hive con HDInsight]: ../hdinsight-use-hive/
   [Usare Pig con HDInsight]: ../hdinsight-use-pig/
   [Usare Oozie con HDInsight]: ../hdinsight-use-oozie/
-  [Sviluppare programmi per la creazione di flussi Hadoop in C\# per HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Sviluppare programmi MapReduce Java per HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

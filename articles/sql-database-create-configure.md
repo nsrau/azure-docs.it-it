@@ -1,22 +1,21 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="Lori Clark," solutions="" manager="" editor="" />
 
-Come creare e configurare un database SQL
-=========================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark,"></tags>
+
+# <span id="configLogical"></span></a>Come creare e configurare un database SQL
 
 In questo argomento verranno illustrate le procedure per la creazione e la configurazione di un server logico. Nel nuovo portale di gestione di Azure (anteprima) i flussi di lavoro revisionati consentono di creare prima un database e quindi un server.
 
 Tuttavia, in questo argomento verrà creato prima il server. Questo approccio può essere preferibile se si dispone già di alcuni database di SQL Server da caricare.
 
-Sommario
---------
+## Sommario
 
--   [Procedura: Creare un server logico](#createLogical)
--   [Procedura: Configurare il firewall per il server logico](#configFWLogical)
+-   [Procedura: Creare un server logico][Procedura: Creare un server logico]
+-   [Procedura: Configurare il firewall per il server logico][Procedura: Configurare il firewall per il server logico]
 
-Procedura: Creare un server logico
-----------------------------------
+## <span id="createLogical"></span></a>Procedura: Creare un server logico
 
-1.  Accedere al [portale di gestione](http://manage.windowsazure.com).
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Fare clic su **SQL Database** e quindi, nella pagina iniziale SQL Database, su **SERVERS**.
 
@@ -28,7 +27,7 @@ Procedura: Creare un server logico
 
     L'account di accesso non può essere un indirizzo di posta elettronica, un account utente Windows o un Windows Live ID. In un database SQL non sono supportate né l'autenticazione basata sulle attestazioni né l'autenticazione di Windows.
 
-5.  Impostare una password complessa composta da più di otto caratteri, utilizzando una combinazione di caratteri in minuscolo e maiuscolo e da un numero o un simbolo.
+5.  Impostare una password complessa composta da più di otto caratteri, usando una combinazione di caratteri in minuscolo e maiuscolo e da un numero o un simbolo.
 
 6.  Scegliere un'area, che determina la posizione geografica del server. Poiché le aree non possono essere cambiate facilmente, sceglierne una significativa per questo server. Selezionare la posizione più vicina. Per ridurre i costi relativi alla larghezza di banda in uscita e la latenza dei dati, è consigliabile mantenere il database e l'applicazione Azure nella stessa area.
 
@@ -40,10 +39,9 @@ Si noti che non è stato specificato un nome di server. Il database SQL genera a
 
 Nel passaggio successivo si configurerà il firewall in modo da consentire l'accesso alle connessioni da applicazioni in esecuzione nella rete.
 
-Procedura: Configurare il firewall per il server logico
--------------------------------------------------------
+## <span id="configFWLogical"></span></a>Procedura: Configurare il firewall per il server logico
 
-1.  Nel [portale di gestione](http://manage.windowsazure.com) fare clic su **SQL Databases**, su **Servers** e quindi sul server appena creato.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **SQL Databases**, su **Servers** e quindi sul server appena creato.
 
 2.  Fare clic su **Configure**.
 
@@ -63,3 +61,6 @@ A questo punto sono stati configurati un server logico, una regola del firewall 
 
 **Nota:** il server logico appena creato è temporaneo e verrà ospitato dinamicamente nei server fisici di un data center. Se si elimina il server, tenere presente che si tratta di un'azione irreversibile. Assicurarsi di eseguire il backup di tutti i database caricati in seguito nel server.
 
+  [Procedura: Creare un server logico]: #createLogical
+  [Procedura: Configurare il firewall per il server logico]: #configFWLogical
+  [portale di gestione]: http://manage.windowsazure.com

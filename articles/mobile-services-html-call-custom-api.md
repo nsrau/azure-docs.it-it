@@ -10,17 +10,17 @@ Questo argomento descrive come chiamare un'API personalizzata da un'app HTML. Un
 
 L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag completato su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili][] o [Introduzione ai dati][]. A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. A questo scopo, verranno eseguiti i passaggi seguenti:
 
-1.  [Definizione dell'API personalizzata][]
-2.  [Aggiornamento dell'app per la chiamata all'API personalizzata][]
-3.  [Test dell'app][]
+1.  [Definizione dell'API personalizzata][Definizione dell'API personalizzata]
+2.  [Aggiornamento dell'app per la chiamata all'API personalizzata][Aggiornamento dell'app per la chiamata all'API personalizzata]
+3.  [Test dell'app][Test dell'app]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][] o [Introduzione ai dati][].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati].
 
 ## <a name="define-custom-api"></a>Definizione dell'API personalizzata
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
 
 ## <a name="update-app"></a><span class="short-header">Aggiornamento dell'app </span>Aggiornamento dell'app per la chiamata all'API personalizzata
 
@@ -66,7 +66,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Dopo avere creato un'API personalizzata e averla chiamata dall'app HTML, per altre informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla creazione di API personalizzate.
 
 <!-- Anchors. --> 

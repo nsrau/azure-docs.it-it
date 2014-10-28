@@ -243,7 +243,7 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
   [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET backend"
   [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript backend"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -257,8 +257,8 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
   [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [Codici di errore di Graph di AD di Microsoft Azure]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-  [IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+  [Codici di errore di Graph di AD di Microsoft Azure]: http://msdn.microsoft.com/it-it/library/azure/hh974480.aspx
+  [IsMemberOf]: http://msdn.microsoft.com/it-it/library/azure/dn151601.aspx
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png

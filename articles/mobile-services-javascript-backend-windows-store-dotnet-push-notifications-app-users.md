@@ -83,7 +83,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
   [Windows Phone]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"

@@ -1,16 +1,16 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-Installazione di software nella macchina virtuale Linux in Azure
-================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
-Per l'installazione di software le distribuzioni Linux utilizzano in genere "pacchetti" software. Questi pacchetti sono solitamente gestiti utilizzando una raccolta di comandi, ad esempio `apt` o `yum`. È inoltre possibile installare programmi senza un pacchetto, ad esempio con un file *tarball* del codice sorgente.
+# Installazione di software nella macchina virtuale Linux in Azure
+
+Per l'installazione di software le distribuzioni Linux utilizzano in genere "pacchetti" software. Questi pacchetti sono solitamente gestiti mediante un set di comandi, ad esempio `apt` o `yum`. È inoltre possibile installare programmi senza un pacchetto, ad esempio con un file *tarball* del codice sorgente.
 
 In questa sezione verrà trattato l'utilizzo di Gestione pacchetti per alcune delle distribuzioni Linux più diffuse. I passaggi saranno diversi in base alla distribuzione Linux in uso.
 
-**Nota:** in base alla modalità di configurazione dell'ambiente, è possibile che questi comandi debbano essere eseguiti utilizzando i privilegi dell'utente ROOT (mediante `sudo`).
+**Nota:** in base alla modalità di configurazione dell'ambiente, è possibile che questi comandi debbano essere eseguiti usando i privilegi radice (mediante `sudo`).
 
-CentOS/Red Hat
---------------
+## CentOS/Red Hat
 
 CentOS viene fornito con `yum` per la gestione dei pacchetti. Questo strumento consente di installare, disinstallare, aggiornare, elencare i pacchetti installati e altro ancora. La sintassi di questi comandi è riportata di seguito.
 
@@ -38,8 +38,7 @@ Viene mostrato un elenco di tutti i pacchetti installati sul computer.
 
     yum list installed
 
-Ubuntu
-------
+## Ubuntu
 
 Ubuntu viene fornito con `apt` (Advanced Packaging Tool) per la gestione dei pacchetti. Questo strumento consente di installare, disinstallare, aggiornare, elencare i pacchetti installati e altro ancora. La sintassi di questi comandi è riportata di seguito.
 

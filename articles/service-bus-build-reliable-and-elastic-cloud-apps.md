@@ -34,14 +34,14 @@ La domanda dinamica è un fattore da considerare per le nuove applicazioni. Le a
 
   [Applicazione .NET multilivello che usa le code del bus di servizio]: /it-it/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
   [Bus di servizio di Azure - David Chappell]: http://azure.microsoft.com/it-it/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-  [Modello di livellamento del carico basato sulle code]: http://msdn.microsoft.com/en-us/library/dn589783.aspx
-  [Consumer concorrenti]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
+  [Modello di livellamento del carico basato sulle code]: http://msdn.microsoft.com/it-it/library/dn589783.aspx
+  [Consumer concorrenti]: http://msdn.microsoft.com/it-it/library/dn568101.aspx
   [Provider di soluzioni di trasporto monitora veicoli commerciali - Xerox]: http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945
   [Come usare le code del bus di servizio]: http://azure.microsoft.com/it-it/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [Inserimento nella coda dei messaggi non recapitabili a scadenza nella messaggistica negoziata di Service Bus (post di blog del 21 ottobre 2011)]: http://geekswithblogs.net/asmith/articles/147398.aspx
-  [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio]: http://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/jj554355.aspx
+  [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio]: http://sandboxmsdnstage.redmond.corp.microsoft.com/it-it/library/azure/jj554355.aspx
   [Messaggistica negoziata: richiesta/risposta]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
   [1]: http://azure.microsoft.com/it-it/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Analogie e differenze tra le code di Azure e le code del bus di servizio]: http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx
-  [Informazioni di riferimento sulle API REST del bus di servizio]: http://msdn.microsoft.com/en-us/library/azure/hh780717.aspx
+  [Analogie e differenze tra le code di Azure e le code del bus di servizio]: http://msdn.microsoft.com/it-it/library/azure/hh767287.aspx
+  [Informazioni di riferimento sulle API REST del bus di servizio]: http://msdn.microsoft.com/it-it/library/azure/hh780717.aspx
   [Servizi cloud]: http://azure.microsoft.com/it-it/documentation/services/cloud-services/

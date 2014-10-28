@@ -21,31 +21,31 @@ Si apprenderà come:
 
 Nella figura seguente è illustrata l'applicazione completata:
 
-![Esempio di sito Web][]
+![Esempio di sito Web][Esempio di sito Web]
 
 <div class="dev-callout"><p><strong>Nota</strong> Per completare l'esercitazione &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>.</p></div>
 
 ### Sezioni dell'esercitazione
 
-1.  [Configurare l'ambiente di sviluppo][]
-2.  [Creare un sito Web in Azure][]
-3.  [Creare un'applicazione ASP.NET MVC 4][]
-4.  [Distribuire l'applicazione in Azure][]
-5.  [Passaggi successivi][]
+1.  [Configurare l'ambiente di sviluppo][Configurare l'ambiente di sviluppo]
+2.  [Creare un sito Web in Azure][Creare un sito Web in Azure]
+3.  [Creare un'applicazione ASP.NET MVC 4][Creare un'applicazione ASP.NET MVC 4]
+4.  [Distribuire l'applicazione in Azure][Distribuire l'applicazione in Azure]
+5.  [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [install-sdk-2012-only][]]
+[WACOM.INCLUDE [install-sdk-2012-only][install-sdk-2012-only]]
 
 ## <a name="setupwindowsazure"></a><span class="short-header">Creare il sito</span>Creare un sito Web
 
 Il passaggio successivo consiste nella creazione del sito Web di Azure.
 
-1.  Nel [portale di gestione di Azure][] fare clic su **Siti Web** e quindi su **Nuovo**.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Siti Web** e quindi su **Nuovo**.
 
-![Nuovo sito Web][]
+![Nuovo sito Web][Nuovo sito Web]
 
 1.  Fare clic su **Quick Create**.
 
-    ![Quick create][]
+    ![Quick create][Quick create]
 
 2.  Nel passaggio **Crea sito Web** della procedura guidata immettere nella casella **URL** una stringa da usare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. Nella figura è illustrata la stringa **example1**, ma se è già stata utilizzata da altri come URL sarà necessario immettere un valore diverso.
 
@@ -54,11 +54,11 @@ Il passaggio successivo consiste nella creazione del sito Web di Azure.
 
 4.  Fare clic sulla freccia **Crea sito Web**.
 
-    ![Creazione di un nuovo sito Web][]
+    ![Creazione di un nuovo sito Web][Creazione di un nuovo sito Web]
 
     Il portale di gestione torna alla pagina Siti Web e nella colonna **Stato** viene indicato che la creazione del sito è in corso. In genere, dopo meno di un minuto nella colonna **Status** viene indicato che il sito è stato creato correttamente. Il numero di siti disponibili nell'account viene visualizzato nella barra di spostamento a sinistra, accanto all'icona **Siti Web**.
 
-    ![Pagina Web Sites del portale di gestione, con il sito Web creato][]
+    ![Pagina Web Sites del portale di gestione, con il sito Web creato][Pagina Web Sites del portale di gestione, con il sito Web creato]
 
 ## <a name="createmvc4app"></a><span class="short-header">Creare l'app</span>Creare un'applicazione ASP.NET MVC 4
 
@@ -70,7 +70,7 @@ Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il 
 
 2.  Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 
-![New Project in File menu][]
+![New Project in File menu][New Project in File menu]
 
 1.  Nella finestra di dialogo **Nuovo progetto** espandere **C\#** e selezionare **Web** in **Modelli installati**, quindi selezionare **Applicazione Web ASP.NET MVC4**.
 
@@ -78,17 +78,17 @@ Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il 
 
 3.  Assegnare all'applicazione il nome **MyExample** e fare clic su **OK**.
 
-![New Project dialog box][]
+![New Project dialog box][New Project dialog box]
 
 1.  Nella finestra di dialogo **Nuovo progetto ASP.NET MVC 4** selezionare il modello **Applicazione Internet** e fare clic su **OK**.
 
-![Finestra di dialogo Nuovo progetto ASP.NET MVC 4][]
+![Finestra di dialogo Nuovo progetto ASP.NET MVC 4][Finestra di dialogo Nuovo progetto ASP.NET MVC 4]
 
 ### Eseguire l'applicazione in locale
 
 1.  Premere **CTRL**+**F5** per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito.
 
-![Web site running locally][]
+![Web site running locally][Web site running locally]
 
 Non è necessario eseguire altre operazioni per creare una semplice applicazione che verrà distribuita in Azure.
 
@@ -96,13 +96,13 @@ Non è necessario eseguire altre operazioni per creare una semplice applicazione
 
 1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.
 
-    ![Publish in project context menu][]
+    ![Publish in project context menu][Publish in project context menu]
 
 Viene visualizzata la procedura guidata **Pubblica sito Web**.
 
 1.  Nella scheda **Profilo** della procedura guidata **Pubblica sito Web** fare clic su **Importa**.
 
-    ![Import publish settings][]
+    ![Import publish settings][Import publish settings]
 
 Verrà visualizzata la finestra di dialogo **Import Publish Profile**.
 
@@ -110,57 +110,57 @@ Verrà visualizzata la finestra di dialogo **Import Publish Profile**.
 
     -   Nella finestra di dialogo **Importa profilo di pubblicazione** fare clic su **Importa da un sito Web di Azure** e quindi su **Aggiungi sottoscrizione di Azure**.
 
-    ![Opzione Add Azure subscription][]
+    ![Opzione Add Azure subscription][Opzione Add Azure subscription]
 
     -   Nella finestra di dialogo **Import Azure Subscriptions** fare clic su **Download subscription file**.
 
-    ![Opzione Download subscription file][]
+    ![Opzione Download subscription file][Opzione Download subscription file]
 
     -   Nella finestra del browser salvare il file *.publishsettings*.
 
-    ![Download del file .publishsettings][]
+    ![Download del file .publishsettings][Download del file .publishsettings]
 
     -   Nella finestra di dialogo **Import Azure Subscriptions** fare clic su **Browse** per individuare il file *.publishsettings*.
 
-    ![download sottoscrizione][]
+    ![download sottoscrizione][download sottoscrizione]
 
     -   Fare clic su **Import**.
 
-    ![importazione][]
+    ![importazione][importazione]
 
     > [WACOM.NOTE]
     > Il file .publishsettings contiene le credenziali (non codificate) usate per amministrare le sottoscrizioni e i servizi di Azure. La procedura consigliata di sicurezza per questo file consiste nell'archiviarlo temporaneamente all'esterno delle directory di origine, ad esempio nella cartella Raccolte\\Documenti, e quindi di eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file .publishsettings può modificare, creare ed eliminare i servizi di Azure.
 
 2.  Nella finestra di dialogo **Importa profilo di pubblicazione** selezionare **Importa da un sito Web di Azure**, selezionare il sito Web nell'elenco a discesa e quindi fare clic su **OK**.
 
-    ![Opzione Import Publish Profile][]
+    ![Opzione Import Publish Profile][Opzione Import Publish Profile]
 
 3.  Nella scheda **Connection** fare clic su **Validate Connection** per verificare che le impostazioni siano corrette.
 
-    ![Validate connection][]
+    ![Validate connection][Validate connection]
 
 4.  Dopo la convalida della connessione, accanto al pulsante **Validate Connection** verrà visualizzato un segno di spunta verde. Fare clic su **Avanti**.
 
-    ![Successfully validated connection][]
+    ![Successfully validated connection][Successfully validated connection]
 
 5.  Nella scheda **Settings** deselezionare l'opzione **Use this connection string at runtime**, dal momento che quest'applicazione non utilizza un database. È possibile accettare le impostazioni predefinite per gli altri elementi in questa pagina. Poiché verrà distribuita una configurazione della build di rilascio, non è necessario eliminare i file nel server di destinazione, precompilare l'applicazione o escludere i file della cartella App\_Data.
     Fare clic su **Avanti**.
 
-    ![Settings tab][]
+    ![Settings tab][Settings tab]
 
 6.  Nella scheda **Preview** fare clic su **Start Preview**.
 
-    ![StartPreview button in the Preview tab][]
+    ![StartPreview button in the Preview tab][StartPreview button in the Preview tab]
 
     Nella scheda viene visualizzato un elenco dei file che verranno copiati nel server. La visualizzazione dell'anteprima non è necessaria per pubblicare l'applicazione, ma è una funzione utile da conoscere. In questo caso, non è richiesto alcun intervento da parte dell'utente sull'elenco di file visualizzato.
 
-    ![StartPreview file output][]
+    ![StartPreview file output][StartPreview file output]
 
 7.  Fare clic su **Pubblica**. In Visual Studio verrà avviato il processo di copia dei file nel server Azure.
 
 8.  Nella finestra **Output** vengono indicate le azioni di distribuzione effettuate e viene segnalato il corretto completamento della distribuzione.
 
-    ![Output window reporting successful deployment][]
+    ![Output window reporting successful deployment][Output window reporting successful deployment]
 
 9.  Al termine della distribuzione, nel browser predefinito verrà automaticamente aperto l'URL del sito distribuito.
     L'applicazione creata verrà ora eseguita nel cloud.
@@ -175,39 +175,39 @@ In questa esercitazione sono state illustrate le procedure per distribuire una s
 
 Talvolta si desidera eliminare un sito oppure metterlo temporaneamente offline o ancora modificare le relative impostazioni. È possibile eseguire alcune di queste funzioni direttamente in **Esplora server** in Visual Studio.
 
-![Siti Web di Azure in Esplora server][]
+![Siti Web di Azure in Esplora server][Siti Web di Azure in Esplora server]
 
-![Configurazione di siti Web in Visual Studio][]
+![Configurazione di siti Web in Visual Studio][Configurazione di siti Web in Visual Studio]
 
 Per eliminare un sito Web, è possibile usare il portale di gestione di Azure. Nelle schermate seguenti sono illustrati i pulsanti **Stop**, **Restart** e **Delete** nella scheda **Dashboard** del portale di gestione.
 
-![Scheda Dashboard del portale di gestione][]
+![Scheda Dashboard del portale di gestione][Scheda Dashboard del portale di gestione]
 
-Nella scheda **Configure** è possibile modificare le impostazioni del sito. Per altre informazioni, vedere [Come gestire i siti Web][].
+Nella scheda **Configure** è possibile modificare le impostazioni del sito. Per altre informazioni, vedere [Come gestire i siti Web][Come gestire i siti Web].
 
 ### Come scalare un sito Web
 
 Se il sito è pubblico e il traffico inizia ad aumentare, è possibile che i tempi di risposta subiscano un rallentamento. Per risolvere questo problema, è possibile aggiungere facilmente risorse server nella scheda **Scale** del portale di gestione.
 
-![Scheda Scale del portale di gestione][]
+![Scheda Scale del portale di gestione][Scheda Scale del portale di gestione]
 
-Per altre informazioni, vedere [Come scalare un sito Web][]. L'aggiunta di risorse server per la scalabilità di un sito Web comporta un costo aggiuntivo.
+Per altre informazioni, vedere [Come scalare un sito Web][Come scalare un sito Web]. L'aggiunta di risorse server per la scalabilità di un sito Web comporta un costo aggiuntivo.
 
 ### Come risolvere i problemi di un sito Web
 
 È possibile che si desideri esaminare un output di traccia o un log per la risoluzione dei problemi. In Visual Studio sono disponibili strumenti incorporati che consentono di visualizzare facilmente i log di Azure in tempo reale, mentre vengono generati.
 
-![Log in Visual Studio][]
+![Log in Visual Studio][Log in Visual Studio]
 
-Per altre informazioni, vedere [Risoluzione dei problemi di Siti Web di Azure in Visual Studio][].
+Per altre informazioni, vedere [Risoluzione dei problemi di Siti Web di Azure in Visual Studio][Risoluzione dei problemi di Siti Web di Azure in Visual Studio].
 
 ### Come aggiungere funzionalità di database e autorizzazione
 
-Nella maggior parte dei siti Web di produzione si usa un database e vengono applicate restrizioni per consentire l'esecuzione di alcune funzioni del sito solo a determinati utenti autorizzati. Per informazioni introduttive sulle funzionalità di accesso ai database, autenticazione e autorizzazione, vedere l'esercitazione [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure][].
+Nella maggior parte dei siti Web di produzione si usa un database e vengono applicate restrizioni per consentire l'esecuzione di alcune funzioni del sito solo a determinati utenti autorizzati. Per informazioni introduttive sulle funzionalità di accesso ai database, autenticazione e autorizzazione, vedere l'esercitazione [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure][Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure].
 
 ### Come decidere se l'applicazione dovrà essere eseguita in un servizio cloud
 
-In alcuni scenari è consigliabile eseguire l'applicazione in un servizio cloud di Azure anziché in un sito Web di Azure. Per altre informazioni, vedere [Modelli di esecuzione di Azure][] e [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure][]. Per una serie di esercitazioni in cui viene spiegato come creare un'applicazione Web ASP.NET multilivello e distribuirla in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure][].
+In alcuni scenari è consigliabile eseguire l'applicazione in un servizio cloud di Azure anziché in un sito Web di Azure. Per altre informazioni, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure] e [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure][Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]. Per una serie di esercitazioni in cui viene spiegato come creare un'applicazione Web ASP.NET multilivello e distribuirla in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure][Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure].
 
   [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
   [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"

@@ -1,43 +1,61 @@
-<properties linkid="mobile-services-call-custom-api-js" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Store JS client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="mobile-services-call-custom-api-js" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Store JS client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
 
-Chiamata di un'API personalizzata dal client
-============================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[Windows Store C\#](/it-it/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#")[Windows Store JavaScript](/it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript")[Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone")[iOS](/it-it/documentation/articles/mobile-services-ios-call-custom-api "iOS")[Android](/it-it/documentation/articles/mobile-services-android-call-custom-api "Android")
+# Chiamata di un'API personalizzata dal client
 
-[Back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Back-end .NET") | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Back-end JavaScript")
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/it-it/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone" class="current">Windows Phone</a><a href="/it-it/documentation/articles/mobile-services-ios-call-custom-api" title="iOS">iOS</a><a href="/it-it/documentation/articles/mobile-services-android-call-custom-api" title="Android" class="current">Android</a><a href="/it-it/documentation/articles/mobile-services-html-call-custom-api" title="HTML">HTML</a></div>
+
+<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api" title=".NET backend">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>
 
 In questo argomento viene descritto come chiamare un'API personalizzata da un'app di Windows Store. Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
 L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag completato su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. A questo scopo, verranno eseguiti i passaggi seguenti:
 
-1.  [Definizione dell'API personalizzata](#define-custom-api)
-2.  [Aggiornamento dell'app per la chiamata all'API personalizzata](#update-app)
-3.  [Test dell'app](#test-app)
+1.  [Definizione dell'API personalizzata][Definizione dell'API personalizzata]
+2.  [Aggiornamento dell'app per la chiamata all'API personalizzata][Aggiornamento dell'app per la chiamata all'API personalizzata]
+3.  [Test dell'app][Test dell'app]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). Per completare questa esercitazione, è necessario utilizzare Visual Studio 2012 Express per Windows 8.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. Per completare questa esercitazione, è necessario utilizzare Visual Studio 2012 Express per Windows 8.
 
-Definizione dell'API personalizzata
------------------------------------
+## <a name="define-custom-api"></a>Definizione dell'API personalizzata
 
-[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
+[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](../includes/mobile-services-windows-store-javascript-call-custom-api.md)]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api][mobile-services-windows-store-javascript-call-custom-api]]
 
-Passaggi successivi
--------------------
+## Passaggi successivi
 
 Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows Store, per ulteriori informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
 
--   [Definizione di un'API personalizzata che supporta le notifiche periodiche](/it-it/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications)
-    Ulteriori informazioni su come utilizzare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start.
+-   [Definizione di un'API personalizzata che supporta le notifiche periodiche][Definizione di un'API personalizzata che supporta le notifiche periodiche]
+    Informazioni su come usare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start.
 
--   [Riferimento per gli script del server di Servizi mobili](http://go.microsoft.com/fwlink/?LinkId=262293)
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla creazione di API personalizzate.
 
--   [Archiviazione degli script del server nel controllo del codice sorgente](/it-it/documentation/articles/mobile-services-store-scripts-source-control)
+-   [Archiviazione degli script del server nel controllo del codice sorgente][Archiviazione degli script del server nel controllo del codice sorgente]
      Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
 
+<!-- Anchors. --> <!-- URLs. -->
 
+  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
+  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
+  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /it-it/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /it-it/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /it-it/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api ".NET backend"
+  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript backend"
+  [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
+  [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+  [Definizione dell'API personalizzata]: #define-custom-api
+  [Aggiornamento dell'app per la chiamata all'API personalizzata]: #update-app
+  [Test dell'app]: #test-app
+  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
+  [mobile-services-windows-store-javascript-call-custom-api]: ../includes/mobile-services-windows-store-javascript-call-custom-api.md
+  [Definizione di un'API personalizzata che supporta le notifiche periodiche]: /it-it/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
+  [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+  [Archiviazione degli script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control
