@@ -1,25 +1,21 @@
-###### Creare una coda
+##### Creare una coda
 
 Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questo argomento viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere [CloudStorageAccount][CloudStorageAccount].
-
-    // Get the storage account from its connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da utilizzare. È possibile creare la coda se non esiste già.
+Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da utilizzare. Il codice tenta di fare riferimento a una coda denominata “myqueue”. Se non è in grado di trovare una coda con tale nome, ne crea una.
 
     // Get a reference to a queue named “myqueue”.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // If the queue isn’t already there, then create it.
-    queue.CreateIfNotExist();
+    queue.CreateIfNotExists();
 
 **NOTA:** Usare questo blocco di codice davanti al codice nelle sezioni seguenti.
 
-###### Inserire un messaggio in una coda
+##### Inserire un messaggio in una coda
 
 Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo AddMessage(). È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World'.
 
@@ -27,7 +23,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-###### Visualizzare il messaggio successivo
+##### Visualizzare il messaggio successivo
 
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo PeekMessage().
 
@@ -37,7 +33,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     // Display the message.
     Console.WriteLine(peekedMessage.AsString);
 
-###### Rimuovere il messaggio successivo
+##### Rimuovere il messaggio successivo
 
 Il codice può rimuovere un messaggio da una coda in due passaggi.
 
@@ -52,4 +48,9 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
     // Process the message in less than 30 seconds, and then delete the message.
     queue.DeleteMessage(retrievedMessage);
 
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+[Ulteriori informazioni sull'Archiviazione di Azure][Ulteriori informazioni sull'Archiviazione di Azure]
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server][Esplorazione delle risorse di archiviazione con Esplora server].
+
+  [CloudStorageAccount]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+  [Ulteriori informazioni sull'Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Esplorazione delle risorse di archiviazione con Esplora server]: http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx

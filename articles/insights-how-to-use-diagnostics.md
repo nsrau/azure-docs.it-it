@@ -16,14 +16,14 @@ Nel portale di gestione di Azure è ora possibile configurare rich data di monit
 4.  Per abilitare la diagnostica avanzata, fare clic sul pulsante **Settings** per visualizzare il blade **Diagnostics**. Scegliere **ON**:
     ![Blade di diagnostica](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
 
-    -   **Basic metrics**: metriche sull'integrità relative alla macchina virtuale in uso, ad esempio il processore e la memoria
-    -   **Per disk metrics**: metriche relative a tutti i dischi collegati alla macchina virtuale
-    -   **.NET metrics**: metriche relative alle applicazioni .NET e ASP.NET in esecuzione sulla macchina virtuale in uso
-    -   **Network metrics**: metriche relative alla connessioni di rete e ai servizi Web
-    -   **Windows event application logs**: eventi Windows inviati al canale delle applicazioni
-    -   **Windows event system logs**: eventi Windows inviati al canale di sistema, inclusi tutti gli eventi [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409)
-    -   **Windows event security logs**: eventi Windows inviati al canale di sicurezza
-    -   **Diagnostics infrastructure logs**: registrazioni relative all'infrastruttura per la raccolta della diagnostica
+    -   **Metriche di base**: metriche sull'integrità relative alla macchina virtuale in uso, ad esempio il processore e la memoria
+    -   **Metriche per disco**: metriche relative a tutti i dischi collegati alla macchina virtuale
+    -   **Metriche .NET**: metriche relative alle applicazioni .NET e ASP.NET in esecuzione sulla macchina virtuale in uso
+    -   **Metriche di rete**: metriche relative alla connessioni di rete e ai servizi Web
+    -   **Registri delle applicazioni eventi Windows**: eventi Windows inviati al canale delle applicazioni
+    -   **Registri di sistema eventi Windows**: eventi Windows inviati al canale di sistema, inclusi tutti gli eventi [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409)
+    -   **Registri di protezione eventi Windows**: eventi Windows inviati al canale di sicurezza
+    -   **Registri infrastruttura di diagnostica**: registrazioni relative all'infrastruttura per la raccolta della diagnostica
     -   **IIS logs**: log relativi al server IIS in uso
         Tutte le metriche e i log verranno registrati a intervalli di un minuto per far sì che l'utente disponga sempre delle informazioni più aggiornate sulla macchina in uso.
 

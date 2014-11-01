@@ -1,12 +1,8 @@
-###### Creare una tabella
+##### Creare una tabella
 
-Per ottenere oggetti di riferimento per tabelle ed entità, è possibile utilizzare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di utilizzarlo per creare una nuova tabella.
+Per ottenere oggetti di riferimento per tabelle ed entità, è possibile utilizzare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di utilizzarlo per creare una nuova tabella. Il codice tenta di fare riferimento a una tabella denominata “people”. Se non è in grado di trovare una tabella con tale nome, ne crea una.
 
-<b>NOTA:</b> In tutto il codice incluso in questa guida si presuppone che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
+**NOTA:**In tutto il codice incluso in questa guida si presuppone che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure.
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -15,7 +11,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile utilizz
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-###### Aggiungere un'entità a una tabella
+##### Aggiungere un'entità a una tabella
 
 Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
@@ -36,13 +32,6 @@ Per aggiungere un'entità a una classe, creare una classe che definisca le propr
 
 Per eseguire le operazioni su tabelle che interessano entità, viene usato l'oggetto **CloudTable** creato in precedenza in "Creare una tabella". L'oggetto **TableOperation** rappresenta l'operazione da eseguire. L'esempio di codice seguente mostra come creare un oggetto **CloudTable** e un oggetto **CustomerEntity**. Per preparare l'operazione, viene creato un oggetto **TableOperation** per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato CloudTable.Execute.
 
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
@@ -57,16 +46,9 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-###### Inserire un batch di entità
+##### Inserire un batch di entità
 
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** usando il metodo Insert e quindi avvia l'operazione chiamando CloudTable.Execute.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -91,16 +73,9 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
 
-###### Ottenere tutte le entità di una partizione
+##### Ottenere tutte le entità di una partizione
 
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -115,16 +90,9 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
             entity.Email, entity.PhoneNumber);
     }
 
-###### Ottenere una singola entità
+##### Ottenere una singola entità
 
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in TableResult.Result è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **tabelle**.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -141,16 +109,9 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
     else
        Console.WriteLine("The phone number could not be retrieved.");
 
-###### Eliminare un'entità
+##### Eliminare un'entità
 
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -177,3 +138,9 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
     else
        Console.WriteLine("Couldn't delete the entity.");
+
+[Ulteriori informazioni sull'Archiviazione di Azure][Ulteriori informazioni sull'Archiviazione di Azure]
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server][Esplorazione delle risorse di archiviazione con Esplora server].
+
+  [Ulteriori informazioni sull'Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Esplorazione delle risorse di archiviazione con Esplora server]: http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx

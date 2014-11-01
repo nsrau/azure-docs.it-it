@@ -1,25 +1,29 @@
-<properties title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Introduzione all'Archiviazione di Azure" pageTitle="Introduzione all'Archiviazione di Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]
+> [AZURE.SELECTOR]
+>
+> -   [Introduzione][Introduzione]
+> -   [Risultati][Risultati]
 
-### Introduzione all'Archiviazione di Azure
+## Introduzione all'Archiviazione di Azure (progetti del servizio cloud)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-blobs" title="Blobs" class="current">BLOB</a><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-queues" title="Queues">Code</a><a href="/it-it/documentation/articles/vs-storage-cloud-services-getting-started-tables" title="Tables">Tabelle</a></div>
+> [AZURE.SELECTOR]
+>
+> -   [BLOB][BLOB]
+> -   [Code][Code]
+> -   [Tabelle][Introduzione]
 
 Il servizio di archiviazione tabelle di Azure permette di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come utilizzare l'archiviazione tabelle da .NET][Come utilizzare l'archiviazione tabelle da .NET].
 
-Per accedere alle tabelle a livello di codice in un progetto di servizio cloud, è necessario eseguire le attività seguenti.
-
-1.  Ottenere l'assembly Microsoft.WindowsAzure.Storage.dll. A tale scopo, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Gestisci pacchetti NuGet. Cercare online "WindowsAzure.Storage" e fare clic su Installa per installare il pacchetto Archiviazione di Azure e le dipendenze. Aggiungere al progetto un riferimento a questo assembly.
-2.  Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di programmazione:
+Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di programmazione:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
+    using Microsoft.WindowsAzure.Storage.Table;
 
-###### Ottenere la stringa di connessione di archiviazione
+##### Ottenere la stringa di connessione di archiviazione
 
 Prima di eseguire operazioni relative a una tabella, è necessario ottenere la stringa di connessione per l'account di archiviazione in cui risiederanno le tabelle. È possibile usare il tipo **CloudStorageAccount** per rappresentare le informazioni sull'account di archiviazione. Per i progetti di servizi cloud è possibile usare il tipo **CloudConfigurationManager** per recuperare la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure, come mostrato nel codice seguente.
 
@@ -28,9 +32,9 @@ Prima di eseguire operazioni relative a una tabella, è necessario ottenere la s
 
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
 
-  [vs-storage-cloud-services-getting-started-intro]: ../includes/vs-storage-cloud-services-getting-started-intro.md
-  [BLOB]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
-  [Code]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-queues "Queues"
-  [Tabelle]: /it-it/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tables"
+  [Introduzione]: /documentation/articles/vs-storage-cloud-services-getting-started-tables/
+  [Risultati]: /documentation/articles/vs-storage-cloud-services-what-happened/
+  [BLOB]: /documentation/articles/vs-storage-cloud-services-getting-started-blobs/
+  [Code]: /documentation/articles/vs-storage-cloud-services-getting-started-queues/
   [Come utilizzare l'archiviazione tabelle da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET"
   [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md
