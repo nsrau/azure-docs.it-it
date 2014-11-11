@@ -35,23 +35,24 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
-1.  In Esplora soluzioni passare alla sottocartella **services\\mobileService\\scripts**, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:
+<ol start="8"><li><p>In Esplora soluzioni passare alla sottocartella <b>services\\mobileService\\scripts</b>, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:
 
-        var todolistClient = new WindowsAzure.MobileServiceClient(
-                        "https://todolist.azure-mobile.net/",
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
+                "https://todolist.azure-mobile.net/",
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</code></pre>
 
-    Questo codice consente di accedere al nuovo servizio mobile nell'app tramite una variabile globale. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Poiché nel file default.html è stato aggiunto un riferimento a questo script, questa variabile è disponibile per tutti i file di script a cui viene fatto riferimento da questa pagina.
+    <p>Questo codice consente di accedere al nuovo servizio mobile nell'app tramite una variabile globale. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Poiché nel file default.html è stato aggiunto un riferimento a questo script, questa variabile è disponibile per tutti i file di script a cui viene fatto riferimento da questa pagina.</p></li>
 
-2.  Aprire il file di progetto default.html, individuare il riferimento al nuovo file di script service.js e accertarsi che il percorso a cui fa riferimento sia simile al seguente:
+<li><p>Aprire il file di progetto default.html, individuare il riferimento al nuovo file di script service.js e accertarsi che il percorso a cui fa riferimento sia simile al seguente:</p>
 
-        <script src="/services/mobileServices/scripts/todolist.js">
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 
-    Attualmente esiste un bug in Visual Studio che causa la generazione di un nome di cartella errato nel percorso.
+    <p>Attualmente esiste un bug in Visual Studio che causa la generazione di un nome di cartella errato nel percorso.</p></li>
 
-3.  Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare **Aggiungi** e fare clic su **Servizio connesso...**, quindi selezionare il servizio mobile appena creato e fare clic su **OK**.
+<li><p>Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare <b>Aggiungi</b> e fare clic su <b>Servizio connesso...</b>, quindi selezionare il servizio mobile appena creato e fare clic su <b>OK</b>.</p>
 
-    Lo stesso nuovo file di codice viene aggiunto al progetto di app per Windows Phone Store. Accertarsi di correggere anche il percorso di riferimento aggiunto al file default.html.
+    <p>Lo stesso nuovo file di codice viene aggiunto al progetto di app per Windows Phone Store. Accertarsi di correggere anche il percorso di riferimento aggiunto al file default.html.</p></li>
+</ol>
 
 A questo punto, l'app di Windows Store e l'app di Windows Phone Store sono entrambe connesse al nuovo sevizio mobile. Il passaggio successivo consiste nel testare il nuovo progetto di servizio mobile.
 
@@ -102,7 +103,9 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 -   [Riferimento per i concetti e le procedure di .NET per Servizi mobili][Riferimento per i concetti e le procedure di .NET per Servizi mobili]
     Ulteriori informazioni su come utilizzare Servizi mobili con HTML e JavaScript.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [questa versione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data

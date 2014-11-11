@@ -14,11 +14,11 @@ In questa esercitazione si apprenderà come:
 
 ## Creazione di una macchina virtuale che esegue Windows Server 2008 R2
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][create-and-configure-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## Collegamento di un disco dati
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][attach-data-disk-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## Installazione ed esecuzione di MySQL Community Server nella macchina virtuale
 
@@ -26,7 +26,7 @@ Per installare, configurare ed eseguire MySQL Community Server, eseguire la proc
 
 1.  Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire **Internet Explorer** dal menu **Start**.
 
-2.  Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *<http://>\*.mysql.com* all'elenco dei siti attendibili.
+2.  Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://\*.mysql.com* all'elenco dei siti attendibili.
 
 3.  Passare alla pagina di [download di MySQL Community Server][download di MySQL Community Server].
 
@@ -155,8 +155,6 @@ In questa esercitazione è stato illustrato come creare una macchina virtuale Wi
 
   [MySQL]: http://www.mysql.com
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [download di MySQL Community Server]: http://www.mysql.com/downloads/mysql/
   [Installazione di MySQL]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

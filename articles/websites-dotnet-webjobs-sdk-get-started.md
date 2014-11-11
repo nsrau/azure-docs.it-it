@@ -36,7 +36,7 @@ Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
 
 Se non sono disponibili, Visual Studio 2013 Express per il Web sarà installato automaticamente quando si installa Azure SDK.
 
-[WACOM.INCLUDE [free-trial-note][free-trial-note]]
+[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <span id="learn"></span></a>Contenuto dell'esercitazione
 
@@ -137,7 +137,7 @@ Se il traffico varia in base all'ora del giorno o al giorno della settimana e se
 
 Questa esercitazione mostra come eseguire il front-end in un sito Web e il back-end come processo Web nello stesso sito Web. Per informazioni su come scegliere l'ambiente migliore per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure][Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure].
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <span id="storage"></span></a>Creare un account di archiviazione di Azure
 
@@ -661,7 +661,7 @@ Tramite codice analogo si ottiene un riferimento alla coda *blobnamerequest* e s
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Il file \*\_Layout.cshtml\* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
+Il file *\_Layout.cshtml***** imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -927,7 +927,6 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
   [HttpPostedFileBase]: http://msdn.microsoft.com/it-it/library/system.web.httppostedfilebase.aspx
   [l'annuncio della versione beta di WebJobs SDK 0.3.0]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [versione dell'applicazione per i servizi cloud]: /it-it/documentation/articles/cloud-services-dotnet-get-started/
-  [https://{nomesitoweb}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [Accesso a un dashboard per lo sviluppo locale con WebJobs SDK]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [inserimento di dipendenze]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
   [modelli di archivio e unità di lavoro]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo

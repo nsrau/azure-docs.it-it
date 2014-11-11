@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notification using a JavaScript backend mobile service" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga" />
 
 # Introduzione alle notifiche push in Servizi mobili
 
@@ -25,19 +25,21 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Accedere alla cartella del progetto `\services\mobileServices\scripts`, copiare il file di script \<*your\_service\_name*\>.push.register.js generato nella cartella `\js` condivisa, quindi eliminare questo file da entrambi i progetti di app Windows e WindowsPhone.
+<ol start="6">
+<li><p>Accedere alla cartella del progetto <code>\services\mobileServices\scripts</code>, copiare il file di script &lt;<em>your_service_name</em>&gt;.push.register.js generato nella cartella <code>\js</code> condivisa, quindi eliminare questo file da entrambi i progetti di app Windows e WindowsPhone.</p></li>
 
-2.  Aprire il file di script nella cartella del progetto `\js` condivisa, individuare il codice nel listener di eventi *activated* che registra l'URL del canale del dispositivo con l'hub di notifica, quindi eliminare la funzione di promessa **done**.
+<li><p>Aprire il file di script nella cartella del progetto <code>\js</code> condivisa, individuare il codice nel listener di eventi <em>activated</em> che registra l'URL del canale del dispositivo con l'hub di notifica, quindi eliminare la funzione di promessa <b>done</b>.</p></li>
 
-    In questa esercitazione le notifiche vengono inviate in corrispondenza dell'inserimento di un nuovo elemento e non della chiamata di un'API personalizzata.
+    <p>In questa esercitazione le notifiche vengono inviate in corrispondenza dell'inserimento di un nuovo elemento e non della chiamata di un'API personalizzata.</p></li>
 
-3.  Nel progetto di app Windows, aprire il file default.html e modificare il percorso del riferimento al file di script con la cartella di progetto `\js` condivisa, nel seguente modo:
+<li><p>Nel progetto di app Windows, aprire il file default.html e modificare il percorso del riferimento al file di script con la cartella di progetto <code>\js</code> condivisa, nel seguente modo:</p>
 
-        <script src="/js/your_service_name.push.register.js"></script>
+<pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 
-4.  Ripetere il passaggio per il progetto di app WindowsPhone.
+<li><p>Ripetere il passaggio per il progetto di app WindowsPhone.</p>
 
-    Ora entrambi i progetti utilizzano una versione condivisa dello script di registrazione push.
+    <p>Ora entrambi i progetti utilizzano una versione condivisa dello script di registrazione push.</p></li>
+</ol>
 
 Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il servizio mobile per l'invio delle notifiche push.
 
@@ -69,7 +71,9 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 -   [Come utilizzare un client HTML/JavaScript per Servizi mobili di Azure][Come utilizzare un client HTML/JavaScript per Servizi mobili di Azure]
     Informazioni su come utilizzare Servizi mobili dalle app HTML e JavaScript.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [questa versione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push

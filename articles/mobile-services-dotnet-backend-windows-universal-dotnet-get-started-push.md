@@ -91,7 +91,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 -   [Come utilizzare un client .NET per Servizi mobili di Azure][Come utilizzare un client .NET per Servizi mobili di Azure]
     Informazioni su come utilizzare Servizi mobili dalle app C# per Windows.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introduzione alle notifiche push in Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push

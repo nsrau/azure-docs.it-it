@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+ <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight
 
@@ -80,11 +80,11 @@ La creazione di un'applicazione console consente di ricevere i tweet, calcolare 
 2.  Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 3.  Digitare o selezionare i valori seguenti:
 
-    -   Templates: **Visual C#**
-    -   Template: **Applicazione console**
-    -   Name: **TweetSentimentStreaming**
-    -   Location: **C:\\Tutorials**
-    -   Solution name: **TweetSentimentStreaming**
+	- Templates: **Visual C#**
+	- Template: **Applicazione console**
+	- Name: **TweetSentimentStreaming**
+	- Location: **C:\\Tutorials**
+	- Solution name: **TweetSentimentStreaming**
 
 4.  Fare clic su **OK** per continuare.
 
@@ -577,7 +577,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 5.  Nella classe **HBaseReader** modificare i valori costanti:
 
-    -   **CLUSTERNAME**: nome del cluster HBase. Ad esempio *<https://><hbaseclustername>.azurehdinsight.net/*.
+    -   **CLUSTERNAME**: nome del cluster HBase. Ad esempio *https://<hbaseclustername>.azurehdinsight.net/*.
     -   **HADOOPUSERNAME**: nome utente del cluster HBase (Hadoop). Il nome predefinito è *admin*.
     -   **HADOOPUSERPASSWORD**: password utente del cluster HBase (Hadoop).
     -   **HBASETABLENAME** = "tweets\_by\_words";
@@ -624,29 +624,29 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 4.  Copiare e incollare il seguente codice nel file. Il codice è stato scritto da Alastair Alastair Aitchison. Per ulteriori informazioni, vedere [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
 
         /*******************************************************************************
-        * Author: Alastair Aitchison
-        * Website: http://alastaira.wordpress.com
-        * Date: 15th April 2011
-        * 
-        * Description: 
-        * This JavaScript file provides an algorithm that can be used to add a heatmap
-        * overlay on a Bing Maps v7 control. The intensity and temperature palette
-        * of the heatmap are designed to be easily customisable.
-        *
-        * Requirements:
-        * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
-        * this element. It has been tested on IE9, Firefox 3.6/4 and 
-        * Chrome 10 browsers. If you can confirm whether it works on other browsers or
-        * not, I'd love to hear from you!
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
+		* 
+		* Description: 
+		* This JavaScript file provides an algorithm that can be used to add a heatmap
+		* overlay on a Bing Maps v7 control. The intensity and temperature palette
+		* of the heatmap are designed to be easily customisable.
+		*
+		* Requirements:
+		* The heatmap layer itself is created dynamically on the client-side using
+		* the HTML5 <canvas> element, and therefore requires a browser that supports
+		* this element. It has been tested on IE9, Firefox 3.6/4 and 
+		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
+		* not, I'd love to hear from you!
 
-        * Usage:
-        * The HeatMapLayer constructor requires:
-        * - A reference to a map object
-        * - An array or Microsoft.Maps.Location items
-        * - Optional parameters to customise the appearance of the layer
-        *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
-        *
+		* Usage:
+		* The HeatMapLayer constructor requires:
+		* - A reference to a map object
+		* - An array or Microsoft.Maps.Location items
+		* - Optional parameters to customise the appearance of the layer
+		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+		*
         */
 
         var HeatMapLayer = function (map, locations, options) {
@@ -1211,7 +1211,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 
   [img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
   [img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
-  []: https://github.com/maxluk/tweet-sentiment
+  [0]: https://github.com/maxluk/tweet-sentiment
 
   [hBase-get-started]: ../hdinsight-hbase-get-started/
   [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/

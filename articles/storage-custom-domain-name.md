@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Configurazione di un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure
 
-È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per il servizio BLOB è <https://>\<*accountarchiviazionepersonale*\>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
+È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per il servizio BLOB è https://\<*accountarchiviazionepersonale*\>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
 
 <div class="dev-callout"> 
 <b>Nota</b> 
@@ -131,7 +131,7 @@ Gli utenti possono a questo punto visualizzare i dati BLOB nel dominio personali
 
 Per verificare che il mapping del dominio personalizzato all'endpoint del servizio BLOB sia stato effettivamente eseguito, creare un BLOB in un contenitore pubblico all'interno dell'account di archiviazione. Quindi, in un Web browser utilizzare un URI nel formato seguente per accedere al BLOB:
 
--   <http://>\<*subdomain.customdomain*\>/\<*mycontainer*\>/\<*myblob*\>
+-   http://\<*subdomain.customdomain*\>/\<*mycontainer*\>/\<*myblob*\>
 
 Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tramite il sottodominio personalizzato
 **photos.contoso.com** di cui viene eseguito il mapping a un BLOB nel contenitore
@@ -143,8 +143,6 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 -   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato][Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]
 
-  [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure]: /it-it/develop/net/common-tasks/custom-dns/
-  [Configurazione di un nome di dominio personalizzato per un sito Web di Azure]: /it-it/develop/net/common-tasks/custom-dns-web-site/
   [Registrazione di un dominio personalizzato per l'account di archiviazione]: #register-domain
   [Registrazione di un dominio personalizzato per l'account di archiviazione utilizzando il sottodominio intermedio asverify]: #register-asverify
   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx

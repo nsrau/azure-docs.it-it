@@ -266,7 +266,7 @@ Per connettersi al motore di database di AQL Server da un altro computer, è nec
 
 1.  Nel portale di gestione di Azure (o dal passaggio precedente) selezionare **VIRTUAL MACHINES**.
 
-2.  Nella pagina **VIRTUAL MACHINE INSTANCES**, nella colonna **DNS NAME** trovare e copiare il nome DNS per la macchina virtuale preceduto da **<http://>**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
+2.  Nella pagina **VIRTUAL MACHINE INSTANCES**, nella colonna **DNS NAME** trovare e copiare il nome DNS per la macchina virtuale preceduto da **http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
     ![Nome DNS][Nome DNS]
 
