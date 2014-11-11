@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/it-it/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Creare un servizio BizTalk mediante il portale di gestione di Azure
 
@@ -279,7 +279,6 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
   [Passaggi di post-provisioning]: #PostProv
   [Descrizione dei requisiti]: #Requirements
   [Connessioni ibride - Nuovo]: #HC
-  [Versione di valutazione gratuita di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [portale di gestione di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Select the New button]: ./media/biztalk-provision-services/WABS_New.png
   [Select BizTalk Service and select Custom Create]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
@@ -294,11 +293,6 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
   [Select Connection Information]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [ACS Service Identities in the Access Control Management Portal]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
   [Gestione dello spazio dei nomi del servizio di controllo di accesso]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [sottoscrizioni Azure]: https://account.windowsazure.com/Subscriptions
-  [ContosoAdminSBT@live.com]: mailto:ContosoBTSAdmins@live.com
-  [In Gestire le sottoscrizioni e gli account di archiviazione nel portale di gestione di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=267577
-  [Account e fatturazione nel database SQL di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=234930
-  [Archiviazione]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [scheda per le connessioni ibride]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [panoramica delle connessioni ibride]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Servizi BizTalk di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=235197

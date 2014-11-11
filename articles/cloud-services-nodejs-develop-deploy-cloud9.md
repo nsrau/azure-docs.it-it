@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Distribuzione di un'applicazione di Azure da Cloud9
 
@@ -97,7 +97,7 @@ Per usare Cloud9, è innanzitutto necessario visitare il sito Web corrispondente
 
 Per distribuire l'applicazione in Azure, è necessario disporre di un account. Se non si dispone di un account Azure, è possibile effettuare l'iscrizione per ottenere una versione di prova gratuita attenendosi alla procedura seguente:
 
-[WACOM.INCLUDE [create-azure-account][create-azure-account]]
+[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 ## Creare una distribuzione
 

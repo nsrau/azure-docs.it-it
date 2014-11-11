@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Creazione dell'applicazione Web Node.js con il database SQL di Azure
 
@@ -383,7 +383,7 @@ Per eseguire il test dell'applicazione nel computer locale, eseguire la procedur
 
         node app.js
 
-3.  Aprire il Web browser e passare all'indirizzo <http://127.0.0.1:3000>. Verrà visualizzata una pagina Web simile alla seguente:
+3.  Aprire il Web browser e passare all'indirizzo http://127.0.0.1:3000. Verrà visualizzata una pagina Web simile alla seguente:
 
     ![Pagina Web con un elenco di attività vuoto][2]
 
@@ -472,7 +472,6 @@ Dopo la distribuzione delle modifiche in Azure, l'applicazione Web continuerà a
   [Creazione di un nuovo sito Web di Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Creazione personalizzata di un nuovo sito Web]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Inserimento di dettagli sul sito Web]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB o BUSINESS)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx
   [Compilazione delle impostazioni del database SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Creazione del nuovo server di database SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Apertura del dashboard del sito Web]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -484,7 +483,6 @@ Dopo la distribuzione delle modifiche in Azure, l'applicazione Web continuerà a
   [Pulsante Manage]: ./media/sql-database-nodejs-use-web-site/sql-manage.png
   [Accesso per la gestione del database]: ./media/sql-database-nodejs-use-web-site/sqlazurelogin.png
   [Nuova tabella]: ./media/sql-database-nodejs-use-web-site/new-table.png
-  [Nome di tabella impostato su tasks e opzione Identità? selezionata]: ./media/sql-database-nodejs-use-web-site/table-name-identity.png
   [Progettazione della tabella completata]: ./media/sql-database-nodejs-use-web-site/table-columns.png
   [express]: http://expressjs.com
   [node-sqlserver]: https://github.com/WindowsAzure/node-sqlserver
@@ -493,10 +491,8 @@ Dopo la distribuzione delle modifiche in Azure, l'applicazione Web continuerà a
   [1]: http://getbootstrap.com/
   [2]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
   [Immagine del nuovo elemento nell'elenco delle attività]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[site]: http://[site
   [Collegamento Configura]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [impostazioni app]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [Salvataggio impostazioni app]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [Creazione di un'applicazione Web Node.js con MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-  [Pubblicazione in Siti Web di Azure con Git]: ../CommonTasks/publishing-with-git
   [Strumento da riga di comando di Azure per Mac e Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/

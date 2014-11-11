@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Creare un sito Web PHP con un database SQL e distribuirlo tramite Git
 
@@ -18,7 +18,7 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 ![Sito Web PHP di Azure][Sito Web PHP di Azure]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Creare un sito Web di Azure e configurare la pubblicazione Git
 
@@ -283,7 +283,6 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
   [Create New Azure Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Creazione personalizzata di un nuovo sito Web]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Inserimento di dettagli sul sito Web]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB o BUSINESS)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx
   [Compilazione delle impostazioni del database SQL]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Creazione del nuovo server di database SQL]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Apertura del dashboard del sito Web]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
@@ -294,4 +293,3 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
   [Linked Resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
   [Stringa di connessione]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
   [estensione PDO per MySQL]: http://php.net/pdo_sqlsrv
-  [http://[nome]: http://[site

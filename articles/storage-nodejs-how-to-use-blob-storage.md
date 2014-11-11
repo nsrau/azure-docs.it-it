@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Come utilizzare il servizio BLOB da Node.js
 
@@ -9,34 +9,34 @@ Azure. Gli esempi sono scritti usando l'API
 Node.js. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**,
 **download** ed
 **eliminazione** di BLOB. Per altre informazioni sui BLOB,
-vedere la sezione [Passaggi successivi][].
+vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul servizio BLOB][]
--   [Concetti][]
--   [Creazione di un account di archiviazione di Azure][]
--   [Creazione di un'applicazione Node.js][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Creare un contenitore][]
--   [Procedura: Caricare un BLOB in un contenitore][]
--   [Procedura: Elencare i BLOB in un contenitore][]
--   [Procedura: Scaricare BLOB][]
--   [Procedura: Eliminare un BLOB][]
--   [Procedura: Accesso simultaneo][]
--   [Procedura: Usare le firme di accesso condiviso di Azure][]
--   [Passaggi successivi][]
+-   [Informazioni sul servizio BLOB][Informazioni sul servizio BLOB]
+-   [Concetti][Concetti]
+-   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creazione di un'applicazione Node.js][Creazione di un'applicazione Node.js]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
+-   [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
+-   [Procedura: Elencare i BLOB in un contenitore][Procedura: Elencare i BLOB in un contenitore]
+-   [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]
+-   [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]
+-   [Procedura: Accesso simultaneo][Procedura: Accesso simultaneo]
+-   [Procedura: Usare le firme di accesso condiviso di Azure][Procedura: Usare le firme di accesso condiviso di Azure]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][], [Servizio cloud Node.js][] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -76,7 +76,7 @@ Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue a
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createBlobService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][]
+Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][Applicazione Web Node.js con archiviazione]
 
 ## <a name="create-container"> </a>Procedura: Creare un contenitore
 
@@ -98,7 +98,7 @@ Tutti i BLOB risiedono in un contenitore. Per creare un nuovo contenitore, usare
       }
     });
 
-Se il contenitore viene creato, `result` sarà true. Se il contenitore esiste già, `result` sarà false. `response` conterrà informazioni sull'operazione, incluse le informazioni [ETag][] per il contenitore.
+Se il contenitore viene creato, `result` sarà true. Se il contenitore esiste già, `result` sarà false. `response` conterrà informazioni sull'operazione, incluse le informazioni [ETag][ETag] per il contenitore.
 
 ### Sicurezza del contenitore
 
@@ -145,7 +145,7 @@ Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi 
 
 ## <a name="upload-blob"> </a>Procedura: Caricare un BLOB in un contenitore
 
-Un BLOB può essere basato su blocchi o su pagine. I BLOB in blocchi consentono di caricare dati di grandi dimensioni in modo più efficiente, mentre i BLOB di pagine sono ottimizzati per le operazioni in lettura e scrittura. Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine][].
+Un BLOB può essere basato su blocchi o su pagine. I BLOB in blocchi consentono di caricare dati di grandi dimensioni in modo più efficiente, mentre i BLOB di pagine sono ottimizzati per le operazioni in lettura e scrittura. Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine][Informazioni sui Blob in blocchi e sui Blob di pagine].
 
 ### BLOB in blocchi
 
@@ -369,9 +369,9 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][].
--   [Blog del team di Archiviazione di Azure][].
--   Archivio [Azure SDK for Node][] su GitHub.
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
+-   Archivio [Azure SDK for Node][Azure SDK for Node] su GitHub.
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul servizio BLOB]: #what-is
@@ -389,12 +389,12 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [Procedura: Usare le firme di accesso condiviso di Azure]: #sas
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Informazioni sui Blob in blocchi e sui Blob di pagine]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Informazioni sui Blob in blocchi e sui Blob di pagine]: http://msdn.microsoft.com/it-it/library/azure/ee691964.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Node]: https://github.com/Azure/azure-storage-node

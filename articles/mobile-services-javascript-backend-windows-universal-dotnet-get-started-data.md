@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-javascript-backend-windows-universal-dotnet-get-started-data" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Universal) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your universal Windows app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introduzione ai dati in Servizi mobili
 
@@ -36,19 +36,19 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="8"><li><p>In Esplora soluzioni, aprire il file di codice App.xaml.cs nella cartella di progetto GetStartedWithData.Shared e notare il nuovo campo statico aggiunto alla classe <b>App</b> al'interno di un blocco di compilazione condizionale di un'app di Windows Store, il cui aspetto ricorda quello illustrato nel seguente esempio:</p>
+1.  In Esplora soluzioni, aprire il file di codice App.xaml.cs nella cartella di progetto GetStartedWithData.Shared e notare il nuovo campo statico aggiunto alla classe **App** al'interno di un blocco di compilazione condizionale di un'app di Windows Store, il cui aspetto ricorda quello illustrato nel seguente esempio:
 
-		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-		        "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		</code></pre>
+        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+                    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+                        "https://todolist.azure-mobile.net/",
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                
 
-    <p>Questo codice consente di accedere al nuovo servizio mobile nell'app tramite un'istanza della <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">classe MobileServiceClient</a>. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Questo campo static è disponibile in tutte le pagine dell'app.</p></li>
+    Questo codice consente di accedere al nuovo servizio mobile nell'app tramite un'istanza della [classe MobileServiceClient][classe MobileServiceClient]. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Questo campo static è disponibile in tutte le pagine dell'app.
 
-<li><p>Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare <b>Aggiungi</b> e fare clic su <b>Servizio connesso...</b>, quindi selezionare il servizio mobile appena creato e fare clic su <b>OK</b>.</p>
+2.  Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare **Aggiungi** e fare clic su **Servizio connesso...**, quindi selezionare il servizio mobile appena creato e fare clic su **OK**.
 
-    <p>Il medesimo codice viene aggiunto al file App.xaml.cs condiviso, ma questa volta all'interno di un blocco di compilazione condizionale di un'app di Windows Phone.</p></li></ol>
+    Il medesimo codice viene aggiunto al file App.xaml.cs condiviso, ma questa volta all'interno di un blocco di compilazione condizionale di un'app di Windows Phone.
 
 A questo punto, l'app di Windows Store e l'app di Windows Phone Store sono entrambe connesse al nuovo sevizio mobile. Il passaggio successivo consiste nella creazione di una nuova tabella TodoItem nel servizio mobile.
 
@@ -68,13 +68,12 @@ Ora è possibile testare entrambe le versioni dell'app di Windows universale con
 
 [WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
-<ol start="4">
-<li><p>Nel <a href="https://manage.windowsazure.com/" target="_blank">portale di gestione</a> fare clic su <b>Mobile Services</b> e quindi sul servizio mobile.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Mobile Services** e quindi sul servizio mobile.
 
+    <p>
+2.  Fare clic sulla scheda **Data** e quindi su **Browse**.
 
-<li><p>Fare clic sulla scheda <b>Data</b> e quindi su <b>Browse</b>.</p>
-
-    <p>Si noti che la tabella <b>TodoItem</b> ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.</p></li></ol>
+    Si noti che la tabella **TodoItem** ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
 
 ![][0]
 
@@ -101,9 +100,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Creare app Windows universali per Windows e Windows Phone]: http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn609832.aspx

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Gestione dello spazio dei nomi ACS
 
@@ -74,7 +74,7 @@ ACS firma tutti i token di sicurezza rilasciati. Quando si creano applicazioni c
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -130,7 +130,7 @@ ACS firma tutti i token di sicurezza rilasciati. Quando si creano applicazioni c
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -186,7 +186,7 @@ La crittografia dei token è necessaria se un'applicazione relying party è un s
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -236,7 +236,7 @@ ACS può accettare token crittografati di provider di identità WS-Federation, a
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -293,7 +293,7 @@ Le identità del servizio sono credenziali configurate a livello globale per lo 
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -366,7 +366,7 @@ Il servizio di gestione ACS è un componente essenziale che consente di gestire 
 
 3.  Dopo avere eseguito l'accesso, si verrà reindirizzati alla pagina del portale di gestione. Nel lato inferiore sinistro della pagina fare clic su **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Per avviare il portale di gestione ACS, fare clic su **Access Control** nell'albero sul lato sinistro selezionare lo spazio dei nomi del servizio ACS che si desidera configurare e quindi fare clic sul pulsante **Access Control Service** sulla barra degli strumenti nella parte superiore della pagina.
 
@@ -450,8 +450,8 @@ Di seguito sono riportate le eccezioni generate da ACS quando il certificato è 
   [IdentityProviderKey]: http://msdn.microsoft.com/it-it/library/hh124084.aspx
   [Codici di errore ACS]: http://msdn.microsoft.com/it-it/library/gg185949.aspx
   [Esempio di codice: Servizio di gestione]: http://msdn.microsoft.com/it-it/library/gg185970.aspx
-  []: http://go.microsoft.com/fwlink/?LinkID=129428
-  []: ./media/manage-acs-namespace/ACS1.png
+  [0]: http://go.microsoft.com/fwlink/?LinkID=129428
+  [0]: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
   [2]: ./media/manage-acs-namespace/ACS3.png
   [3]: ./media/manage-acs-namespace/ACS4.png

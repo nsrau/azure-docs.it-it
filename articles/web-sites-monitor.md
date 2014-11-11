@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>Come monitorare Siti Web
 
@@ -118,39 +118,30 @@ Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come
 
 <div class="dev-callout">
 
-**Nota**
-La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
-
-</div>
+<b>Nota</b>
+<p>La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.</p></div>
 
 Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di un client di archiviazione per visualizzare i dati di log, risulta più utile quando si prevede di utilizzare un servizio o un'applicazione che riconosce come leggere ed elaborare i dati direttamente dall'archivio tabelle o BLOB di Azure. La registrazione nel file system genera file che possono essere scaricati nel computer locale mediante FTP o altre utilità descritte più avanti in questa sezione.
 
 <div class="dev-callout">
+	<b>Nota</b>
+	<p>È possibile abilitare contemporaneamente <b>Application diagnostics (file system)</b>,<b> Application diagnostics (table storage) </b> e <b>Application diagnostics (blob storage)</b> ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.<p></div>
 
-**Nota**
-**È possibile abilitare contemporaneamente** Application diagnostics (file system)**,** Application diagnostics (table storage) **e** Application diagnostics (blob storage) ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.
-
-</div>
+<div class="dev-callout">
+	<b>Nota</b>
+    <p>È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet <b>Set-AzureWebsite</b>.</p>
+    <p>Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere <a href="http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/">Come utilizzare Azure PowerShell</a>.</p></div>
 
 <div class="dev-callout">
 
-**Nota**
-È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**.
+<b>Nota</b>
+<p>La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'utilizzo della registrazione delle applicazioni, vedere gli articoli seguenti:</p>
 
-Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell][Come utilizzare Azure PowerShell].
-
-</div>
-
-<div class="dev-callout">
-
-**Nota**
-La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'utilizzo della registrazione delle applicazioni, vedere gli articoli seguenti:
-
--   **.NET**: [Abilitazione della registrazione diagnostica per Siti Web di Azure][Abilitazione della registrazione diagnostica per Siti Web di Azure]
--   **Node.js**: [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure][Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure]
-
-La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
-
+<ul>
+<li><b>.NET</b> - <a href="/it-it/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Abilitazione della registrazione diagnostica per Siti Web di Azure</a></li>
+<li><b>Node.js</b> - <a href="/it-it/develop/nodejs/how-to-guides/Debug-Website/">Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure</a></li>
+</ul>
+<p>La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.</p>
 </div>
 
 #### Diagnostica del sito
@@ -267,7 +258,7 @@ I file di log generati dopo avere abilitato la registrazione e/o la traccia per 
 
 **Tipo di file di log: Traccia delle richieste non riuscite**
 
--   Location: /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
+-   Location: /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 
 -   Leggere i file con: Internet Explorer
 
@@ -331,9 +322,6 @@ Per altre informazioni sul monitoraggio degli endpoint del sito Web, vedere i vi
   [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
   [Come gestire gli account di archiviazione]: https://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/
-  [Come utilizzare Azure PowerShell]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [Abilitazione della registrazione diagnostica per Siti Web di Azure]: /it-it/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure]: /it-it/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
   [introduzione ai cmdlet di Azure PowerShell]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx
   [Come utilizzare gli strumenti da riga di comando di Azure]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/

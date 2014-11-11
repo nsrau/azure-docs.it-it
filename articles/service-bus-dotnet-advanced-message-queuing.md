@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Come usare AMQP 1.0 con l'API .NET di Service Bus
 
@@ -299,5 +299,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
   []: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [guida per sviluppatori di AMQP 1.0 per il bus di servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx
   [1]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/
-  [Come usare l'API JMS (Java Message Service) con Service Bus e AMQP 1.0]: http://aka.ms/ll1fm3
   [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure]: http://aka.ms/pgr3dp

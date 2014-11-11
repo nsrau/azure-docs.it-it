@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # <span id="monitormediaservicesaccount"></span></a>Come monitorare un account di Servizi multimediali
 
@@ -8,13 +8,13 @@ Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di ut
 
 You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
 
-**Nota** Al monitoraggio dei dati di archiviazione nel portale di gestione di Azure sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione][].
+**Nota** Al monitoraggio dei dati di archiviazione nel portale di gestione di Azure sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione][Analisi archiviazione e fatturazione].
 
 ## <span id="configuremonitoring"></span></a>Procedura: Monitorare di un account di Media Services
 
-1.  Nel [portale di gestione][] fare clic su **Media Services**, quindi sul nome dell'account di Servizi multimediali per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Media Services**, quindi sul nome dell'account di Servizi multimediali per aprire il dashboard.
 
-    ![MediaServices\_Dashboard][]
+    ![MediaServices\_Dashboard][MediaServices\_Dashboard]
 
 2.  Per monitorare i processi o i dati di codifica è sufficiente iniziare a inviare processi di codifica a Servizi multimediali, oppure iniziare a trasmettere contenuti in streaming ai clienti utilizzando lo streaming on demand di contenuti multimediali di Azure. I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard dopo circa un'ora.
 
@@ -25,7 +25,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
     **Nota** I BLOB sono l'unico tipo di archiviazione supportata in Servizi multimediali.
 
-    ![StorageOptions][]
+    ![StorageOptions][StorageOptions]
 
 3.  In **monitoring** impostare il livello di monitoraggio e i criteri di conservazione dei dati per i BLOB:
 
@@ -41,12 +41,11 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
 1.  Al termine del monitoraggio della configurazione, fare clic su **Salva**.
     In modo analogo alle metriche per Servizi multimediali, i dati relativi al monitoraggio dovrebbero essere visualizzati sul dashboard dopo un'ora circa.
-    Le metriche sono archiviate nell'account di archiviazione in quattro tabelle con nome $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][].
+    Le metriche sono archiviate nell'account di archiviazione in quattro tabelle con nome $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][Informazioni sulle metriche di Analisi archiviazione].
 
 <!-- Images -->
 
   [Analisi archiviazione e fatturazione]: http://go.microsoft.com/fwlink/?LinkId=256667
   [portale di gestione]: http://go.microsoft.com/fwlink/?LinkID=256666
-  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [Informazioni sulle metriche di Analisi archiviazione]: http://go.microsoft.com/fwlink/?LinkId=256668

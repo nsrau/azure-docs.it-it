@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="carolz" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure
 
@@ -11,24 +11,25 @@ servizio di posta elettronica SendGrid in Azure. Negli esempi, scritti in C#,
 viene usata l'API .NET. Gli scenari presentati includono **creazione di
 messaggi di posta elettronica**, **invio di messaggi di posta elettronica**,
 **aggiunta di allegati** e **uso di filtri**. Per ulteriori informazioni su SendGrid
-e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][].
+e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## <a name="toc"></a>Sommario
 
-[Informazioni sul servizio di posta elettronica SendGrid][]
-[Creazione di un account SendGrid][]
-[Riferimento alla libreria di classi .NET di SendGrid][]
-[Procedura: Creare un messaggio di posta elettronica][]
-[Procedura: Inviare un messaggio di posta elettronica][]
-[Procedura: Aggiungere un allegato][]
-[Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi][]
-[Procedura: Utilizzare servizi aggiuntivi forniti da SendGrid][]
-[Passaggi successivi][]
+[Informazioni sul servizio di posta elettronica SendGrid][Informazioni sul servizio di posta elettronica SendGrid]
+[Creazione di un account SendGrid][Creazione di un account SendGrid]
+[Riferimento alla libreria di classi .NET di SendGrid][Riferimento alla libreria di classi .NET di SendGrid]
+[Procedura: Creare un messaggio di posta elettronica][Procedura: Creare un messaggio di posta elettronica]
+[Procedura: Inviare un messaggio di posta elettronica][Procedura: Inviare un messaggio di posta elettronica]
+[Procedura: Aggiungere un allegato][Procedura: Aggiungere un allegato]
+[Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi][Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi]
+[Procedura: Utilizzare servizi aggiuntivi forniti da SendGrid][Procedura: Utilizzare servizi aggiuntivi forniti da SendGrid]
+[Passaggi successivi][Passaggi successivi]
 
 ## <a name="whatis"></a><span class="short-header">Informazioni sul servizio di posta elettronica SendGrid</span>
 
-SendGrid è un [servizio di posta elettronica basato sul cloud][] che offre [recapito affidabile
-di messaggi di posta elettronica transazionali][], scalabilità e analisi in tempo reale,
+SendGrid è un [servizio di posta elettronica basato sul cloud][servizio di posta elettronica basato sul cloud] che offre [recapito affidabile
+di messaggi di posta elettronica transazionali][recapito affidabile
+di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale,
 oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di
 utilizzo comuni di SendGrid includono:
 
@@ -44,11 +45,11 @@ Per altre informazioni, visitare il sito [][]<http://sendgrid.com></a>.
 
 ## <a name="createaccount"></a><span class="short-header">Creare un account SendGrid</span>
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"></a><span class="short-header">Riferimento alla libreria di classi .NET di SendGrid</span>Riferimento alla libreria di classi .NET di SendGrid
 
-Il [pacchetto NuGet di SendGrid][] è il modo più semplice per recuperare l'API
+Il [pacchetto NuGet di SendGrid][pacchetto NuGet di SendGrid] è il modo più semplice per recuperare l'API
 SendGrid e configurare l'applicazione con tutte le dipendenze. NuGet è
 un'estensione di Visual Studio inclusa in Microsoft Visual Studio 2012 che semplifica l'installazione
 e l'aggiornamento di librerie e strumenti.
@@ -70,7 +71,7 @@ Per installare il pacchetto NuGet di SendGrid, eseguire le operazioni seguenti:
 3.  Cercare **SendGrid** e selezionare la voce **SendGrid** nell'elenco
     dei risultati.
 
-    ![Pacchetto NuGet di SendGrid][]
+    ![Pacchetto NuGet di SendGrid][Pacchetto NuGet di SendGrid]
 
 4.  Fare clic su **Installa** per completare l'installazione, quindi chiudere
     questa finestra di dialogo.
@@ -128,12 +129,12 @@ completamente popolato:
     myMessage.Text = "Hello World plain text!";
 
 Per ulteriori informazioni su tutte le proprietà e i metodi supportati dal tipo
-**SendGrid**, vedere [sendgrid-csharp][] su GitHub.
+**SendGrid**, vedere [sendgrid-csharp][sendgrid-csharp] su GitHub.
 
 ## <a name="sendemail"></a><span class="short-header">Procedura: Inviare un messaggio di posta elettronica</span>
 
 Dopo aver creato un messaggio di posta elettronica, è possibile
-inviarlo tramite SMTP o con l'API Web di SendGrid. In alternativa, è possibile [usare la libreria .NET integrata][].
+inviarlo tramite SMTP o con l'API Web di SendGrid. In alternativa, è possibile [usare la libreria .NET integrata][usare la libreria .NET integrata].
 
 Per l'invio di messaggi di posta elettronica
 è necessario specificare le credenziali dell'account SendGrid (nome utente e password). Il codice seguente
@@ -207,7 +208,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive mediante
 l'uso di filtri. Si tratta di impostazioni che è possibile aggiungere a un messaggio
 di posta elettronica per abilitare funzionalità specifiche, ad esempio il
 monitoraggio dei clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo dei filtri, vedere
-[Impostazioni dei filtri][].
+[Impostazioni dei filtri][Impostazioni dei filtri].
 
 Per applicare i filtri ai messaggi di posta elettronica di **SendGrid** usare i metodi
 implementati come parte della classe **SendGrid**.
@@ -245,14 +246,14 @@ dei clic:
 
 SendGrid offre API basate sul Web che è possibile usare per sfruttare
 altre funzionalità di SendGrid dall'applicazione Azure. Per
-informazioni dettagliate, vedere la [documentazione dell'API SendGrid][].
+informazioni dettagliate, vedere la [documentazione dell'API SendGrid][documentazione dell'API SendGrid].
 
 ## <a name="nextsteps"></a><span class="short-header">Passaggi successivi</span>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i
 collegamenti seguenti per ulteriori informazioni.
 
--   Repository della libreria C# di SendGrid: [sendgrid-csharp][]
+-   Repository della libreria C# di SendGrid: [sendgrid-csharp][sendgrid-csharp]
 -   Documentazione dell'API SendGrid: <http://docs.sendgrid.com/documentation/api/>
 -   Offerta speciale SendGrid per i clienti di Azure: [][]<http://sendgrid.com></a>
 
@@ -266,8 +267,6 @@ collegamenti seguenti per ulteriori informazioni.
   [Procedura: Utilizzare filtri per abilitare piè di pagina, monitoraggio e analisi]: #usefilters
   [Procedura: Utilizzare servizi aggiuntivi forniti da SendGrid]: #useservices
   [servizio di posta elettronica basato sul cloud]: http://sendgrid.com/solutions
-  [recapito affidabile
-  di messaggi di posta elettronica transazionali]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [pacchetto NuGet di SendGrid]: https://www.nuget.org/packages/Sendgrid

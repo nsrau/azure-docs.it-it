@@ -1,8 +1,8 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -10,7 +10,7 @@ In questa esercitazione viene illustrato come aggiungere un servizio back-end ba
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][]
+![][0]
 
 ### <a name="additional-requirements"></a>Requisiti aggiuntivi
 
@@ -18,14 +18,14 @@ Per completare questa esercitazione, è necessario disporre degli strumenti Phon
 
 PhoneGap supporta lo sviluppo per più piattaforme. Oltre agli strumenti PhoneGap, è necessario installare gli strumenti relativi a ogni piattaforma di destinazione:
 
--   Windows Phone: Installare [Visual Studio 2012 Express per Windows Phone][]
--   iOS: Installare [Xcode][] (è necessaria la versione 4.4 o successiva)
--   Android: Installare [Android Developer Tools][]
+-   Windows Phone: Installare [Visual Studio 2012 Express per Windows Phone][Visual Studio 2012 Express per Windows Phone]
+-   iOS: Installare [Xcode][Xcode] (è necessaria la versione 4.4 o successiva)
+-   Android: Installare [Android Developer Tools][Android Developer Tools]
     (Mobile Services SDK per Android supporta le app per Android 2.2 o versione successiva. Per l'esecuzione dell'app di guida introduttiva è necessario Android 4.2 o versione successiva.)
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Creazione di una nuova app</span>Creazione di una nuova app PhoneGap
 
@@ -73,7 +73,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
     2.  Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
 
-        ![][]
+        ![][0]
 
     -   **Android**
 
@@ -138,16 +138,16 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
 <!-- Images. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Android Developer Tools]: https://go.microsoft.com/fwLink/p/?LinkID=280125

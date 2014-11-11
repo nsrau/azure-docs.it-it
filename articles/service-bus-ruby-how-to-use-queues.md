@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Come usare le code del bus di servizio
 
@@ -23,7 +23,7 @@ presentati includono **creazione di code invio e ricezione di messaggi**, nonch√
 -   [Come gestire arresti anomali e messaggi illeggibili dell'applicazione][Come gestire arresti anomali e messaggi illeggibili dell'applicazione]
 -   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creazione di un'applicazione Ruby
 

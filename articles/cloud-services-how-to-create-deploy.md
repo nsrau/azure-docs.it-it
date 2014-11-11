@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Come creare e distribuire un servizio cloud
 
@@ -112,7 +112,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
     Nella pagina di download è inoltre possibile installare librerie client e codice sorgente per sviluppare applicazioni Web in Node.js, Java, PHP e altri linguaggi che è possibile distribuire come servizi cloud di Azure scalabili.
 
     > [WACOM.NOTE]
-    > Per i servizi cloud creati in precedenza (noti come *servizi ospitati*), sarà necessario assicurarsi che i sistemi operativi guest nelle macchine virtuali (istanze del ruolo) siano compatibili con la versione di Azure SDK installata. Per ulteriori informazioni, vedere le [Note sulla versione di Azure SDK][].
+    > Per i servizi cloud creati in precedenza (noti come *servizi ospitati*), sarà necessario assicurarsi che i sistemi operativi guest nelle macchine virtuali (istanze del ruolo) siano compatibili con la versione di Azure SDK installata. Per ulteriori informazioni, vedere le [Note sulla versione di Azure SDK][Note sulla versione di Azure SDK].
 
 2.  Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard e infine su **Dashboard**.
 
@@ -166,15 +166,6 @@ Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio 
   [Informazioni generali sulla configurazione di una connessione Desktop remoto per un ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433010.aspx
   [Abilitazione della diagnostica in Azure]: http://www.windowsazure.com/it-it/develop/net/common-tasks/diagnostics/
   [portale di gestione]: http://manage.windowsazure.com/
-  [CloudServices\_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
   [Operazioni sui gruppi di affinità]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460798.aspx
-  [CloudServices\_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
-  [CloudServices\_EmptyDashboard]: ./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png
-  [CloudServices\_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
-  [CloudServices\_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
-  [CloudServices\_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
   [Note sulla versione di Azure SDK]: http://msdn.microsoft.com/it-it/library/windowsazure/hh552718.aspx
-  [CloudServices\_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
-  [CloudServices\_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
   [Contratti di servizio]: http://www.windowsazure.com/it-it/support/legal/sla/
-  [CloudServices\_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png

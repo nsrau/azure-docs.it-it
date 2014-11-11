@@ -1,6 +1,6 @@
 <properties title="How to Configure PHP in Azure Websites" pageTitle="How to Configure PHP in Azure Websites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="Web Sites" documentationCenter="PHP" authors="cephalin" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Come configurare PHP in Siti Web di Azure
 
@@ -105,13 +105,11 @@ A questo punto, dopo aver appreso come configurare PHP in Siti Web di Azure, sel
   [Procedura: Abilitare le estensioni nel runtime PHP incorporato]: #EnableExtDefaultPHP
   [Procedura: Usare un runtime PHP personalizzato]: #UseCustomPHP
   [Passaggi successivi]: #NextSteps
-  [phpinfo ()]: http://php.net/manual/en/function.phpinfo.php
   [Scheda Configura sul dashboard di Siti Web]: ./media/web-sites-php-configure/configure.png
   [Selezionare la versione di PHP]: ./media/web-sites-php-configure/select-php-version.png
   [Salvare le impostazioni di configurazione]: ./media/web-sites-php-configure/save-button.png
   [Lista delle direttive php.ini]: http://www.php.net/manual/en/ini.list.php
   [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-  [ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
   [Abilitare le estensioni nelle impostazioni app]: ./media/web-sites-php-configure/app-settings.png
   []: http://windows.php.net/download/
   [1]: http://windows.php.net/downloads/releases/archives/

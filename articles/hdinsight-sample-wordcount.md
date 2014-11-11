@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Esempio WordCount di Hadoop in HDInsight
 
@@ -15,20 +15,20 @@ Il programma MapReduce Hadoop legge il file di testo e conta le occorrenze di og
 
 **Prerequisiti**:
 
--   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese][].
+-   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese][Abbonamento di prova gratuito di un mese].
 
--   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Introduzione ad Azure HDInsight][] o Provisioning di cluster HDInsight
+-   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Introduzione ad Azure HDInsight][Introduzione ad Azure HDInsight] o Provisioning di cluster HDInsight
 
--   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][]
+-   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][Installazione e configurazione di Azure PowerShell]
 
 ## Contenuto dell'articolo
 
 In questo argomento viene illustrato come eseguire l'esempio, viene presentato il codice Java per il programma MapReduce, vengono riepilogate le nozioni acquisite e vengono descritti alcuni passaggi successivi. L'argomento include le sezioni seguenti:
 
-1.  [Esecuzione dell'esempio con Azure PowerShell][]
-2.  [Codice Java per il programma MapReduce WordCount][]
-3.  [Riepilogo][]
-4.  [Passaggi successivi][]
+1.  [Esecuzione dell'esempio con Azure PowerShell][Esecuzione dell'esempio con Azure PowerShell]
+2.  [Codice Java per il programma MapReduce WordCount][Codice Java per il programma MapReduce WordCount]
+3.  [Riepilogo][Riepilogo]
+4.  [Passaggi successivi][Passaggi successivi]
 
 ## <span id="run-sample"></span></a>Esecuzione dell'esempio con Azure PowerShell
 
@@ -101,7 +101,7 @@ In questo argomento viene illustrato come eseguire l'esempio, viene presentato i
 
 L'output dello script WordCount dovrebbe essere visualizzato nella finestra dei comandi:
 
-![HDI.Sample.WordCount.Output][]
+![HDI.Sample.WordCount.Output][HDI.Sample.WordCount.Output]
 
 Si noti che i file di output di un processo MapReduce non sono modificabili. Se pertanto si esegue di nuovo l'esempio, sarà necessario cambiare il nome del file di output.
 
@@ -184,14 +184,14 @@ In questa esercitazione è stato illustrato come eseguire un programma MapReduce
 Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzioni per l'utilizzo di Pig, Hive e processi MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
 -   [Introduzione all'utilizzo di Azure HDInsight][Introduzione ad Azure HDInsight]
--   [Esempio: GraySort da 10 GB][]
--   [Esempio: Calcolo del Pi greco][]
--   [Esempio: streaming C#][]
--   [Usare Pig con HDInsight][]
--   [Usare Hive con HDInsight][]
--   [Documentazione di Azure HDInsight SDK][]
+-   [Esempio: GraySort da 10 GB][Esempio: GraySort da 10 GB]
+-   [Esempio: Calcolo del Pi greco][Esempio: Calcolo del Pi greco]
+-   [Esempio: streaming C#][Esempio: streaming C#]
+-   [Usare Pig con HDInsight][Usare Pig con HDInsight]
+-   [Usare Hive con HDInsight][Usare Hive con HDInsight]
+-   [Documentazione di Azure HDInsight SDK][Documentazione di Azure HDInsight SDK]
 
-  [Abbonamento di prova gratuito di un mese]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Abbonamento di prova gratuito di un mese]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Introduzione ad Azure HDInsight]: ../hdinsight-get-started/
   [Installazione e configurazione di Azure PowerShell]: ../install-configure-powershell/
   [Esecuzione dell'esempio con Azure PowerShell]: #run-sample
@@ -204,4 +204,4 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
   [Esempio: streaming C#]: ../hdinsight-sample-csharp-streaming/
   [Usare Pig con HDInsight]: ../hdinsight-use-pig/
   [Usare Hive con HDInsight]: ../hdinsight-use-hive/
-  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx

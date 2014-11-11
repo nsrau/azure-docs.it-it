@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
 
 # Come utilizzare Blitline con Azure e l'archiviazione di Azure
 
@@ -37,7 +37,7 @@ Allo scopo di chiarire l'utilità di Blitline è spesso più semplice identifica
 
 ## <span id="createaccount"></span></a>Creazione di un account Blitline
 
-[WACOM.INCLUDE [blitline-signup][blitline-signup]]
+[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <span id="createjob"></span></a>Come creare un processo di Blitline
 
@@ -133,5 +133,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
   [Passaggi successivi]: #nextsteps
   []: http://www.blitline.com
   [blitline-signup]: ../includes/blitline-signup.md
-  [https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\\_APP\\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg]: https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg
   [qui]: http://www.blitline.com/docs/azure_storage

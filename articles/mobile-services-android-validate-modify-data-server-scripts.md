@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Convalida e modifica dei dati in Servizi mobili mediante script del server
 
@@ -12,20 +12,20 @@ In questo argomento viene illustrato come utilizzare gli script del server in Se
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Aggiunta della convalida della lunghezza della stringa][]
-2.  [Aggiornamento del client per il supporto della convalida][]
-3.  [Aggiunta di un timestamp all'inserimento][]
-4.  [Aggiornamento del client per la visualizzazione del timestamp][]
+1.  [Aggiunta della convalida della lunghezza della stringa][Aggiunta della convalida della lunghezza della stringa]
+2.  [Aggiornamento del client per il supporto della convalida][Aggiornamento del client per il supporto della convalida]
+3.  [Aggiunta di un timestamp all'inserimento][Aggiunta di un timestamp all'inserimento]
+4.  [Aggiornamento del client per la visualizzazione del timestamp][Aggiornamento del client per la visualizzazione del timestamp]
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][Introduzione ai dati].
 
 ## <a name="string-length-validation"></a>Aggiunta della convalida
 
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -55,7 +55,7 @@ Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell
 
 Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario verificare che l'app gestisca correttamente le risposte di errore della convalida.
 
-1.  In Eclipse aprire il progetto creato durante l'esercitazione [Introduzione ai dati][].
+1.  In Eclipse aprire il progetto creato durante l'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
 2.  Nel file ToDoActivity.java individuare il metodo **addItem** e sostituire la chiamata al metodo createAndShowDialog con il codice seguente:
 
@@ -198,36 +198,28 @@ L'esercitazione relativa all'utilizzo dei dati è stata completata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][].
+Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query].
 
 Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e per l'invio di notifiche push. Per ulteriori informazioni, vedere le esercitazioni seguenti:
 
--   [Autorizzazione di utenti con script][]
+-   [Autorizzazione di utenti con script][Autorizzazione di utenti con script]
     Informazioni su come filtrare i dati in base all'ID di un utente autenticato.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
+
   [Aggiunta della convalida della lunghezza della stringa]: #string-length-validation
   [Aggiornamento del client per il supporto della convalida]: #update-client-validation
   [Aggiunta di un timestamp all'inserimento]: #add-timestamp
   [Aggiornamento del client per la visualizzazione del timestamp]: #update-client-timestamp
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-android
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Utilizzo del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-android

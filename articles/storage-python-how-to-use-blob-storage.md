@@ -1,6 +1,6 @@
 <properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Utilizzo del servizio di archiviazione BLOB da Python
 
@@ -9,30 +9,30 @@ archiviazione BLOB di Azure. Gli esempi sono scritti utilizzando l'API
 Python. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**,
 **download** ed
 **eliminazione** di BLOB. Per altre informazioni sui BLOB,
-vedere la sezione [Passaggi successivi][].
+vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
- [Informazioni sull'archiviazione BLOB][]  
- [Concetti][]  
- [Creare un account di archiviazione di Azure][]  
- [Procedura: Creare un contenitore][]  
- [Procedura: Caricare un BLOB in un contenitore][]  
- [Procedura: Visualizzare un elenco di BLOB in un contenitore][]  
- [Procedura: Scaricare BLOB][]  
- [Procedura: Eliminare un BLOB][]  
- [Procedura: Caricare e scaricare BLOB di grandi dimensioni][]  
- [Passaggi successivi][]  
+ [Informazioni sull'archiviazione BLOB][Informazioni sull'archiviazione BLOB]  
+ [Concetti][Concetti]  
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]  
+ [Procedura: Creare un contenitore][Procedura: Creare un contenitore]  
+ [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]  
+ [Procedura: Visualizzare un elenco di BLOB in un contenitore][Procedura: Visualizzare un elenco di BLOB in un contenitore]  
+ [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]  
+ [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]  
+ [Procedura: Caricare e scaricare BLOB di grandi dimensioni][Procedura: Caricare e scaricare BLOB di grandi dimensioni]  
+ [Passaggi successivi][Passaggi successivi]  
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-container"> </a>Procedura: Creare un contenitore
 
-**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][].
+**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][guida all'installazione di Python].
 
 L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice
 seguente consente di creare un oggetto **BlobService**. Aggiungere il codice seguente vicino
@@ -100,8 +100,8 @@ Per eliminare un BLOB, infine, chiamare **delete\_blob**.
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
   [Passaggi successivi]: #next-steps
   [Informazioni sull'archiviazione BLOB]: #what-is
@@ -116,5 +116,5 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [guida all'installazione di Python]: ../python-how-to-install/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Come utilizzare il componente client Xamarin per Servizi mobili di Azure
 
@@ -9,35 +9,35 @@
     <a href="/it-it/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/it-it/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/it-it/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/it-it/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando il componente client Xamarin per Servizi mobili di Azure in app di Xamarin per iOS e Android. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima le esercitazioni relative alla guida introduttiva a Servizi mobili ([Xamarin.iOS][]/[Xamarin.Android][]) e all'introduzione ai dati in .NET ([Xamarin.iOS][1]/[Xamarin.Android][2]). Per completare l'esercitazione relativa alla guida introduttiva, che consente di configurare il proprio account e di creare il primo servizio mobile, è necessario disporre di [Xamarin][3] e di [Mobile Services SDK][].
+In questa guida viene illustrato come eseguire scenari comuni utilizzando il componente client Xamarin per Servizi mobili di Azure in app di Xamarin per iOS e Android. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti e la gestione di errori. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima le esercitazioni relative alla guida introduttiva a Servizi mobili ([Xamarin.iOS][Xamarin.iOS]/[Xamarin.Android][Xamarin.Android]) e all'introduzione ai dati in .NET ([Xamarin.iOS][1]/[Xamarin.Android][2]). Per completare l'esercitazione relativa alla guida introduttiva, che consente di configurare il proprio account e di creare il primo servizio mobile, è necessario disporre di [Xamarin][3] e di [Mobile Services SDK][Mobile Services SDK].
 
 ## Sommario
 
--   [Informazioni su Servizi mobili][]
--   [Concetti][]
--   [Procedura: Creare il client di Servizi mobili][]
--   [Procedura: Creare un riferimento alla tabella][]
--   [Procedura: Eseguire query sui dati da un servizio mobile][]
+-   [Informazioni su Servizi mobili][Informazioni su Servizi mobili]
+-   [Concetti][Concetti]
+-   [Procedura: Creare il client di Servizi mobili][Procedura: Creare il client di Servizi mobili]
+-   [Procedura: Creare un riferimento alla tabella][Procedura: Creare un riferimento alla tabella]
+-   [Procedura: Eseguire query sui dati da un servizio mobile][Procedura: Eseguire query sui dati da un servizio mobile]
 
-    -   [Filtrare i dati restituiti][]
-    -   [Ordinare i dati restituiti][]
-    -   [Restituire i dati in pagine][]
-    -   [Selezionare colonne specifiche][]
-    -   [Cercare dati in base all'ID][]
--   [Procedura: Inserire dati in un servizio mobile][]
--   [Procedura: Modificare dati in un servizio mobile][]
--   [Procedura: Eliminare dati in un servizio mobile][]
--   [Procedura: Autenticare gli utenti][]
--   [Procedura: Gestire gli errori][]
--   [Procedura: Utilizzare dati non tipizzati][]
--   [Procedura: Progettare unit test][]
--   [Passaggi successivi][]
+    -   [Filtrare i dati restituiti][Filtrare i dati restituiti]
+    -   [Ordinare i dati restituiti][Ordinare i dati restituiti]
+    -   [Restituire i dati in pagine][Restituire i dati in pagine]
+    -   [Selezionare colonne specifiche][Selezionare colonne specifiche]
+    -   [Cercare dati in base all'ID][Cercare dati in base all'ID]
+-   [Procedura: Inserire dati in un servizio mobile][Procedura: Inserire dati in un servizio mobile]
+-   [Procedura: Modificare dati in un servizio mobile][Procedura: Modificare dati in un servizio mobile]
+-   [Procedura: Eliminare dati in un servizio mobile][Procedura: Eliminare dati in un servizio mobile]
+-   [Procedura: Autenticare gli utenti][Procedura: Autenticare gli utenti]
+-   [Procedura: Gestire gli errori][Procedura: Gestire gli errori]
+-   [Procedura: Utilizzare dati non tipizzati][Procedura: Utilizzare dati non tipizzati]
+-   [Procedura: Progettare unit test][Procedura: Progettare unit test]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Installazione</span>Installazione e prerequisiti
 
-Si presuppone che siano stati creati un servizio mobile e una tabella. Per ulteriori informazioni, vedere [Creare una tabella][]. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `id`, `Text` e `Complete`.
+Si presuppone che siano stati creati un servizio mobile e una tabella. Per ulteriori informazioni, vedere [Creare una tabella][Creare una tabella]. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `id`, `Text` e `Complete`.
 
 Il tipo .NET tipizzato corrispondente sul lato client è il seguente:
 
@@ -52,7 +52,7 @@ Il tipo .NET tipizzato corrispondente sul lato client è il seguente:
         public bool Complete { get; set; }
     }
 
-Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nelle richieste di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][].
+Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nelle richieste di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][Schema dinamico].
 
 ## <a name="create-client"></a><span class="short-header">Creare il client di Servizi mobili</span>Procedura: Creare il client di Servizi mobili
 
@@ -67,7 +67,7 @@ Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio
 
 ## <a name="instantiating"></a><span class="short-header">Creare un riferimento alla tabella</span>Procedura: Creare un riferimento alla tabella
 
-Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable][] su un'istanza dell'oggetto `MobileServiceClient`.
+Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable][GetTable] su un'istanza dell'oggetto `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -163,7 +163,7 @@ La query modificata riportata di seguito ignora i primi tre risultati e restitui
     List<TodoItem> items = await query.ToListAsync();
             
 
-È anche possibile utilizzare il metodo [IncludeTotalCount][] per assicurarsi che la query consenta di ottenere il conteggio totale di *tutti* i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
+È anche possibile utilizzare il metodo [IncludeTotalCount][IncludeTotalCount] per assicurarsi che la query consenta di ottenere il conteggio totale di *tutti* i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
 
     query = query.IncludeTotalCount();
 
@@ -262,7 +262,7 @@ Sono supportati due flussi di autenticazione: un *flusso server* e un *flusso cl
 Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o per Windows Phone,
 è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per ulteriori informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Xamarin.iOS][4]/[Xamarin.Android][5]).
 
-Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync][] con il valore del provider [MobileServiceAuthenticationProvider][]. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
+Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync][LoginAsync] con il valore del provider [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider]. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -288,9 +288,9 @@ Dopo aver effettuato la registrazione del provider di identità, è sufficiente 
         }
     }
 
-Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider][] con il nome del provider.
+Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] con il nome del provider.
 
-In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync][] restituisce un utente [MobileServiceUser][], che fornisce sia un elemento [userId][] dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken][] sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione][].
+In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync][LoginAsync] restituisce un utente [MobileServiceUser][MobileServiceUser], che fornisce sia un elemento [userId][userId] dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken][MobileServiceAuthenticationToken] sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione][Memorizzazione nella cache del token di autenticazione].
 
 ### Flusso client
 
@@ -331,7 +331,7 @@ Nella forma più semplice, è possibile utilizzare il flusso client come illustr
 
 ### <a name="caching"></a>Memorizzazione nella cache del token di autenticazione
 
-In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare un archivio sicuro locale, ad esempio [Xamarin.Auth][], per memorizzare nella cache l'identità dell'utente corrente al primo accesso. A ogni accesso successivo verrà verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
+In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. È possibile utilizzare un archivio sicuro locale, ad esempio [Xamarin.Auth][Xamarin.Auth], per memorizzare nella cache l'identità dell'utente corrente al primo accesso. A ogni accesso successivo verrà verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
 
     using Xamarin.Auth;
     var accountStore = AccountStore.Create(); // Xamarin.iOS
@@ -406,7 +406,7 @@ Il componente client Xamarin è progettato per gli scenari fortemente tipizzati.
     // Lookup untyped data using OData
     JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Si ottengono valori JSON utilizzabili come contenitore delle proprietà. Per ulteriori informazioni su JToken e Json.NET, vedere [Json.NET][].
+Si ottengono valori JSON utilizzabili come contenitore delle proprietà. Per ulteriori informazioni su JToken e Json.NET, vedere [Json.NET][Json.NET].
 
 ## <a name="unit-testing"></a><span class="short-header">Progettare test</span>Procedura: Progettare unit test
 
@@ -436,10 +436,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [.NET Framework]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /it-it/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /it-it/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /it-it/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /it-it/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /it-it/develop/mobile/tutorials/get-started-xamarin-android/

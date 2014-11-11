@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Compilazione di app in tempo reale tramite Servizi mobili e Pusher
 
@@ -10,22 +10,22 @@
 
 In questo argomento viene illustrato come aggiungere funzionalità in tempo reale a un'app basata su Servizi mobili di Azure. Una volta completata l'esercitazione, i dati dell'elenco attività saranno sincronizzati, in tempo reale, tra tutte le istanze in esecuzione dell'app.
 
-Nell'esercitazione [Invio di notifiche push agli utenti][] viene illustrato come utilizzare le notifiche push per informare gli utenti della presenza di nuove voci nell'elenco attività. Le notifiche push rappresentano un'ottima soluzione per mostrare modifiche occasionali. Tuttavia, un'app necessita talvolta di notifiche in tempo reale frequenti. È possibile aggiungere le notifiche in tempo reale al servizio mobile tramite l'API Pusher. In questa esercitazione verrà utilizzato il servizio Pusher con Servizi mobili per sincronizzare le modifiche di un elenco attività in tutte le istanze in esecuzione dell'app.
+Nell'esercitazione [Invio di notifiche push agli utenti][Invio di notifiche push agli utenti] viene illustrato come utilizzare le notifiche push per informare gli utenti della presenza di nuove voci nell'elenco attività. Le notifiche push rappresentano un'ottima soluzione per mostrare modifiche occasionali. Tuttavia, un'app necessita talvolta di notifiche in tempo reale frequenti. È possibile aggiungere le notifiche in tempo reale al servizio mobile tramite l'API Pusher. In questa esercitazione verrà utilizzato il servizio Pusher con Servizi mobili per sincronizzare le modifiche di un elenco attività in tutte le istanze in esecuzione dell'app.
 
 Pusher è un servizio basato su cloud che, come Servizi mobili, semplifica la compilazione di app in tempo reale. È possibile utilizzare Pusher per creare rapidamente sondaggi in diretta, chat room, giochi per più giocatori, app di collaborazione per trasmettere dati e contenuto in diretta e molto altro ancora. Per ulteriori informazioni, visitare il sito [][]<http://pusher.com></a>.
 
 In questa esercitazione vengono descritte le operazioni di base per aggiungere funzionalità di collaborazione in tempo reale all'applicazione Elenco attività:
 
-1.  [Creazione di un account Pusher][]
-2.  [Aggiornamento dell'app][]
-3.  [Installazione degli script del server][]
-4.  [Test dell'app][]
+1.  [Creazione di un account Pusher][Creazione di un account Pusher]
+2.  [Aggiornamento dell'app][Aggiornamento dell'app]
+3.  [Installazione degli script del server][Installazione degli script del server]
+4.  [Test dell'app][Test dell'app]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
 ## <a name="sign-up"></a>Creazione di un account Pusher
 
-[WACOM.INCLUDE [pusher-sign-up][]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Aggiornamento dell'app
 
@@ -33,9 +33,9 @@ Dopo avere configurato l'account Pusher, nel passaggio successivo si procederà 
 
 ### Installare la libreria libPusher
 
-La libreria [libPusher][] consente di accedere a Pusher da iOS.
+La libreria [libPusher][libPusher] consente di accedere a Pusher da iOS.
 
-1.  Scaricare la libreria libPusher [da qui][].
+1.  Scaricare la libreria libPusher [da qui][da qui].
 
 2.  Nel progetto creare un gruppo denominato *libPusher*.
 
@@ -43,7 +43,7 @@ La libreria [libPusher][] consente di accedere a Pusher da iOS.
 
 4.  Selezionare **Copy items into destination group's folder**, quindi fare clic su **Finish**.
 
-    ![][]
+    ![][0]
 
 I file della libreria libPusher verranno copiati nel progetto.
 
@@ -259,7 +259,7 @@ L'app è ora in grado di ricevere eventi da Pusher e di aggiornare l'elenco atti
 
 Ora non rimane che configurare gli script del server. Verrà inserito uno script per gestire l'inserimento o l'aggiornamento di una voce nella tabella TodoList.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sul servizio mobile.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sul servizio mobile.
 
 2.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -375,13 +375,12 @@ Dopo avere sperimentato quanto è facile utilizzare il servizio Pusher con Servi
 -   Documentazione sull'API Pusher: <http://pusher.com/docs>
 -   Esercitazioni su Pusher: <http://pusher.com/tutorials>
 
-Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server, vedere [Riferimento per gli script del server di Servizi mobili][].
+Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server, vedere [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [iOS]:  "iOS"
+
   [Invio di notifiche push agli utenti]: /it-it/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [Creazione di un account Pusher]: #sign-up
   [Aggiornamento dell'app]: #update-app
   [Installazione degli script del server]: #install-scripts
@@ -390,7 +389,7 @@ Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [da qui]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/

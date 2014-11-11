@@ -1,10 +1,10 @@
 <properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Applicazione Web Node.js con il servizio tabelle di Azure
 
-In questa esercitazione viene illustrato come utilizzare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [Node][] ospitata in Azure. In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git][].
+In questa esercitazione viene illustrato come utilizzare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [Node][Node] ospitata in Azure. In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git][Git].
 
 Si apprenderà come:
 
@@ -18,7 +18,7 @@ In questa esercitazione verrà creata una semplice applicazione di gestione dell
 
 I file di progetto per questa esercitazione verranno archiviati in una directory denominata **tasklist** e l'applicazione completata presenterà un aspetto simile al seguente:
 
-![Pagina Web con un elenco di attività vuoto][]
+![Pagina Web con un elenco di attività vuoto][Pagina Web con un elenco di attività vuoto]
 
 > [WACOM.NOTE] In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\\node\\tasklist**.
 
@@ -30,39 +30,39 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
 -   [node][Node] 0.10.24 o versione successiva
 
--   [Git][]
+-   [Git][Git]
 
 -   Un editor di testo
 
 -   Un Web browser
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Creare un account di archiviazione
 
 Procedere come descritto di seguito per creare un account di archiviazione. Tale account verrà utilizzato in istruzioni successive nella presente esercitazione.
 
-1.  Aprire il Web browser e passare al [portale di Azure][]. Se richiesto, accedere con le informazioni della sottoscrizione di Azure.
+1.  Aprire il Web browser e passare al [portale di Azure][portale di Azure]. Se richiesto, accedere con le informazioni della sottoscrizione di Azure.
 
 2.  Nella parte inferiore della pagina del portale, fare clic su **+ NEW**, quindi selezionare **Storage Account**.
 
-    ![+nuovo][]
+    ![+nuovo][+nuovo]
 
-    ![storage account][]
+    ![storage account][storage account]
 
 3.  Selezionare **Quick Create**, quindi immettere l'URL e la regione/gruppo di affinità per l'account di archiviazione. Poiché si sta eseguendo un'esercitazione e non è necessaria la replica globale, deselezionare l'opzione **Enable Geo-Replication**. Fare clic su "Create Storage Account".
 
-    ![quick create][]
+    ![quick create][quick create]
 
     Prendere nota dell'URL immesso, poiché vi verrà fatto riferimento come nome dell'account nei passaggi successivi.
 
 4.  Dopo la creazione dell'account di archiviazione, fare clic su **Manage Keys** nella parte inferiore della pagina. Vengono visualizzate le chiavi di accesso primaria e secondaria per l'account di archiviazione. Copiare e salvare la chiave di accesso primaria, quindi fare clic sul segno di spunta.
 
-    ![chiavi di accesso][]
+    ![chiavi di accesso][chiavi di accesso]
 
 ## Installazione dei moduli e generazione dello scaffolding
 
-In questa sezione verrà creata una nuova applicazione Node e verrà utilizzato npm per aggiungere pacchetti di modulo. Per l'applicazione tasklist verranno utilizzati i moduli [Express][] e [Azure][]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
+In questa sezione verrà creata una nuova applicazione Node e verrà utilizzato npm per aggiungere pacchetti di modulo. Per l'applicazione tasklist verranno utilizzati i moduli [Express][Express] e [Azure][Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
 
 ### Installare Express e generare lo scaffolding
 
@@ -421,7 +421,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 ### Modificare il layout globale
 
-Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
 1.  Scaricare ed estrarre i file per [Twitter Bootstrap][1]. Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 
@@ -472,13 +472,13 @@ Per eseguire il test dell'applicazione nel computer locale, eseguire la procedur
 
 3.  Aprire il Web browser e passare all'indirizzo <http://127.0.0.1:3000>. Verrà visualizzata una pagina Web simile alla seguente:
 
-    ![Pagina Web con un elenco di attività vuoto][]
+    ![Pagina Web con un elenco di attività vuoto][Pagina Web con un elenco di attività vuoto]
 
 4.  Utilizzare i campi **Item Name** e **Item Category** per l'immissione delle informazioni, quindi fare clic su **Add item**.
 
 5.  La pagina verrà aggiornata e l'elemento verrà visualizzato nella tabella dell'elenco attività.
 
-    ![Immagine del nuovo elemento nell'elenco delle attività][]
+    ![Immagine del nuovo elemento nell'elenco delle attività][Immagine del nuovo elemento nell'elenco delle attività]
 
 6.  Per completare un'attività, è sufficiente selezionare la casella di controllo nella colonna Complete e quindi fare clic su **Update tasks**.
 
@@ -488,7 +488,7 @@ Per eseguire il test dell'applicazione nel computer locale, eseguire la procedur
 
 Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare un nuovo sito Web di Azure e quindi viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
-> [WACOM.NOTE] È possibile eseguire queste procedure anche nel portale di Azure. Per altre informazioni sulla distribuzione di un'applicazione Node.js tramite il portale di Azure, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][].
+> [WACOM.NOTE] È possibile eseguire queste procedure anche nel portale di Azure. Per altre informazioni sulla distribuzione di un'applicazione Node.js tramite il portale di Azure, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure].
 
 > [WACOM.NOTE] Se questo è il primo sito Web di Azure che si crea, per distribuire l'applicazione è necessario usare il portale di Azure.
 
@@ -496,7 +496,7 @@ Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di
 
 Se non si dispone già di una sottoscrizione di Azure, è possibile iscriversi [gratuitamente][portale di Azure]. Dopo l'iscrizione, eseguire la procedura seguente per continuare con questa esercitazione.
 
-[WACOM.INCLUDE [antares-iaas-signup][]]
+[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ### Installare lo strumento da riga di comando di Azure per Mac e Linux
 
@@ -504,7 +504,7 @@ Per installare gli strumenti da riga di comando, usare il comando seguente:
 
     npm install azure-cli -g
 
-> [WACOM.NOTE] Per altre informazioni, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure][]
+> [WACOM.NOTE] Per altre informazioni, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure][Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]
 
 > [WACOM.NOTE] Anche se gli strumenti da riga di comando sono stati creati principalmente per gli utenti di Mac e Linux, essendo basati su Node.js, dovrebbero funzionare in qualsiasi sistema in grado di eseguire Node.
 
@@ -518,7 +518,7 @@ Prima di usare gli strumenti da riga di comando con Azure, è necessario scarica
 
         azure account download
 
-    ![Pagina di download][]
+    ![Pagina di download][Pagina di download]
 
     Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file.
 
@@ -550,7 +550,7 @@ Prima di usare gli strumenti da riga di comando con Azure, è necessario scarica
 
     Verrà richiesto di specificare il nome del sito Web e il data center in cui si troverà il sito. Fornire un nome univoco e selezionare un data center geograficamente vicino alla propria posizione.
 
-    Il parametro `--git` creerà un archivio Git per il sito Web in Azure. Verrà inoltre inizializzato un archivio Git nella directory corrente, se non ne esiste già uno. Creerà anche un [archivio Git remoto][] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
+    Il parametro `--git` creerà un archivio Git per il sito Web in Azure. Verrà inoltre inizializzato un archivio Git nella directory corrente, se non ne esiste già uno. Creerà anche un [archivio Git remoto][archivio Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
 
     > [WACOM.NOTE] Se questo comando viene eseguito da una directory che contiene già un archivio Git, la directory non verrà reinizializzata.
 
@@ -599,11 +599,11 @@ In precedenza è stato implementato codice che cerca una variabile di ambiente o
 
 1.  Nel portale di gestione di Azure fare clic su **Siti Web**, quindi selezionare il sito Web.
 
-    ![Apertura del dashboard del sito Web][]
+    ![Apertura del dashboard del sito Web][Apertura del dashboard del sito Web]
 
 2.  Fare clic su **CONFIGURA**, quindi individuare la sezione **impostazioni app** della pagina.
 
-    ![Collegamento Configura][]
+    ![Collegamento Configura][Collegamento Configura]
 
 3.  Nella sezione **impostazioni app** immettere **STORAGE\_NAME** nel campo **CHIAVE**, quindi il nome dell'account di archiviazione nel campo **VALORE**. Fare clic sul segno di spunta per passare al campo successivo. Ripetere il processo per le chiavi e i valori seguenti:
 
@@ -613,11 +613,11 @@ In precedenza è stato implementato codice che cerca una variabile di ambiente o
 
     -   **TABLE\_NAME**: "tasks"
 
-    ![impostazioni app][]
+    ![impostazioni app][impostazioni app]
 
 4.  Fare clic sull'icona **SALVA** nella parte inferiore della pagina per eseguire il commit della modifica nell'ambiente di runtime.
 
-    ![Salvataggio impostazioni app][]
+    ![Salvataggio impostazioni app][Salvataggio impostazioni app]
 
 5.  Dalla riga di comando passare alla directory **tasklist** e immettere il comando seguente per rimuovere il file **config.json**:
 
@@ -632,7 +632,7 @@ Dopo la distribuzione delle modifiche in Azure, l'applicazione Web continuerà a
 
 ## Passaggi successivi
 
-Nei passaggi di questo articolo viene descritto come archiviare informazioni tramite il servizio tabelle. Tuttavia per tale attività è anche possibile usare MongoDB. Per altre informazioni, vedere l'articolo relativo all'[applicazione Web Node.js con MongoDB][].
+Nei passaggi di questo articolo viene descritto come archiviare informazioni tramite il servizio tabelle. Tuttavia per tale attività è anche possibile usare MongoDB. Per altre informazioni, vedere l'articolo relativo all'[applicazione Web Node.js con MongoDB][applicazione Web Node.js con MongoDB].
 
 ## Risorse aggiuntive
 
@@ -647,7 +647,6 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
   [Pagina Web con un elenco di attività vuoto]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [portale di Azure]: http://windowsazure.com
-  [+nuovo]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [storage account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [quick create]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [chiavi di accesso]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -667,4 +666,3 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
   [impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [Salvataggio impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [applicazione Web Node.js con MongoDB]: /it-it/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Pubblicazione in Siti Web di Azure con Git]: /it-it/documentation/articles/web-sites-publish-source-control/

@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="donnam" />
 
 # <a name="getting-started"></a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,9 +16,9 @@
 
 </div>
 
-![][]
+![][0]
 
-Per completare questa esercitazione, è necessario disporre di [Xamarin.Android][], che installa Xamarin Studio e un plug-in di Visual Studio (in Windows), nonché della piattaforma Android più recente. È necessario Android 4.2 SDK o una versione successiva.
+Per completare questa esercitazione, è necessario disporre di [Xamarin.Android][Xamarin.Android], che installa Xamarin Studio e un plug-in di Visual Studio (in Windows), nonché della piattaforma Android più recente. È necessario Android 4.2 SDK o una versione successiva.
 
 Il progetto di guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Mentre questo progetto è destinato ad Android 4.2 o versione successiva, con Mobile Services SDK è richiesto solo Android 2.2 o una versione successiva.
 
@@ -26,7 +26,7 @@ Il progetto di guida introduttiva scaricato contiene il componente Servizi mobil
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -90,25 +90,23 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione alla sincronizzazione dei dati offline][]
+-   [Introduzione alla sincronizzazione dei dati offline][Introduzione alla sincronizzazione dei dati offline]
     Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services
-  []: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Xamarin.Android]: http://xamarin.com/download
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A9C9624B5
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png

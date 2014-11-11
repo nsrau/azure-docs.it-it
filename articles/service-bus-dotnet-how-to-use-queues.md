@@ -1,17 +1,17 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Come utilizzare le code del bus di servizio
 
 <span>Questa guida illustra come utilizzare le code del bus di servizio. Negli
 esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati
 includono **creazione di code, invio e ricezione di messaggi** ed
-**eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi][]. </span>
+**eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi][Passaggi successivi]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">Configurazione dell'applicazione</span>Configurazione dell'applicazione per l'utilizzo del bus di servizio
 
@@ -35,7 +35,7 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
     Service Bus**. Fare clic su **Installa** per completare l'installazione,
     quindi chiudere questa finestra di dialogo.
 
-    ![][]
+    ![][0]
 
 È ora possibile scrivere codice per il bus di servizio.
 
@@ -286,15 +286,14 @@ di recapito.
 A questo punto, dopo aver appreso le nozioni di base relative alle code del
 bus di servizio, usare i collegamenti seguenti per ottenere ulteriori informazioni.
 
--   Riferimento in MSDN: [Code, argomenti e sottoscrizioni][]
+-   Riferimento in MSDN: [Code, argomenti e sottoscrizioni][Code, argomenti e sottoscrizioni]
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso
     e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata
-    di Service Bus - .NET][].
+    di Service Bus - .NET][Esercitazione sulla messaggistica negoziata
+    di Service Bus - .NET].
 
   [Passaggi successivi]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx
-  [Esercitazione sulla messaggistica negoziata
-  di Service Bus - .NET]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367512.aspx

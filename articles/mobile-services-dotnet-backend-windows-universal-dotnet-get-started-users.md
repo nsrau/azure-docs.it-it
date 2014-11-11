@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn="" Gailey" />
 
 # Introduzione all'autenticazione in Servizi mobili
 
@@ -29,17 +29,15 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li><p>In Visual Studio fare clic con il pulsante destro del mouse sul progetto Windows Store per l'app TodoList, quindi selezionare <b>Imposta come progetto di avvio</b>.</p></li>
+1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto Windows Store per l'app TodoList, quindi selezionare **Imposta come progetto di avvio**.
 
-<li><p>Nel progetto condiviso, aprire il file di progetto App.xaml.cs, individuare la definizione di <a href="http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> e assicurarsi che sia configurata in modo tale da effettuare la connessione al servizio mobile in esecuzione su Azure.</p>
+2.  Nel progetto condiviso, aprire il file di progetto App.xaml.cs, individuare la definizione di [MobileServiceClient][MobileServiceClient] e assicurarsi che sia configurata in modo tale da effettuare la connessione al servizio mobile in esecuzione su Azure.
 
-    <div class="dev-callout"><strong>Nota</strong><p>In caso di utilizzo di uno strumento di Visual Studio per connettere la propria app a un servizio mobile, lo strumento genera due set di definizioni <strong>MobileServiceClient</strong>, uno per ciascuna piattaforma client. Si consiglia di semplificare il codice generato unendo le definizioni <strong>MobileServiceClient</strong> <code data-inline="1">#if...#endif</code> con wrapping in un'unica definizione senza wrapping utilizzata da entrambe le versioni dell'app.</p></div></li>
+    <div class="dev-callout"><strong>Nota</strong><p>In caso di utilizzo di uno strumento di Visual Studio per connettere la propria app a un servizio mobile, lo strumento genera due set di definizioni <strong>MobileServiceClient</strong>, uno per ciascuna piattaforma client. Si consiglia di semplificare il codice generato unendo le definizioni <strong>MobileServiceClient</strong> <code data-inline="1">#if...#endif</code> con wrapping in un'unica definizione senza wrapping utilizzata da entrambe le versioni dell'app.</p></div>
 
-<li><p>Premere F5 per eseguire l'app di Windows Store. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).</p>
+3.  Premere F5 per eseguire l'app di Windows Store. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).
 
-    <p>L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
-</ol>
+    L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -57,8 +55,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Autorizzazione sul lato servizio degli utenti di Servizi mobili], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per ulteriori informazioni su come utilizzare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili][Riferimento per i concetti e le procedure di .NET per Servizi mobili]
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+<!-- Anchors. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register

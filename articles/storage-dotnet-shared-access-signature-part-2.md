@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Firme di accesso condiviso, parte 2: creazione e utilizzo di una firma di accesso condiviso con il servizio BLOB
 
-Nella [parte 1][] di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. Nella parte 2 verrà spiegato come generare e quindi utilizzare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
+Nella [parte 1][parte 1] di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. Nella parte 2 verrà spiegato come generare e quindi utilizzare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
 
 -   Generazione di una firma di accesso condiviso per un contenitore
 -   Generazione di una firma di accesso condiviso per un BLOB
@@ -17,11 +17,11 @@ In questa esercitazione verrà illustrata in dettaglio la procedura di creazione
 
 # Parte 1: creazione di un'applicazione console per generare firme di accesso condiviso
 
-In primo luogo verificare che la libreria client di archiviazione di Azure per .NET sia installata. È possibile installare il [pacchetto NuGet][] contenente gli assembly più aggiornati per la libreria client. Questa è la procedura consigliata per essere certi di disporre delle correzioni più recenti. È inoltre possibile scaricare la libreria client inclusa nella versione più recente di [Azure SDK per .NET][].
+In primo luogo verificare che la libreria client di archiviazione di Azure per .NET sia installata. È possibile installare il [pacchetto NuGet][pacchetto NuGet] contenente gli assembly più aggiornati per la libreria client. Questa è la procedura consigliata per essere certi di disporre delle correzioni più recenti. È inoltre possibile scaricare la libreria client inclusa nella versione più recente di [Azure SDK per .NET][Azure SDK per .NET].
 
 In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **GenerateSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, utilizzando uno dei seguenti approcci:
 
--   Se si desidera installare il pacchetto NuGet, installare prima l'[estensione Gestione pacchetti NuGet per Visual Studio][]. In Visual Studio selezionare **Progetto | Manage NuGet Packages**, cercare online **Archiviazione di Azure** e attenersi alle istruzioni per l'installazione.
+-   Se si desidera installare il pacchetto NuGet, installare prima l'[estensione Gestione pacchetti NuGet per Visual Studio][estensione Gestione pacchetti NuGet per Visual Studio]. In Visual Studio selezionare **Progetto | Manage NuGet Packages**, cercare online **Archiviazione di Azure** e attenersi alle istruzioni per l'installazione.
 -   In alternativa, individuare gli assembly nell'installazione di Azure SDK e aggiungervi i riferimenti.
 
 All'inizio del file Program.cs aggiungere le istruzioni **using** seguenti:
@@ -273,7 +273,7 @@ L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per
 
 Quando si esegue l'applicazione console GenerateSharedAccessSignatures, l'output della finestra della console sarà simile a quello seguente. Queste sono le firme di accesso condiviso che verranno utilizzate nella parte 2 dell'esercitazione.
 
-![sas-console-output-1][]
+![sas-console-output-1][sas-console-output-1]
 
 # Parte 2: creazione di un'applicazione console per testare le firme di accesso condiviso
 
@@ -508,24 +508,23 @@ Aggiornare il metodo **Main()** in modo che chiami **UseBlobSAS()** con entrambe
 
 Eseguire l'applicazione console e osservare l'output per verificare le operazioni consentite in base alle firme. L'output nella finestra della console sarà simile al seguente:
 
-![sas-console-output-2][]
+![sas-console-output-2][sas-console-output-2]
 
 # Passaggi successivi
 
 [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso][parte 1]
 
-[Gestire l'accesso alle risorse di archiviazione di Azure][]
+[Gestire l'accesso alle risorse di archiviazione di Azure][Gestire l'accesso alle risorse di archiviazione di Azure]
 
-[Delega dell'accesso con una firma di accesso condiviso (API REST)][]
+[Delega dell'accesso con una firma di accesso condiviso (API REST)][Delega dell'accesso con una firma di accesso condiviso (API REST)]
 
-[Introduzione alla firma di accesso condiviso per tabelle e code][]
+[Introduzione alla firma di accesso condiviso per tabelle e code][Introduzione alla firma di accesso condiviso per tabelle e code]
 
   [parte 1]: ../storage-dotnet-shared-access-signature-part-1/
   [pacchetto NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "pacchetto NuGet"
-  [Azure SDK per .NET]: http://www.windowsazure.com/en-us/downloads/
+  [Azure SDK per .NET]: http://www.windowsazure.com/it-it/downloads/
   [estensione Gestione pacchetti NuGet per Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-  [Gestire l'accesso alle risorse di archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Delega dell'accesso con una firma di accesso condiviso (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gestire l'accesso alle risorse di archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee393343.aspx
   [Introduzione alla firma di accesso condiviso per tabelle e code]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

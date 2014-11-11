@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-ios-send-breaking-news" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Utilizzo di Hub di notifica per inviare le ultime notizie
 
@@ -35,7 +35,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     L'aspetto dello storyboard dovrebbe essere simile al seguente:
 
-    ![][]
+    ![][0]
 
 2.  Nell'assistente dell'editor creare outlet per tutte le opzioni e denominarli "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
 
@@ -201,7 +201,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 ## <a name="send"></a><span class="short-header">Invio di notifiche</span>Invio di notifiche dal back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Esecuzione dell'app e generazione di notifiche
 
@@ -237,17 +237,13 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
 
 
 
-  [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /it-it/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [linee guida per gli hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
   [Aggiunta della selezione delle categorie all'app]: #adding-categories
   [Registrazione per le notifiche]: #register
   [Invio di notifiche dal back-end]: #send
   [Esecuzione dell'app e generazione di notifiche]: #test-app
   [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/get-started-notification-hubs-ios/
-  []: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
+  [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png

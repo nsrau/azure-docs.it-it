@@ -1,34 +1,34 @@
 <properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Come utilizzare l'archiviazione BLOB da Java
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK per Java]. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
-Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][].
+Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK per Android].
 
 ## <a name="Contents"> </a>Sommario
 
--   [Informazioni sull'archiviazione BLOB][]
--   [Concetti][]
--   [Creazione di un account di Archiviazione di Azure][]
--   [Creazione di un'applicazione Java][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione BLOB][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Creare un contenitore][]
--   [Procedura: Caricare un BLOB in un contenitore][]
--   [Procedura: Elencare i BLOB in un contenitore][]
--   [Procedura: Scaricare un BLOB][]
--   [Procedura: Eliminare un BLOB][]
--   [Procedura: Eliminare un contenitore BLOB][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione BLOB][Informazioni sull'archiviazione BLOB]
+-   [Concetti][Concetti]
+-   [Creazione di un account di Archiviazione di Azure][Creazione di un account di Archiviazione di Azure]
+-   [Creazione di un'applicazione Java][Creazione di un'applicazione Java]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione BLOB][Configurazione dell'applicazione per l'accesso all'archiviazione BLOB]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
+-   [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
+-   [Procedura: Elencare i BLOB in un contenitore][Procedura: Elencare i BLOB in un contenitore]
+-   [Procedura: Scaricare un BLOB][Procedura: Scaricare un BLOB]
+-   [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]
+-   [Procedura: Eliminare un contenitore BLOB][Procedura: Eliminare un contenitore BLOB]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Creazione di un'applicazione Java
 
@@ -65,7 +65,7 @@ Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per o
 
 ## <a name="CreateContainer"> </a>Procedura: Creare un contenitore
 
-Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][].
+Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure].
 
 Tutti i BLOB risiedono in un contenitore. Utilizzare l'oggetto **CloudBlobClient** per ottenere un riferimento al contenitore da utilizzare. È possibile creare un contenitore, se non esiste, con il metodo **createIfNotExists**, che in caso contrario restituirà il contenitore esistente. Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore.
 
@@ -255,9 +255,9 @@ chiamare **deleteIfExists**.
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
 -   [Windows Azure SDK for Java][Azure Storage SDK per Java]
--   [Riferimento all'SDK del client di archiviazione di Azure][]
--   [API REST di Archiviazione di Azure][]
--   [Blog del team di Archiviazione di Azure][]
+-   [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
+-   [API REST di Archiviazione di Azure][API REST di Archiviazione di Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
   [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
   [Passaggi successivi]: #NextSteps
@@ -277,5 +277,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

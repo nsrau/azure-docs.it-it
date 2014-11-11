@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Introduzione all'utilizzo di Hadoop 1.2 in HDInsight
 
@@ -200,9 +200,6 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 -   [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight]
 -   [Sviluppare programmi MapReduce Java per HDInsight][Sviluppare programmi MapReduce Java per HDInsight]
 
-  [Hadoop 2.2]: ../hdinsight-get-started "Get started using Hadoop 2.2 in HDInsight"
-  [Hadoop 2.4]: ../hdinsight-get-started-31 "Get started using Hadoop 2.4 in HDInsight"
-  [Hadoop 1.2]: ../hdinsight-get-started-21 "Get started using Hadoop 1.2 in HDInsight"
   [Apache Hadoop]: http://hadoop.apache.org/
   [Novità delle versioni cluster incluse in HDInsight]: ../hdinsight-component-versioning/
   [img-hdi-getstarted-video]: https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS

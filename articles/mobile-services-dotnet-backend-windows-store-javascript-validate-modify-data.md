@@ -1,18 +1,18 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-javascript" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Javascript Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Convalida e modifica dei dati in Servizi mobili mediante il back-end .NET
 
 <div class="dev-center-tutorial-selector sublanding">
 
-[Windows Store C#][] [Windows Store JavaScript][] [Windows Phone][][iOS][] [Android][] [HTML][][Xamarin.iOS][] [Xamarin.Android][]
+[Windows Store C#][Windows Store C#] [Windows Store JavaScript][Windows Store JavaScript] [Windows Phone][Windows Phone][iOS][iOS] [Android][Android] [HTML][HTML][Xamarin.iOS][Xamarin.iOS] [Xamarin.Android][Xamarin.Android]
 
 </div>
 
 <div class="dev-center-tutorial-subselector">
 
-[Back-end .NET][] | [Back-end JavaScript][]
+[Back-end .NET][Back-end .NET] | [Back-end JavaScript][Back-end JavaScript]
 
 </div>
 
@@ -20,17 +20,17 @@ Questo argomento illustra come usare il codice in Servizi mobili di Azure back-e
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Aggiunta della convalida della lunghezza della stringa][]
-2.  [Aggiornamento del client per il supporto della convalida][]
-3.  [Test della convalida della lunghezza][]
-4.  [Aggiunta di un campo timestamp per CompleteDate][]
-5.  [Aggiornamento del client per la visualizzazione del timestamp CompleteDate][]
+1.  [Aggiunta della convalida della lunghezza della stringa][Aggiunta della convalida della lunghezza della stringa]
+2.  [Aggiornamento del client per il supporto della convalida][Aggiornamento del client per il supporto della convalida]
+3.  [Test della convalida della lunghezza][Test della convalida della lunghezza]
+4.  [Aggiunta di un campo timestamp per CompleteDate][Aggiunta di un campo timestamp per CompleteDate]
+5.  [Aggiornamento del client per la visualizzazione del timestamp CompleteDate][Aggiornamento del client per la visualizzazione del timestamp CompleteDate]
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione a Servizi mobili][] o [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili][] o [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati].
 
 ## <a name="string-length-validation"></a>Aggiunta del codice di convalida a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 ## <a name="update-client-validation"></a>Aggiornamento del client
 
@@ -63,7 +63,7 @@ Ora che il servizio mobile è configurato per convalidare dati e inviare rispost
 
 2.  Immettere per un nuovo elemento Todo un testo di lunghezza superiore a 10 caratteri, quindi fare clic su **Salva**.
 
-    ![][]
+    ![][0]
 
 3.  Se si immette testo non valido verrà visualizzato un messaggio simile al seguente.
 
@@ -71,7 +71,7 @@ Ora che il servizio mobile è configurato per convalidare dati e inviare rispost
 
 ## <a name="add-timestamp"></a>Aggiunta di un campo timestamp per CompleteDate
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 ## <a name="update-client-timestamp"></a>Aggiornamento del client per la visualizzazione del timestamp CompleteDate
 
@@ -127,20 +127,20 @@ Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visua
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][].
+Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query].
 
 Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e per l'invio di notifiche push. Per ulteriori informazioni, vedere le esercitazioni seguenti:
 
--   [Autorizzazione lato servizio degli utenti][]
+-   [Autorizzazione lato servizio degli utenti][Autorizzazione lato servizio degli utenti]
     Informazioni su come filtrare i dati in base all'ID di un utente autenticato.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][]
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript"
@@ -160,7 +160,7 @@ Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
   [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
   [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png

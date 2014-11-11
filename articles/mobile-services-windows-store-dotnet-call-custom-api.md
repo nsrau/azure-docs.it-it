@@ -1,6 +1,6 @@
 <properties urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Chiamata di un'API personalizzata dal client
 
@@ -22,9 +22,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="define-custom-api"></a>Definizione dell'API personalizzata
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api][mobile-services-windows-store-dotnet-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
 
 ## Passaggi successivi
 
@@ -41,14 +41,6 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows St
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /it-it/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "JavaScript backend"
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
   [Definizione dell'API personalizzata]: #define-custom-api

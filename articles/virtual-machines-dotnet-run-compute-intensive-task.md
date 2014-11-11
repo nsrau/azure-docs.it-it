@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure
 
@@ -26,7 +26,7 @@ Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitora
 
 ![Client del Problema del commesso viaggiatore][Client del Problema del commesso viaggiatore]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Introduzione alle notifiche push in Servizi mobili
 
@@ -33,11 +33,11 @@ Per completare questa esercitazione, è necessario disporre di:
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
-[WACOM.INCLUDE [Abilitare le notifiche push per Apple][Abilitare le notifiche push per Apple]]
+[WACOM.INCLUDE [Abilitare le notifiche push per Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Configurazione di Servizi mobili per l'invio di richieste push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Aggiungere notifiche push all'app
 
@@ -110,7 +110,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 1.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
-    ![][]
+    ![][0]
 
 2.  In **todoitem** fare clic sulla scheda **Script**, quindi selezionare **Insert**.
 
@@ -191,14 +191,6 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
 <!-- Images. -->
 <!-- URLs.   -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "JavaScript backend"
-  [Introduzione alle notifiche push (legacy)]: /it-it/documentation/articles/mobile-services-ios-get-started-push/
   [Generazione della richiesta di firma del certificato]: #certificates
   [Registrazione dell'app e abilitazione delle notifiche push]: #register
   [Creazione di un profilo di provisioning per l'app]: #profile
@@ -211,7 +203,7 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-ios-get-started
   [Abilitare le notifiche push per Apple]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png

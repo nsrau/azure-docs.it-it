@@ -1,6 +1,6 @@
 <properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Come modificare un modello di dati in un servizio mobile back-end .NET
 
@@ -8,15 +8,15 @@ Questo argomento illustra come usare Migrazioni Code First di Entity Framework p
 
 ## Inizializzatori del modello di dati
 
-Servizi mobili supporta due classi base di inizializzatori del modello di dati in un progetto di servizio mobile back-end .NET. Questi inizializzatori eliminano e ricreano tabelle nel database ogni volta che Entity Framework rileva una modifica del modello di dati in [DbContext][]. Gli inizializzatori sono progettati per funzionare sia quando il servizio mobile viene eseguito in un computer locale sia quando è ospitato in Azure. Entrambe le classi base di inizializzatori eliminano dal database tutte le tabelle, le viste, le funzioni e le procedure presenti nello schema usate dal servizio mobile.
+Servizi mobili supporta due classi base di inizializzatori del modello di dati in un progetto di servizio mobile back-end .NET. Questi inizializzatori eliminano e ricreano tabelle nel database ogni volta che Entity Framework rileva una modifica del modello di dati in [DbContext][DbContext]. Gli inizializzatori sono progettati per funzionare sia quando il servizio mobile viene eseguito in un computer locale sia quando è ospitato in Azure. Entrambe le classi base di inizializzatori eliminano dal database tutte le tabelle, le viste, le funzioni e le procedure presenti nello schema usate dal servizio mobile.
 
 -   **ClearDatabaseSchemaIfModelChanges**
-     Gli oggetti dello schema vengono eliminati solo quando Code First rileva una modifica nel modello di dati. L'inizializzatore predefinito in un progetto back-end .NET scaricato dal [portale di gestione di Azure][] eredita da questa classe base.
+     Gli oggetti dello schema vengono eliminati solo quando Code First rileva una modifica nel modello di dati. L'inizializzatore predefinito in un progetto back-end .NET scaricato dal [portale di gestione di Azure][portale di gestione di Azure] eredita da questa classe base.
 
 -   **ClearDatabaseSchemaAlways**
      Gli oggetti dello schema vengono eliminati ad ogni accesso del modello di dati. Usare questa classe base per reimpostare il database senza dover apportare modifiche al modello di dati.
 
-Nel progetto di guida introduttiva scaricato l'inizializzatore Code First è definito nel file WebApiConfig.cs. Eseguire l'override del metodo **Seed** per aggiungere righe iniziali di dati alle nuove tabelle. Per alcuni esempi di seeding dei dati, vedere [Seeding di dati nelle migrazioni][]. È possibile usare altri inizializzatori del modello di dati Code First quando il servizio è in esecuzione in un computer locale. Tuttavia, gli inizializzatori che provano a eliminare il database non vengono eseguiti in Azure. L'utente, infatti, molto opportunamente non dispone delle autorizzazioni necessarie per eliminare il database.
+Nel progetto di guida introduttiva scaricato l'inizializzatore Code First è definito nel file WebApiConfig.cs. Eseguire l'override del metodo **Seed** per aggiungere righe iniziali di dati alle nuove tabelle. Per alcuni esempi di seeding dei dati, vedere [Seeding di dati nelle migrazioni][Seeding di dati nelle migrazioni]. È possibile usare altri inizializzatori del modello di dati Code First quando il servizio è in esecuzione in un computer locale. Tuttavia, gli inizializzatori che provano a eliminare il database non vengono eseguiti in Azure. L'utente, infatti, molto opportunamente non dispone delle autorizzazioni necessarie per eliminare il database.
 
 Durante la fase di sviluppo locale del servizio mobile è possibile continuare a usare gli inizializzatori e nelle esercitazioni relative al back-end .NET si presuppone che vengano usati. Tuttavia, nelle situazioni in cui si intenda apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First.
 
@@ -64,7 +64,7 @@ Per abilitare Migrazioni e apportare modifiche al modello di dati nel progetto, 
 
 7.  Premere F5 per avviare il progetto di servizio mobile sul computer locale.
 
-    A questo punto, il database è sincronizzato con il modello di dati. Se sono stati forniti dati di seeding, è possibile effettuare una verifica facendo clic su **Try it out**, **GET tables/todoitem** e quindi su **Try this out** e **Send**. Per ulteriori informazioni, vedere [Seeding di dati nelle migrazioni][].
+    A questo punto, il database è sincronizzato con il modello di dati. Se sono stati forniti dati di seeding, è possibile effettuare una verifica facendo clic su **Try it out**, **GET tables/todoitem** e quindi su **Try this out** e **Send**. Per ulteriori informazioni, vedere [Seeding di dati nelle migrazioni][Seeding di dati nelle migrazioni].
 
 8.  Apportare una modifica al modello di dati, ad esempio aggiungere una nuova proprietà al tipo TodoItem, ricreare il progetto e quindi eseguire il comando seguente nella Gestione pacchetti:
 
@@ -74,13 +74,13 @@ Per abilitare Migrazioni e apportare modifiche al modello di dati nel progetto, 
 
 9.  Premere nuovamente F5 per riavviare il progetto di servizio mobile sul computer locale.
 
-    La migrazione verrà applicata al database e il database sarà nuovamente sincronizzato con il modello di dati. Se sono stati forniti dati di seeding, è possibile effettuare una verifica facendo clic su **Try it out**, **GET tables/todoitem** e quindi su **Try this out** e **Send**. Per ulteriori informazioni, vedere [Seeding di dati nelle migrazioni][].
+    La migrazione verrà applicata al database e il database sarà nuovamente sincronizzato con il modello di dati. Se sono stati forniti dati di seeding, è possibile effettuare una verifica facendo clic su **Try it out**, **GET tables/todoitem** e quindi su **Try this out** e **Send**. Per ulteriori informazioni, vedere [Seeding di dati nelle migrazioni][Seeding di dati nelle migrazioni].
 
 10. Ripubblicare il servizio mobile in Azure e quindi eseguire l'app client per accedere ai dati, verificare che siano caricati e che non si verifichino errori.
 
-11. (Facoltativo) Nel [portale di gestione di Azure][] selezionare il servizio mobile, fare clic sulla scheda **Configura**, quindi fare clic sul collegamento **Database SQL**.
+11. (Facoltativo) Nel [portale di gestione di Azure][portale di gestione di Azure] selezionare il servizio mobile, fare clic sulla scheda **Configura**, quindi fare clic sul collegamento **Database SQL**.
 
-    ![][]
+    ![][0]
 
     Verrà visualizzata la pagina del database SQL per il database del servizio mobile.
 
@@ -90,7 +90,7 @@ Per abilitare Migrazioni e apportare modifiche al modello di dati nel progetto, 
 
 ## <a name="seeding"></a>Seeding di dati nelle migrazioni.
 
-Quando si esegue una migrazione, è possibile fare in modo che Migrazioni effettui il seeding di dati nel database. La classe **Configuration** dispone di un metodo **Seed** di cui è possibile eseguire l'override per inserire o aggiornare dati. Quando Migrazioni viene abilitato, il file di codice Configuration.cs viene aggiunto alla cartella Migrazioni. Questi esempi illustrano come eseguire l'override del metodo [Seed][] per effettuare il seeding dei dati nella tabella **TodoItems**. Il metodo [Seed][] viene chiamato dopo la migrazione alla versione più recente.
+Quando si esegue una migrazione, è possibile fare in modo che Migrazioni effettui il seeding di dati nel database. La classe **Configuration** dispone di un metodo **Seed** di cui è possibile eseguire l'override per inserire o aggiornare dati. Quando Migrazioni viene abilitato, il file di codice Configuration.cs viene aggiunto alla cartella Migrazioni. Questi esempi illustrano come eseguire l'override del metodo [Seed][Seed] per effettuare il seeding dei dati nella tabella **TodoItems**. Il metodo [Seed][Seed] viene chiamato dopo la migrazione alla versione più recente.
 
 ### Seeding di una nuova tabella
 
@@ -120,14 +120,14 @@ Con il codice seguente è possibile eseguire il seeding nella sola colonna UserI
             );
         base.Seed(context);
 
-Questo codice chiama il metodo [AddOrUpdate][] con estensione helper per aggiungere dati di seeding alla nuova colonna UserId. Con [AddOrUpdate][] non vengono create righe duplicate.
+Questo codice chiama il metodo [AddOrUpdate][AddOrUpdate] con estensione helper per aggiungere dati di seeding alla nuova colonna UserId. Con [AddOrUpdate][AddOrUpdate] non vengono create righe duplicate.
 
 <!-- Anchors --> <!-- Images --> <!-- URLs -->
 
   [DbContext]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=vs.113).aspx
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Seeding di dati nelle migrazioni]: #seeding
-  []: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
+  [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
   [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
   [Seed]: http://msdn.microsoft.com/it-it/library/hh829453(v=vs.113).aspx
   [AddOrUpdate]: http://msdn.microsoft.com/it-it/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

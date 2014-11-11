@@ -1,6 +1,6 @@
 <properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
@@ -18,7 +18,7 @@ Ai fini di questa esercitazione, in una macchina virtuale verrà installato un s
 
 ![Macchina virtuale che esegue Apache Tomcat][Macchina virtuale che esegue Apache Tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
 
@@ -146,6 +146,5 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
   [Operazione per nuova regola connessioni in entrata]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [Profilo per nuova regola connessioni in entrata]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [Nome della nuova regola connessioni in entrata]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*nome\\\_DNS\\]: http://*your\_DNS\_name
   [Impostazione di un servizio per l'avvio automatico]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png
   [http://www.windowsazure.com/it-it/develop/java/]: http://www.windowsazure.com/it-it/develop/java/

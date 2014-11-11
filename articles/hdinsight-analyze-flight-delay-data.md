@@ -4,28 +4,28 @@
 
 # Analizzare i dati sui ritardi dei voli usando HDInsight
 
-fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati. In questa esercitazione è illustrato come usare Hive per calcolare la media dei ritardi negli aeroporti e come usare Sqoop per esportare i risultati nel database SQL.
+fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][HiveQL]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati. In questa esercitazione è illustrato come usare Hive per calcolare la media dei ritardi negli aeroporti e come usare Sqoop per esportare i risultati nel database SQL.
 
 **Prerequisiti:**
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
--   Disporre di un cluster HDInsight di Azure. Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione all'utilizzo di HDInsight][] o [Provisioning di cluster HDInsight][].
--   Una workstation in cui sia stato installato e configurato Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
+-   Disporre di un cluster HDInsight di Azure. Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione all'utilizzo di HDInsight][Introduzione all'utilizzo di HDInsight] o [Provisioning di cluster HDInsight][Provisioning di cluster HDInsight].
+-   Una workstation in cui sia stato installato e configurato Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 
 **Tempo previsto per il completamento:** 30 minuti
 
 ## Contenuto dell'esercitazione:
 
--   [Preparazione dell'esercitazione][]
--   [Creazione e caricamento di uno script HiveQL][]
--   [Esecuzione dello script HiveQL][]
--   [Esportazione dell'output nel database SQL di Azure][]
--   [Passaggi successivi][]
+-   [Preparazione dell'esercitazione][Preparazione dell'esercitazione]
+-   [Creazione e caricamento di uno script HiveQL][Creazione e caricamento di uno script HiveQL]
+-   [Esecuzione dello script HiveQL][Esecuzione dello script HiveQL]
+-   [Esportazione dell'output nel database SQL di Azure][Esportazione dell'output nel database SQL di Azure]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <span id="prepare"></span></a>Preparazione dell'esercitazione
 
-In questa esercitazioni vengono utilizzati dati relativi alle prestazioni rispetto agli orari previsti dei voli delle compagnie aeree, che possono essere scaricati dalla pagina relativa a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][] (RITA) nella workstation in uso. Verranno eseguite le operazioni seguenti:
+In questa esercitazioni vengono utilizzati dati relativi alle prestazioni rispetto agli orari previsti dei voli delle compagnie aeree, che possono essere scaricati dalla pagina relativa a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics] (RITA) nella workstation in uso. Verranno eseguite le operazioni seguenti:
 
 1.  Download dei dati relativi alle prestazioni rispetto agli orari previsti da RITA alla workstation mediante un browser Web.
 2.  Caricamento dei dati in HDInsight mediante Azure PowerShell
@@ -33,9 +33,9 @@ In questa esercitazioni vengono utilizzati dati relativi alle prestazioni rispet
 
 **Informazioni sull'archiviazione in HDInsight**
 
-HDInsight utilizza l'archivio BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][].
+HDInsight utilizza l'archivio BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight].
 
-Durante il provisioning di un cluster HDInsight, un contenitore di archiviazione BLOB viene designato come file system predefinito, come in HDFS. Oltre a tale contenitore, è possibile aggiungere ulteriori contenitori dallo stesso account di archiviazione di Azure o da account di archiviazione di Azure diversi durante il processo di provisioning. Per istruzioni sull'aggiunta di ulteriori account di archiviazione, vedere [Provisioning di cluster HDInsight][].
+Durante il provisioning di un cluster HDInsight, un contenitore di archiviazione BLOB viene designato come file system predefinito, come in HDFS. Oltre a tale contenitore, è possibile aggiungere ulteriori contenitori dallo stesso account di archiviazione di Azure o da account di archiviazione di Azure diversi durante il processo di provisioning. Per istruzioni sull'aggiunta di ulteriori account di archiviazione, vedere [Provisioning di cluster HDInsight][Provisioning di cluster HDInsight].
 
 Per semplificare lo script di PowerShell utilizzato in questa esercitazione, tutti i file vengono archiviati nel contenitore del file system predefinito, presente in */tutorials/flightdelays*. Per impostazione predefinita, il nome di questo contenitore corrisponde al nome del cluster HDInsight.
 
@@ -45,7 +45,7 @@ La sintassi WASB è la seguente:
 
 > [WACOM.NOTE] Nella versione 3.0 del cluster HDInsight è supportata solo la sintassi *wasb://*. La sintassi *asv://*, meno recente, è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
 
-> Il percorso di WASB è un percorso virtuale. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][].
+> Il percorso di WASB è un percorso virtuale. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight].
 
 È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito utilizzando uno degli URI seguenti (utilizzare come esempio flightdelays.hql):
 
@@ -82,7 +82,7 @@ Per ulteriori informazioni, vedere l'articolo introduttivo a [HDInsight e alle t
 
 **Per scaricare i dati relativi ai voli**
 
-1.  Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][] (RITA).
+1.  Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics] (RITA).
 2.  Selezionare i valori seguenti nella pagina:
 
     | Nome          | Valore                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -98,7 +98,7 @@ Per ulteriori informazioni, vedere l'articolo introduttivo a [HDInsight e alle t
 
 **Per caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure**
 
-1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
+1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 2.  Eseguire il comando seguente per connettersi alla sottoscrizione di Azure:
 
         Add-AzureAccount
@@ -605,9 +605,9 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 
 ## <span id="executehqlscript"></span></a>Esecuzione dello script HiveQL
 
-Per eseguire Hive, è possibile utilizzare alcuni cmdlet di Azure PowerShell. In questa esercitazione viene utilizzato Invoke-Hive. Per informazioni sugli altri metodi, vedere [Usare Hive con HDInsight][]. Se si utilizza Invoke-Hive, sarà possibile eseguire un'istruzione HiveQL o uno script HiveQL. Verrà utilizzato lo script HiveQL creato e caricato nell'archivio BLOB di Azure.
+Per eseguire Hive, è possibile utilizzare alcuni cmdlet di Azure PowerShell. In questa esercitazione viene utilizzato Invoke-Hive. Per informazioni sugli altri metodi, vedere [Usare Hive con HDInsight][Usare Hive con HDInsight]. Se si utilizza Invoke-Hive, sarà possibile eseguire un'istruzione HiveQL o uno script HiveQL. Verrà utilizzato lo script HiveQL creato e caricato nell'archivio BLOB di Azure.
 
-Il percorso di Hive è caratterizzato da un problema noto Le istruzioni per la risoluzione del problema sono disponibili nella [Wiki di TechNet][].
+Il percorso di Hive è caratterizzato da un problema noto Le istruzioni per la risoluzione del problema sono disponibili nella [Wiki di TechNet][Wiki di TechNet].
 
 **Per eseguire le query Hive usando PowerShell**
 
@@ -867,19 +867,19 @@ L'ultima procedura consiste nell'eseguire l'esportazione tramite Sqoop per espor
 
 5.  Effettuare la connessione al database SQL e verificare la media dei ritardi dei voli per ogni città nella tabella *AvgDelays*:
 
-    ![HDI.FlightDelays.AvgDelays.Dataset][]
+    ![HDI.FlightDelays.AvgDelays.Dataset][HDI.FlightDelays.AvgDelays.Dataset]
 
 ## <span id="nextsteps"></span></a>Passaggi successivi
 
 È stato illustrato come caricare file nell'archiviazione BLOB, come popolare una tabella Hive utilizzando i dati disponibili nell'archiviazione BLOB, come eseguire query Hive e come utilizzare Sqoop per esportare i dati da HDFS nel database SQL di Azure. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'utilizzo di HDInsight][]
--   [Usare Hive con HDInsight][]
--   [Usare Oozie con HDInsight][]
--   [Usare Sqoop con HDInsight][]
--   [Usare Pig con HDInsight][]
--   [Sviluppare programmi MapReduce Java per HDInsight][]
--   [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][]
+-   [Introduzione all'utilizzo di HDInsight][Introduzione all'utilizzo di HDInsight]
+-   [Usare Hive con HDInsight][Usare Hive con HDInsight]
+-   [Usare Oozie con HDInsight][Usare Oozie con HDInsight]
+-   [Usare Sqoop con HDInsight][Usare Sqoop con HDInsight]
+-   [Usare Pig con HDInsight][Usare Pig con HDInsight]
+-   [Sviluppare programmi MapReduce Java per HDInsight][Sviluppare programmi MapReduce Java per HDInsight]
+-   [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight]
 
   [HiveQL]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
   [Introduzione all'utilizzo di HDInsight]: ../hdinsight-get-started/
@@ -894,7 +894,6 @@ L'ultima procedura consiste nell'eseguire l'esportazione tramite Sqoop per espor
   [Usare l'archivio BLOB di Azure con HDInsight]: ../hdinsight-use-blob-storage/
   [Usare Hive con HDInsight]: ../hdinsight-use-hive/
   [Wiki di TechNet]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-  [1]: #createScript
   [HDI.FlightDelays.AvgDelays.Dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
   [Usare Oozie con HDInsight]: ../hdinsight-use-oozie/
   [Usare Sqoop con HDInsight]: ../hdinsight-use-sqoop/

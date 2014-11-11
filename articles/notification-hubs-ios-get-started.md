@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
 
 # Introduzione ad Hub di notifica
 
@@ -31,13 +31,13 @@ In questa esercitazione viene illustrato uno scenario di trasmissione semplice t
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub notifica relative ad app per iOS.
 <div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario disporre di un account Azure attivo. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
-[WACOM.INCLUDE [Enable Apple Push Notifications][Enable Apple Push Notifications]]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-hub"></a>Configurazione dell'hub di notifica
 
 1.  Nell'Accesso Portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato **Certificati** dell'app di guida introduttiva. Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12**, quindi fare clic su **Salva**.
 
-    ![][]
+    ![][0]
 
    Annotare il nome del file e il percorso del certificato esportato.
 
@@ -172,13 +172,6 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 
 
 
-  [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /it-it/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /it-it/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /it-it/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /it-it/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Generazione della richiesta di firma del certificato]: #certificates
   [Registrazione dell'app e abilitazione delle notifiche push]: #register
   [Creazione di un profilo di provisioning per l'app]: #profile
@@ -187,9 +180,8 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
   [Inviare notifiche dal back-end]: #send
   [Mobile Services SDK per iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
-  []: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
+  [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal2.png

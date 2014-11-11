@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc" />
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
@@ -158,7 +158,7 @@ In questa sezione verrà effettuato il test del metodo `SyncAsync` che sincroniz
 
 3.  Aggiungere elementi all'elenco di attività da eseguire.
 
-    ![][]
+    ![][0]
 
 4.  Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript per i servizi mobili, è possibile visualizzare i dati dalla scheda **Data** del servizio mobile. Se si usa il back-end .NET per il servizio mobile, è possibile fare clic sul pulsante **Manage** per il database nell'estensione SQL Azure per eseguire una query sulla tabella.
 
@@ -202,11 +202,6 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /it-it/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -214,10 +209,8 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
   [Test dell'app connessa al servizio mobile]: #test-online-app
   [estensione Xamarin]: http://xamarin.com/visual-studio
   [Xamarin Studio]: http://xamarin.com/download
-  [Servizi mobili di Azure SDK versione 1.3.0-alpha3 (o successiva)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
-  [SQLite Store di Servizi mobili di Azure versione 1.0.0-alpha2 (o successiva)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
   [componente aggiuntivo NuGet per Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
-  []: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
   [1]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-completed-ios.png
   [2]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-data-browse.png
   [Come usare il componente client Xamarin per Servizi mobili di Azure]: /it-it/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/

@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # Introduzione alle notifiche push in Servizi mobili (push legacy)
 
@@ -40,13 +40,13 @@ Per completare questa esercitazione, è necessario disporre di:
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
-[WACOM.INCLUDE [Abilitare le notifiche push per Apple][Abilitare le notifiche push per Apple]]
+[WACOM.INCLUDE [Abilitare le notifiche push per Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Abilitazione di Google Cloud Messaging
 
 > [WACOM.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Enable GCM][Enable GCM]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>Creazione del modulo GCM per Titanium
 
@@ -62,7 +62,7 @@ Se si intende creare moduli per Android, è necessario installare il supporto Ja
 
 2.  Fare clic su File -\> New -\> Mobile Module Project.
 
-    ![][]
+    ![][0]
 
 3.  Nella finestra successiva immettere i dati relativi alle impostazioni del progetto:
 
@@ -213,7 +213,7 @@ Scegliere **Deploy \> Package - Android Module**. Non è possibile compilare il 
 
 ## <a name="configure"></a>Configurazione di Servizi mobili per l'invio di richieste push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 1.  Immettere il valore Chiave API ottenuto da GCM nella procedura precedente, quindi fare clic su Salva.
 
@@ -446,12 +446,6 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [Generazione della richiesta di firma del certificato]: #certificates
   [Registrazione dell'app e abilitazione delle notifiche push]: #register
   [Creazione di un profilo di provisioning per l'app]: #profile
@@ -466,8 +460,8 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [installazione degli strumenti di sviluppo Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  []: http://developer.android.com/sdk/ndk/index.html
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+  [0]: http://developer.android.com/sdk/ndk/index.html
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png

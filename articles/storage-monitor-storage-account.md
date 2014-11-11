@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Come monitorare un account di archiviazione
 
@@ -10,25 +10,25 @@ Finché non viene configurato il monitoraggio per un account di archiviazione, i
 
 <div class="dev-callout"> 
 <b>Nota</b> 
-<p>All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
+<p>All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
 </div>
 
 ## Sommario
 
--   [Procedura: Configurare il monitoraggio per un account di archiviazione][]
--   [Procedura: Personalizzare il dashboard per il monitoraggio][]
--   [Procedura: Personalizzare la pagina Monitor][]
--   [Procedura: Aggiungere metriche alla relativa tabella][]
--   [Procedura: Personalizzare il grafico delle metriche nella pagina Monitor][]
--   [Procedura: Configurare la registrazione][]
+-   [Procedura: Configurare il monitoraggio per un account di archiviazione][Procedura: Configurare il monitoraggio per un account di archiviazione]
+-   [Procedura: Personalizzare il dashboard per il monitoraggio][Procedura: Personalizzare il dashboard per il monitoraggio]
+-   [Procedura: Personalizzare la pagina Monitor][Procedura: Personalizzare la pagina Monitor]
+-   [Procedura: Aggiungere metriche alla relativa tabella][Procedura: Aggiungere metriche alla relativa tabella]
+-   [Procedura: Personalizzare il grafico delle metriche nella pagina Monitor][Procedura: Personalizzare il grafico delle metriche nella pagina Monitor]
+-   [Procedura: Configurare la registrazione][Procedura: Configurare la registrazione]
 
 ## <span id="configurestoragemonitoring"></span></a>Procedura: Configurare il monitoraggio per un account di archiviazione
 
-1.  Nel [portale di gestione][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2.  Fare clic su **Configure** e scorrere verso il basso fino alle impostazioni di **monitoraggio** per i servizi BLOB, tabelle e accodamento, illustrati di seguito.
 
-    ![MonitoringOptions][]
+    ![MonitoringOptions][MonitoringOptions]
 
 3.  In **monitoring** impostare il livello di monitoraggio e i criteri di conservazione dei dati per ogni servizio:
 
@@ -46,7 +46,7 @@ Finché non viene configurato il monitoraggio per un account di archiviazione, i
 
 I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard e nella pagina **Monitor** dopo circa un'ora.
 
-Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][].
+Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][Informazioni sulle metriche di Analisi archiviazione].
 
 Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è possibile scegliere quali metriche monitorare nel portale di gestione e quali tracciare sui grafici delle metriche. Per ogni livello di monitoraggio viene visualizzato un set predefinito di metriche. È possibile utilizzare **Add Metrics** per aggiungere o rimuovere metriche dall'elenco.
 
@@ -54,7 +54,7 @@ Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è p
 
 Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafico tra le nove disponibili. Per ogni servizio (BLOB, tabelle e accodamento), sono disponibili le metriche Availability, Success Percentage e Total Requests. Le metriche disponibili nel dashboard sono identiche per il monitoraggio minimo o dettagliato.
 
-1.  Nel [portale di gestione][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2.  Per cambiare le metriche da tracciare sul grafico, eseguire una delle operazioni seguenti:
 
@@ -62,7 +62,7 @@ Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafic
 
 -   Per nascondere una metrica tracciata sul grafico, deselezionare la casella di controllo accanto alla relativa intestazione.
 
-    ![Monitoring\_nmore][]
+    ![Monitoring\_nmore][Monitoring\_nmore]
 
 1.  Per impostazione predefinita, nel grafico vengono mostrate le tendenze e per ogni metrica viene visualizzato solo il valore corrente, ossia l'opzione **Relative** nella parte superiore del grafico. Per visualizzare un asse Y in modo da vedere i valori assoluti, selezionare **Absolute**.
 
@@ -80,7 +80,7 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 
 ## <span id="addmonitoringmetrics"></span></a>Procedura: Aggiungere metriche alla relativa tabella
 
-1.  Nel [portale di gestione][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2.  Fare clic su **Monitor**.
 
@@ -90,30 +90,30 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 
     <div class="dev-callout"> 
 <b>Nota</b> 
-	<p>Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
+	<p>Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
 </div>
 
 3.  Fare clic su **Add Metrics**.
 
     Le metriche aggregate disponibili con il monitoraggio minimo vengono visualizzate all'inizio dell'elenco. Se la casella di controllo è selezionata, le metriche vengono visualizzate nell'elenco.
 
-    ![AddMetricsInitialDisplay][]
+    ![AddMetricsInitialDisplay][AddMetricsInitialDisplay]
 
 4.  Passare il puntatore sul lato destro della finestra di dialogo per visualizzare una barra di scorrimento che è possibile trascinare per accedere a metriche aggiuntive.
 
-    ![AddMetricsScrollbar][]
+    ![AddMetricsScrollbar][AddMetricsScrollbar]
 
 5.  Fare clic sulla freccia verso il basso accanto a una metrica per espandere un elenco di operazioni incluse nel relativo ambito. Selezionare ogni operazione che si desidera visualizzare nella tabella delle metriche nel portale di gestione.
 
     Nella figura seguente è stata espansa la metrica AUTHORIZATION ERROR PERCENTAGE.
 
-    ![ExpandCollapse][]
+    ![ExpandCollapse][ExpandCollapse]
 
 6.  Dopo aver selezionato le metriche per tutti i servizi, fare clic su OK (segno di spunta) per aggiornare la configurazione del monitoraggio. Le metriche selezionate vengono aggiunte alla tabella.
 
 7.  Per eliminare una metrica dalla tabella, fare clic sulla metrica per selezionarla e quindi fare clic su **Delete Metric**, come illustrato di seguito.
 
-    ![DeleteMetric][]
+    ![DeleteMetric][DeleteMetric]
 
 ## <span id="customizemetricschart"></span></a>Procedura: Personalizzare il grafico delle metriche nella pagina Monitor
 
@@ -127,11 +127,11 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 
 Per ogni servizio di archiviazione disponibile con l'account di archiviazione (BLOB, tabelle e accodamento), è possibile salvare log di diagnostica per le richieste di lettura, di scrittura e/o di eliminazione, nonché impostare i singoli criteri di conservazione dei dati.
 
-1.  Nel [portale di gestione][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2.  Fare clic su **Configure** e utilizzare il tasto freccia GIÙ per scorrere fino a **logging**, come illustrato di seguito.
 
-    ![Storagelogging][]
+    ![Storagelogging][Storagelogging]
 
 3.  Per ogni servizio (BLOB, tabelle e accodamento), configurare le opzioni seguenti:
 
@@ -141,9 +141,8 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 4.  Fare clic su **Save**.
 
-I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione][].
+I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione][Informazioni sulla registrazione di Analisi archiviazione].
 
-  [Analisi archiviazione e fatturazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx
   [Procedura: Configurare il monitoraggio per un account di archiviazione]: #configurestoragemonitoring
   [Procedura: Personalizzare il dashboard per il monitoraggio]: #customizestoragemonitoring
   [Procedura: Personalizzare la pagina Monitor]: #customizemonitorpage
@@ -152,12 +151,11 @@ I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nel
   [Procedura: Configurare la registrazione]: #configurelogging
   [portale di gestione]: https://manage.windowsazure.com/
   [MonitoringOptions]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
-  [Informazioni sulle metriche di Analisi archiviazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
+  [Informazioni sulle metriche di Analisi archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343258.aspx
   [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png
   [DeleteMetric]: ./media/storage-monitor-storage-account/Storage_DeleteMetric.png
   [Storagelogging]: ./media/storage-monitor-storage-account/Storage_LoggingOptions.png
-  [Informazioni sulla registrazione di Analisi archiviazione]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx
+  [Informazioni sulla registrazione di Analisi archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343262.aspx

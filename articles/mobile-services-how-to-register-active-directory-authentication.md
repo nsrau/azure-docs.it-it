@@ -1,16 +1,16 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-active-directory-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory
 
 In questo argomento viene illustrato come registrare le app in modo da utilizzare Azure Active Directory come provider di autenticazione per Servizi mobili di Azure.
 
-> [WACOM.NOTE] Se si desidera fornire l'autenticazione basata su client per Single Sign-On (SSO) con Azure Active Directory, vedere l'esercitazione relativa all'[autenticazione dell'app con il Single Sign-On di Active Directory Authentication Library][].
+> [WACOM.NOTE] Se si desidera fornire l'autenticazione basata su client per Single Sign-On (SSO) con Azure Active Directory, vedere l'esercitazione relativa all'[autenticazione dell'app con il Single Sign-On di Active Directory Authentication Library][autenticazione dell'app con il Single Sign-On di Active Directory Authentication Library].
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sul servizio mobile.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sul servizio mobile.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Identity** per il servizio mobile.
 
@@ -56,11 +56,11 @@ In questo argomento viene illustrato come registrare le app in modo da utilizzar
 
 È ora possibile utilizzare Azure Active Directory per l'autenticazione nell'app.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [autenticazione dell'app con il Single Sign-On di Active Directory Authentication Library]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-identity-tab.png
   [2]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png
   [3]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-select-ad-waad-auth.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-js-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introduzione ai dati in Servizi mobili
 
@@ -33,25 +33,23 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="8">
-<li><p>In Esplora soluzioni passare alla sottocartella <b>services\\mobileService\\scripts</b>, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:
+1.  In Esplora soluzioni passare alla sottocartella **services\\mobileService\\scripts**, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:
 
-		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
-                "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</code></pre>
+        var todolistClient = new WindowsAzure.MobileServiceClient(
+                        "https://todolist.azure-mobile.net/",
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-    <p>Questo codice consente di accedere al nuovo servizio mobile nell'app tramite una variabile globale. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Poiché nel file default.html è stato aggiunto un riferimento a questo script, questa variabile è disponibile per tutti i file di script a cui viene fatto riferimento da questa pagina.</p></li>
+    Questo codice consente di accedere al nuovo servizio mobile nell'app tramite una variabile globale. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Poiché nel file default.html è stato aggiunto un riferimento a questo script, questa variabile è disponibile per tutti i file di script a cui viene fatto riferimento da questa pagina.
 
-<li><p>Aprire il file di progetto default.html, individuare il riferimento al nuovo file di script service.js e accertarsi che il percorso a cui fa riferimento sia simile al seguente:</li></p>
+2.  Aprire il file di progetto default.html, individuare il riferimento al nuovo file di script service.js e accertarsi che il percorso a cui fa riferimento sia simile al seguente:
 
-<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
+        <script src="/services/mobileServices/scripts/todolist.js">
 
-    <p>Attualmente esiste un bug in Visual Studio che causa la generazione di un nome di cartella errato nel percorso.</p></li>
+    Attualmente esiste un bug in Visual Studio che causa la generazione di un nome di cartella errato nel percorso.
 
-<li><p>Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare <b>Aggiungi</b> e fare clic su <b>Servizio connesso...</b>, quindi selezionare il servizio mobile appena creato e fare clic su <b>OK</b>.</p>
+3.  Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare **Aggiungi** e fare clic su **Servizio connesso...**, quindi selezionare il servizio mobile appena creato e fare clic su **OK**.
 
-    <p>Lo stesso nuovo file di codice viene aggiunto al progetto di app per Windows Phone Store. Accertarsi di correggere anche il percorso di riferimento aggiunto al file default.html.</p></li>
-</ol>
+    Lo stesso nuovo file di codice viene aggiunto al progetto di app per Windows Phone Store. Accertarsi di correggere anche il percorso di riferimento aggiunto al file default.html.
 
 ## <a name="add-table"></a>Aggiunta di una nuova tabella la servizio mobile
 
@@ -69,14 +67,12 @@ Ora è possibile testare entrambe le versioni dell'app di Windows universale con
 
 [WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
-<ol start="4">
-<li><p>Nel <a href="https://manage.windowsazure.com/" target="_blank">portale di gestione</a> fare clic su <b>Mobile Services</b> e quindi sul servizio mobile.</p></li>
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Mobile Services** e quindi sul servizio mobile.
 
+    <p>
+2.  Fare clic sulla scheda **Data** e quindi su **Browse**.
 
-<li><p>Fare clic sulla scheda <b>Data</b> e quindi su <b>Browse</b>.</p></li>
-
-    <p>Si noti che la tabella <b>TodoItem</b> ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.</p></li>
-</ol>
+    Si noti che la tabella **TodoItem** ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
 
 ![][0]
 
@@ -103,9 +99,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 -   [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript][Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]
     Ulteriori informazioni su come utilizzare Servizi mobili con HTML e JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Creare app Windows universali per Windows e Windows Phone]: http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn609832.aspx

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Come utilizzare il servizio di archiviazione di accodamento di Python
 
@@ -8,30 +8,30 @@ Questa guida illustra come eseguire scenari comuni del servizio di archiviazione
 di accodamento di Windows Azure. Gli esempi sono scritti usando l'API
 Python. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il
 **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed
-eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
+eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
- [Informazioni sull'archiviazione di accodamento][]  
- [Concetti][]  
- [Creare un account di archiviazione di Azure][]  
- [Procedura: Creare una coda][]  
- [Procedura: Inserire un messaggio in una coda][]  
- [Procedura: Visualizzare il messaggio successivo][]  
- [Procedura: Rimuovere il messaggio successivo dalla coda][]  
- [Procedura: Cambiare il contenuto di un messaggio in coda][]  
- [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][]  
- [Procedura: Recuperare la lunghezza della coda][]  
- [Procedura: Eliminare una coda][]  
- [Passaggi successivi][]  
+ [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]  
+ [Concetti][Concetti]  
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]  
+ [Procedura: Creare una coda][Procedura: Creare una coda]  
+ [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]  
+ [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]  
+ [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]  
+ [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]  
+ [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]  
+ [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]  
+ [Procedura: Eliminare una coda][Procedura: Eliminare una coda]  
+ [Passaggi successivi][Passaggi successivi]  
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][].
+**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][guida all'installazione di Python].
 
 ## <a name="create-queue"> </a>Procedura: Creare una coda
 
@@ -129,8 +129,8 @@ Per eliminare una coda e tutti i messaggi che contiene chiamare il metodo
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti
 per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
   [Passaggi successivi]: #next-steps
   [Informazioni sull'archiviazione di accodamento]: #what-is
@@ -147,5 +147,5 @@ per altre informazioni sulle attività di archiviazione più complesse.
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [guida all'installazione di Python]: ../python-how-to-install/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

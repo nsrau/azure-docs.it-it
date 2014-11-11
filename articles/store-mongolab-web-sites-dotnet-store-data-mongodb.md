@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="eric@mongolab.com"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="eric@mongolab.com" />
 
 # Creazione di un'applicazione C# ASP.NET in Azure con MongoDB mediante il componente aggiuntivo MongoLab
 
@@ -49,7 +49,7 @@ Si passerà ora all'esercitazione completa.
 
 ## <a name="provision"></a>Provisioning del database
 
-[WACOM.INCLUDE [howto-provision-mongolab][howto-provision-mongolab]]
+[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 ## <a name="create"></a>Creazione dell'app
 
@@ -417,11 +417,11 @@ La creazione di un sito web in Azure è molto semplice, in particolare grazie al
 
 ### Ottenere la stringa di connessione MongoLab
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab][howto-get-connectioninfo-mongolab]]
+[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 ### Aggiungere la stringa di connessione alle variabili di ambiente del sito Web
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab][howto-save-connectioninfo-mongolab]]
+[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### Pubblicare il sito Web
 
@@ -435,7 +435,7 @@ La creazione di un sito web in Azure è molto semplice, in particolare grazie al
 
 ## <a name="manage"></a>Gestione del database
 
-[WACOM.INCLUDE [howto-access-mongolab-ui][howto-access-mongolab-ui]]
+[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] per eventuali domande o problemi relativi al database o per assistenza su MongoDB o sul driver C#. È ora possibile utilizzare l'applicazione.
 
@@ -444,7 +444,6 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
   [Creare l'app]: #create
   [Distribuire l'app]: #deploy
   [Gestire il database]: #manage
-  [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>]: mailto:support@mongolab.com
   [Store]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-store.png
   [1]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/entry-mongolab.png
   [Pulsante per le informazioni di connessione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-connectioninfo.png

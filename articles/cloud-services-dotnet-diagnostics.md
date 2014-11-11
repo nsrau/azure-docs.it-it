@@ -1,21 +1,21 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure
 
-Diagnostica Azure consente di raccogliere i dati di diagnostica da un ruolo di lavoro, da un ruolo Web o da una macchina virtuale in esecuzione in Azure. Questa guida descrive la modalità d'uso di Diagnostica Azure 1.2. Per altre linee guida dettagliate sulla creazione di una strategia di registrazione e traccia e sull'uso della diagnostica e di altre tecniche per risolvere i problemi e ottimizzare le applicazioni Azure, vedere [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure][].
+Diagnostica Azure consente di raccogliere i dati di diagnostica da un ruolo di lavoro, da un ruolo Web o da una macchina virtuale in esecuzione in Azure. Questa guida descrive la modalità d'uso di Diagnostica Azure 1.2. Per altre linee guida dettagliate sulla creazione di una strategia di registrazione e traccia e sull'uso della diagnostica e di altre tecniche per risolvere i problemi e ottimizzare le applicazioni Azure, vedere [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure][Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure].
 
 ## Sommario
 
--   [Panoramica][]
--   [Come abilitare Diagnostica in un ruolo di lavoro][]
--   [Come abilitare Diagnostica in una macchina virtuale][]
--   [File e schema di configurazione di esempio][]
--   [Risoluzione dei problemi][]
--   [Domande frequenti][]
--   [Confronto tra Diagnostica Azure 1.0 e 1.2][]
--   [Risorse aggiuntive][]
+-   [Panoramica][Panoramica]
+-   [Come abilitare Diagnostica in un ruolo di lavoro][Come abilitare Diagnostica in un ruolo di lavoro]
+-   [Come abilitare Diagnostica in una macchina virtuale][Come abilitare Diagnostica in una macchina virtuale]
+-   [File e schema di configurazione di esempio][File e schema di configurazione di esempio]
+-   [Risoluzione dei problemi][Risoluzione dei problemi]
+-   [Domande frequenti][Domande frequenti]
+-   [Confronto tra Diagnostica Azure 1.0 e 1.2][Confronto tra Diagnostica Azure 1.0 e 1.2]
+-   [Risorse aggiuntive][Risorse aggiuntive]
 
 ## <a name="overview"></a><span class="short-header">Panoramica</span>Panoramica
 
@@ -27,21 +27,54 @@ Rispetto alla precedente versione 1.0, Diagnostica 1.2 presenta tre importanti d
 2.  Diagnostica 1.0 fa parte di Azure SDK e viene distribuita insieme al servizio cloud. Diagnostica 1.2 è un'estensione e viene distribuita separatamente.
 3.  Diagnostica 1.2 abilita la raccolta di eventi ETW e EventSource .NET.
 
-Per un confronto più dettagliato, vedere [Confronto tra Diagnostica Azure 1.0 e 1.2][] al termine di questo articolo.
+Per un confronto più dettagliato, vedere [Confronto tra Diagnostica Azure 1.0 e 1.2][Confronto tra Diagnostica Azure 1.0 e 1.2] al termine di questo articolo.
 
 Diagnostica Azure è in grado di raccogliere i seguenti tipi di telemetria:
 
-|----------------------------------------------|--------------------------------------------------------------------------------------|
-| **Origine dati**                             | **Descrizione**                                                                      |
-| Log IIS                                      | Informazioni sui siti Web IIS.                                                       |
-| Log dell'infrastruttura diagnostica di Azure | Informazioni su Diagnostica.                                                         |
-| Log delle richieste non riuscite di IIS      | Informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS. |
-| Log degli eventi di Windows                  | Informazioni inviate al sistema di registrazione degli eventi di Windows.            |
-| Contatori delle prestazioni                  | Contatori del sistema operativo e personalizzati delle prestazioni.                  |
-| Dump di arresto anomalo del sistema          | Informazioni sullo stato del processo in caso di arresto anomalo di un'applicazione. |
-| Log degli errori personalizzati              | Log creati dall'applicazione o dal servizio.                                         |
-| EventSource .NET                             | Eventi generati dal codice mediante la [classe EventSource][] .NET.                  |
-| ETW basato su manifesto                      | Eventi ETW generati da un processo qualsiasi.                                        |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+	<tr>
+			<td style="width: 100px;"><strong>Origine dati</strong></td>
+			<td><strong>Descrizione</strong></td>
+	</tr>
+	<tr>
+		<td>Log IIS</td>
+		<td>Informazioni sui siti Web IIS.</td>            
+	</tr>
+	<tr>
+		<td>Log dell'infrastruttura diagnostica di Azure</td>
+		<td>Informazioni su Diagnostica.</td>            
+	</tr>
+	<tr>
+		<td>Log delle richieste non riuscite di IIS</td>
+		<td>Informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS.</td>            
+	</tr>
+	<tr>
+		<td>Log degli eventi di Windows</td>
+		<td> Informazioni inviate al sistema di registrazione degli eventi di Windows.</td>        
+	</tr>
+	<tr>
+		<td>Contatori delle prestazioni</td>
+		<td>Contatori del sistema operativo e personalizzati delle prestazioni.</td>            
+	</tr>
+	<tr>
+		<td>Dump di arresto anomalo del sistema</td>
+		<td>Informazioni sullo stato del processo in caso di arresto anomalo di un'applicazione.</td>            
+	</tr>
+	<tr>
+		<td>Log degli errori personalizzati</td>
+		<td>Log creati dall'applicazione o dal servizio.</td>            
+	</tr>
+	<tr>
+		<td>EventSource .NET</td>
+		<td>Eventi generati dal codice mediante la <a href="http://msdn.microsoft.com/it-it/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">classe EventSource</a> .NET.</td>            
+	</tr>
+	<tr>
+		<td>ETW basato su manifesto</td>
+		<td> Eventi ETW generati da un processo qualsiasi.</td>            
+	</tr>
+</tbody>
+</table>
 
 ## <a name="worker-role"></a><span class="short-header">Abilitazione di Diagnostica in un ruolo di lavoro</span>Come abilitare Diagnostica in un ruolo di lavoro
 
@@ -49,7 +82,7 @@ Questa procedura dettagliata illustra come implementare un ruolo di lavoro di Az
 
 ### Prerequisiti
 
-Questo articolo presuppone la disponibilità di una sottoscrizione Azure e l'uso di Visual Studio 2013 con Azure SDK. Se non si ha già una sottoscrizione Azure, è possibile iscriversi per accedere alla [versione di valutazione gratuita][]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][].
+Questo articolo presuppone la disponibilità di una sottoscrizione Azure e l'uso di Visual Studio 2013 con Azure SDK. Se non si ha già una sottoscrizione Azure, è possibile iscriversi per accedere alla [versione di valutazione gratuita][versione di valutazione gratuita]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][installare e configurare Azure PowerShell versione 0.8.7 o successiva].
 
 ### Passaggio 1: Creare un ruolo di lavoro
 
@@ -62,7 +95,7 @@ Questo articolo presuppone la disponibilità di una sottoscrizione Azure e l'uso
 
 ### Passaggio 2: Instrumentare il codice
 
-Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. Il primo parametro del metodo **WriteEvent** definisce l'ID del rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ciascuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
+Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][classe EventSource], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. Il primo parametro del metodo **WriteEvent** definisce l'ID del rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ciascuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
 
     using Microsoft.WindowsAzure.ServiceRuntime;
     using System;
@@ -159,7 +192,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
 
 3.  Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1**, selezionare **Aggiungi** -\> **Nuovo elemento** -\> **Elementi Visual C#** -\> **Dati** -\> **File XML**. Assegnare al file il nome "WadExample.xml".
 
-    ![CloudServices\_diag\_add\_xml][]
+    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
 4.  Associare WadConfig.xsd al file di configurazione. Assicurarsi che la finestra dell'editor di WadExample.xml sia quella attiva. Premere **F4** per aprire la finestra **Proprietà**. Fare clic sulla proprietà **Schemas** nella finestra **Proprietà**. Fare clic sui puntini di sospensione (**…**) nella proprietà **Schemas**. Fare clic sul pulsante **Aggiungi** e spostarsi nella posizione in cui è stato salvato il file XSD, selezionare il file WadConfig.xsd, quindi fare clic su **OK**.
 5.  Sostituire il contenuto del file di configurazione WadExample.xml con il codice XML seguente e salvare il file. Questo file di configurazione definisce due contatori delle prestazioni per la raccolta di dati relativi all'utilizzo della CPU e della memoria. La configurazione definisce quindi quattro eventi corrispondenti ai metodi della classe SampleEventSourceWriter.
@@ -202,15 +235,15 @@ I cmdlet di PowerShell per la gestione di Diagnostica su un ruolo Web o di lavor
 ### Passaggio 6: Esaminare i dati di telemetria
 
 In **Esplora server** di Visual Studio passare all'account di archiviazione wadexample. Dopo che il servizio cloud è rimasto in esecuzione per circa 5 minuti, vengono visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria che sono stati raccolti.
- ![CloudServices\_diag\_tables][]
+ ![CloudServices\_diag\_tables][CloudServices\_diag\_tables]
 
 ## <a name="virtual-machine"></a><span class="short-header">Abilitazione di Diagnostica in una macchina virtuale</span>Come abilitare Diagnostica in una macchina virtuale
 
-Questa procedura dettagliata illustra come installare Diagnostica in remoto su una macchina virtuale di Azure da un computer di sviluppo. Viene inoltre spiegato come implementare un'applicazione che viene eseguita sulla macchina virtuale di Azure ed emette dati di telemetria usando la [classe EventSource][] .NET. Diagnostica Azure consente di raccogliere dati di telemetria e di memorizzarli in un account di archiviazione di Azure.
+Questa procedura dettagliata illustra come installare Diagnostica in remoto su una macchina virtuale di Azure da un computer di sviluppo. Viene inoltre spiegato come implementare un'applicazione che viene eseguita sulla macchina virtuale di Azure ed emette dati di telemetria usando la [classe EventSource][classe EventSource] .NET. Diagnostica Azure consente di raccogliere dati di telemetria e di memorizzarli in un account di archiviazione di Azure.
 
 ### Prerequisiti
 
-Questa procedura dettagliata presuppone la disponibilità di una sottoscrizione Azure e l'uso di Visual Studio 2013 con Azure SDK. Se non si ha già una sottoscrizione Azure, è possibile iscriversi per accedere alla [versione di valutazione gratuita][]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][].
+Questa procedura dettagliata presuppone la disponibilità di una sottoscrizione Azure e l'uso di Visual Studio 2013 con Azure SDK. Se non si ha già una sottoscrizione Azure, è possibile iscriversi per accedere alla [versione di valutazione gratuita][versione di valutazione gratuita]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][installare e configurare Azure PowerShell versione 0.8.7 o successiva].
 
 ### Passaggio 1: Creare una macchina virtuale
 
@@ -226,7 +259,7 @@ Questa procedura dettagliata presuppone la disponibilità di una sottoscrizione 
 
 1.  Sul computer di sviluppo avviare Visual Studio 2013.
 2.  Creare una nuova applicazione console in Visual C# per .NET Framework 4.5. Assegnare al progetto il nome "WadExampleVM".
-    ![CloudServices\_diag\_new\_project][]
+    ![CloudServices\_diag\_new\_project][CloudServices\_diag\_new\_project]
 3.  Sostituire il contenuto del file Program.cs con il codice seguente. La classe **SampleEventSourceWriter** implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. Il primo parametro del metodo WriteEvent definisce l'ID del rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ciascuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
 
         using System;
@@ -355,11 +388,11 @@ I cmdlet di PowerShell per la gestione di Diagnostica su una macchina virtuale s
 ### Passaggio 6: Esaminare i dati di telemetria
 
 In **Esplora server** di Visual Studio passare all'account di archiviazione wadexample. Dopo che la macchina virtuale è rimasta in esecuzione per circa 5 minuti, vengono visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria che sono stati raccolti.
- ![CloudServices\_diag\_wadexamplevm\_tables][]
+ ![CloudServices\_diag\_wadexamplevm\_tables][CloudServices\_diag\_wadexamplevm\_tables]
 
 ## <a name="configuration-file-schema"></a><span class="short-header"> File e schema di configurazione di esempio</span>Schema del file di configurazione
 
-Il file di configurazione di Diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Un file di configurazione di esempio e la documentazione dettagliata del relativo schema sono disponibili qui: [Schema di configurazione di Diagnostica Azure 1.2][].
+Il file di configurazione di Diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Un file di configurazione di esempio e la documentazione dettagliata del relativo schema sono disponibili qui: [Schema di configurazione di Diagnostica Azure 1.2][Schema di configurazione di Diagnostica Azure 1.2].
 
 ## <a name="troubleshooting"></a><span class="short-header">Risoluzione dei problemi</span>Risoluzione dei problemi
 
@@ -534,16 +567,8 @@ Verranno generate quattro tabelle:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
-<tr>
-<td style="width: 100px;">
-**Evento**
-
-</td>
-<td>
-**Nome tabella**
-
-</td>
-</tr>
+	<tr>
+			<td style="width: 100px;"><strong>Evento</strong></td><td><strong>Nome tabella</strong></td></tr>
 <tr>
 <td>
 provider=”prov1” \<Event id=”1” /\>
@@ -590,36 +615,154 @@ WADdest2
 
 La tabella seguente confronta le funzionalità supportate dalle versioni 1.0 e 1.1/1.2 di Diagnostica Azure:
 
-|------------------------------|---------------------|-------------------------|
-| **Tipi di ruolo supportati** | **Diagnostica 1.0** | **Diagnostica 1.1/1.2** |
-| Ruolo Web                    | Sì                  | Sì                      |
-| Ruolo di lavoro              | Sì                  | Sì                      |
-| IaaS                         | No                  | Sì                      |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+	<tr>
+			<td style="width: 100px;"><strong>Tipi di ruolo supportati</strong></td>
+			<td><strong>Diagnostica 1.0</strong></td>
+			<td><strong>Diagnostica 1.1/1.2</strong></td>
+	</tr>
 
-|-----------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
-| **Configurazione e distribuzione**                                                                        | **Diagnostica 1.0** | **Diagnostica 1.1/1.2** |
-| Integrazione con Visual Studio - Integrata nell'esperienza di sviluppo di ruoli Web o di lavoro di Azure. | Sì                  | No                      |
-| Script di PowerShell - Script per gestire l'installazione e la configurazione di Diagnostica nel ruolo.   | Sì                  | Sì                      |
+	<tr>
+			<td>Ruolo Web</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>Ruolo di lavoro</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>IaaS</td>
+			<td>No</td>
+			<td>Sì</td>
+	</tr>
+</tbody>
+</table>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+	<tr>
+			<td style="width: 100px;"><strong>Configurazione e distribuzione</strong></td>
+			<td><strong>Diagnostica 1.0</strong></td>
+			<td><strong>Diagnostica 1.1/1.2</strong></td>
+	</tr>
 
-|----------------------------------------------|--------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
-| **Origine dati**                             | **Raccolta predefinita** | **Formato** | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **Diagnostica 1.0** | **Diagnostica 1.1/1.2** |
-| Log System.Diagnostics.Trace                 | Sì                       | Tabella     | Registra messaggi di traccia inviati dal codice al listener di traccia (è necessario aggiungere un listener di traccia al file web.config o app.config). I dati del log verranno trasferiti alla tabella di archiviazione WADLogsTable in base all'intervallo di trasferimento scheduledTransferPeriod.                                                                                                                                                                      | Sì                  | No (usare EventSource)  |
-| Log IIS                                      | Sì                       | BLOB        | Registra informazioni sui siti IIS. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.                                                                                                                                                                                                                                                                                                           | Sì                  | Sì                      |
-| Log dell'infrastruttura diagnostica di Azure | Sì                       | Tabella     | Registra informazioni sull'infrastruttura di diagnostica e sui moduli RemoteAccess e RemoteForwarder. I dati del log verranno trasferiti alla tabella di archiviazione WADDiagnosticInfrastructureLogsTable in base all'intervallo di trasferimento scheduledTransferPeriodtransfer.                                                                                                                                                                                         | Sì                  | Sì                      |
-| Log delle richieste non riuscite di IIS      | No                       | BLOB        | Registra informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS. È inoltre necessario abilitare questa origine dati impostando le opzioni di traccia presenti in system.WebServer in Web.config. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.                                                                                                                 | Sì                  | Sì                      |
-| Log degli eventi di Windows                  | No                       | Tabella     | Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.                                                                                       | Sì                  | Sì                      |
-| Contatori delle prestazioni                  | No                       | Tabella     | Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.                                                                                       | Sì                  | Sì                      |
-| Dump di arresto anomalo del sistema          | No                       | BLOB        | Registra informazioni sullo stato del sistema operativo in caso di arresto anomalo del sistema. I minidump di arresto anomalo vengono raccolti localmente. È possibile abilitare i dump completi. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod. Poiché la maggior parte delle eccezioni è gestita da ASP.NET, questo è in genere utile solo per un ruolo di lavoro o una macchina virtuale. | Sì                  | Sì                      |
-| Log degli errori personalizzati              | No                       | BLOB        | Grazie all'uso di risorse di archiviazione locali, i dati personalizzati possono essere registrati e trasferiti immediatamente al contenitore specificato.                                                                                                                                                                                                                                                                                                                   | Sì                  | Sì                      |
-| EventSource                                  | No                       | Tabella     | Registra gli eventi generati dal codice usando la classe EventSource .NET.                                                                                                                                                                                                                                                                                                                                                                                                   | No                  | Sì                      |
-| ETW basato su manifesto                      | No                       | Tabella     | Eventi ETW generati da un processo qualsiasi.                                                                                                                                                                                                                                                                                                                                                                                                                                | No                  | Sì                      |
+	<tr>
+			<td>Integrazione con Visual Studio - Integrata nell'esperienza di sviluppo di ruoli Web o di lavoro di Azure.</td>
+			<td>Sì</td>
+			<td>No</td>
+	</tr>
+	<tr>
+			<td>Script di PowerShell - Script per gestire l'installazione e la configurazione di Diagnostica nel ruolo.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+	<tr>
+			<td style="width: 100px;"><strong>Origine dati</strong></td>
+			<td><strong>Raccolta predefinita</strong></td>
+			<td><strong>Formato</strong></td>
+			<td><strong>Descrizione</strong></td>
+			<td><strong>Diagnostica 1.0</strong></td>
+			<td><strong>Diagnostica 1.1/1.2</strong></td>
+	</tr>
+	<tr>
+			<td>Log System.Diagnostics.Trace</td>
+			<td>Sì</td>
+			<td>Tabella</td>
+			<td>Registra messaggi di traccia inviati dal codice al listener di traccia (è necessario aggiungere un listener di traccia al file web.config o app.config). I dati del log verranno trasferiti alla tabella di archiviazione WADLogsTable in base all'intervallo di trasferimento scheduledTransferPeriod. </td>
+			<td>Sì</td>
+			<td>No (usare EventSource</td>
+	</tr>
+	<tr>
+			<td>IIS logs</td>
+			<td>Sì</td>
+			<td>BLOB</td>
+			<td>Registra informazioni sui siti IIS. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>Log dell'infrastruttura diagnostica di Azure</td>
+			<td>Sì</td>
+			<td>Tabella</td>
+			<td>Registra informazioni sull'infrastruttura di diagnostica e sui moduli RemoteAccess e RemoteForwarder. I dati del log verranno trasferiti alla tabella di archiviazione WADDiagnosticInfrastructureLogsTable in base all'intervallo di trasferimento scheduledTransferPeriodtransfer.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>Log delle richieste non riuscite di IIS</td>
+			<td>No</td>
+			<td>BLOB</td>
+			<td>Registra informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS. È inoltre necessario abilitare questa origine dati impostando le opzioni di traccia presenti in system.WebServer in Web.config. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+
+	</tr>
+	<tr>
+			<td>Log degli eventi di Windows</td>
+			<td>No</td>
+			<td>Tabella</td>
+			<td>Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>   
+	<tr>
+			<td>Contatori delle prestazioni</td>
+			<td>No</td>
+			<td>Tabella</td>
+			<td>Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr> 
+	<tr>
+			<td>Dump di arresto anomalo del sistema</td>
+			<td>No</td>
+			<td>BLOB</td>
+			<td>Registra informazioni sullo stato del sistema operativo in caso di arresto anomalo del sistema. I minidump di arresto anomalo vengono raccolti localmente. È possibile abilitare i dump completi. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod. Poiché la maggior parte delle eccezioni è gestita da ASP.NET, questo è in genere utile solo per un ruolo di lavoro o una macchina virtuale.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>Log degli errori personalizzati</td>
+			<td>No</td>
+			<td>BLOB</td>
+			<td>Grazie all'uso di risorse di archiviazione locali, i dati personalizzati possono essere registrati e trasferiti immediatamente al contenitore specificato.</td>
+			<td>Sì</td>
+			<td>Sì</td>
+	</tr>
+	<tr>
+			<td>EventSource</td>
+			<td>No</td>
+			<td>Tabella</td>
+			<td>Registra gli eventi generati dal codice usando la classe EventSource .NET.</td>
+			<td>No</td>
+			<td>Sì</td>
+	</tr>      
+	<tr>
+			<td>ETW basato su manifesto</td>
+			<td>No</td>
+			<td>Tabella</td>
+			<td>Eventi ETW generati da un processo qualsiasi.</td>
+			<td>No</td>
+			<td>Sì</td>
+	</tr>
+</tbody>
+</table>
 
 ## <a name="additional"></a><span class="short-header">Risorse aggiuntive</span>Risorse aggiuntive
 
--   [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure][]
--   [Raccogliere dati di registrazione utilizzando Diagnostica Azure][]
--   [Debug di un'applicazione Azure][]
--   [Configurazione di Diagnostica Microsoft Azure][]
+-   [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure][Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure]
+-   [Raccogliere dati di registrazione utilizzando Diagnostica Azure][Raccogliere dati di registrazione utilizzando Diagnostica Azure]
+-   [Debug di un'applicazione Azure][Debug di un'applicazione Azure]
+-   [Configurazione di Diagnostica Microsoft Azure][Configurazione di Diagnostica Microsoft Azure]
 
   [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh771389.aspx
   [Panoramica]: #overview
@@ -633,12 +776,7 @@ La tabella seguente confronta le funzionalità supportate dalle versioni 1.0 e 1
   [classe EventSource]: http://msdn.microsoft.com/it-it/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [installare e configurare Azure PowerShell versione 0.8.7 o successiva]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Schema di configurazione di Diagnostica Azure 1.2]: http://msdn.microsoft.com/it-it/library/azure/dn782207.aspx
-  [decodificarli]: http://www.bing.com/search?q=base64+decoder
   [Raccogliere dati di registrazione utilizzando Diagnostica Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433048.aspx
   [Debug di un'applicazione Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405479.aspx
   [Configurazione di Diagnostica Microsoft Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/dn186185.aspx

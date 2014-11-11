@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight
 
@@ -10,18 +10,18 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
--   Installare Azure HDInsight Emulator. Per istruzioni, vedere [Introduzione all'utilizzo di HDInsight Emulator][].
--   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][]
--   Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di valutazione gratuita][].
+-   Installare Azure HDInsight Emulator. Per istruzioni, vedere [Introduzione all'utilizzo di HDInsight Emulator][Introduzione all'utilizzo di HDInsight Emulator].
+-   Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell]
+-   Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][Opzioni di acquisto], [Offerte per i membri][Offerte per i membri] oppure [Versione di valutazione gratuita][Versione di valutazione gratuita].
 
 ## Contenuto dell'articolo
 
--   [Sviluppo di un programma per la creazione di flussi di Hadoop in C# per il conteggio delle parole][]
--   [Test del programma sull'emulatore][]
--   [Caricamento di dati e di applicazioni nell'archivio BLOB di Azure][]
--   [Esecuzione del programma MapReduce in Azure HDInsight][]
--   [Recupero dei risultati di MapReduce][]
--   [Passaggi successivi][]
+-   [Sviluppo di un programma per la creazione di flussi di Hadoop in C# per il conteggio delle parole][Sviluppo di un programma per la creazione di flussi di Hadoop in C# per il conteggio delle parole]
+-   [Test del programma sull'emulatore][Test del programma sull'emulatore]
+-   [Caricamento di dati e di applicazioni nell'archivio BLOB di Azure][Caricamento di dati e di applicazioni nell'archivio BLOB di Azure]
+-   [Esecuzione del programma MapReduce in Azure HDInsight][Esecuzione del programma MapReduce in Azure HDInsight]
+-   [Recupero dei risultati di MapReduce][Recupero dei risultati di MapReduce]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="develop"></a>Sviluppo di un programma per la creazione di flussi di Hadoop in C# per il conteggio delle parole
 
@@ -33,12 +33,13 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 2.  Fare clic su **FILE**, **Nuovo** e quindi su **Progetto**.
 3.  Digitare o selezionare i valori seguenti:
 
-    |----------------|----------------------------------------|
-    | Campo          | Valore                                 |
-    | Modello        | Visual C#/Windows/Console Application |
-    | Nome           | WordCountMapper                        |
-    | Percorso       | C:\\Tutorials                          |
-    | Nome soluzione | WordCount                              |
+<table border="1">
+	<tr><td>Campo</td><td>Valore</td></tr>
+	<tr><td>Modello</td><td>Visual C#/Windows/Console Application</td></tr>
+	<tr><td>Nome</td><td>WordCountMapper</td></tr>
+	<tr><td>Percorso</td><td>C:\\Tutorials</td></tr>
+	<tr><td>Nome soluzione</td><td>WordCount</td></tr>
+</table>
 
 4.  Fare clic su **OK** per creare il progetto.
 
@@ -78,14 +79,12 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 **Per creare il programma per la riduzione**
 
 1.  In Visual Studio 2013 fare clic su **FILE**, quindi su **Aggiungi** e infine su **Nuovo progetto**.
-2.  Digitare o selezionare i valori seguenti:
-
-    | Campo    | Valore                                 |
-    |----------|----------------------------------------|
-    | Modello  | Visual C#/Windows/Console Application |
-    | Nome     | WordCountReducer                       |
-    | Percorso | C:\\Tutorials\\WordCount               |
-
+2.  Digitare o selezionare i valori seguenti:<table border="1">
+	<tr><td>Campo</td><td>Valore</td></tr>
+	<tr><td>Modello</td><td>Visual C#/Windows/Console Application</td></tr>
+	<tr><td>Nome</td><td>WordCountReducer</td></tr>
+	<tr><td>Percorso</td><td>C:\\Tutorials\\WordCount</td></tr>
+</table>
 3.  Fare clic su **OK** per creare il progetto.
 4.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Program.cs** e quindi scegliere **Rinomina**.
 5.  Rinominare il file in **WordCountReducer.cs** e quindi premere **INVIO**.
@@ -142,20 +141,16 @@ In questa sezione sono disponibili le procedure seguenti:
 4.  Verifica dello stato del processo
 5.  Recupero dei risultati del processo
 
-Per impostazione predefinita, HDInsight Emulator utilizza HDFS come file system predefinito. Se lo si desidera, è possibile configurare HDInsight Emulator per l'utilizzo dell'archivio BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'utilizzo di HDInsight Emulator][1]. In questa sezione verrà utilizzato il comando copyFromLocal di HDFS per il caricamento dei file. Nella sezione successiva verrà illustrato come caricare i file utilizzando Azure PowerShell. Per informazioni sugli altri metodi disponibili, vedere [Caricare i dati in HDInsight][].
+Per impostazione predefinita, HDInsight Emulator utilizza HDFS come file system predefinito. Se lo si desidera, è possibile configurare HDInsight Emulator per l'utilizzo dell'archivio BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'utilizzo di HDInsight Emulator][1]. In questa sezione verrà utilizzato il comando copyFromLocal di HDFS per il caricamento dei file. Nella sezione successiva verrà illustrato come caricare i file utilizzando Azure PowerShell. Per informazioni sugli altri metodi disponibili, vedere [Caricare i dati in HDInsight][Caricare i dati in HDInsight].
 
 In questa esercitazione viene utilizzata la struttura di cartelle seguente:
-
-| Cartella                    | Nota                                                                    |
-|-----------------------------|-------------------------------------------------------------------------|
-| \\WordCount                 | Cartella radice per il progetto per il conteggio delle parole.          |
-| \\WordCount\\Apps           | Cartella per i file eseguibili dei programmi di mapping e di riduzione. |
-| \\WordCount\\Input          | Cartella di file di origine di MapReduce.                               |
-| \\WordCount\\Output         | Cartella di file di output di MapReduce.                                |
-| \\WordCount\\MRStatusOutput | Cartella di output del processo.                                        |
-
-</br>
-
+<table border="1"><tr><td>Cartella</td><td>Nota</td></tr>
+<tr><td>\WordCount</td><td>Cartella radice per il progetto per il conteggio delle parole.</td></tr>
+<tr><td>\WordCount\Apps</td><td>Cartella per i file eseguibili dei programmi di mapping e di riduzione.</td></tr>
+<tr><td>\WordCount\Input</td><td>Cartella di file di origine di MapReduce.</td></tr>
+<tr><td>\WordCount\Output</td><td>Cartella di file di output di MapReduce.</td></tr>
+<tr><td>\WordCount\MRStatusOutput</td><td>Cartella di output del processo.</td></tr>
+</table></br>
 In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop\_home%.
 
 > [WACOM.NOTE] I comandi HDFS di Hadoop rispettano la distinzione tra maiuscole e minuscole.
@@ -196,7 +191,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per eseguire il processo MapReduce tramite HDInsight PowerShell**
 
-1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
+1.  Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 2.  Per impostare le variabili, eseguire i comandi seguenti.
 
         $clusterName = "http://localhost:50111"
@@ -244,7 +239,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per verificare lo stato del processo**
 
-1.  Sul desktop fare clic su **Hadoop MapReduce Status**, oppure passare a **<http://localhost:50030/jobtracker.jsp>**.
+1.  Sul desktop fare clic su **Hadoop MapReduce Status**, oppure passare a **http://localhost:50030/jobtracker.jsp**.
 2.  Individuare il processo che utilizza l'ID del processo in una delle tre sezioni seguenti: **Completed Jobs**, **Running Jobs**, **Retired Jobs**.
 3.  Se un processo ha avuto esito negativo, sarà possibile visualizzare i dettagli relativi al processo e trovare informazioni utili per il debug.
 
@@ -479,13 +474,13 @@ Lo script PowerShell riportato di seguito consente di eseguire le attività segu
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  Quando richiesto, immettere nome utente e password per il cluster HDInsight. Poiché il cluster verrà eliminato alla fine dello script e il nome utente e la password non saranno più necessari, è possibile specificare qualsiasi stringa come nome utente e password. Se non si desidera che venga richiesta l'immissione di credenziali, vedere [Utilizzo di password, stringhe sicure e credenziali in Windows PowerShell][]
+8.  Quando richiesto, immettere nome utente e password per il cluster HDInsight. Poiché il cluster verrà eliminato alla fine dello script e il nome utente e la password non saranno più necessari, è possibile specificare qualsiasi stringa come nome utente e password. Se non si desidera che venga richiesta l'immissione di credenziali, vedere [Utilizzo di password, stringhe sicure e credenziali in Windows PowerShell][Utilizzo di password, stringhe sicure e credenziali in Windows PowerShell]
 
-Per un esempio di HDInsight .NET SDK sull'invio di processi di streaming di Hadoop, vedere [Inviare processi Hadoop a livello di codice][].
+Per un esempio di HDInsight .NET SDK sull'invio di processi di streaming di Hadoop, vedere [Inviare processi Hadoop a livello di codice][Inviare processi Hadoop a livello di codice].
 
 ## <a name="retrieve"></a>Recupero dell'output del processo MapReduce
 
-In questa sezione viene illustrato come scaricare e visualizzare l'output. Per informazioni sulla visualizzazione dei risultati in Excel, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][] e [Connettere Excel a HDInsight mediante Power Query][].
+In questa sezione viene illustrato come scaricare e visualizzare l'output. Per informazioni sulla visualizzazione dei risultati in Excel, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver] e [Connettere Excel a HDInsight mediante Power Query][Connettere Excel a HDInsight mediante Power Query].
 
 **Per recuperare l'output**
 
@@ -512,20 +507,20 @@ In questa sezione viene illustrato come scaricare e visualizzare l'output. Per i
 
 In questa esercitazione si è appreso come sviluppare un processo MapReduce di streaming per Hadoop, come testare l'applicazione in HDInsight Emulator e come scrivere uno script di PowerShell per eseguire il provisioning di un cluster HDInsight ed eseguire un processo MapReduce sul cluster. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'utilizzo di Azure HDInsight][]
--   [Introduzione all'utilizzo di HDInsight Emulator][]
--   [Sviluppare programmi MapReduce Java per HDInsight][]
--   [Usare l'archivio BLOB di Azure con HDInsight][]
--   [Amministrazione di HDInsight tramite PowerShell][]
--   [Caricare i dati in HDInsight][]
--   [Usare Hive con HDInsight][]
--   [Usare Pig con HDInsight][]
+-   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
+-   [Introduzione all'utilizzo di HDInsight Emulator][Introduzione all'utilizzo di HDInsight Emulator]
+-   [Sviluppare programmi MapReduce Java per HDInsight][Sviluppare programmi MapReduce Java per HDInsight]
+-   [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight]
+-   [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]
+-   [Caricare i dati in HDInsight][Caricare i dati in HDInsight]
+-   [Usare Hive con HDInsight][Usare Hive con HDInsight]
+-   [Usare Pig con HDInsight][Usare Pig con HDInsight]
 
   [Introduzione all'utilizzo di HDInsight Emulator]: ../hdinsight-get-started-emulator/
   [Come installare e configurare Azure PowerShell]: ../install-configure-powershell/
-  [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
+  [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
+  [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Sviluppo di un programma per la creazione di flussi di Hadoop in C# per il conteggio delle parole]: #develop
   [Test del programma sull'emulatore]: #test
   [Caricamento di dati e di applicazioni nell'archivio BLOB di Azure]: #upload

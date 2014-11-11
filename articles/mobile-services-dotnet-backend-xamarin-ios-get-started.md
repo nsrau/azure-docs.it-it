@@ -1,10 +1,10 @@
 <properties linkid="mobile-services-dotnet-backend-xamarin-ios-get-started" urlDisplayName="Get Started with Mobile Services for Xamarin iOS apps" pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin iOS apps" authors="donnam" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Xamarin iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][versione per back-end JavaScript] di questo argomento.
 
@@ -12,7 +12,7 @@ In questa esercitazione viene illustrato come aggiungere un servizio back-end ba
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][]
+![][0]
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni di Servizi mobili per app per Xamarin iOS.
 
@@ -21,7 +21,7 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 
 ## Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Creare una nuova app per Xamarin iOS
 
@@ -51,11 +51,11 @@ In questa sezione si scaricherà una nuova app per Xamarin iOS e un progetto di 
 
 ## Testare il servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## Pubblicazione del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Eseguire l'app per Xamarin iOS
 
@@ -93,8 +93,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [versione per back-end JavaScript]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-  [Guida introduttiva: aggiunta di un servizio mobile (back-end .NET)]: http://msdn.microsoft.com/it-it/library/windows/apps/dn629482.aspx
-  []: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
+  [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md

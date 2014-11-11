@@ -1,6 +1,6 @@
 <properties pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Chiamata di un'API personalizzata dal client
 
@@ -13,44 +13,37 @@ In questo argomento viene descritto come chiamare un'API personalizzata da un'ap
 
 L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag completato su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili][] o [Introduzione ai dati][]. A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. A questo scopo, verranno eseguiti i passaggi seguenti:
 
-1.  [Definizione dell'API personalizzata][]
-2.  [Aggiornamento dell'app per la chiamata all'API personalizzata][]
-3.  [Test dell'app][]
+1.  [Definizione dell'API personalizzata][Definizione dell'API personalizzata]
+2.  [Aggiornamento dell'app per la chiamata all'API personalizzata][Aggiornamento dell'app per la chiamata all'API personalizzata]
+3.  [Test dell'app][Test dell'app]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][] o [Introduzione ai dati][]. Per completare questa esercitazione, è necessario utilizzare Visual Studio 2012 Express per Windows 8.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. Per completare questa esercitazione, è necessario utilizzare Visual Studio 2012 Express per Windows 8.
 
 ## <a name="define-custom-api"></a>Definizione dell'API personalizzata
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
 ## <a name="update-app"></a>Aggiornamento dell'app per la chiamata all'API personalizzata
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api][]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](../includes/mobile-services-windows-store-javascript-call-custom-api.md)]
 
 ## Passaggi successivi
 
 Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows Store, per ulteriori informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
 
--   [Definizione di un'API personalizzata che supporta le notifiche periodiche][]
+-   [Definizione di un'API personalizzata che supporta le notifiche periodiche][Definizione di un'API personalizzata che supporta le notifiche periodiche]
     Informazioni su come usare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla creazione di API personalizzate.
 
--   [Archiviazione degli script del server nel controllo del codice sorgente][]
+-   [Archiviazione degli script del server nel controllo del codice sorgente][Archiviazione degli script del server nel controllo del codice sorgente]
      Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript backend"
+
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
   [Definizione dell'API personalizzata]: #define-custom-api

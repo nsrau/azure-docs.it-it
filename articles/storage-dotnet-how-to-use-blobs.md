@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Come utilizzare l'archiviazione BLOB da .NET
 
@@ -11,33 +11,33 @@ usata la libreria client di archiviazione di Azure per .NET. Gli scenari present
 **visualizzazione dell'elenco**,
 **download** ed
 **eliminazione** di BLOB. Per altre
-informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
+informazioni sui BLOB, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
-> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet][] o come parte di [Azure SDK per .NET][]. Vedere [Procedura: Accedere all'archiviazione BLOB a livello di codice][], per informazioni su come ottenere la libreria client di archiviazione.
+> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet][NuGet] o come parte di [Azure SDK per .NET][Azure SDK per .NET]. Vedere [Procedura: Accedere all'archiviazione BLOB a livello di codice][Procedura: Accedere all'archiviazione BLOB a livello di codice], per informazioni su come ottenere la libreria client di archiviazione.
 
 ## Sommario
 
--   [Informazioni sull'archiviazione BLOB][]
--   [Concetti][]
--   [Creare un account di archiviazione di Azure][]
--   [Configurazione di una stringa di connessione di archiviazione][]
--   [Procedura: Accedere all'archiviazione BLOB a livello di codice][]
--   [Procedura: Creare un contenitore][]
--   [Procedura: Caricare un BLOB in un contenitore][]
--   [Procedura: Elencare i BLOB in un contenitore][]
--   [Procedura: Scaricare BLOB][]
--   [Procedura: Eliminare BLOB][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione BLOB][Informazioni sull'archiviazione BLOB]
+-   [Concetti][Concetti]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Configurazione di una stringa di connessione di archiviazione][Configurazione di una stringa di connessione di archiviazione]
+-   [Procedura: Accedere all'archiviazione BLOB a livello di codice][Procedura: Accedere all'archiviazione BLOB a livello di codice]
+-   [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
+-   [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
+-   [Procedura: Elencare i BLOB in un contenitore][Procedura: Elencare i BLOB in un contenitore]
+-   [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]
+-   [Procedura: Eliminare BLOB][Procedura: Eliminare BLOB]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a><span class="short-header">Creare un account</span>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configurazione di una stringa di connessione</span>Configurazione di una stringa di connessione di archiviazione
 
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Accedere a livello di programmazione</span>Procedura: Accedere all'archiviazione BLOB a livello di codice
 
@@ -45,7 +45,7 @@ informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
 
 Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][Centro per sviluppatori .NET]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`
 
 ### Dichiarazioni dello spazio dei nomi
 
@@ -87,7 +87,7 @@ di archiviazione recuperato in precedenza.
 
 ### Dipendenze ODataLib
 
-Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData][], [Edm][] e [Spatial][].
+Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData][OData], [Edm][Edm] e [Spatial][Spatial].
 
 ## <a name="create-container"> </a><span class="short-header">Creare un contenitore</span>Procedura: Creare un contenitore
 
@@ -238,7 +238,7 @@ e questi sono i risultati:
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][].
+Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span class="short-header">Scaricare BLOB</span>Procedura: Scaricare BLOB
 
@@ -314,20 +314,20 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 -   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio BLOB:
-    -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][]
-    -   [Informazioni di riferimento sulle API REST][]
--   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][].
--   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][].
+    -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][Informazioni di riferimento sulla libreria client di archiviazione per .NET]
+    -   [Informazioni di riferimento sulle API REST][Informazioni di riferimento sulle API REST]
+-   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][archiviazione e all'accesso di dati in Azure].
+-   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][Introduzione all'uso dell'SDK di Processi Web di Azure].
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle][].
-    -   Per archiviare dati non strutturati, usare [Archiviazione di accodamento][].
-    -   Per archiviare dati relazionali, utilizzare [Database SQL][].
+    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle][Archiviazione tabelle].
+    -   Per archiviare dati non strutturati, usare [Archiviazione di accodamento][Archiviazione di accodamento].
+    -   Per archiviare dati relazionali, utilizzare [Database SQL][Database SQL].
 
 </p>
 
   [Passaggi successivi]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK per .NET]: /en-us/downloads/
+  [Azure SDK per .NET]: /it-it/downloads/
   [Procedura: Accedere all'archiviazione BLOB a livello di codice]: #configure-access
   [Informazioni sull'archiviazione BLOB]: #what-is
   [Concetti]: #concepts
@@ -341,13 +341,13 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Centro per sviluppatori .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Centro per sviluppatori .NET]: http://www.windowsazure.com/it-it/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [Informazioni di riferimento sulla libreria client di archiviazione per .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179355
+  [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Introduzione all'uso dell'SDK di Processi Web di Azure]: /it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Archiviazione tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/
   [Archiviazione di accodamento]: /it-it/documentation/articles/storage-dotnet-how-to-use-queues/

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introduzione ai dati in Servizi mobili tramite Visual Studio 2012
 
@@ -36,7 +36,7 @@ Questa esercitazione è basata sull'[app GetStartedWithData][app GetStartedWithD
 
 1.  Scaricare l'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network][app GetStartedWithData].
 
-    ![][]
+    ![][0]
 
 2.  In Visual Studio 2012 Express per Windows 8 aprire il progetto scaricato ed esaminare il file MainPage.xaml.cs.
 
@@ -52,11 +52,11 @@ Questa esercitazione è basata sull'[app GetStartedWithData][app GetStartedWithD
 
 ## <a name="create-service"></a><span class="short-header">Creazione del servizio mobile</span>Creazione di un nuovo servizio mobile nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Aggiunta di una nuova tabella</span>Aggiunta di una nuova tabella al servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][mobile-services-create-new-service-data-2]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">Aggiornamento dell'app</span>Aggiornamento dell'app per l'utilizzo del servizio mobile per l'accesso ai dati
 
@@ -196,26 +196,15 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
-  [Introduzione ai dati in Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet/
+
   [Download del progetto dell'app di Windows Store]: #download-app
   [Creazione del servizio mobile]: #create-service
   [Aggiunta di una tabella dati per l'archiviazione]: #add-table
   [Aggiornamento dell'app per l'utilizzo di Servizi mobili]: #update-app
   [Test dell'app in Servizi mobili]: #test-app
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28
   [app GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md

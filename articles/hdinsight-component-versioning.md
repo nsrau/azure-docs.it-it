@@ -6,7 +6,7 @@
 
 ## Versioni di HDInsight
 
-HDInsight supporta più versioni cluster Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta effettua il provisioning di una versione specifica della distribuzione HDP (Hortonworks Data Platform) e di un set di componenti contenuti in tale distribuzione. Le versioni del componente associate a ciascuna versione del cluster HDInsight sono elencate nella tabella seguente. Notare che la versione cluster predefinita usata da [Azure HDInsight][] è attualmente la 3.1 basata su HDP 2.1.
+HDInsight supporta più versioni cluster Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta effettua il provisioning di una versione specifica della distribuzione HDP (Hortonworks Data Platform) e di un set di componenti contenuti in tale distribuzione. Le versioni del componente associate a ciascuna versione del cluster HDInsight sono elencate nella tabella seguente. Notare che la versione cluster predefinita usata da [Azure HDInsight][Azure HDInsight] è attualmente la 3.1 basata su HDP 2.1.
 
 <table>
 <colgroup>
@@ -122,11 +122,11 @@ HDInsight supporta più versioni cluster Hadoop che possono essere distribuite i
 
 **Ottenere le informazioni sulla versione del componente corrente**
 
-Le versioni dei componenti associate alle versioni cluster HDInsight potrebbero subire modifiche nei futuri aggiornamenti a HDInsight. Per determinare i componenti disponibili e verificare le versioni in uso per un cluster, utilizzare l'API REST Ambari. È possibile usare il comando **GetComponentInformation** per recuperare informazioni su un componente del servizio. Per informazioni dettagliate, vedere la [documentazione di Ambari][]. Per ottenere queste informazioni, è inoltre possibile accedere a un cluster utilizzando Desktop remoto ed esaminare direttamente i contenuti della directory "C:\\apps\\dist".
+Le versioni dei componenti associate alle versioni cluster HDInsight potrebbero subire modifiche nei futuri aggiornamenti a HDInsight. Per determinare i componenti disponibili e verificare le versioni in uso per un cluster, utilizzare l'API REST Ambari. È possibile usare il comando **GetComponentInformation** per recuperare informazioni su un componente del servizio. Per informazioni dettagliate, vedere la [documentazione di Ambari][documentazione di Ambari]. Per ottenere queste informazioni, è inoltre possibile accedere a un cluster utilizzando Desktop remoto ed esaminare direttamente i contenuti della directory "C:\\apps\\dist".
 
 **Note sulla versione**
 
-Per altre note sulla versione relative alle versioni più recenti di HDInsight, vedere [Note sulla versione di HDInsight][].
+Per altre note sulla versione relative alle versioni più recenti di HDInsight, vedere [Note sulla versione di HDInsight][Note sulla versione di HDInsight].
 
 ### Selezionare una versione durante il provisioning di un cluster HDInsight
 
@@ -161,7 +161,7 @@ Per impostazione predefinita, Azure HDInsight ora supporta Hadoop 2.4 con cluste
 Nella tabella seguente sono elencate le versioni di HDInsight attualmente disponibili, le corrispondenti versioni HDP (Hortonworks Data Platform) utilizzate e le date di rilascio. Se note, verranno indicate anche la data di scadenza del supporto e la data in cui le versioni verranno dichiarate obsolete. Tenere presente quanto segue:
 
 -   i cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per i cluster HDInsight 2.1, 3.0 e 3.1. Non sono disponibili per i cluster HDInsight 1.6.
--   Quando il supporto per una particolare versione sarà scaduto, potrebbe non essere disponibile attraverso il portale di gestione di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di gestione di Azure. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureHDInsightCluster][] di Powershell e .NET SDK fino alla data in cui verrà dichiarata obsoleta.
+-   Quando il supporto per una particolare versione sarà scaduto, potrebbe non essere disponibile attraverso il portale di gestione di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di gestione di Azure. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureHDInsightCluster][New-AzureHDInsightCluster] di Powershell e .NET SDK fino alla data in cui verrà dichiarata obsoleta.
 
 <table border="1">
 <tr>
@@ -322,23 +322,23 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 La **data di dichiarazione obsolescenza** è la data dopo la quale non è possibile creare la versione del cluster su HDInsight.
 
-> [WACOM.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest di Azure [Family 4][] che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1.
+> [WACOM.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest di Azure [Family 4][Family 4] che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1.
 
 ## Note sulla versione di Hortonworks associate alle versioni di HDInsight
 
--   Il cluster HDInsight versione 3.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1][].Si tratta del cluster HDInsight predefinito creato quando si usa il portale di Azure HDInsight.
+-   Il cluster HDInsight versione 3.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1][Hortonworks Data Platform 2.1].Si tratta del cluster HDInsight predefinito creato quando si usa il portale di Azure HDInsight.
 
--   Il cluster HDInsight versione 3.0 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0][].
+-   Il cluster HDInsight versione 3.0 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0][Hortonworks Data Platform 2.0].
 
--   Il cluster HDInsight versione 2.1 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 1.3][].
+-   Il cluster HDInsight versione 2.1 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 1.3][Hortonworks Data Platform 1.3].
 
--   Il cluster HDInsight versione 1.6 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 1.1][].
+-   Il cluster HDInsight versione 1.6 utilizza una distribuzione Hadoop basata su [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1].
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [documentazione di Ambari]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [Note sulla versione di HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-release-notes/
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/it-it/library/dn593744.aspx
+  [Family 4]: http://msdn.microsoft.com/it-it/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
   [Hortonworks Data Platform 2.0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
   [Hortonworks Data Platform 1.3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html

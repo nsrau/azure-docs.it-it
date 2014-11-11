@@ -1,16 +1,16 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Esercitazione sui servizi cloud di Azure: Ruolo Web ASP.NET MVC, ruolo di lavoro e tabelle, code e BLOB di Archiviazione di Azure - 1 di 5
 
-Questa serie di esercitazioni mostra come creare e distribuire un'applicazione Web ASP.NET MVC multilivello che viene eseguita in un servizio cloud di Azure e usa tabelle, code e BLOB di Archiviazione di Azure. È possibile scaricare [l'applicazione completata][] da MSDN Code Gallery o un [e-book][] di una versione precedente da TechNet E-Book Gallery.
+Questa serie di esercitazioni mostra come creare e distribuire un'applicazione Web ASP.NET MVC multilivello che viene eseguita in un servizio cloud di Azure e usa tabelle, code e BLOB di Archiviazione di Azure. È possibile scaricare [l'applicazione completata][l'applicazione completata] da MSDN Code Gallery o un [e-book][e-book] di una versione precedente da TechNet E-Book Gallery.
 
 Il diagramma seguente mostra l'interazione tra le parti dell'applicazione:
 
-![Elaborazione di messaggi di posta elettronica][]
+![Elaborazione di messaggi di posta elettronica][Elaborazione di messaggi di posta elettronica]
 
-Questa serie di esercitazioni è costituita da cinque parti. Per un'introduzione più semplice e rapida ai servizi cloud, alle code e ai BLOB, vedere [Introduzione a Servizi cloud di Azure e ASP.NET][]. In alternativa è possibile eseguire un'applicazione multilivello in Siti Web e Processi Web. Per altre informazioni, vedere [Introduzione ad Azure WebJobs SDK][].
+Questa serie di esercitazioni è costituita da cinque parti. Per un'introduzione più semplice e rapida ai servizi cloud, alle code e ai BLOB, vedere [Introduzione a Servizi cloud di Azure e ASP.NET][Introduzione a Servizi cloud di Azure e ASP.NET]. In alternativa è possibile eseguire un'applicazione multilivello in Siti Web e Processi Web. Per altre informazioni, vedere [Introduzione ad Azure WebJobs SDK][Introduzione ad Azure WebJobs SDK].
 
 In questa serie di esercitazioni si apprenderà come:
 
@@ -30,24 +30,24 @@ In questa serie di esercitazioni si apprenderà come:
 Nella serie sono incluse cinque esercitazioni:
 
 1.  **Introduzione all'applicazione Azure Email Service** (questa esercitazione). Presentazione dettagliata dell'applicazione e della relativa architettura. È possibile ignorarla se si desidera semplicemente ottenere istruzioni sulla distribuzione o visualizzare il codice e quindi leggere questa sezione introduttiva in un secondo momento per comprendere meglio l'architettura.
-2.  [Configurazione e distribuzione dell'applicazione Azure Email Service][]. Come scaricare l'applicazione di esempio, configurarla, testarla localmente, distribuirla e testarla nel cloud.
-3.  [Creazione del ruolo Web per l'applicazione Azure Email Service][]. Come creare i componenti MVC dell'applicazione e testarli localmente.
-4.  [Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service][]. Come creare il componente back-end che crea gli elementi di lavoro della coda per l'invio di messaggi di posta elettronica e testarlo localmente.
-5.  [Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service][]. Come creare il componente back-end che elabora gli elementi di lavoro della coda per l'invio di messaggi di posta elettronica e testarlo localmente.
+2.  [Configurazione e distribuzione dell'applicazione Azure Email Service][Configurazione e distribuzione dell'applicazione Azure Email Service]. Come scaricare l'applicazione di esempio, configurarla, testarla localmente, distribuirla e testarla nel cloud.
+3.  [Creazione del ruolo Web per l'applicazione Azure Email Service][Creazione del ruolo Web per l'applicazione Azure Email Service]. Come creare i componenti MVC dell'applicazione e testarli localmente.
+4.  [Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service][Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service]. Come creare il componente back-end che crea gli elementi di lavoro della coda per l'invio di messaggi di posta elettronica e testarlo localmente.
+5.  [Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service][Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service]. Come creare il componente back-end che elabora gli elementi di lavoro della coda per l'invio di messaggi di posta elettronica e testarlo localmente.
 
 ## Segmenti dell'esercitazione
 
--   [Prerequisiti][]
--   [Panoramica del front-end][]
--   [Panoramica del back-end][]
--   [Tabelle di Azure][]
--   [Code di Azure][]
--   [Diagramma dati][]
--   [BLOB di Azure][]
--   [Confronto tra servizio cloud di Azure e sito Web di Azure][]
--   [Costi][]
--   [Autenticazione e autorizzazione][]
--   [Passaggi successivi][]
+-   [Prerequisiti][Prerequisiti]
+-   [Panoramica del front-end][Panoramica del front-end]
+-   [Panoramica del back-end][Panoramica del back-end]
+-   [Tabelle di Azure][Tabelle di Azure]
+-   [Code di Azure][Code di Azure]
+-   [Diagramma dati][Diagramma dati]
+-   [BLOB di Azure][BLOB di Azure]
+-   [Confronto tra servizio cloud di Azure e sito Web di Azure][Confronto tra servizio cloud di Azure e sito Web di Azure]
+-   [Costi][Costi]
+-   [Autenticazione e autorizzazione][Autenticazione e autorizzazione]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## Prerequisiti
 
@@ -56,7 +56,7 @@ Le istruzioni di queste esercitazioni sono applicabili ai prodotti seguenti:
 -   Visual Studio 2013 con Update 2
 -   Visual Studio 2013 Express for Web con Update 2
 
-È inoltre necessario disporre di una sottoscrizione Azure. È possibile creare un [account di valutazione gratuita][] o [attivare i benefici della sottoscrizione MSDN][].
+È inoltre necessario disporre di una sottoscrizione Azure. È possibile creare un [account di valutazione gratuita][account di valutazione gratuita] o [attivare i benefici della sottoscrizione MSDN][attivare i benefici della sottoscrizione MSDN].
 
 ## <a name="frontend"></a>Panoramica del front-end
 
@@ -64,29 +64,29 @@ L'applicazione è un servizio di elenchi di indirizzi di posta elettronica. Il f
 
 Le schermate mostrano lo stile del modello di Visual Studio 2012. Il contenuto è uguale a quello per Visual Studio 2013, ma lo stile è diverso.
 
-![Pagina di indice della lista di distribuzione][]
+![Pagina di indice della lista di distribuzione][Pagina di indice della lista di distribuzione]
 
-![Pagina di indice dei sottoscrittori][]
+![Pagina di indice dei sottoscrittori][Pagina di indice dei sottoscrittori]
 
 Esiste inoltre un set di pagine utilizzato dagli amministratori per creare messaggi da inviare a un elenco di indirizzi di posta elettronica.
 
-![Pagina di indice dei messaggi][]
+![Pagina di indice dei messaggi][Pagina di indice dei messaggi]
 
-![Pagina di creazione del messaggio][]
+![Pagina di creazione del messaggio][Pagina di creazione del messaggio]
 
 I clienti del servizio sono società che danno ai propri clienti la possibilità di iscriversi a una lista di distribuzione sul sito Web del cliente. Un amministratore, ad esempio, imposta un elenco per gli annunci del dipartimento di storia della Contoso University. Quando uno studente interessato agli annunci del dipartimento di storia fa clic su un collegamento nel sito Web della Contoso University, la Contoso University esegue una chiamata del servizio Web all'applicazione Azure Email Service. Il metodo di servizio genera l'invio di un messaggio di posta elettronica al cliente. Tale messaggio contiene un collegamento ipertestuale e, quando il destinatario fa clic sul collegamento, viene visualizzata una pagina di benvenuto nell'elenco di annunci del dipartimento di storia.
 
-![Messaggio di posta elettronica di conferma][]
+![Messaggio di posta elettronica di conferma][Messaggio di posta elettronica di conferma]
 
-![Pagina di benvenuto nell'elenco][]
+![Pagina di benvenuto nell'elenco][Pagina di benvenuto nell'elenco]
 
 Ogni messaggio di posta elettronica inviato (tranne la conferma della sottoscrizione) include un collegamento ipertestuale per annullare la sottoscrizione. Se un destinatario fa clic sul collegamento, viene visualizzata una pagina Web in cui si chiede conferma dell'annullamento della sottoscrizione.
 
-![Pagina di conferma dell'annullamento della sottoscrizione][]
+![Pagina di conferma dell'annullamento della sottoscrizione][Pagina di conferma dell'annullamento della sottoscrizione]
 
 Se il destinatario fa clic sul pulsante **Confirm**, viene visualizzata una pagina che conferma che la persona è stata rimossa dall'elenco.
 
-![Unsubscribe confirmed page][]
+![Unsubscribe confirmed page][Unsubscribe confirmed page]
 
 ## <a name="backend"></a>Panoramica del back-end
 
@@ -100,19 +100,19 @@ Quando il ruolo di lavoro A trova un messaggio da inviare, esegue le attività s
 
 Un secondo ruolo di lavoro (ruolo di lavoro B) esegue il polling della coda per gli elementi di lavoro. Quando il ruolo di lavoro B trova un elemento di lavoro, elabora l'elemento inviando il messaggio di posta elettronica e quindi elimina l'elemento di lavoro dalla coda. Il seguente diagramma mostra queste relazioni.
 
-![Elaborazione di messaggi di posta elettronica][]
+![Elaborazione di messaggi di posta elettronica][Elaborazione di messaggi di posta elettronica]
 
 Nessun messaggio di posta elettronica viene perso se il ruolo di lavoro B viene arrestato e deve essere riavviato perché un elemento di lavoro della coda per un messaggio di posta elettronica non viene eliminato finché il messaggio non viene inviato. L'applicazione impedisce l'invio di più messaggi di posta elettronica anche quando il ruolo di lavoro A viene arrestato e deve essere riavviato.
 
-![Evitare messaggi di posta elettronica duplicati][]
+![Evitare messaggi di posta elettronica duplicati][Evitare messaggi di posta elettronica duplicati]
 
 Il ruolo di lavoro B esegue il polling di una coda di sottoscrizioni per gli elementi di lavoro inseriti dal metodo del servizio API Web per le nuove sottoscrizioni. Quando ne trova una, invia il messaggio di posta elettronica di conferma.
 
-![Elaborazione di messaggi della coda di sottoscrizioni][]
+![Elaborazione di messaggi della coda di sottoscrizioni][Elaborazione di messaggi della coda di sottoscrizioni]
 
 ## <a name="tables"></a>Tabelle di Azure
 
-L'applicazione Azure Email Service archivia i dati nelle tabelle di Archiviazione di Azure. Le tabelle di Azure sono un archivio dati NoSQL, non un database relazionale come il [database SQL di Azure][]. Sono quindi una valida scelta quando efficienza e scalabilità sono più importanti della normalizzazione dei dati e dell'integrità relazionale. In questa applicazione, ad esempio, un ruolo di lavoro crea una riga ogni volta che viene creato un elemento di lavoro della coda e un altro recupera e aggiorna una riga ogni volta che viene inviato un messaggio di posta elettronica. Ciò potrebbe costituire un collo di bottiglia delle prestazioni se venisse utilizzato un database relazionale. Inoltre, le tabelle di Azure sono più economiche di SQL di Azure. Per altre informazioni sulle tabelle di Azure, vedere l'[ultima esercitazione di questa serie][Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service].
+L'applicazione Azure Email Service archivia i dati nelle tabelle di Archiviazione di Azure. Le tabelle di Azure sono un archivio dati NoSQL, non un database relazionale come il [database SQL di Azure][database SQL di Azure]. Sono quindi una valida scelta quando efficienza e scalabilità sono più importanti della normalizzazione dei dati e dell'integrità relazionale. In questa applicazione, ad esempio, un ruolo di lavoro crea una riga ogni volta che viene creato un elemento di lavoro della coda e un altro recupera e aggiorna una riga ogni volta che viene inviato un messaggio di posta elettronica. Ciò potrebbe costituire un collo di bottiglia delle prestazioni se venisse utilizzato un database relazionale. Inoltre, le tabelle di Azure sono più economiche di SQL di Azure. Per altre informazioni sulle tabelle di Azure, vedere l'[ultima esercitazione di questa serie][Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service].
 
 Nelle sezioni seguenti vengono descritti i contenuti delle tabelle di Azure utilizzate dall'applicazione Azure Email Service. Per un diagramma delle tabelle e delle rispettive relazioni, vedere il [diagramma dati di Azure Email Service][Diagramma dati] più avanti in questa pagina.
 
@@ -148,7 +148,7 @@ La griglia seguente mostra le proprietà delle righe contenenti le informazioni 
 | PartitionKey   | String       | ListName: nome (identificatore univoco) della lista di distribuzione, ad esempio: contoso1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | RowKey         | String       | EmailAddress: indirizzo di posta elettronica del sottoscrittore, ad esempio: student1@contoso.edu.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | SubscriberGUID | String       | Generata quando l'indirizzo di posta elettronica viene aggiunto a un elenco. Utilizzata nei collegamenti per la sottoscrizione e l'annullamento della sottoscrizione in modo che sia difficile sottoscrivere l'indirizzo di posta elettronica di qualcun altro o annullarne la sottoscrizione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                  Alcune query per le pagine Web Subscribe e Unsubscribe specificano solo l'oggetto PartitionKey e questa proprietà. L'esecuzione di query di una partizione senza utilizzare l'oggetto RowKey limita la scalabilità dell'applicazione, perché le query richiederanno più tempo in quanto aumentano le dimensioni della lista di distribuzione. Un'opzione per migliorare la scalabilità è quella di aggiungere righe di ricerca con SubscriberGUID nella proprietà RowKey. Per ogni indirizzo di posta elettronica, ad esempio, una riga potrebbe avere "email:student1@domain.com" in RowKey e un'altra riga per lo stesso sottoscrittore potrebbe avere "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in RowKey. Questo è semplice da implementare perché le transazioni batch atomiche nelle righe all'interno di una partizione sono facili da codificare. Per ulteriori informazioni, vedere [Mondo reale: progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure][]  |
+                                  Alcune query per le pagine Web Subscribe e Unsubscribe specificano solo l'oggetto PartitionKey e questa proprietà. L'esecuzione di query di una partizione senza utilizzare l'oggetto RowKey limita la scalabilità dell'applicazione, perché le query richiederanno più tempo in quanto aumentano le dimensioni della lista di distribuzione. Un'opzione per migliorare la scalabilità è quella di aggiungere righe di ricerca con SubscriberGUID nella proprietà RowKey. Per ogni indirizzo di posta elettronica, ad esempio, una riga potrebbe avere "email:student1@domain.com" in RowKey e un'altra riga per lo stesso sottoscrittore potrebbe avere "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a" in RowKey. Questo è semplice da implementare perché le transazioni batch atomiche nelle righe all'interno di una partizione sono facili da codificare. Per ulteriori informazioni, vedere [Mondo reale: progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure][Mondo reale: progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure]  |
 | Verified       | Boolean      | Quando viene inizialmente creata la riga per un nuovo sottoscrittore, il valore è false. Diventa true solo dopo che il nuovo sottoscrittore ha fatto clic sul collegamento ipertestuale Confirm nel messaggio di posta elettronica di benvenuto o dopo che un amministratore l'ha impostata su true. Se un messaggio viene inviato a un elenco mentre il valore di Verified per uno dei sottoscrittori è false, a tale sottoscrittore non viene inviato alcun messaggio di posta elettronica.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 Nell'elenco seguente viene illustrato un esempio di come potrebbero essere i dati nella tabella.
@@ -857,7 +857,7 @@ Un elemento di lavoro della coda contiene il GUID del sottoscrittore. Questo val
 
 Nel diagramma seguente vengono illustrate le tabelle e le code e le relazioni tra di esse.
 
-![Diagramma dati per l'applicazione Azure Email Service][]
+![Diagramma dati per l'applicazione Azure Email Service][Diagramma dati per l'applicazione Azure Email Service]
 
 ## <a name="blobs"></a>BLOB di Azure
 
@@ -873,11 +873,11 @@ Poiché i messaggi HTML e di testo normale sono essenzialmente stringhe, è poss
 
 Azure Email Service è configurato in modo che il front-end e il back-end vengano eseguiti entrambi in un servizio cloud di Azure.
 
-![Panoramica dell'architettura dell'applicazione][]
+![Panoramica dell'architettura dell'applicazione][Panoramica dell'architettura dell'applicazione]
 
 Un'architettura alternativa consiste nell'eseguire il front-end in un sito Web di Azure.
 
-![Architettura alternativa dell'applicazione][]
+![Architettura alternativa dell'applicazione][Architettura alternativa dell'applicazione]
 
 Un'altra alternativa è quella di eseguire il front-end in un sito Web di Azure e usare la funzionalità Processi Web per eseguire il back-end negli stessi server che eseguono il front-end. Per altre informazioni, vedere [Introduzione a Azure WebJobs SDK][Introduzione ad Azure WebJobs SDK].
 
@@ -885,10 +885,10 @@ Un'altra alternativa è quella di eseguire il front-end in un sito Web di Azure 
 
 Questa sezione fornisce una breve panoramica dei costi per l'esecuzione dell'applicazione di esempio in Azure, considerate le tariffe in vigore quando l'esercitazione è stata originariamente pubblicata nel dicembre del 2012. Prima di prendere decisioni aziendali sulla base dei costi, assicurarsi di controllare le tariffe correnti nelle pagine Web seguenti:
 
--   [Calcolatore dei costi di Azure][]
--   [SendGrid Azure][]
+-   [Calcolatore dei costi di Azure][Calcolatore dei costi di Azure]
+-   [SendGrid Azure][SendGrid Azure]
 
-I costi dipendono dal numero di istanze del ruolo di lavoro e Web che si decide di gestire. Per essere qualificati per il [Contratto di servizio per il 99,95% del servizio cloud di Azure][], è necessario distribuire due o più istanze di ogni ruolo. Uno dei motivi per cui è necessario eseguire almeno due istanze del ruolo è che le macchine virtuali che eseguono l'applicazione vengono riavviate circa due volte al mese per gli aggiornamenti del sistema operativo. Per ulteriori informazioni sugli aggiornamenti del sistema operativo, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo][].
+I costi dipendono dal numero di istanze del ruolo di lavoro e Web che si decide di gestire. Per essere qualificati per il [Contratto di servizio per il 99,95% del servizio cloud di Azure][Contratto di servizio per il 99,95% del servizio cloud di Azure], è necessario distribuire due o più istanze di ogni ruolo. Uno dei motivi per cui è necessario eseguire almeno due istanze del ruolo è che le macchine virtuali che eseguono l'applicazione vengono riavviate circa due volte al mese per gli aggiornamenti del sistema operativo. Per ulteriori informazioni sugli aggiornamenti del sistema operativo, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo][Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo].
 
 Il lavoro eseguito dai due ruoli di lavoro in questo esempio non pone problemi di tempo e pertanto non è necessario un contratto di servizio per il 99,5%. L'esecuzione di una singola istanza di ogni ruolo di lavoro è realizzabile purché un'istanza sia in grado di gestire il carico di lavoro. I tempi sono importanti per l'istanza del ruolo Web perché gli utenti si aspettano che il sito Web non abbia tempi di inattività e pertanto un'applicazione di produzione deve avere almeno due istanze del ruolo Web.
 
@@ -1018,23 +1018,23 @@ $60.43
 </td>
 </tr>
 </table>
-Come è evidente, le istanze del ruolo sono un componente importante del costo complessivo. Le istanze del ruolo implicano un costo anche se vengono arrestate. È necessario eliminare un'istanza del ruolo per non incorrere in eventuali costi. Per ridurre i costi, è possibile spostare tutto il codice dal ruolo di lavoro A e dal ruolo di lavoro B in un solo ruolo di lavoro. Per queste esercitazioni è stato scelto deliberatamente di implementare due istanze del ruolo di lavoro per semplificare la scalabilità orizzontale. Il lavoro eseguito dal ruolo di lavoro B viene coordinato dal Servizio di accodamento di Azure e pertanto è possibile scalare orizzontalmente il ruolo di lavoro B semplicemente aumentando il numero di istanze del ruolo. Il ruolo di lavoro B è il fattore limitante per le condizioni di carico elevato. Il lavoro eseguito dal ruolo di lavoro A non viene coordinato dalle code e pertanto non è possibile eseguire più istanze del ruolo di lavoro A. Se i due ruoli di lavoro venissero combinati e si desiderasse abilitare la scalabilità orizzontale, sarebbe necessario implementare un meccanismo per assicurarsi che le attività del ruolo di lavoro A vengano eseguite in una sola istanza. Tale meccanismo è fornito da [CloudFx][]. Vedere l'[esempio WorkerRole.cs][].
+Come è evidente, le istanze del ruolo sono un componente importante del costo complessivo. Le istanze del ruolo implicano un costo anche se vengono arrestate. È necessario eliminare un'istanza del ruolo per non incorrere in eventuali costi. Per ridurre i costi, è possibile spostare tutto il codice dal ruolo di lavoro A e dal ruolo di lavoro B in un solo ruolo di lavoro. Per queste esercitazioni è stato scelto deliberatamente di implementare due istanze del ruolo di lavoro per semplificare la scalabilità orizzontale. Il lavoro eseguito dal ruolo di lavoro B viene coordinato dal Servizio di accodamento di Azure e pertanto è possibile scalare orizzontalmente il ruolo di lavoro B semplicemente aumentando il numero di istanze del ruolo. Il ruolo di lavoro B è il fattore limitante per le condizioni di carico elevato. Il lavoro eseguito dal ruolo di lavoro A non viene coordinato dalle code e pertanto non è possibile eseguire più istanze del ruolo di lavoro A. Se i due ruoli di lavoro venissero combinati e si desiderasse abilitare la scalabilità orizzontale, sarebbe necessario implementare un meccanismo per assicurarsi che le attività del ruolo di lavoro A vengano eseguite in una sola istanza. Tale meccanismo è fornito da [CloudFx][CloudFx]. Vedere l'[esempio WorkerRole.cs][esempio WorkerRole.cs].
 
-È inoltre possibile spostare tutto il codice dai due ruoli di lavoro al ruolo Web, in modo che tutte le operazioni vengano eseguite nel ruolo Web. Tuttavia, l'esecuzione di attività in background in ASP.NET non è supportata né considerata affidabile e questa architettura complicherebbe la scalabilità. Per ulteriori informazioni, vedere la pagina relativa ai [pericoli derivanti dall'implementazione di attività in background ricorrenti in ASP.NET][]. Vedere inoltre le pagine relative a [come combinare un ruolo di lavoro e un ruolo Web in Azure][] e alla [combinazione di più ruoli di lavoro di Azure in un ruolo Web di Azure][]. Se si desidera seguire questa direzione, una soluzione migliore è quella di [eseguire il front-end in un sito Web di Azure e usare la funzionalità Processi Web per le attività di back-end][].
+È inoltre possibile spostare tutto il codice dai due ruoli di lavoro al ruolo Web, in modo che tutte le operazioni vengano eseguite nel ruolo Web. Tuttavia, l'esecuzione di attività in background in ASP.NET non è supportata né considerata affidabile e questa architettura complicherebbe la scalabilità. Per ulteriori informazioni, vedere la pagina relativa ai [pericoli derivanti dall'implementazione di attività in background ricorrenti in ASP.NET][pericoli derivanti dall'implementazione di attività in background ricorrenti in ASP.NET]. Vedere inoltre le pagine relative a [come combinare un ruolo di lavoro e un ruolo Web in Azure][come combinare un ruolo di lavoro e un ruolo Web in Azure] e alla [combinazione di più ruoli di lavoro di Azure in un ruolo Web di Azure][combinazione di più ruoli di lavoro di Azure in un ruolo Web di Azure]. Se si desidera seguire questa direzione, una soluzione migliore è quella di [eseguire il front-end in un sito Web di Azure e usare la funzionalità Processi Web per le attività di back-end][eseguire il front-end in un sito Web di Azure e usare la funzionalità Processi Web per le attività di back-end].
 
-Un'altra architettura alternativa che ridurrebbe il costo prevede l'utilizzo del [blocco applicazione per la scalabilità automatica][] per distribuire automaticamente i ruoli di lavoro solo durante i periodi pianificati ed eliminarli al termine del lavoro. Per altre informazioni sulla scalabilità automatica, vedere l'[ultima esercitazione di questa serie][Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service].
+Un'altra architettura alternativa che ridurrebbe il costo prevede l'utilizzo del [blocco applicazione per la scalabilità automatica][blocco applicazione per la scalabilità automatica] per distribuire automaticamente i ruoli di lavoro solo durante i periodi pianificati ed eliminarli al termine del lavoro. Per altre informazioni sulla scalabilità automatica, vedere l'[ultima esercitazione di questa serie][Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service].
 
 È possibile che in futuro Azure fornirà meccanismo di notifica per i riavvii pianificati, che consentirebbe di avviare un'ulteriore istanza del ruolo Web solo per l'intervallo di tempo del riavvio. Non si sarebbe qualificati per il contratto di servizio 99,95, ma sarebbe possibile ridurre i costi di quasi la metà e di essere certi che l'applicazione Web sia disponibile durante l'intervallo di riavvio.
 
 ## <a name="auth"></a>Autenticazione e autorizzazione
 
-In un'applicazione di produzione si implementerà un meccanismo di autenticazione e autorizzazione, ad esempio [ASP.NET Identity][], per il front-end Web ASP.NET MVC, incluso il metodo di servizio API Web ASP.NET. Esistono anche altre opzioni, ad esempio l'utilizzo di un segreto condiviso, per proteggere il metodo di servizio API Web. La funzionalità di autenticazione e autorizzazione è stata omessa dall'applicazione di esempio per poterla configurare e distribuire facilmente.
+In un'applicazione di produzione si implementerà un meccanismo di autenticazione e autorizzazione, ad esempio [ASP.NET Identity][ASP.NET Identity], per il front-end Web ASP.NET MVC, incluso il metodo di servizio API Web ASP.NET. Esistono anche altre opzioni, ad esempio l'utilizzo di un segreto condiviso, per proteggere il metodo di servizio API Web. La funzionalità di autenticazione e autorizzazione è stata omessa dall'applicazione di esempio per poterla configurare e distribuire facilmente.
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
 Nell'[esercitazione successiva][Configurazione e distribuzione dell'applicazione Azure Email Service] si scaricherà il progetto di esempio, si configurerà l'ambiente di sviluppo, si configurerà il progetto per l'ambiente e si testerà il progetto localmente e nel cloud. Le esercitazioni dalla 3 alla 5 mostreranno come creare il progetto da zero.
 
-Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di Archiviazione di Azure, vedere l'[ultima esercitazione di questa serie][].
+Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di Archiviazione di Azure, vedere l'[ultima esercitazione di questa serie][ultima esercitazione di questa serie].
 
 <div><a href="/it-it/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">Esercitazione 2</a></div>
 
@@ -1045,8 +1045,6 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di 
   [Introduzione ad Azure WebJobs SDK]: /it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Configurazione e distribuzione dell'applicazione Azure Email Service]: /it-it/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Creazione del ruolo Web per l'applicazione Azure Email Service]: /it-it/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service]: /it-it/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service]: /it-it/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [Prerequisiti]: #prerequisites
   [Panoramica del front-end]: #frontend
   [Panoramica del back-end]: #backend

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Configurazione di SSL per un'applicazione Node.js in un ruolo di lavoro di Azure
 
@@ -28,7 +28,7 @@ Questa attività include i passaggi seguenti:
 
 2.  Creare un nuovo servizio usando il cmdlet **New-AzureServiceProject**.
 
-    ![][]
+    ![][0]
 
 3.  Aggiungere un ruolo di lavoro al servizio usando il cmdlet **Add-AzureNodeWorkerRole**:
 
@@ -146,10 +146,9 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
   [Passaggio 4: Modificare il file di definizione del servizio]: #step4
   [Passaggio 5: Connettersi all'istanza del ruolo usando HTTPS]: #step5
   [Icona di Azure PowerShell]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-  []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  [Come usare Azure PowerShell per Node.js]: https://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [URL sito]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [Come associare un certificato a un servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx

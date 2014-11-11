@@ -1,12 +1,12 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Recapito continuo in Azure mediante Visual Studio Online
 
-È possibile configurare i progetti del proprio team di Visual Studio Online in modo da compilare ed eseguire automaticamente la distribuzione sui siti Web o sui servizi cloud di Azure. Per informazioni su come configurare un sistema di compilazione e distribuzione continua mediante un Team Foundation Server *locale*, vedere [Recapito continuo per Servizi cloud in Azure][].
+È possibile configurare i progetti del proprio team di Visual Studio Online in modo da compilare ed eseguire automaticamente la distribuzione sui siti Web o sui servizi cloud di Azure. Per informazioni su come configurare un sistema di compilazione e distribuzione continua mediante un Team Foundation Server *locale*, vedere [Recapito continuo per Servizi cloud in Azure][Recapito continuo per Servizi cloud in Azure].
 
-In questa esercitazione si presuppone che l'utente abbia installato Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com][]. Installare Azure SDK da [questa pagina][].
+In questa esercitazione si presuppone che l'utente abbia installato Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com][www.visualstudio.com]. Installare Azure SDK da [questa pagina][questa pagina].
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
@@ -16,23 +16,23 @@ In questa esercitazione si presuppone che l'utente abbia installato Visual Studi
 
 Per configurare un servizio cloud in modo da compilare e distribuire automaticamente in Azure mediante Visual Studio Online, eseguire la procedura seguente:
 
--   [Passaggio 1: Creare un progetto team][]
+-   [Passaggio 1: Creare un progetto team][Passaggio 1: Creare un progetto team]
 
--   [Passaggio 2: Archiviare un progetto nel controllo del codice sorgente][]
+-   [Passaggio 2: Archiviare un progetto nel controllo del codice sorgente][Passaggio 2: Archiviare un progetto nel controllo del codice sorgente]
 
--   [Passaggio 3: Collegare il progetto ad Azure][]
+-   [Passaggio 3: Collegare il progetto ad Azure][Passaggio 3: Collegare il progetto ad Azure]
 
--   [Passaggio 4: Modificare e attivare una ricompilazione e una ridistribuzione][]
+-   [Passaggio 4: Modificare e attivare una ricompilazione e una ridistribuzione][Passaggio 4: Modificare e attivare una ricompilazione e una ridistribuzione]
 
--   [Passaggio 5: Ridistribuire una compilazione precedente (facoltativo)][]
+-   [Passaggio 5: Ridistribuire una compilazione precedente (facoltativo)][Passaggio 5: Ridistribuire una compilazione precedente (facoltativo)]
 
--   [Passaggio 6: Modificare la distribuzione di produzione (solo servizi cloud)][]
+-   [Passaggio 6: Modificare la distribuzione di produzione (solo servizi cloud)][Passaggio 6: Modificare la distribuzione di produzione (solo servizi cloud)]
 
--   [Passaggio 7: Eseguire unit test (facoltativo)][]
+-   [Passaggio 7: Eseguire unit test (facoltativo)][Passaggio 7: Eseguire unit test (facoltativo)]
 
 ## <a name="step1"></a><span class="short-header">Creare un progetto team</span>Passaggio 1: Creare un progetto team
 
-Seguire le istruzioni riportate [qui][] per creare il progetto team e collegarlo a Visual Studio. Questa procedura dettagliata presuppone l'uso di TFVC (Team Foundation Version Control) come soluzione per il controllo dell'origine. Se per il controllo della versione si desidera usare Git, vedere la pagina relativa alla [versione Git di questa procedura dettagliata][].
+Seguire le istruzioni riportate [qui][qui] per creare il progetto team e collegarlo a Visual Studio. Questa procedura dettagliata presuppone l'uso di TFVC (Team Foundation Version Control) come soluzione per il controllo dell'origine. Se per il controllo della versione si desidera usare Git, vedere la pagina relativa alla [versione Git di questa procedura dettagliata][versione Git di questa procedura dettagliata].
 
 ## <a name="step2"> </a><span class="short-header">Archiviare un progetto nel controllo del codice sorgente.</span>Passaggio 2: Archiviare un progetto nel controllo del codice sorgente
 
@@ -40,10 +40,10 @@ Seguire le istruzioni riportate [qui][] per creare il progetto team e collegarlo
     È possibile distribuire un sito Web o un servizio cloud (applicazione di Azure) seguendo i passaggi di questa procedura dettagliata.
     Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure
     o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. Quando richiesto, scegliere **Internet Application**.
-    Se si desidera creare un sito Web, scegliere il modello di progetto Applicazione Web ASP.NET, quindi scegliere MVC. Vedere [Introduzione ad Azure e ASP.NET][].
+    Se si desidera creare un sito Web, scegliere il modello di progetto Applicazione Web ASP.NET, quindi scegliere MVC. Vedere [Introduzione ad Azure e ASP.NET][Introduzione ad Azure e ASP.NET].
 
 2.  Aprire il menu di scelta rapida relativo alla soluzione e selezionare **Aggiungi soluzione al controllo del codice sorgente**.
-    ![][]
+    ![][0]
 
 3.  Accettare o modificare le impostazioni predefinite, quindi scegliere **OK**. Al completamento del processo, in Esplora soluzioni vengono visualizzate le icone del controllo codice sorgente.
     ![][1]
@@ -59,7 +59,7 @@ Seguire le istruzioni riportate [qui][] per creare il progetto team e collegarlo
 
 ## <a name="step3"> </a><span class="short-header">Collegare il progetto ad Azure.</span>Passaggio 3: Collegare il progetto ad Azure
 
-1.  A questo punto, dopo aver creato un progetto team VSO contenente il codice sorgente, è possibile collegare il progetto team ad Azure. Nel [portale di Azure][], selezionare il servizio cloud o il sito Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **Sito Web**, quindi selezionare **Creazione rapida**. Scegliere il collegamento **Imposta pubblicazione da Visual Studio Online**.
+1.  A questo punto, dopo aver creato un progetto team VSO contenente il codice sorgente, è possibile collegare il progetto team ad Azure. Nel [portale di Azure][portale di Azure], selezionare il servizio cloud o il sito Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **Sito Web**, quindi selezionare **Creazione rapida**. Scegliere il collegamento **Imposta pubblicazione da Visual Studio Online**.
     ![][5]
 
 2.  Nella procedura guidata, digitare il nome del proprio account di Visual Studio Online nella casella di testo e fare clic sul collegamento **Autorizza ora**. È possibile che venga richiesto di effettuare l'accesso.
@@ -198,7 +198,7 @@ Se si usano più configurazioni del servizio (file .cscfg), è possibile specifi
 2.  Facendo doppio clic sul nome della compilazione, in Visual Studio verrà visualizzato un **Riepilogo compilazione** che include eventuali risultati del test restituiti dai progetti unit test associati.
     ![][25]
 
-3.  Nel [portale di Azure][] è possibile visualizzare la distribuzione associata nella scheda Distribuzioni quando si seleziona l'ambiente di gestione temporanea.
+3.  Nel [portale di Azure][portale di Azure] è possibile visualizzare la distribuzione associata nella scheda Distribuzioni quando si seleziona l'ambiente di gestione temporanea.
     ![][26]
 
 4.  Passare all'URL del proprio sito. Per un sito Web è sufficiente fare clic sul pulsante Sfoglia della barra dei comandi. Per un servizio cloud, scegliere l'URL nella sezione **Riepilogo rapido** della pagina **Dashboard** in cui è visualizzato l'ambiente di gestione temporanea per un servizio cloud. Le distribuzioni derivanti dall'integrazione continua per i servizi cloud vengono pubblicate nell'ambiente di gestione temporanea per impostazione predefinita. È possibile modificare questa impostazione configurando la proprietà Ambiente del servizio cloud alternativo su Produzione. In questa schermata è possibile osservare dove si trova l'URL del sito nella pagina dashboard del servizio cloud:
@@ -281,25 +281,21 @@ Per integrare un controllo di qualità nelle distribuzioni attive o temporanee, 
     ![][42]
     ![][43]
 
-Per altre informazioni sugli unit test in Visual Studio Online, vedere [Eseguire test nel processo di compilazione][].
+Per altre informazioni sugli unit test in Visual Studio Online, vedere [Eseguire test nel processo di compilazione][Eseguire test nel processo di compilazione].
 
-Per altre informazioni, vedere [Visual Studio Online][]. Se si utilizza Git, vedere [Condivisione del codice in Git][] e [Pubblicazione da controllo del codice sorgente in Siti Web di Azure][].
+Per altre informazioni, vedere [Visual Studio Online][Visual Studio Online]. Se si utilizza Git, vedere [Condivisione del codice in Git][Condivisione del codice in Git] e [Pubblicazione da controllo del codice sorgente in Siti Web di Azure][Pubblicazione da controllo del codice sorgente in Siti Web di Azure].
 
   [Recapito continuo per Servizi cloud in Azure]: ../cloud-services-dotnet-continuous-delivery
   [www.visualstudio.com]: http://www.visualstudio.com
   [questa pagina]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [Connettersi a Visual Studio Online]: http://go.microsoft.com/fwlink/p/?LinkId=512979
   [Passaggio 1: Creare un progetto team]: #step1
   [Passaggio 2: Archiviare un progetto nel controllo del codice sorgente]: #step2
   [Passaggio 3: Collegare il progetto ad Azure]: #step3
   [Passaggio 4: Modificare e attivare una ricompilazione e una ridistribuzione]: #step4
-  [Passaggio 5: Ridistribuire una compilazione precedente (facoltativo)]: #step5
-  [Passaggio 6: Modificare la distribuzione di produzione (solo servizi cloud)]: #step6
-  [Passaggio 7: Eseguire unit test (facoltativo)]: #step7
   [qui]: http://go.microsoft.com/fwlink/?LinkId=512980
   [versione Git di questa procedura dettagliata]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Introduzione ad Azure e ASP.NET]: http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-get-started/
-  []: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
   [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
   [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
   [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png

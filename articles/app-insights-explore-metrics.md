@@ -1,6 +1,6 @@
 <properties title="Explore your metrics" pageTitle="Explore your metrics" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # Esplorare le metriche
 
@@ -16,7 +16,7 @@ Ecco i report che è possibile visualizzare nel pannello dell'applicazione in Ap
 
 L'integrità dell'applicazione viene monitorata instrumentando il codice dell'applicazione.
 
-![][]
+![][0]
 
 ### Tempo di risposta medio
 
@@ -105,7 +105,7 @@ Fare clic per visualizzare i grafici delle visualizzazioni pagina dell'ultima se
   [Integrità dell'applicazione]: #health
   [Analisi dell'utilizzo]: #usage
   [Passaggi successivi]: #next
-  []: ./media/appinsights/appinsights-42reqs.png
+  [0]: ./media/appinsights/appinsights-42reqs.png
   [1]: ./media/appinsights/appinsights-43webtests.png
   [test Web]: ../app-insights-monitor-web-app-availability/
   [2]: ./media/appinsights/appinsights-44slowest.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Utilizzo di Hub di notifica per inviare notizie localizzate
 
@@ -152,7 +152,7 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 
 ## <a name="send"></a><span class="short-header">Invio di notifiche localizzate</span>Invio di notifiche localizzate dal back-end
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][notification-hubs-localized-back-end]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## Passaggi successivi
 
@@ -162,8 +162,6 @@ Per altre informazioni sull'utilizzo del modelli, vedere [Utilizzo di Hub di not
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows Store C#"
-  [iOS]: /it-it/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
   [Utilizzo di Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet
   [Concetti relativi ai modelli]: #concepts
   [Interfaccia utente dell'app]: #ui

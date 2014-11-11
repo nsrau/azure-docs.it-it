@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 # Distribuzione di un'applicazione Web ASP.NET MVC 5 per dispositivi mobili su Siti Web di Azure
 
@@ -9,7 +9,7 @@ per dispositivi mobili e la distribuzione di tale applicazione in Windows Azure.
 [Microsoft Visual Studio Express 2013 per il Web][Microsoft Visual Studio Express 2013 per il Web]
 o della versione professionale di Visual Studio.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### Scopo dell'esercitazione
 
@@ -18,7 +18,7 @@ applicazione di elenco conferenze fornita nel [progetto iniziale][progetto inizi
 completata, così come vengono visualizzate nell'emulatore di browser negli strumenti di sviluppo F12 di
 Internet Explorer 11.
 
-![][]
+![][0]
 
 È possibile usare gli strumenti di sviluppo F12 di Internet Explorer 11 e lo [strumento
 Fiddler][strumento
@@ -610,7 +610,7 @@ Il codice esegue tre operazioni:
 È possibile anche toccare il collegamento di un titolo per passare alla relativa sessione. La figura seguente
 mostra le modifiche apportate al codice.
 
-![][]
+![][0]
 
 Il sistema griglia di Bootstrap applicato formatta automaticamente le sessioni
 in senso verticale nel browser per dispositivi mobili. Si noti anche che i tag
@@ -633,7 +633,7 @@ nella casella di ricerca.
 
 Toccare il collegamento **ASP.NET**. Vengono visualizzate le sessioni relative ai tag ASP.NET.
 
-![][]
+![][0]
 
 Scegliere il collegamento **Building a Single Page Application with ASP.NET and
 AngularJS**.
@@ -720,9 +720,7 @@ applicazioni Web per dispositivi mobili. Sono state illustrate le seguenti opera
   [Microsoft Visual Studio Express 2013 per il Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [progetto iniziale]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
-  [strumento
-  Fiddler]: http://www.fiddler2.com/fiddler2/
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Azure SDK per Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Installazione guidata piattaforma Web - Azure SDK per .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
   [strumenti di sviluppo F12 di Internet Explorer 11]: http://msdn.microsoft.com/it-it/library/ie/dn255001.aspx

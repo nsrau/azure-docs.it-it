@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Invio di notifiche push agli utenti tramite Servizi mobili
 
@@ -8,14 +8,14 @@
     <a href="/it-it/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/it-it/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS" class="current">iOS</a><a href="/it-it/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
-In questo argomento viene estesa l'[esercitazione sulle notifiche push precedente][] tramite l'aggiunta di una nuova tabella per l'archiviazione dei token del servizio di notifica Push di Apple. Questi token possono essere utilizzati per inviare notifiche push agli utenti dell'app per iPhone o iPad.
+In questo argomento viene estesa l'[esercitazione sulle notifiche push precedente][esercitazione sulle notifiche push precedente] tramite l'aggiunta di una nuova tabella per l'archiviazione dei token del servizio di notifica Push di Apple. Questi token possono essere utilizzati per inviare notifiche push agli utenti dell'app per iPhone o iPad.
 
 In questa esercitazione vengono descritte le operazioni per aggiornare le notifiche push nell'app:
 
-1.  [Creazione della tabella Devices][]
-2.  [Aggiornamento dell'app][]
-3.  [Aggiornamento degli script del server][]
-4.  [Verifica del comportamento delle notifiche push][]
+1.  [Creazione della tabella Devices][Creazione della tabella Devices]
+2.  [Aggiornamento dell'app][Aggiornamento dell'app]
+3.  [Aggiornamento degli script del server][Aggiornamento degli script del server]
+4.  [Verifica del comportamento delle notifiche push][Verifica del comportamento delle notifiche push]
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione [Introduzione alle notifiche push][esercitazione sulle notifiche push precedente]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione alle notifiche push][esercitazione sulle notifiche push precedente].
 
@@ -24,9 +24,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 ## <span class="short-header">Creazione della tabella</span>Creazione della nuova tabella Dispositivi
 
 </h2>
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi su **Create**.
 
@@ -206,27 +206,24 @@ L'esercitazione è stata completata.
 
 L'esercitazione sulle nozioni di base dell'utilizzo delle notifiche push è terminata. Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con l'account Windows.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Phone]: /it-it/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/push-notifications-to-users-android "Android"
+
   [esercitazione sulle notifiche push precedente]: /it-it/develop/mobile/tutorials/get-started-with-push-ios
   [Creazione della tabella Devices]: #create-table
   [Aggiornamento dell'app]: #update-app
   [Aggiornamento degli script del server]: #update-scripts
   [Verifica del comportamento delle notifiche push]: #test-app
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-devices-table.png
   [3]: ./media/mobile-services-ios-push-notifications-app-users/mobile-portal-data-tables-devices.png

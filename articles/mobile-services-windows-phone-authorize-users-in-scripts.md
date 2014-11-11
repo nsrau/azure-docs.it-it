@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autorizzazione lato servizio degli utenti di Servizi mobili
 
@@ -23,9 +23,9 @@
 
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -59,7 +59,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 ## Test dell'app
 
-1.  In Visual Studio 2012 Express per Windows Phone aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione][].
+1.  In Visual Studio 2012 Express per Windows Phone aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione][Introduzione all'autenticazione].
 
 2.  Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato.
 
@@ -77,31 +77,20 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è terminata. Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /it-it/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "JavaScript backend"
+
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-wp8
-  [video di esercitazione]: http://go.microsoft.com/fwlink/?LinkId=298630
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup-wp8.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="new relic" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure
 
@@ -302,10 +302,6 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
   [interfaccia utente standard di New Relic]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [drill-down dei dashboard]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [Geography]: https://newrelic.com/docs/site/geography
-  [Web Transactions]: https://docs.newrelic.com/docs/applications-menu/transactions-dashboard
-  [Key Transactions]: https://newrelic.com/docs/site/key-transactions
-  [Errors]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png
   [Installazione dell'agente .NET in Azure]: https://newrelic.com/docs/dotnet/azure-web-sites-beta#manual_install
   [Interfaccia utente di New Relic]: https://newrelic.com/docs/site/the-new-relic-ui

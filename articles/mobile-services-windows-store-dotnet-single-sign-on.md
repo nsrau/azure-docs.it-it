@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." metaCanonical="" services="mobile-services" documentationCenter="" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autenticazione dell'app di Windows Store con l'accesso Single Sign-On di Live Connect
 
@@ -33,11 +33,11 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per poter autenticare gli utenti, è necessario inviare l'app a Windows Store. È quindi necessario registrare il segreto client per l'integrazione di Live Connect con Servizi mobili.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 ## <a name="permissions"></a> Limitazione delle autorizzazioni agli utenti autenticati
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  In Visual Studio 2012 Express per Windows 8 aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili][1].
 
@@ -53,7 +53,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 2.  Nel menu **Progetto** in Visual Studio fare clic su **Aggiungi riferimento**, espandere **Windows**, fare clic su **Estensioni**, selezionare **Live SDK**, quindi fare clic su **OK**.
 
-    ![][]
+    ![][0]
 
     Verrà aggiunto un riferimento a Live SDK al progetto.
 
@@ -128,7 +128,7 @@ Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe
 
 Nella prossima esercitazione, [Autorizzazione di utenti con script][Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per informazioni su come utilizzare altri provider di identità per l'autenticazione, vedere [Introduzione all'autenticazione][3]. Per ulteriori informazioni su come utilizzare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili][Riferimento per i concetti e le procedure di .NET per Servizi mobili]
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows Store C#]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows Store C#"
   [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows Store JavaScript"
@@ -142,9 +142,8 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script][Autorizzazio
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /it-it/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [2]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens
-  [https://\_nome-servizio\_.azure-mobile.net/]: https://_service-name_.azure-mobile.net/
   [app per Windows Phone 8]: /it-it/develop/mobile/tutorials/single-sign-on-wp8/
   [Autorizzazione di utenti con script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
   [3]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet

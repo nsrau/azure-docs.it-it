@@ -1,6 +1,6 @@
 <properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Troubleshooting Azure Websites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Risoluzione dei problemi di Siti Web di Azure in Visual Studio
 
@@ -780,14 +780,12 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un si
   [Introduzione al debug remoto su Siti Web di Azure parte 2 - Informazioni di approfondimento]: /blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/
   [Introduzione al debug remoto su Siti Web di Azure parte 3 - Ambiente con più istanze e GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [Debug di back-end .NET in Visual Studio]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
-  [Monitoraggio e telemetria (creazione di app per cloud funzionanti con Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
   [Traccia in ASP.NET]: http://msdn.microsoft.com/it-it/library/ms972204.aspx
   [Listener di traccia]: http://msdn.microsoft.com/it-it/library/4y5y10s7.aspx
   [WebPageTraceListener]: http://msdn.microsoft.com/it-it/library/system.web.webpagetracelistener.aspx
   [Procedura dettagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics]: http://msdn.microsoft.com/it-it/library/b0ectfxd.aspx
   [Traccia nelle visualizzazioni Razor ASP.NET MVC]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
   [Esempio completo di gestori di errori]: http://msdn.microsoft.com/it-it/library/bb397417.aspx
-  [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
   [Glimpse]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [Utilizzo delle funzionalità di registrazione e diagnostica di Siti Web di Azure]: http://www.windowsazure.com/it-it/documentation/videos/azure-web-site-logging-and-diagnostics/
   [Streaming dei log da Siti Web di Azure]: http://www.windowsazure.com/it-it/documentation/videos/log-streaming-with-azure-web-sites/

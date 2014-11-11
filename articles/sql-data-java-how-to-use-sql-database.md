@@ -1,6 +1,6 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Azure feature guide" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come usare il database SQL di Azure in Java
 
@@ -728,16 +728,12 @@ Per altre informazioni su Microsoft JDBC Driver per SQL Server, vedere [Panorami
   [Per eliminare una tabella]: #to_drop_table
   [Utilizzo di database SQL in Java all'interno di una distribuzione di Azure]: #using_in_azure
   [Passaggi successivi]: #nextsteps
-  [Linee guida e limitazioni (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ff394102.aspx
-  [Installazione del plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)]: http://msdn.microsoft.com/it-it/library/windowsazure/hh690946.aspx
   [1]: https://manage.windowsazure.com
   [Creazione del nuovo database SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Creazione del database SQL personalizzato]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
   [Impostazioni del database SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
   [Impostazioni di SQL Server]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
   [Determinazione della stringa di connessione JDBC]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
-  ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Finestra di dialogo Allowed IP addresses]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [Creazione di un'applicazione Hello World usando il plug-in di Azure per Eclipse con Java (da Microsoft Open Technologies)]: http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx
   [Panoramica del driver JDBC]: http://msdn.microsoft.com/it-it/library/ms378749.aspx
   [Panoramica dei database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336241.aspx

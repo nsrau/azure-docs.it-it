@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Come utilizzare il servizio tabelle da Node.js
 
@@ -8,36 +8,36 @@ In questa guida viene spiegato come eseguire diversi scenari comuni con il servi
 Azure. Gli esempi sono scritti con l'API
 Node.js. Gli scenari presentati includono la **creazione e l'eliminazione di una
 tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre
-informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul Servizio tabelle][]
--   [Concetti][]
--   [Creazione di un account di archiviazione di Azure][]
--   [Creazione di un'applicazione Node.js][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una connessione di archiviazione di Azure][]
--   [Procedura: Creare una tabella][]
--   [Procedura: Aggiungere un'entità a una tabella][]
--   [Procedura: Aggiornare un'entità][]
--   [Procedura: Utilizzare i gruppi di entità][]
--   [Procedura: Recuperare un'entità][]
--   [Procedura: Eseguire query su un set di entità][]
--   [Procedura: Eliminare un'entità][]
--   [Procedura: Eliminare una tabella][]
--   [Procedura: Usare le firme di accesso condiviso di Azure][]
--   [Passaggi successivi][]
+-   [Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
+-   [Concetti][Concetti]
+-   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creazione di un'applicazione Node.js][Creazione di un'applicazione Node.js]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una connessione di archiviazione di Azure][Configurazione di una connessione di archiviazione di Azure]
+-   [Procedura: Creare una tabella][Procedura: Creare una tabella]
+-   [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
+-   [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità]
+-   [Procedura: Utilizzare i gruppi di entità][Procedura: Utilizzare i gruppi di entità]
+-   [Procedura: Recuperare un'entità][Procedura: Recuperare un'entità]
+-   [Procedura: Eseguire query su un set di entità][Procedura: Eseguire query su un set di entità]
+-   [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
+-   [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]
+-   [Procedura: Usare le firme di accesso condiviso di Azure][Procedura: Usare le firme di accesso condiviso di Azure]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"></a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][], [Servizio cloud Node.js][] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -76,7 +76,7 @@ Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue a
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][]
+Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][Applicazione Web Node.js con archiviazione]
 
 ## <a name="create-table"> </a>Come creare una tabella
 
@@ -122,7 +122,7 @@ entità. Tutte le entità devono contenere **PartitionKey** e **RowKey** che son
 
 -   **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
 
-Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle][].
+Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle][Informazioni sul modello di dati del servizio tabelle].
 
 Nell'esempio seguente viene definita un'entità. **dueDate** è definito come tipo di **Edm.DateTime**. La specifica del tipo è facoltativa e si presuppone che i tipi non siano specificati.
 
@@ -154,7 +154,7 @@ metodo **insertEntity**.
         }
     });
 
-Se l'operazione riesce, `result` conterrà il valore [ETag][] del record inserito e `response` conterrà le informazioni sull'operazione.
+Se l'operazione riesce, `result` conterrà il valore [ETag][ETag] del record inserito e `response` conterrà le informazioni sull'operazione.
 
 > [WACOM.NOTE] Per impostazione predefinita, **insertEntity** non restituisce l'entità inserita come parte delle informazioni di `response`. Se si prevede di eseguire altre operazioni su questa entità o se si vogliono memorizzare le informazioni nella cache, è opportuno che l'entità venga restituita insieme a `result`. A tale scopo, abilitare **echoContent** come segue:
 >
@@ -313,7 +313,7 @@ passato al metodo **deleteEntity**.
       }
     });
 
-> [WACOM.NOTE] Quando si eliminano gli elementi, considerare l'uso di valori ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Procedura: Aggiornare un'entità][] per informazioni sull'uso di ETag.
+> [WACOM.NOTE] Quando si eliminano gli elementi, considerare l'uso di valori ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità] per informazioni sull'uso di ETag.
 
 ## <a name="delete-table"> </a>Come eliminare una tabella
 
@@ -415,9 +415,9 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
--   Archivio [Azure SDK for Node][] su GitHub.
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
+-   Archivio [Azure SDK for Node][Azure SDK for Node] su GitHub.
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio tabelle]: #what-is
@@ -443,6 +443,6 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Informazioni sul modello di dati del servizio tabelle]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Node]: https://github.com/Azure/azure-storage-node

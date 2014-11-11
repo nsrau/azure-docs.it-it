@@ -260,7 +260,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 ## <a name="send"></a><span class="short-header">Invio di notifiche</span>Invio di notifiche dal back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Esecuzione dell'app e generazione di notifiche
 
@@ -296,10 +296,6 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
 <!-- Images. -->
 <!-- URLs.-->
 
-  [App Windows universali]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /it-it/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [linee guida per gli hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
   [Aggiunta della selezione delle categorie all'app]: #adding-categories
   [Registrazione per le notifiche]: #register

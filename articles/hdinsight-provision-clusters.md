@@ -1,46 +1,46 @@
 <properties linkid="manage-services-hdinsight-provision-hadoop-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Provisioning di cluster Hadoop in HDInsight con opzioni personalizzate
 
-Questo articolo descrive i diversi modi disponibili per effettuare il provisioning personalizzato di un cluster Hadoop in Azure HDInsight, ovvero usando il portale di gestione di Azure, PowerShell, gli strumenti da riga di comando o .NET SDK per HDInsight. In questo articolo viene illustrato il provisioning dei cluster Hadoop. Per istruzioni su come effettuare il provisioning di un cluster HBase, vedere [Provisioning di cluster HBase in HDInsight][]. Per informazioni utili per scegliere tra Hadoop e HBase, vedere l'articolo che illustra le [differenze tra Hadoop e HBase][].
+Questo articolo descrive i diversi modi disponibili per effettuare il provisioning personalizzato di un cluster Hadoop in Azure HDInsight, ovvero usando il portale di gestione di Azure, PowerShell, gli strumenti da riga di comando o .NET SDK per HDInsight. In questo articolo viene illustrato il provisioning dei cluster Hadoop. Per istruzioni su come effettuare il provisioning di un cluster HBase, vedere [Provisioning di cluster HBase in HDInsight][Provisioning di cluster HBase in HDInsight]. Per informazioni utili per scegliere tra Hadoop e HBase, vedere l'articolo che illustra le [differenze tra Hadoop e HBase][differenze tra Hadoop e HBase].
 
 ## Informazioni sui cluster HDInsight
 
-Il motivo per cui vengono menzionati i cluster ogni volta che si discute di Hadoop o BigData è che Hadoop consente l'elaborazione distribuita di dati di grandi dimensioni tra diversi nodi di un cluster. Il cluster presenta un'architettura master/slave con un master (chiamato anche nodo head o Name Node) e un numero indeterminato di slave (chiamati anche nodi dati). Per altre informazioni, vedere [Apache Hadoop][].
+Il motivo per cui vengono menzionati i cluster ogni volta che si discute di Hadoop o BigData è che Hadoop consente l'elaborazione distribuita di dati di grandi dimensioni tra diversi nodi di un cluster. Il cluster presenta un'architettura master/slave con un master (chiamato anche nodo head o Name Node) e un numero indeterminato di slave (chiamati anche nodi dati). Per altre informazioni, vedere [Apache Hadoop][Apache Hadoop].
 
-Un cluster HDInsight astrae i dettagli dell'implementazione di Hadoop in modo che non sia necessario preoccuparsi di come comunicare con diversi nodi di un cluster. Quando si esegue il provisioning di un cluster HDInsight, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. Per altre informazioni, vedere [Introduzione a Hadoop in HDInsight][].
+Un cluster HDInsight astrae i dettagli dell'implementazione di Hadoop in modo che non sia necessario preoccuparsi di come comunicare con diversi nodi di un cluster. Quando si esegue il provisioning di un cluster HDInsight, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. Per altre informazioni, vedere [Introduzione a Hadoop in HDInsight][Introduzione a Hadoop in HDInsight].
 
-In questo articolo vengono fornite istruzioni sui diversi modi di effettuare il provisioning di un cluster. Per informazioni sull'approccio introduttivo al provisioning di un cluster, vedere [Introduzione all'utilizzo di Azure HDInsight][].
+In questo articolo vengono fornite istruzioni sui diversi modi di effettuare il provisioning di un cluster. Per informazioni sull'approccio introduttivo al provisioning di un cluster, vedere [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight].
 
 **Prerequisiti:**
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
--   Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. I cmdlet di PowerShell HDInsight eseguono le attività con la sottoscrizione. Per ulteriori informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di valutazione gratuita][].
+-   Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. I cmdlet di PowerShell HDInsight eseguono le attività con la sottoscrizione. Per ulteriori informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][Opzioni di acquisto], [Offerte per i membri][Offerte per i membri] oppure [Versione di valutazione gratuita][Versione di valutazione gratuita].
 
 ## Contenuto dell'articolo
 
--   [Utilizzo del portale di gestione di Azure][]
--   [Utilizzo di Azure PowerShell][]
--   [Utilizzo della riga di comando multipiattaforma][]
--   [Utilizzo di .NET SDK per HDInsight][]
--   [Passaggi successivi][]
+-   [Utilizzo del portale di gestione di Azure][Utilizzo del portale di gestione di Azure]
+-   [Utilizzo di Azure PowerShell][Utilizzo di Azure PowerShell]
+-   [Utilizzo della riga di comando multipiattaforma][Utilizzo della riga di comando multipiattaforma]
+-   [Utilizzo di .NET SDK per HDInsight][Utilizzo di .NET SDK per HDInsight]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <span id="portal"></span></a> Utilizzo del portale di gestione di Azure
 
-I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file system predefinito. Per poter creare un cluster HDInsight, è necessario un account di archiviazione di Azure nello stesso data center. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight][]. Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione][].
+I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file system predefinito. Per poter creare un cluster HDInsight, è necessario un account di archiviazione di Azure nello stesso data center. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight][Utilizzo dell'archivio BLOB di Azure con HDInsight]. Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
 > [WACOM.NOTE] Attualmente i cluster HDInsight possono essere ospitati solo nelle aree seguenti: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali** e **Stati Uniti centro-meridionali**.
 
 **Per creare un cluster HDInsight mediante l'opzione di creazione personalizzata**
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Fare clic su **+ NEW** nella parte inferiore della pagina, quindi su **DATA SERVICES**, **HDINSIGHT** e infine su **CUSTOM CREATE**.
 3.  Nella pagina **Dettagli cluster** digitare o scegliere i valori seguenti:
 
-    ![HDI.CustomCreateCluster][]
+    ![HDI.CustomCreateCluster][HDI.CustomCreateCluster]
 
     <table>
     <colgroup>
@@ -85,7 +85,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 
 5.  Nella pagina **Configura utente cluster** digitare o scegliere il valore seguente:
 
-    ![HDI.CustomCreateCluster.ClusterUser][]
+    ![HDI.CustomCreateCluster.ClusterUser][HDI.CustomCreateCluster.ClusterUser]
 
     | Proprietà                  | Valore                                                                                                                                                                                                                                                                                                             |
     |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,7 +102,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 
 6.  Nella pagina **Account di archiviazione** indicare il valore seguente:
 
-    ![HDI.CustomCreateCluster.StorageAccount][]
+    ![HDI.CustomCreateCluster.StorageAccount][HDI.CustomCreateCluster.StorageAccount]
 
     <table>
     <colgroup>
@@ -152,7 +152,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 
 7.  Nella pagina **Account di archiviazione** immettere le informazioni per l'account di archiviazione aggiuntivo:
 
-    ![HDI.CustomCreateCluster.AddOnStorage][]
+    ![HDI.CustomCreateCluster.AddOnStorage][HDI.CustomCreateCluster.AddOnStorage]
 
     Anche in questo caso, è possibile scegliere risorse di archiviazione esistenti, creare nuove risorse di archiviazione o usare le risorse di archiviazione di un'altra sottoscrizione di Azure. La procedura che consente di ottenere i valori è simile al passaggio precedente.
 
@@ -162,7 +162,7 @@ I cluster HDInsight usano un contenitore dell'archivio BLOB di Azure come file s
 
 ## <span id="powershell"></span></a> Utilizzo di Azure PowerShell
 
-Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questa sezione sono contenute le istruzioni su come effettuare il provisioning di un cluster HDInsight con Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell][]. Per ulteriori informazioni sull'utilizzo di PowerShell con HDInsight, vedere [Amministrazione di HDInsight tramite PowerShell][]. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight][].
+Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questa sezione sono contenute le istruzioni su come effettuare il provisioning di un cluster HDInsight con Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell][Installare e configurare Azure PowerShell]. Per ulteriori informazioni sull'utilizzo di PowerShell con HDInsight, vedere [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight][Documentazione di riferimento di cmdlet di HDInsight].
 
 Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster HDInsight utilizzando PowerShell:
 
@@ -228,7 +228,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
     Quando richiesto, immettere le credenziali per il cluster. Il provisioning del cluster può richiedere alcuni minuti.
 
-    ![HDI.CLI.Provision][]
+    ![HDI.CLI.Provision][HDI.CLI.Provision]
 
 **Per effettuare il provisioning di un cluster HDInsight con le opzioni di configurazione personalizzate**
 
@@ -281,7 +281,7 @@ Durante il provisioning di un cluster, è possibile usare altre opzioni di confi
 
 ## <span id="cli"></span></a> Utilizzo della riga di comando multipiattaforma
 
-Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando multipiattaforma. Lo strumento da riga di comando viene implementato in Node.js. Può essere utilizzato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux. Lo strumento da riga di comando è open source. Il codice sorgente viene gestito in GitHub all'indirizzo <https://github.com/Azure/azure-sdk-tools-xplat>. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][]. In questo articolo viene descritto solo l'utilizzo dell'interfaccia della riga di comando da Windows.
+Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando multipiattaforma. Lo strumento da riga di comando viene implementato in Node.js. Può essere utilizzato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux. Lo strumento da riga di comando è open source. Il codice sorgente viene gestito in GitHub all'indirizzo <https://github.com/Azure/azure-sdk-tools-xplat>. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux]. In questo articolo viene descritto solo l'utilizzo dell'interfaccia della riga di comando da Windows.
 
 Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster HDInsight utilizzando la riga di comando multipiattaforma:
 
@@ -316,7 +316,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 **Per installare l'interfaccia della riga di comando mediante Windows Installer**
 
-1.  Andare a **[http://azure.microsoft.com/it-it/downloads/][]**.
+1.  Andare a **[http://azure.microsoft.com/it-it/downloads/][http://azure.microsoft.com/it-it/downloads/]**.
 2.  Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
@@ -330,7 +330,7 @@ Prima di utilizzare l'interfaccia della riga di comando, è necessario configura
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     Il comando consente di avviare la pagina Web in cui scaricare il file di impostazioni di pubblicazione.
 
@@ -351,7 +351,7 @@ HDInsight utilizza un contenitore dell'archivio BLOB di Azure come file system p
 
     Quando viene richiesto un percorso, selezionare un percorso in cui sia possibile effettuare il provisioning di un cluster HDInsight. La risorsa di archiviazione deve trovarsi nello stesso percorso del cluster HDInsight. Attualmente i cluster HDInsight possono essere ospitati solo nelle aree seguenti: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali** e **Stati Uniti centro-meridionali**.
 
-Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][].
+Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
 Se si ha già un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile utilizzare i comandi seguenti per recuperare le informazioni:
 
@@ -364,7 +364,7 @@ Se si ha già un account di archiviazione, ma non si conosce il nome account e l
     -- Lists the keys for a storage account
     azure storage account keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][].
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
 
 Un cluster HDInsight richiede anche un contenitore in un account di archiviazione. Se l'account di archiviazione fornito non ha già un contenitore, la *creazione guidata del cluster di azure hdinsight* richiede il nome di un contenitore e lo crea. Se tuttavia si vuole creare il contenitore prima, è possibile usare il comando seguente:
 
@@ -379,7 +379,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
         azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <storageAccountKey> --storageContainer <SorageContainerName> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-    ![HDI.CLIClusterCreation][]
+    ![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 **Per effettuare il provisioning di un cluster HDInsight mediante un file di configurazione**
 
@@ -410,7 +410,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, si eseguono i pr
 
     > [WACOM.NOTE] Il database SQL usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Windows Azure** fare clic su **Sì** e infine su **Salva**.
 
-    ![HDI.CLIClusterCreationConfig][]
+    ![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 **Per elencare e mostrare i dettagli dei cluster**
 
@@ -419,7 +419,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, si eseguono i pr
         azure hdinsight cluster list
         azure hdinsight cluster show <ClusterName>
 
-    ![HDI.CLIListCluster][]
+    ![HDI.CLIListCluster][HDI.CLIListCluster]
 
 **Per eliminare un cluster**
 
@@ -440,17 +440,17 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 
 **Per installare .NET SDK per HDInsight**
 
-È possibile installare l'ultima build pubblicata dell'SDK da [NuGet][]. Le istruzioni verranno illustrate nella procedura successiva.
+È possibile installare l'ultima build pubblicata dell'SDK da [NuGet][NuGet]. Le istruzioni verranno illustrate nella procedura successiva.
 
 **Per creare un certificato autofirmato**
 
-1.  Creare un certificato autofirmato che venga usato per autenticare le richieste. È possibile usare IIS o [makecert][] per creare il certificato.
+1.  Creare un certificato autofirmato che venga usato per autenticare le richieste. È possibile usare IIS o [makecert][makecert] per creare il certificato.
 
 2.  Passare al percorso del certificato, fare clic con il pulsante destro del mouse su di esso, fare clic su **Installa certificato** quindi installare il certificato nell'archivio personale sul computer. Modificare le proprietà del certificato per assegnare ad esso un nome descrittivo.
 
 3.  Impostare il certificato nel portale di gestione di Azure. Dal portale, fare clic su **Impostazioni** in basso a sinistra, quindi fare clic su **Certificati di gestione**. Nella parte inferiore della pagina, fare clic su **Carica** e seguire le istruzioni per caricare il file con estensione cer creato al passaggio precedente.
 
-    ![HDI.ClusterCreate.UploadCert][]
+    ![HDI.ClusterCreate.UploadCert][HDI.ClusterCreate.UploadCert]
 
 **Per creare l'applicazione console di Visual Studio**
 
@@ -542,19 +542,19 @@ Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. 
 
 In questo articolo si sono appresi vari modi per eseguire il provisioning di un cluster HDInsight. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'utilizzo di Azure HDInsight][]
--   [Amministrazione di HDInsight tramite PowerShell][]
--   [Invio di processi Hadoop a livello di codice][]
--   [Documentazione di Azure HDInsight SDK][]
+-   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
+-   [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]
+-   [Invio di processi Hadoop a livello di codice][Invio di processi Hadoop a livello di codice]
+-   [Documentazione di Azure HDInsight SDK][Documentazione di Azure HDInsight SDK]
 
   [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-get-started/
   [differenze tra Hadoop e HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Introduzione a Hadoop in HDInsight]: ../hdinsight-introduction/
   [Introduzione all'utilizzo di Azure HDInsight]: ../hdinsight-get-started/
-  [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
+  [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
+  [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Utilizzo del portale di gestione di Azure]: #portal
   [Utilizzo di Azure PowerShell]: #powershell
   [Utilizzo della riga di comando multipiattaforma]: #cli
@@ -569,18 +569,18 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
   [HDI.CustomCreateCluster.AddOnStorage]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.AddOnStorage.png
   [Installare e configurare Azure PowerShell]: ../install-configure-powershell/
   [Amministrazione di HDInsight tramite PowerShell]: ../hdinsight-administer-use-powershell/
-  [Documentazione di riferimento di cmdlet di HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+  [Documentazione di riferimento di cmdlet di HDInsight]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx
   [HDI.CLI.Provision]: ./media/hdinsight-provision-clusters/HDI.ps.provision.png
   [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]: ../xplat-cli/
   [Strumento da riga di comando di Azure per Mac e Linux]: ../command-line-tools/
-  [http://azure.microsoft.com/it-it/downloads/]: http://azure.microsoft.com/en-us/downloads/
+  [http://azure.microsoft.com/it-it/downloads/]: http://azure.microsoft.com/it-it/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-provision-clusters/HDI.CLIAccountDownloadImport.png
   [Come gestire gli account di archiviazione]: ../storage-manage-storage-account/
   [HDI.CLIClusterCreation]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreation.png
   [HDI.CLIClusterCreationConfig]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreationConfig.png
   [HDI.CLIListCluster]: ./media/hdinsight-provision-clusters/HDI.CLIListClusters.png "List and show clusters"
   [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
-  [makecert]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
+  [makecert]: http://msdn.microsoft.com/it-it/library/bfsktky3(v=vs.110).aspx
   [HDI.ClusterCreate.UploadCert]: ./media/hdinsight-get-started/HDI.ClusterCreate.UploadCert.png
   [Invio di processi Hadoop a livello di codice]: ../hdinsight-submit-hadoop-jobs-programmatically/
-  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx

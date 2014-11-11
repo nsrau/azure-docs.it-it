@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-js" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Windows Store JavaScript app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
 # Introduzione all'autenticazione in Servizi mobili
 
@@ -76,22 +76,6 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 
 
 
-  [(iOS | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-  [(iOS | JavaScript)]: /it-it/documentation/articles/mobile-services-ios-get-started-users/
-  [(Windows C# | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
-  [(Windows C# | Javascript)]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/
-  [(Windows JavaScript | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-  [(Windows JavaScript | Javascript)]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-  [(Windows Phone | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-  [(Windows Phone | Javascript)]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-users/
-  [(Android | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [(Android | Javascript)]: /it-it/documentation/articles/mobile-services-android-get-started-users/
-  [(Xamarin iOS | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-  [(Xamarin iOS | Javascript)]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/
-  [(HTML | Javascript)]: /it-it/documentation/articles/mobile-services-html-get-started-users/
-  [(Xamarin Android | .NET)]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-  [(Xamarin Android | Javascript)]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/
-  [(Appcelerator | Javascript)]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
   [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
   [Aggiunta dell'autenticazione all'app]: #add-authentication
@@ -100,9 +84,7 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
   [Single Sign-On per app di Windows Store tramite Live Connect]: /it-it/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
   [questo post]: http://go.microsoft.com/fwlink/p/?LinkId=506605
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft]: /it-it/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [1]: /it-it/develop/mobile/tutorials/get-started/
   [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md
   [mobile-services-windows-store-javascript-authenticate-app-with-token]: ../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md
   [Autorizzazione sul lato servizio degli utenti di Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts

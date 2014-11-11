@@ -1,11 +1,11 @@
 <properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
 
 In questa esercitazione, si estenderà l'applicazione creata nell'esercitazione
-[Creazione di un'applicazione Node.js con Express][] usando le librerie client di
+[Creazione di un'applicazione Node.js con Express][Creazione di un'applicazione Node.js con Express] usando le librerie client di
 Azure per Node.js per l'uso con i servizi di gestione dati. L'applicazione
 verrà estesa in modo da creare un'applicazione elenco attività basata sul Web
 che sarà possibile distribuire in Azure. L'elenco attività consente a un utente di
@@ -16,10 +16,11 @@ di Azure consente l'archiviazione di dati non strutturati, a tolleranza di error
 disponibilità elevata. Archiviazione di Azure include diverse strutture di dati
 in cui è possibile archiviare i dati e accedervi ed è possibile usare i servizi
 di archiviazione dalle API incluse in Azure SDK per Node.js o tramite
-le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure][].
+le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
 
 In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js
-a un Servizio cloud di Azure][] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
+a un Servizio cloud di Azure][Creazione e distribuzione di un'applicazione Node.js
+a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
 
 Si apprenderà come:
 
@@ -28,7 +29,7 @@ Si apprenderà come:
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![Pagina Web completata in Internet Explorer][]
+![Pagina Web completata in Internet Explorer][Pagina Web completata in Internet Explorer]
 
 ## Impostazione delle credenziali di archiviazione in Web.Config
 
@@ -71,7 +72,7 @@ e aggiungerle alle impostazioni di web.config:
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-    ![Contenuto file web.cloud.config][]
+    ![Contenuto file web.cloud.config][Contenuto file web.cloud.config]
 
 6.  Salvare il file e chiudere Blocco note.
 
@@ -321,7 +322,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 ### Modificare il layout globale
 
-Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
 1.  Scaricare ed estrarre i file per [Twitter Bootstrap][1]. Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 
@@ -349,7 +350,7 @@ Usare il comando seguente per avviare l'applicazione nell'emulatore.
 
 Si aprirà il browser e verrà visualizzata la pagina seguente:
 
-![Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.][]
+![Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.][Pagina Web intitolata My Task List con una tabella contenente le attività e i campi per aggiungere una nuova attività.]
 
 Usare il modulo per aggiungere elementi o rimuovere elementi esistenti contrassegnandoli come completati.
 
@@ -407,10 +408,8 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
     L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
-  [Creazione di un'applicazione Node.js con Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Creazione e distribuzione di un'applicazione Node.js
-  a un Servizio cloud di Azure]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Creazione di un'applicazione Node.js con Express]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Pagina Web completata in Internet Explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [Contenuto file web.cloud.config]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap

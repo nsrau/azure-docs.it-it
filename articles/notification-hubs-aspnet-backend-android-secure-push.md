@@ -31,7 +31,7 @@ In questa esercitazione sul push sicuro viene illustrato come inviare una notifi
 
 > [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)][Introduzione ad Hub di notifica (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificare il progetto Android
 
@@ -118,8 +118,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4.  Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
 
-  [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Introduzione ad Hub di notifica (Android)]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

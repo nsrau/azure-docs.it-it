@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-aad-graph-info" urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc" />
 
 # Accesso alle informazioni di Azure Active Directory Graph
 
@@ -38,7 +38,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 Nel corso dell'esercitazione [Introduzione all'autenticazione][Introduzione all'autenticazione] è stata creata una registrazione per l'applicazione integrata quando è stato completato il passaggio [Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory][Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory]. In questa sezione viene generata una chiave da usare nella lettura delle informazioni sulla directory con l'ID client dell'applicazione integrata.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-api"></a>Creare un'API personalizzata GetUserInfo
 
@@ -147,11 +147,11 @@ Se non sono mai state usate le API personalizzate con i Servizi mobili, consulta
 
 In questa sezione verrà aggiornato il metodo `AuthenticateAsync` implementato nell'esercitazione [Introduzione all'autenticazione][Introduzione all'autenticazione] per chiamare l'API personalizzata e restituire informazioni aggiuntive sull'utente da AAD.
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app][mobile-services-aad-graph-info-update-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
 ## <a name="test-app"></a>Test dell'app
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app][mobile-services-aad-graph-info-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -161,9 +161,6 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows Store C#"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript backend"
   [libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
   [Generare una chiave di accesso per la registrazione dell'app in AAD]: #generate-key

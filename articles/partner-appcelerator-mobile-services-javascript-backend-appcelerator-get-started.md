@@ -4,7 +4,7 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 In questa esercitazione viene illustrato come sfruttare Servizi mobili di Mobile nelle applicazioni compilate con Appcelerator.
 
@@ -18,7 +18,7 @@ Se si compila per Android saranno necessari anche Android SDK 4.3 o versione suc
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creare una nuova app Appcelerator
 

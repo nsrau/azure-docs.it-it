@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides/work-with-android-client-library" urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Come utilizzare la libreria client Android per Servizi mobili
 
@@ -8,51 +8,51 @@
   <a href="/it-it/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/it-it/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/it-it/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/it-it/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/it-it/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
-In questa guida viene illustrato come eseguire scenari comuni utilizzando un client Android per Servizi mobili di Azure. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti, la gestione di errori e la personalizzazione del client. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima il progetto di [guida introduttiva per Servizi mobili][]. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
+In questa guida viene illustrato come eseguire scenari comuni utilizzando un client Android per Servizi mobili di Azure. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti, la gestione di errori e la personalizzazione del client. Se non si ha familiarità con Servizi mobili, si consiglia di completare prima il progetto di [guida introduttiva per Servizi mobili][guida introduttiva per Servizi mobili]. L'esercitazione relativa alla guida introduttiva è utile per configurare il proprio account e creare il primo servizio mobile.
 
-Gli esempi sono scritti in Java ed è necessario avere installato [Mobile Services SDK][]. Per completare questa esercitazione, è inoltre necessario disporre di [Android SDK][], che include l'IDE (Integrated Development Environment) di Eclipse e il plug-in Android Developer Tools (ADT). Con Mobile Services SDK è supportato Android 2.2 o versione successiva, tuttavia è consigliabile compilare su Android 4.2 o versione successiva.
+Gli esempi sono scritti in Java ed è necessario avere installato [Mobile Services SDK][Mobile Services SDK]. Per completare questa esercitazione, è inoltre necessario disporre di [Android SDK][Android SDK], che include l'IDE (Integrated Development Environment) di Eclipse e il plug-in Android Developer Tools (ADT). Con Mobile Services SDK è supportato Android 2.2 o versione successiva, tuttavia è consigliabile compilare su Android 4.2 o versione successiva.
 
 ## Sommario
 
--   [Informazioni su Servizi mobili][]
--   [Concetti][]
--   [Installazione e prerequisiti][]
--   [Procedura: Creare il client di Servizi mobili][]
--   [Procedura: Creare un riferimento alla tabella][]
+-   [Informazioni su Servizi mobili][Informazioni su Servizi mobili]
+-   [Concetti][Concetti]
+-   [Installazione e prerequisiti][Installazione e prerequisiti]
+-   [Procedura: Creare il client di Servizi mobili][Procedura: Creare il client di Servizi mobili]
+-   [Procedura: Creare un riferimento alla tabella][Procedura: Creare un riferimento alla tabella]
 
-    -   [Struttura dell'API][]
--   [Procedura: Eseguire query sui dati da un servizio mobile][]
+    -   [Struttura dell'API][Struttura dell'API]
+-   [Procedura: Eseguire query sui dati da un servizio mobile][Procedura: Eseguire query sui dati da un servizio mobile]
 
-    -   [Filtrare i dati restituiti][]
-    -   [Ordinare i dati restituiti][]
-    -   [Restituire i dati in pagine][]
-    -   [Selezionare colonne specifiche][]
-    -   [Procedura: Concatenare metodi di query][]
--   [Procedura: Inserire dati in un servizio mobile][]
--   [Procedura: Aggiornare dati in un servizio mobile][]
--   [Procedura: Eliminare dati in un servizio mobile][]
--   [Procedura: Cercare un elemento specifico][]
--   [Procedura: Utilizzare dati non tipizzati][]
--   [Procedura: Associare dati all'interfaccia utente][]
+    -   [Filtrare i dati restituiti][Filtrare i dati restituiti]
+    -   [Ordinare i dati restituiti][Ordinare i dati restituiti]
+    -   [Restituire i dati in pagine][Restituire i dati in pagine]
+    -   [Selezionare colonne specifiche][Selezionare colonne specifiche]
+    -   [Procedura: Concatenare metodi di query][Procedura: Concatenare metodi di query]
+-   [Procedura: Inserire dati in un servizio mobile][Procedura: Inserire dati in un servizio mobile]
+-   [Procedura: Aggiornare dati in un servizio mobile][Procedura: Aggiornare dati in un servizio mobile]
+-   [Procedura: Eliminare dati in un servizio mobile][Procedura: Eliminare dati in un servizio mobile]
+-   [Procedura: Cercare un elemento specifico][Procedura: Cercare un elemento specifico]
+-   [Procedura: Utilizzare dati non tipizzati][Procedura: Utilizzare dati non tipizzati]
+-   [Procedura: Associare dati all'interfaccia utente][Procedura: Associare dati all'interfaccia utente]
 
-    -   [Procedura: Definire il layout][]
-    -   [Procedura: Definire l'adattatore][]
-    -   [Procedura: Utilizzare l'adattatore][]
--   [Procedura: Autenticare gli utenti][]
+    -   [Procedura: Definire il layout][Procedura: Definire il layout]
+    -   [Procedura: Definire l'adattatore][Procedura: Definire l'adattatore]
+    -   [Procedura: Utilizzare l'adattatore][Procedura: Utilizzare l'adattatore]
+-   [Procedura: Autenticare gli utenti][Procedura: Autenticare gli utenti]
 
-    -   [Memorizzare nella cache i token di autenticazione][]
--   [Procedura: Gestire gli errori][]
--   [Procedura: Personalizzare il client][]
+    -   [Memorizzare nella cache i token di autenticazione][Memorizzare nella cache i token di autenticazione]
+-   [Procedura: Gestire gli errori][Procedura: Gestire gli errori]
+-   [Procedura: Personalizzare il client][Procedura: Personalizzare il client]
 
-    -   [Personalizzare le intestazioni di richieste][]
-    -   [Personalizzare la serializzazione][]
--   [Passaggi successivi][]
+    -   [Personalizzare le intestazioni di richieste][Personalizzare le intestazioni di richieste]
+    -   [Personalizzare la serializzazione][Personalizzare la serializzazione]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Installazione</span>Installazione e prerequisiti
 
-Si presuppone che siano stati creati un servizio mobile e una tabella. Per ulteriori informazioni, vedere [Creare una tabella][]. Nel codice utilizzato in questo argomento si presuppone che la tabella sia denominata *ToDoItem* e che contenga le colonne seguenti:
+Si presuppone che siano stati creati un servizio mobile e una tabella. Per ulteriori informazioni, vedere [Creare una tabella][Creare una tabella]. Nel codice utilizzato in questo argomento si presuppone che la tabella sia denominata *ToDoItem* e che contenga le colonne seguenti:
 
 -   id
 -   text
@@ -70,11 +70,11 @@ L'oggetto tipizzato corrispondente sul lato client è il seguente:
         private Integer duration;
     }
 
-Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][].
+Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico][Schema dinamico].
 
 ## <a name="create-client"></a><span class="short-header">Creare il client di Servizi mobili</span>Procedura: Creare il client di Servizi mobili
 
-Il codice seguente consente di creare l'oggetto [MobileServiceClient][] usato per accedere al servizio mobile.
+Il codice seguente consente di creare l'oggetto [MobileServiceClient][MobileServiceClient] usato per accedere al servizio mobile.
 
             MobileServiceClient mClient = new MobileServiceClient(
                     "MobileServiceUrl", // Replace with the above Site URL
@@ -85,9 +85,9 @@ Nel codice riportato sopra sostituire `MobileServiceUrl` e `AppKey` con l'URL de
 
 ## <a name="instantiating"></a><span class="short-header">Creare un riferimento alla tabella</span>Procedura: Creare un riferimento alla tabella
 
-Il modo più semplice per eseguire query sui dati o modificarli nel servizio mobile consiste nell'utilizzare il *modello di programmazione tipizzato*, dal momento che Java è un linguaggio fortemente tipizzato. Più avanti verrà illustrato il modello *non tipizzato*. Questo modello garantisce la serializzazione e la deserializzazione automatica con JSON tramite la libreria [gson][] durante l'invio di dati tra il client e il servizio mobile, di conseguenza la gestione è affidata al framework e lo sviluppatore non deve eseguire altre operazioni.
+Il modo più semplice per eseguire query sui dati o modificarli nel servizio mobile consiste nell'utilizzare il *modello di programmazione tipizzato*, dal momento che Java è un linguaggio fortemente tipizzato. Più avanti verrà illustrato il modello *non tipizzato*. Questo modello garantisce la serializzazione e la deserializzazione automatica con JSON tramite la libreria [gson][gson] durante l'invio di dati tra il client e il servizio mobile, di conseguenza la gestione è affidata al framework e lo sviluppatore non deve eseguire altre operazioni.
 
-Per eseguire una query sui dati o modificarli, è innanzitutto necessario creare un oggetto [MobileServiceTable][] chiamando il metodo **getTable** su [**MobileServiceClient**][MobileServiceClient]. Verranno ora esaminati i due overload di questo metodo:
+Per eseguire una query sui dati o modificarli, è innanzitutto necessario creare un oggetto [MobileServiceTable][MobileServiceTable] chiamando il metodo **getTable** su [**MobileServiceClient**][MobileServiceClient]. Verranno ora esaminati i due overload di questo metodo:
 
     public class MobileServiceClient {
         public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -96,11 +96,11 @@ Per eseguire una query sui dati o modificarli, è innanzitutto necessario creare
 
 Nel codice seguente *mClient* è un riferimento al client del servizio mobile.
 
-Il [primo overload][] viene utilizzato nel caso in cui il nome della classe e il nome della tabella sono identici:
+Il [primo overload][primo overload] viene utilizzato nel caso in cui il nome della classe e il nome della tabella sono identici:
 
         MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
-Il [secondo overload][] viene invece utilizzato quando il nome della tabella è diverso da quello del tipo.
+Il [secondo overload][secondo overload] viene invece utilizzato quando il nome della tabella è diverso da quello del tipo.
 
         MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
@@ -127,7 +127,7 @@ Il codice seguente consente di restituire tutti gli elementi della tabella *ToDo
                 }
             });
 
-In query come questa viene utilizzato l'oggetto callback [**TableQueryCallback\<E\>**][].
+In query come questa viene utilizzato l'oggetto callback [**TableQueryCallback\<E\>**][**TableQueryCallback\<E\>**].
 
 Con il parametro *result* viene restituito il set di risultati della query, mentre il codice all'interno della diramazione relativa all'esito positivo del test *exception* illustra come analizzare le singole righe.
 
@@ -149,23 +149,23 @@ Il codice seguente consente di restituire tutti gli elementi della tabella *ToDo
             }
         });
 
-Per iniziare un filtro, è necessario inserire una chiamata al metodo [**where**][] sul riferimento alla tabella. Tale chiamata è seguita da un metodo [**field**][], a sua volta seguito da una chiamata al metodo che specifica il predicato logico. I possibili metodi del predicato includono tra gli altri [**eq**][], [**ne**][], [**gt**][], [**ge**][], [**lt**][] e [**le**][].
+Per iniziare un filtro, è necessario inserire una chiamata al metodo [**where**][**where**] sul riferimento alla tabella. Tale chiamata è seguita da un metodo [**field**][**field**], a sua volta seguito da una chiamata al metodo che specifica il predicato logico. I possibili metodi del predicato includono tra gli altri [**eq**][**eq**], [**ne**][**ne**], [**gt**][**gt**], [**ge**][**ge**], [**lt**][**lt**] e [**le**][**le**].
 
 Tali informazioni sono sufficienti per confrontare campi numerici e di stringhe con valori specifici. Tuttavia è anche possibile effettuare altre operazioni,
 
-ad esempio filtrare in base alle date. È possibile confrontare l'intero campo data, nonché parti della data, come [**year**][], [**month**][], [**day**][], [**hour**][], [**minute**][] e [**second**][]. Il codice parziale seguente consente di aggiungere un filtro per elementi il valore per la *scadenza* è uguale a 2013.
+ad esempio filtrare in base alle date. È possibile confrontare l'intero campo data, nonché parti della data, come [**year**][**year**], [**month**][**month**], [**day**][**day**], [**hour**][**hour**], [**minute**][**minute**] e [**second**][**second**]. Il codice parziale seguente consente di aggiungere un filtro per elementi il valore per la *scadenza* è uguale a 2013.
 
         mToDoTable.where().year("due").eq(2013)
 
-È possibile eseguire una vasta gamma di filtri complessi su campi di tipo stringa con metodi quali [**startsWith**][], [**endsWith**][], [**concat**][], [**subString**][], [**indexOf**][], [**replace**][], [**toLower**][], [**toUpper**][], [**trim**][] e [**length**][]. Il codice parziale seguente consente di filtrare le righe della tabella in cui la colonna *text* inizia con "PRI0".
+È possibile eseguire una vasta gamma di filtri complessi su campi di tipo stringa con metodi quali [**startsWith**][**startsWith**], [**endsWith**][**endsWith**], [**concat**][**concat**], [**subString**][**subString**], [**indexOf**][**indexOf**], [**replace**][**replace**], [**toLower**][**toLower**], [**toUpper**][**toUpper**], [**trim**][**trim**] e [**length**][**length**]. Il codice parziale seguente consente di filtrare le righe della tabella in cui la colonna *text* inizia con "PRI0".
 
         mToDoTable.where().startsWith("text", "PRI0")
 
-Anche con i campi di tipo numerico è possibile utilizzare una vasta gamma di filtri più complessi con metodi quali [**add**][], [**sub**][], [**mul**][], [**div**][], [**mod**][], [**floor**][], [**ceiling**][] e [**round**][]. Il codice parziale seguente consente di filtrare le righe della tabella in cui il valore di *duration* è un numero pari.
+Anche con i campi di tipo numerico è possibile utilizzare una vasta gamma di filtri più complessi con metodi quali [**add**][**add**], [**sub**][**sub**], [**mul**][**mul**], [**div**][**div**], [**mod**][**mod**], [**floor**][**floor**], [**ceiling**][**ceiling**] e [**round**][**round**]. Il codice parziale seguente consente di filtrare le righe della tabella in cui il valore di *duration* è un numero pari.
 
         mToDoTable.where().field("duration").mod(2).eq(0)
 
-È possibile combinare i predicati con metodi quali [**and**][], [**or**][] e [**not**][]. Nel codice parziale seguente vengono combinati due degli esempi precedenti.
+È possibile combinare i predicati con metodi quali [**and**][**and**], [**or**][**or**] e [**not**][**not**]. Nel codice parziale seguente vengono combinati due degli esempi precedenti.
 
         mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
 
@@ -176,7 +176,7 @@ Anche con i campi di tipo numerico è possibile utilizzare una vasta gamma di fi
                         .and
                     (startsWith("text", "PRI0").or().field("duration").gt(10))
 
-Per una trattazione più dettagliata e per esempi di filtri, vedere il post relativo alle [funzionalità complesse disponibili nel modello di query client Android di Servizi mobili][].
+Per una trattazione più dettagliata e per esempi di filtri, vedere il post relativo alle [funzionalità complesse disponibili nel modello di query client Android di Servizi mobili][funzionalità complesse disponibili nel modello di query client Android di Servizi mobili].
 
 ### <a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
@@ -187,9 +187,9 @@ Il codice di esempio seguente consente di restituire tutti gli elementi di una t
                 /* same implementation as above */ 
             }); 
 
-Il primo parametro del metodo [**orderBy**][] è una stringa uguale al nome del campo in base al quale eseguire l'ordinamento.
+Il primo parametro del metodo [**orderBy**][**orderBy**] è una stringa uguale al nome del campo in base al quale eseguire l'ordinamento.
 
-Nel secondo parametro viene utilizzata l'enumerazione [**QueryOrder**][] per specificare l'ordinamento crescente o decrescente.
+Nel secondo parametro viene utilizzata l'enumerazione [**QueryOrder**][**QueryOrder**] per specificare l'ordinamento crescente o decrescente.
 
 Si noti che se per il filtro si utilizza il metodo ***where***, è necessario chiamare tale metodo ****prima del metodo ***orderBy***.
 
@@ -229,13 +229,13 @@ Nel codice seguente viene illustrato come restituire tutti gli elementi di una t
 
 In questo caso, i parametri della funzione select sono i nomi in formato stringa delle colonne della tabella che si desidera restituire.
 
-Il metodo [**select**][] deve essere inserito dopo metodi quali [**where**][1] e [**orderBy**][2], se presenti. Può essere seguito da metodi quali [**top**][].
+Il metodo [**select**][**select**] deve essere inserito dopo metodi quali [**where**][1] e [**orderBy**][2], se presenti. Può essere seguito da metodi quali [**top**][**top**].
 
 ### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
 È possibile concatenare i metodi utilizzati per eseguire query su tabelle di servizi mobili. In questo modo è possibile eseguire operazioni quali selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici abbastanza complessi.
 
-Il funzionamento è garantito dal fatto che i metodi di query utilizzati restituiscono oggetti [**MobileServiceQuery\<T\>**][], su cui è possibile chiamare ulteriori metodi. Per terminare la serie di metodi ed eseguire effettivamente la query, è necessario chiamare il metodo [**execute**][].
+Il funzionamento è garantito dal fatto che i metodi di query utilizzati restituiscono oggetti [**MobileServiceQuery\<T\>**][**MobileServiceQuery\<T\>**], su cui è possibile chiamare ulteriori metodi. Per terminare la serie di metodi ed eseguire effettivamente la query, è necessario chiamare il metodo [**execute**][**execute**].
 
 Nel codice di esempio seguente *mToDoTable* è un riferimento alla tabella *ToDoItem* dei servizi mobili.
 
@@ -262,7 +262,7 @@ In primo luogo viene creata un'istanza della classe *ToDoItem* e vengono imposta
         mToDoItem.duration = 5; 
         
 
-Viene quindi chiamato il metodo [**insert**][].
+Viene quindi chiamato il metodo [**insert**][**insert**].
 
         mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
             public void onCompleted(ToDoItem entity, 
@@ -274,7 +274,7 @@ Viene quindi chiamato il metodo [**insert**][].
             }
         });
 
-Per le operazioni di **insert** l'oggetto callback è [**TableOperationCallback\<ToDoItem\>**][].
+Per le operazioni di **insert** l'oggetto callback è [**TableOperationCallback\<ToDoItem\>**][**TableOperationCallback\<ToDoItem\>**].
 
 Il parametro entity del metodo **onCompleted** contiene il nuovo oggetto inserito. Nel codice relativo all'operazione riuscita viene illustrato come accedere all'*id* della riga inserita.
 
@@ -311,11 +311,11 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
--   Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1][].
+-   Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per altre informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1][codici di controllo ASCII C0 e C1].
 -   Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Gli ID "." e ".."
 
-In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili][].
+In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per utilizzare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili][Comandi per la gestione delle tabelle di Servizi mobili].
 
 ## <a name="updating"></a><span class="short-header">Aggiornare dati</span>Procedura: Aggiornare dati in un servizio mobile
 
@@ -347,7 +347,7 @@ Nel codice seguente viene illustrato come eliminare i dati da una tabella. In pa
             }
         });
 
-Si noti che nel caso di *delete* l'oggetto callback è [**TableDeleteCallback**][] e che il metodo **onCompleted** è leggermente diverso in quando non viene restituita nessuna riga di tabella.
+Si noti che nel caso di *delete* l'oggetto callback è [**TableDeleteCallback**][**TableDeleteCallback**] e che il metodo **onCompleted** è leggermente diverso in quando non viene restituita nessuna riga di tabella.
 
 Nel codice seguente viene illustrato un altro modo per eseguire questa operazione. In questo caso per eliminare un elemento esistente dalla tabella ToDoItem viene specificato il valore del campo id della riga da eliminare, presupponendo che sia uguale "37BBF396-11F0-4B39-85C8-B319C729AF6D".
 
@@ -377,7 +377,7 @@ In alcuni casi si desidera cercare un elemento specifico in base al relativo *id
 
 Il modello di programmazione non tipizzato consente di disporre di controllo accurato sulla serializzazione JSO, pertanto è possibile che si desideri utilizzarlo in alcuni scenari, ad esempio se la tabella del servizio mobile contiene un numero elevato di colonne e si desidera fare riferimento solo ad alcune di esse. Per utilizzare il modello tipizzato è necessario definire tutte le colonne della tabella del servizio mobile nella classe dati. Tuttavia con il modello non tipizzato si possono definire solo le colonne che è necessario utilizzare.
 
-Analogamente al modello tipizzato, si inizia recuperando un riferimento alla tabella, ma in questo caso si tratta di un oggetto [MobileServicesJsonTable][]. Per ottenere il riferimento, viene chiamato il metodo [getTable()][] su un'istanza del client di Servizi mobili.
+Analogamente al modello tipizzato, si inizia recuperando un riferimento alla tabella, ma in questo caso si tratta di un oggetto [MobileServicesJsonTable][MobileServicesJsonTable]. Per ottenere il riferimento, viene chiamato il metodo [getTable()][getTable()] su un'istanza del client di Servizi mobili.
 
 Utilizzare quindi il seguente overload di questo metodo, utilizzato per i modelli di programmazione basati su JSON non tipizzati:
 
@@ -397,14 +397,14 @@ Dopo avere creato un'istanza dell'oggetto **MobileServiceJsonTable**, sarà poss
 
 ### <a name="json_insert"></a>Procedura: Eseguire insert in una tabella non tipizzata
 
-Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il primo passaggio consiste nel creare un oggetto [**JsonObject**][], incluso nella libreria [gson][].
+Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il primo passaggio consiste nel creare un oggetto [**JsonObject**][**JsonObject**], incluso nella libreria [gson][gson].
 
         JsonObject task = new JsonObject();
         task.addProperty("text", "Wake up");
         task.addProperty("complete", false);
         task.addProperty("duration", 5);
 
-Il passaggio successivo consiste nell'inserire l'oggetto. La funzione di callback passata al metodo [**insert**][3] è un'istanza della classe [**TableJsonOperationCallback**][]. Si noti che il primo parametro del metodo *onCompleted* è un oggetto JsonObject.
+Il passaggio successivo consiste nell'inserire l'oggetto. La funzione di callback passata al metodo [**insert**][3] è un'istanza della classe [**TableJsonOperationCallback**][**TableJsonOperationCallback**]. Si noti che il primo parametro del metodo *onCompleted* è un oggetto JsonObject.
 
         mTable.insert(task, new TableJsonOperationCallback() {
             public void onCompleted(JsonObject jsonObject, 
@@ -440,7 +440,7 @@ Nel codice seguente viene illustrato come eliminare un'istanza, in questo caso l
 
 ### <a name="json_get"></a>Procedura: Restituire tutte le righe di una tabella non tipizzata
 
-Nel codice seguente viene illustrato come recuperare un'intera tabella. Si noti che nel modello di programmazione non tipizzato viene utilizzato un oggetto callback diverso: [**TableJsonQueryCallback**][].
+Nel codice seguente viene illustrato come recuperare un'intera tabella. Si noti che nel modello di programmazione non tipizzato viene utilizzato un oggetto callback diverso: [**TableJsonQueryCallback**][**TableJsonQueryCallback**].
 
         mTable.execute(new TableJsonQueryCallback() {
             public void onCompleted(JsonElement result, 
@@ -558,7 +558,7 @@ Se si desidera visualizzare i risultati di tale operazione, è inoltre necessari
 
 ## <a name="authentication"></a><span class="short-header">Autenticare</span>Procedura: Autenticare gli utenti
 
-Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][].
+Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][Introduzione all'autenticazione in Servizi mobili].
 
 Sono supportati due flussi di autenticazione: un *flusso server* e un *flusso client*. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, poiché si basa su SDK specifici del provider e del dispositivo.
 
@@ -578,7 +578,7 @@ In Servizi mobili sono supportati i seguenti provider di identità esistenti che
 
 È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è inoltre possibile utilizzare l'ID di un utente autenticato.
 
-Per le prime due attività viene utilizzato il [portale di gestione di Azure][]. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][].
+Per le prime due attività viene utilizzato il [portale di gestione di Azure][portale di gestione di Azure]. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][Introduzione all'autenticazione in Servizi mobili].
 
 ### <a name="caching"></a>Procedura: Aggiunta del codice di autenticazione all'app
 
@@ -674,7 +674,7 @@ Se il token scade, quando si prova a utilizzarlo per la connessione, verrà visu
 
 ## <a name="errors"></a><span class="short-header">Gestire gli errori</span>Procedura: Gestire gli errori
 
-Per un esempio di convalida e gestione degli errori, vedere [qui][], in cui vengono implementati la convalida tramite script del server che restituiscono eccezioni in caso di errore server e il codice del client per la gestione delle eccezioni.
+Per un esempio di convalida e gestione degli errori, vedere [qui][qui], in cui vengono implementati la convalida tramite script del server che restituiscono eccezioni in caso di errore server e il codice del client per la gestione delle eccezioni.
 
 Un altro approccio consiste nel fornire un gestire di eventi *globale*. Il codice esaminato in cui viene effettuato l'accesso alla tabella del servizio mobile implica l'utilizzo di tre diversi oggetti callback:
 
@@ -728,7 +728,7 @@ Si supponga che nel codice del client Java vengano usati nomi Java standard per 
 -   mComplete
 -   mDuration
 
-È necessario serializzare i nomi di client in nomi JSON che corrispondono ai nomi di colonna della tabella *ToDoItem* nel server. Questa operazione viene effettuata nel codice seguente, in cui viene utilizzata la libreria [gson][].
+È necessario serializzare i nomi di client in nomi JSON che corrispondono ai nomi di colonna della tabella *ToDoItem* nel server. Questa operazione viene effettuata nel codice seguente, in cui viene utilizzata la libreria [gson][gson].
 
     @com.google.gson.annotations.SerializedName("text")
     private String mText;
@@ -751,9 +751,9 @@ Il mapping del nome della tabella del client a un nome di tabella di Servizi mob
 
 ### <a name="conversions"></a>Procedura: Automatizzare i mapping dei nomi di colonna
 
-Il mapping dei nomi di colonna per una tabella con poche colonne non è un'operazione complessa, come è stato illustrato nella sezione precedente. Si supponga tuttavia che la tabella contenga numerose colonne, ad esempio 20 o 30. In questo caso, è possibile chiamare l'API [gson][] e specificare una strategia di conversione che verrà applicata a tutte le colonne, senza che sia necessario annotare il nome di ogni singola colonna.
+Il mapping dei nomi di colonna per una tabella con poche colonne non è un'operazione complessa, come è stato illustrato nella sezione precedente. Si supponga tuttavia che la tabella contenga numerose colonne, ad esempio 20 o 30. In questo caso, è possibile chiamare l'API [gson][gson] e specificare una strategia di conversione che verrà applicata a tutte le colonne, senza che sia necessario annotare il nome di ogni singola colonna.
 
-A tale scopo viene utilizzata la libreria [gson][] che la libreria client Android utilizza in modo invisibile per serializzare oggetti Java in dati JSON, inviati a Servizi mobili di Azure.
+A tale scopo viene utilizzata la libreria [gson][gson] che la libreria client Android utilizza in modo invisibile per serializzare oggetti Java in dati JSON, inviati a Servizi mobili di Azure.
 
 Nel codice seguente viene utilizzato il metodo *setFieldNamingStrategy()*, nel quale viene definito un metodo *FieldNamingStrategy()*. In tale metodo viene indicato di eliminare il carattere iniziale (una "m"), e quindi di applicare il minuscolo al carattere successivo per ogni nome di campo. Nel codice viene inoltre abilitata la pretty print dell'output di JSON.
 
@@ -775,7 +775,7 @@ Tale codice deve essere eseguito prima di qualsiasi altra chiamata a metodi sull
 
 Finora in tutti gli esempi di serializzazione offerti hanno riguardato tipi primitivi, ad esempio interi e stringhe, che vengono serializzati facilmente in JSON e nella tabella di Servizi mobili. Si supponga di aggiungere al tipo di client un oggetto complesso che non viene serializzato automaticamente in JSON e nella tabella, ad esempio una matrice di stringhe all'oggetto client. In questo caso è necessario specificare la modalità di esecuzione della serializzazione e di archiviazione della matrice nella tabella di Servizi mobili.
 
-Per un esempio relativo a questa operazione, vedere il post del blog relativo alla [personalizzazione della serializzazione tramite la libreria][][gson][] nel client Android di Servizi mobili</a>.
+Per un esempio relativo a questa operazione, vedere il post del blog relativo alla [personalizzazione della serializzazione tramite la libreria][personalizzazione della serializzazione tramite la libreria][gson][gson] nel client Android di Servizi mobili</a>.
 
 È possibile utilizzare questo metodo generale ogni volta in cui si dispone di un oggetto complesso che non è automaticamente serializzabile in JSON e nella tabella di Servizi mobili.
 
@@ -783,13 +783,8 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 
 I riferimenti Javadocs per l'API del client Android sono disponibili [][]<http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html></a>
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [.NET Framework]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /it-it/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /it-it/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /it-it/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
   [guida introduttiva per Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-android/
   [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409
@@ -829,62 +824,18 @@ I riferimenti Javadocs per l'API del client Android sono disponibili [][]<http:/
   [MobileServiceTable]: http://go.microsoft.com/fwlink/p/?LinkId=296835
   [primo overload]: http://go.microsoft.com/fwlink/p/?LinkId=296839
   [secondo overload]: http://go.microsoft.com/fwlink/p/?LinkId=296840
-  [**TableQueryCallback\<E\>**]: http://go.microsoft.com/fwlink/p/?LinkId=296849
-  [**where**]: http://go.microsoft.com/fwlink/p/?LinkId=296867
-  [**field**]: http://go.microsoft.com/fwlink/p/?LinkId=296869
   [**eq**]: http://go.microsoft.com/fwlink/p/?LinkId=298461
   [**ne**]: http://go.microsoft.com/fwlink/p/?LinkId=298462
-  [**gt**]: http://go.microsoft.com/fwlink/p/?LinkId=298463
-  [**ge**]: http://go.microsoft.com/fwlink/p/?LinkId=298464
-  [**lt**]: http://go.microsoft.com/fwlink/p/?LinkId=298465
   [**le**]: http://go.microsoft.com/fwlink/p/?LinkId=298466
-  [**year**]: http://go.microsoft.com/fwlink/p/?LinkId=298467
-  [**month**]: http://go.microsoft.com/fwlink/p/?LinkId=298468
-  [**day**]: http://go.microsoft.com/fwlink/p/?LinkId=298469
-  [**hour**]: http://go.microsoft.com/fwlink/p/?LinkId=298470
-  [**minute**]: http://go.microsoft.com/fwlink/p/?LinkId=298471
-  [**second**]: http://go.microsoft.com/fwlink/p/?LinkId=298472
-  [**startsWith**]: http://go.microsoft.com/fwlink/p/?LinkId=298473
-  [**endsWith**]: http://go.microsoft.com/fwlink/p/?LinkId=298474
-  [**concat**]: http://go.microsoft.com/fwlink/p/?LinkId=298475
-  [**subString**]: http://go.microsoft.com/fwlink/p/?LinkId=298477
-  [**indexOf**]: http://go.microsoft.com/fwlink/p/?LinkId=298488
-  [**replace**]: http://go.microsoft.com/fwlink/p/?LinkId=298491
-  [**toLower**]: http://go.microsoft.com/fwlink/p/?LinkId=298492
-  [**toUpper**]: http://go.microsoft.com/fwlink/p/?LinkId=298493
-  [**trim**]: http://go.microsoft.com/fwlink/p/?LinkId=298495
-  [**length**]: http://go.microsoft.com/fwlink/p/?LinkId=298496
   [**add**]: http://go.microsoft.com/fwlink/p/?LinkId=298497
-  [**sub**]: http://go.microsoft.com/fwlink/p/?LinkId=298499
-  [**mul**]: http://go.microsoft.com/fwlink/p/?LinkId=298500
-  [**div**]: http://go.microsoft.com/fwlink/p/?LinkId=298502
-  [**mod**]: http://go.microsoft.com/fwlink/p/?LinkId=298503
-  [**floor**]: http://go.microsoft.com/fwlink/p/?LinkId=298505
-  [**ceiling**]: http://go.microsoft.com/fwlink/p/?LinkId=298506
-  [**round**]: http://go.microsoft.com/fwlink/p/?LinkId=298507
-  [**and**]: http://go.microsoft.com/fwlink/p/?LinkId=298512
   [**or**]: http://go.microsoft.com/fwlink/p/?LinkId=298514
-  [**not**]: http://go.microsoft.com/fwlink/p/?LinkId=298515
   [funzionalità complesse disponibili nel modello di query client Android di Servizi mobili]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
-  [**orderBy**]: http://go.microsoft.com/fwlink/p/?LinkId=298519
-  [**QueryOrder**]: http://go.microsoft.com/fwlink/p/?LinkId=298521
-  [**select**]: http://go.microsoft.com/fwlink/p/?LinkId=290689
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=296296
   [2]: http://go.microsoft.com/fwlink/p/?LinkId=296313
-  [**top**]: http://go.microsoft.com/fwlink/p/?LinkId=298731
-  [**MobileServiceQuery\<T\>**]: http://go.microsoft.com/fwlink/p/?LinkId=298551
-  [**execute**]: http://go.microsoft.com/fwlink/p/?LinkId=298554
-  [**insert**]: http://go.microsoft.com/fwlink/p/?LinkId=296862
-  [**TableOperationCallback\<ToDoItem\>**]: http://go.microsoft.com/fwlink/p/?LinkId=296865
   [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [Comandi per la gestione delle tabelle di Servizi mobili]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-  [**TableDeleteCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=296858
   [MobileServicesJsonTable]: http://go.microsoft.com/fwlink/p/?LinkId=298733
-  [getTable()]: http://go.microsoft.com/fwlink/p/?LinkId=298734
-  [**JsonObject**]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
   [3]: http://go.microsoft.com/fwlink/p/?LinkId=298535
-  [**TableJsonOperationCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=298532
-  [**TableJsonQueryCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=298543
   [Introduzione all'autenticazione in Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=296316
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [qui]: https://www.windowsazure.com/it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/

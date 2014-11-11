@@ -1,6 +1,6 @@
 <properties linkid="/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Inviare notifiche push agli utenti autenticati
 
@@ -37,7 +37,7 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 ## <a name="register"></a>Aggiornare il servizio per richiedere l'autenticazione per la registrazione
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users][mobile-services-javascript-backend-push-notifications-app-users]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 1.  Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
 
@@ -61,22 +61,15 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 ## <a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login][mobile-services-ios-push-notifications-app-users-login]]
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
 ## <a name="test"></a>Test dell'app
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app][mobile-services-ios-push-notifications-app-users-test-app]]
+[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users "Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/ "JavaScript backend"
   [notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Aggiornamento del servizio per richiedere l'autenticazione per la registrazione]: #register
   [Aggiornamento dell'app per accedere prima della registrazione]: #update-app

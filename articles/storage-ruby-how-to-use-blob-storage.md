@@ -1,39 +1,39 @@
 <properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Come utilizzare il servizio BLOB da Ruby
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio BLOB di
 Azure. Gli esempi sono scritti usando l'API Ruby.
 Gli scenari illustrati includono il **caricamento, la visualizzazione di un elenco, il download** e l'**eliminazione** di BLOB.
-Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
+Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul servizio BLOB][]
--   [Concetti][]
--   [Creazione di un account di archiviazione di Azure][]
--   [Creazione di un'applicazione Ruby][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una connessione di archiviazione di Azure][]
--   [Procedura: Creare un contenitore][]
--   [Procedura: Caricare un BLOB in un contenitore][]
--   [Procedura: Elencare i BLOB in un contenitore][]
--   [Procedura: Scaricare BLOB][]
--   [Procedura: Eliminare un BLOB][]
+-   [Informazioni sul servizio BLOB][Informazioni sul servizio BLOB]
+-   [Concetti][Concetti]
+-   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creazione di un'applicazione Ruby][Creazione di un'applicazione Ruby]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una connessione di archiviazione di Azure][Configurazione di una connessione di archiviazione di Azure]
+-   [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
+-   [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
+-   [Procedura: Elencare i BLOB in un contenitore][Procedura: Elencare i BLOB in un contenitore]
+-   [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]
+-   [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]
 -   [Passaggi successivi][1]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="CreateRubyApp"></span></a>Creazione di un'applicazione Ruby
 
 Creare un'applicazione Ruby. Per istruzioni,
-vedere [Creazione di un'applicazione Ruby in Azure][].
+vedere [Creazione di un'applicazione Ruby in Azure][Creazione di un'applicazione Ruby in Azure].
 
 ## <span id="ConfigAccessStorage"></span></a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -61,7 +61,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Passare all'account di archiviazione che si desidera utilizzare
 3.  Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
 4.  Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile scegliere la primaria o la secondaria.
@@ -143,9 +143,9 @@ Per eliminare un BLOB, infine, utilizzare il metodo **delete\_blob()**. Nell'ese
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
--   Archivio [Azure SDK for Ruby][] su GitHub
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
+-   Archivio [Azure SDK for Ruby][Azure SDK for Ruby] su GitHub
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul servizio BLOB]: #what-is
@@ -162,8 +162,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [1]: #NextSteps
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creazione di un'applicazione Ruby in Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Creazione di un'applicazione Ruby in Azure]: /it-it/develop/ruby/tutorials/web-app-with-linux-vm/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

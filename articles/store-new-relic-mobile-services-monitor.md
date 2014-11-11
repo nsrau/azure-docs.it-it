@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Utilizzare New Relic per il monitoraggio dei Servizi mobili
 
@@ -68,7 +68,7 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
 
 1.  Nel [portale di gestione][portale di gestione] selezionare il servizio mobile e quindi fare clic sulla scheda **Configure**.
 
-    ![][]
+    ![][0]
 
 2.  Scorrere verso il basso fino a **Developer analytics** ed eseguire una delle operazioni seguenti, a seconda della modalità di acquisto della sottoscrizione di New Relic:
 
@@ -111,7 +111,7 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
 -   Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Store][pagina dedicata a New Relic in Azure Store].
 -   Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Applications Overview][Applications Overview] nella documentazione di New Relic.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Iscrizione a New Relic utilizzando Azure Store]: #sign-up
   [Installazione del modulo New Relic]: #install-module
@@ -121,10 +121,9 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Archiviazione di script del server nel controllo del codice sorgente]: /it-it/develop/mobile/tutorials/store-scripts-in-source-control/
-  [Node Package Manager (NPM)]: http://nodejs.org/
   [modulo New Relic]: https://npmjs.org/package/newrelic
   [portale di gestione]: https://manage.windowsazure.com/
-  []: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
+  [0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
   [1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
   [2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
   [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png

@@ -1,10 +1,10 @@
 <properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn="" Gailey" />
 
 # Introduzione all'autenticazione in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users][mobile-services-selector-get-started-users]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 
@@ -39,7 +39,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="register"></a> Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 1.  (Facoltativo) Completare la procedura descritta in [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft][Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft].
 
@@ -52,7 +52,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="permissions"></a> Limitazione delle autorizzazioni agli utenti autenticati
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  In Visual Studio 2012 Express per Windows 8 aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili][1].
 
@@ -64,11 +64,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ## <a name="add-authentication"></a> Aggiunta dell'autenticazione all'app
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-authenticate-app][mobile-services-windows-dotnet-authenticate-app]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-authenticate-app](../includes/mobile-services-windows-dotnet-authenticate-app.md)]
 
 ## <a name="tokens"></a>Archiviazione dei token di autorizzazione sul client
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token][mobile-services-windows-store-dotnet-authenticate-app-with-token]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 

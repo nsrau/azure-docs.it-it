@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come usare la gestione dei servizi da PHP
 
@@ -43,7 +43,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 ## <span id="GetClientLibraries"></span></a>Acquisire le librerie client di Azure
 
-[WACOM.INCLUDE [get-client-libraries][get-client-libraries]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="Connect"></span></a>Procedura: Connettersi alla gestione dei servizi
 
@@ -564,7 +564,6 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
   [pacchetto del servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433093
   [cmdlet di Azure PowerShell]: ../install-configure-powershell/
   [strumento da riga di comando cspack]: http://msdn.microsoft.com/it-it/library/windowsazure/gg432988.aspx
-  [Schema di configurazione dei servizi di Azure (con estensione cscfg)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
   [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh386336.aspx
   [servizio di archiviazione]: ../storage-whatis-account/
   [BLOB]: ../storage-php-how-to-use-blobs/

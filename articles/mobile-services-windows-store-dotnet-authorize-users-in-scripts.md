@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autorizzazione lato servizio degli utenti di Servizi mobili
 
@@ -42,7 +42,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -111,7 +111,7 @@ L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è termi
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript"
@@ -126,7 +126,7 @@ L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è termi
   [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png

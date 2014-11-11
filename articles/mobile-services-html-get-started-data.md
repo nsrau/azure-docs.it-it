@@ -1,22 +1,22 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introduzione ai dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per sfruttare i dati in un'app HTML. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-> [WACOM.NOTE]Questa esercitazione descrive come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app HTML e ripropone quindi molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili][].
+> [WACOM.NOTE]Questa esercitazione descrive come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app HTML e ripropone quindi molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Download del progetto dell'app HTML][]
-2.  [Creazione del servizio mobile][]
-3.  [Aggiunta di una tabella dati per l'archiviazione][]
-4.  [Aggiornamento dell'app per l'utilizzo di Servizi mobili][]
-5.  [Test dell'app in Servizi mobili][]
+1.  [Download del progetto dell'app HTML][Download del progetto dell'app HTML]
+2.  [Creazione del servizio mobile][Creazione del servizio mobile]
+3.  [Aggiunta di una tabella dati per l'archiviazione][Aggiunta di una tabella dati per l'archiviazione]
+4.  [Aggiornamento dell'app per l'utilizzo di Servizi mobili][Aggiornamento dell'app per l'utilizzo di Servizi mobili]
+5.  [Test dell'app in Servizi mobili][Test dell'app in Servizi mobili]
 
 <div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
@@ -36,7 +36,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 ## <a name="download-app"></a><span class="short-header">Download del progetto</span>Download del progetto GetStartedWithData
 
-Questa esercitazione è basata sull'[app GetStartedWithData][] che è un'app HTML5. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
+Questa esercitazione è basata sull'[app GetStartedWithData][app GetStartedWithData] che è un'app HTML5. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
 1.  [Download dei file di progetto dell'app HTML][app GetStartedWithData].
 
@@ -60,13 +60,13 @@ Questa esercitazione è basata sull'[app GetStartedWithData][] che è un'app HTM
 
 5.  Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Enter new task** e quindi fare clic su **Add**.
 
-    ![][]
+    ![][0]
 
     Si noti che il testo salvato viene aggiunto alla matrice **staticItems** la pagina viene aggiornata per visualizzare il nuovo elemento.
 
 ## <a name="create-service"></a><span class="short-header">Creazione del servizio mobile</span>Creazione di un nuovo servizio mobile nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Aggiunta di una nuova tabella</span>Aggiunta di una nuova tabella al servizio mobile
 
@@ -189,7 +189,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
     Un nuovo elemento verrà inviato come inserimento al servizio mobile.
 
-3.  Nel [portale di gestione][] fare clic su **Mobile Services** e quindi sul servizio mobile.
+3.  Nel [portale di gestione][portale di gestione] fare clic su **Mobile Services** e quindi sul servizio mobile.
 
 4.  Fare clic sulla scheda **Data** e quindi su **Browse**.
 
@@ -215,15 +215,15 @@ L'esercitazione **Introduzione ai dati** è terminata.
 
 In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app HTML di utilizzare dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
--   [Utilizzo di script per la convalida e la modifica di dati][]
+-   [Utilizzo di script per la convalida e la modifica di dati][Utilizzo di script per la convalida e la modifica di dati]
     Ulteriori informazioni sull'utilizzo di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
--   [Utilizzo del paging per ridefinire le query][]
+-   [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query]
     Ulteriori informazioni su come utilizzare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
-Dopo avere completato la serie di esercitazioni relative ai dati, è possibile passare alle esercitazioni che illustrano come autenticare gli utenti dell'app, iniziando da [Introduzione all'autenticazione][].
+Dopo avere completato la serie di esercitazioni relative ai dati, è possibile passare alle esercitazioni che illustrano come autenticare gli utenti dell'app, iniziando da [Introduzione all'autenticazione][Introduzione all'autenticazione].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-html
@@ -232,14 +232,12 @@ Dopo avere completato la serie di esercitazioni relative ai dati, è possibile p
   [Aggiunta di una tabella dati per l'archiviazione]: #add-table
   [Aggiornamento dell'app per l'utilizzo di Servizi mobili]: #update-app
   [Test dell'app in Servizi mobili]: #test-app
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [app GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
-  []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
+  [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
-  [Utilizzare la condivisione di risorse tra origini]: http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
   [portale di gestione]: https://manage.windowsazure.com/
   [5]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png

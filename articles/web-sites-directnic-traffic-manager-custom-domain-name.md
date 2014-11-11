@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Directnic" pageTitle="Configure a Directnic domain name for an Azure website using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, Directnic, Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configurazione di un nome di dominio personalizzato per un sito Web di Azure usando Gestione traffico (Directnic)
 
@@ -8,15 +8,15 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/web-sites-directnic-custom-domain-name/" title="Websites">Sito Web</a> | <a href="/it-it/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Website using Traffic Manager" class="current">Sito Web mediante Gestione traffico</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][intro]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
 In questo articolo vengono fornite istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato da [DirectNic.com][DirectNic.com] con Siti Web di Azure.
 
-[WACOM.INCLUDE [tmwebsitefooter][tmwebsitefooter]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Contenuto dell'articolo:
 
@@ -27,11 +27,11 @@ Contenuto dell'articolo:
 
 ## <a name="understanding-records"></a>Informazioni sui record DNS
 
-[WACOM.INCLUDE [understandingdns][understandingdns]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurare i siti Web per la modalità standard
 
-[WACOM.INCLUDE [modes][modes]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -51,7 +51,7 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 4.  Aggiungere i record DNS compilando i campi **Type**, **Name** e **Data**. Al termine, fare clic sul pulsante **Add Record**.
 
-    ![][]
+    ![][0]
 
     -   Quando si aggiunge un record CNAME, è necessario impostare il campo **Name** sul sottodominio che si desidera usare, ad esempio **www**. È necessario impostare il campo **Dati** sul nome di dominio **.trafficmanager.net** del profilo di Gestione traffico in uso con il sito Web di Azure, ad esempio **contoso.trafficmanager.net**.
 
@@ -61,17 +61,6 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 [WACOM.INCLUDE [modes][1]]
 
-  [Dominio personalizzato]: /it-it/documentation/articles/web-sites-custom-domain-name "Custom Domain"
-  [GoDaddy]: /it-it/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /it-it/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /it-it/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /it-it/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /it-it/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /it-it/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /it-it/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /it-it/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Sito Web]: /it-it/documentation/articles/web-sites-directnic-custom-domain-name/ "Websites"
-  [Sito Web mediante Gestione traffico]: /it-it/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/ "Website using Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DirectNic.com]: https://directnic.com
@@ -85,5 +74,5 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
   [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Menu dei servizi di Directnic]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png
   [Riquadro dei servizi]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png
-  []: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS_TM.png
+  [0]: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS_TM.png
   [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

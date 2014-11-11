@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Azure AD Integration with Google Apps" metaKeywords="Azure Google Apps Integration" description="Learn about integrating Azure AD with Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" editor="lisatoft" manager="terrylan" title="Azure AD Integration with Google Apps" authors="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Integrazione di Azure AD con Google Apps
 
@@ -185,23 +185,5 @@ Vedere anche le
 
 
 
-  [Esercitazione\_Google\_01]: ./media/integration-azure-google-apps/Google_Tutorial_01.png
-  [Esercitazione\_Google\_02]: ./media/integration-azure-google-apps/Google_Tutorial_02.png
-  [Esercitazione\_Google\_03]: ./media/integration-azure-google-apps/Google_Tutorial_03.png
-  [Esercitazione\_Google\_04]: ./media/integration-azure-google-apps/Google_Tutorial_04.png
-  [Esercitazione\_Google\_05]: ./media/integration-azure-google-apps/Google_Tutorial_05.png
-  [Esercitazione\_Google\_06]: ./media/integration-azure-google-apps/Google_Tutorial_06.png
-  [Esercitazione\_Google\_07]: ./media/integration-azure-google-apps/Google_Tutorial_07.png
-  [Esercitazione\_Google\_08]: ./media/integration-azure-google-apps/Google_Tutorial_08.png
   [pannello di accesso]: https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384289458&rver=6.1.6206.0&wp=MCMBI&wreply=https:%2F%2Faccount.activedirectory.windowsazure.com%2Flanding.aspx%3Ftarget%3D%252fapplications%252fdefault.aspx&lc=1033&id=500633
-  [Esercitazione\_Google\_09]: ./media/integration-azure-google-apps/Google_Tutorial_09.png
-  [Esercitazione\_Google\_10]: ./media/integration-azure-google-apps/Google_Tutorial_10.png
-  [Esercitazione\_Google\_11]: ./media/integration-azure-google-apps/Google_Tutorial_11.png
-  [Esercitazione\_Google\_12]: ./media/integration-azure-google-apps/Google_Tutorial_12.png
-  [Esercitazione\_Google\_13]: ./media/integration-azure-google-apps/Google_Tutorial_13.png
-  [Esercitazione\_Google\_14]: ./media/integration-azure-google-apps/Google_Tutorial_14.png
-  [Esercitazione\_Google\_15]: ./media/integration-azure-google-apps/Google_Tutorial_15.png
-  [Esercitazione\_Google\_16]: ./media/integration-azure-google-apps/Google_Tutorial_16.png
-  [Esercitazione\_Google\_17]: ./media/integration-azure-google-apps/Google_Tutorial_17.png
-  [Esercitazione\_Google\_18]: ./media/integration-azure-google-apps/Google_Tutorial_18.png
   [procedure consigliate per la gestione dei miglioramenti relativi all'accesso all'applicazioneAzure Active Directory.]: http://social.technet.microsoft.com/wiki/contents/articles/18409.best-practices-for-managing-the-application-access-enhancements-for-windows-azure-active-directory.aspx

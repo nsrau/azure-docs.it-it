@@ -1,29 +1,29 @@
 <properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Come gestire i servizi cloud
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Nell'area **Cloud Services** del portale di gestione di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
 ## Sommario
 
--   [Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud][]
--   [Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione][]
--   [Procedura: Collegare una risorsa a un servizio cloud][]
--   [Procedura: Eliminare le distribuzioni e un servizio cloud][]
+-   [Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud][Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud]
+-   [Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione][Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione]
+-   [Procedura: Collegare una risorsa a un servizio cloud][Procedura: Collegare una risorsa a un servizio cloud]
+-   [Procedura: Eliminare le distribuzioni e un servizio cloud][Procedura: Eliminare le distribuzioni e un servizio cloud]
 
 ## <span id="updaterole"></span></a>Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud
 
 Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, utilizzare **Update** nel dashboard, la pagina **Cloud services** o la pagina **Instances**. È possibile aggiornare un singolo ruolo o tutti i ruoli. Sarà necessario caricare un nuovo pacchetto del servizio e un nuovo file di configurazione del servizio.
 
-1.  Nel [portale di gestione di Azure][] fare clic su **Update** nel dashboard, nella pagina **Cloud Services** o nella pagina **Instances**.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Update** nel dashboard, nella pagina **Cloud Services** o nella pagina **Instances**.
 
     Verrà visualizzata la pagina **Update Deployment**.
 
-    ![UpdateDeployment][]
+    ![UpdateDeployment][UpdateDeployment]
 
 2.  In **Deployment label** immettere un nome per identificare la distribuzione, ad esempio mycloudservicev2. Il nome della distribuzione sarà presente in **quick start** nel dashboard.
 
@@ -57,7 +57,7 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
     Verrà visualizzata la seguente richiesta di conferma.
 
-    ![Scambio di servizi cloud][]
+    ![Scambio di servizi cloud][Scambio di servizi cloud]
 
 4.  Dopo avere controllato le informazioni sulla distribuzione, fare clic su **Yes** per scambiare le distribuzioni.
 
@@ -69,7 +69,7 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 Per visualizzare le dipendenze del servizio cloud da altre risorse, è possibile collegare un'istanza di database SQL di Azure o un account di archiviazione al servizio cloud. È possibile collegare o scollegare le risorse nella pagina **Linked Resources**. Monitorare quindi il relativo utilizzo nel dashboard del servizio cloud. Se in un account di archiviazione collegato è attivato il monitoraggio, è possibile monitorare il totale delle richieste nel dashboard del servizio cloud.
 
-Utilizzare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo utilizza nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'utilizzo). Per ulteriori informazioni, vedere [Come scalare un servizio cloud e le risorse collegate][].
+Utilizzare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo utilizza nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'utilizzo). Per ulteriori informazioni, vedere [Come scalare un servizio cloud e le risorse collegate][Come scalare un servizio cloud e le risorse collegate].
 
 È inoltre possibile monitorare, gestire e scalare il database nel nodo **Databases** del portale di gestione.
 
@@ -79,35 +79,35 @@ Nella procedura seguente viene descritto come collegare una nuova istanza di dat
 
 ### Per collegare un'istanza di database SQL a un servizio cloud
 
-1.  Nel [portale di gestione][] fare clic su **Cloud Services**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
 
 2.  Fare clic su **Linked Resources**.
 
     Verrà visualizzata la pagina **Linked Resources**.
 
-    ![LinkedResourcesPage][]
+    ![LinkedResourcesPage][LinkedResourcesPage]
 
 3.  Fare clic su **Link a Resource** o **Link**.
 
     Verrà avviata la procedura guidata **Link Resource**.
 
-    ![Link Page1][]
+    ![Link Page1][Link Page1]
 
 4.  Fare clic su **Create a new resource** o **Link an existing resource**.
 
-5.  Scegliere il tipo di risorsa da collegare. Nel [portale di gestione][] fare clic su **SQL Database** (il portale di gestione in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
+5.  Scegliere il tipo di risorsa da collegare. Nel [portale di gestione][portale di gestione] fare clic su **SQL Database** (il portale di gestione in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
 
 6.  Per completare la configurazione del database, seguire le istruzioni nella guida per l'area **SQL Databases** del portale di gestione.
 
     È possibile seguire l'avanzamento dell'operazione di collegamento nell'area dei messaggi.
 
-    ![Avanzamento dell'operazione di collegamento][]
+    ![Avanzamento dell'operazione di collegamento][Avanzamento dell'operazione di collegamento]
 
-    Terminato il collegamento, è possibile monitorare lo stato della risorsa collegata nel dashboard del servizio cloud. Per informazioni sulla scalabilità di un database SQL collegato, vedere [Come scalare un servizio cloud e le risorse collegate][].
+    Terminato il collegamento, è possibile monitorare lo stato della risorsa collegata nel dashboard del servizio cloud. Per informazioni sulla scalabilità di un database SQL collegato, vedere [Come scalare un servizio cloud e le risorse collegate][Come scalare un servizio cloud e le risorse collegate].
 
 ### Per scollegare una risorsa collegata
 
-1.  Nel [portale di gestione][] fare clic su **Cloud Services**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
 
 2.  Fare clic su **Linked Resources** e selezionare la risorsa.
 
@@ -123,13 +123,13 @@ Per ridurre i costi di calcolo, è possibile eliminare la distribuzione di gesti
 
 Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura seguente.
 
-1.  Nel [portale di gestione][] fare clic su **Cloud Services**.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services**.
 
 2.  Selezionare il servizio cloud e fare clic su **Delete** (per selezionare un servizio cloud senza aprire il dashboard, fare clic in un punto qualsiasi tranne che sul nome nella voce del servizio cloud).
 
     Se è presente una distribuzione di gestione temporanea o di produzione, nella parte inferiore della finestra sarà visualizzato un menu analogo al seguente. Prima di eliminare il servizio cloud, è necessario eliminare le eventuali distribuzioni esistenti.
 
-    ![Menu Delete][]
+    ![Menu Delete][Menu Delete]
 
 3.  Per eliminare una distribuzione, fare clic su **Delete production deployment** o **Delete staging deployment**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
@@ -138,7 +138,7 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 5.  Per eliminare il servizio cloud fare clic su **Delete cloud service**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
 > [WACOM.NOTE]
-> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in [Come monitorare i servizi cloud][].
+> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in [Come monitorare i servizi cloud][Come monitorare i servizi cloud].
 
   [disclaimer]: ../includes/disclaimer.md
   [Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud]: #updaterole

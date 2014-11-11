@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure
 
@@ -108,7 +108,6 @@ Per informazioni sulla specifica di una versione di Node.js per l'applicazione, 
   [file Readme di IISNode]: https://github.com/tjanczuk/iisnode#readme
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Pulsante Riavvia]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [Come usare gli strumenti da riga di comando]: /it-it/documentation/articles/xplat-cli/
   [Uso di moduli Node.js con applicazioni Azure]: /it-it/documentation/articles/nodejs-use-node-modules-azure-apps/
   [Specifica di una versione di Node.js in un'applicazione Azure]: /it-it/documentation/articles/nodejs-specify-node-version-azure-apps/

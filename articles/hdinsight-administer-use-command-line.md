@@ -8,23 +8,23 @@ In questo articolo è illustrato come usare l'interfaccia della riga di comando 
 
 Lo strumento da riga di comando è open source. Il codice sorgente viene gestito GitHub all'indirizzo <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-In questo articolo viene descritto solo l'utilizzo dell'interfaccia della riga di comando da Windows. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][].
+In questo articolo viene descritto solo l'utilizzo dell'interfaccia della riga di comando da Windows. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux].
 
 **Prerequisiti:**
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
--   **Sottoscrizione di Azure**. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di valutazione gratuita][].
+-   **Sottoscrizione di Azure**. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][Opzioni di acquisto], [Offerte per i membri][Offerte per i membri] oppure [Versione di valutazione gratuita][Versione di valutazione gratuita].
 
 ## Contenuto dell'articolo
 
--   [Installazione][]
--   [Download e importazione di impostazioni di pubblicazione dell'account Azure][]
--   [Provisioning di un cluster][]
--   [Provisioning di un cluster mediante un file di configurazione][]
--   [Elenco e visualizzazione di cluster][]
--   [Eliminazione di un cluster][]
--   [Passaggi successivi][]
+-   [Installazione][Installazione]
+-   [Download e importazione di impostazioni di pubblicazione dell'account Azure][Download e importazione di impostazioni di pubblicazione dell'account Azure]
+-   [Provisioning di un cluster][Provisioning di un cluster]
+-   [Provisioning di un cluster mediante un file di configurazione][Provisioning di un cluster mediante un file di configurazione]
+-   [Elenco e visualizzazione di cluster][Elenco e visualizzazione di cluster]
+-   [Eliminazione di un cluster][Eliminazione di un cluster]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <span id="installation"></span></a> Installazione
 
@@ -54,7 +54,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 **Per installare l'interfaccia della riga di comando mediante Windows Installer**
 
-1.  Andare a **[http://azure.microsoft.com/it-it/downloads/][]**.
+1.  Andare a **[http://azure.microsoft.com/it-it/downloads/][http://azure.microsoft.com/it-it/downloads/]**.
 2.  Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 ## <span id="importsettings"></span></a> Download e importazione di impostazioni di pubblicazione dell'account Azure
@@ -70,7 +70,7 @@ Prima di utilizzare l'interfaccia della riga di comando, è necessario configura
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     Il comando mostra le istruzioni per scaricare il file, incluso un URL.
 
@@ -98,7 +98,7 @@ Dopo avere importato il file publishsettings è possibile utilizzare il comando 
 > -   Stati Uniti orientali
 > -   Stati Uniti occidentali
 
-Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][].
+Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
 Se si dispone già di un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile utilizzare i comandi seguenti per recuperare le informazioni:
 
@@ -109,7 +109,7 @@ Se si dispone già di un account di archiviazione, ma non si conosce il nome acc
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][].
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
 
 Il comando *azure hdinsight cluster create* crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile utilizzare il comando seguente:
 
@@ -120,7 +120,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 ## <span id="provisionconfigfile"></span></a> Provisioning di un cluster HDInsight mediante un file di configurazione
 
@@ -142,7 +142,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, vi si eseguono i
     azure hdinsight cluster create --config <file>
          
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 ## <span id="listshow"></span></a> Elenco e visualizzazione di cluster
 
@@ -151,7 +151,7 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 ## <span id="delete"></span></a> Eliminazione di un cluster
 
@@ -163,17 +163,17 @@ Utilizzare il comando seguente per eliminare un cluster:
 
 In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Amministrazione di HDInsight tramite il portale di gestione][]
--   [Amministrazione di HDInsight tramite PowerShell][]
--   [Introduzione all'utilizzo di Azure HDInsight][]
--   [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][]
+-   [Amministrazione di HDInsight tramite il portale di gestione][Amministrazione di HDInsight tramite il portale di gestione]
+-   [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]
+-   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
+-   [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]
 -   [Strumenti da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux]
 
   [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]: ../xplat-cli/
   [Strumento da riga di comando di Azure per Mac e Linux]: ../command-line-tools/
-  [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
+  [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
+  [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Installazione]: #installation
   [Download e importazione di impostazioni di pubblicazione dell'account Azure]: #importsettings
   [Provisioning di un cluster]: #provision
@@ -181,7 +181,7 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
   [Elenco e visualizzazione di cluster]: #listshow
   [Eliminazione di un cluster]: #delete
   [Passaggi successivi]: #nextsteps
-  [http://azure.microsoft.com/it-it/downloads/]: http://azure.microsoft.com/en-us/downloads/
+  [http://azure.microsoft.com/it-it/downloads/]: http://azure.microsoft.com/it-it/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
   [Come creare un account di archiviazione]: ../storage-create-storage-account/
   [Come gestire gli account di archiviazione]: ../storage-manage-storage-account/

@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Uso di un servizio mobile back-end JavaScript
 
@@ -8,41 +8,41 @@
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end JavaScript in Servizi mobili di Azure. Questo argomento è suddiviso nelle sezioni seguenti:
 
--   [Introduzione][]
--   [Operazioni su tabella][]
+-   [Introduzione][Introduzione]
+-   [Operazioni su tabella][Operazioni su tabella]
 
-    -   [Procedura: Eseguire la registrazione per le operazioni su tabelle][]
-    -   [Procedura: Eseguire l'override della risposta predefinita][]
-    -   [Procedura: Eseguire l'override della riuscita di execute][]
-    -   [Procedura: Eseguire l'override della gestione degli errori predefinita][]
-    -   [Procedura: Aggiungere parametri personalizzati][]
-    -   [Procedura: Utilizzare gli utenti di tabella][]
--   [API personalizzata][]
+    -   [Procedura: Eseguire la registrazione per le operazioni su tabelle][Procedura: Eseguire la registrazione per le operazioni su tabelle]
+    -   [Procedura: Eseguire l'override della risposta predefinita][Procedura: Eseguire l'override della risposta predefinita]
+    -   [Procedura: Eseguire l'override della riuscita di execute][Procedura: Eseguire l'override della riuscita di execute]
+    -   [Procedura: Eseguire l'override della gestione degli errori predefinita][Procedura: Eseguire l'override della gestione degli errori predefinita]
+    -   [Procedura: Aggiungere parametri personalizzati][Procedura: Aggiungere parametri personalizzati]
+    -   [Procedura: Utilizzare gli utenti di tabella][Procedura: Utilizzare gli utenti di tabella]
+-   [API personalizzata][API personalizzata]
 
-    -   [Procedura: Definire un'API personalizzata][]
-    -   [Procedura: Implementare metodi HTTP][]
-    -   [Procedura: Inviare e ricevere dati come XML][]
-    -   [Procedura: Utilizzare utenti e intestazioni in un'API personalizzata][]
-    -   [Procedura: Definire più route in un'API personalizzata][]
--   [Utilità di pianificazione processi][]
+    -   [Procedura: Definire un'API personalizzata][Procedura: Definire un'API personalizzata]
+    -   [Procedura: Implementare metodi HTTP][Procedura: Implementare metodi HTTP]
+    -   [Procedura: Inviare e ricevere dati come XML][Procedura: Inviare e ricevere dati come XML]
+    -   [Procedura: Utilizzare utenti e intestazioni in un'API personalizzata][Procedura: Utilizzare utenti e intestazioni in un'API personalizzata]
+    -   [Procedura: Definire più route in un'API personalizzata][Procedura: Definire più route in un'API personalizzata]
+-   [Utilità di pianificazione processi][Utilità di pianificazione processi]
 
     -   [Procedura: Definire script di processi pianificati][Utilità di pianificazione processi]
--   [Controllo del codice sorgente, codice condiviso e funzioni di supporto][]
+-   [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto]
 
-    -   [Procedura: Caricare moduli Node.js][]
-    -   [Procedura: Utilizzare le funzioni di supporto][]
-    -   [Procedura: Condividere il codice utilizzando il controllo del codice sorgente][]
-    -   [Procedura: Utilizzare le impostazioni app][]
--   [Utilizzo dello strumento da riga di comando][]
--   [Utilizzo delle tabelle][]
+    -   [Procedura: Caricare moduli Node.js][Procedura: Caricare moduli Node.js]
+    -   [Procedura: Utilizzare le funzioni di supporto][Procedura: Utilizzare le funzioni di supporto]
+    -   [Procedura: Condividere il codice utilizzando il controllo del codice sorgente][Procedura: Condividere il codice utilizzando il controllo del codice sorgente]
+    -   [Procedura: Utilizzare le impostazioni app][Procedura: Utilizzare le impostazioni app]
+-   [Utilizzo dello strumento da riga di comando][Utilizzo dello strumento da riga di comando]
+-   [Utilizzo delle tabelle][Utilizzo delle tabelle]
 
-    -   [Procedura: Accedere alle tabelle dagli script][]
-    -   [Procedura: Eseguire inserimenti bulk][]
-    -   [Procedura: Mappare tipi JSON a tipi di database][]
-    -   [Utilizzo di Transact-SQL per accedere alle tabelle][]
--   [Debug e risoluzione dei problemi][]
+    -   [Procedura: Accedere alle tabelle dagli script][Procedura: Accedere alle tabelle dagli script]
+    -   [Procedura: Eseguire inserimenti bulk][Procedura: Eseguire inserimenti bulk]
+    -   [Procedura: Mappare tipi JSON a tipi di database][Procedura: Mappare tipi JSON a tipi di database]
+    -   [Utilizzo di Transact-SQL per accedere alle tabelle][Utilizzo di Transact-SQL per accedere alle tabelle]
+-   [Debug e risoluzione dei problemi][Debug e risoluzione dei problemi]
 
-    -   [Procedura: Scrivere l'output nei log del servizio mobile][]
+    -   [Procedura: Scrivere l'output nei log del servizio mobile][Procedura: Scrivere l'output nei log del servizio mobile]
 
 ## <a name="intro"></a>Introduzione
 
@@ -52,13 +52,13 @@ In un servizio mobile back-end JavaScript è possibile definire la logica di bus
 -   [Processi pianificati][Utilità di pianificazione processi].
 -   [Metodi HTTP definiti in un'API personalizzata][API personalizzata].
 
-La firma della funzione principale dello script del server dipende dal contesto di cui viene utilizzato lo script. È inoltre possibile definire codice di script comune come moduli nodes.js condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][].
+La firma della funzione principale dello script del server dipende dal contesto di cui viene utilizzato lo script. È inoltre possibile definire codice di script comune come moduli nodes.js condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
-Per le descrizioni delle singole funzioni e dei singoli oggetti di script del server, vedere [Riferimento per gli script server di Servizi mobili][].
+Per le descrizioni delle singole funzioni e dei singoli oggetti di script del server, vedere [Riferimento per gli script server di Servizi mobili][Riferimento per gli script server di Servizi mobili].
 
 ## <a name="table-scripts"></a>Operazioni su tabella
 
-Uno script di operazione su tabella è uno script del server registrato in un'operazione su una tabella, ovvero insert, read, update o delete (*del*). Il nome dello script deve corrispondere il tipo di operazione per cui è registrato. È possibile registrare un solo script per una determinata operazione su tabella. Lo script viene eseguito ogni volta che l'operazione in questione viene richiamata da una richiesta REST, ad esempio, quando viene ricevuta una richiesta POST di inserire un elemento nella tabella. Servizi mobili non mantiene lo stato tra le esecuzioni degli script. Dato che ogni volta che viene eseguito uno script viene creato un nuovo contesto globale, le variabili di stato definite nello script vengono reinizializzate. Se si desidera archiviare lo stato da una richiesta a un'altra, creare una tabella nel servizio mobile e quindi leggere e scrivere lo stato nella tabella. Per altre informazioni, vedere [Procedura: Accedere alle tabelle dagli script][].
+Uno script di operazione su tabella è uno script del server registrato in un'operazione su una tabella, ovvero insert, read, update o delete (*del*). Il nome dello script deve corrispondere il tipo di operazione per cui è registrato. È possibile registrare un solo script per una determinata operazione su tabella. Lo script viene eseguito ogni volta che l'operazione in questione viene richiamata da una richiesta REST, ad esempio, quando viene ricevuta una richiesta POST di inserire un elemento nella tabella. Servizi mobili non mantiene lo stato tra le esecuzioni degli script. Dato che ogni volta che viene eseguito uno script viene creato un nuovo contesto globale, le variabili di stato definite nello script vengono reinizializzate. Se si desidera archiviare lo stato da una richiesta a un'altra, creare una tabella nel servizio mobile e quindi leggere e scrivere lo stato nella tabella. Per altre informazioni, vedere [Procedura: Accedere alle tabelle dagli script][Procedura: Accedere alle tabelle dagli script].
 
 Gli script di operazioni su tabelle vengono scritti se è necessario applicare la logica di business personalizzata quando viene eseguita l'operazione. Lo script seguente, ad esempio, rifiuta le operazioni di inserimento in cui la lunghezza della stringa del campo `text` è superiore a dieci caratteri:
 
@@ -77,37 +77,37 @@ Una funzione di script di tabella accetta sempre tre argomenti.
 
     -   Per gli inserimenti e gli aggiornamenti, si tratta di un oggetto **item**, ovvero una rappresentazione JSON della riga interessata dall'operazione. Questo consente di accedere ai valori di colonna per nome, ad esempio *item.Owner*, dove *Owner* è uno dei nomi nella rappresentazione JSON.
     -   Per un'eliminazione, si tratta dell'ID del record da eliminare.
-    -   Come per una lettura, è un [oggetto query][] che specifica il set di righe da restituire.
--   Il secondo argomento è sempre un [oggetto user][] che rappresenta l'utente che ha inviato la richiesta.
+    -   Come per una lettura, è un [oggetto query][oggetto query] che specifica il set di righe da restituire.
+-   Il secondo argomento è sempre un [oggetto user][oggetto user] che rappresenta l'utente che ha inviato la richiesta.
 
--   Il terzo argomento è sempre un [oggetto request][] con cui è possibile controllare l'esecuzione dell'operazione richiesta e la risposta inviata al client.
+-   Il terzo argomento è sempre un [oggetto request][oggetto request] con cui è possibile controllare l'esecuzione dell'operazione richiesta e la risposta inviata al client.
 
 Qui di seguito sono indicate le firme di funzioni principali canoniche per le operazioni su tabella:
 
--   [Insert][]: `function insert (item, user, request) { ... }`
--   [Update][]: `function update (item, user, request) { ... }`
--   [Delete][]: `function del (id, user, request) { ... }`
--   [Read][]: `function read (query, user, request) { ... }`
+-   [Insert][Insert]: `function insert (item, user, request) { ... }`
+-   [Update][Update]: `function update (item, user, request) { ... }`
+-   [Delete][Delete]: `function del (id, user, request) { ... }`
+-   [Read][Read]: `function read (query, user, request) { ... }`
 
 > [WACOM.NOTE]Una funzione registrata per l'operazione di eliminazione deve essere denominata *del* perché delete è una parola chiave riservata in JavaScript.
 
-Ogni script del server include una funzione principale e può avere funzioni di supporto facoltative. Anche se è stato creato per una tabella specifica, uno script può fare riferimento anche ad altre tabelle nello stesso database. È inoltre possibile definire funzioni comuni come moduli nodes.js che possono essere condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][].
+Ogni script del server include una funzione principale e può avere funzioni di supporto facoltative. Anche se è stato creato per una tabella specifica, uno script può fare riferimento anche ad altre tabelle nello stesso database. È inoltre possibile definire funzioni comuni come moduli nodes.js che possono essere condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
 ### <a name="register-table-scripts"></a>Procedura: Registrare script di tabella
 
 Gli script del server registrati per un'operazione su tabella possono essere definiti in uno dei modi seguenti:
 
--   Nel [portale di gestione di Azure][]. Gli script per le operazioni su tabella sono accessibili nella scheda **Script** per una determinata tabella. Di seguito viene illustrato il codice predefinito registrato nello script insert per la tabella `TodoItem`. È possibile sostituire questo codice con la logica di business personalizzata.
+-   Nel [portale di gestione di Azure][portale di gestione di Azure]. Gli script per le operazioni su tabella sono accessibili nella scheda **Script** per una determinata tabella. Di seguito viene illustrato il codice predefinito registrato nello script insert per la tabella `TodoItem`. È possibile sostituire questo codice con la logica di business personalizzata.
 
-    ![1][]
+    ![1][1]
 
-    Per informazioni su come effettuare questa operazione, vedere [Convalida e modifica dei dati in Servizi mobili mediante script del server][].
+    Per informazioni su come effettuare questa operazione, vedere [Convalida e modifica dei dati in Servizi mobili mediante script del server][Convalida e modifica dei dati in Servizi mobili mediante script del server].
 
--   Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato *`<table>`*.*`<operation>`*.js nella sottocartella .\\service\\table dell'archivio Git, dove *`<table>`* è il nome della tabella e *`<operation>`* è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][].
+-   Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato *`<table>`*.*`<operation>`*.js nella sottocartella .\\service\\table dell'archivio Git, dove *`<table>`* è il nome della tabella e *`<operation>`* è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
--   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][].
+-   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][Utilizzo dello strumento da riga di comando].
 
-Uno script di operazione su tabella deve chiamare almeno una delle funzioni seguenti dell'[oggetto request][] per fare in modo che il client riceva una risposta.
+Uno script di operazione su tabella deve chiamare almeno una delle funzioni seguenti dell'[oggetto request][oggetto request] per fare in modo che il client riceva una risposta.
 
 -   **funzione execute**: l'operazione viene completata come richiesto e viene restituita la risposta standard.
 
@@ -146,7 +146,7 @@ Quando viene chiamata la funzione **execute**, per eseguire l'operazione viene u
 
 > [WACOM.NOTE] In uno script di eliminazione, la modifica del valore della variabile userId fornita non influisce sul record che viene eliminato.
 
-Per ulteriori esempi, vedere [Leggere e scrivere dati][], [Modificare la richiesta][] e [Convalidare i dati][].
+Per ulteriori esempi, vedere [Leggere e scrivere dati][Leggere e scrivere dati], [Modificare la richiesta][Modificare la richiesta] e [Convalidare i dati][Convalidare i dati].
 
 ### <a name="override-response"></a>Procedura: Eseguire l'override della risposta predefinita
 
@@ -161,7 +161,7 @@ Per ulteriori esempi, vedere [Leggere e scrivere dati][], [Modificare la richies
         }
     }
 
-In questo esempio la richiesta viene rifiutata quando l'elemento inserito non include una proprietà `userId` corrispondente alla proprietà `userId` dell'[oggetto user][] fornito per il client autenticato. In questo caso, non si verifica un'operazione di database (*insert*) e al client vengono restituiti una risposta con codice di stato 403 HTTP e un messaggio di errore personalizzato. Per ulteriori esempi, vedere [Modificare la risposta][].
+In questo esempio la richiesta viene rifiutata quando l'elemento inserito non include una proprietà `userId` corrispondente alla proprietà `userId` dell'[oggetto user][oggetto user] fornito per il client autenticato. In questo caso, non si verifica un'operazione di database (*insert*) e al client vengono restituiti una risposta con codice di stato 403 HTTP e un messaggio di errore personalizzato. Per ulteriori esempi, vedere [Modificare la risposta][Modificare la risposta].
 
 ### <a name="override-success"></a>Procedura: Eseguire l'override della riuscita di execute
 
@@ -212,7 +212,7 @@ Ad esempio, il seguente URI per una richiesta POST indica al servizio di non con
 
         https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
-Questi parametri di query personalizzati sono accessibili come valori JSON dalla proprietà **parameters** dell'[oggetto request][]. L'oggetto **request** viene fornito da Servizi mobili a qualsiasi funzione registrata per un'operazione su tabella. Lo script seguente del server per l'operazione di inserimento controlla il valore del parametro `duplicateText` prima dell'esecuzione dell'operazione di inserimento:
+Questi parametri di query personalizzati sono accessibili come valori JSON dalla proprietà **parameters** dell'[oggetto request][oggetto request]. L'oggetto **request** viene fornito da Servizi mobili a qualsiasi funzione registrata per un'operazione su tabella. Lo script seguente del server per l'operazione di inserimento controlla il valore del parametro `duplicateText` prima dell'esecuzione dell'operazione di inserimento:
 
         function insert(item, user, request) {
             var todoItemTable = tables.getTable('TodoItem');
@@ -242,7 +242,7 @@ Questi parametri di query personalizzati sono accessibili come valori JSON dalla
             }
         }
 
-Si noti che in **insertItemIfNotComplete** viene richiamata la funzione **execute** dell'[oggetto request][] per inserire l'elemento in assenza di testo duplicato, altrimenti viene richiamata la funzione **respond** per notificare al client la presenza del duplicato.
+Si noti che in **insertItemIfNotComplete** viene richiamata la funzione **execute** dell'[oggetto request][oggetto request] per inserire l'elemento in assenza di testo duplicato, altrimenti viene richiamata la funzione **respond** per notificare al client la presenza del duplicato.
 
 Si noti la sintassi della chiamata alla funzione **success** nel codice riportato sopra:
 
@@ -259,7 +259,7 @@ In JavaScript si tratta di una versione compatta dell'equivalente più lungo:
 
 ### <a name="work-with-users"></a>Procedura: Utilizzare gli utenti
 
-In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][]. Quando un utente autenticato richiama un'operazione su tabella, Servizi mobili utilizza l'[oggetto user][] per fornire informazioni sull'utente alla funzione dello script registrato. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente. Nell'esempio seguente viene impostata la proprietà owner di un elemento in base alla proprietà userId di un utente autenticato:
+In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][Introduzione all'autenticazione in Servizi mobili]. Quando un utente autenticato richiama un'operazione su tabella, Servizi mobili utilizza l'[oggetto user][oggetto user] per fornire informazioni sull'utente alla funzione dello script registrato. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente. Nell'esempio seguente viene impostata la proprietà owner di un elemento in base alla proprietà userId di un utente autenticato:
 
     function insert(item, user, request) {
         item.owner = user.userId;
@@ -279,7 +279,7 @@ Nell'esempio seguente viene aggiunto un filtro supplementare alla query in base 
 
 Un'API personalizzata è un endpoint nel servizio mobile a cui è possibile accedere mediante uno o più metodi HTTP standard: GET, POST, PUT, PATCH, DELETE. È possibile definire un'esportazione di funzioni separata per ogni metodo HTTP supportato dall'API personalizzata, in un unico file di script. Lo script registrato viene richiamato quando viene ricevuta una richiesta all'API personalizzata mediante il metodo specificato. Per altre informazioni, vedere [API personalizzata][2].
 
-Quando le funzioni API personalizzate vengono chiamate dal runtime di Servizi mobili, vengono forniti sia un oggetto [request][oggetto request] che un oggetto [response][]. Questi oggetti espongono la funzionalità della [libreria express.js][], che può essere sfruttata dagli script. L'API personalizzata riportata di seguito, denominata **hello**, è un esempio molto semplice che restituisce *Hello, world!* in risposta a una richiesta POST:
+Quando le funzioni API personalizzate vengono chiamate dal runtime di Servizi mobili, vengono forniti sia un oggetto [request][oggetto request] che un oggetto [response][response]. Questi oggetti espongono la funzionalità della [libreria express.js][libreria express.js], che può essere sfruttata dagli script. L'API personalizzata riportata di seguito, denominata **hello**, è un esempio molto semplice che restituisce *Hello, world!* in risposta a una richiesta POST:
 
         exports.post = function(request, response) {
             response.send(200, "{ message: 'Hello, world!' }");
@@ -295,15 +295,15 @@ Lo stato globale viene mantenuto tra le esecuzioni.
 
 Gli script del server registrati nei metodi HTTP in un endpoint API personalizzata possono essere definiti in uno dei modi seguenti:
 
--   Nel [portale di gestione di Azure][]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint API personalizzata `CompleteAll`.
+-   Nel [portale di gestione di Azure][portale di gestione di Azure]. Gli script di API personalizzate vengono creati e modificati nella scheda **API**. Il codice di script del server si trova nella scheda **Script** di una specifica API personalizzata. Di seguito è riportato lo script che viene richiamato da una richiesta POST all'endpoint API personalizzata `CompleteAll`.
 
     ![2][3]
 
-    Le autorizzazioni di accesso ai metodi delle API personalizzate vengono assegnate nella scheda Autorizzazioni. Per informazioni su come è stata creata questa API personalizzata, vedere [Chiamata di un'API personalizzata dal client][].
+    Le autorizzazioni di accesso ai metodi delle API personalizzate vengono assegnate nella scheda Autorizzazioni. Per informazioni su come è stata creata questa API personalizzata, vedere [Chiamata di un'API personalizzata dal client][Chiamata di un'API personalizzata dal client].
 
--   Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato *`<custom_api>`*.js nella sottocartella .\\service\\api dell'archivio Git, dove *`<custom_api>`* è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione *esportata* per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][].
+-   Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato *`<custom_api>`*.js nella sottocartella .\\service\\api dell'archivio Git, dove *`<custom_api>`* è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione *esportata* per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
--   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][].
+-   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][Utilizzo dello strumento da riga di comando].
 
 ### <a name="handle-methods"></a>Procedura: Implementare metodi HTTP
 
@@ -319,7 +319,7 @@ L'endpoint API personalizzata non può essere chiamato utilizzando un metodo HTT
 
 ### <a name="api-return-xml"></a>Procedura: Inviare e ricevere dati come XML
 
-Quando i client archiviano e recuperano dati, Servizi mobili utilizza JavaScript Object Notation (JSON) per rappresentare i dati nel corpo del messaggio. In alcuni casi, tuttavia, è preferibile utilizzare un payload XML. Ad esempio, le app di Windows Store dispongono di una funzionalità di notifica periodica incorporata che richiede al servizio di generare codice XML. Per ulteriori informazioni, vedere [Definizione di un'API personalizzata che supporta le notifiche periodiche][].
+Quando i client archiviano e recuperano dati, Servizi mobili utilizza JavaScript Object Notation (JSON) per rappresentare i dati nel corpo del messaggio. In alcuni casi, tuttavia, è preferibile utilizzare un payload XML. Ad esempio, le app di Windows Store dispongono di una funzionalità di notifica periodica incorporata che richiede al servizio di generare codice XML. Per ulteriori informazioni, vedere [Definizione di un'API personalizzata che supporta le notifiche periodiche][Definizione di un'API personalizzata che supporta le notifiche periodiche].
 
 La funzione API personalizzata **OrderPizza** seguente restituisce un semplice documento XML come payload di risposta:
 
@@ -335,7 +335,7 @@ Questa funzione API personalizzata viene richiamata da una richiesta HTTP GET al
 
 ### <a name="get-api-user"></a>Procedura: Utilizzare utenti e intestazioni in un'API personalizzata
 
-In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][]. Quando un utente autenticato richiede un'API personalizzata, Servizi mobili utilizza l'[oggetto user][] per fornire informazioni sull'utente al codice dell'API personalizzata. L'[oggetto user][] è accessibile dalla proprietà user dell'[oggetto request][]. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente.
+In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili][Introduzione all'autenticazione in Servizi mobili]. Quando un utente autenticato richiede un'API personalizzata, Servizi mobili utilizza l'[oggetto user][oggetto user] per fornire informazioni sull'utente al codice dell'API personalizzata. L'[oggetto user][oggetto user] è accessibile dalla proprietà user dell'[oggetto request][oggetto request]. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente.
 
 Nella seguente funzione API personalizzata **OrderPizza** viene impostata la proprietà owner di un elemento in base alla proprietà userId di un utente autenticato:
 
@@ -355,7 +355,7 @@ Questa funzione API personalizzata viene richiamata da una richiesta HTTP POST a
 
         https://<service>.azure-mobile.net/api/orderpizza
 
-È anche possibile accedere a una specifica intestazione HTTP dall'[oggetto request][], come mostrato nel codice seguente:
+È anche possibile accedere a una specifica intestazione HTTP dall'[oggetto request][oggetto request], come mostrato nel codice seguente:
 
         exports.get = function(request, response) {    
             var header = request.header('my-custom-header');
@@ -371,7 +371,7 @@ Servizi mobili consente di definire più percorsi, o route, in un'API personaliz
 -   `https://<service>.azure-mobile.net/api/calculator/add`
 -   `https://<service>.azure-mobile.net/api/calculator/sub`
 
-Per definire più route viene esportata una funzione **register**, a cui viene passato un oggetto **api** (analogo all'[oggetto express in express.js][]) utilizzato per registrare route nell'endpoint API personalizzata. Nell'esempio seguente vengono implementati i metodi **add** e **sub** nell'API personalizzata **calculator**:
+Per definire più route viene esportata una funzione **register**, a cui viene passato un oggetto **api** (analogo all'[oggetto express in express.js][oggetto express in express.js]) utilizzato per registrare route nell'endpoint API personalizzata. Nell'esempio seguente vengono implementati i metodi **add** e **sub** nell'API personalizzata **calculator**:
 
         exports.register = function (api) {
             api.get('add', add);
@@ -402,9 +402,9 @@ Le due route nell'esempio di API personalizzata precedente possono essere richia
 
 ## <a name="scheduler-scripts"></a>Utilità di pianificazione processi
 
-Servizi mobili consente di definire script del server che vengono eseguiti come processi secondo una pianificazione fissa oppure su richiesta dal portale di gestione. I processi pianificati sono utili per eseguire attività periodiche, quali la pulizia della tabella dati e l'elaborazione batch. Per ulteriori informazioni, vedere [Pianificare i processi][].
+Servizi mobili consente di definire script del server che vengono eseguiti come processi secondo una pianificazione fissa oppure su richiesta dal portale di gestione. I processi pianificati sono utili per eseguire attività periodiche, quali la pulizia della tabella dati e l'elaborazione batch. Per ulteriori informazioni, vedere [Pianificare i processi][Pianificare i processi].
 
-Gli script registrati per i processi pianificati hanno una funzione principale il cui nome corrisponde a quello del processo pianificato. Poiché uno script pianificato non viene richiamato da una richiesta HTTP, non esiste un contesto che può essere passato dal runtime del server e la funzione non accetta parametri. Come per altri tipi di script, possono essere presenti funzioni di subroutine e possono essere richiesti moduli condivisi. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][].
+Gli script registrati per i processi pianificati hanno una funzione principale il cui nome corrisponde a quello del processo pianificato. Poiché uno script pianificato non viene richiamato da una richiesta HTTP, non esiste un contesto che può essere passato dal runtime del server e la funzione non accetta parametri. Come per altri tipi di script, possono essere presenti funzioni di subroutine e possono essere richiesti moduli condivisi. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Controllo del codice sorgente, codice condiviso e funzioni di supporto].
 
 ### <a name="scheduler-scripts"></a>Procedura: Definire script di processi pianificati
 
@@ -412,15 +412,15 @@ Gli script registrati per i processi pianificati hanno una funzione principale i
 
 Per definire processi pianificati è possibile procedere in uno dei modi seguenti:
 
--   Nel [portale di gestione di Azure][] nella scheda **Script** dell'utilità di pianificazione:
+-   Nel [portale di gestione di Azure][portale di gestione di Azure] nella scheda **Script** dell'utilità di pianificazione:
 
     ![3][4]
 
-    Per ulteriori informazioni a questo proposito, vedere [Pianificazione di processi back-end in Servizi mobili][].
+    Per ulteriori informazioni a questo proposito, vedere [Pianificazione di processi back-end in Servizi mobili][Pianificazione di processi back-end in Servizi mobili].
 
--   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][].
+-   Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando][Utilizzo dello strumento da riga di comando].
 
-> [WACOM.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\\service\\scheduler dell'archivio Git. Per altre informazioni, vedere [Procedura: Condividere il codice utilizzando il controllo del codice sorgente][].
+> [WACOM.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\\service\\scheduler dell'archivio Git. Per altre informazioni, vedere [Procedura: Condividere il codice utilizzando il controllo del codice sorgente][Procedura: Condividere il codice utilizzando il controllo del codice sorgente].
 
 ## <a name="shared-code"></a>Controllo del codice sorgente, codice condiviso e funzioni di supporto
 
@@ -428,12 +428,12 @@ Dato che Servizi mobili utilizza Node.js sul server, gli script dispongono già 
 
 Di seguito sono riportati solo alcuni dei moduli più utili che possono essere sfruttati negli script mediante la funzione **require** globale:
 
--   **azure**: espone la funzionalità di Azure SDK per Node.js. Per ulteriori informazioni, vedere [Azure SDK per Node.js][].
--   **crypto**: fornisce la funzionalità crittografica di OpenSSL. Per ulteriori informazioni, vedere la [documentazione di Node.js][].
+-   **azure**: espone la funzionalità di Azure SDK per Node.js. Per ulteriori informazioni, vedere [Azure SDK per Node.js][Azure SDK per Node.js].
+-   **crypto**: fornisce la funzionalità crittografica di OpenSSL. Per ulteriori informazioni, vedere la [documentazione di Node.js][documentazione di Node.js].
 -   **path**: contiene utilità per l'utilizzo dei percorsi di file. Per ulteriori informazioni, vedere la [documentazione di Node.js][5].
 -   **querystring**: contiene utilità per l'utilizzo delle stringhe di query. Per ulteriori informazioni, vedere la [documentazione di Node.js][6].
--   **request**: invia richieste HTTP a servizi REST esterni, ad esempio Twitter e Facebook. Per ulteriori informazioni, vedere [Inviare una richiesta HTTP][].
--   **sendgrid**: invia posta elettronica utilizzando il servizio di posta elettronica Sendgrid in Azure. Per ulteriori informazioni, vedere [Invio di posta elettronica da Servizi mobili con SendGrid][].
+-   **request**: invia richieste HTTP a servizi REST esterni, ad esempio Twitter e Facebook. Per ulteriori informazioni, vedere [Inviare una richiesta HTTP][Inviare una richiesta HTTP].
+-   **sendgrid**: invia posta elettronica utilizzando il servizio di posta elettronica Sendgrid in Azure. Per ulteriori informazioni, vedere [Invio di posta elettronica da Servizi mobili con SendGrid][Invio di posta elettronica da Servizi mobili con SendGrid].
 -   **url**: contiene utilità per l'analisi e la risoluzione degli URL. Per ulteriori informazioni, vedere la [documentazione di Node.js][7].
 -   **util**: contiene varie utilità, ad esempio la formattazione di stringhe e il controllo dei tipi di oggetto. Per ulteriori informazioni, vedere la [documentazione di Node.js][8].
 -   **zlib**: espone la funzionalità di compressione, ad esempio gzip e deflate. Per ulteriori informazioni, vedere la [documentazione di Node.js][9].
@@ -453,9 +453,9 @@ Servizi mobili espone un set di moduli che gli script possono caricare utilizzan
 
 È possibile utilizzare il controllo del codice sorgente con il gestore di pacchetti di Node.js (npm) per controllare quali moduli sono disponibili per il servizio mobile. A questo scopo è possibile procedere in due modi:
 
--   Per i moduli che vengono pubblicati in nmp e installati da npm, utilizzare il file package.json per dichiarare i pacchetti che devono essere installati dal servizio mobile. In questo modo, il servizio ha sempre accesso alla versione più recente dei pacchetti necessari. Il file package.json si trova nella directory `.\service`. Per ulteriori informazioni, vedere la pagina relativa al [supporto di package.json in Servizi mobili di Azure][].
+-   Per i moduli che vengono pubblicati in nmp e installati da npm, utilizzare il file package.json per dichiarare i pacchetti che devono essere installati dal servizio mobile. In questo modo, il servizio ha sempre accesso alla versione più recente dei pacchetti necessari. Il file package.json si trova nella directory `.\service`. Per ulteriori informazioni, vedere la pagina relativa al [supporto di package.json in Servizi mobili di Azure][supporto di package.json in Servizi mobili di Azure].
 
--   Per i moduli personalizzati o privati, è possibile usare npm per installare manualmente il modulo nella directory `.\service\node_modules` del controllo del codice sorgente. Per un esempio relativo al caricamento manuale di un modulo, vedere [Sfruttare il codice condiviso e i moduli Node.js negli script del server][].
+-   Per i moduli personalizzati o privati, è possibile usare npm per installare manualmente il modulo nella directory `.\service\node_modules` del controllo del codice sorgente. Per un esempio relativo al caricamento manuale di un modulo, vedere [Sfruttare il codice condiviso e i moduli Node.js negli script del server][Sfruttare il codice condiviso e i moduli Node.js negli script del server].
 
     > [WACOM.NOTE]Quando `node_modules` esiste già nella gerarchia di directory, NPM vi creerà la sottodirectory `\node-uuid` invece di creare una nuova directory `node_modules` nell'archivio. In questo caso è sufficiente eliminare la directory `node_modules` esistente.
 
@@ -503,15 +503,15 @@ Le funzioni di supporto possono anche essere definite una volta e condivise tra 
             }
         }
 
-In questo esempio è necessario passare sia un [oggetto tables][] che un [oggetto user][] alla funzione condivisa. Questo è dovuto al fatto che gli script condivisi non possono accedere all'[oggetto tables][] globale e l'[oggetto user][] esiste solo nel contesto di una richiesta.
+In questo esempio è necessario passare sia un [oggetto tables][oggetto tables] che un [oggetto user][oggetto user] alla funzione condivisa. Questo è dovuto al fatto che gli script condivisi non possono accedere all'[oggetto tables][oggetto tables] globale e l'[oggetto user][oggetto user] esiste solo nel contesto di una richiesta.
 
 I file di script vengono caricati nella directory condivisa utilizzando il [controllo del codice sorgente][Procedura: Condividere il codice utilizzando il controllo del codice sorgente] oppure lo [strumento da riga di comando][Utilizzo dello strumento da riga di comando].
 
 ### <a name="app-settings"></a>Procedura: Utilizzare le impostazioni app
 
-Servizi mobili consente di archiviare in modo sicuro valori come le impostazioni app, a cui è possibile accedere mediante gli script del server in fase di esecuzione. Quando si aggiungono dati alle impostazioni app del servizio mobile, le coppie nome/valore vengono archiviate crittografate e sono accessibili negli script del server senza impostarle come hardcoded nel file di script. Per altre informazioni, vedere [Impostazioni app][].
+Servizi mobili consente di archiviare in modo sicuro valori come le impostazioni app, a cui è possibile accedere mediante gli script del server in fase di esecuzione. Quando si aggiungono dati alle impostazioni app del servizio mobile, le coppie nome/valore vengono archiviate crittografate e sono accessibili negli script del server senza impostarle come hardcoded nel file di script. Per altre informazioni, vedere [Impostazioni app][Impostazioni app].
 
-Nell'esempio di API personalizzata riportato di seguito viene utilizzato l'[oggetto service][] fornito per recuperare un valore di impostazione app.
+Nell'esempio di API personalizzata riportato di seguito viene utilizzato l'[oggetto service][oggetto service] fornito per recuperare un valore di impostazione app.
 
         exports.get = function(request, response) {
         
@@ -535,7 +535,7 @@ Nel codice seguente viene utilizzato il modulo di configurazione per recuperare 
         var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
             accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-Si noti che questo codice recupera anche i valori delle chiavi consumer di Twitter archiviate nella scheda **Identità** del portale. Dato che un **oggetto config** non è disponibile negli script di operazioni su tabella e processi pianificati, è necessario richiedere che il modulo di configurazione acceda alle impostazioni app. Per un esempio completo, vedere [Pianificazione di processi back-end in Servizi mobili][].
+Si noti che questo codice recupera anche i valori delle chiavi consumer di Twitter archiviate nella scheda **Identità** del portale. Dato che un **oggetto config** non è disponibile negli script di operazioni su tabella e processi pianificati, è necessario richiedere che il modulo di configurazione acceda alle impostazioni app. Per un esempio completo, vedere [Pianificazione di processi back-end in Servizi mobili][Pianificazione di processi back-end in Servizi mobili].
 
 ## <a name="command-prompt"></a>Utilizzo dello strumento da riga di comando
 
@@ -578,30 +578,30 @@ Il comando seguente restituisce informazioni su ogni file di script mantenuto ne
         data:    register_notifications  application  application  user         application  application
         info:    mobile script list command OK
 
-Per ulteriori informazioni, vedere la descrizione dei [comandi per gestire Servizi mobili di Azure][].
+Per ulteriori informazioni, vedere la descrizione dei [comandi per gestire Servizi mobili di Azure][comandi per gestire Servizi mobili di Azure].
 
 ## <a name="working-with-tables"></a>Utilizzo delle tabelle
 
 Molti scenari in Servizi mobili richiedono script del server per accedere alle tabelle nel database. Ad esempio, dato che in Servizi mobili non viene conservato lo stato tra le esecuzioni di script, i dati che devono essere mantenuti tra le esecuzioni di script devono essere archiviati in tabelle. Può anche essere necessario esaminare le voci in una tabella di autorizzazioni o archiviare dati di controllo anziché scrivere semplicemente nel log, dove i dati hanno una durata limitata e non sono accessibili a livello di codice.
 
-Servizi mobili prevede due modi per accedere alle tabelle, ovvero utilizzando un proxy di [oggetto table][] oppure componendo query Transact-SQL mediante l'[oggetto mssql][]. L'[oggetto table][] semplifica l'accesso ai dati delle tabelle dal codice di script del server, ma l'[oggetto mssql][] supporta operazioni più complesse sui dati e offre una maggiore flessibilità.
+Servizi mobili prevede due modi per accedere alle tabelle, ovvero utilizzando un proxy di [oggetto table][oggetto table] oppure componendo query Transact-SQL mediante l'[oggetto mssql][oggetto mssql]. L'[oggetto table][oggetto table] semplifica l'accesso ai dati delle tabelle dal codice di script del server, ma l'[oggetto mssql][oggetto mssql] supporta operazioni più complesse sui dati e offre una maggiore flessibilità.
 
 ### <a name="access-tables"></a>Procedura: Accedere alle tabelle dagli script
 
-Il modo più semplice per accedere alle tabelle da script consiste nell'utilizzo dell'[oggetto tables][]. La funzione **getTable** restituisce un'istanza dell'[oggetto table][] che è un proxy per accedere alla tabella richiesta. È quindi possibile chiamare funzioni sul proxy per accedere ai dati e modificarli.
+Il modo più semplice per accedere alle tabelle da script consiste nell'utilizzo dell'[oggetto tables][oggetto tables]. La funzione **getTable** restituisce un'istanza dell'[oggetto table][oggetto table] che è un proxy per accedere alla tabella richiesta. È quindi possibile chiamare funzioni sul proxy per accedere ai dati e modificarli.
 
-Gli script registrati in operazioni su tabelle e processi pianificati possono accedere all'[oggetto tables][] come oggetto globale. Questa riga di codice ottiene un proxy per la tabella *TodoItems* dall'[oggetto tables][] globale:
+Gli script registrati in operazioni su tabelle e processi pianificati possono accedere all'[oggetto tables][oggetto tables] come oggetto globale. Questa riga di codice ottiene un proxy per la tabella *TodoItems* dall'[oggetto tables][oggetto tables] globale:
 
         var todoItemsTable = tables.getTable('TodoItems');
 
-Gli script di API personalizzate possono accedere all'[oggetto tables][] dalla proprietà **service** dell'[oggetto request][] fornito. Questa riga di codice ottiene l'[oggetto tables][] dalla richiesta:
+Gli script di API personalizzate possono accedere all'[oggetto tables][oggetto tables] dalla proprietà **service** dell'[oggetto request][oggetto request] fornito. Questa riga di codice ottiene l'[oggetto tables][oggetto tables] dalla richiesta:
 
         var todoItemsTable = request.service.tables.getTable('TodoItem');
 
 <div class="dev-callout"><strong>Nota</strong>
 <p>Le funzioni condivise non possono accedere direttamente all'oggetto <strong>tables</strong>. In una funzione condivisa &egrave; necessario passare l'oggetto tables alla funzione.</p></div>
 
-Quando è disponibile un [oggetto table][], è possibile chiamare una o più funzioni di operazioni su tabella: insert, update, delete o read. In questo esempio vengono lette le autorizzazioni utente da una tabella di autorizzazioni:
+Quando è disponibile un [oggetto table][oggetto table], è possibile chiamare una o più funzioni di operazioni su tabella: insert, update, delete o read. In questo esempio vengono lette le autorizzazioni utente da una tabella di autorizzazioni:
 
     function insert(item, user, request) {
         var permissionsTable = tables.getTable('permissions');
@@ -692,7 +692,7 @@ Lo script seguente consente di impostare la dimensione di un batch di record da 
         
         insertItems(); 
 
-L'intero esempio di codice, con la discussione associata, è disponibile in questo [post di blog][]. Se si utilizza questo codice, è possibile adattarlo alla propria situazione specifica e testarlo accuratamente.
+L'intero esempio di codice, con la discussione associata, è disponibile in questo [post di blog][post di blog]. Se si utilizza questo codice, è possibile adattarlo alla propria situazione specifica e testarlo accuratamente.
 
 ### <a name="JSON-types"></a>Procedura: Mappare tipi JSON a tipi di database
 
@@ -700,13 +700,13 @@ Le raccolte di tipi di dati nel client e nella tabella di database di Servizi mo
 
 -   I tipi specifici del linguaggio del client vengono serializzati in JSON.
 -   La rappresentazione JSON viene tradotta in JavaScript prima di comparire negli script del server.
--   I tipi di dati JavaScript vengono convertiti in tipi di database SQL quando vengono salvati utilizzando l'[oggetto tables][].
+-   I tipi di dati JavaScript vengono convertiti in tipi di database SQL quando vengono salvati utilizzando l'[oggetto tables][oggetto tables].
 
 La trasformazione da schema client a JSON varia nelle diverse piattaforme. JSON.NET è utilizzato in Windows Store e nei client Windows Phone. Il client Android utilizza la libreria gson. Il client iOS utilizza la classe NSJSONSerialization. Viene utilizzato il comportamento di serializzazione predefinito di ognuna di queste librerie, tranne per il fatto che gli oggetti date vengono convertiti in stringhe JSON che contengono la data codificata utilizzando ISO 8601.
 
-Quando si scrivono script del server che utilizzano le funzioni [insert][Insert], [update][Update], [read][Read] o [delete][Delete], è possibile accedere alla rappresentazione JavaScript dei dati. Servizi mobili utilizza [JSON.parse][], la funzione di deserializzazione di Node.js, per trasformare le stringhe JSON in oggetti JavaScript. Servizi mobili esegue invece una trasformazione per estrarre gli oggetti **Date** dalle stringhe ISO 8601.
+Quando si scrivono script del server che utilizzano le funzioni [insert][Insert], [update][Update], [read][Read] o [delete][Delete], è possibile accedere alla rappresentazione JavaScript dei dati. Servizi mobili utilizza [JSON.parse][JSON.parse], la funzione di deserializzazione di Node.js, per trasformare le stringhe JSON in oggetti JavaScript. Servizi mobili esegue invece una trasformazione per estrarre gli oggetti **Date** dalle stringhe ISO 8601.
 
-Quando si utilizza l'[oggetto tables][] o l'[oggetto mssql][] o si consente semplicemente l'esecuzione degli script tabella, gli oggetti JavaScript deserializzati vengono inseriti nel database SQL. In tale processo, le proprietà dell'oggetto vengono mappate ai tipi T-SQL:
+Quando si utilizza l'[oggetto tables][oggetto tables] o l'[oggetto mssql][oggetto mssql] o si consente semplicemente l'esecuzione degli script tabella, gli oggetti JavaScript deserializzati vengono inseriti nel database SQL. In tale processo, le proprietà dell'oggetto vengono mappate ai tipi T-SQL:
 
 |----------------------|-------------------|
 | Proprietà JavaScript | Tipo T-SQL        |
@@ -721,7 +721,7 @@ Quando si utilizza l'[oggetto tables][] o l'[oggetto mssql][] o si consente semp
 
 ### <a name="TSQL"></a>Utilizzo di Transact-SQL per accedere alle tabelle
 
-Il modo più semplice per utilizzare i dati di tabella dagli script del server consiste nell'utilizzo di un proxy dell'[oggetto table][]. Alcuni scenari più avanzati, tuttavia, non sono supportati dall'[oggetto table][], ad esempio le query di tipo join e altre query complesse e il richiamo di stored procedure. In questi casi è necessario eseguire le istruzioni Transact-SQL direttamente sulla tabella relazionale utilizzando l'[oggetto mssql][]. Questo oggetto fornisce le funzioni seguenti:
+Il modo più semplice per utilizzare i dati di tabella dagli script del server consiste nell'utilizzo di un proxy dell'[oggetto table][oggetto table]. Alcuni scenari più avanzati, tuttavia, non sono supportati dall'[oggetto table][oggetto table], ad esempio le query di tipo join e altre query complesse e il richiamo di stored procedure. In questi casi è necessario eseguire le istruzioni Transact-SQL direttamente sulla tabella relazionale utilizzando l'[oggetto mssql][oggetto mssql]. Questo oggetto fornisce le funzioni seguenti:
 
 -   **query**: esegue una query, specificata da una stringa TSQL e i risultati vengono restituiti al callback **success** sull'oggetto **options**. La query può includere parametri se è presente il parametro *params*.
 -   **queryRaw**: come *query* tranne per il fatto che il set di risultati restituito dalla query è in formato "non elaborato" (vedere l'esempio riportato di seguito).
@@ -729,11 +729,11 @@ Il modo più semplice per utilizzare i dati di tabella dagli script del server c
 
 Questi metodi offrono un controllo di livello progressivamente più basso sull'elaborazione della query.
 
--   [Procedura: Eseguire una query statica][]
--   [Procedura: Eseguire una query dinamica][]
--   [Procedura: Creare un join tra tabelle relazionali][]
--   [Procedura: Eseguire una query che restituisce risultati *non elaborati*][]
--   [Procedura: Ottenere l'accesso a una connessione di database][]
+-   [Procedura: Eseguire una query statica][Procedura: Eseguire una query statica]
+-   [Procedura: Eseguire una query dinamica][Procedura: Eseguire una query dinamica]
+-   [Procedura: Creare un join tra tabelle relazionali][Procedura: Creare un join tra tabelle relazionali]
+-   [Procedura: Eseguire una query che restituisce risultati *non elaborati*][Procedura: Eseguire una query che restituisce risultati *non elaborati*]
+-   [Procedura: Ottenere l'accesso a una connessione di database][Procedura: Ottenere l'accesso a una connessione di database]
 
 #### <a name="static-query"></a>Procedura: Eseguire una query statica
 
@@ -770,7 +770,7 @@ Nell'esempio seguente viene implementata l'autorizzazione personalizzata leggend
 
 #### <a name="joins"></a>Procedura: Creare un join tra tabelle relazionali
 
-È possibile creare un join tra due tabelle utilizzando il metodo **query** dell'[oggetto mssql][] per passare il codice TSQL che implementa il join. Si supponga che nella tabella **ToDoItem** siano presenti alcuni elementi e che ognuno di essi contenga una proprietà **priority**, che corrisponde a una colonna nella tabella. Un elemento può essere analogo al seguente:
+È possibile creare un join tra due tabelle utilizzando il metodo **query** dell'[oggetto mssql][oggetto mssql] per passare il codice TSQL che implementa il join. Si supponga che nella tabella **ToDoItem** siano presenti alcuni elementi e che ognuno di essi contenga una proprietà **priority**, che corrisponde a una colonna nella tabella. Un elemento può essere analogo al seguente:
 
         { text: 'Take out the trash', complete: false, priority: 1}
 
@@ -856,12 +856,12 @@ Il modo principale per eseguire il debug e risolvere i problemi relativi agli sc
 
 ### <a name="write-to-logs"></a>Procedura: Scrivere l'output nei log del servizio mobile
 
-Per scrivere nei log, utilizzare l'[oggetto console][] globale. Utilizzare la funzione **log** o **info** per registrare avvisi a livello di informazioni. Le funzioni **warning** e **error** registrano i rispettivi livelli, che sono descritti nei log.
+Per scrivere nei log, utilizzare l'[oggetto console][oggetto console] globale. Utilizzare la funzione **log** o **info** per registrare avvisi a livello di informazioni. Le funzioni **warning** e **error** registrano i rispettivi livelli, che sono descritti nei log.
 
 <div class="dev-callout"><strong>Nota</strong>
 <p>Per visualizzare i log per il proprio servizio mobile, accedere al <a href="https://manage.windowsazure.com/">portale di gestione</a>, selezionare il servizio mobile, quindi scegliere la scheda <strong>Log</strong>.</p></div>
 
-È anche possibile utilizzare la funzione di registrazione dell'[oggetto console][] per formattare i messaggi mediante parametri. Nell'esempio seguente un oggetto JSON viene fornito come parametro alla stringa del messaggio:
+È anche possibile utilizzare la funzione di registrazione dell'[oggetto console][oggetto console] per formattare i messaggi mediante parametri. Nell'esempio seguente un oggetto JSON viene fornito come parametro alla stringa del messaggio:
 
     function insert(item, user, request) {
         console.log("Inserting item '%j' for user '%j'.", item, user);  
@@ -874,8 +874,6 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-how-to-use-server-scripts/ "JavaScript backend"
   [Introduzione]: #intro
   [Operazioni su tabella]: #table-scripts
   [Procedura: Eseguire la registrazione per le operazioni su tabelle]: #register-table-scripts
@@ -953,6 +951,5 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
   [Procedura: Eseguire una query statica]: #static-query
   [Procedura: Eseguire una query dinamica]: #dynamic-query
   [Procedura: Creare un join tra tabelle relazionali]: #joins
-  [Procedura: Eseguire una query che restituisce risultati *non elaborati*]: #raw
   [Procedura: Ottenere l'accesso a una connessione di database]: #connection
   [oggetto console]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554209.aspx

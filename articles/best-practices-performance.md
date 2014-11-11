@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Procedure consigliate per le prestazioni nelle applicazioni Azure
 
@@ -348,7 +348,6 @@ Altre risorse
   [Come eseguire il partizionamento orizzontale con Database SQL]: http://go.microsoft.com/fwlink/?LinkId=252678
   [Libreria di partizionamento orizzontale di SQL Server e Database SQL]: http://go.microsoft.com/fwlink/?LinkId=252679
   [Introduzione del servizio di memorizzazione nella cache di Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [considerazioni relative alle prestazioni del servizio Cache di \#Azure]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni]: http://go.microsoft.com/fwlink/?LinkId=252682
   [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata di Service Bus]: http://go.microsoft.com/fwlink/?LinkID=252683
   [Big Data]: /it-it/solutions/big-data/
@@ -357,7 +356,6 @@ Altre risorse
   [Acquisire familiarità con NoSQL in Azure]: http://go.microsoft.com/fwlink/?LinkId=252729
   [Database orientato alle aggregazioni]: http://go.microsoft.com/fwlink/?LinkID=252731
   [Persistenza poliglotta]: http://go.microsoft.com/fwlink/?LinkId=252732
-  [Linee guida sulle prestazioni del Servizio di controllo di accesso (ACS)]: http://go.microsoft.com/fwlink/?LinkId=252747
   [Applicazioni Web di Azure e serializzazione]: http://go.microsoft.com/fwlink/?LinkId=252749
   []: http://go.microsoft.com/fwlink/?LinkId=252775
   [1]: http://go.microsoft.com/fwlink/?LinkId=252776

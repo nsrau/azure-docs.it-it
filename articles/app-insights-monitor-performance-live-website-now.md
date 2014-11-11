@@ -1,6 +1,6 @@
 <properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 <!-- Required end of Sprint 69 - AUX48 -->
 
@@ -35,7 +35,7 @@ Se si vogliono inserire le tracce di registrazione o diagnostiche, non procedere
 2.  Assicurarsi che sia installata la versione 5.0 o successiva di [Installazione guidata piattaforma Web][Installazione guidata piattaforma Web].
 3.  Installare l'agente di Application Insights tramite Installazione guidata piattaforma Web.
 
-    ![][]
+    ![][0]
 
 4.  Nell'Installazione guidata accedere a Microsoft Azure.
 
@@ -104,7 +104,7 @@ I dati sono visualizzati in Integrità applicazione.
 
   [account Microsoft Azure]: http://azure.com
   [Installazione guidata piattaforma Web]: http://www.microsoft.com/web/downloads/platform.aspx
-  []: ./media/appinsights/appinsights-031-wpi.png
+  [0]: ./media/appinsights/appinsights-031-wpi.png
   [1]: ./media/appinsights/appinsights-035-signin.png
   [2]: ./media/appinsights/appinsights-036-configAIC.png
   [test Web]: ../app-insights-monitor-web-app-availability/

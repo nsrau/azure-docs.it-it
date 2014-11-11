@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-html" urlDisplayName="Validate Data - HTML5" pageTitle="User server scripts to validate and modify data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Convalida e modifica dei dati in Servizi mobili mediante script del server
 
@@ -12,20 +12,20 @@ In questo argomento viene illustrato come utilizzare gli script del server in Se
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Aggiunta della convalida della lunghezza della stringa][]
-2.  [Aggiornamento del client per il supporto della convalida][]
-3.  [Aggiunta di un timestamp all'inserimento][]
-4.  [Aggiornamento del client per la visualizzazione del timestamp][]
+1.  [Aggiunta della convalida della lunghezza della stringa][Aggiunta della convalida della lunghezza della stringa]
+2.  [Aggiornamento del client per il supporto della convalida][Aggiornamento del client per il supporto della convalida]
+3.  [Aggiunta di un timestamp all'inserimento][Aggiunta di un timestamp all'inserimento]
+4.  [Aggiornamento del client per la visualizzazione del timestamp][Aggiornamento del client per la visualizzazione del timestamp]
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][Introduzione ai dati].
 
 ## <a name="string-length-validation"></a>Aggiunta della convalida
 
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -57,7 +57,7 @@ Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell
 
 Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario aggiornare l'app .NET affinché sia in grado di gestire le risposte di errore dalla convalida.
 
-1.  Eseguire uno dei seguenti file di comando dalla sottocartella **server** del progetto modificato al termine dell'esercitazione [Introduzione ai dati][].
+1.  Eseguire uno dei seguenti file di comando dalla sottocartella **server** del progetto modificato al termine dell'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
     -   **launch-windows** (computer Windows)
     -   **launch-mac.command** (computer Mac OS X)
@@ -186,27 +186,19 @@ L'esercitazione relativa all'utilizzo dei dati è stata completata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][].
+Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query].
 
-Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili][] e [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript][]
+Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili][Utilizzo degli script del server in Servizi mobili] e [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript][Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
+
   [Aggiunta della convalida della lunghezza della stringa]: #string-length-validation
   [Aggiornamento del client per il supporto della convalida]: #update-client-validation
   [Aggiunta di un timestamp all'inserimento]: #add-timestamp
   [Aggiornamento del client per la visualizzazione del timestamp]: #update-client-timestamp
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-html
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Utilizzo del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-html

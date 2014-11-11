@@ -240,9 +240,6 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 - [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight]
 - [Sviluppare programmi MapReduce Java per HDInsight][Sviluppare programmi MapReduce Java per HDInsight]
 
-  [Hadoop 2.2]: ../hdinsight-get-started "Get started using Hadoop 2.2 in HDInsight"
-  [Hadoop 2.4]: ../hdinsight-get-started-31 "Get started using Hadoop 2.4 in HDInsight"
-  [Hadoop 1.2]: ../hdinsight-get-started-21 "Get started using Hadoop 1.2 in HDInsight"
   [Apache Hadoop]: http://hadoop.apache.org/
   [Novità delle versioni cluster incluse in HDInsight]: ../hdinsight-component-versioning/
   [Introduzione a HDInsight Emulator]: ../hdinsight-get-started-emulator/

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Come utilizzare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -10,11 +10,11 @@ scenari presentati includono **creazione di argomenti e sottoscrizioni,
 creazione di filtri per le sottoscrizioni, invio di messaggi a un argomento**, **ricezione
 di messaggi da una sottoscrizione** ed **eliminazione di argomenti e
 sottoscrizioni**. Per altre informazioni su argomenti e sottoscrizioni, vedere
-la sezione [Passaggi successivi][]. </span>
+la sezione [Passaggi successivi][Passaggi successivi]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">Configurazione dell'applicazione</span>Configurazione dell'applicazione per l'utilizzo del bus di servizio
 
@@ -40,7 +40,7 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
     Service Bus**. Fare clic su **Installa** per completare l'installazione,
     quindi chiudere questa finestra di dialogo.
 
-    ![][]
+    ![][0]
 
 È ora possibile scrivere codice per il bus di servizio.
 
@@ -188,7 +188,7 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è
 **SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono
 sulle proprietà dei messaggi pubblicati nell'argomento. Per
 ulteriori dettagli sulle espressioni che è possibile usare con un filtro SQL,
-esaminare la sintassi di [SqlFilter.SqlExpression][].
+esaminare la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Nell'esempio seguente viene creata una sottoscrizione denominata "HighMessages" con un filtro
 **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata
@@ -386,17 +386,16 @@ illustra come eliminare una sottoscrizione denominata
 A questo punto, dopo aver appreso le nozioni di base relative agli argomenti e alle sottoscrizioni del bus di servizio,
 utilizzare i collegamenti seguenti per ulteriori informazioni.
 
--   Riferimento in MSDN: [Code, argomenti e sottoscrizioni][]
--   Riferimento sulle API per [SqlFilter][]
+-   Riferimento in MSDN: [Code, argomenti e sottoscrizioni][Code, argomenti e sottoscrizioni]
+-   Riferimento sulle API per [SqlFilter][SqlFilter]
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso
     e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata
-    di Service Bus - .NET][].
+    di Service Bus - .NET][Esercitazione sulla messaggistica negoziata
+    di Service Bus - .NET].
 
   [Passaggi successivi]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/it-it/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Esercitazione sulla messaggistica negoziata
-  di Service Bus - .NET]: http://msdn.microsoft.com/it-it/library/hh367512.aspx

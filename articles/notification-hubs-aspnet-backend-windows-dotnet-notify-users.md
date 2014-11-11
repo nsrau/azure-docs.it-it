@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Hub di notifica di Azure - Notifiche agli utenti
 
@@ -20,7 +20,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 Prima di iniziare questa esercitazione, è necessario riservare un nome di applicazione, creare un hub di notifica di Azure e collegarlo all'applicazione. Eseguire i passaggi indicati in [Introduzione ad Hub di notifica (Windows Store)][Introduzione ad Hub di notifica (Windows Store)], con particolare riferimento alle sezioni [Registrazione dell'app di Windows Store][Registrazione dell'app di Windows Store] e [Configurazione dell'hub di notifica][Configurazione dell'hub di notifica]. In particolare, assicurarsi di avere immesso i valori **SID pacchetto** e **Chiave privata client** nel portale, nella scheda **Configura** per l'hub di notifica. Questa procedura di configurazione è descritta nella sezione [Configurazione dell'hub di notifica][Configurazione dell'hub di notifica]. Questo passaggio è importante: se le credenziali sul portale non corrispondono a quelle specificate per il nome di app scelto, la notifica push non riuscirà.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Creare il progetto dell'app per Windows Phone
 
@@ -30,7 +30,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Windows P
 
 2.  Espandere **Applicazioni Windows Store**, fare clic su **Applicazioni Windows Phone** e quindi su **Applicazione vuota (Windows Phone)**.
 
-    ![][]
+    ![][0]
 
 3.  Nella casella **Nome** digitare **NotifyUserWindowsPhone**, quindi fare clic su **OK** per generare il progetto.
 
@@ -236,15 +236,11 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4.  Nell'interfaccia utente dell'app **NotifyUserWindowsPhone** fare clic su **Esegui accesso e registrazione**. Fare clic su **Invia notifica push**.
 
-  [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /it-it/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Registrazione dal back-end dell'app]: http://msdn.microsoft.com/it-it/library/dn743807.aspx
-  [Introduzione ad Hub di notifica (Windows Store)]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Registrazione dell'app di Windows Store]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [Configurazione dell'hub di notifica]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
   [Windows Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409

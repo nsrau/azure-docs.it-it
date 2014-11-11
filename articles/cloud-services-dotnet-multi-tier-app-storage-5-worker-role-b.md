@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service - 5 di 5
 
-Questa è la quinta di una serie di cinque esercitazioni in cui viene illustrato come creare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][].
+Questa è la quinta di una serie di cinque esercitazioni in cui viene illustrato come creare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][prima esercitazione della serie].
 
 In questa esercitazione si apprenderà come:
 
@@ -16,23 +16,23 @@ In questa esercitazione si apprenderà come:
 
 ## Segmenti dell'esercitazione
 
--   [Aggiunta del progetto del ruolo di lavoro B alla soluzione][]
--   [Aggiunta di un riferimento al progetto Web][]
--   [Aggiunta del pacchetto NuGet di SendGrid al progetto][]
--   [Aggiunta delle impostazioni del progetto][]
--   [Aggiunta del codice da eseguire all'avvio del ruolo di lavoro][]
--   [Test del ruolo di lavoro B][]
--   [Passaggi successivi][]
+-   [Aggiunta del progetto del ruolo di lavoro B alla soluzione][Aggiunta del progetto del ruolo di lavoro B alla soluzione]
+-   [Aggiunta di un riferimento al progetto Web][Aggiunta di un riferimento al progetto Web]
+-   [Aggiunta del pacchetto NuGet di SendGrid al progetto][Aggiunta del pacchetto NuGet di SendGrid al progetto]
+-   [Aggiunta delle impostazioni del progetto][Aggiunta delle impostazioni del progetto]
+-   [Aggiunta del codice da eseguire all'avvio del ruolo di lavoro][Aggiunta del codice da eseguire all'avvio del ruolo di lavoro]
+-   [Test del ruolo di lavoro B][Test del ruolo di lavoro B]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="addworkerrole"></a><span class="short-header">Aggiunta del ruolo di lavoro B</span>Aggiunta del progetto del ruolo di lavoro B alla soluzione
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di servizio cloud, quindi scegliere **Nuovo progetto di ruolo di lavoro**.
 
-    ![Menu Nuovo progetto di ruolo di lavoro][]
+    ![Menu Nuovo progetto di ruolo di lavoro][Menu Nuovo progetto di ruolo di lavoro]
 
 2.  Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** selezionare **C#**, quindi selezionare **Ruolo di lavoro**, denominare il progetto WorkerRoleB e fare clic su **Aggiungi**.
 
-    ![Finestra di dialogo Nuovo progetto di ruolo][]
+    ![Finestra di dialogo Nuovo progetto di ruolo][Finestra di dialogo Nuovo progetto di ruolo]
 
 ## <a name="addreference"></a>Aggiunta di un riferimento al progetto Web
 
@@ -42,7 +42,7 @@ Poiché le classi di entità vengono definite nel progetto Web, è necessario ag
 
 2.  In **Gestione riferimenti** aggiungere un riferimento al progetto MvcWebRole.
 
-    ![Aggiunta di un riferimento a MvcWebRole][]
+    ![Aggiunta di un riferimento a MvcWebRole][Aggiunta di un riferimento a MvcWebRole]
 
 ## <a name="addsendgrid"></a>Aggiunta del pacchetto NuGet di SendGrid al progetto
 
@@ -50,13 +50,13 @@ Per inviare la posta elettronica tramite SendGrid è necessario installare il pa
 
 1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto WorkerRoleB e scegliere **Manage NuGet Packages**.
 
-    ![Manage NuGet Packages][]
+    ![Manage NuGet Packages][Manage NuGet Packages]
 
 2.  Nella finestra di dialogo **Manage NuGet Packages** selezionare la scheda **Online**, immettere "sendgrid" nella casella di ricerca e quindi premere Invio.
 
 3.  Fare clic su **Installa** sul pacchetto **SendGrid**.
 
-    ![Installazione del pacchetto SendGrid][]
+    ![Installazione del pacchetto SendGrid][Installazione del pacchetto SendGrid]
 
 4.  Chiudere la finestra di dialogo.
 
@@ -64,7 +64,7 @@ Per inviare la posta elettronica tramite SendGrid è necessario installare il pa
 
 Come per il ruolo di lavoro A, affinché sia possibile utilizzare il ruolo di lavoro B con tabelle, code e blob sono necessarie le credenziali dell'account di archiviazione. Inoltre, per poter inviare la posta elettronica, è necessario che al ruolo di lavoro siano associate le credenziali da incorporare nelle chiamate al servizio SendGrid. Infine, allo scopo di creare un collegamento di annullamento della sottoscrizione da includere nei messaggi di posta elettronica inviati, è necessario che il ruolo di lavoro conosca l'URL dell'applicazione. Questi valori sono archiviati nelle impostazioni del progetto.
 
-Per ottenere le credenziali dell'account di archiviazione la procedura è analoga a quella appresa nella [terza esercitazione][].
+Per ottenere le credenziali dell'account di archiviazione la procedura è analoga a quella appresa nella [terza esercitazione][terza esercitazione].
 
 1.  In **Esplora soluzioni**, nella sezione **Ruoli** del progetto cloud, fare clic con il pulsante destro del mouse su **WorkerRoleB** e scegliere **Proprietà**.
 
@@ -86,13 +86,13 @@ Quindi, creare e configurare le tre nuove impostazioni utilizzate solo dal ruolo
 
 1.  Nella scheda **Settings** della finestra **Properties** fare clic su **Add Setting**, quindi aggiungere tre nuove impostazioni di tipo **String**:
 
-    -   **Name**: SendGridUserName, **Value**: il nome utente di SendGrid stabilito nella [seconda esercitazione][].
+    -   **Name**: SendGridUserName, **Value**: il nome utente di SendGrid stabilito nella [seconda esercitazione][seconda esercitazione].
 
     -   **Name**: SendGridPassword, **Value**: la password di SendGrid.
 
     -   **Name**: AzureMailServiceURL, **Value**: l'URL di base dell'applicazione al momento della distribuzione; ad esempio: <http://sampleurl.cloudapp.net>.
 
-    ![Nuove impostazioni nel progetto WorkerRoleB][]
+    ![Nuove impostazioni nel progetto WorkerRoleB][Nuove impostazioni nel progetto WorkerRoleB]
 
 ## <a name="addcode"></a>Aggiunta del codice da eseguire all'avvio del ruolo di lavoro
 
@@ -233,13 +233,13 @@ Se non vi sono elementi in attesa in nessuna coda, il codice resta inattivo per 
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-Lo scopo della sospensione è quello di ridurre al minimo i costi delle transazioni di archiviazione Azure, come illustrato nell'[esercitazione precedente][].
+Lo scopo della sospensione è quello di ridurre al minimo i costi delle transazioni di archiviazione Azure, come illustrato nell'[esercitazione precedente][esercitazione precedente].
 
-Quando un elemento della coda viene estratto tramite il metodo [GetMessage][] diverrà visibile per 30 secondi a tutti gli altri ruoli lavoro e Web che accedono alla coda. È in questo modo che è possibile assicurarsi che solo un'istanza del ruolo di lavoro selezioni eventuali messaggi in coda per elaborarli. È possibile impostare esplicitamente questo intervallo di *exclusive lease* (la durata per cui l'elemento della coda è invisibile) passando un parametro di [timeout di visibilità][] al metodo `GetMessage`. Se il ruolo di lavoro impiega oltre 30 secondi per elaborare un messaggio della coda, sarà opportuno aumentare l'intervallo di lease esclusivo allo scopo di impedire l'elaborazione dello stesso messaggio da parte di altre istanze del ruolo.
+Quando un elemento della coda viene estratto tramite il metodo [GetMessage][GetMessage] diverrà visibile per 30 secondi a tutti gli altri ruoli lavoro e Web che accedono alla coda. È in questo modo che è possibile assicurarsi che solo un'istanza del ruolo di lavoro selezioni eventuali messaggi in coda per elaborarli. È possibile impostare esplicitamente questo intervallo di *exclusive lease* (la durata per cui l'elemento della coda è invisibile) passando un parametro di [timeout di visibilità][timeout di visibilità] al metodo `GetMessage`. Se il ruolo di lavoro impiega oltre 30 secondi per elaborare un messaggio della coda, sarà opportuno aumentare l'intervallo di lease esclusivo allo scopo di impedire l'elaborazione dello stesso messaggio da parte di altre istanze del ruolo.
 
 D'altro canto, non è consigliabile impostare l'intervallo di lease esclusivo su un valore eccessivamente lungo. Ad esempio, se si imposta questo intervallo su 48 ore e il ruolo di lavoro si arresta in maniera imprevista dopo aver rimosso un messaggio dalla coda, un altro ruolo di lavoro non sarà in grado di elaborare il messaggio per 48 ore. La durata massima dell'intervallo di lease esclusivo è di 7 giorni.
 
-Il metodo [GetMessages][] (notare la "s" alla fine del nome) è utile per estrarre fino a 32 messaggi dalla coda con una sola chiamata. Ogni accesso alla coda implica un costo della transazione contenuto, che rimane invariato qualora vengano restituiti 32 messaggi o zero messaggi. Il codice seguente recupera fino a 32 messaggi con una sola chiamata e quindi li elabora.
+Il metodo [GetMessages][GetMessages] (notare la "s" alla fine del nome) è utile per estrarre fino a 32 messaggi dalla coda con una sola chiamata. Ogni accesso alla coda implica un costo della transazione contenuto, che rimane invariato qualora vengano restituiti 32 messaggi o zero messaggi. Il codice seguente recupera fino a 32 messaggi con una sola chiamata e quindi li elabora.
 
         foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
         {
@@ -401,7 +401,7 @@ Infine, se tutte le altre operazioni hanno avuto esito positivo, il messaggio in
 
 L'operazione effettiva di invio del messaggio di posta elettronica tramite SendGrid viene eseguita dal metodo `SendEmailToList`. Se si desidera utilizzare un servizio diverso da SendGrid, sarà sufficiente modificare il codice in questo metodo.
 
-**Nota:** Se nelle impostazioni del progetto sono presenti credenziali non valide, la chiamata a SendGrid non riuscirà, ma l'applicazione non riceverà alcuna indicazione dell'esito negativo. Se si utilizza SendGrid in un'applicazione di produzione, si consideri la configurazione di credenziali separate per l'API Web in modo da evitare la produzione di errori non segnalati quando un amministratore cambia la password del proprio account SendGrid. Per ulteriori informazioni, vedere l'articolo relativo alle [credenziali per più account di SendGrid MultiAuth][]. È possibile configurare le credenziali all'indirizzo [][]<https://sendgrid.com/credentials></a>.
+**Nota:** Se nelle impostazioni del progetto sono presenti credenziali non valide, la chiamata a SendGrid non riuscirà, ma l'applicazione non riceverà alcuna indicazione dell'esito negativo. Se si utilizza SendGrid in un'applicazione di produzione, si consideri la configurazione di credenziali separate per l'API Web in modo da evitare la produzione di errori non segnalati quando un amministratore cambia la password del proprio account SendGrid. Per ulteriori informazioni, vedere l'articolo relativo alle [credenziali per più account di SendGrid MultiAuth][credenziali per più account di SendGrid MultiAuth]. È possibile configurare le credenziali all'indirizzo [][]<https://sendgrid.com/credentials></a>.
 
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
@@ -516,51 +516,51 @@ Proprio come per l'invio di messaggi di posta elettronica a elenchi, l'invio eff
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-È stata creata l'applicazione Azure Email Service da zero e il risultato ottenuto è identico al progetto completato che è stato scaricato. Per eseguire la distribuzione sul cloud, il test nel cloud e promuoverla alla produzione, è possibile utilizzare le stesse procedure illustrate nella [seconda esercitazione][].
+È stata creata l'applicazione Azure Email Service da zero e il risultato ottenuto è identico al progetto completato che è stato scaricato. Per eseguire la distribuzione sul cloud, il test nel cloud e promuoverla alla produzione, è possibile utilizzare le stesse procedure illustrate nella [seconda esercitazione][seconda esercitazione].
 
-Per un'applicazione di esempio che mostra come usare LINQ nelle query del servizio Tabella di Archiviazione di Azure, vedere [PhluffyFotos][].
+Per un'applicazione di esempio che mostra come usare LINQ nelle query del servizio Tabella di Archiviazione di Azure, vedere [PhluffyFotos][PhluffyFotos].
 
 Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
--   [Articolo sulle][]nozioni fondamentali dell'Archiviazione di Microsoft Azure sul blog di Bruno Terkaly
+-   [Articolo sulle][Articolo sulle]nozioni fondamentali dell'Archiviazione di Microsoft Azure sul blog di Bruno Terkaly
 
 Per ulteriori informazioni sul servizio tabelle di Azure, vedere le risorse seguenti:
 
 -   [Articolo sulle][1]nozioni fondamentali sull'archiviazione tabelle di Azure nel blog di Bruno Terkaly
--   [Articolo su][]come ottenere il massimo dalle tabelle di Microsoft Azure nel blog del team di Servizio di archiviazione di Azure
--   [Articolo su come utilizzare il servizio di archiviazione tabelle in .NET][]
--   [Articolo di][]approfondimento sulle tabelle della libreria client di archiviazione 2.0 di Microsoft Azure sul blog del team di Servizio di archiviazione di Azure
--   [Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure][]
+-   [Articolo su][Articolo su]come ottenere il massimo dalle tabelle di Microsoft Azure nel blog del team di Servizio di archiviazione di Azure
+-   [Articolo su come utilizzare il servizio di archiviazione tabelle in .NET][Articolo su come utilizzare il servizio di archiviazione tabelle in .NET]
+-   [Articolo di][Articolo di]approfondimento sulle tabelle della libreria client di archiviazione 2.0 di Microsoft Azure sul blog del team di Servizio di archiviazione di Azure
+-   [Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure][Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure]
 
 Per ulteriori informazioni sul servizio di accodamento di Azure e sulle code del bus di servizio Azure, vedere le risorse seguenti:
 
--   [Articolo sullo schema di lavoro incentrato sulle code (creazione di applicazioni per cloud funzionanti con Microsoft Azure)][]
--   [Code di Azure e Azure Service Bus: confronto e contrapposizioni][]
--   [Articolo su come utilizzare il servizio di archiviazione di accodamento in .NET][]
+-   [Articolo sullo schema di lavoro incentrato sulle code (creazione di applicazioni per cloud funzionanti con Microsoft Azure)][Articolo sullo schema di lavoro incentrato sulle code (creazione di applicazioni per cloud funzionanti con Microsoft Azure)]
+-   [Code di Azure e Azure Service Bus: confronto e contrapposizioni][Code di Azure e Azure Service Bus: confronto e contrapposizioni]
+-   [Articolo su come utilizzare il servizio di archiviazione di accodamento in .NET][Articolo su come utilizzare il servizio di archiviazione di accodamento in .NET]
 
 Per ulteriori informazioni sul servizio Blob di Azure, vedere le risorse seguenti:
 
--   [Articolo sull'archiviazione blob non strutturata (creazione di applicazioni per cloud funzionanti con Microsoft Azure)][]
--   [Come utilizzare il servizio di archiviazione BLOB di Azure in .NET][]
+-   [Articolo sull'archiviazione blob non strutturata (creazione di applicazioni per cloud funzionanti con Microsoft Azure)][Articolo sull'archiviazione blob non strutturata (creazione di applicazioni per cloud funzionanti con Microsoft Azure)]
+-   [Come utilizzare il servizio di archiviazione BLOB di Azure in .NET][Come utilizzare il servizio di archiviazione BLOB di Azure in .NET]
 
 Per ulteriori informazioni sul ridimensionamento automatico dei ruoli del servizio cloud di Azure, vedere le risorse seguenti:
 
--   [Come utilizzare il blocco applicazione per la scalabilità automatica][]
--   [Scalabilità automatica e Azure][]
--   [Articolo sulla][]creazione di soluzioni elastiche e scalabili automaticamente con Azure (video del Channel 9 di MSDN)
+-   [Come utilizzare il blocco applicazione per la scalabilità automatica][Come utilizzare il blocco applicazione per la scalabilità automatica]
+-   [Scalabilità automatica e Azure][Scalabilità automatica e Azure]
+-   [Articolo sulla][Articolo sulla]creazione di soluzioni elastiche e scalabili automaticamente con Azure (video del Channel 9 di MSDN)
 
 ## <a name="Acknowledgments"></a><span class="short-header">Ringraziamenti</span>Ringraziamenti
 
-Queste esercitazioni e l'applicazione di esempio sono state scritte da [Rick Anderson][] e da Tom Dykstra. Cogliamo l'occasione per ringraziare le seguenti persone per la loro assistenza:
+Queste esercitazioni e l'applicazione di esempio sono state scritte da [Rick Anderson][Rick Anderson] e da Tom Dykstra. Cogliamo l'occasione per ringraziare le seguenti persone per la loro assistenza:
 
--   Barry Dorrans (Twitter [@blowdart][])
--   [Cory Fowler][] (Twitter [@SyntaxC4][] )
--   [Joe Giardino][]
+-   Barry Dorrans (Twitter [@blowdart][@blowdart])
+-   [Cory Fowler][Cory Fowler] (Twitter [@SyntaxC4][@SyntaxC4] )
+-   [Joe Giardino][Joe Giardino]
 -   Don Glover
 -   Jai Haridas
--   [Scott Hunter][] (Twitter: [@coolcsh][])
--   [Brian Swan][]
--   [Daniel Wang][]
+-   [Scott Hunter][Scott Hunter] (Twitter: [@coolcsh][@coolcsh])
+-   [Brian Swan][Brian Swan]
+-   [Daniel Wang][Daniel Wang]
 -   I membri del Developer Advisory Council che hanno fornito il loro feedback:
 -   Damir Arh
 -   Jean-Luc Boucho
@@ -604,10 +604,8 @@ Queste esercitazioni e l'applicazione di esempio sono state scritte da [Rick And
   [Articolo su come utilizzare il servizio di archiviazione tabelle in .NET]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/table-services/
   [Articolo di]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [Articolo sulla progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh508997.aspx
-  [Articolo sullo schema di lavoro incentrato sulle code (creazione di applicazioni per cloud funzionanti con Microsoft Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Code di Azure e Azure Service Bus: confronto e contrapposizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx
   [Articolo su come utilizzare il servizio di archiviazione di accodamento in .NET]: /it-it/develop/net/how-to-guides/queue-service/
-  [Articolo sull'archiviazione blob non strutturata (creazione di applicazioni per cloud funzionanti con Microsoft Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Come utilizzare il servizio di archiviazione BLOB di Azure in .NET]: /it-it/develop/net/how-to-guides/blob-storage/
   [Come utilizzare il blocco applicazione per la scalabilità automatica]: /it-it/develop/net/how-to-guides/autoscaling/
   [Scalabilità automatica e Azure]: http://msdn.microsoft.com/it-it/library/hh680945(v=PandP.50).aspx

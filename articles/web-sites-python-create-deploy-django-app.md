@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Creazione di siti Web con Django
 
@@ -8,7 +8,7 @@ Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python 
 
 In questa esercitazione viene illustrato come distribuire un'applicazione creata utilizzando il framework Web Django. Vengono illustrate le procedure dettagliate per la distribuzione dell'applicazione e di eventuali librerie necessarie, incluso Django. Tali elementi verranno inseriti in un archivio Git, in modo da velocizzare e semplificare il push di aggiornamenti nel sito Web. Il sito Web appena creato tramite Azure verrà infine configurato per l'esecuzione dell'applicazione Python.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 In questa esercitazione vengono utilizzati Python 2.7 e Django 1.4. È possibile scaricarli autonomamente oppure installarli in modo semplice e rapido tramite il collegamento di Windows Installer, disponibile all'indirizzo [][]<http://www.windowsazure.com/it-it/develop/python/></a>.
 
@@ -26,7 +26,7 @@ Al termine dell'installazione di Python, Django e Git, sarà possibile eseguire 
 
 Il primo passaggio per la creazione di un'app consiste nella creazione del sito Web tramite il portale di gestione di Azure. A tale scopo, sarà necessario accedere al portale e fare clic sul pulsante NEW nell'angolo inferiore sinistro. Verrà visualizzata una finestra. Fare clic su **Creazione rapida** immettere un URL, quindi selezionare **Crea sito Web**.
 
-![][]
+![][0]
 
 Il sito verrà configurato rapidamente. Verrà quindi aggiunto il supporto per la pubblicazione tramite Git. A tale scopo, è possibile scegliere **Set up deployment from source control**.
 
@@ -133,9 +133,9 @@ Dopo la copia dei file, eseguire il comando **git status** per visualizzare i fi
 È ora possibile passare alla directory DjangoApplication e utilizzare manage.py nel modo consueto per iniziare ad aggiungere nuove applicazioni al progetto di Django.
 
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  []: http://www.windowsazure.com/it-it/develop/python/
+  [0]: http://www.windowsazure.com/it-it/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
-  []: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
+  [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
   [1]: ./media/web-sites-python-create-deploy-django-app/django-ws-004.png
   [2]: ./media/web-sites-python-create-deploy-django-app/django-ws-005.png
   [3]: ./media/web-sites-python-create-deploy-django-app/django-ws-006.png

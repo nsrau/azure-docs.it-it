@@ -1,24 +1,24 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introduzione alle notifiche push in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Windows Phone Silverlight. In questa esercitazione si utilizzerà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push utilizzando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
-> [WACOM.NOTE]Questa esercitazione illustra l'integrazione di Servizi mobili con Hub di notifica, l'infrastruttura che consente l'invio di notifiche push dal servizio mobile. Se si usa un servizio mobile meno recente che fa uso del push legacy e non è stato ancora aggiornato per Hub di notifica, *è consigliabile eseguire l'aggiornamento* nel corso di questa esercitazione. Se si sceglie di non eseguire ora l'aggiornamento, seguire questa versione dell'esercitazione: [Introduzione alle notifiche push (legacy)][].
+> [WACOM.NOTE]Questa esercitazione illustra l'integrazione di Servizi mobili con Hub di notifica, l'infrastruttura che consente l'invio di notifiche push dal servizio mobile. Se si usa un servizio mobile meno recente che fa uso del push legacy e non è stato ancora aggiornato per Hub di notifica, *è consigliabile eseguire l'aggiornamento* nel corso di questa esercitazione. Se si sceglie di non eseguire ora l'aggiornamento, seguire questa versione dell'esercitazione: [Introduzione alle notifiche push (legacy)][Introduzione alle notifiche push (legacy)].
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
-1.  [Aggiornamento dell'app per la registrazione per le notifiche][]
-2.  [Aggiornamento degli script del server per l'invio di notifiche push][]
-3.  [Inserimento di dati per la ricezione di notifiche push][]
+1.  [Aggiornamento dell'app per la registrazione per le notifiche][Aggiornamento dell'app per la registrazione per le notifiche]
+2.  [Aggiornamento degli script del server per l'invio di notifiche push][Aggiornamento degli script del server per l'invio di notifiche push]
+3.  [Inserimento di dati per la ricezione di notifiche push][Inserimento di dati per la ricezione di notifiche push]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili][] o [Introduzione ai dati][] per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione.
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati] per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione.
 
-> [WACOM.NOTE]Per inviare notifiche push a un'app di Windows Phone 8.1 Store, vedere la versione dell'esercitazione per l' [app di Windows Store][].
+> [WACOM.NOTE]Per inviare notifiche push a un'app di Windows Phone 8.1 Store, vedere la versione dell'esercitazione per l' [app di Windows Store][app di Windows Store].
 
 ## <span id="update-app"></span></a> Aggiornamento dell'app per la registrazione per le notifiche
 
@@ -67,7 +67,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 5.  In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità \*\*ID\_**CAP**\_PUSH\_NOTIFICATION\*\* sia selezionata.
 
-    ![][]
+    ![][0]
 
     In questo modo si garantirà che l'app sia in grado di generare notifiche di tipo avviso popup.
 
@@ -109,13 +109,13 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 3.  Fare clic sulla scheda **Push**, selezionare **Enable unauthenticated push notifications**, quindi fare clic su **Save**.
 
-    > [WACOM.NOTE]Quando si completa questa esercitazione usando un servizio mobile meno recente, è possibile che nella parte inferiore della scheda **Push** venga visualizzato un collegamento **Abilita push avanzato**. Fare clic su questo collegamento per aggiornare il servizio mobile per l'integrazione con Hub di notifica. Questa modifica non può essere annullata. Per informazioni dettagliate su come abilitare le notifiche push avanzate in un servizio mobile di produzione, vedere [queste linee guida][].
+    > [WACOM.NOTE]Quando si completa questa esercitazione usando un servizio mobile meno recente, è possibile che nella parte inferiore della scheda **Push** venga visualizzato un collegamento **Abilita push avanzato**. Fare clic su questo collegamento per aggiornare il servizio mobile per l'integrazione con Hub di notifica. Questa modifica non può essere annullata. Per informazioni dettagliate su come abilitare le notifiche push avanzate in un servizio mobile di produzione, vedere [queste linee guida][queste linee guida].
 
     ![][2]
 
     In questo modo il servizio mobile verrà abilitato per la connessione al Servizio di notifica Push di Microsof in modalità senza autenticazione per l'invio di notifiche push.
 
-    > [WACOM.NOTE]In questa esercitazione verrà utilizzato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su **Upload** e selezionando il certificato. Per ulteriori informazioni sulla generazione del certificato, vedere [Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone][].
+    > [WACOM.NOTE]In questa esercitazione verrà utilizzato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su **Upload** e selezionando il certificato. Per ulteriori informazioni sulla generazione del certificato, vedere [Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone][Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone].
 
 ## <span id="test"></span></a>Esecuzione del test delle notifiche push nell'app
 
@@ -131,48 +131,47 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
     ![][4]
 
-    > [WACOM.NOTE]La notifica non viene ricevuta se l'app è ancora aperta. Per ricevere una notifica di tipo avviso popup mentre l'app è attiva, è necessario gestire l'evento [ShellToastNotificationReceived][].
+    > [WACOM.NOTE]La notifica non viene ricevuta se l'app è ancora aperta. Per ricevere una notifica di tipo avviso popup mentre l'app è attiva, è necessario gestire l'evento [ShellToastNotificationReceived][ShellToastNotificationReceived].
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app di Windows Store di usare Servizi mobili e Hub di notifica per l'invio di notifiche push. In seguito, è consigliabile eseguire una delle esercitazioni seguenti:
 
--   [Invio di notifiche push agli utenti autenticati][]
+-   [Invio di notifiche push agli utenti autenticati][Invio di notifiche push agli utenti autenticati]
     Informazioni sull'uso dei tag per inviare notifiche push da un servizio mobile solo agli utenti autenticati.
 
--   [Invio di notifiche di trasmissione ai sottoscrittori][]
+-   [Invio di notifiche di trasmissione ai sottoscrittori][Invio di notifiche di trasmissione ai sottoscrittori]
     Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
 
 <!---+ [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante i servizi mobili.
 
--   [Informazioni su Hub di notifica][]
+-   [Informazioni su Hub di notifica][Informazioni su Hub di notifica]
     Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][]
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
--   [Riferimento per gli script server di Servizi mobili][]
+-   [Riferimento per gli script server di Servizi mobili][Riferimento per gli script server di Servizi mobili]
     Ulteriori informazioni su come implementare la logica di business nel servizio mobile.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
-  [Introduzione alle notifiche push (legacy)]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-push/
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
   [Aggiornamento degli script del server per l'invio di notifiche push]: #update-scripts
   [Inserimento di dati per la ricezione di notifiche push]: #test
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data
   [app di Windows Store]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  []: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+  [0]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [1]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-insert-script-push2.png
   [queste linee guida]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [2]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-push-tab.png

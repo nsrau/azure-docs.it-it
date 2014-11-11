@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Modelli di esecuzione di Azure
 
@@ -8,16 +8,16 @@ In Azure sono disponibili diversi modelli di esecuzione per l'esecuzione di appl
 
 ## Sommario
 
--   [Macchine virtuali][]
--   [Siti Web][]
--   [Servizi cloud][]
--   [Scelta del modello da utilizzare][]
+-   [Macchine virtuali][Macchine virtuali]
+-   [Siti Web][Siti Web]
+-   [Servizi cloud][Servizi cloud]
+-   [Scelta del modello da utilizzare][Scelta del modello da utilizzare]
 
 ## <span id="VMachine"></span></a>Macchine virtuali
 
-Macchine virtuali di Azure consente agli sviluppatori, ai responsabili IT e ad altri utenti di creare e utilizzare macchine virtuali nel cloud. Grazie all'approccio *IaaS (Infrastructure as a Service)* offerto, è possibile usare questa tecnologia in diversi modi. [Nella][]figura 1 vengono illustrati i componenti di base di questa tecnologia.
+Macchine virtuali di Azure consente agli sviluppatori, ai responsabili IT e ad altri utenti di creare e utilizzare macchine virtuali nel cloud. Grazie all'approccio *IaaS (Infrastructure as a Service)* offerto, è possibile usare questa tecnologia in diversi modi. [Nella][Nella]figura 1 vengono illustrati i componenti di base di questa tecnologia.
 
-<a name="Fig1"></a>![01\_CreatingVMs][]
+<a name="Fig1"></a>![01\_CreatingVMs][01\_CreatingVMs]
 
 **Figura 1: In Macchine virtuali di Azure è disponibile l'approccio IaaS (Infrastructure as a Service).**
 
@@ -28,7 +28,7 @@ Indipendentemente dalla modalità di accesso alla piattaforma, per creare una nu
 Per iniziare, è possibile eseguire una delle due operazioni seguenti:
 
 1.  Caricare un disco rigido virtuale personalizzato
-2.  Utilizzare i dischi rigidi virtuali forniti da Microsoft e dai partner Microsoft nella raccolta Macchine virtuali di Azure o nel sito Web open source Microsoft [VMDepot][].
+2.  Utilizzare i dischi rigidi virtuali forniti da Microsoft e dai partner Microsoft nella raccolta Macchine virtuali di Azure o nel sito Web open source Microsoft [VMDepot][VMDepot].
 
 I dischi rigidi virtuali disponibili nella raccolta e nel sito Web VMDepot includono immagini pulite dei sistemi operativi Microsoft e Linux, oltre a immagini che includono prodotti Microsoft e di terzi installati in tali sistemi operativi. Le opzioni disponibili sono sempre più numerose. Gli esempi includono diverse versioni, edizioni e configurazioni di:
 
@@ -38,7 +38,7 @@ I dischi rigidi virtuali disponibili nella raccolta e nel sito Web VMDepot inclu
 -   BizTalk Server
 -   SharePoint Server
 
-Oltre al disco rigido virtuale, si specificano le dimensioni della nuova macchina virtuale. Le statistiche complete per ogni dimensione sono elencate [nella raccolta di Azure][].
+Oltre al disco rigido virtuale, si specificano le dimensioni della nuova macchina virtuale. Le statistiche complete per ogni dimensione sono elencate [nella raccolta di Azure][nella raccolta di Azure].
 
 -   **Extra Small**, con una memoria centrale condivisa e 768MB di memoria.
 -   **Small**, con 1 memoria centrale e 1,75 GB di memoria.
@@ -73,9 +73,9 @@ Gli scenari indicati non costituiscono le uniche possibilità d'uso di Macchine 
 
 ### Raggruppare le macchine virtuali: Servizi cloud
 
-Quando si crea una nuova VM con Macchine virtuali di Azure, è possibile scegliere di eseguirla in modo autonomo o di aggiungerla a un gruppo di macchine virtuali in esecuzione in un *servizio cloud*. Anche se i nomi sono simili, è necessario non confondere questo concetto con Servizi cloud, ovvero la tecnologia PaaS di Azure. A ogni macchina virtuale autonoma viene assegnato un indirizzo IP pubblico specifico, mentre è possibile accedere a tutte le VM nello stesso servizio cloud tramite un singolo indirizzo IP pubblico, come illustrato nella [figura 2][].
+Quando si crea una nuova VM con Macchine virtuali di Azure, è possibile scegliere di eseguirla in modo autonomo o di aggiungerla a un gruppo di macchine virtuali in esecuzione in un *servizio cloud*. Anche se i nomi sono simili, è necessario non confondere questo concetto con Servizi cloud, ovvero la tecnologia PaaS di Azure. A ogni macchina virtuale autonoma viene assegnato un indirizzo IP pubblico specifico, mentre è possibile accedere a tutte le VM nello stesso servizio cloud tramite un singolo indirizzo IP pubblico, come illustrato nella [figura 2][figura 2].
 
-<a name="Fig2"></a>![02\_CloudServices][]
+<a name="Fig2"></a>![02\_CloudServices][02\_CloudServices]
 
 **Figura 2: ogni macchina virtuale autonoma dispone del proprio indirizzo IP pubblico, mentre le VM raggruppate in un servizio cloud vengono esposte tramite un singolo indirizzo IP pubblico.**
 
@@ -87,9 +87,9 @@ Il raggruppamento delle macchine virtuali in un servizio cloud consente di utili
 
 ### Scenario: Eseguire un'applicazione con SQL Server
 
-Per comprendere meglio il funzionamento di Macchine virtuali di Azure, può essere utile esaminare in modo più dettagliato alcuni scenari. Si supponga, ad esempio, che si desideri creare un'applicazione Web affidabile e scalabile in esecuzione su Azure. A tale scopo, è possibile eseguire la logica dell'applicazione in una o più macchine virtuali di Azure, quindi usare SQL Server per la gestione dati, come illustrato nella [figura 3][].
+Per comprendere meglio il funzionamento di Macchine virtuali di Azure, può essere utile esaminare in modo più dettagliato alcuni scenari. Si supponga, ad esempio, che si desideri creare un'applicazione Web affidabile e scalabile in esecuzione su Azure. A tale scopo, è possibile eseguire la logica dell'applicazione in una o più macchine virtuali di Azure, quindi usare SQL Server per la gestione dati, come illustrato nella [figura 3][figura 3].
 
-<a name="Fig3"></a>![03\_AppUsingSQLServer][]
+<a name="Fig3"></a>![03\_AppUsingSQLServer][03\_AppUsingSQLServer]
 
 **Figura 3: un'applicazione in esecuzione in Macchine virtuali di Azure può utilizzare SQL Server per l'archiviazione.**
 
@@ -97,9 +97,9 @@ In questo esempio entrambi i tipi di macchine virtuali vengono creati da dischi 
 
 ### Scenario: Eseguire una farm SharePoint
 
-Si supponga che un'organizzazione desideri creare una farm SharePoint ma non desideri che la farm sia eseguita in un data center specifico. È ad esempio possibile che il data center locale non disponga di risorse sufficienti oppure che la business unit che crea la farm preferisca non interagire con il gruppo IT interno. In casi di questo tipo, l'esecuzione di SharePoint su Macchine virtuali di Azure può risultare ottimale, come illustrato nella [figura 4][].
+Si supponga che un'organizzazione desideri creare una farm SharePoint ma non desideri che la farm sia eseguita in un data center specifico. È ad esempio possibile che il data center locale non disponga di risorse sufficienti oppure che la business unit che crea la farm preferisca non interagire con il gruppo IT interno. In casi di questo tipo, l'esecuzione di SharePoint su Macchine virtuali di Azure può risultare ottimale, come illustrato nella [figura 4][figura 4].
 
-<a name="Fig4"></a>![04\_SharePointFarm][]
+<a name="Fig4"></a>![04\_SharePointFarm][04\_SharePointFarm]
 
 **Figura 4: Macchine virtuali di Azure consente di eseguire una farm SharePoint nel cloud.**
 
@@ -118,20 +118,20 @@ Come illustrato da questi esempi, è possibile utilizzare Macchine virtuali di A
 Gli utenti utilizzano le tecnologie Web in molti modi diversi. È possibile che un'azienda debba eseguire la migrazione o creare un sito Web di presenza in grado di gestire milioni di riscontri alla settimana e che può essere distribuito in diversi data center in tutto il mondo. Una società di progettazione Web può ad esempio collaborare con un team di sviluppatori per la creazione di un'applicazione Web in grado di gestire migliaia di utenti. È possibile che uno sviluppatore aziendale debba configurare un'applicazione per la registrazione di note spese nel cloud per gli utenti autenticati da Active Directory aziendale. Un consulente IT può usare un'applicazione open source nota per configurare un sistema di gestione dei contenuti per una piccola impresa.
 È possibile ottenere tutti questi risultati usando Macchine virtuali di Azure. La creazione e la gestione di macchine virtuali non elaborate richiedono competenze specifiche e possono risultare impegnative. Se è necessario implementare un sito Web o un'applicazione Web, è possibile scegliere una soluzione più semplice ed economica, ovvero l'approccio comunemente noto come PaaS (Platform as a Service). Come illustrato nella figura 5, tale tecnologia è disponibile in Siti Web di Azure.
 
-<a name="Fig5"></a>![05\_Websites][]
+<a name="Fig5"></a>![05\_Websites][05\_Websites]
 
 **Figura 5: Siti Web di Azure supporta siti Web statici, applicazioni Web note e applicazioni Web personalizzate create con diverse tecnologie.**
 
 Siti Web di Azure si basa su Servizi cloud di Azure per creare una soluzione PaaS ottimizzata per l'esecuzione di applicazioni Web. Come illustrato nella figura, Siti Web viene eseguito in un set di singole macchine virtuali che può contenere più siti Web creati da più utenti, oltre a VM standard appartenenti a un singolo utente. Le macchine virtuali fanno parte di un pool di risorse gestite da Siti Web di Azure e ciò consente di offrire affidabilità elevata e tolleranza di errore.
 Le procedure iniziali sono molto semplici. Grazie a Siti Web di Azure, gli utenti possono scegliere tra una vasta gamma di applicazioni, framework e modelli e creare un sito Web in pochi secondi. Gli utenti possono utilizzare i propri strumenti di sviluppo preferiti (WebMatrix, Visual Studio, qualsiasi altro editor) e opzioni di controllo del codice sorgente per configurare l'integrazione continua ed eseguire lo sviluppo in team. Le applicazioni che si basano su un database MySQL possono usare un servizio MySQL per Azure fornito da ClearDB, un partner Microsoft.
 Siti Web consente agli sviluppatori di creare applicazioni Web scalabili e di grandi dimensioni. Questa tecnologia supporta la creazione di applicazioni tramite ASP.NET, PHP, Node.js e Python. Le applicazioni possono ad esempio utilizzare sessioni permanenti ed è possibile spostare le applicazioni Web esistenti in questa piattaforma cloud, senza modifiche. Le applicazioni basate su Siti Web possono usare anche altri aspetti di Azure, ad esempio Service Bus, database SQL e archiviazione BLOB. È inoltre possibile eseguire più copie di un'applicazione in macchine virtuali diverse. Siti Web esegue automaticamente il bilanciamento del carico delle richieste tra le diverse VM. Poiché le nuove istanze di Siti Web vengono create in macchine virtuali già esistenti, l'avvio di una nuova istanza dell'applicazione risulta significativamente più veloce rispetto all'attesa della creazione di una nuova VM.
-Come illustrato nella [Figura 5][], è possibile pubblicare codice e altro contenuto Web in Siti Web in molti modi, ad esempio tramite FTP, FTPS o la tecnologia WebDeploy Microsoft. Siti Web supporta inoltre la pubblicazione di codice da sistemi di controllo del codice sorgente, inclusi Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server e il sistema Team Foundation Service basato su cloud.
+Come illustrato nella [Figura 5][Figura 5], è possibile pubblicare codice e altro contenuto Web in Siti Web in molti modi, ad esempio tramite FTP, FTPS o la tecnologia WebDeploy Microsoft. Siti Web supporta inoltre la pubblicazione di codice da sistemi di controllo del codice sorgente, inclusi Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server e il sistema Team Foundation Service basato su cloud.
 
 ## <span id="CloudServices"></span></a>Servizi cloud
 
-Macchine virtuali di Azure offre la tecnologia IaaS, mentre Siti Web di Azure fornisce hosting Web. La terza opzione disponibile, Servizi cloud, offre la tecnologia *PaaS (Platform as a Service)*. Tale tecnologia è stata progettata per il supporto di applicazioni scalabili, affidabili ed economicamente efficienti. Consente inoltre agli sviluppatori di non preoccuparsi della gestione della piattaforma usata e di concentrarsi interamente sulle applicazioni, come illustrato nella [figura 6][].
+Macchine virtuali di Azure offre la tecnologia IaaS, mentre Siti Web di Azure fornisce hosting Web. La terza opzione disponibile, Servizi cloud, offre la tecnologia *PaaS (Platform as a Service)*. Tale tecnologia è stata progettata per il supporto di applicazioni scalabili, affidabili ed economicamente efficienti. Consente inoltre agli sviluppatori di non preoccuparsi della gestione della piattaforma usata e di concentrarsi interamente sulle applicazioni, come illustrato nella [figura 6][figura 6].
 
-<a name="Fig6"></a>![06\_CloudServices2][]
+<a name="Fig6"></a>![06\_CloudServices2][06\_CloudServices2]
 
 **Figura 6: Servizi cloud di Azure offre la tecnologia PaaS (Platform as a Service).**
 
@@ -171,9 +171,9 @@ Poiché si basa sulla tecnologia PaaS, Servizi cloud presenta inoltre alcuni van
 
 Tutti e tre i modelli di esecuzione di Azure presentano vantaggi e svantaggi. Per effettuare una scelta ottimale è necessario esaminare tali vantaggi e svantaggi, definire obiettivi chiari e scegliere il modello più appropriato.
 
-In alcuni casi un singolo modello di esecuzione non è sufficiente ed è pertanto possibile combinare diverse opzioni. Si supponga, ad esempio, di creare un'applicazione per cui si desidera usufruire dei vantaggi a livello di gestione offerti dai ruoli Web di Servizi cloud, ma si necessita anche di SQL Server standard per motivi di compatibilità o prestazioni. In questo caso, la soluzione migliore consiste nella combinazione di modelli di esecuzione, come illustrato nella [figura 7][].
+In alcuni casi un singolo modello di esecuzione non è sufficiente ed è pertanto possibile combinare diverse opzioni. Si supponga, ad esempio, di creare un'applicazione per cui si desidera usufruire dei vantaggi a livello di gestione offerti dai ruoli Web di Servizi cloud, ma si necessita anche di SQL Server standard per motivi di compatibilità o prestazioni. In questo caso, la soluzione migliore consiste nella combinazione di modelli di esecuzione, come illustrato nella [figura 7][figura 7].
 
-<a name="Fig7"></a>![07\_CombineTechnologies][]
+<a name="Fig7"></a>![07\_CombineTechnologies][07\_CombineTechnologies]
 
 **Figura 7: una singola applicazione può utilizzare più modelli di esecuzione.**
 
@@ -186,18 +186,11 @@ In Azure sono disponibili diversi modelli di esecuzione poiché le piattaforme c
   [Servizi cloud]: #CloudServices
   [Scelta del modello da utilizzare]: #WhatShouldIUse
   [Nella]: #Fig1
-  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [nella raccolta di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx
   [figura 2]: #Fig2
-  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [figura 3]: #Fig3
-  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [figura 4]: #Fig4
-  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
-  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [Figura 5]: #Fig5
   [figura 6]: #Fig6
-  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [figura 7]: #Fig7
-  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

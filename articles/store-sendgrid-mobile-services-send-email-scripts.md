@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # Invio di posta elettronica da Servizi mobili con SendGrid
 
@@ -18,7 +18,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="sign-up"></a><span class="short-header">Creazione di un nuovo account</span>Creazione di un nuovo account SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="add-script"></a><span class="short-header">Registrazione di uno script</span>Registrazione di un nuovo script per l'invio di posta elettronica
 
@@ -26,7 +26,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 2.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
-    ![][]
+    ![][0]
 
 3.  In **todoitem** fare clic sulla scheda **Script**, quindi selezionare **Insert**.
 
@@ -109,7 +109,7 @@ usare i collegamenti seguenti per altre informazioni su SendGrid.
 -   Offerta speciale SendGrid per i clienti di Azure:
     <http://sendgrid.com/azure.html>
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [servizio di posta elettronica basato sul cloud]: http://sendgrid.com/solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: http://sendgrid.com/transactional-email
@@ -119,7 +119,7 @@ usare i collegamenti seguenti per altre informazioni su SendGrid.
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
+  [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
   [2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
   [3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png

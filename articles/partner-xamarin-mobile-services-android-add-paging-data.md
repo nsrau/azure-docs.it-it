@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-android" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin Android app from Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Utilizzo del paging per ridefinire le query di Servizi mobili
 
@@ -14,9 +14,9 @@ In questo argomento viene illustrato come utilizzare il paging per gestire la qu
 <p>Per evitare l'overflow dei dati nei client dei dispositivi mobili, Servizi mobili implementa un limite di pagina automatico, che per impostazione predefinita prevede un massimo di 50 elementi in una risposta. Specificando la dimensione della pagina, &egrave; possibile richiedere in modo esplicito fino a un massimo di 1.000 elementi nella risposta.</p>
 </div>
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'utilizzo dei dati, [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'utilizzo dei dati, [Introduzione ai dati][Introduzione ai dati].
 
-1.  In Xamarin Studio aprire il progetto creato dopo avere completato l'esercitazione [Introduzione ai dati][].
+1.  In Xamarin Studio aprire il progetto creato dopo avere completato l'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
 2.  Fare clic su **Run** per avviare l'app, immettere il testo nella casella di testo e fare clic sul pulsante **Add**.
 
@@ -59,22 +59,14 @@ Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell
 
 Il set di esercitazioni relative alle nozioni di base dell'utilizzo dei dati in Servizi mobili è concluso. Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con l'account Windows.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/add-paging-to-data-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [iOS C#]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
+
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
   [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android

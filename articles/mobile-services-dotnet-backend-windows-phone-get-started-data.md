@@ -1,41 +1,41 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
 # Introduzione ai dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 Questo argomento illustra come usare Servizi mobili di Azure come origine dati di back-end per un'app per Windows Phone (Silverlight). Questa esercitazione consente di scaricare un progetto di Visual Studio per un'app che archivia dati in memoria, di creare un nuovo servizio mobile e integrarlo con l'app e quindi di visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-Il servizio mobile creato in questa esercitazione supporterà il runtime .NET. Questo consentirà di utilizzare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][] di questo argomento.
+Il servizio mobile creato in questa esercitazione supporterà il runtime .NET. Questo consentirà di utilizzare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][versione per back-end JavaScript] di questo argomento.
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Download del progetto dell'app per Windows Phone 8][]
-2.  [Creazione di un nuovo servizio mobile][]
-3.  [Download del servizio mobile in locale][]
-4.  [Aggiornamento dell'app per Windows Phone per l'uso del servizio mobile][]
-5.  [Test dell'app per Windows Phone con il servizio ospitato in locale][]
-6.  [Pubblicazione del servizio mobile in Azure][]
-7.  [Test dell'app per Windows Phone con il servizio ospitato in Azure][]
+1.  [Download del progetto dell'app per Windows Phone 8][Download del progetto dell'app per Windows Phone 8]
+2.  [Creazione di un nuovo servizio mobile][Creazione di un nuovo servizio mobile]
+3.  [Download del servizio mobile in locale][Download del servizio mobile in locale]
+4.  [Aggiornamento dell'app per Windows Phone per l'uso del servizio mobile][Aggiornamento dell'app per Windows Phone per l'uso del servizio mobile]
+5.  [Test dell'app per Windows Phone con il servizio ospitato in locale][Test dell'app per Windows Phone con il servizio ospitato in locale]
+6.  [Pubblicazione del servizio mobile in Azure][Pubblicazione del servizio mobile in Azure]
+7.  [Test dell'app per Windows Phone con il servizio ospitato in Azure][Test dell'app per Windows Phone con il servizio ospitato in Azure]
 
 Per completare questa esercitazione, è necessario disporre di:
 
--   Visual Studio 2013 e [Windows Phone 8 SDK][] in esecuzione in Windows 8. Per completare questa esercitazione per la creazione di un'app per Windows Phone 8.1, è necessario usare Visual Studio 2013 Update 2 o una versione successiva.
--   Un account Microsoft Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+-   Visual Studio 2013 e [Windows Phone 8 SDK][Windows Phone 8 SDK] in esecuzione in Windows 8. Per completare questa esercitazione per la creazione di un'app per Windows Phone 8.1, è necessario usare Visual Studio 2013 Update 2 o una versione successiva.
+-   Un account Microsoft Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
     </p>
     </div>
 
 ## <a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
-Questa esercitazione è basata sull'[app GetStartedWithMobileServices][] che è un progetto di app per Windows Phone Silverlight 8. L'interfaccia utente di questa app è simile a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
+Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetStartedWithMobileServices] che è un progetto di app per Windows Phone Silverlight 8. L'interfaccia utente di questa app è simile a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
 1.  Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network][app GetStartedWithMobileServices].
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE]Per creare un'app per Windows Phone Silverlight 8.1, nel progetto di app per Windows Phone Silverlight 8 scaricato è sufficiente impostare il sistema operativo di destinazione su Windows Phone 8.1. Per creare un'app di Windows Phone Store, scaricare la [versione dell'app di Windows Phone Store][] del progetto di app di esempio GetStartedWithData.
+    > [WACOM.NOTE]Per creare un'app per Windows Phone Silverlight 8.1, nel progetto di app per Windows Phone Silverlight 8 scaricato è sufficiente impostare il sistema operativo di destinazione su Windows Phone 8.1. Per creare un'app di Windows Phone Store, scaricare la [versione dell'app di Windows Phone Store][versione dell'app di Windows Phone Store] del progetto di app di esempio GetStartedWithData.
 
 2.  Eseguire Visual Studio con privilegi amministrativi facendo clic con il pulsante destro del mouse su Visual Studio e scegliendo **Esegui come amministratore**.
 
@@ -57,11 +57,11 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][] che è 
 
 ## <a name="create-service"></a><span class="short-header">Creazione di un nuovo servizio mobile</span>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a><span class="short-header">Download del servizio in locale</span>Download del progetto di servizio mobile e aggiunta alla soluzione
 
-1.  Nel [portale di gestione di Azure][] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina di panoramica.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina di panoramica.
 
     ![][3]
 
@@ -186,7 +186,7 @@ In questa sezione si utilizzerà Visual Studio per testare l'app e il servizio m
 
 #### Configurare IIS Express per consentire le connessioni remote
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express][]]
+[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
 #### Test dell'app nel servizio mobile in IIS Express
 
@@ -222,7 +222,7 @@ In questa sezione si utilizzerà Visual Studio per testare l'app e il servizio m
 
 ## <a name="publish-mobile-service"></a>Pubblicazione del servizio mobile in Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>Test del servizio mobile pubblicato in Azure
 
@@ -266,23 +266,23 @@ L'esercitazione **Introduzione ai dati** è terminata.
 
 In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app per Windows Phone 8 di utilizzare dati in Servizi mobili compilati mediante il runtime .Net. In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
--   [Utilizzo di script per la convalida e la modifica di dati][]
+-   [Utilizzo di script per la convalida e la modifica di dati][Utilizzo di script per la convalida e la modifica di dati]
     Ulteriori informazioni sull'utilizzo di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
--   [Utilizzo del paging per ridefinire le query][]
+-   [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query]
     Ulteriori informazioni su come utilizzare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, provare a eseguire una delle esercitazioni seguenti:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app.
 
 <!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. -->
 
--   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][]
+-   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [versione per back-end JavaScript]: /it-it/develop/mobile/tutorials/get-started-with-data-wp8
@@ -296,7 +296,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [app GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?linkid=271146
-  []: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
   [versione dell'app di Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png

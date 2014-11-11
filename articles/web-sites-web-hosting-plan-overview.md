@@ -1,6 +1,6 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 # Informazioni sui piani di hosting Web
 
@@ -34,7 +34,7 @@ Quando si crea un nuovo sito, nel portale verrà richiesto a quale piano di host
 
 È possibile visualizzare tutti i piani di hosting Web per tutte le sottoscrizioni di cui si dispone usando il pulsante **Browse** nella barra dei menu visualizzata a sinistra e quindi facendo clic su **Everything** nella parte superiore del riquadro attività che viene visualizzato.
 
-![][]
+![][0]
 ![][1]
 
 È inoltre possibile verificare a quale piano di hosting Web è associato ogni sito nella rappresentazione grafica del gruppo di risorse, visualizzata nella parte alta del pannello del sito Web.
@@ -53,7 +53,7 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 
   [fare clic qui]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Altre informazioni sulla gestione dei piani di hosting Web]: http://go.microsoft.com/fwlink/?LinkID=394411
-  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [0]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png

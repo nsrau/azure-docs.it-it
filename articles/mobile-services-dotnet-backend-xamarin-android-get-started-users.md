@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-xamarin-android-get-started-users" urlDisplayName="Get Started with authentication in Mobile Services for Xamarin Android apps" pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps - Azure Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with authentication in Mobile Services" authors="donnam" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Introduzione all'autenticazione in Servizi mobili
 
@@ -28,13 +28,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="register"></a>Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][mobile-services-dotnet-backend-aad-server-extension]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ## <a name="permissions"></a>Limitazione delle autorizzazioni agli utenti autenticati
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 1.  In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
 
@@ -87,15 +87,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users "Android"
-  [Xamarin.iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users "Xamarin.Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/ "JavaScript backend"
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
   [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
   [Aggiunta dell'autenticazione all'app]: #add-authentication

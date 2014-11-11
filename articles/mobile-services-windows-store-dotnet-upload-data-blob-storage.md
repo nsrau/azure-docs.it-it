@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili
 
@@ -35,7 +35,7 @@ Per poter utilizzare una firma di accesso condiviso per caricare immagini nel se
 
 2.  Nel riquadro sinistro selezionare la categoria **Online**, cercare `WindowsAzure.Storage`, fare clic su **Installa** nel pacchetto di **Archiviazione di Azure**, quindi accettare i contratti di licenza.
 
-    ![][]
+    ![][0]
 
     La libreria client per i servizi di archiviazione di Azure verrà aggiunta al progetto.
 
@@ -43,9 +43,9 @@ A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e ca
 
 ## <a name="update-scripts"></a>Aggiornamento dello script insert registrato nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage][mobile-services-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -67,19 +67,15 @@ Argomenti di riferimento per l'utilizzo di script del server per eseguire operaz
 
 Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript backend"
+
   [Installazione della libreria client di archiviazione]: #install-storage-client
   [Aggiornamento dello script insert per generare una firma di accesso condiviso]: #update-scripts
   [Aggiornamento dell'app client per l'acquisizione di immagini]: #add-select-images
   [Caricamento delle immagini per verificare l'app]: #test
   [Account di archiviazione di Azure]: /it-it/manage/services/storage/how-to-create-a-storage-account
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
   [Invio di posta elettronica da Servizi mobili con SendGrid]: /it-it/develop/mobile/tutorials/send-email-with-sendgrid/

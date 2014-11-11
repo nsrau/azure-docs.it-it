@@ -1,40 +1,40 @@
 <properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Come utilizzare l'archiviazione tabelle da Java
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per ulteriori informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK per Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per ulteriori informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
-Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][].
+Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK per Android].
 
 ## <a name="Contents"> </a>Sommario
 
--   [Informazioni sull'archiviazione tabelle][]
--   [Concetti][]
--   [Creazione di un account di Archiviazione di Azure][]
--   [Creazione di un'applicazione Java][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione tabelle][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Creare una tabella][]
--   [Procedura: Visualizzare un elenco di tabelle][]
--   [Procedura: Aggiungere un'entità a una tabella][]
--   [Procedura: Inserire un batch di entità][]
--   [Procedura: Recuperare tutte le entità di una partizione][]
--   [Procedura: Recuperare un intervallo di entità in una partizione][]
--   [Procedura: Recuperare una singola entità][]
--   [Procedura: Modificare un'entità][]
--   [Procedura: Eseguire una query su un subset di proprietà di entità][]
--   [Procedura: Inserire o sostituire un'entità][]
--   [Procedura: Eliminare un'entità][]
--   [Procedura: Eliminare una tabella][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione tabelle][Informazioni sull'archiviazione tabelle]
+-   [Concetti][Concetti]
+-   [Creazione di un account di Archiviazione di Azure][Creazione di un account di Archiviazione di Azure]
+-   [Creazione di un'applicazione Java][Creazione di un'applicazione Java]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione tabelle][Configurazione dell'applicazione per l'accesso all'archiviazione tabelle]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Creare una tabella][Procedura: Creare una tabella]
+-   [Procedura: Visualizzare un elenco di tabelle][Procedura: Visualizzare un elenco di tabelle]
+-   [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
+-   [Procedura: Inserire un batch di entità][Procedura: Inserire un batch di entità]
+-   [Procedura: Recuperare tutte le entità di una partizione][Procedura: Recuperare tutte le entità di una partizione]
+-   [Procedura: Recuperare un intervallo di entità in una partizione][Procedura: Recuperare un intervallo di entità in una partizione]
+-   [Procedura: Recuperare una singola entità][Procedura: Recuperare una singola entità]
+-   [Procedura: Modificare un'entità][Procedura: Modificare un'entità]
+-   [Procedura: Eseguire una query su un subset di proprietà di entità][Procedura: Eseguire una query su un subset di proprietà di entità]
+-   [Procedura: Inserire o sostituire un'entità][Procedura: Inserire o sostituire un'entità]
+-   [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
+-   [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="CreateAccount"></a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Creare un'applicazione Java
 
@@ -73,7 +73,7 @@ Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per o
 
 Per ottenere oggetti di riferimento per tabelle ed
 entità, è possibile utilizzare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di
-usarlo per creare un oggetto **CloudTable** che rappresenta una tabella denominata "people". Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][].
+usarlo per creare un oggetto **CloudTable** che rappresenta una tabella denominata "people". Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure].
 
     try
     {
@@ -420,7 +420,7 @@ Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggett
 
 ## <a name="QueryProperties"> </a>Procedura: Eseguire una query su un subset di proprietà di entità
 
-Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice seguente utilizza il metodo **select** per restituire solo gli indirizzi di posta elettronica di entità nella tabella. I risultati vengono proiettati in una raccolta di **stringhe** con l'aiuto di un oggetto **EntityResolver**, che esegue la conversione di tipo sulle entità restituite dal server. Per ulteriori informazioni sulla proiezione, vedere questo [post di blog][]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si utilizza un account sul servizio tabelle.
+Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice seguente utilizza il metodo **select** per restituire solo gli indirizzi di posta elettronica di entità nella tabella. I risultati vengono proiettati in una raccolta di **stringhe** con l'aiuto di un oggetto **EntityResolver**, che esegue la conversione di tipo sulle entità restituite dal server. Per ulteriori informazioni sulla proiezione, vedere questo [post di blog][post di blog]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si utilizza un account sul servizio tabelle.
 
     try
     {
@@ -461,7 +461,7 @@ Mediante una query su una tabella è possibile recuperare solo alcune proprietà
 
 ## <a name="InsertOrReplace"> </a>Procedura: Inserire o sostituire un'entità
 
-Spesso si desidera aggiungere un'entità a una tabella senza sapere se sia già esistente nella tabella. Con un'operazione di inserimento o sostituzione è possibile creare una singola richiesta e inserire l'entità se non esiste oppure sostituirla se è già esistente. Sulla base degli esempi precedenti, il codice seguente consente di inserire o sostituire l'entità per "Walter Harp". Dopo aver creato una nuova entità, nel codice viene chiamato il metodo **TableOperation.insertOrReplace**. Questo codice chiama quindi il metodo **execute** sull'oggetto **CloudTable** con la tabella e l'operazione di inserimento o sostituzione tabella come parametri. Per aggiornare solo parte di un'entità, è invece possibile utilizzare il metodo **TableOperation.insertOrMerge**. Si noti che l'operazione di inserimento o sostituzione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si utilizza un account sul servizio tabelle. Per ulteriori informazioni sulle operazioni di inserimento o sostituzione e di inserimento o unione, vedere questo [post di blog][].
+Spesso si desidera aggiungere un'entità a una tabella senza sapere se sia già esistente nella tabella. Con un'operazione di inserimento o sostituzione è possibile creare una singola richiesta e inserire l'entità se non esiste oppure sostituirla se è già esistente. Sulla base degli esempi precedenti, il codice seguente consente di inserire o sostituire l'entità per "Walter Harp". Dopo aver creato una nuova entità, nel codice viene chiamato il metodo **TableOperation.insertOrReplace**. Questo codice chiama quindi il metodo **execute** sull'oggetto **CloudTable** con la tabella e l'operazione di inserimento o sostituzione tabella come parametri. Per aggiornare solo parte di un'entità, è invece possibile utilizzare il metodo **TableOperation.insertOrMerge**. Si noti che l'operazione di inserimento o sostituzione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si utilizza un account sul servizio tabelle. Per ulteriori informazioni sulle operazioni di inserimento o sostituzione e di inserimento o unione, vedere questo [post di blog][post di blog].
 
     try
     {
@@ -555,9 +555,9 @@ Nell'esempio di codice seguente viene infine illustrato come eliminare una tabel
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
 -   [Windows Azure SDK for Java][Azure Storage SDK per Java]
--   [Riferimento all'SDK del client di archiviazione di Azure][]
--   [API REST di Archiviazione di Azure][]
--   [Blog del team di Archiviazione di Azure][]
+-   [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
+-   [API REST di Archiviazione di Azure][API REST di Archiviazione di Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
   [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
   [Passaggi successivi]: #NextSteps
@@ -584,5 +584,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [create-storage-account]: ../includes/create-storage-account.md
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
   [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

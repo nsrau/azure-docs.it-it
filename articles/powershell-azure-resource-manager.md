@@ -1,6 +1,6 @@
 <properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # Utilizzo di Windows PowerShell con Gestione risorse
 
@@ -472,8 +472,6 @@ Per altre informazioni sull'utilizzo di Windows PowerShell con Gestione risorse:
 -   [Blog di Windows PowerShell][Blog di Windows PowerShell]: informazioni sulle nuove funzionalità di Windows PowerShell.
 -   [Blog "Hey, Scripting Guy!":][Blog "Hey, Scripting Guy!":] suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-  [Windows PowerShell]: /it-it/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [CLI multipiattaforma]: /it-it/documentation/articles/xplat-cli-azure-resource-manager.md "Cross-Platform CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/it-it/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=40855
   [Come installare e configurare Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/

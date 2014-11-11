@@ -1,37 +1,37 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Come utilizzare l'archiviazione di accodamento da Java
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][].
+In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK per Java]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
-Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][].
+Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK per Android].
 
 ## <a name="Contents"> </a>Sommario
 
--   [Informazioni sull'archiviazione di accodamento][]
--   [Concetti][]
--   [Creazione di un account di Archiviazione di Azure][]
--   [Creazione di un'applicazione Java][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Creare una coda][]
--   [Procedura: Aggiungere un messaggio a una coda][]
--   [Procedura: Visualizzare il messaggio successivo][]
--   [Procedura: Cambiare il contenuto di un messaggio in coda][]
--   [Procedura: Recuperare la lunghezza della coda][]
--   [Procedura: Rimuovere il messaggio successivo dalla coda][]
--   [Opzioni aggiuntive per rimuovere i messaggi dalla coda][]
--   [Procedura: Elencare le code][]
--   [Procedura: Eliminare una coda][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
+-   [Concetti][Concetti]
+-   [Creazione di un account di Archiviazione di Azure][Creazione di un account di Archiviazione di Azure]
+-   [Creazione di un'applicazione Java][Creazione di un'applicazione Java]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento][Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Creare una coda][Procedura: Creare una coda]
+-   [Procedura: Aggiungere un messaggio a una coda][Procedura: Aggiungere un messaggio a una coda]
+-   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
+-   [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
+-   [Opzioni aggiuntive per rimuovere i messaggi dalla coda][Opzioni aggiuntive per rimuovere i messaggi dalla coda]
+-   [Procedura: Elencare le code][Procedura: Elencare le code]
+-   [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Creazione di un'applicazione Java
 
@@ -67,7 +67,7 @@ Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per o
 
 ## <a name="create-queue"> </a>Procedura: Creare una coda
 
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][].
+Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure].
 
 Usare l'oggetto**CloudQueueClient**t per ottenere un riferimento alla coda da usare. È possibile creare la coda se non esiste già.
 
@@ -382,9 +382,9 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 -   [Windows Azure SDK for Java][Azure Storage SDK per Java]
--   [Riferimento all'SDK del client di archiviazione di Azure][]
--   [API REST di Archiviazione di Azure][]
--   [Blog del team di Archiviazione di Azure][]
+-   [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
+-   [API REST di Archiviazione di Azure][API REST di Archiviazione di Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 
   [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
   [Passaggi successivi]: #NextSteps
@@ -407,5 +407,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,23 +1,23 @@
 <properties linkid="develop-mobile-tutorials-get-started-wp8" urlDisplayName="Get Started (WP8)" pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Windows Phone 8 mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato utilizza i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][] di questo argomento.
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Windows Phone 8 mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato utilizza i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript][versione per back-end JavaScript] di questo argomento.
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][]
+![][0]
 
-> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
-> Per completare questa esercitazione, è necessario disporre di [Visual Studio Professional 2013][]. È disponibile una versione di valutazione gratuita. Per creare una nuova app per Windows Phone 8.1, è necessario che sia installato Visual Studio 2013 Update 2 o versione successiva.
+> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
+> Per completare questa esercitazione, è necessario disporre di [Visual Studio Professional 2013][Visual Studio Professional 2013]. È disponibile una versione di valutazione gratuita. Per creare una nuova app per Windows Phone 8.1, è necessario che sia installato Visual Studio 2013 Update 2 o versione successiva.
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Creazione di una nuova app per Windows Phone
 
@@ -35,7 +35,7 @@ In questa sezione si creerà una nuova app per Windows Phone 8 connessa al servi
 
     ![][2]
 
-3.  Se necessario, scaricare e installare [Visual Studio Professional 2013][] nel computer locale o nella macchina virtuale.
+3.  Se necessario, scaricare e installare [Visual Studio Professional 2013][Visual Studio Professional 2013] nel computer locale o nella macchina virtuale.
 
 4.  In **Download and publish you service to the cloud** fare clic su **Download**.
 
@@ -45,15 +45,15 @@ In questa sezione si creerà una nuova app per Windows Phone 8 connessa al servi
 
 ## Test del servizio mobile sul computer locale
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-> [WACOM.NOTE]Sono necessari passaggi aggiuntivi per la configurazione per eseguire un'app per Windows Phone che si connette a un servizio locale. Questa procedura non verrà illustrata nel presente argomento, ma ulteriori informazioni sono disponibili nella pagina relativa alla [connessione a un servizio Web locale dall'emulatore di Windows Phone 8][].
+> [WACOM.NOTE]Sono necessari passaggi aggiuntivi per la configurazione per eseguire un'app per Windows Phone che si connette a un servizio locale. Questa procedura non verrà illustrata nel presente argomento, ma ulteriori informazioni sono disponibili nella pagina relativa alla [connessione a un servizio Web locale dall'emulatore di Windows Phone 8][connessione a un servizio Web locale dall'emulatore di Windows Phone 8].
 
 ## Pubblicazione del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  Nel progetto di app per Windows Phone aprire il file App.xaml.cs, individuare il codice che crea un'istanza di [MobileServiceClient][], impostare come commento il codice per la creazione del client usando *localhost*, quindi rimuovere il commento dal codice per la creazione del client usando l'URL del servizio remoto, simile al seguente:
+1.  Nel progetto di app per Windows Phone aprire il file App.xaml.cs, individuare il codice che crea un'istanza di [MobileServiceClient][MobileServiceClient], impostare come commento il codice per la creazione del client usando *localhost*, quindi rimuovere il commento dal codice per la creazione del client usando l'URL del servizio remoto, simile al seguente:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
                     "https://todolist.azure-mobile.net/",
@@ -76,32 +76,32 @@ In questa sezione si creerà una nuova app per Windows Phone 8 connessa al servi
 
 ![][3]
 
-Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per Windows Phone con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal dispositivo o dall'emulatore di Windows Phone. Per ulteriori informazioni, vedere [Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale][].
+Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per Windows Phone con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal dispositivo o dall'emulatore di Windows Phone. Per ulteriori informazioni, vedere [Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale][Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale].
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione alla sincronizzazione dei dati offline][]
+-   [Introduzione alla sincronizzazione dei dati offline][Introduzione alla sincronizzazione dei dati offline]
     Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili][]
+-   [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili][Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]
      Informazioni su come diagnosticare e correggere i problemi che possono verificarsi con un back-end .NET di Servizi mobili.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [versione per back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-phone-get-started
-  []: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md

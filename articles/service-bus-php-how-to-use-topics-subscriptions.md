@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -22,7 +22,7 @@ In questa guida verrà descritto come usare gli argomenti e le sottoscrizioni de
 -   [Procedura: Eliminare argomenti e sottoscrizioni][Procedura: Eliminare argomenti e sottoscrizioni]
 -   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>Creare un'applicazione PHP
 
@@ -35,7 +35,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 ## <span id="GetClientLibrary"></span></a>Acquisire le librerie client di Azure
 
-[WACOM.INCLUDE [get-client-libraries][get-client-libraries]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Configurare l'applicazione per l'uso del bus di servizio
 
@@ -331,6 +331,5 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [SqlFilter.SqlExpression Property]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

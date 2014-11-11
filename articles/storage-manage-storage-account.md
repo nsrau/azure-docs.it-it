@@ -1,22 +1,22 @@
 <properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="managestorageaccounts"></span></a>Come gestire gli account di archiviazione
 
 ## Sommario
 
--   [Procedura: Gestire la replica dell'account di archiviazione][]
--   [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione][]
--   [Procedura: Eliminare un account di archiviazione][]
+-   [Procedura: Gestire la replica dell'account di archiviazione][Procedura: Gestire la replica dell'account di archiviazione]
+-   [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione][Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione]
+-   [Procedura: Eliminare un account di archiviazione][Procedura: Eliminare un account di archiviazione]
 
 ## <span id="georeplication"></span></a>Procedura: Replicare i dati dell'account di archiviazione per garantire la durabilità e la disponibilità elevata
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### Per specificare le impostazioni di replica per un account di archiviazione
 
-1.  Nel [portale di gestione di Azure][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per visualizzare il dashboard.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per visualizzare il dashboard.
 
 2.  Fare clic su **Configure**.
 
@@ -28,19 +28,19 @@
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-Nel [portale di gestione][] utilizzare **Manage Keys** nel dashboard o la pagina **Storage** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione utilizzate per accedere ai servizi BLOB, tabelle e di accodamento.
+Nel [portale di gestione][portale di gestione] utilizzare **Manage Keys** nel dashboard o la pagina **Storage** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione utilizzate per accedere ai servizi BLOB, tabelle e di accodamento.
 
 ### Copia di una chiave di accesso alle risorse di archiviazione
 
-È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da utilizzare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione][].
+È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da utilizzare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione][Configurazione delle stringhe di connessione].
 
-1.  Nel [portale di gestione][] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2.  Fare clic su **Manage Keys**.
 
     **Verrà aperto** Manage Access Keys.
 
-    ![ManageKeys][]
+    ![ManageKeys][ManageKeys]
 
 3.  Per copiare una chiave di accesso alle risorse di archiviazione, selezionare il testo della chiave. Fare quindi clic con il pulsante destro del mouse e scegliere **Copy**.
 
@@ -62,7 +62,7 @@ Nel [portale di gestione][] utilizzare **Manage Keys** nel dashboard o la pagina
 
 1.  Aggiornare le stringhe di connessione nel codice dell'applicazione in modo che facciano riferimento alla chiave di accesso secondaria dell'account di archiviazione.
 
-2.  Rigenerare la chiave di accesso primaria per l'account di archiviazione. Nel [portale di gestione][], nel dashboard o nella pagina **Configure** fare clic su **Manage Keys**. Fare clic su **Regenerate** nella chiave di accesso primaria e quindi fare clic su **Yes** per confermare che si desidera generare una nuova chiave.
+2.  Rigenerare la chiave di accesso primaria per l'account di archiviazione. Nel [portale di gestione][portale di gestione], nel dashboard o nella pagina **Configure** fare clic su **Manage Keys**. Fare clic su **Regenerate** nella chiave di accesso primaria e quindi fare clic su **Yes** per confermare che si desidera generare una nuova chiave.
 
 3.  Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.
 
@@ -84,7 +84,7 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
     </p>
 </div>
 
-1.  Nel [portale di gestione][] fare clic su **Storage**.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage**.
 
 2.  Fare clic ovunque nella voce dell'account di archiviazione tranne che sul nome e quindi fare clic su **Delete**.
 
@@ -100,5 +100,5 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
   [storage-replication-options]: ../includes/storage-replication-options.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [portale di gestione]: http://manage.windowsazure.com
-  [Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/en-us/library/ee758697.aspx
+  [Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/it-it/library/ee758697.aspx
   [ManageKeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png

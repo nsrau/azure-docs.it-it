@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -36,7 +36,7 @@ In questa esercitazione si creeranno sia un nuovo servizio mobile che una sempli
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][]
+![][0]
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app di Windows Store.
 
@@ -46,7 +46,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ## Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creazione di una nuova app di Windows Store
 
@@ -109,22 +109,9 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 -   **Introduzione alle notifiche push** ([C#][8]/[JavaScript][9])
     Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store]: /it-it/documentation/articles/mobile-services-windows-store-get-started "Windows Store"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-get-started "Android"
-  [HTML]: /it-it/documentation/articles/mobile-services-html-get-started "HTML"
-  [Xamarin.iOS]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android"
-  [Sencha]: /it-it/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha"
-  [PhoneGap]: /it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap"
-  [Appcelerator]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started "Appcelerator"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript backend"
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
+
+  [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

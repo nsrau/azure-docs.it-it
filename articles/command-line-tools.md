@@ -1,12 +1,12 @@
 <properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Strumenti da riga di comando di Azure per Mac e Linux
 
 Questo strumento fornisce la funzionalità per la creazione, la distribuzione e la gestione di macchine virtuali, siti Web e Servizi mobili di Azure da desktop Mac e Linux. Questa funzionalità è simile a quella fornita dai cmdlet di Windows PowerShell installati con Azure SDK per .NET, Node.JS e PHP.
 
-Per installare lo strumento su un Mac, scaricare ed eseguire il [programma di installazione di Azure SDK][].
+Per installare lo strumento su un Mac, scaricare ed eseguire il [programma di installazione di Azure SDK][programma di installazione di Azure SDK].
 
 Per installare lo strumento su Linux, installare l'ultima versione di Node.JS, quindi utilizzare NPM per procedere:
 
@@ -18,20 +18,20 @@ Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tr
 
 **Sommario:**
 
--   [Gestione delle informazioni relative all'account e le impostazioni di pubblicazione][]
--   [Comandi per la gestione delle macchine virtuali di Azure][]
--   [Comandi per la gestione degli endpoint delle macchine virtuali di Azure][]
--   [Comandi per la gestione delle immagini delle macchine virtuali di Azure][]
--   [Comandi per la gestione dei dischi dati delle immagini delle macchine virtuali di Azure][]
--   [Comandi per la gestione dei servizi cloud di Azure][]
--   [Comandi per la gestione dei certificati di Azure][]
--   [Comandi per la gestione dei siti Web][]
--   [Comandi per la gestione di Servizi mobili di Azure][]
--   [Gestione delle impostazioni locali dello strumento][]
--   [Comandi per la gestione del bus di servizio][]
--   [Comandi per la gestione degli oggetti di archiviazione][]
--   [Comandi per la gestione dei database SQL][]
--   [Comandi per la gestione delle reti virtuali][]
+-   [Gestione delle informazioni relative all'account e le impostazioni di pubblicazione][Gestione delle informazioni relative all'account e le impostazioni di pubblicazione]
+-   [Comandi per la gestione delle macchine virtuali di Azure][Comandi per la gestione delle macchine virtuali di Azure]
+-   [Comandi per la gestione degli endpoint delle macchine virtuali di Azure][Comandi per la gestione degli endpoint delle macchine virtuali di Azure]
+-   [Comandi per la gestione delle immagini delle macchine virtuali di Azure][Comandi per la gestione delle immagini delle macchine virtuali di Azure]
+-   [Comandi per la gestione dei dischi dati delle immagini delle macchine virtuali di Azure][Comandi per la gestione dei dischi dati delle immagini delle macchine virtuali di Azure]
+-   [Comandi per la gestione dei servizi cloud di Azure][Comandi per la gestione dei servizi cloud di Azure]
+-   [Comandi per la gestione dei certificati di Azure][Comandi per la gestione dei certificati di Azure]
+-   [Comandi per la gestione dei siti Web][Comandi per la gestione dei siti Web]
+-   [Comandi per la gestione di Servizi mobili di Azure][Comandi per la gestione di Servizi mobili di Azure]
+-   [Gestione delle impostazioni locali dello strumento][Gestione delle impostazioni locali dello strumento]
+-   [Comandi per la gestione del bus di servizio][Comandi per la gestione del bus di servizio]
+-   [Comandi per la gestione degli oggetti di archiviazione][Comandi per la gestione degli oggetti di archiviazione]
+-   [Comandi per la gestione dei database SQL][Comandi per la gestione dei database SQL]
+-   [Comandi per la gestione delle reti virtuali][Comandi per la gestione delle reti virtuali]
 
 ## <a name="Manage_your_account_information_and_publish_settings"></a>Gestione delle informazioni relative all'account e le impostazioni di pubblicazione
 
@@ -186,7 +186,7 @@ Questo comando elimina l'ambiente specificato dall'account.
 
 Nel diagramma seguente vengono illustrate le modalità di hosting delle macchine virtuali di Azure nell'ambiente della distribuzione di produzione di un servizio cloud di Azure.
 
-![Diagramma tecnico di Azure][]
+![Diagramma tecnico di Azure][Diagramma tecnico di Azure]
 
 **create-new** consente di creare l'unità nell'archiviazione BLOB (E:/ nel diagramma); **attach** consente di collegare un disco già creato, ma non collegato, a una macchina virtuale.
 
@@ -345,7 +345,7 @@ Questo comando esporta un'immagine di una macchina virtuale di Azure in un file.
 
 Nel diagramma seguente viene illustrata l'architettura di una tipica distribuzione di più istanze di una macchina virtuale. Si noti che, in questo esempio, la porta 3389 è aperta su ogni macchina virtuale (per l'accesso RDP) e che è anche presente un indirizzo IP interno (ad esempio 168.55.11.1) su ogni macchina virtuale. Questo viene utilizzato dal servizio di bilanciamento del carico per l'indirizzamento del traffico alla macchina virtuale. L'indirizzo IP interno può essere utilizzato anche per la comunicazione tra macchine virtuali.
 
-![azurenetworkdiagram][]
+![azurenetworkdiagram][azurenetworkdiagram]
 
 Le richieste esterne alle macchine virtuali passano attraverso un servizio di bilanciamento del carico. Per questo motivo, in distribuzioni con più macchine virtuali, non è possibile specificare richieste indirizzate a una macchina virtuale specifica. Per le distribuzioni con più macchine virtuali, è necessario configurare il mapping delle porte tra le macchine virtuali (porta-vm) e il servizio di bilanciamento del carico (porta-bc).
 
@@ -658,7 +658,7 @@ Per forzare l'eliminazione, usare il parametro `-q`.
 
 ## <a name="Commands_to_manage_your_Azure_certificates"></a>Comandi per la gestione dei certificati di Azure
 
-I certificati di servizio di Azure sono certificati SSL collegati all'account Azure. Per altre informazioni sui certificati di Azure, vedere [Gestione certificati][].
+I certificati di servizio di Azure sono certificati SSL collegati all'account Azure. Per altre informazioni sui certificati di Azure, vedere [Gestione certificati][Gestione certificati].
 
 **service cert list [opzioni]**
 
@@ -1135,12 +1135,12 @@ Questo comando configura le opzioni di diagnostica per il sito Web.
 
 Servizi mobili di Azure è costituito da un insieme di servizi Azure che abilitano le funzionalità di back-end delle applicazioni. I comandi relativi a Servizi mobili sono suddivisi nelle categorie seguenti:
 
--   [Comandi per la gestione delle istanze di Servizi mobili][]
--   [Comandi per la gestione della configurazione di Servizi mobili][]
--   [Comandi per la gestione delle tabelle di Servizi mobili][]
--   [Comandi per la gestione degli script di Servizi mobili][]
--   [Comandi per la gestione dei processi pianificati][]
--   [Comandi per il ridimensionamento di un servizio mobile][]
+-   [Comandi per la gestione delle istanze di Servizi mobili][Comandi per la gestione delle istanze di Servizi mobili]
+-   [Comandi per la gestione della configurazione di Servizi mobili][Comandi per la gestione della configurazione di Servizi mobili]
+-   [Comandi per la gestione delle tabelle di Servizi mobili][Comandi per la gestione delle tabelle di Servizi mobili]
+-   [Comandi per la gestione degli script di Servizi mobili][Comandi per la gestione degli script di Servizi mobili]
+-   [Comandi per la gestione dei processi pianificati][Comandi per la gestione dei processi pianificati]
+-   [Comandi per il ridimensionamento di un servizio mobile][Comandi per il ridimensionamento di un servizio mobile]
 
 Le opzioni seguenti si applicano alla maggior parte dei comandi di Servizi mobili:
 
@@ -1459,7 +1459,7 @@ Questo comando rimuove tutte le righe di dati dalla tabella.
 
 ### <a name="Mobile_Scripts"></a>Comandi per la gestione degli script
 
-Comandi in questa sezione vengono utilizzati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili][].
+Comandi in questa sezione vengono utilizzati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili][Utilizzo degli script del server in Servizi mobili].
 
 **mobile script list [opzioni] [nome\_servizio]**
 
@@ -1517,7 +1517,7 @@ Questo comando rimuove lo script insert esistente dalla tabella TodoItem.
 
 ### <a name="Mobile_Jobs"></a>Comandi per la gestione dei processi pianificati
 
-I comandi in questa sezione vengono utilizzati per gestire i processi pianificati appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Pianificare i processi][].
+I comandi in questa sezione vengono utilizzati per gestire i processi pianificati appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Pianificare i processi][Pianificare i processi].
 
 **mobile job list [opzioni] [nome\_servizio]**
 
@@ -1593,7 +1593,7 @@ Questo comando rimuove il processo pianificato getUpdates dal server TodoList.
 
 ### <a name="Mobile_Scale"></a>Comandi per il ridimensionamento di un servizio mobile
 
-I comandi in questa sezione vengono utilizzati per ridimensionare un servizio mobile. Per ulteriori informazioni, vedere [Ridimensionamento di un servizio mobile][].
+I comandi in questa sezione vengono utilizzati per ridimensionare un servizio mobile. Per ulteriori informazioni, vedere [Ridimensionamento di un servizio mobile][Ridimensionamento di un servizio mobile].
 
 **mobile scale show [opzioni] [nome\_servizio]**
 

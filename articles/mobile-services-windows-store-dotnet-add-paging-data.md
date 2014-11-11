@@ -1,6 +1,6 @@
 <properties pageTitle="Refine Mobile Services queries with paging (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Utilizzo del paging per ridefinire le query di Servizi mobili
 
@@ -15,7 +15,7 @@ In questo argomento viene illustrato come utilizzare il paging per gestire la qu
 
 Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'utilizzo dei dati, [Introduzione ai dati][Introduzione ai dati].
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-paging][mobile-services-windows-dotnet-paging]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -30,18 +30,8 @@ Il set di esercitazioni relative alle nozioni di base dell'utilizzo dei dati in 
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-add-paging-data "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-add-paging-data "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-add-paging-data "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-add-paging-data "Android"
-  [HTML]: /it-it/documentation/articles/mobile-services-html-add-paging-data "HTML"
-  [Xamarin.iOS]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data "Xamarin.Android"
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "JavaScript backend"
+
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
   [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/

@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for iOS apps" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,11 +16,11 @@
 
 </div>
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per backend .NET][] di questo argomento.
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per backend .NET][versione per backend .NET] di questo argomento.
 
 Di seguito è riportata una schermata dell'app completata:
 
-![][]
+![][0]
 
 Per completare questa esercitazione, è necessario disporre di XCode 4.5 e iOS 5.0 o versioni successive.
 
@@ -28,7 +28,7 @@ Per completare questa esercitazione, è necessario disporre di XCode 4.5 e iOS 5
 
 ## <a name="create-new-service"> </a>Creazione di un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Creazione di una nuova app</span>Creazione di una nuova app per iOS
 
@@ -46,7 +46,7 @@ In questa sezione si creerà una nuova app per iOS connessa al servizio mobile.
 
     ![][2]
 
-3.  Se necessario, scaricare e installare [Xcode][] 4.4 o versione successiva.
+3.  Se necessario, scaricare e installare [Xcode][Xcode] 4.4 o versione successiva.
 
 4.  Fare clic su **Create TodoItems table** per creare una tabella in cui archiviare i dati dell'app.
 
@@ -56,7 +56,7 @@ In questa sezione si creerà una nuova app per iOS connessa al servizio mobile.
 
 ## Esecuzione della nuova app per iOS
 
-[WACOM.INCLUDE [mobile-services-ios-run-app][]]
+[WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
 1.  
 
@@ -76,25 +76,23 @@ In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'a
 
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione alla sincronizzazione dei dati offline][]
+-   [Introduzione alla sincronizzazione dei dati offline][Introduzione alla sincronizzazione dei dati offline]
     Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart
   [versione per backend .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-  []: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F
+  [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
   [2]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png

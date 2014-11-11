@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service - 4 di 5
 
-Questa è la quarta di una serie di cinque esercitazioni in cui viene illustrato come creare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][].
+Questa è la quarta di una serie di cinque esercitazioni in cui viene illustrato come creare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][prima esercitazione della serie].
 
 In questa esercitazione si apprenderà come:
 
@@ -18,11 +18,11 @@ Il progetto di ruolo di lavoro A è già stato creato insieme al progetto di ser
 
 ## Segmenti dell'esercitazione
 
--   [Aggiunta di un riferimento al progetto Web][]
--   [Aggiunta del modello SendEmail][]
--   [Aggiunta del codice da eseguire all'avvio del ruolo di lavoro][]
--   [Test del ruolo di lavoro A][]
--   [Passaggi successivi][]
+-   [Aggiunta di un riferimento al progetto Web][Aggiunta di un riferimento al progetto Web]
+-   [Aggiunta del modello SendEmail][Aggiunta del modello SendEmail]
+-   [Aggiunta del codice da eseguire all'avvio del ruolo di lavoro][Aggiunta del codice da eseguire all'avvio del ruolo di lavoro]
+-   [Test del ruolo di lavoro A][Test del ruolo di lavoro A]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="addref"></a><span class="short-header">Aggiunta di un riferimento al progetto</span>Aggiunta di un riferimento al progetto Web
 
@@ -34,13 +34,13 @@ Poiché le classi di entità vengono definite nel progetto Web, è necessario ag
 
 2.  In **Gestione riferimenti** aggiungere un riferimento al progetto MvcWebRole, quindi fare clic su **OK**.
 
-    ![Aggiunta di un riferimento a MvcWebRole][]
+    ![Aggiunta di un riferimento a MvcWebRole][Aggiunta di un riferimento a MvcWebRole]
 
 ## <a name="addmodel"></a>Aggiunta del modello SendEmail
 
 Il ruolo di lavoro A crea le righe `SendEmail` nella tabella `Message` e il ruolo di lavoro B le legge per ottenere le informazioni necessarie per l'invio di posta elettronica. L'immagine seguente illustra un subset di proprietà relative a due righe `Message` e a tre righe `SendEmail` nella tabella `Message`.
 
-![Tabella message con SendMail][]
+![Tabella message con SendMail][Tabella message con SendMail]
 
 Queste righe della tabella `Message` servono a diversi scopi:
 
@@ -130,9 +130,9 @@ Il metodo `OnStart` inizializza gli oggetti di contesto necessari per gestire le
 
 Nella documentazione precedente sull'utilizzo di Archiviazione di Azure viene illustrato il codice di inizializzazione in un ciclo che verifica la presenza di errori di trasporto. Ciò non è più necessario, poiché l'API include ora un meccanismo incorporato di ripetizione tentativi che assorbe gli errori di rete temporanei fino a un massimo di tre tentativi.
 
-Il metodo `ConfigureDiagnostics` chiamato dal metodo `OnStart` configura la traccia, in modo che sia possibile visualizzare l'output dei metodi `Trace.Information` e `Trace.Error`. Questo metodo viene illustrato nella [seconda esercitazione][].
+Il metodo `ConfigureDiagnostics` chiamato dal metodo `OnStart` configura la traccia, in modo che sia possibile visualizzare l'output dei metodi `Trace.Information` e `Trace.Error`. Questo metodo viene illustrato nella [seconda esercitazione][seconda esercitazione].
 
-L'impostazione [ServicePointManager.DefaultConnectionLimit][] specifica il numero massimo di connessioni TCP simultanee che possono essere aperte in .NET. Nella documentazione relativa alla classe [ServicePointManager][] viene spiegato che ogni host univoco a cui si connette l'istanza del ruolo di lavoro è una connessione separata. Ad esempio, questo ruolo di lavoro avrebbe tre connessioni simultanee, una per le tabelle, una per i BLOB e una per le code. Per alcune connessioni, ad esempio per SQL Server, il software client gestisce le connessioni in pool, in modo da ridurre il numero di connessioni simultanee gestite da `ServicePointManager`. Il numero ottimale per `DefaultConnectionLimit` dipende in parte dal servizio back-end con cui si stabilisce la connessione. Alcuni servizi possono supportare persino 500 connessioni aperte, mentre altri possono essere sovraccaricati anche solo da 5 connessioni. Il numero di 12 connessioni per ogni processore è in genere un limite ottimale nella maggior parte degli scenari.
+L'impostazione [ServicePointManager.DefaultConnectionLimit][ServicePointManager.DefaultConnectionLimit] specifica il numero massimo di connessioni TCP simultanee che possono essere aperte in .NET. Nella documentazione relativa alla classe [ServicePointManager][ServicePointManager] viene spiegato che ogni host univoco a cui si connette l'istanza del ruolo di lavoro è una connessione separata. Ad esempio, questo ruolo di lavoro avrebbe tre connessioni simultanee, una per le tabelle, una per i BLOB e una per le code. Per alcune connessioni, ad esempio per SQL Server, il software client gestisce le connessioni in pool, in modo da ridurre il numero di connessioni simultanee gestite da `ServicePointManager`. Il numero ottimale per `DefaultConnectionLimit` dipende in parte dal servizio back-end con cui si stabilisce la connessione. Alcuni servizi possono supportare persino 500 connessioni aperte, mentre altri possono essere sovraccaricati anche solo da 5 connessioni. Il numero di 12 connessioni per ogni processore è in genere un limite ottimale nella maggior parte degli scenari.
 
 ### Metodo OnStop
 
@@ -155,7 +155,7 @@ Il metodo `OnStop` viene chiamato quando il ruolo di lavoro sta per essere arres
 
 Il metodo `Run` monitora la variabile `onStopCalled` e interrompe il pull di nuovi elementi di lavoro da elaborare quando la variabile viene impostata su `true`. Questo coordinamento tra i metodi `OnStop` e `Run` consente un arresto normale del processo di lavoro.
 
-In Azure vengono periodicamente installati aggiornamenti del sistema operativo per garantire la sicurezza, l'affidabilità e le prestazioni della piattaforma. Questi aggiornamenti richiedono in genere l'arresto e il riavvio del computer che ospita il servizio cloud. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo][].
+In Azure vengono periodicamente installati aggiornamenti del sistema operativo per garantire la sicurezza, l'affidabilità e le prestazioni della piattaforma. Questi aggiornamenti richiedono in genere l'arresto e il riavvio del computer che ospita il servizio cloud. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo][Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo].
 
 ### Metodo Run
 
@@ -246,7 +246,7 @@ Il metodo controlla inoltre la variabile globale `onStopCalled`. Se la variabile
             }
         }
 
-Si noti che tutte le operazioni vengono eseguite in un ciclo infinito in un blocco `while` e che è stato eseguito il wrapping di tutto il codice del blocco `while` in un blocco `try`-`catch` per evitare un'eccezione non gestita. Se si verifica un'eccezione non gestita, verrà generato l'evento [UnhandledException][], il processo di lavoro verrà terminato e il ruolo verrà portato offline. Il ruolo di lavoro verrà riavviato da Azure, ma saranno richiesti diversi minuti. Il blocco `try` chiama `TraceError` per registrare l'errore, quindi viene sospeso per 60 secondi in modo che, se l'errore è persistente, il relativo messaggio non verrà ripetuto un numero eccessivo di volte. In un'applicazione di produzione è possibile che il blocco `try` includa un messaggio di posta elettronica indirizzato a un amministratore.
+Si noti che tutte le operazioni vengono eseguite in un ciclo infinito in un blocco `while` e che è stato eseguito il wrapping di tutto il codice del blocco `while` in un blocco `try`-`catch` per evitare un'eccezione non gestita. Se si verifica un'eccezione non gestita, verrà generato l'evento [UnhandledException][UnhandledException], il processo di lavoro verrà terminato e il ruolo verrà portato offline. Il ruolo di lavoro verrà riavviato da Azure, ma saranno richiesti diversi minuti. Il blocco `try` chiama `TraceError` per registrare l'errore, quindi viene sospeso per 60 secondi in modo che, se l'errore è persistente, il relativo messaggio non verrà ripetuto un numero eccessivo di volte. In un'applicazione di produzione è possibile che il blocco `try` includa un messaggio di posta elettronica indirizzato a un amministratore.
 
 Il metodo `Run` elabora una query per le righe `message` nella tabella `message` con la data pianificata entro il giorno successivo:
 
@@ -498,11 +498,11 @@ Il metodo `CheckAndUpdateStatusIfComplete` controlla tutti i messaggi con stato 
 
 3.  Creare un messaggio da inviare alla lista di distribuzione creata, quindi impostare la data pianificata sul giorno corrente o nel passato.
 
-    ![Nuovo messaggio con lo stato Pending][]
+    ![Nuovo messaggio con lo stato Pending][Nuovo messaggio con lo stato Pending]
 
 4.  Dopo poco più di un minuto (a causa del tempo di sospensione di un minuto impostato nel metodo Run) aggiornare la pagina Web Messages. Lo stato visualizzato a questo punto è Processing. È possibile che venga visualizzato prima si Queuing, ma il passaggio da Queuing a Processing avviene in genere talmente rapidamente che lo stato Queuing non viene rilevato inosservato.
 
-    ![Nuovo messaggio con lo stato Processing][]
+    ![Nuovo messaggio con lo stato Processing][Nuovo messaggio con lo stato Processing]
 
 5.  Aprire **Esplora server** e selezionare il nodo relativo all'archiviazione per lo sviluppo.
 
@@ -510,13 +510,13 @@ Il metodo `CheckAndUpdateStatusIfComplete` controlla tutti i messaggi con stato 
 
     Nella lista di distribuzione di destinazione verrà visualizzato un messaggio in coda per ogni sottoscrittore verificato.
 
-    ![Messaggio in coda in Esplora archivi Azure][]
+    ![Messaggio in coda in Esplora archivi Azure][Messaggio in coda in Esplora archivi Azure]
 
 7.  Fare doppio clic su un messaggio in coda.
 
     Verrà visualizzato il contenuto del messaggio in coda, ovvero la chiave di partizione (la data), la chiave di riga (valore MessageRef e indirizzo di posta elettronica) e il contrassegno di riavvio, separati da una virgola.
 
-    ![Contenuto del messaggio in coda in Esplora archivi Azure][]
+    ![Contenuto del messaggio in coda in Esplora archivi Azure][Contenuto del messaggio in coda in Esplora archivi Azure]
 
 8.  Chiudere la finestra di dialogo **Visualizza messaggio**.
 
@@ -526,15 +526,15 @@ Il metodo `CheckAndUpdateStatusIfComplete` controlla tutti i messaggi con stato 
 
 10. Fare doppio clic su una riga nella cui chiave è incluso "message" per visualizzare il contenuto della riga creata dal ruolo Web.
 
-    ![Riga messaggio][]
+    ![Riga messaggio][Riga messaggio]
 
 11. Fare doppio clic su una riga nella cui chiave è incluso un indirizzo di posta elettronica per visualizzare il contenuto della riga `SendEmail` creata dal ruolo di lavoro A.
 
-    ![Riga SendEmail nella tabella Message][]
+    ![Riga SendEmail nella tabella Message][Riga SendEmail nella tabella Message]
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come creare il ruolo di lavoro A e verificare se crea i messaggi della coda e le righe della tabella necessari al ruolo di lavoro B per inviare i messaggi di posta elettronica. Nell'[esercitazione successiva][] verrà illustrato come creare e testare il ruolo di lavoro B.
+In questa esercitazione è stato illustrato come creare il ruolo di lavoro A e verificare se crea i messaggi della coda e le righe della tabella necessari al ruolo di lavoro B per inviare i messaggi di posta elettronica. Nell'[esercitazione successiva][esercitazione successiva] verrà illustrato come creare e testare il ruolo di lavoro B.
 
 Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di Archiviazione di Azure, vedere l'[ultima esercitazione di questa serie][esercitazione successiva].
 

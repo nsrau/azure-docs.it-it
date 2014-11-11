@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Gestione di conflitti di scrittura nel database
 
@@ -29,7 +29,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
     1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**.
 
-        ![][]
+        ![][0]
 
     2.  Espandere **Online** e fare clic su **Microsoft and .NET**. Nella casella di testo di ricerca immettere **Azure Mobile Services**. Fare clic su **Installa** accanto al pacchetto NuGet **Azure Mobile Services**.
 
@@ -291,7 +291,7 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 -   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows Store C#]: /it-it/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows Store JavaScript"
@@ -303,7 +303,7 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Account Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [controllo della concorrenza ottimistica]: http://go.microsoft.com/fwlink/?LinkId=330935
   [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143

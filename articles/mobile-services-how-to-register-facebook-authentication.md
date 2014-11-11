@@ -1,20 +1,20 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Registrazione delle app per l'autenticazione di Facebook con Servizi mobili
 
 In questo argomento viene illustrato come registrare le app in modo da poter utilizzare Facebook per l'autenticazione con Servizi mobili di Azure.
 
-> [WACOM.NOTE] Questa esercitazione riguarda [Servizi mobili di Azure][], una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione [Introduzione all'autenticazione in Servizi mobili][] che illustra come consentire agli utenti l'accesso alla propria app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione relativa all'[introduzione a Servizi mobili][].
+> [WACOM.NOTE] Questa esercitazione riguarda [Servizi mobili di Azure][Servizi mobili di Azure], una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione [Introduzione all'autenticazione in Servizi mobili][Introduzione all'autenticazione in Servizi mobili] che illustra come consentire agli utenti l'accesso alla propria app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione relativa all'[introduzione a Servizi mobili][introduzione a Servizi mobili].
 
-Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com][].
+Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com][facebook.com].
 
-1.  Passare al sito Web [Facebook Developers][] e accedere con le proprie credenziali dell'account di Facebook.
+1.  Passare al sito Web [Facebook Developers][Facebook Developers] e accedere con le proprie credenziali dell'account di Facebook.
 
 2.  (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **Apps** e quindi su **Register as a Developer**, accettare le condizioni e seguire la procedura di registrazione.
 
-    ![][]
+    ![][0]
 
 3.  Fare clic su **Apps**, quindi su **Create a New App**.
 
@@ -54,14 +54,14 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 È ora possibile utilizzare un account di accesso di Facebook per l'autenticazione nell'app fornendo i valori dell'ID e del segreto dell'app a Servizi mobili.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Servizi mobili di Azure]: http://azure.microsoft.com/it-it/services/mobile-services/
   [Introduzione all'autenticazione in Servizi mobili]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-ios-get-started-users/
   [introduzione a Servizi mobili]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-ios-get-started/
   [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
   [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-  []: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+  [0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
   [1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
   [2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
   [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png

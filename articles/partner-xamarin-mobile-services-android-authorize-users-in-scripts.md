@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-android" urlDisplayName="Authorize Users in Scripts (Xamarin.Android)" pageTitle="Authorize users in scripts (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.Android scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Utilizzo di script per l'autorizzazione di utenti in Servizi mobili
 
@@ -10,15 +10,15 @@
 
 In questo argomento viene illustrato come utilizzare gli script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Xamarin.Android. In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione][]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione][].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione][Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione][Introduzione all'autenticazione].
 
 ## <a name="register-scripts"></a>Registrazione di script
 
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -52,7 +52,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 ## Test dell'app
 
-1.  In Xamarin Studio o Visual Studio aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione][].
+1.  In Xamarin Studio o Visual Studio aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione][Introduzione all'autenticazione].
 
 2.  Fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto.
 
@@ -70,28 +70,20 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è terminata. Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati][]
+-   [Introduzione ai dati][Introduzione ai dati]
     Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
-  [iOS C#]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
+
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Convalida e modifica dei dati in Servizi mobili mediante script del server
 
@@ -10,18 +10,18 @@ In questo argomento viene illustrato come utilizzare gli script del server in Se
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Aggiunta della convalida della lunghezza della stringa][]
-2.  [Aggiornamento del client per il supporto della convalida][]
+1.  [Aggiunta della convalida della lunghezza della stringa][Aggiunta della convalida della lunghezza della stringa]
+2.  [Aggiornamento del client per il supporto della convalida][Aggiornamento del client per il supporto della convalida]
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati][Introduzione ai dati].
 
 ## <a name="string-length-validation"></a>Aggiunta della convalida
 
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
@@ -51,7 +51,7 @@ Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell
 
 Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario aggiornare l'app .NET affinché sia in grado di gestire le risposte di errore dalla convalida.
 
-1.  In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][].
+1.  In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
 2.  Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**).
 
@@ -104,34 +104,26 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][].
+Dopo avere completato anche questa esercitazione, provare a svolgere l'ultima esercitazione della serie relativa ai dati: [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query].
 
 Gli script server vengono inoltre utilizzati per l'autorizzazione degli utenti e per l'invio di notifiche push. Per ulteriori informazioni, vedere le esercitazioni seguenti:
 
--   [Autorizzazione di utenti con script][]
+-   [Autorizzazione di utenti con script][Autorizzazione di utenti con script]
     Informazioni su come filtrare i dati in base all'ID di un utente autenticato.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts "Windows Store JavaScript"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts "iOS"
-  [Android]: /it-it/documentation/articles/mobile-services-android-validate-modify-data-server-scripts "Android"
-  [HTML]: /it-it/documentation/articles/mobile-services-html-validate-modify-data-server-scripts "HTML"
-  [Xamarin.iOS]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
+
   [Aggiunta della convalida della lunghezza della stringa]: #string-length-validation
   [Aggiornamento del client per il supporto della convalida]: #update-client-validation
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-ios
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png

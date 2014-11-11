@@ -1,6 +1,6 @@
 <properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Operating System Functionality Available to Applications on Azure Websites" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Funzionalità del sistema operativo disponibili per le applicazioni su Siti web di Azure
 
@@ -122,7 +122,6 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
   [Framework di sviluppo]: #developmentframeworks
   [Accesso ai file]: #FileAccess
   [Unità locali]: #LocalDrives
-  [Unità di rete (note anche come condivisioni UNC)]: #NetworkDrives
   [Accesso a file tra più istanze]: #multipleinstances
   [Tipi di accesso ai file concesso a un'applicazione Web]: #TypesOfFileAccess
   [Accesso alla rete]: #NetworkAccess

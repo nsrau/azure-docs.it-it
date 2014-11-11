@@ -32,7 +32,7 @@ In questa esercitazione sul push sicuro viene illustrato come inviare una notifi
 > [AZURE.NOTE] In questa esercitazione si presuppone che sia stato creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Windows Store)][Introduzione ad Hub di notifica (Windows Store)].
 > Si noti inoltre che Windows Phone 8.1 richiede le credenziali di Windows (non di Windows Phone) e che le attività in background non funzionano in Windows Phone 8.0 o Silverlight 8.1. Per le applicazioni per Windows Store, è possibile ricevere le notifiche tramite un'attività in background solo se per l'app è abilitata la schermata di blocco (fare clic sulla casella di controllo nel manifesto dell'app).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificare il progetto dell'app per Windows Phone
 
@@ -169,10 +169,6 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4.  Nell'interfaccia utente dell'app **NotifyUserWindowsPhone** fare clic su **Log in and register**. Fare clic su **Send push**.
 
-  [Windows Universal]: /it-it/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /it-it/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Introduzione ad Hub di notifica (Windows Store)]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png

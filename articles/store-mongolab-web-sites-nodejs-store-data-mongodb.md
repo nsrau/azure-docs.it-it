@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com" />
 
 # Creazione di un'applicazione Node.js in Azure con MongoDB mediante il componente aggiuntivo MongoLab
 
@@ -21,7 +21,7 @@ Prima di continuare, assicurarsi di avere installato quanto segue:
 
 -   [Git][Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Avvio rapido
 
@@ -56,7 +56,7 @@ Si passerà ora all'esercitazione completa.
 
 ## <a name="provision"></a>Provisioning del database
 
-[WACOM.INCLUDE [howto-provision-mongolab][howto-provision-mongolab]]
+[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 ## <a name="create"></a>Creazione dell'app
 
@@ -421,11 +421,11 @@ La variabile di ambiente process.env.CUSTOMCONNSTR\_MONGOLAB\_URI nel codice ver
 
 #### Ottenere la stringa di connessione MongoLab
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab][howto-get-connectioninfo-mongolab]]
+[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### Aggiungere la stringa di connessione alle variabili di ambiente del sito Web
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab][howto-save-connectioninfo-mongolab]]
+[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Completamento della procedura
 
@@ -435,7 +435,7 @@ Eseguire `azure site browse` dalla directory del progetto per aprire automaticam
 
 ## <a name="manage"></a>Gestione del database
 
-[WACOM.INCLUDE [howto-access-mongolab-ui][howto-access-mongolab-ui]]
+[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] per eventuali domande o problemi relativi al database o per assistenza su MongoDB o sul driver del nodo. È ora possibile utilizzare l'applicazione.
 
@@ -444,7 +444,6 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
   [Creare l'app]: #create
   [Distribuire l'app]: #deploy
   [Gestire il database]: #manage
-  [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>]: mailto:support@mongolab.com
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md

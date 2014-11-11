@@ -1,12 +1,12 @@
 <properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Creare un sito Web di Azure che si connette a MongoDB in esecuzione su una macchina virtuale in Azure
 
 Con Git è possibile distribuire un'applicazione ASP.NET in un sito Web di Azure. In questa esercitazione verrà creata una semplice applicazione di elenco di attività ASP.NET MVC front-end che si connette a un database MongoDB in esecuzione in una macchina virtuale in Azure. [MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Dopo aver eseguito e verificato l'applicazione ASP.NET sul computer di sviluppo, l'applicazione verrà caricata in un sito Web di Azure usando Git.
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note][create-account-and-websites-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-websites-and-vms-note]]
 
 ## Panoramica
 
@@ -319,11 +319,11 @@ In **Esplora soluzioni** aprire il file *Controllers\\HomeController.cs* e sosti
 
 ### Impostazione dello stile del sito
 
-Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file Views\\Shared\\\_Layout.cshtml e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
+Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file Views\Shared\\_Layout.cshtml e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
 
     @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Per impostare il menu Elenco attività, aprire il file *\\Views\\Home\\Index.cshtml* e sostituire il codice esistente con il seguente codice:
+Per impostare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml* e sostituire il codice esistente con il seguente codice:
 
     @model IEnumerable<MyTaskListApp.Models.MyTask>
 
@@ -475,7 +475,7 @@ In questa sezione verrà distribuita l'applicazione ASP.NET My Task List usando 
 
     ![Distribuzione completata][Distribuzione completata]
 
-9.  Il sito Web di Azure è ora disponibile. Nella pagina **Dashboard** controllare la presenza del sito e il campo **URL sito** per trovare l'URL del sito. Se sono state seguite le procedure di questa esercitazione, il sito dovrebbe essere disponibile all'URL: <http://mytasklistapp.azurewebsites.net>.
+9.  Il sito Web di Azure è ora disponibile. Nella pagina **Dashboard** controllare la presenza del sito e il campo **URL sito** per trovare l'URL del sito. Se sono state seguite le procedure di questa esercitazione, il sito dovrebbe essere disponibile all'URL: http://mytasklistapp.azurewebsites.net.
 
 ## Riepilogo
 

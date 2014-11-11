@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>Configurazione del servizio Backup di Microsoft Azure per il backup semplice e rapido di Windows Server
 
@@ -21,19 +21,19 @@ Per eseguire il backup di file e dati da Windows Server ad Azure, è necessario 
 
 ## <span id="create"></span></a>Creazione di un insieme di credenziali per il backup
 
-1.  Accedere al [portale di gestione][].
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Fare clic su **Nuovo**, scegliere **Data Services**, quindi **Servizi di ripristino**, fare clic su **Insieme di credenziali per il backup** e infine su **Creazione rapida**.
 
 3.  In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali di backup.
 
 4.  In **Area** selezionare l'area geografica per l'insieme di credenziali per il backup.
-     ![Nuovo insieme di credenziali di backup][]
+     ![Nuovo insieme di credenziali di backup][Nuovo insieme di credenziali di backup]
 
 5.  Fare clic su **Crea insieme di credenziali**.
 
     La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale. Dopo la creazione dell'insieme di credenziali per il backup verrà visualizzato un messaggio di conferma. L'insieme di credenziali verrà elencato nelle risorse di Servizi di ripristino come **Attivo**.
-    ![Creazione dell'insieme di credenziali per il backup][]
+    ![Creazione dell'insieme di credenziali per il backup][Creazione dell'insieme di credenziali per il backup]
 
 6.  Se all'account aziendale sono associate più sottoscrizioni, scegliere l'account corretto da associare all'insieme di credenziali per il backup.
 
@@ -41,7 +41,7 @@ Per eseguire il backup di file e dati da Windows Server ad Azure, è necessario 
 
 Le credenziali di insieme sostituiscono i certificati come metodo per registrare il servizio di Azure con il server. È ancora possibile usare i certificati, ma le credenziali di insieme sono più facili da usare perché vengono generate e scaricate dal portale di Azure.
 
-1.  Accedere al [portale di gestione][].
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Fare clic su **Servizi di ripristino**, quindi selezionare l'insieme di credenziali per il backup che si desidera registrare con un server. Viene visualizzata la pagina Avvio rapido relativa a tale insieme di credenziali.
 
@@ -51,20 +51,20 @@ Le credenziali di insieme sostituiscono i certificati come metodo per registrare
 
 ## <span id="download"></span></a>Download e installazione di un agente di backup
 
-1.  Accedere al [portale di gestione][].
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Fare clic su **Servizi di ripristino**, quindi selezionare un insieme di credenziali per il backup per visualizzare la relativa pagina Avvio rapido.
 
 3.  Nella pagina Avvio rapido selezionare il tipo di agente che si desidera scaricare. È possibile scegliere **Download Azure Backup Agent**, **Windows Server and System Center Data Protection Manager** o **Windows Server Essentials**. Per ulteriori informazioni, vedere:
 
-    -   [Installazione dell'agente di backup di Azure per Windows Server 2012 e System Center 2012 SP1 - Data Protection Manager][]
-    -   [Installazione dell'agente di backup di Azure per Windows Server 2012 Essentials][]
+    -   [Installazione dell'agente di backup di Azure per Windows Server 2012 e System Center 2012 SP1 - Data Protection Manager][Installazione dell'agente di backup di Azure per Windows Server 2012 e System Center 2012 SP1 - Data Protection Manager]
+    -   [Installazione dell'agente di backup di Azure per Windows Server 2012 Essentials][Installazione dell'agente di backup di Azure per Windows Server 2012 Essentials]
 
 Dopo l'installazione dell'agente sarà possibile utilizzare l'interfaccia di gestione locale appropriata, ad esempio lo snap-in di Microsoft Management Console, la console System Center Data Protection Manager o il dashboard di Windows Server Essentials, per configurare i criteri di backup per il server.
 
 ## <span id="manage"></span></a>Gestione di server e insiemi di credenziali per il backup
 
-1.  Accedere al [portale di gestione][].
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Fare clic su **Servizi di ripristino**, quindi fare clic sul nome dell'insieme di credenziali per il backup per visualizzare la relativa pagina Avvio rapido.
 
@@ -75,22 +75,21 @@ Dopo l'installazione dell'agente sarà possibile utilizzare l'interfaccia di ges
     -   **Vault credentials**. Usare questa voce del menu di riepilogo rapido per configurare le credenziali di insieme.
 
 4.  Fare clic su **Protected Items** per visualizzare gli elementi di cui è stato eseguito il backup dai server. Questo elenco viene visualizzato solo a scopo informativo.
-    ![Elementi protetti][]
+    ![Elementi protetti][Elementi protetti]
 
 5.  Fare clic su **Servers** per visualizzare i nomi dei server registrati nell'insieme di credenziali. Da questo punto è possibile eseguire le attività seguenti:
 
     -   **Consenti ripetizione della registrazione**. Quando questa opzione è selezionata per un server, è possibile utilizzare la procedura di registrazione guidata nell'agente per registrare nuovamente il server con l'insieme di credenziali per il backup. La ri-registrazione di un server può essere necessaria per un errore nel certificato, oppure se è stato necessario ricreare il server. La ri-registrazione è consentita una sola volta per nome server.
     -   **Delete**. Consente di eliminare un server dall'insieme di credenziali per il backup. Tutti i dati archiviati associati al server verranno eliminati immediatamente.
 
-        ![Server eliminato][]
+        ![Server eliminato][Server eliminato]
 
 ## <span id="next"></span></a>Passaggi successivi
 
--   Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup][].
+-   Per ulteriori informazioni sul servizio Backup di Azure, vedere [Panoramica di Azure Backup][Panoramica di Azure Backup].
 
--   Visitare il [Forum su Backup di Azure][].
+-   Visitare il [Forum su Backup di Azure][Forum su Backup di Azure].
 
-  [versione di valutazione gratuita di Azure]: /it-it/pricing/free-trial/
   [portale di gestione]: https://manage.windowsazure.com
   [Nuovo insieme di credenziali di backup]: http://i.imgur.com/506c7ch.png
   [Creazione dell'insieme di credenziali per il backup]: http://i.imgur.com/grtLcKM.png

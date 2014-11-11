@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Pianificazione di processi ricorrenti in Servizi mobili
 
@@ -18,13 +18,13 @@ In questo argomento viene illustrato come utilizzare la funzionalità di pianifi
 
 In questa esercitazione vengono descritte le procedure per utilizzare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
 
--   [Registrazione per l'accesso a Twitter e archiviazione delle credenziali][]
--   [Creazione della nuova tabella Updates][]
--   [Creazione di un nuovo processo pianificato][]
+-   [Registrazione per l'accesso a Twitter e archiviazione delle credenziali][Registrazione per l'accesso a Twitter e archiviazione delle credenziali]
+-   [Creazione della nuova tabella Updates][Creazione della nuova tabella Updates]
+-   [Creazione di un nuovo processo pianificato][Creazione di un nuovo processo pianificato]
 
 ## <a name="get-oauth-credentials"></a>Registrazione per l'accesso alle API di Twitter v1.1 e archiviazione delle credenziali
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>Creazione della nuova tabella Updates
 
@@ -32,7 +32,7 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
 1.  Nel portale di gestione fare clic sulla scheda **Data** per il servizio mobile e quindi su **+Create**.
 
-    ![][]
+    ![][0]
 
     Verrà visualizzata la finestra di dialogo **Create new table**.
 
@@ -139,7 +139,7 @@ Ora è possibile creare l'attività pianificata che accede a Twitter e archivia 
 
     Lo script chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
-    > [WACOM.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile effettuare gli inserimenti in batch. Per altre informazioni, vedere [Procedura: Eseguire inserimenti bulk][].
+    > [WACOM.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile effettuare gli inserimenti in batch. Per altre informazioni, vedere [Procedura: Eseguire inserimenti bulk][Procedura: Eseguire inserimenti bulk].
 
 5.  Fare clic su **Run Once** per testare lo script.
 
@@ -161,18 +161,16 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 
 ## <a name="nextsteps"> </a>Passaggi successivi
 
--   [Riferimento per gli script del server di Servizi mobili][]
+-   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET backend"
-  [Back-end JavaScript]: /it-it/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript backend"
+
   [Registrazione per l'accesso a Twitter e archiviazione delle credenziali]: #get-oauth-credentials
   [Creazione della nuova tabella Updates]: #create-table
   [Creazione di un nuovo processo pianificato]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

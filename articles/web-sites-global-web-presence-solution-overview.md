@@ -1,6 +1,6 @@
 <properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/it-it/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Creare una presenza Web globale su Siti Web di Azure
 
@@ -207,8 +207,6 @@ Per creare il sito della propria organizzazione (.COM) le attività standard inc
   [Servizi cloud di Azure]: /it-it/documentation/services/cloud-services/
   [Macchine virtuali di Azure]: /it-it/documentation/services/virtual-machines/
   [Confronto tra Siti Web, Servizi cloud e macchine virtuali di Azure]: /it-it/manage/services/web-sites/choose-web-app-service
-  [campagne di marketing digitali]: http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [applicazioni business]: http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
   [Introduzione a Siti Web di Azure e ASP.NET]: /it-it/documentation/articles/web-sites-dotnet-get-started
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/
@@ -233,5 +231,4 @@ Per creare il sito della propria organizzazione (.COM) le attività standard inc
   [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
   [campagna marketing digitale]: /it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [Come monitorare i siti Web]: /it-it/manage/services/web-sites/how-to-monitor-websites/
-  [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: http://www.windowsazure.com/it-it/manage/services/web-sites/choose-web-app-service
 

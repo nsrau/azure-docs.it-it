@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Come utilizzare il servizio di archiviazione di accodamento di Ruby
 
@@ -8,36 +8,36 @@ Questa guida illustra come eseguire scenari comuni del servizio di archiviazione
 di accodamento di Windows Azure. Gli esempi sono stati scritti tramite l'API Ruby di Azure.
 Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero**,
 e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di
-code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
+code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sull'archiviazione di accodamento][]
--   [Concetti][]
--   [Creare un account di Archiviazione di Azure][]
--   [Creazione di un'applicazione Ruby][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una connessione di archiviazione di Azure][]
--   [Procedura: Creare una coda][]
--   [Procedura: Inserire un messaggio in una coda][]
--   [Procedura: Visualizzare il messaggio successivo][]
--   [Procedura: Rimuovere il messaggio successivo dalla coda][]
--   [Procedura: Cambiare il contenuto di un messaggio in coda][]
--   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][]
--   [Procedura: Recuperare la lunghezza della coda][]
--   [Procedura: Eliminare una coda][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
+-   [Concetti][Concetti]
+-   [Creare un account di Archiviazione di Azure][Creare un account di Archiviazione di Azure]
+-   [Creazione di un'applicazione Ruby][Creazione di un'applicazione Ruby]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una connessione di archiviazione di Azure][Configurazione di una connessione di archiviazione di Azure]
+-   [Procedura: Creare una coda][Procedura: Creare una coda]
+-   [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]
+-   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
+-   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]
+-   [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
+-   [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creazione di un'applicazione Ruby
 
 Creare un'applicazione Ruby. Per istruzioni,
-vedere [Creazione di un'applicazione Ruby in Azure][].
+vedere [Creazione di un'applicazione Ruby in Azure][Creazione di un'applicazione Ruby in Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -66,7 +66,7 @@ sarà necessario specificare le informazioni relative all'account prima di usare
 
 Per ottenere questi valori:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Passare all'account di archiviazione che si desidera utilizzare
 3.  Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
 4.  Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile selezionare la primaria o la secondaria.
@@ -154,11 +154,11 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
--   Archivio [Azure SDK for Ruby][] su GitHub
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
+-   Archivio [Azure SDK for Ruby][Azure SDK for Ruby] su GitHub
 
-Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come utilizzare le code del bus di servizio][] vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni][]
+Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come utilizzare le code del bus di servizio][Come utilizzare le code del bus di servizio] vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni][Code di Azure e Azure Service Bus: confronto e contrapposizioni]
 
   
   [Passaggi successivi]: #next-steps
@@ -178,10 +178,10 @@ Per un confronto tra il Servizio di accodamento di Azure discusso in questo arti
   [Procedura: Eliminare una coda]: #how-to-delete-a-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creazione di un'applicazione Ruby in Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Creazione di un'applicazione Ruby in Azure]: /it-it/develop/ruby/tutorials/web-app-with-linux-vm/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
-  [Come utilizzare le code del bus di servizio]: /en-us/develop/ruby/how-to-guides/service-bus-queues/
-  [Code di Azure e Azure Service Bus: confronto e contrapposizioni]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [Come utilizzare le code del bus di servizio]: /it-it/develop/ruby/how-to-guides/service-bus-queues/
+  [Code di Azure e Azure Service Bus: confronto e contrapposizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx

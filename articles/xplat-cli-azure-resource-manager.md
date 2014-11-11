@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/it-it/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse
 
@@ -162,7 +162,5 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 -   Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure][Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure].
 -   Per informazioni sull'utilizzo di Gestione risorse usando Azure PowerShell, vedere [Introduzione all'utilizzo di PowerShell con Gestione risorse][Introduzione all'utilizzo di PowerShell con Gestione risorse]
 
-  [Windows PowerShell]: /it-it/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [CLI multipiattaforma]: /it-it/documentation/articles/xplat-cli-azure-resource-manager.md "Cross-Platform CLI"
   [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure]: /it-it/documentation/articles/xplat-cli/
   [Introduzione all'utilizzo di PowerShell con Gestione risorse]: http://go.microsoft.com/fwlink/?LinkId=394760

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Utilizzo del paging per ridefinire le query di Servizi mobili
 
@@ -12,9 +12,9 @@ In questo argomento viene illustrato come utilizzare il paging per gestire la qu
 <p>Per evitare l'overflow dei dati nei client dei dispositivi mobili, Servizi mobili implementa un limite di pagina automatico, che per impostazione predefinita prevede un massimo di 50 elementi in una risposta. Specificando la dimensione della pagina, &egrave; possibile richiedere in modo esplicito fino a un massimo di 1.000 elementi nella risposta.</p>
 </div>
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'utilizzo dei dati, [Introduzione ai dati][].
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati][Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'utilizzo dei dati, [Introduzione ai dati][Introduzione ai dati].
 
-1.  In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][].
+1.  In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
 2.  Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere il testo nella casella di testo e fare clic sull'icona con il segno più (**+**).
 
@@ -76,18 +76,10 @@ Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell
 
 Il set di esercitazioni relative alle nozioni di base dell'utilizzo dei dati in Servizi mobili è concluso. Per ulteriori informazioni, vedere anche il seguente argomento su Servizi mobili:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app con l'account Windows.
 
-<!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. --> <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. --> 
 
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/add-paging-to-data-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /it-it/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /it-it/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /it-it/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-ios
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-ios

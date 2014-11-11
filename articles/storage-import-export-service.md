@@ -1,6 +1,6 @@
 <properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB
 
@@ -13,7 +13,7 @@ Per trasferire un set di grandi dimensioni di dati di file nell'archiviazione BL
 -   Utilizzando il portale di gestione di Azure.
 -   Utilizzando un'interfaccia REST per il servizio.
 
-In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come utilizzare il portale di gestione per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure][].
+In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come utilizzare il portale di gestione per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure][Riferimento dell'API REST del servizio di importazione/esportazione di Azure].
 
 ## Panoramica del servizio Importazione/Esportazione
 
@@ -35,7 +35,7 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
 
 ### Requisiti e ambito
 
-1.  **Sottoscrizione ed account di archiviazione:** per utilizzare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere utilizzato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione][].
+1.  **Sottoscrizione ed account di archiviazione:** per utilizzare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere utilizzato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 2.  **Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 4 TB non sono supportati. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III.
 3.  **Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
 4.  **Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine.
@@ -48,7 +48,7 @@ Creare un processo di importazione per notificare al servizio Importazione/Espor
 
 ### Preparare le unità
 
-Prima di creare un processo di importazione, preparare le unità con lo strumento di importazione/esportazione di Microsoft Azure. Per ulteriori dettagli sull'uso dello strumento di importazione/esportazione di Microsoft Azure, vedere [Riferimento allo strumento di importazione/esportazione di Azure][]. È possibile scaricare lo [strumento di importazione/esportazione di Microsoft Azure][] come pacchetto autonomo.
+Prima di creare un processo di importazione, preparare le unità con lo strumento di importazione/esportazione di Microsoft Azure. Per ulteriori dettagli sull'uso dello strumento di importazione/esportazione di Microsoft Azure, vedere [Riferimento allo strumento di importazione/esportazione di Azure][Riferimento allo strumento di importazione/esportazione di Azure]. È possibile scaricare lo [strumento di importazione/esportazione di Microsoft Azure][strumento di importazione/esportazione di Microsoft Azure] come pacchetto autonomo.
 
 Per preparare le unità, seguire questi tre passaggi:
 
@@ -68,7 +68,7 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 4.  Nel passaggio 3 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. È necessario caricare un file per ogni unità preparata.
 
-    ![Creare il processo di importazione - Passaggio 3][]
+    ![Creare il processo di importazione - Passaggio 3][Creare il processo di importazione - Passaggio 3]
 
 5.  Nel passaggio 4 immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà utilizzato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
 
@@ -94,7 +94,7 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 3.  Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati BLOB nell'account di archiviazione o specificare singoli BLOB o set di BLOB.
 
-    ![Creare il processo di esportazione - Passaggio 3][]
+    ![Creare il processo di esportazione - Passaggio 3][Creare il processo di esportazione - Passaggio 3]
 
     -   Per specificare un BLOB da esportare, utilizzare il selettore **Equal To** e specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
     -   Per specificare tutti i BLOB che iniziano con un prefisso, utilizzare il selettore **Starts With** e specificare il prefisso, iniziando con una barra "/". Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB.
@@ -199,7 +199,7 @@ Nella tabella viene descritto il significato di ogni designazione dello stato de
 
 Per i processi di esportazione, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità, in modo che sia possibile decrittografare i dati esportati dopo aver ricevuto l'unità dal data center di Azure. Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Import/Export**. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante **View Keys**. Le chiavi BitLocker vengono visualizzate come illustrato:
 
-![Visualizzare le chiavi BitLocker per il processo di esportazione][]
+![Visualizzare le chiavi BitLocker per il processo di esportazione][Visualizzare le chiavi BitLocker per il processo di esportazione]
 
 ## Domande frequenti
 
@@ -207,7 +207,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 **Qual è il prezzo per il servizio Importazione/Esportazione?**
 
--   Per informazioni sui prezzi, vedere la [pagina dei prezzi][].
+-   Per informazioni sui prezzi, vedere la [pagina dei prezzi][pagina dei prezzi].
 
 **Quanto tempo richiederà l'importazione o l'esportazione dei dati?**
 
@@ -257,9 +257,9 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 **Quali servizi di corriere sono supportati?**
 
--   Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express][] (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
+-   Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express][Federal Express] (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
 
--   Per le aree geografiche in Asia è supportato solo [DHL][]. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
+-   Per le aree geografiche in Asia è supportato solo [DHL][DHL]. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
 
     <div class="dev-callout">
 <strong>Importante</strong>
@@ -268,7 +268,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 **Esistono costi associati alla spedizione di ritorno?**
 
--   Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx][Federal Express] (per Stati Uniti ed Europa) o [DHL][] (Asia), se non lo si ha già.
+-   Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx][Federal Express] (per Stati Uniti ed Europa) o [DHL][DHL] (Asia), se non lo si ha già.
 
 -   La tariffa della spedizione di ritorno viene addebitata sull'account del vettore e dipende dal vettore stesso.
 
@@ -291,7 +291,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 	<p>&Egrave; possibile che i supporti fisici spediti debbano passare i confini internazionali. &Egrave; responsabilit&agrave; del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ci&ograve; assicura che la spedizione raggiunga Microsoft in modo tempestivo.</p>
 </div>
 
--   Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure][].
+-   Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure][Condizioni per l’Utilizzo dei Servizi di Microsoft Azure].
 
 **È possibile acquistare da Microsoft unità per i processi di importazione/esportazione?**
 
@@ -311,4 +311,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
   [pagina dei prezzi]: http://go.microsoft.com/fwlink/?LinkId=329033
   [Federal Express]: http://www.fedex.com/us/oadr/
   [DHL]: http://www.dhl-welcome.com/Tutorial/
-  [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure]: http://azure.microsoft.com/en-us/support/legal/services-terms/
+  [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure]: http://azure.microsoft.com/it-it/support/legal/services-terms/

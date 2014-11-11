@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
 # Introduzione ai dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -22,23 +22,23 @@
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Download del progetto dell'app per Windows Phone 8][]
-2.  [Creazione del servizio mobile][]
-3.  [Aggiunta di una tabella dati per l'archiviazione][]
-4.  [Aggiornamento dell'app per l'utilizzo di Servizi mobili][]
-5.  [Test dell'app in Servizi mobili][]
+1.  [Download del progetto dell'app per Windows Phone 8][Download del progetto dell'app per Windows Phone 8]
+2.  [Creazione del servizio mobile][Creazione del servizio mobile]
+3.  [Aggiunta di una tabella dati per l'archiviazione][Aggiunta di una tabella dati per l'archiviazione]
+4.  [Aggiornamento dell'app per l'utilizzo di Servizi mobili][Aggiornamento dell'app per l'utilizzo di Servizi mobili]
+5.  [Test dell'app in Servizi mobili][Test dell'app in Servizi mobili]
 
-Questa esercitazione richiede Visual Studio 2012 Express per Windows Phone 8 e [Windows Phone 8 SDK][] in esecuzione su Windows 8. Per completare questa esercitazione per la creazione di un'app per Windows Phone 8.1, è necessario usare Visual Studio 2013 Update 2 o una versione successiva.
+Questa esercitazione richiede Visual Studio 2012 Express per Windows Phone 8 e [Windows Phone 8 SDK][Windows Phone 8 SDK] in esecuzione su Windows 8. Per completare questa esercitazione per la creazione di un'app per Windows Phone 8.1, è necessario usare Visual Studio 2013 Update 2 o una versione successiva.
 
-> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+> [WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
 
 ## <a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
-Questa esercitazione è basata sull'[app GetStartedWithData][] che è un progetto di app per Windows Phone Silverlight 8. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
+Questa esercitazione è basata sull'[app GetStartedWithData][app GetStartedWithData] che è un progetto di app per Windows Phone Silverlight 8. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
 1.  Scaricare il progetto di app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network][app GetStartedWithData].
 
-    > [WACOM.NOTE]Per creare un'app per Windows Phone Silverlight 8.1, nel progetto di app per Windows Phone Silverlight 8 scaricato è sufficiente impostare il sistema operativo di destinazione su Windows Phone 8.1. Per creare un'app di Windows Phone Store, scaricare la [versione dell'app di Windows Phone Store][] del progetto di app di esempio GetStartedWithData.
+    > [WACOM.NOTE]Per creare un'app per Windows Phone Silverlight 8.1, nel progetto di app per Windows Phone Silverlight 8 scaricato è sufficiente impostare il sistema operativo di destinazione su Windows Phone 8.1. Per creare un'app di Windows Phone Store, scaricare la [versione dell'app di Windows Phone Store][versione dell'app di Windows Phone Store] del progetto di app di esempio GetStartedWithData.
 
 2.  In Visual Studio aprire il progetto scaricato ed esaminare il file MainPage.xaml.cs.
 
@@ -48,17 +48,17 @@ Questa esercitazione è basata sull'[app GetStartedWithData][] che è un progett
 
 4.  Nell'app digitare un testo nella casella di testo e quindi fare clic sul pulsante **Save**.
 
-    ![][]
+    ![][0]
 
     Si noti che il testo salvato è visualizzato nell'elenco riportato di seguito.
 
 ## <a name="create-service"></a><span class="short-header">Creazione del servizio mobile</span>Creazione di un nuovo servizio mobile nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Aggiunta di una nuova tabella</span>Aggiunta di una nuova tabella al servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">Aggiornamento dell'app</span>Aggiornamento dell'app per l'utilizzo del servizio mobile per l'accesso ai dati
 
@@ -147,7 +147,7 @@ Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'arc
 
     Un nuovo elemento verrà inviato come inserimento al servizio mobile.
 
-3.  Nel [portale di gestione][] fare clic su **Mobile Services** e quindi sul servizio mobile.
+3.  Nel [portale di gestione][portale di gestione] fare clic su **Mobile Services** e quindi sul servizio mobile.
 
 4.  Fare clic sulla scheda **Data** e quindi su **Browse**.
 
@@ -161,25 +161,23 @@ L'esercitazione **Introduzione ai dati** per Windows Phone 8 è terminata.
 
 In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app per Windows Phone 8 di utilizzare dati in Servizi mobili. In seguito, è consigliabile eseguire l'esercitazione seguente, basata sull'app GetStartedWithData creata in questa esercitazione:
 
--   [Utilizzo di script per la convalida e la modifica di dati][]
+-   [Utilizzo di script per la convalida e la modifica di dati][Utilizzo di script per la convalida e la modifica di dati]
     Ulteriori informazioni sull'utilizzo di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
--   [Utilizzo del paging per ridefinire le query][]
+-   [Utilizzo del paging per ridefinire le query][Utilizzo del paging per ridefinire le query]
     Ulteriori informazioni su come utilizzare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, è possibile provare a eseguire una delle esercitazioni per Windows Phone 8 seguenti:
 
--   [Introduzione all'autenticazione][]
+-   [Introduzione all'autenticazione][Introduzione all'autenticazione]
     Informazioni sull'autenticazione degli utenti dell'app.
 
--   [Introduzione alle notifiche push][]
+-   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [video di esercitazione]: http://go.microsoft.com/fwlink/?LinkID=298628
-  [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-wp8
   [Download del progetto dell'app per Windows Phone 8]: #download-app
   [Creazione del servizio mobile]: #create-service
   [Aggiunta di una tabella dati per l'archiviazione]: #add-table
@@ -189,7 +187,7 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F
   [app GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [versione dell'app di Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
-  []: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png

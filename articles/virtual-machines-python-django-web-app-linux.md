@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Applicazione Web Hello World Django (mac-linux)
 
@@ -21,7 +21,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ![Finestra del browser con la pagina Hello World visualizzata in Azure][Finestra del browser con la pagina Hello World visualizzata in Azure]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Creazione e configurazione di una macchina virtuale di Azure per l'hosting di Django
 
@@ -114,8 +114,6 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di Azure creata per liberare le risorse per altre esercitazioni e per evitare di incorrere in addebiti per l'utilizzo di Azure.
 
-  [Windows]: /it-it/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /it-it/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [Finestra del browser con la pagina Hello World visualizzata in Azure]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [qui]: /it-it/manage/linux/tutorials/virtual-machine-from-gallery/

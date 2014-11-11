@@ -4,26 +4,26 @@
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
 
-Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo sarà illustrato come gestire cluster Hadoop in HDInsight usando una console di Azure PowerShell tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight][].
+Azure PowerShell è un ambiente di scripting potente che può essere utilizzato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo sarà illustrato come gestire cluster Hadoop in HDInsight usando una console di Azure PowerShell tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight][Documentazione di riferimento di cmdlet di HDInsight].
 
 **Prerequisiti:**
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
--   Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. I cmdlet di PowerShell HDInsight eseguono le attività con la sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di valutazione gratuita][].
+-   Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. I cmdlet di PowerShell HDInsight eseguono le attività con la sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][Opzioni di acquisto], [Offerte per i membri][Offerte per i membri] oppure [Versione di valutazione gratuita][Versione di valutazione gratuita].
 
--   Workstation con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
+-   Workstation con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
 
 ## Contenuto dell'articolo
 
--   [Provisioning di un cluster][]
--   [Elenco e visualizzazione di cluster][]
--   [Eliminazione di un cluster][]
--   [Concessione/revoca dell'accesso ai servizi HTTP][]
--   [Inviare processi MapReduce][]
--   [Inviare processi Hive][]
--   [Caricare i dati nell'archiviazione BLOB][]
--   [Download dei dati di output di MapReduce dall'archiviazione BLOB][]
+-   [Provisioning di un cluster][Provisioning di un cluster]
+-   [Elenco e visualizzazione di cluster][Elenco e visualizzazione di cluster]
+-   [Eliminazione di un cluster][Eliminazione di un cluster]
+-   [Concessione/revoca dell'accesso ai servizi HTTP][Concessione/revoca dell'accesso ai servizi HTTP]
+-   [Inviare processi MapReduce][Inviare processi MapReduce]
+-   [Inviare processi Hive][Inviare processi Hive]
+-   [Caricare i dati nell'archiviazione BLOB][Caricare i dati nell'archiviazione BLOB]
+-   [Download dei dati di output di MapReduce dall'archiviazione BLOB][Download dei dati di output di MapReduce dall'archiviazione BLOB]
 
 ## <span id="provision"></span></a>Provisioning di un cluster HDInsight
 
@@ -47,7 +47,7 @@ Dopo avere importato il file publishsettings è possibile utilizzare il comando 
 > -   Stati Uniti orientali
 > -   Stati Uniti occidentali
 
-Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][].
+Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
 Se si dispone già di un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile utilizzare i comandi seguenti per recuperare le informazioni:
 
@@ -56,7 +56,7 @@ Se si dispone già di un account di archiviazione, ma non si conosce il nome acc
     # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][].
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
 
 **Per creare il contenitore dell'archiviazione di Azure**
 
@@ -92,7 +92,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
 Nella schermata seguente è illustrata l'esecuzione dello script:
 
-![HDI.PS.Provision][]
+![HDI.PS.Provision][HDI.PS.Provision]
 
 ## <span id="listshow"></span></a> Elenco e visualizzazione di cluster
 
@@ -130,7 +130,7 @@ Nell'esempio *hdiv2* è un nome del cluster HDInsight.
 
 > [WACOM.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-È possibile effettuare tale operazione anche tramite il portale di gestione di Azure. Vedere [Amministrazione di HDInsight tramite il portale di gestione][].
+È possibile effettuare tale operazione anche tramite il portale di gestione di Azure. Vedere [Amministrazione di HDInsight tramite il portale di gestione][Amministrazione di HDInsight tramite il portale di gestione].
 
 ## <span id="mapreduce"></span></a> Inviare processi MapReduce
 
@@ -170,7 +170,7 @@ Lo script di PowerShell seguente consente di recuperare l'output del processo Ma
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare MapReduce con HDInsight][].
+Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare MapReduce con HDInsight][Usare MapReduce con HDInsight].
 
 ## <span id="hive"></span></a> Inviare processi Hive
 
@@ -195,30 +195,30 @@ Lo script seguente consente di inviare un processo Hive per visualizzare l'elenc
 
 Il processo Hive visualizzerà innanzitutto le tabelle Hive create nel cluster e i dati restituiti da hivesampletable.
 
-Per altre informazioni sull'utilizzo di Hive, vedere [Usare Hive con HDInsight][].
+Per altre informazioni sull'utilizzo di Hive, vedere [Usare Hive con HDInsight][Usare Hive con HDInsight].
 
 ## <span id="upload"></span></a>Caricare i dati nell'archiviazione BLOB
 
-Vedere [Caricare i dati in HDInsight][].
+Vedere [Caricare i dati in HDInsight][Caricare i dati in HDInsight].
 
 ## <span id="download"></span></a>Download dei dati di output di MapReduce dall'archiviazione BLOB
 
-Vedere la sezione [Inviare processi MapReduce][] in questo articolo.
+Vedere la sezione [Inviare processi MapReduce][Inviare processi MapReduce] in questo articolo.
 
 ## Vedere anche
 
 -   [Documentazione di riferimento relativa ai cmdlet di HDInsight][Documentazione di riferimento di cmdlet di HDInsight]
--   [Amministrazione di HDInsight tramite il portale di gestione][]
--   [Amministrazione di HDInsight tramite l'interfaccia della riga di comando][]
--   [Provisioning di cluster HDInsight][]
--   [Caricare i dati in HDInsight][]
--   [Inviare processi Hadoop a livello di codice][]
--   [Introduzione all'utilizzo di Azure HDInsight][]
+-   [Amministrazione di HDInsight tramite il portale di gestione][Amministrazione di HDInsight tramite il portale di gestione]
+-   [Amministrazione di HDInsight tramite l'interfaccia della riga di comando][Amministrazione di HDInsight tramite l'interfaccia della riga di comando]
+-   [Provisioning di cluster HDInsight][Provisioning di cluster HDInsight]
+-   [Caricare i dati in HDInsight][Caricare i dati in HDInsight]
+-   [Inviare processi Hadoop a livello di codice][Inviare processi Hadoop a livello di codice]
+-   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
 
-  [Documentazione di riferimento di cmdlet di HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
-  [Opzioni di acquisto]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Offerte per i membri]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Versione di valutazione gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Documentazione di riferimento di cmdlet di HDInsight]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx
+  [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
+  [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
+  [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Come installare e configurare Azure PowerShell]: ../install-configure-powershell/
   [Provisioning di un cluster]: #provision
   [Elenco e visualizzazione di cluster]: #listshow

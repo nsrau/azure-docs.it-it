@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Esempio di Azure Machine Learning: Previsione delle prestazioni degli studenti
 
@@ -27,7 +27,7 @@ Il file algebra\_train\_small.txt\_ascii risultante è ancora molto grande (36 m
     $ctxt = New-AzureStorageContext -StorageAccountName $key.StorageAccountName -StorageAccountKey $key.Primary
     Set-AzureStorageBlobContent –Container <container name in your storage account> -File "algebra_train_small.txt_ascii" –Context $ctxt
 
-![][]
+![][0]
 
 I parametri del modulo **Lettore** sono visualizzati sopra. In questo esempio il nome dell'account di archiviazione è "datascience" e il file del set di dati algebra\_train\_small.txt\_ascii viene inserito nel contenitore "sampleexperiments". La chiave dell'account è una chiave di accesso dell'account di archiviazione di Azure. È possibile recuperare la chiave dell'account nel portale di gestione di Azure ([][1]<https://manage.windowsazure.com></a>).
 
@@ -101,9 +101,9 @@ La conclusione è che il quarto set di funzionalità presenta la radice dell'err
 
 H.-F. Yu et al. Feature Engineering and Classifier Ensemble for KDD Cup 2010. KDD Cup 2010 Workshop, 2010.
 
-  []: https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp
+  [0]: https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp
   [Radice dell'errore quadratico medio]: http://en.wikipedia.org/wiki/Root-mean-square_deviation
-  []: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-1.jpg
+  [0]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-1.jpg
   [1]: https://manage.windowsazure.com
   [2]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-2.jpg
   [3]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-3.jpg

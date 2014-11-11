@@ -1,6 +1,6 @@
 <properties linkid="develop-node-create-a-website-mac" urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Creazione e distribuzione di un sito Web Node.js in Azure
 
@@ -165,7 +165,6 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
   [Finestra del browser con il messaggio 'Hello World' visualizzato.]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  [Portale Azure con il collegamento +NEW evidenziato.]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
   [Finestra di dialogo Quick Create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
   [Apertura del dashboard del sito Web]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
   [Configurazione della pubblicazione Git]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png

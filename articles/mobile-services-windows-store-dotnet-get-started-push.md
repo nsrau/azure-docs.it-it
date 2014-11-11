@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
 
 # Introduzione alle notifiche push in Servizi mobili (push legacy)
 
@@ -32,7 +32,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## <a name="register"></a><span class="short-header">Registrazione dell'app</span>Aggiunta e configurazione delle notifiche push nell'app
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Espandere **services**, **mobile services**, il nome del proprio servizio, aprire il file di codice generato e quindi controllare il metodo **UploadChannel** che ottiene l'ID dell'installazione e il canale del dispositivo e inserisce questi dati nella nuova tabella channels.
 
@@ -57,7 +57,7 @@ Il codice generato semplifica la dimostrazione dell'invio di una notifica durant
 
 ## <a name="update-scripts"></a><span class="short-header">Aggiornamento del codice</span>Aggiornamento del codice delle notifiche push generato
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2][mobile-services-create-new-push-vs2013-2]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 ## <a name="test"></a><span class="short-header">Test dell'app</span>Esecuzione del test delle notifiche push nell'app
 
@@ -65,7 +65,7 @@ Il codice generato semplifica la dimostrazione dell'invio di una notifica durant
 
 2.  Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-    ![][]
+    ![][0]
 
     Si noti che al termine dell'inserimento l'app riceve una notifica push da WNS.
 
@@ -101,7 +101,7 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 -   [Riferimento per i concetti e le procedure di Servizi mobili con .NET][Riferimento per i concetti e le procedure di Servizi mobili con .NET]
     Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+
 
   [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
   [Windows Store JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript"
@@ -120,7 +120,7 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [Utilizzo degli script del server in Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
-  []: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
   [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/getting-started-windows-dotnet/
   [Invio di notifiche ai sottoscrittori]: /it-it/manage/services/notification-hubs/breaking-news-dotnet/

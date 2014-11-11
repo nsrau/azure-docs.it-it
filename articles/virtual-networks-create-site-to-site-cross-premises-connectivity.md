@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
 
 # Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito
 
@@ -65,7 +65,7 @@ Per creare una rete virtuale di esempio per la connessione a una rete aziendale:
 
 2.  Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel pannello di navigazione fare clic su **Networks** e quindi su **Virtual Network**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
-    ![][]
+    ![][0]
 
 3.  Nella pagina **Virtual Network Details** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra. Per ulteriori informazioni sulle impostazioni per la pagina relativa ai dettagli, vedere la sezione **Dettagli rete virtuale** in [Informazioni sulla configurazione di una rete virtuale nel portale di gestione][Informazioni sulla configurazione di una rete virtuale nel portale di gestione].
 
@@ -239,7 +239,7 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
   [Avviare il gateway e raccogliere informazioni per l'amministratore di rete]: #StartGateway
   [Configurare il dispositivo VPN]: #ConfigVPN
   [portale di gestione di Azure]: http://manage.windowsazure.com/
-  []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [Informazioni sulla configurazione di una rete virtuale nel portale di gestione]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
   [2]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156075.aspx

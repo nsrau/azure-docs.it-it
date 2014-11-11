@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso
 
-Una firma di accesso condiviso costituisce un potente strumento per concedere ad altri client accesso limitato a BLOB, tabelle e code dell'account di archiviazione, senza dover esporre la chiave dell'account. Nella parte 1 di questa esercitazione sulle firme di accesso condiviso verranno fornite informazioni di carattere generale sul modello della firma di accesso condiviso e ne verranno esaminate le procedure consigliate. Nella [parte 2][] dell'esercitazione verrà invece illustrato il processo di creazione delle firme di accesso condiviso tramite il servizio BLOB.
+Una firma di accesso condiviso costituisce un potente strumento per concedere ad altri client accesso limitato a BLOB, tabelle e code dell'account di archiviazione, senza dover esporre la chiave dell'account. Nella parte 1 di questa esercitazione sulle firme di accesso condiviso verranno fornite informazioni di carattere generale sul modello della firma di accesso condiviso e ne verranno esaminate le procedure consigliate. Nella [parte 2][parte 2] dell'esercitazione verrà invece illustrato il processo di creazione delle firme di accesso condiviso tramite il servizio BLOB.
 
 ## Informazioni sulla firma di accesso condiviso
 
@@ -118,7 +118,7 @@ Per bilanciare questi rischi, è consigliabile attenersi ai consigli seguenti re
 7.  **Comprendere che all'account verrà fatturato qualsiasi tipo di utilizzo, incluso quello effettuato con la firma di accesso condiviso.** Se si fornisce accesso in scrittura a un BLOB, un utente potrebbe scegliere di caricare un BLOB da 200 GB. Se poi si offre anche accesso in lettura, gli utenti potrebbero scegliere di scaricarlo 10 volte e ciò potrebbe comportare 2 TB di costi in uscita. Anche in questo caso, fornire autorizzazioni limitate per ridurre l'impatto potenziale di utenti malintenzionati. Per ridurre questa minaccia, utilizzare firme di accesso condiviso di breve durata, prestando però attenzione allo sfasamento di orario per la scadenza.
 8.  **Convalidare i dati scritti tramite la firma di accesso condiviso.** Quando un'applicazione client scrive i dati nell'account di archiviazione, tenere presente che tali dati potrebbero causare problemi. Se l'applicazione richiede che i dati vengano convalidati o autorizzati prima dell'uso, è necessario eseguire la convalida dopo la scrittura dei dati e prima che vengano utilizzati dall'applicazione. Questa procedura consente inoltre di evitare la scrittura di dati danneggiati o dannosi nell'account da parte da un utente che ha acquisito correttamente la firma di accesso condiviso o di un utente che sfrutta una firma diffusa per errore.
 9.  **Non utilizzare sempre la firma di accesso condiviso.** Talvolta i rischi associati a una particolare operazione su un account di archiviazione superano i benefici derivanti dall'uso della firma di accesso condiviso. Per tali operazioni creare un servizio di livello intermedio che effettui operazioni di scrittura nell'account di archiviazione dopo autenticazione, controllo e convalida di regole di business. Talvolta è inoltre più semplice gestire l'accesso in modi diversi. Se ad esempio si desidera rendere pubblicamente leggibili tutti i BLOB di un contenitore, è possibile rendere pubblico il contenitore anziché fornire una firma di accesso condiviso a ogni client per consentire l'accesso.
-10. **Utilizzare Analisi archiviazione per monitorare l'applicazione.** È possibile utilizzare la registrazione e la metrica per osservare eventuali picchi di errori di autenticazione causati da un'interruzione del servizio del provider di firme di accesso condiviso oppure alla rimozione accidentale di criteri di accesso archiviati. Per ulteriori informazioni, vedere il [blog del team del servizio di archiviazione di Azure][].
+10. **Utilizzare Analisi archiviazione per monitorare l'applicazione.** È possibile utilizzare la registrazione e la metrica per osservare eventuali picchi di errori di autenticazione causati da un'interruzione del servizio del provider di firme di accesso condiviso oppure alla rimozione accidentale di criteri di accesso archiviati. Per ulteriori informazioni, vedere il [blog del team del servizio di archiviazione di Azure][blog del team del servizio di archiviazione di Azure].
 
 ## Conclusioni
 
@@ -128,16 +128,15 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
 [Firme di accesso condiviso, parte 2: creazione e utilizzo di una firma di accesso condiviso con il servizio BLOB][parte 2]
 
-[Gestire l'accesso alle risorse di archiviazione di Azure][]
+[Gestire l'accesso alle risorse di archiviazione di Azure][Gestire l'accesso alle risorse di archiviazione di Azure]
 
-[Delega dell'accesso con una firma di accesso condiviso (API REST)][]
+[Delega dell'accesso con una firma di accesso condiviso (API REST)][Delega dell'accesso con una firma di accesso condiviso (API REST)]
 
-[Introduzione alla firma di accesso condiviso per tabelle e code][]
+[Introduzione alla firma di accesso condiviso per tabelle e code][Introduzione alla firma di accesso condiviso per tabelle e code]
 
   [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
   [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
   [parte 2]: ../storage-dotnet-shared-access-signature-part-2/
   [blog del team del servizio di archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
-  [Gestire l'accesso alle risorse di archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Delega dell'accesso con una firma di accesso condiviso (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gestire l'accesso alle risorse di archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee393343.aspx
   [Introduzione alla firma di accesso condiviso per tabelle e code]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

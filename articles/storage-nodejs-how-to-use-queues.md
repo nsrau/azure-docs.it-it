@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Come utilizzare il Servizio di accodamento da Node.js
 
@@ -8,36 +8,36 @@ In questa guida viene illustrato come eseguire scenari comuni con il servizio di
 Azure. Gli esempi sono scritti usando l'API Node.js
 . Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il
 **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed
-eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
+eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul Servizio di accodamento][]
--   [Concetti][]
--   [Creazione di un account di archiviazione di Azure][]
--   [Creazione di un'applicazione Node.js][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Creare una coda][]
--   [Procedura: Inserire un messaggio in una coda][]
--   [Procedura: Visualizzare il messaggio successivo][]
--   [Procedura: Rimuovere il messaggio successivo dalla coda][]
--   [Procedura: Cambiare il contenuto di un messaggio in coda][]
--   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][]
--   [Procedura: Recuperare la lunghezza della coda][]
--   [Procedura: Eliminare una coda][]
--   [Procedura: Utilizzo delle firme di accesso condiviso][]
--   [Passaggi successivi][]
+-   [Informazioni sul Servizio di accodamento][Informazioni sul Servizio di accodamento]
+-   [Concetti][Concetti]
+-   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creazione di un'applicazione Node.js][Creazione di un'applicazione Node.js]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Creare una coda][Procedura: Creare una coda]
+-   [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]
+-   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
+-   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]
+-   [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
+-   [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
+-   [Procedura: Utilizzo delle firme di accesso condiviso][Procedura: Utilizzo delle firme di accesso condiviso]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][], [Servizio cloud Node.js][] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -77,7 +77,7 @@ Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue a
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createQueueService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][]
+Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione][Applicazione Web Node.js con archiviazione]
 
 ## <a name="create-queue"> </a>Procedura: Creare una coda
 
@@ -330,9 +330,9 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre
 informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][].
--   [Blog del team di Archiviazione di Azure][].
--   Archivio [Azure SDK for Node][] su GitHub.
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
+-   Archivio [Azure SDK for Node][Azure SDK for Node] su GitHub.
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio di accodamento]: #what-is
@@ -356,6 +356,6 @@ informazioni sulle attività di archiviazione più complesse.
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Node]: https://github.com/Azure/azure-storage-node

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # Applicazione .NET multilivello che utilizza le code del bus di servizio
 
@@ -21,15 +21,15 @@ Si apprenderà come:
     Web e ruoli di lavoro.
 -   Consentire le comunicazioni tra i livelli utilizzando le code del bus di servizio.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end sarà un ruolo Web ASP.NET MVC e il back-end sarò un ruolo di lavoro. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web da distribuire in un sito Web di Azure anziché in un servizio cloud. Per istruzioni sulle procedure diverse per creare un front-end per un sito Web di Azure, vedere la sezione [Passaggi successivi][].
+In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end sarà un ruolo Web ASP.NET MVC e il back-end sarò un ruolo di lavoro. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web da distribuire in un sito Web di Azure anziché in un servizio cloud. Per istruzioni sulle procedure diverse per creare un front-end per un sito Web di Azure, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![][]
+![][0]
 
-**Nota** In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per ulteriori informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][].
+**Nota** In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per ulteriori informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][Code di Azure e bus di servizio di Azure: confronto e contrapposizioni].
 
 ## <span class="short-header">Comunicazioni tra ruoli</span>Panoramica dello scenario: comunicazioni tra ruoli
 
@@ -97,7 +97,7 @@ ottenere gli strumenti idonei e configurare l'ambiente di sviluppo.
 
 1.  Per installare Azure SDK per .NET, fare clic sul pulsante seguente:
 
-    [Get Tools and SDK][]
+    [Get Tools and SDK][Get Tools and SDK]
 
 2.  Fare clic su **install the SDK**.
 
@@ -134,7 +134,7 @@ autenticare l'accesso a un'applicazione.
 
 ### Configurare lo spazio dei nomi tramite il portale di gestione
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
     **Service Bus**.
@@ -175,7 +175,7 @@ autenticare l'accesso a un'applicazione.
 
 ### Gestire gli spazi dei nomi e le entità di messaggistica tramite Esplora server di Visual Studio
 
-Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][], nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
+Per gestire uno spazio dei nomi e ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][qui], nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
 Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
@@ -501,7 +501,7 @@ una coda del bus di servizio.
 
 ## <span class="short-header">Gestione configurazione</span>Gestione configurazione del cloud
 
-Azure supporta un nuovo set di API gestite che fornisce un sistema coerente per la creazione di nuove istanze dei client di servizio Azure, ad esempio il bus di servizio, in tutti i servizi cloud Microsoft. Le API consentono di creare istanze di tali client (ad esempio, **CloudBlobClient**, **QueueClient**, **TopicClient**) indipendentemente dalla posizione in cui è ospitata l'applicazione, ovvero in locale, in un servizio cloud Microsoft, in siti Web o in un ruolo VM persistente. È inoltre possibile utilizzare queste API per recuperare le informazioni di configurazione necessarie per creare istanze dei client e per modificare la configurazione senza dover ridistribuire l'applicazione chiamante. Le API si trovano nella classe [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][]. Sono inoltre disponibili API sul lato client.
+Azure supporta un nuovo set di API gestite che fornisce un sistema coerente per la creazione di nuove istanze dei client di servizio Azure, ad esempio il bus di servizio, in tutti i servizi cloud Microsoft. Le API consentono di creare istanze di tali client (ad esempio, **CloudBlobClient**, **QueueClient**, **TopicClient**) indipendentemente dalla posizione in cui è ospitata l'applicazione, ovvero in locale, in un servizio cloud Microsoft, in siti Web o in un ruolo VM persistente. È inoltre possibile utilizzare queste API per recuperare le informazioni di configurazione necessarie per creare istanze dei client e per modificare la configurazione senza dover ridistribuire l'applicazione chiamante. Le API si trovano nella classe [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]. Sono inoltre disponibili API sul lato client.
 
 ### Stringa di connessione
 
@@ -608,15 +608,15 @@ dell'ordine. In questo esempio viene utilizzato il modello di progetto **Worker 
 
 Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
--   [Bus di servizio di Azure][]
--   [Procedure relative al bus di servizio][]
--   [Come utilizzare le code del bus di servizio][]
+-   [Bus di servizio di Azure][Bus di servizio di Azure]
+-   [Procedure relative al bus di servizio][Procedure relative al bus di servizio]
+-   [Come utilizzare le code del bus di servizio][Come utilizzare le code del bus di servizio]
 
 Per ulteriori informazioni sugli scenari multilivello o per informazioni su come distribuire un'applicazione in un servizio cloud, vedere:
 
--   [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][]
+-   [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure]
 
-È consigliabile implementare il front-end di un'applicazione multilivello in un sito Web di Azure anziché in un servizio cloud di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][].
+È consigliabile implementare il front-end di un'applicazione multilivello in un sito Web di Azure anziché in un servizio cloud di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure].
 
 Per implementare l'applicazione creata in questa esercitazione come progetto Web standard invece che come ruolo Web di un servizio cloud, attenersi alle procedure disponibili in questa esercitazione, apportando le modifiche seguenti:
 
@@ -626,11 +626,11 @@ Per implementare l'applicazione creata in questa esercitazione come progetto Web
 
 3.  È possibile verificare separatamente il front-end e il back-end oppure eseguirli simultaneamente in istanze distinte di Visual Studio.
 
-Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure][]. Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][].
+Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure][Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]. Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure].
 
   [create-account-note]: ../includes/create-account-note.md
   [Passaggi successivi]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png

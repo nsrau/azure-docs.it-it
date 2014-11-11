@@ -1,6 +1,6 @@
 <properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Come gestire le entità di messaggistica del bus di servizio
 
@@ -34,7 +34,7 @@ Quick Create consente di creare una coda, argomento o spazio dei nomi del serviz
 
     a. Se non si dispone di uno spazio dei nomi in questa area o nella sottoscrizione di Azure, ne verrà creato uno automaticamente. In questo caso, si riceveranno due messaggi che indicano il completamento dell'operazione: uno per la creazione dello spazio dei nomi e l'altro per la creazione dell'entità.
 
-    ![][]
+    ![][0]
 
 Fare clic sull'icona **Service Bus** nella barra di spostamento a sinistra per ottenere un elenco di spazi dei nomi. Sarà disponibile il nuovo spazio dei nomi appena creato. Fare clic sullo spazio dei nomi nell'elenco. Verrà visualizzata l'entità appena creata sotto quello spazio dei nomi.
 
@@ -107,7 +107,7 @@ Per eliminare la sottoscrizione a un argomento, eseguire le operazioni seguenti:
   [Procedura: Eliminare un'entità del bus di servizio]: #delete
   [Procedura: Abilitare o disabilitare un'entità del bus di servizio]: #disableenable
   [Risorse aggiuntive]: #seealso
-  []: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
+  [0]: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
   [documentazione del bus di servizio]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-relay/
   [1]: ./media/service-bus-manage-message-entities/AddQueue1.png
   [2]: ./media/service-bus-manage-message-entities/ConfigureQueue.png

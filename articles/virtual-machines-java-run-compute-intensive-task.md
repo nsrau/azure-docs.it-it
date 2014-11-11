@@ -1,6 +1,6 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
@@ -26,7 +26,7 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 
 ![Client del Problema del commesso viaggiatore][Client del Problema del commesso viaggiatore]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
 

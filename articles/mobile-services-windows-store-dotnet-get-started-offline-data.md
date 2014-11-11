@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
@@ -60,7 +60,7 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
 
 2.  In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili] o [Introduzione ai dati][Introduzione ai dati]. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** sotto il progetto e aggiungere un riferimento a **SQLite for Windows Runtime** in **Windows** \> **Estensioni**.
 
-    ![][]
+    ![][0]
 
 3.  SQLite Runtime richiede la modifica dell'architettura del processore per il progetto creato in **x86**, **x64** o **ARM**. **Qualsiasi CPU** non è supportata. Modificare l'architettura del processore in una delle impostazioni supportate da testare.
 
@@ -260,12 +260,6 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /it-it/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /it-it/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /it-it/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -273,11 +267,9 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
   [Test dell'app in uno scenario offline]: #test-offline-app
   [Aggiornamento dell'app per la riconnessione al servizio mobile]: #update-online-app
   [Test dell'app connessa al servizio mobile]: #test-online-app
-  [Azure Mobile Services SDK versione 1.3.0-beta2 (o successiva)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-  [Azure Mobile Services SQLite Store versione 1.0.0-beta2 (o successiva)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
   [esempio introduttivo offline]: http://go.microsoft.com/fwlink/?LinkId=394777
   [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-  []: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png

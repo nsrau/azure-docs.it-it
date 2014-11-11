@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # Come creare un account di Servizi multimediali
 
@@ -10,8 +10,8 @@ In questo argomento viene illustrato come utilizzare il metodo di creazione rapi
 
 ## Sommario
 
--   [Concetti][]
--   [Procedura: Creare un account di Servizi multimediali tramite Creazione rapida][]
+-   [Concetti][Concetti]
+-   [Procedura: Creare un account di Servizi multimediali tramite Creazione rapida][Procedura: Creare un account di Servizi multimediali tramite Creazione rapida]
 
 ## <span id="concepts"></span></a>Concetti
 
@@ -23,9 +23,9 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 ## <span id="quick"></span></a>Procedura: Creare un account di Servizi multimediali tramite Creazione rapida
 
-1.  Nel [portale di gestione][] fare clic su **New**, quindi su **Media Service** e infine su **Quick Create**.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **New**, quindi su **Media Service** e infine su **Quick Create**.
 
-    ![Creazione rapida di Servizi multimediali][]
+    ![Creazione rapida di Servizi multimediali][Creazione rapida di Servizi multimediali]
 
 2.  In **NAME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
@@ -41,7 +41,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
     Verrà visualizzata la pagina **media services** con il nuovo account. Quando lo stato passa a Active, significa che la creazione dell'account è stata completata.
 
-    ![Pagina Servizi multimediali][]
+    ![Pagina Servizi multimediali][Pagina Servizi multimediali]
 
     Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Quick Start. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENT.
 

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Come utilizzare l'archiviazione di accodamento da .NET
 
@@ -11,42 +11,42 @@ archiviazione di accodamento di Azure. Negli esempi, scritti in codice C#
 **recupero** e l'
 **eliminazione** dei messaggi in coda, oltre alle procedure di
 **creazione ed eliminazione di code**. Per altre informazioni sulle code, fare riferimento
-alla sezione [Passaggi successivi][].
+alla sezione [Passaggi successivi][Passaggi successivi].
 
-> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet][] o come parte di [Azure SDK per .NET][]. Vedere [Procedura: Accedere all'archiviazione di accodamento a livello di codice][], per informazioni su come ottenere la libreria client di archiviazione.
+> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet][NuGet] o come parte di [Azure SDK per .NET][Azure SDK per .NET]. Vedere [Procedura: Accedere all'archiviazione di accodamento a livello di codice][Procedura: Accedere all'archiviazione di accodamento a livello di codice], per informazioni su come ottenere la libreria client di archiviazione.
 
 ## Sommario
 
--   [Informazioni sull'archiviazione di accodamento][]
--   [Concetti][]
--   [Creare un account di archiviazione di Azure][]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][]
--   [Procedura: Accedere all'archiviazione di accodamento a livello di codice][]
--   [Procedura: Creare una coda][]
--   [Procedura: Inserire un messaggio in una coda][]
--   [Procedura: Visualizzare il messaggio successivo][]
--   [Procedura: Cambiare il contenuto di un messaggio in coda][]
--   [Procedura: Rimuovere il messaggio successivo dalla coda][]
--   [Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda][]
--   [Procedura: Recuperare la lunghezza della coda][]
--   [Procedura: Eliminare una coda][]
--   [Passaggi successivi][]
+-   [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
+-   [Concetti][Concetti]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Procedura: Accedere all'archiviazione di accodamento a livello di codice][Procedura: Accedere all'archiviazione di accodamento a livello di codice]
+-   [Procedura: Creare una coda][Procedura: Creare una coda]
+-   [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]
+-   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
+-   [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
+-   [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
+-   [Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda]
+-   [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
+-   [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">Creare un account</span>Creare un account di archiviazione di Azure
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configurazione di una stringa di connessione</span>Configurazione di una stringa di connessione di archiviazione di Azure
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Accedere a livello di programmazione</span>Procedura: Accedere all'archiviazione di accodamento a livello di codice
 
@@ -54,7 +54,7 @@ alla sezione [Passaggi successivi][].
 
 Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][Centro per sviluppatori .NET]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`
 
 ### Dichiarazioni dello spazio dei nomi
 
@@ -89,7 +89,7 @@ Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.
 
 ### Dipendenze ODataLib
 
-Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData][], [Edm][] e [Spatial][].
+Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData][OData], [Edm][Edm] e [Spatial][Spatial].
 
 ## <a name="create-queue"></a><span class="short-header">Creare una coda</span>Procedura: Creare una coda
 
@@ -97,7 +97,7 @@ Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto *
 Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di
 questa guida viene usata una stringa di connessione di archiviazione archiviata nella configurazione del servizio dell'applicazione
 Azure. Sono inoltre disponibili altri modi per creare un
-oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount][].
+oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount][CloudStorageAccount].
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -303,18 +303,18 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 informazioni sulle attività di archiviazione più complesse.
 
 -   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
-    -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][]
-    -   [Informazioni di riferimento sulle API REST][]
--   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][].
--   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][].
+    -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][Informazioni di riferimento sulla libreria client di archiviazione per .NET]
+    -   [Informazioni di riferimento sulle API REST][Informazioni di riferimento sulle API REST]
+-   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][archiviazione e all'accesso di dati in Azure].
+-   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][Introduzione all'uso dell'SDK di Processi Web di Azure].
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle][].
-    -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB][].
-    -   Per archiviare dati relazionali, utilizzare [Database SQL][].
+    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle][Archiviazione tabelle].
+    -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB][Archiviazione BLOB].
+    -   Per archiviare dati relazionali, utilizzare [Database SQL][Database SQL].
 
   [Passaggi successivi]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK per .NET]: /en-us/downloads/
+  [Azure SDK per .NET]: /it-it/downloads/
   [Procedura: Accedere all'archiviazione di accodamento a livello di codice]: #configure-access
   [Informazioni sull'archiviazione di accodamento]: #what-is
   [Concetti]: #concepts
@@ -331,14 +331,14 @@ informazioni sulle attività di archiviazione più complesse.
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Centro per sviluppatori .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Centro per sviluppatori .NET]: http://www.windowsazure.com/it-it/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [CloudStorageAccount]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Informazioni di riferimento sulla libreria client di archiviazione per .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179355
+  [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Introduzione all'uso dell'SDK di Processi Web di Azure]: /it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Archiviazione tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/
   [Archiviazione BLOB]: /it-it/documentation/articles/storage-dotnet-how-to-use-blobs/

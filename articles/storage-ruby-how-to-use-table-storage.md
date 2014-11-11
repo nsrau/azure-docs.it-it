@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Come utilizzare il Servizio tabelle da Ruby
 
@@ -8,37 +8,37 @@ In questa guida viene spiegato come eseguire diversi scenari comuni con il servi
 Azure. Gli esempi sono scritti usando
 l'API Ruby. Gli scenari presentati includono la **creazione e l'eliminazione di una
 tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre
-informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
--   [Informazioni sul Servizio tabelle][]
--   [Concetti][]
--   [Creazione di un account di archiviazione di Azure][]
--   [Creazione di un'applicazione Ruby][]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione][]
--   [Configurazione di una connessione di archiviazione di Azure][]
--   [Procedura: Creare una tabella][]
--   [Procedura: Aggiungere un'entità a una tabella][]
--   [Procedura: Aggiornare un'entità][]
--   [Procedura: Utilizzare i gruppi di entità][]
--   [Procedura: Eseguire una query su un'entità][]
--   [Procedura: Eseguire query su un set di entità][]
--   [Procedura: Eseguire una query su un subset di proprietà di entità][]
--   [Procedura: Eliminare un'entità][]
--   [Procedura: Eliminare una tabella][]
--   [Passaggi successivi][]
+-   [Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
+-   [Concetti][Concetti]
+-   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creazione di un'applicazione Ruby][Creazione di un'applicazione Ruby]
+-   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
+-   [Configurazione di una connessione di archiviazione di Azure][Configurazione di una connessione di archiviazione di Azure]
+-   [Procedura: Creare una tabella][Procedura: Creare una tabella]
+-   [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
+-   [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità]
+-   [Procedura: Utilizzare i gruppi di entità][Procedura: Utilizzare i gruppi di entità]
+-   [Procedura: Eseguire una query su un'entità][Procedura: Eseguire una query su un'entità]
+-   [Procedura: Eseguire query su un set di entità][Procedura: Eseguire query su un set di entità]
+-   [Procedura: Eseguire una query su un subset di proprietà di entità][Procedura: Eseguire una query su un subset di proprietà di entità]
+-   [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
+-   [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]
+-   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <span id="create-a-windows-azure-storage-account"></span></a>Creazione di un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creazione di un'applicazione Ruby
 
 Creare un'applicazione Ruby. Per istruzioni,
-vedere [Creazione di un'applicazione Ruby in Azure][].
+vedere [Creazione di un'applicazione Ruby in Azure][Creazione di un'applicazione Ruby in Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
@@ -67,7 +67,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Passare all'account di archiviazione che si desidera utilizzare.
 
@@ -163,9 +163,9 @@ Per eliminare una tabella utilizzare il metodo **delete\_table()** e passare il 
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di Archiviazione di Azure][]
--   Archivio [Azure SDK for Ruby][] su GitHub
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
+-   Archivio [Azure SDK for Ruby][Azure SDK for Ruby] su GitHub
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio tabelle]: #what-is
@@ -185,8 +185,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Procedura: Eliminare una tabella]: #how-to-delete-a-table
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creazione di un'applicazione Ruby in Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Creazione di un'applicazione Ruby in Azure]: /it-it/develop/ruby/tutorials/web-app-with-linux-vm/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

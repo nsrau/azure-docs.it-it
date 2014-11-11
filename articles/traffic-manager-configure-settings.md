@@ -1,22 +1,22 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Come configurare le impostazioni di Gestione traffico
 
 Gestione traffico di Azure consente di controllare la distribuzione del traffico utente nei servizi ospitati di Azure.
 
-Gestione traffico applica un motore dei criteri intelligente alle query DNS sul nome di dominio aziendale principale. Aggiornare i record di risorse di proprietà della società affinché puntino ai domini di Gestione traffico. I criteri di Gestione traffico associati a tali domini risolvono quindi le query DNS nel nome di dominio aziendale principale agli indirizzi IP di servizi ospitati di Azure specifici contenuti nei criteri di Gestione traffico. Per ulteriori informazioni, vedere [Panoramica di Gestione traffico di Azure][].
+Gestione traffico applica un motore dei criteri intelligente alle query DNS sul nome di dominio aziendale principale. Aggiornare i record di risorse di proprietà della società affinché puntino ai domini di Gestione traffico. I criteri di Gestione traffico associati a tali domini risolvono quindi le query DNS nel nome di dominio aziendale principale agli indirizzi IP di servizi ospitati di Azure specifici contenuti nei criteri di Gestione traffico. Per ulteriori informazioni, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure].
 
 ## Sommario
 
--   [Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico][]
--   [Procedura: Testare un criterio][]
--   [Procedura: Disabilitare temporaneamente criteri e servizi ospitati][]
--   [Procedura: Modificare un criterio][]
--   [Procedura: Bilanciare il carico del traffico in modo uniforme tra un set di servizi ospitati][]
--   [Procedura: Creare un criterio di failover][]
--   [Procedura: Indirizzare il traffico in ingresso ai servizi ospitati in base alle prestazioni della rete][]
+-   [Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico][Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico]
+-   [Procedura: Testare un criterio][Procedura: Testare un criterio]
+-   [Procedura: Disabilitare temporaneamente criteri e servizi ospitati][Procedura: Disabilitare temporaneamente criteri e servizi ospitati]
+-   [Procedura: Modificare un criterio][Procedura: Modificare un criterio]
+-   [Procedura: Bilanciare il carico del traffico in modo uniforme tra un set di servizi ospitati][Procedura: Bilanciare il carico del traffico in modo uniforme tra un set di servizi ospitati]
+-   [Procedura: Creare un criterio di failover][Procedura: Creare un criterio di failover]
+-   [Procedura: Indirizzare il traffico in ingresso ai servizi ospitati in base alle prestazioni della rete][Procedura: Indirizzare il traffico in ingresso ai servizi ospitati in base alle prestazioni della rete]
 
 ## <span id="howto_point_company"></span></a>Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico
 
@@ -35,7 +35,7 @@ Il modo migliore per testare un criterio è impostare un determinato numero di c
 
 -   **Prendere nota degli indirizzi IP dei servizi ospitati di Azure** nel criterio sottoposto a test. È possibile ottenere queste informazioni nel portale di gestione di Azure. Fare clic sulla distribuzione di produzione del servizio. Nel pannello Proprietà a destra l'ultima voce sarà costituita dall'indirizzo VIP, ovvero l'indirizzo IP virtuale del servizio ospitato.
 
-    ![Posizione dell'indirizzo IP del servizio ospitato.][]
+    ![Posizione dell'indirizzo IP del servizio ospitato.][Posizione dell'indirizzo IP del servizio ospitato.]
 
     **Figura 1** - Posizione dell'indirizzo IP del servizio ospitato.
 
@@ -59,7 +59,7 @@ Il modo migliore per testare un criterio è impostare un determinato numero di c
 > > -   Nome di dominio di Gestione traffico digitato nella riga di comando dopo "nslookup" e indirizzo IP in cui si risolve il dominio di Gestione traffico.
 > >     Il secondo indirizzo IP è quello più importante da verificare. Deve corrispondere a un indirizzo VIP per uno dei servizi ospitati nel criterio di Gestione traffico sottoposto a test.
 
-> > ![Esempio di comando nslookup][]
+> > ![Esempio di comando nslookup][Esempio di comando nslookup]
 
 > > **Figura 2** - Esempio di comando nslookup
 
@@ -160,21 +160,21 @@ Per cambiare un criterio e impostarlo su un tipo diverso, eseguire la procedura 
 
 In base a un modello di bilanciamento del carico comune, viene fornito un set di servizi ospitati identici e il traffico viene inviato a ognuno di essi in modalità round robin. In questo articolo vengono illustrate le procedure per configurare un dominio e un criterio di Gestione traffico per implementare questo tipo di bilanciamento del carico.
 
-Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
-1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per ulteriori informazioni sullo sviluppo e la distribuzione di servizi ospitati, vedere [Servizi ospitati di Azure][].
+1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per ulteriori informazioni sullo sviluppo e la distribuzione di servizi ospitati, vedere [Servizi ospitati di Azure][Servizi ospitati di Azure].
 
 2.  **Accedere all'area Gestione traffico nel portale di gestione** all'indirizzo [][]<http://manage.windowsazure.com></a>. Fare clic su **Virtual Network** nella parte inferiore sinistra delle pagine del portale e quindi scegliere **Gestione traffico** dalle opzioni visualizzate nel pannello sinistro.
 
 3.  **Scegliere Policies e quindi fare clic su "Create".** Scegliere la cartella **Policies** nell'albero di navigazione sinistro per abilitare **Create** nella barra degli strumenti superiore. Scegliere **Create**. Verrà visualizzata la finestra di dialogo **Create Traffic Manager policy**.
 
-    ![Creazione del pulsante per i criteri][]
+    ![Creazione del pulsante per i criteri][Creazione del pulsante per i criteri]
 
     **Figura 1** - Creazione del pulsante per i criteri
 
 4.  **Scegliere una sottoscrizione.** Criteri e domini sono associati a una singola sottoscrizione.
 
-5.  **Selezionare il metodo di bilanciamento del carico con criterio round robin.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+5.  **Selezionare il metodo di bilanciamento del carico con criterio round robin.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
 6.  **Individuare i servizi ospitati e aggiungerli al criterio.** Utilizzare il filtro per individuare i servizi ospitati contenenti la stringa digitata nella casella. Deselezionare la casella per visualizzare tutti i servizi ospitati in produzione per la sottoscrizione selezionata nel passaggio 4. Utilizzare i pulsanti freccia per aggiungerli al criterio. L'ordine nella casella **Selected DNS names** non è rilevante per questo metodo di bilanciamento del carico.
 
@@ -186,7 +186,7 @@ Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibil
 
     La finestra di dialogo **Create Traffic Manager policy** visualizzata dovrebbe avere un aspetto simile a quello riportato di seguito.
 
-    ![Finestra di dialogo per il metodo di bilanciamento del carico con criterio round robin][]
+    ![Finestra di dialogo per il metodo di bilanciamento del carico con criterio round robin][Finestra di dialogo per il metodo di bilanciamento del carico con criterio round robin]
 
     **Figura 2** - Finestra di dialogo per il metodo di bilanciamento del carico con criterio round robin
 
@@ -203,21 +203,21 @@ Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibil
 
 In genere le organizzazioni desiderano offrire la massima affidabilità per i servizi erogati. A questo scopo, è necessario fornire servizi di backup in caso di inattività del servizio primario. In base a un modello di failover del servizio comune, viene fornito un set di servizi ospitati identici e il traffico viene inviato a un servizio primario, con un elenco di uno o più backup. In questo articolo vengono illustrate le procedure per configurare un criterio di Gestione traffico per implementare questo tipo di backup per il failover.
 
-Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
-1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per ulteriori informazioni sullo sviluppo e la distribuzione di servizi ospitati, vedere [Servizi ospitati di Azure][].
+1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per ulteriori informazioni sullo sviluppo e la distribuzione di servizi ospitati, vedere [Servizi ospitati di Azure][Servizi ospitati di Azure].
 
 2.  **Accedere all'area Gestione traffico nel portale di gestione** all'indirizzo [][]<http://manage.windowsazure.com></a>. Fare clic su **Virtual Network** nella parte inferiore sinistra delle pagine del portale e quindi scegliere **Gestione traffico** dalle opzioni visualizzate nel pannello sinistro.
 
 3.  **Scegliere Policies e quindi fare clic su "Create".** Scegliere la cartella **Policies** nell'albero di navigazione sinistro per abilitare **Create** nella barra degli strumenti superiore. Scegliere **Create**. Verrà visualizzata la finestra di dialogo **Create Traffic Manager policy**.
 
-    ![Creazione del pulsante per i criteri][]
+    ![Creazione del pulsante per i criteri][Creazione del pulsante per i criteri]
 
     **Figura 1** - Creazione del pulsante per i criteri
 
 4.  **Scegliere una sottoscrizione.** Criteri e domini sono associati a una singola sottoscrizione.
 
-5.  **Selezionare il metodo di bilanciamento del carico con criterio di failover.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+5.  **Selezionare il metodo di bilanciamento del carico con criterio di failover.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
 6.  **Individuare i servizi ospitati e aggiungerli al criterio.** Utilizzare il filtro per individuare i servizi ospitati contenenti la stringa digitata nella casella. Deselezionare la casella per visualizzare tutti i servizi ospitati in produzione per la sottoscrizione selezionata nel passaggio 4. Utilizzare i pulsanti freccia per aggiungerli al criterio. Quando si seleziona il metodo di bilanciamento del carico **Failover**, l'ordine dei servizi selezionati è rilevante. Il servizio ospitato primario è il primo. Utilizzare le frecce verso l'alto e verso il basso per modificare l'ordine in base alle esigenze.
 
@@ -229,7 +229,7 @@ Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibil
 
     La finestra di dialogo **Create Traffic Manager policy** visualizzata dovrebbe avere un aspetto simile a quello riportato di seguito.
 
-    ![Finestra di dialogo per il metodo di bilanciamento del carico con criterio di failover][]
+    ![Finestra di dialogo per il metodo di bilanciamento del carico con criterio di failover][Finestra di dialogo per il metodo di bilanciamento del carico con criterio di failover]
 
     **Figura 2** - Finestra di dialogo per il metodo di bilanciamento del carico con criterio di failover
 
@@ -242,24 +242,24 @@ Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibil
 
 ## <span id="howto_direct"></span></a>Procedura: Indirizzare il traffico in ingresso ai servizi ospitati in base alle prestazioni della rete
 
-Per bilanciare il carico dei servizi ospitati situati in diversi database dislocati in tutto il mondo, è possibile indirizzare il traffico in ingresso al servizio ospitato più vicino. Sebbene "più vicino" possa corrispondere direttamente alla distanza geografica, potrebbe anche corrispondere alla località con la latenza più bassa per soddisfare la richiesta. Il metodo di bilanciamento del carico basato sulle prestazioni consente di distribuire il carico in base alla posizione e alla latenza, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+Per bilanciare il carico dei servizi ospitati situati in diversi database dislocati in tutto il mondo, è possibile indirizzare il traffico in ingresso al servizio ospitato più vicino. Sebbene "più vicino" possa corrispondere direttamente alla distanza geografica, potrebbe anche corrispondere alla località con la latenza più bassa per soddisfare la richiesta. Il metodo di bilanciamento del carico basato sulle prestazioni consente di distribuire il carico in base alla posizione e alla latenza, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
 Attenersi alla procedura seguente:
 
-1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per altre informazioni, vedere [Creazione di un servizio ospitato per Azure][].
+1.  **Distribuire i servizi ospitati** nell'ambiente di produzione. Per altre informazioni, vedere [Creazione di un servizio ospitato per Azure][Creazione di un servizio ospitato per Azure].
     Fare inoltre riferimento alle "Procedure consigliate per servizi ospitati e criteri" illustrate in [Panoramica di Gestione traffico di Azure][1].
 
 2.  **Accedere all'area Gestione traffico nel portale di gestione** all'indirizzo [][]<http://manage.windowsazure.com></a>. Fare clic su **Virtual Network** nella parte inferiore sinistra delle pagine del portale e quindi scegliere **Gestione traffico** dalle opzioni visualizzate nel pannello sinistro.
 
 3.  **Scegliere Policies e quindi fare clic su "Create".** Scegliere la cartella **Policies** nell'albero di navigazione sinistro per abilitare **Create** nella barra degli strumenti superiore. Scegliere **Create**. Verrà visualizzata la finestra di dialogo **Create Traffic Manager policy**.
 
-    ![Creazione del pulsante per i criteri][]
+    ![Creazione del pulsante per i criteri][Creazione del pulsante per i criteri]
 
     **Figura 1** - Creazione del pulsante per i criteri
 
 4.  **Scegliere una sottoscrizione.** Criteri e domini sono associati a una singola sottoscrizione.
 
-5.  **Selezionare il metodo di bilanciamento del carico basato sulle prestazioni.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
+5.  **Selezionare il metodo di bilanciamento del carico basato sulle prestazioni.** Per ulteriori informazioni su vari metodi di bilanciamento del carico disponibili in Gestione traffico, vedere [Panoramica di Gestione traffico di Azure][Panoramica di Gestione traffico di Azure] e scorrere fino alla sezione "Metodi di bilanciamento del carico in Gestione traffico di Azure".
 
 6.  **Individuare i servizi ospitati e aggiungerli al criterio.** Utilizzare il filtro per individuare i servizi ospitati contenenti la stringa digitata nella casella. Deselezionare la casella per visualizzare tutti i servizi ospitati in produzione per la sottoscrizione selezionata nel passaggio 4. Utilizzare i pulsanti freccia per aggiungerli al criterio. L'ordine in **Selected DNS names** non è rilevante per questo metodo di bilanciamento del carico.
 
@@ -271,7 +271,7 @@ Attenersi alla procedura seguente:
 
     La finestra di dialogo **Create Traffic Manager policy** visualizzata dovrebbe avere un aspetto simile a quello riportato di seguito.
 
-    ![Finestra di dialogo per il metodo di bilanciamento del carico basato sulle prestazioni][]
+    ![Finestra di dialogo per il metodo di bilanciamento del carico basato sulle prestazioni][Finestra di dialogo per il metodo di bilanciamento del carico basato sulle prestazioni]
 
     **Figura 2** - Finestra di dialogo per il metodo di bilanciamento del carico basato sulle prestazioni
 
@@ -282,7 +282,7 @@ Attenersi alla procedura seguente:
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
     Per altre informazioni, vedere [Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure][Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico].
 
-  [Panoramica di Gestione traffico di Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
+  [Panoramica di Gestione traffico di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh744833.aspx
   [Procedura: Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico]: #howto_point_company
   [Procedura: Testare un criterio]: #howto_test
   [Procedura: Disabilitare temporaneamente criteri e servizi ospitati]: #howto_temp_disable
@@ -292,11 +292,11 @@ Attenersi alla procedura seguente:
   [Procedura: Indirizzare il traffico in ingresso ai servizi ospitati in base alle prestazioni della rete]: #howto_direct
   [Posizione dell'indirizzo IP del servizio ospitato.]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
   [Esempio di comando nslookup]: ./media/traffic-manager-configure-settings/nslookup_command_example.png
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
+  [1]: http://msdn.microsoft.com/it-it/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
   []: http://manage.windowsazure.com
   [Servizi ospitati di Azure]: http://msdn.microsoft.com/library/gg432967.aspx
   [Creazione del pulsante per i criteri]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
   [Finestra di dialogo per il metodo di bilanciamento del carico con criterio round robin]: ./media/traffic-manager-configure-settings/Dialog_box_for_Round_Robin_load_balancing_method.png
   [Finestra di dialogo per il metodo di bilanciamento del carico con criterio di failover]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
-  [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx
+  [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg432967.aspx
   [Finestra di dialogo per il metodo di bilanciamento del carico basato sulle prestazioni]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 
@@ -35,7 +35,7 @@ In questo articolo viene illustrato il metodo Campionamento CPU per la profilatu
 
 Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debugging** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**. È inoltre possibile fare riferimento a <http://referencesource.microsoft.com/symbols>, dove potrebbero essere disponibili file di simboli aggiuntivi.
 
-![][]
+![][0]
 
 Se lo si desidera, è possibile semplificare i rapporti generati dal profiler impostando Just My Code. Se Just My Code è abilitato, gli stack di chiamate funzione vengono semplificati, in modo che le chiamate interamente interne alle librerie e a .NET Framework non vengano visualizzate nei rapporti. Scegliere **Opzioni** dal menu **Strumenti**. Espandere quindi il nodo **Strumenti per le prestazioni** e scegliere **Generale**. Selezionare la casella di controllo **Abilita Just My Code per i rapporti del profiler**.
 
@@ -183,7 +183,7 @@ La strumentazione dei binari di Azure nell'emulatore non è supportata nel profi
   [Passaggio 4: Apportare modifiche e confrontare le prestazioni]: #step4
   [Risoluzione dei problemi]: #troubleshooting
   [Passaggi successivi]: #nextSteps
-  []: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

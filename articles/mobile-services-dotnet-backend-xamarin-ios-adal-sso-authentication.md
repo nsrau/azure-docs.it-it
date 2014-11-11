@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-sso-with-adal-xamarin-ios" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Xamarin.iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc,mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc,mahender" />
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
 
@@ -32,13 +32,13 @@ Per completare questa esercitazione, è necessario disporre di:
 -   SDK di Servizi mobili di Microsoft Azure
 -   Binding di [Xamarin per Active Directory Authentication Library per iOS][Xamarin per Active Directory Authentication Library per iOS].
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][mobile-services-dotnet-adal-register-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client][mobile-services-dotnet-adal-register-client]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>Configurare il servizio mobile in modo che richieda l'autenticazione
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>Aggiungere il codice di autenticazione all'app client
 
@@ -120,14 +120,11 @@ Per completare questa esercitazione, è necessario disporre di:
 2.  Verrà visualizzata la richiesta di accedere ad Azure Active Directory.
 3.  L'app esegue l'autenticazione e restituisce gli elementi todo.
 
-![][]
+![][0]
 
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows Store C#"
-  [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
-  [Xamarin.iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
   [Registrare il servizio mobile in Azure Active Directory]: #register-mobile-service-aad
   [Registrare l'app in Azure Active Directory]: #register-app-aad
@@ -143,4 +140,4 @@ Per completare questa esercitazione, è necessario disporre di:
   [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [registrazione in Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  []: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png
+  [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png

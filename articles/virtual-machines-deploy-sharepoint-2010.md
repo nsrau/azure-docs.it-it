@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
 # Distribuzione di SharePoint in Macchine virtuali di Azure
 
@@ -427,7 +427,6 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
   [Creare dischi rigidi virtuali]: http://technet.microsoft.com/it-it/library/cc742509
   [Introduzione all'utilizzo di SysPrep]: http://technet.microsoft.com/it-it/library/bb457073.aspx
   [azure-sharepoint-wp-11]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png
-  [Panoramica di Rete virtuale (considerazioni sulla progettazione e scenari di connessioni sicure)]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx
   [SharePoint 2010 Easy Setup Script]: http://www.microsoft.com/it-it/download/details.aspx?id=23415
   [Installazione di Visual Studio]: http://msdn.microsoft.com/it-it/library/e2h7fzkw.aspx
   [Configurazione di SQL Server 2012 per SharePoint in Azure]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint
@@ -436,7 +435,6 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
   [azure-sharepoint-wp-12]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png
   [Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/jj156090
   [Configurare le reti virtuali]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md
-  [Distribuzione di Active Directory in Azure (Windows PowerShell)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS
   [Installazione di una nuova foresta Active Directory in Azure]: /it-it/manage/services/networking/active-directory-forest/
   [Centro protezione di Azure]: /it-it/support/trust-center/compliance/
   [azure-sharepoint-wp-13]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png

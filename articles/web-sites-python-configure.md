@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configuring Python with Azure Websites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Configurazione di Python con Siti Web di Azure
 
@@ -21,7 +21,7 @@ In questa esercitazione si presume che sia stata eseguita una sottoscrizione di 
 
 In breve, se non si dispone di un sito Web esistente è possibile crearne uno dal portale di gestione di Azure. Selezionare la funzionalità SITI WEB e quindi l'opzione CREAZIONE RAPIDA, specificando un URL per il proprio sito Web.
 
-![][]
+![][0]
 
 ## Pubblicazione Git
 
@@ -131,10 +131,10 @@ Passare al sito Web per testare la configurazione corretta. Per questo esempio, 
 
 ![][5]
 
-  []: http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django
+  [0]: http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
   [1]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-create-websites
-  []: ./media/web-sites-python-configure/configure-python-create-website.png
+  [0]: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png
   [4]: ./media/web-sites-python-configure/configure-python-app-settings.png

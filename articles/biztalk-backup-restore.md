@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Servizi BizTalk: backup e ripristino
 
@@ -58,7 +58,7 @@ Al termine del backup verrà creato un contenitore con il nome di backup indicat
 2.  Impostare **Stato backup** su **Automatico**.
 3.  Selezionare **Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per la creazione dei backup e specificare la durata di mantenimento dei backup (**Giorni di conservazione**):
 
-    ![][]
+    ![][0]
 
     **Note**
 
@@ -225,7 +225,7 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Se
   [Servizi BizTalk: Tabella delle edizioni]: http://azure.microsoft.com/it-it/documentation/articles/biztalk-editions-feature-chart/
   [Backup su richiesta]: #backupnow
   [Pianificare un backup]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [Stato ultimo backup pianificato]: ./media/biztalk-backup-restore/status-last-backup.png
   [Servizi BizTalk: risoluzione dei problemi mediante i log operazioni]: http://go.microsoft.com/fwlink/?LinkId=391211
   [Ripristino dei servizi BizTalk di Azure da un backup]: http://go.microsoft.com/fwlink/p/?LinkID=325582
