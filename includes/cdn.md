@@ -38,7 +38,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
     Verrà visualizzata la finestra di dialogo **Crea account di archiviazione**.
 
-    ![Crea account di archiviazione][Crea account di archiviazione]
+    ![Crea account di archiviazione][1]
 
 4.  Nel campo **URL** immettere un nome di sottodominio. Il nome può contenere tra 3 e 24 lettere minuscole e numeri.
 
@@ -120,18 +120,18 @@ Per la rete CDN di Azure non è attualmente disponibile alcuno strumento esplici
 -   [Informazioni sull'API di gestione del servizio][Informazioni sull'API di gestione del servizio]
 -   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato][Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]
 
-  [Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680302.aspx
-  [Passaggio 1: Creare un account di archiviazione]: #Step1
-  [Passaggio 2: Creare un nuovo endpoint della rete CDN per l'account di archiviazione]: #Step2
-  [Passaggio 3: Accedere ai contenuti della rete CDN]: #Step3
-  [Passaggio 4: Eliminare i contenuti della rete CDN]: #Step4
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [piano di fatturazione specifico]: /it-it/pricing/calculator/?scenario=full
-  [Creare un account di archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
-  [Crea account di archiviazione]: ./media/cdn/CDN_CreateNewStorageAcct.png
-  [Operazioni sui gruppi di affinità]: http://msdn.microsoft.com/library/azure/ee460798.aspx
-  [Come gestire la scadenza del contenuto di BLOB]: http://msdn.microsoft.com/it-it/library/gg680306.aspx
-  [Limitare l'accesso a contenitori e Blob]: http://msdn.microsoft.com/it-it/library/dd179354.aspx
-  [Procedura: Gestione degli account di archiviazione per una sottoscrizione di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531567.aspx
-  [Informazioni sull'API di gestione del servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460807.aspx
-  [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx
+  [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Step 1: Create a storage account]: #Step1
+  [Step 2: Create a new CDN endpoint for your storage account]: #Step2
+  [Step 3: Access your CDN content]: #Step3
+  [Step 4: Delete your CDN content]: #Step4
+  [Azure Management Portal]: https://manage.windowsazure.com/
+  [billing plan]: /en-us/pricing/calculator/?scenario=full
+  [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [Operations on Affinity Groups]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+  [How to Manage Expiration of Blob Content]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
+  [Restrict Access to Containers and Blobs]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
+  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
+  [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
+  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx

@@ -4,7 +4,7 @@
 
 # Iscrizione ad Azure come organizzazione
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer][]]
 
 Fino a poco tempo fa, era possibile richiedere una nuova sottoscrizione di Azure solo tramite un account Microsoft (Windows Live ID). Azure supporta ora l'uso di uno dei due metodi di iscrizione tramite account seguenti:
 
@@ -14,13 +14,13 @@ Fino a poco tempo fa, era possibile richiedere una nuova sottoscrizione di Azure
 
     Dopo aver creato il tenant, un amministratore può quindi rilasciare gli account aziendali per ciascun dipendente/studente e assegnare le licenze agli account in base al servizio cloud a cui è necessario accedere, ad esempio Azure.
 
-Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**][**Effettua l'iscrizione ora**]
+Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**][]
 
 **Risorse aggiuntive**
 
--   [Informazioni su Azure AD][Informazioni su Azure AD]
--   [Documentazione di Azure AD su TechNet][Documentazione di Azure AD su TechNet]
--   [Documentazione di Azure AD su MSDN][Documentazione di Azure AD su MSDN]
+-   [Informazioni su Azure AD][]
+-   [Documentazione di Azure AD su TechNet][]
+-   [Documentazione di Azure AD su MSDN][]
 
   [disclaimer]: ../includes/disclaimer.md
   [Altre informazioni]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
