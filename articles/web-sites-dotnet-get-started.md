@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Introduzione a Siti Web di Azure e ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/it-it/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 Questa esercitazione illustra come creare un'applicazione Web ASP.NET e distribuirla in un sito Web di Azure usando Studio 2013 o Visual Studio 2013 Express per il Web. Nell'esercitazione si presuppone che l'utente non abbia già utilizzato in precedenza Azure o ASP.NET. Al termine, si otterrà una semplice applicazione Web in esecuzione nel cloud.
 
@@ -25,8 +25,8 @@ Nella figura seguente è illustrata l'applicazione completata:
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Per completare l'esercitazione, &egrave; necessario un account Azure.</h5>
   <ul>
-    <li>&Egrave; possibile <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
-    <li>&Egrave; possibile <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
+    <li>&Egrave; possibile <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F">aprire un account Azure gratuitamente</a>. Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, &egrave; possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.</li>
+    <li>&Egrave; possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">attivare i benefici della sottoscrizione MSDN</a>. Con la sottoscrizione MSDN ogni mese si accumulano crediti che &egrave; possibile usare per i servizi di Azure a pagamento.</li>
   <ul>
 </div>
 
@@ -39,7 +39,7 @@ Nella figura seguente è illustrata l'applicazione completata:
 -   [Monitorare e gestire il sito nel portale di gestione][Monitorare e gestire il sito nel portale di gestione]
 -   [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Creare un'applicazione Web ASP.NET
 
@@ -224,7 +224,7 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 Il [portale di gestione di Azure][portale di gestione di Azure] è un'interfaccia Web che consente di gestire e monitorare i servizi di Azure, ad esempio il sito Web appena creato. In questa sezione dell'esercitazione verranno esaminate alcune delle operazioni che è possibile eseguire nel portale.
 
-1.  Nel browser passare a [][]<http://manage.windowsazure.com></a> e accedere con le credenziali di Azure.
+1.  Nel browser passare a [http://manage.windowsazure.com]() e accedere con le credenziali di Azure.
 
     Il portale visualizzerà un elenco di servizi di Azure.
 
@@ -298,11 +298,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
     In Azure è possibile eseguire applicazioni Web in Siti Web come descritto in questa esercitazione oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure] e [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure][Confronto tra siti Web, servizi cloud e macchine virtuali di Azure].
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
   [Web site home page]: ./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png
-  [aprire un account Azure gratuitamente]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [attivare i benefici della sottoscrizione MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Configurare l'ambiente di sviluppo]: #set-up-the-development-environment
   [Creare un'applicazione Web ASP.NET in Visual Studio]: #create-an-aspnet-web-application
   [Distribuire l'applicazione in Azure]: #deploy-the-application-to-azure
@@ -336,7 +332,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
   [Chooose Publish]: ./media/web-sites-dotnet-get-started-vs2013/choosepublish.png
   [Click Publish]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Web One Click Publish Toolbar]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
-  [portale di gestione di Azure]: /en-us/services/management-portal/
+  [portale di gestione di Azure]: /it-it/services/management-portal/
   []: 
   [Portal home page with new web site called out]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Portal web site dashboard tab]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
@@ -347,17 +343,17 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
   [Portal web site configure tab]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
   [Scala]: /it-it/documentation/articles/web-sites-scale/
   [Portal website scale tab]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
-  [Portale di anteprima di Azure]: /en-us/overview/preview-portal/
+  [Portale di anteprima di Azure]: /it-it/overview/preview-portal/
   [automatizzando la distribuzione]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [sistema di controllo del codice sorgente]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [Come distribuire un sito Web di Azure]: /it-it/documentation/articles/web-sites-deploy/"
   [automatizzare tutto e creare app per cloud reali con Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-  [Risoluzione dei problemi dei siti Web di Azure in Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [Risoluzione dei problemi dei siti Web di Azure in Visual Studio]: /it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: /it-it/develop/net/tutorials/web-site-with-sql-database/
   [Configurazione di un nome di dominio personalizzato per un sito Web di Azure]: /it-it/documentation/articles/web-sites-custom-domain-name/
   [Abilitare HTTPS per un sito Web di Azure]: http://azure.microsoft.com/it-it/documentation/articles/web-sites-configure-ssl-certificate/
   [Come configurare Siti Web]: http://azure.microsoft.com/it-it/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [uso di SignalR con Siti Web di Azure]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
-  [Modelli di esecuzione di Azure]: /en-us/develop/net/fundamentals/compute/
-  [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]: /en-us/manage/services/web-sites/choose-web-app-service/
+  [Modelli di esecuzione di Azure]: /it-it/develop/net/fundamentals/compute/
+  [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]: /it-it/manage/services/web-sites/choose-web-app-service/

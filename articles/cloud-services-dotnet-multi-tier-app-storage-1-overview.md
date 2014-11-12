@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Esercitazione sui servizi cloud di Azure: Ruolo Web ASP.NET MVC, ruolo di lavoro e tabelle, code e BLOB di Archiviazione di Azure" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Informazioni sulla creazione di un'app multilivello mediante ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con ruoli Web e di lavoro, e usa tabelle, code e BLOB di Archiviazione di Azure." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Esercitazione sui servizi cloud di Azure: Ruolo Web ASP.NET MVC, ruolo di lavoro e tabelle, code e BLOB di Archiviazione di Azure" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
@@ -427,7 +427,7 @@ La griglia seguente mostra le proprietà delle righe della tabella `message` che
 <td align="left">Elenco a cui questo messaggio deve essere inviato.</td>
 </tr>
 <tr class="even">
-<td align="left">Status</td>
+<td align="left">Stato</td>
 <td align="left">String</td>
 <td align="left"><ul>
 <li>&quot;Pending&quot;: il ruolo di lavoro A non ha ancora iniziato a creare i messaggi della coda per pianificare i messaggi di posta elettronica.</li>
@@ -525,7 +525,7 @@ contoso1
 </tr>
 <tr>
 <th align="right" bgcolor="lightgray">
-Status
+Stato
 
 </th>
 <td>
@@ -810,7 +810,7 @@ fabrikam
 </tr>
 <tr>
 <th align="right" bgcolor="lightgray">
-Status
+Stato
 
 </th>
 <td>
@@ -1086,3 +1086,5 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di 
   [blocco applicazione per la scalabilità automatica]: /it-it/develop/net/how-to-guides/autoscaling/
   [ASP.NET Identity]: http://asp.net/identity
   [ultima esercitazione di questa serie]: /it-it/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [Creazione del ruolo di lavoro A (utilità di pianificazione della posta elettronica) per l'applicazione Azure Email Service]: /it-it/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [Creazione del ruolo di lavoro B (mittente posta elettronica) per l'applicazione Azure Email Service]:  /it-it/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/

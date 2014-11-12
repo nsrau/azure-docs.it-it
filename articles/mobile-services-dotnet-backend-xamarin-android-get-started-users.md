@@ -82,9 +82,13 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-<!-- ## <a name="next-steps"> </a>Next steps 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.   -->
+<!-- ## <a name="next-steps"> </a>Next steps
+
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+ -->
+
 <!-- Anchors. -->
+
 <!-- URLs. -->
 
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register

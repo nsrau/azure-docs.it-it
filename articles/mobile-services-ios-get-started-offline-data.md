@@ -29,7 +29,11 @@ In questa esercitazione verrà illustrato come aggiornare l'app creata nell'eser
 
 **Un'esercitazione completa sarà disponibile a breve. Nel frattempo, vedere [l'elenco attività offline di esempio per iOS][l'elenco attività offline di esempio per iOS] e il [post di blog di accompagnamento][post di blog di accompagnamento].**
 
-<!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    -->
+<!-- ## Next steps
+
+* [How to use the Mobile Services client library for iOS]
+   -->
+
 <!-- URLs. -->
 
   [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"

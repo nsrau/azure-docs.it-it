@@ -4,28 +4,28 @@
 
 # Introduzione all'utilizzo dell'Utilità di pianificazione
 
-(TODO: provide a short description of the article.)
+(TODO: fornire una breve descrizione dell'articolo.)
 
 Si apprenderà come:
 
--   (TODO: provide a bulleted list of items the customer will learn by completing this tutorial. List items should begin with "how to," for example: "How to use Visual Studio to develop for Azure." Each bulleted list item should end in a period.
+-   (TODO: fornire un elenco puntato di voci relative alle nozioni che il cliente apprenderà completando questa esercitazione. Le voci dell'elenco devono iniziare con "come", ad esempio "Come usare Visual Studio per sviluppare applicazioni per Azure". Ogni voce dell'elenco puntato deve terminare con un punto.
 
-(TODO: provide a description of the final application, followed by a screenshot of the completed application.)
+(TODO: fornire una descrizione dell'applicazione finale, seguita da una cattura di schermata dell'applicazione completata.)
 
-## (TODO: Add a header)
+## (TODO: aggiungi intestazione)
 
-(TODO: Step the user through the application. You can use as many h2 and h3 headers as necessary throughout the tutorial. Steps within the sections should be presented in ordered lists.)
+(TODO: Inserire le istruzioni dettagliate sui passaggi che l'utente deve eseguire nell'applicazione. È possibile usare il numero di titoli di livello h2 e h3 necessari in tutta l'esercitazione. I passaggi all'interno delle sezioni devono essere organizzati in elenchi ordinati.)
 
 ## Passaggi successivi
 
-(TODO: Optional section that points the user to related topics and additional information. Start with a short summary and then transition to a list of related articles.)
+(TODO: Sezione facoltativa che indirizza l'utente ad argomenti correlati e informazioni aggiuntive. Iniziare con un breve riepilogo e quindi passare a un elenco di articoli correlati.)
 
--   (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
--   (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
+-   (TODO: Breve frase sul collegamento 1): [(TODO: Immettere il testo del collegamento1)] [NextStepsLink1]
+-   (TODO: Breve frase sul collegamento 2): [(TODO: Immettere il testo del collegamento 2)] [NextStepsLink2]
 
-enter Next Steps 1 URL)
-enter Next Steps 2 URL)
+Immettere l'URL di Passaggi successivi 1)
+Immettere l'URL di Passaggi successivi 2)
 
-if used an image1, enter the url here, otherwise delete this)
-if used an image2, enter the url here, otherwise delete this)
+Se è stata usata un'immagine 1, immettere qui l'URL, altrimenti eliminare)
+Se è stata usata un'immagine 1, immettere qui l'URL, altrimenti eliminare)
 
