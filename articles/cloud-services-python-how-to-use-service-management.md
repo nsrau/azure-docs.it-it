@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="Come usare l'API di gestione dei servizi (Python) - Guida alle funzionalit&agrave;" metaKeywords="" description="Informazioni su come eseguire attivit&agrave; comuni di gestione dei servizi a livello di codice da Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Come usare la gestione dei servizi da Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Come usare la gestione dei servizi da Python
 
@@ -65,7 +65,7 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale utilizzata per gestire i servizi di Azure.
+Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
 ### Certificati di gestione in Windows/Mac/Linux (OpenSSL)
 
@@ -77,7 +77,7 @@ Per creare il certificato `.cer`, eseguire il comando seguente:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per altre informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure][Gestione dei certificati in Azure]. Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Per altre informazioni sui certificati Azure, vedere [Gestione dei certificati in Azure][Gestione dei certificati in Azure]. Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
 
 Dopo avere creato questi file sarà necessario caricare il file `.cer` in Azure selezionando l'opzione "Upload" della scheda "Settings" del [portale di gestione][portale di gestione]. Sarà inoltre necessario prendere nota del percorso di salvataggio del file `.pem`.
 
@@ -91,7 +91,7 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale utilizzata per gestire i servizi di Azure.
+Nell'esempio sopra riportato `sms` è un oggetto **ServiceManagementService**. La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
 ## <a name="ListAvailableLocations"> </a>Procedura: Creare un elenco delle località disponibili
 
@@ -349,7 +349,7 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
 
 ## <a name="DeleteAffinityGroup"> </a>Procedura: Eliminare un gruppo di affinità
 
-È possibile eliminare un gruppo di affinità passando il relativo nome al metodo **delete\_affinity\_group**. Si noti che per eliminare un gruppo di affinità, è prima necessario annullare la relativa associazione da qualsiasi servizio oppure eliminare i servizi che lo utilizzano.
+È possibile eliminare un gruppo di affinità passando il relativo nome al metodo **delete\_affinity\_group**. Si noti che per eliminare un gruppo di affinità, è prima necessario annullare la relativa associazione da qualsiasi servizio oppure eliminare i servizi che lo usano.
 
     from azure import *
     from azure.servicemanagement import *
@@ -523,7 +523,6 @@ A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi,
   [Creare e caricare un certificato di gestione per Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
   [Gestione dei certificati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
   [servizio cloud]: http://windowsazure.com/it-it/documentation/articles/cloud-services-what-is
   [pacchetto del servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx
   [cmdlet di Azure PowerShell]: https://www.windowsazure.com/it-it/develop/php/how-to-guides/powershell-cmdlets/

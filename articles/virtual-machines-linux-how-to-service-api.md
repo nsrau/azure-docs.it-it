@@ -1,8 +1,8 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Service Management API" pageTitle="Come usare l'API di Gestione servizi per macchine virtuali - Azure" metaKeywords="" description="Informazioni su come usare l'API di Gestione servizi di Azure per una macchina virtuale Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Come usare l'API di gestione del servizio" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
-# Come utilizzare l'API di gestione del servizio
+# Come usare l'API di gestione del servizio
 
 ## Inizializzazione
 
@@ -15,21 +15,21 @@ Creare innanzitutto un'istanza dell'oggetto ServiceManagementService. Tutte le c
     var iaasClient = azure.createServiceManagementService(subscriptionid, auth, options);
 
 -   Subscriptionid è una stringa obbligatoria e dovrebbe corrispondere all'ID sottoscrizione dell'account a cui si esegue l'accesso.
--   Auth è un oggetto facoltativo che consente di specificare la chiave privata e il certificato pubblico da utilizzare con questo account.
+-   Auth è un oggetto facoltativo che consente di specificare la chiave privata e il certificato pubblico da usare con questo account.
 
     -   keyfile: percorso del file PEM con chiave privata. Ignorato se si specifica keyvalue.
     -   keyvalue : valore effettivo della chiave privata così come archiviata in un file PEM.
     -   certfile: percorso del file PEM con certificato pubblico. Ignorato se si specifica certvalue.
     -   certvalue : valore effettivo del certificato pubblico così come archiviato in un file PEM.
-    -   Se non si specificano i valori riportati sopra, verranno letti e usati i valori variabili `CLIENT_AUTH_KEYFILE` e `CLIENT_AUTH_CERTFILE`. Se questi ultimi non sono stati impostati, verrà effettuato un tentativo di leggere e utilizzare i valori predefiniti dei file: priv.pem e pub.pem.
+    -   Se non si specificano i valori riportati sopra, verranno letti e usati i valori variabili `CLIENT_AUTH_KEYFILE` e `CLIENT_AUTH_CERTFILE`. Se questi ultimi non sono stati impostati, verrà effettuato un tentativo di leggere e usare i valori predefiniti dei file: priv.pem e pub.pem.
     -   Se non fosse possibile caricare la chiave privata e il certificato pubblico verrà generato un errore.
--   Options è un oggetto facoltativo che può essere utilizzato per controllare le proprietà utilizzate dal client.
+-   Options è un oggetto facoltativo che può essere usato per controllare le proprietà usate dal client.
 
-    -   host: nome host del server di gestione Azure. Se non specificato, verrà utilizzato l'host predefinito.
-    -   apiversion: stringa di versione da utilizzare nell'intestazione HTTP. Se non specificata, verrà utilizzata la versione predefinita.
-    -   serializetype: probabilmente XML o JSON. Se non specificato, verrà utilizzata la serializzazione predefinita.
+    -   host: nome host del server di gestione Azure. Se non specificato, verrà usato l'host predefinito.
+    -   apiversion: stringa di versione da usare nell'intestazione HTTP. Se non specificata, verrà usata la versione predefinita.
+    -   serializetype: probabilmente XML o JSON. Se non specificato, verrà usata la serializzazione predefinita.
 
-Facoltativamente, è possibile utilizzare un proxy di tunneling per abilitare la il passaggio di una richiesta HTTPS attraverso un proxy. Quando si crea IaasClient verrà elaborata la variabile di ambiente `HTTPS_PROXY`. Se è impostata su un URL valido, il nome host e la porta verranno analizzati dall'URL e utilizzati nelle successive richieste di identificazione del proxy.
+Facoltativamente, è possibile usare un proxy di tunneling per abilitare la il passaggio di una richiesta HTTPS attraverso un proxy. Quando si crea IaasClient verrà elaborata la variabile di ambiente `HTTPS_PROXY`. Se è impostata su un URL valido, il nome host e la porta verranno analizzati dall'URL e usati nelle successive richieste di identificazione del proxy.
 
         iaasClient.SetProxyUrl(proxyurl)
 
@@ -48,15 +48,15 @@ Tutte le API sono caratterizzate da un argomento di callback richiesto. Il compl
 -   error: un oggetto JavaScript che contiene informazioni sull'errore impostato se isSuccessful è false.
 -   body: il corpo effettivo della risposta come stringa
 -   headers: le effettive intestazioni HTTP della risposta
--   reqopts: le opzioni di richiesta HTTP del nodo utilizzare per inviare la richiesta.
+-   reqopts: le opzioni di richiesta HTTP del nodo usare per inviare la richiesta.
 
-Si noti che in alcuni casi il completamento potrebbe indicare solo che la richiesta è stata accettata. In questo caso, utilizzare **GetOperationStatus** per ottenere lo stato finale.
+Si noti che in alcuni casi il completamento potrebbe indicare solo che la richiesta è stata accettata. In questo caso, usare **GetOperationStatus** per ottenere lo stato finale.
 
 ## API
 
 **iaasClient.GetOperationStatus(requested, callback)**
 
--   Molte chiamate di gestione vengono restituite prima che l'operazione sia completata. Queste restituiscono il valore 202 - Accettato e inseriscono requested nell'intestazione HTTP ms-request-id. Per eseguire il polling per il completamento della richiesta, utilizzare questa API e passare il valore requested.
+-   Molte chiamate di gestione vengono restituite prima che l'operazione sia completata. Queste restituiscono il valore 202 - Accettato e inseriscono requested nell'intestazione HTTP ms-request-id. Per eseguire il polling per il completamento della richiesta, usare questa API e passare il valore requested.
 -   La stringa callback è necessaria.
 
 **iaasClient.GetOSImage(imagename, callback)**
@@ -73,7 +73,7 @@ Si noti che in alcuni casi il completamento potrebbe indicare solo che la richie
 **iaasClient.CreateOSImage(imageName, mediaLink, imageOptions, callback)**
 
 -   imageName è un nome stringa richiesto dell'immagine.
--   mediaLink è un nome stringa richiesto del mediaLink da utilizzare.
+-   mediaLink è un nome stringa richiesto del mediaLink da usare.
 -   imageOptions è un oggetto facoltativo e può contenere le proprietà seguenti:
 
     -   Categoria
@@ -171,7 +171,7 @@ Si noti che in alcuni casi il completamento potrebbe indicare solo che la richie
 -   serviceName è un nome stringa richiesto del servizio ospitato.
 -   deploymentName è un nome stringa richiesto della distribuzione.
 -   roleName è un nome stringa richiesto del ruolo.
--   Datadisk è un oggetto richiesto, utilizzato per specificare quando verrà creato il disco dati.
+-   Datadisk è un oggetto richiesto, usato per specificare quando verrà creato il disco dati.
 -   La stringa callback è necessaria.
 
 **iaasClient.ModifyDataDisk(serviceName, deploymentName, roleName, LUN, datadisk, callback)**
@@ -180,7 +180,7 @@ Si noti che in alcuni casi il completamento potrebbe indicare solo che la richie
 -   deploymentName è un nome stringa richiesto della distribuzione.
 -   roleName è un nome stringa richiesto del ruolo.
 -   LUN è il numero che identifica il disco dati
--   Datadisk è un oggetto richiesto, utilizzato per specificare la modalità di modifica del disco dati.
+-   Datadisk è un oggetto richiesto, usato per specificare la modalità di modifica del disco dati.
 -   La stringa callback è necessaria.
 
 **iaasClient.RemoveDataDisk(serviceName, deploymentName, roleName, LUN, callback)**
@@ -273,7 +273,7 @@ Distribuzione
 -   LUN: numero (0-15)
 -   LogicalDiskSizeInGB: numero
 -   SourceMediaLink: stringa
--   Durante la creazione è possibile specificare il disco in tre modi: per nome, per supporto o per dimensioni. Le opzioni specificate ne determineranno il funzionamento. Per ulteriori informazioni vedere la documentazione dell'API RDFE.
+-   Durante la creazione è possibile specificare il disco in tre modi: per nome, per supporto o per dimensioni. Le opzioni specificate ne determineranno il funzionamento. Per altre informazioni vedere la documentazione dell'API RDFE.
 
 **ProvisioningConfiguration**
 

@@ -1,14 +1,14 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Gestire cluster Hadoop tramite l'interfaccia della riga di comando multipiattaforma | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Informazioni su come usare l'interfaccia della riga di comando multipiattaforma per la gestione di cluster Hadoop in HDInsight su qualsiasi piattaforma che supporti Node.js, incluso Windows, Mac e Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Amministrare cluster di Hadoop tramite l'interfaccia della riga di comando multipiattaforma" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando multipiattaforma
 
-In questo articolo è illustrato come usare l'interfaccia della riga di comando multipiattaforma per la gestione di cluster Hadoop in HDInsight. Lo strumento da riga di comando viene implementato in Node.js. Può essere utilizzato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux.
+In questo articolo è illustrato come usare l'interfaccia della riga di comando multipiattaforma per la gestione di cluster Hadoop in HDInsight. Lo strumento da riga di comando viene implementato in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux.
 
 Lo strumento da riga di comando è open source. Il codice sorgente viene gestito GitHub all'indirizzo <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-In questo articolo viene descritto solo l'utilizzo dell'interfaccia della riga di comando da Windows. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux].
+Questo articolo descrive solo l'utilizzo dell'interfaccia della riga di comando da Windows. Per una guida generale sull'utilizzo dell'interfaccia della riga di comando, vedere [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][Come usare gli strumenti da riga di comando di Azure per Mac e Linux]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux].
 
 **Prerequisiti:**
 
@@ -33,7 +33,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 **Per installare l'interfaccia della riga di comando mediante NPM**
 
 1.  Passare a **www.nodejs.org**.
-2.  Fare clic su **INSTALL** e seguire le istruzioni utilizzando le impostazioni predefinite.
+2.  Fare clic su **INSTALL** e seguire le istruzioni usando le impostazioni predefinite.
 3.  Aprire **Command Prompt** (o *Azure Command Prompt* o *Developer Command Prompt for VS2012*) dalla workstation.
 4.  Nella finestra del prompt dei comandi eseguire il comando seguente.
 
@@ -45,7 +45,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
         azure hdinsight -h
 
-    È possibile utilizzare l'opzione *-h* a livelli diversi per visualizzare le informazioni della Guida. Ad esempio:
+    È possibile usare l'opzione *-h* a livelli diversi per visualizzare le informazioni della Guida. Ad esempio:
 
         azure -h
         azure hdinsight -h
@@ -54,18 +54,18 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 **Per installare l'interfaccia della riga di comando mediante Windows Installer**
 
-1.  Andare a **[http://azure.microsoft.com/it-it/downloads/][http://azure.microsoft.com/it-it/downloads/]**.
+1.  Andare a **http://azure.microsoft.com/it-it/downloads/**.
 2.  Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando multipiattaforma** e seguire l'Installazione guidata piattaforma Web.
 
 ## <span id="importsettings"></span></a> Download e importazione di impostazioni di pubblicazione dell'account Azure
 
-Prima di utilizzare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono utilizzate dall'interfaccia della riga di comando per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà utilizzata per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
+Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
-> [WACOM.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Si consiglia di eliminare il file o di eseguire ulteriori passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o utilizzare BitLocker.
+> [WACOM.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Si consiglia di eliminare il file o di eseguire ulteriori passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
 
 **Per scaricare e importare impostazioni di pubblicazione**
 
-1.  Aprire **Command Prompt**.
+1.  Aprire un **prompt dei comandi**.
 2.  Per scaricare il file di impostazioni di pubblicazione, eseguire il comando seguente.
 
         azure account download
@@ -84,9 +84,11 @@ Prima di utilizzare l'interfaccia della riga di comando, è necessario configura
 
 ## <span id="provision"></span></a>Provisioning di un cluster HDInsight
 
-HDInsight utilizza un contenitore dell'archivio BLOB di Azure come file system predefinito. Per poter creare un cluster HDInsight, è necessario un account di archiviazione di Azure.
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
-Dopo avere importato il file publishsettings è possibile utilizzare il comando seguente per creare un account di archiviazione:
+HDInsight usa un contenitore dell'archivio BLOB di Azure come file system predefinito. Per poter creare un cluster HDInsight, è necessario un account di archiviazione di Azure.
+
+Dopo avere importato il file publishsettings è possibile usare il comando seguente per creare un account di archiviazione:
 
     azure account storage create [options] <StorageAccountName>
 
@@ -100,7 +102,7 @@ Dopo avere importato il file publishsettings è possibile utilizzare il comando 
 
 Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione di Azure, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
-Se si dispone già di un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile utilizzare i comandi seguenti per recuperare le informazioni:
+Se si dispone già di un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile usare i comandi seguenti per recuperare le informazioni:
 
     -- lists storage accounts
     azure account storage list
@@ -111,7 +113,7 @@ Se si dispone già di un account di archiviazione, ma non si conosce il nome acc
 
 Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione].
 
-Il comando *azure hdinsight cluster create* crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile utilizzare il comando seguente:
+Il comando *azure hdinsight cluster create* crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile usare il comando seguente:
 
     azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
         
@@ -124,7 +126,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
 ## <span id="provisionconfigfile"></span></a> Provisioning di un cluster HDInsight mediante un file di configurazione
 
-In genere, si effettua il provisioning di un cluster HDInsight, vi si eseguono i processi e quindi si elimina il cluster per ridurre il costo. L'interfaccia della riga di comando consente di salvare le configurazioni in un file, per poterle riutilizzare ogni volta che si effettua il provisioning di un cluster.
+In genere, si effettua il provisioning di un cluster HDInsight, vi si eseguono i processi e quindi si elimina il cluster per ridurre il costo. L'interfaccia della riga di comando consente di salvare le configurazioni in un file, per poterle riusare ogni volta che si effettua il provisioning di un cluster.
 
     azure hdinsight cluster config create <file>
      
@@ -146,7 +148,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, vi si eseguono i
 
 ## <span id="listshow"></span></a> Elenco e visualizzazione di cluster
 
-Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
+Usare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
@@ -155,21 +157,21 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
 ## <span id="delete"></span></a> Eliminazione di un cluster
 
-Utilizzare il comando seguente per eliminare un cluster:
+Usare il comando seguente per eliminare un cluster:
 
     azure hdinsight cluster delete <ClusterName>
 
 ## <span id="nextsteps"></span></a>Passaggi successivi
 
-In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per ulteriori informazioni, vedere gli articoli seguenti:
+In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
 -   [Amministrazione di HDInsight tramite il portale di gestione][Amministrazione di HDInsight tramite il portale di gestione]
 -   [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]
 -   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
--   [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux][Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]
+-   [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][Come usare gli strumenti da riga di comando di Azure per Mac e Linux]
 -   [Strumenti da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux]
 
-  [Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]: ../xplat-cli/
+  [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../xplat-cli/
   [Strumento da riga di comando di Azure per Mac e Linux]: ../command-line-tools/
   [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
   [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
@@ -181,7 +183,6 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
   [Elenco e visualizzazione di cluster]: #listshow
   [Eliminazione di un cluster]: #delete
   [Passaggi successivi]: #nextsteps
-  [http://azure.microsoft.com/it-it/downloads/]: http://azure.microsoft.com/it-it/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
   [Come creare un account di archiviazione]: ../storage-create-storage-account/
   [Come gestire gli account di archiviazione]: ../storage-manage-storage-account/

@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Creare e caricare un asset crittografato nell'archiviazione - Azure" metaKeywords="" description="Informazioni su come ottenere contenuto multimediale in Servizi multimediali creando e caricando un asset crittografato." metaCanonical="" services="media-services" documentationCenter="" title="Procedura: Creare e caricare un asset crittografato nell'archiviazione" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="create-asset"> </a><span class="short header">Procedura: Creare e caricare un asset crittografato nell'archiviazione</span>
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Configurazione del computer per Servizi multimediali][].
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Configurazione del computer per Servizi multimediali][Configurazione del computer per Servizi multimediali].
 
 Per caricare contenuto multimediale in Servizi multimediali, è innanzitutto necessario creare un asset, aggiungervi i file e quindi caricarlo. Questo processo è denominato inserimento di contenuto.
 
@@ -14,7 +14,8 @@ Quando si creano asset, è possibile specificare tre diverse opzioni per la cri
 -   **AssetCreationOptions.CommonEncryptionProtected**: consente di creare file CENC (Common Encryption Protected). Un esempio è un set di file già crittografati con PlayReady.
 -   **AssetCreationOptions.StorageEncrypted**: applica la crittografia di archiviazione. Crittografa un file di input non crittografato prima che venga caricato nei servizi di archiviazione di Azure.
 
-**NOTA**: Si noti che Servizi multimediali offre una crittografia di archiviazione su disco, non in rete come Digital Rights Management (DRM).
+> WACOM.NOTE
+> Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
 
 Nel codice di esempio seguente vengono eseguite le operazioni seguenti:
 
@@ -113,7 +114,7 @@ Nel codice seguente viene illustrato come creare un asset e caricare più file.
 
 ## Passaggi successivi
 
-Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
+Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][Procedura: Ottenere un'istanza del processore di contenuti multimediali].
 
   [Configurazione del computer per Servizi multimediali]: http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409
-  [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409
+  [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/

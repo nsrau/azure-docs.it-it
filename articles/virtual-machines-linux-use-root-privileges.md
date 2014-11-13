@@ -1,10 +1,10 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Use root privileges" pageTitle="Usare i privilegi root in macchine virtuali Linux in Azure" metaKeywords="" description="Informazioni su come usare i privilegi root in una macchina virtuale Linux in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Uso di privilegi root su Linux in Macchine virtuali di Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
-# Utilizzo di privilegi root su Linux in Macchine virtuali di Azure
+# Uso di privilegi root su Linux in Macchine virtuali di Azure
 
-Gli utenti possono eseguire comandi con privilegi elevati in una macchina virtuale Linux usando il comando `sudo`. L'esperienza può tuttavia variare in base alla modalità utilizzata per il provisioning del sistema.
+Gli utenti possono eseguire comandi con privilegi elevati in una macchina virtuale Linux usando il comando `sudo`. L'esperienza può tuttavia variare in base alla modalità usata per il provisioning del sistema.
 
 1.  **Chiave SSH e password o solo password**: il provisioning della macchina virtuale è stato effettuato con un certificato (file `.CER`) e con una password oppure solo con un nome utente e una password. In questo caso, `sudo` richiederà la password dell'utente prima di eseguire il comando.
 

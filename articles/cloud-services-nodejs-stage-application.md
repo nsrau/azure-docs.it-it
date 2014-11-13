@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablestaging" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Staging an Application in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Staging Deployment" pageTitle="Distribuire un servizio cloud in un ambiente di gestione temporanea (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Informazioni su come distribuire l'applicazione di Azure prima in un ambiente di gestione temporanea e quindi in un ambiente di produzione tramite uno scambio di IP virtuali (VIP, Virtual IP)." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Gestione temporanea di un'applicazione in Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Gestione temporanea di un'applicazione in Azure
 
@@ -13,9 +13,10 @@ offuscato generato da Azure. Dopo la verifica del funzionamento corretto
 dell'applicazione, sarà possibile distribuirla nell'ambiente di produzione,
 tramite uno scambio di indirizzi IP virtuali (VIP, Virtual IP).
 
-<b>Nota</b>
+<div class="dev-callout">
+    <b>Nota</b>
     <p>I passaggi illustrati in questo articolo riguardano esclusivamente le applicazioni Node ospitate come Servizio cloud di Azure.</p>
-
+    </div>
 
 Questa attività include i passaggi seguenti:
 

@@ -1,10 +1,10 @@
-<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Applicazione Java a elevato utilizzo di calcolo in una macchina virtuale - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Informazioni su come creare una macchina virtuale di Azure nella quale &egrave; in esecuzione un'applicazione Java a elevato utilizzo di calcolo che pu&ograve; essere monitorata da un'altra applicazione Java." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Come eseguire un'attivit&agrave; a elevato utilizzo di calcolo in Java in una macchina virtuale" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
-Con Azure è possibile utilizzare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
+Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
 
 In questa esercitazione si presuppone che l'utente sappia creare applicazioni della console Java, importare librerie nell'applicazione Java e generare un archivio Java (JAR). Non è richiesta alcuna conoscenza di Azure.
 
@@ -18,7 +18,7 @@ Si apprenderà come:
 -   Eseguire le applicazioni Java.
 -   Arrestare le applicazioni Java.
 
-In questa esercitazione verrà utilizzato il Problema del commesso viaggiatore per l'attività a elevato utilizzo di calcolo. Di seguito è riportato un esempio dell'applicazione Java che esegue l'attività a elevato utilizzo di calcolo.
+In questa esercitazione verrà usato il Problema del commesso viaggiatore per l'attività a elevato utilizzo di calcolo. Di seguito è riportato un esempio dell'applicazione Java che esegue l'attività a elevato utilizzo di calcolo.
 
 ![Risolutore del Problema del commesso viaggiatore][Risolutore del Problema del commesso viaggiatore]
 
@@ -38,34 +38,34 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 5.  Nella finestra di dialogo **Virtual machine configuration**:
 
     1.  Specificare un nome per la macchina virtuale.
-    2.  Specificare la dimensione da utilizzare per la macchina virtuale.
-    3.  Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
-    4.  Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
+    2.  Specificare la dimensione da usare per la macchina virtuale.
+    3.  Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale.
+    4.  Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore.
     5.  Fare clic su **Avanti**.
 
-6.  Nella finestra di dialogo **Virtual machine configuration** successiva:
+6.  Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
 
-    1.  Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
-    2.  Il valore di **Cloud service DNS name** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che in Azure sia indicato che è univoco.
-    3.  Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **West US**.
-    4.  Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
-    5.  Nella casella **Availability Set** selezionare **(None)**.
+    1.  Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**.
+    2.  Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che in Azure sia indicato che è univoco.
+    3.  Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **Stati Uniti occidentali**.
+    4.  Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente**.
+    5.  Nella casella **Set di disponibilità** selezionare **(Nessuno)**.
     6.  Fare clic su **Avanti**.
 
-7.  Nella finestra di dialogo **Virtual machine configuration** finale:
+7.  Nella finestra di dialogo **Configurazione macchina virtuale** finale:
 
     1.  Accettare le voci di endpoint predefinite.
-    2.  Fare clic su **Complete**.
+    2.  Fare clic su **Operazione completata**.
 
 ## Per accedere in remoto alla macchina virtuale
 
 1.  Accedere al [portale di gestione][portale di gestione di Azure].
-2.  Fare clic su **Virtual machines**.
+2.  Fare clic su **Macchine virtuali**.
 3.  Fare clic sul nome della macchina virtuale a cui si desidera accedere.
-4.  Fare clic su **Connect**.
-5.  Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, utilizzare i valori specificati durante la creazione della macchina virtuale.
+4.  Fare clic su **Connetti**.
+5.  Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, usare i valori specificati durante la creazione della macchina virtuale.
 
-Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE utilizzato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][Aggiunta di un certificato all'archivio certificati CA Java] per ulteriori informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
+Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][Aggiunta di un certificato all'archivio certificati CA Java] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
 
 ## Come creare uno spazio dei nomi del bus di servizio
 
@@ -79,16 +79,16 @@ Per creare uno spazio dei nomi servizio:
 2.  Nel pannello di navigazione in basso a sinistra nel portale di gestione fare clic su **Service Bus, Access Control & Caching**.
 3.  Nel pannello di navigazione in alto a sinistra nel portale di gestione fare clic sul nodo **Service Bus**
     , quindi fare clic sul pulsante **Nuovo**.
-    ![Schermata nodo Service Bus][Schermata nodo Service Bus]
+    ![Service Bus Node screenshot][Service Bus Node screenshot]
 4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi del servizio** immettere uno
     **spazio dei nomi del servizio** quindi, per assicurarsi che sia univoco, fare clic sul pulsante
     **Verifica disponibilità**.
-    ![Schermata relativa alla creazione di un nuovo spazio dei nomi][Schermata relativa alla creazione di un nuovo spazio dei nomi]
+    ![Create a New Namespace screenshot][Create a New Namespace screenshot]
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere
     il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Crea spazio dei nomi**.
 
     Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione
-    e sarà necessario attendere qualche minuto per l'attivazione. Prima di continuare, attendere che lo stato sia **Active**.
+    e sarà necessario attendere qualche minuto per l'attivazione. Prima di continuare, attendere che lo stato sia **Attivo**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
@@ -96,17 +96,17 @@ Per eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo
 spazio dei nomi, è necessario ottenere le credenziali di gestione per lo
 spazio dei nomi.
 
-1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service bus**
+1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus**
     per visualizzare l'elenco degli spazi dei nomi disponibili.
-    ![Schermata degli spazi dei nomi disponibili][Schermata degli spazi dei nomi disponibili]
+    ![Available Namespaces screenshot][Available Namespaces screenshot]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.
-    ![Schermata relativa all'elenco degli spazi dei nomi][Schermata relativa all'elenco degli spazi dei nomi]
+    ![Namespace List screenshot][Namespace List screenshot]
 3.  Nel pannello **Proprietà** a destra verranno elencate le proprietà relative al
     nuovo spazio dei nomi.
-    ![Schermata del pannello Proprietà][Schermata del pannello Proprietà]
-4.  Le credenziali di sicurezza in **Default Key** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzare
+    ![Properties Pane screenshot][Properties Pane screenshot]
+4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzare
     le credenziali di sicurezza.
-    ![Schermata Chiave predefinita][Schermata Chiave predefinita]
+    ![Default Key screenshot][Default Key screenshot]
 5.  Prendere nota dei valori indicati in **Autorità di certificazione predefinita** e **Chiave predefinita**, in quanto
     dovranno essere usati per eseguire operazioni con lo
     spazio dei nomi.
@@ -114,8 +114,8 @@ spazio dei nomi.
 ## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
 1.  Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java][Azure SDK for Java].
-2.  Creare un'applicazione di console Java utilizzando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
-3.  Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.jar** come nome dell'archivio JAR generato.
+2.  Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
+3.  Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà usato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
     // TSPSolver.java
 
@@ -300,8 +300,8 @@ spazio dei nomi.
 
 ## Come creare un'applicazione Java per monitorare lo stato dell'attività a elevato utilizzo di calcolo
 
-1.  Nel computer di sviluppo creare un'applicazione console Java utilizzando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** immettendo rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
-2.  Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.jar** come nome dell'archivio JAR generato.
+1.  Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** immettendo rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
+2.  Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà usato **TSPClient.jar** come nome dell'archivio JAR generato.
 
     // TSPClient.java
 
@@ -481,7 +481,7 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 
         java -jar TSPSolver.jar createqueue
 
-8.  Dopo aver creato la coda è possibile eseguire le permutazioni del risolutore TSP. Ad esempio, utilizzare il comando seguente per eseguire il risolutore per 8 città.
+8.  Dopo aver creato la coda è possibile eseguire le permutazioni del risolutore TSP. Ad esempio, usare il comando seguente per eseguire il risolutore per 8 città.
 
         java -jar TSPSolver.jar 8
 
@@ -501,7 +501,7 @@ Se non si specifica un numero, il risolutore verrà eseguito per 10 città. Mano
 
         java -jar TSPClient.jar
 
-    Facoltativamente, specificare il numero di minuti di sospensione della verifica della coda passando un argomento della riga di comando. Il periodo di sospensione predefinito per la verifica della coda corrisponde a 3 minuti. Questo intervallo viene utilizzato se non si passa un argomento della riga di comando a **TSPClient**. Se si desidera utilizzare un valore differente per l'intervallo di sospensione, ad esempio un minuto, eseguire:
+    Facoltativamente, specificare il numero di minuti di sospensione della verifica della coda passando un argomento della riga di comando. Il periodo di sospensione predefinito per la verifica della coda corrisponde a 3 minuti. Questo intervallo viene usato se non si passa un argomento della riga di comando a **TSPClient**. Se si desidera usare un valore differente per l'intervallo di sospensione, ad esempio un minuto, eseguire:
 
         java -jar TSPClient.jar 1
 
@@ -517,13 +517,12 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 
   [Risolutore del Problema del commesso viaggiatore]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png
   [Client del Problema del commesso viaggiatore]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Aggiunta di un certificato all'archivio certificati CA Java]: ../java-add-certificate-ca-store
-  [Schermata nodo Service Bus]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
-  [Schermata relativa alla creazione di un nuovo spazio dei nomi]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-  [Schermata degli spazi dei nomi disponibili]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-  [Schermata relativa all'elenco degli spazi dei nomi]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
-  [Schermata del pannello Proprietà]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
-  [Schermata Chiave predefinita]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+  [Service Bus Node screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+  [Create a New Namespace screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+  [Available Namespaces screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+  [Namespace List screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+  [Properties Pane screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+  [Default Key screenshot]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
   [Azure SDK for Java]: http://www.windowsazure.com/it-it/develop/java/

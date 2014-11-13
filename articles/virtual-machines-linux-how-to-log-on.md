@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Accedere a una macchina virtuale che esegue Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Informazioni su come accedere a una macchina virtuale di Azure che esegue Linux tramite un client SSH (Secure Shell)." metaCanonical="" services="virtual-machines" documentationCenter="" title="Come accedere a una macchina virtuale che esegue Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Come accedere a una macchina virtuale che esegue Linux
 
@@ -8,12 +8,12 @@ Per accedere a una macchina virtuale in cui è in esecuzione il sistema operativ
 
 Per accedere alla macchina virtuale, è necessario installare un client SSH nel computer che si intende usare. È disponibile un'ampia scelta di programmi client SSH. Di seguito vengono indicate alcune tra le scelte possibili:
 
--   In un computer che esegue un sistema operativo Windows, è possibile usare un client SSH come PuTTY. Per ulteriori informazioni, vedere la [pagina di download di PuTTY][pagina di download di PuTTY].
+-   In un computer che esegue un sistema operativo Windows, è possibile usare un client SSH come PuTTY. Per altre informazioni, vedere la [pagina di download di PuTTY][pagina di download di PuTTY].
 -   In un computer che esegue un sistema operativo Linux, è possibile usare un client SSH come OpenSSH. Per altre informazioni, vedere la pagina [OpenSSH][OpenSSH].
 
 > [WACOM.NOTE] Per altri requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH][Connettersi a una macchina virtuale di Azure con RDP o SSH].
 
-In questa procedura viene illustrato come utilizzare il programma PuTTY per accedere alla macchina virtuale.
+In questa procedura viene illustrato come usare il programma PuTTY per accedere alla macchina virtuale.
 
 1.  Individuare le informazioni **Host Name** e **Port information** nel [portale di gestione][portale di gestione]. È possibile rilevare le informazioni necessarie dal dashboard della macchina virtuale. Fare clic sul nome della macchina virtuale e individuare **SSH Details** nella sezione **Quick Glance** del dashboard.
 
@@ -25,7 +25,7 @@ In questa procedura viene illustrato come utilizzare il programma PuTTY per acce
 
     ![Apertura di PuTTY][Apertura di PuTTY]
 
-4.  Accedere alla macchina virtuale utilizzando l'account specificato durante la creazione del computer Il nome utente predefinito è azureuser.
+4.  Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Il nome utente predefinito è azureuser.
 
     ![Accesso alla macchina virtuale][Accesso alla macchina virtuale]
 

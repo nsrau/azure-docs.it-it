@@ -1,10 +1,11 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deploying with Cloud9" pageTitle="Distribuzione di Node.js con Cloud9 - Esercitazione di Azure" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Informazioni su come usare l'IDE Cloud9 per sviluppare, creare e distribuire un'applicazione di tipo Node.js in Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Distribuzione di un'applicazione di Azure da Cloud9" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Distribuzione di un'applicazione di Azure da Cloud9
 
-In questa esercitazione viene illustrato come usare l'IDE Cloud9 per sviluppare, creare e distribuire un'applicazione di tipo Node.js in Azure.
+In questa esercitazione viene illustrato come usare l'IDE Cloud9 per sviluppare, creare e
+distribuire un'applicazione di tipo Node.js in Azure.
 
 In questa esercitazione si apprenderà come:
 
@@ -13,43 +14,63 @@ In questa esercitazione si apprenderà come:
 -   Aggiornare una distribuzione di Azure esistente
 -   Spostare progetti tra distribuzioni di gestione temporanea e produzione
 
-L'[IDE Cloud9][IDE Cloud9] offre un ambiente di sviluppo basato su browser e idoneo a più piattaforme. Una delle funzionalità supportate da Cloud9 per i progetti Node.js consiste nella possibilità effettuare la distribuzione direttamente in Azure dall'IDE. Cloud9 è anche integrato con i servizi repository GitHub e BitBucket e ciò semplifica la condivisione dei progetti con altri utenti.
+L'[IDE Cloud9][IDE Cloud9] offre un ambiente di sviluppo basato su browser e idoneo a più
+piattaforme. Una delle funzionalità supportate da Cloud9 per i progetti Node.js consiste
+nella possibilità effettuare la distribuzione direttamente in Azure dall'IDE.
+Cloud9 è anche integrato con i servizi repository GitHub e BitBucket
+e ciò semplifica la condivisione dei progetti con altri utenti.
 
-L'utilizzo di Cloud9 permette di sviluppare e distribuire un'applicazione in Azure da molti browser e sistemi operativi attuali, senza dovere installare localmente strumenti di sviluppo o SDK aggiuntivi. Le procedure seguenti vengono eseguite in Google Chrome su Mac.
+L'utilizzo di Cloud9 permette di sviluppare e distribuire un'applicazione in Azure
+da molti browser e sistemi operativi attuali, senza dovere
+installare localmente strumenti di sviluppo o SDK aggiuntivi. Le procedure seguenti
+vengono eseguite in Google Chrome su Mac.
 
 ## Iscrizione
 
-Per usare Cloud9, è innanzitutto necessario visitare il sito Web corrispondente ed [effettuare la registrazione per una sottoscrizione][IDE Cloud9]. È possibile accedere usando un account GitHub o BitBucket esistente oppure creare un account Cloud9. È disponibile un'offerta di sottoscrizione gratuita, oltre a un'offerta a pagamento, che include più funzionalità. Per altre informazioni, vedere la pagina relativa all'[IDE Cloud9][IDE Cloud9].
+Per usare Cloud9, è innanzitutto necessario visitare il sito Web corrispondente ed [effettuare la registrazione per una
+sottoscrizione][IDE Cloud9]. È possibile accedere usando un account GitHub o BitBucket esistente
+oppure creare un account Cloud9. È disponibile
+un'offerta di sottoscrizione gratuita, oltre a un'offerta a pagamento, che
+include più funzionalità. Per altre informazioni, vedere la pagina relativa all'[IDE Cloud9][IDE Cloud9].
 
 ## Creazione di un progetto di Node.js
 
-1.  Effettuare l'accesso a Cloud9, fare clic sul simbolo **+** accanto a **My Projects**, quindi selezionare **Create a new project**.
+1.  Effettuare l'accesso a Cloud9, fare clic sul simbolo **+** accanto a **My Projects**,
+    , quindi selezionare **Create a new project**.
 
     ![Creazione di un nuovo progetto di Cloud9][Creazione di un nuovo progetto di Cloud9]
 
-2.  Nella finestra di dialogo **Create a new project** immettere un nome,    un accesso e un tipo per il progetto. Fare clic su **Create** per creare il progetto.
+2.  Nella finestra di dialogo **Create a new project** immettere un nome,
+    un accesso e un tipo per il progetto. Fare clic su **Create** per creare il progetto.
 
     ![Finestra di dialogo per la creazione di un nuovo progetto di Cloud9][Finestra di dialogo per la creazione di un nuovo progetto di Cloud9]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Per alcune opzioni &egrave; necessario un piano di Cloud9 a pagamento.</p>
-</div>
+
+    **Nota**
+    Per alcune opzioni è necessario un piano di Cloud9 a pagamento.
+
+    </div>
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Il nome del progetto di Cloud9 non viene usato durante la distribuzione in Azure.</p>
-</div>
+
+    **Nota**
+    Il nome del progetto di Cloud9 non viene usato durante la distribuzione in Azure.
+
+    </div>
 
 3.  Al termine della creazione del progetto, fare clic su **Start Editing**. Se si sta usando l'IDE Cloud9 per la prima volta, sarà possibile visualizzare una presentazione del servizio. Se si desidera visualizzare la presentazione in un secondo momento, selezionare **Just the editor,please**.
 
     ![Inizio della modifica del progetto di Cloud9][Inizio della modifica del progetto di Cloud9]
 
-4.  Per creare una nuova applicazione Node, selezionare **File** e quindi **New    File**.
+4.  Per creare una nuova applicazione Node, selezionare **File** e quindi **New
+    File**.
 
     ![Creazione di un nuovo file nel progetto di Cloud9][Creazione di un nuovo file nel progetto di Cloud9]
 
-5.  Verrà visualizzata una nuova scheda intitolata **Untitled1**. Immettere il    codice seguente nella scheda **Untitled1** per creare l'applicazione    Node:
+5.  Verrà visualizzata una nuova scheda intitolata **Untitled1**. Immettere il
+    codice seguente nella scheda **Untitled1** per creare l'applicazione
+    Node:
 
         var http = require('http');
         var port = process.env.PORT;
@@ -59,31 +80,40 @@ Per usare Cloud9, è innanzitutto necessario visitare il sito Web corrispondente
         }).listen(port);
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>L'utilizzo di process.env.PORT consente di assicurare che l'applicazione scelga la porta corretta in caso di esecuzione nel debugger di Cloud9 o durante la distribuzione in Azure.</p>
-</div>
 
-6.  Per salvare il codice, selezionare **File** e quindi **Save as**. Nella finestra di dialogo    **Save As** immettere **server.js** come nome del file e quindi fare    clic su **Save**.
+    **Nota**
+    L'utilizzo di process.env.PORT consente di assicurare che l'applicazione scelga la porta corretta in caso di esecuzione nel debugger di Cloud9 o durante la distribuzione in Azure.
+
+    </div>
+
+6.  Per salvare il codice, selezionare **File** e quindi **Save as**. Nella finestra di dialogo
+    **Save As** immettere **server.js** come nome del file e quindi fare
+    clic su **Save**.
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>&Egrave; possibile che venga visualizzato un simbolo di avviso, che indica il mancato utilizzo della variabile req. Tale avviso pu&ograve; essere ignorato.</p>
-</div>
+
+    **Nota**
+    È possibile che venga visualizzato un simbolo di avviso, che indica il mancato utilizzo della variabile req. Tale avviso può essere ignorato.
+
+    </div>
 
     ![Salvataggio del file server.js][Salvataggio del file server.js]
 
 ## Esecuzione dell'applicazione
 
 <div class="dev-callout">
-<strong>Nota</strong>
-<p>Bench&eacute; la procedura disponibile in questa sezione sia sufficiente per un'applicazione di tipo Hello World, &egrave; possibile che per le applicazioni che utilizzano moduli esterni sia necessario selezionare una versione specifica di Node.js per l'ambiente di debug. A tale scopo, selezionare <strong>Configure...</strong> dall'elenco a discesa relativo al debug, quindi selezionare la versione specifica di Node.js. &Egrave; ad esempio possibile che vengano visualizzati errori di autenticazione quando si utilizza il modulo 'azure' senza avere selezionato Node.js 0.6.x.</p>
+
+**Nota**
+Benché la procedura disponibile in questa sezione sia sufficiente per un'applicazione di tipo Hello World, è possibile che per le applicazioni che usano moduli esterni sia necessario selezionare una versione specifica di Node.js per l'ambiente di debug. A tale scopo, selezionare **Configure...** dall'elenco a discesa relativo al debug, quindi selezionare la versione specifica di Node.js. È ad esempio possibile che vengano visualizzati errori di autenticazione quando si usa il modulo 'azure' senza avere selezionato Node.js 0.6.x.
+
 </div>
 
 1.  Fare clic su **Debug** per eseguire l'applicazione nel debugger di Cloud9.
 
     ![Esecuzione nel debugger][Esecuzione nel debugger]
 
-2.  Verrà visualizzata una finestra di output. Fare clic sull'URL elencato per    accedere all'applicazione tramite una finestra del browser.
+2.  Verrà visualizzata una finestra di output. Fare clic sull'URL elencato per
+    accedere all'applicazione tramite una finestra del browser.
 
     ![Finestra di output][Finestra di output]
 
@@ -95,7 +125,9 @@ Per usare Cloud9, è innanzitutto necessario visitare il sito Web corrispondente
 
 ## Creare un account Azure
 
-Per distribuire l'applicazione in Azure, è necessario disporre di un account. Se non si dispone di un account Azure, è possibile effettuare l'iscrizione per ottenere una versione di prova gratuita attenendosi alla procedura seguente:
+Per distribuire l'applicazione in Azure, è necessario disporre di un account. Se non si
+dispone di un account Azure, è possibile effettuare l'iscrizione per ottenere una versione di prova
+gratuita attenendosi alla procedura seguente:
 
 [WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
@@ -107,7 +139,7 @@ Per distribuire l'applicazione in Azure, è necessario disporre di un account. S
 
 2.  Nella finestra di dialogo **Add a deploy target** immettere un nome per la distribuzione e quindi selezionare **Azure** nell'elenco **Choose type**. Il nome specificato per la distribuzione verrà usato per identificare la distribuzione in Cloud9, ma non corrisponderà al nome della distribuzione in Azure.
 
-3.  Se si sta creando per la prima volta una distribuzione di Cloud9 che utilizza Azure, sarà necessario configurare le impostazioni di pubblicazione di Azure. Eseguire la procedura seguente per scaricare e installare queste impostazioni in Cloud9:
+3.  Se si sta creando per la prima volta una distribuzione di Cloud9 che usa Azure, sarà necessario configurare le impostazioni di pubblicazione di Azure. Eseguire la procedura seguente per scaricare e installare queste impostazioni in Cloud9:
 
     1.  Fare clic su **Download Azure Settings**.
 
@@ -117,7 +149,8 @@ Per distribuire l'applicazione in Azure, è necessario disporre di un account. S
 
     2.  Salvare il file delle impostazioni di pubblicazione nell'unità locale.
 
-    3.  Nella finestra di dialogo **Aggiungi una destinazione di distribuzione** selezionare **Scegli file**,        e quindi selezionare il file scaricato nel passaggio precedente.
+    3.  Nella finestra di dialogo **Aggiungi una destinazione di distribuzione** selezionare **Scegli file**,
+        e quindi selezionare il file scaricato nel passaggio precedente.
 
     4.  Dopo la selezione del file, fare clic su **Upload**.
 
@@ -130,18 +163,25 @@ Per distribuire l'applicazione in Azure, è necessario disporre di un account. S
     ![Creazione di un nuovo servizio ospitato][Creazione di un nuovo servizio ospitato]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Nella finestra di dialogo <strong>Add a deploy target</strong> tutti i servizi ospitati di Azure verranno elencati nella sezione <strong>Choose existing deployment</strong>. Se si seleziona un servizio ospitato esistente, il progetto sar&agrave; distribuito in tale servizio.</p>
-</div>
+
+    **Nota**
+    Nella finestra di dialogo **Add a deploy target** tutti i servizi ospitati di Azure verranno elencati nella sezione **Choose existing deployment**. Se si seleziona un servizio ospitato esistente, il progetto sarà distribuito in tale servizio.
+
+    </div>
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Se si seleziona <strong>Enable RDP</strong> e si specifica un nome utente e una password, Desktop remoto sar&agrave; abilitato per la distribuzione.</p>
-</div>
+
+    **Nota**
+    Se si seleziona **Enable RDP** e si specifica un nome utente e una password, Desktop remoto sarà abilitato per la distribuzione.
+
+    </div>
 
 ## Distribuzione nell'ambiente di produzione di Azure
 
-1.  Selezionare la distribuzione creata nel passaggio precedente. Verrà visualizzata    una finestra di dialogo che include informazioni su tale distribuzione, oltre    all'URL di produzione che verrà usato dopo la distribuzione in Microsoft    Azure.
+1.  Selezionare la distribuzione creata nel passaggio precedente. Verrà visualizzata
+    una finestra di dialogo che include informazioni su tale distribuzione, oltre
+    all'URL di produzione che verrà usato dopo la distribuzione in Microsoft
+    Azure.
 
     ![Selezione di una distribuzione][Selezione di una distribuzione]
 
@@ -164,9 +204,11 @@ Per distribuire l'applicazione in Azure, è necessario disporre di un account. S
     ![Stato della distribuzione][Stato della distribuzione]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Ai progetti distribuiti tramite l'IDE Cloud 9 viene assegnato un GUID come nome per la distribuzione in Azure.</p>
-</div>
+
+    **Nota**
+    Ai progetti distribuiti tramite l'IDE Cloud 9 viene assegnato un GUID come nome per la distribuzione in Azure.
+
+    </div>
 
 8.  Nella finestra di dialogo relativa alla distribuzione è disponibile un collegamento all'URL di produzione. Al termine della distribuzione, fare clic sull'URL per passare all'applicazione in esecuzione in Azure.
 
@@ -201,15 +243,24 @@ Quando si apportano modifiche all'applicazione, è possibile usare Cloud9 per di
 
 ## Spostamento dell'aggiornamento in produzione tramite lo scambio VIP
 
-Quando un servizio viene distribuito in ambienti di produzione o di gestione temporanea,al servizio in questo ambiente viene assegnato un indirizzo IP virtuale (VIP). Se si vuole spostare un servizio dall'ambiente di gestione temporanea all'ambiente di produzione, è possibile eseguire tale operazione senza ripetere la distribuzione effettuando uno scambio VIP, che consente di scambiare le distribuzioni di gestione temporanea e d produzione. Uno scambio VIP consente di inserire in produzione l'applicazione di gestione temporanea testata, senza tempi di inattività nell'ambiente di produzione. Per altre informazioni, vedere [Panoramica della gestione delle distribuzioni in Azure.][Panoramica della gestione delle distribuzioni in Azure.]
+Quando un servizio viene distribuito in ambienti di produzione o di gestione temporanea,
+al servizio in questo ambiente viene assegnato un indirizzo
+IP virtuale (VIP). Se si vuole spostare un servizio dall'ambiente di gestione temporanea
+all'ambiente di produzione, è possibile eseguire tale operazione senza
+ripetere la distribuzione effettuando uno scambio VIP, che consente di scambiare le distribuzioni di gestione temporanea e d
+ produzione. Uno scambio VIP consente di inserire in
+produzione l'applicazione di gestione temporanea testata, senza tempi di inattività nell'ambiente di produzione. Per altre
+informazioni, vedere [Panoramica della gestione delle distribuzioni in Azure.][Panoramica della gestione delle distribuzioni in Azure.]
 
-1.  Nella finestra di dialogo di distribuzione fare clic sul collegamento **Apri il portale** per aprire il    portale di gestione di Azure.
+1.  Nella finestra di dialogo di distribuzione fare clic sul collegamento **Apri il portale** per aprire il
+    portale di gestione di Azure.
 
     [Link from deploy dialog to Azure Management Portal][Link from deploy dialog to Azure Management Portal]
 
 2.  Accedere al portale usando le proprie credenziali.
 
-3.  Nella parte sinistra della pagina Web selezionare **Servizi ospitati, Account di    archiviazione e CDN** e quindi fare clic su **Servizi ospitati**.
+3.  Nella parte sinistra della pagina Web selezionare **Servizi ospitati, Account di
+    archiviazione e CDN** e quindi fare clic su **Servizi ospitati**.
 
     [Azure Management Portal][Azure Management Portal]
 
@@ -225,7 +276,7 @@ Quando un servizio viene distribuito in ambienti di produzione o di gestione tem
 
     ![Applicazione di produzione in esecuzione in Azure][Applicazione di produzione in esecuzione in Azure]
 
-## Utilizzo di Desktop remoto
+## Uso di Desktop remoto
 
 Se RDP è stato abilitato e un nome utente e una password sono stati specificati durante la creazione della distribuzione, sarà possibile usare Desktop remoto per la connessione al servizio ospitato, selezionando un'istanza specifica e quindi selezionando Connetti
 sulla barra multifunzione.
@@ -236,14 +287,15 @@ Quando si fa clic su Connect, verrà richiesto di aprire o scaricare un file RDP
 selezionata.
 
 <div class="dev-callout">
-<strong>Nota</strong>
-<p>Il file RDP per la connessione all'istanza ospitata dell'applicazione funzioner&agrave; solo con l'applicazione Desktop remoto in
-Windows.</p>
+
+**Nota**
+Il file RDP per la connessione all'istanza ospitata dell'applicazione funzionerà solo con l'applicazione Desktop remoto in Windows.
+
 </div>
 
 ## Interruzione ed eliminazione dell'applicazione
 
-Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di tempo del server su base oraria e un'applicazione in fase di distribuzione utilizza tempo del server anche se le istanze non sono in esecuzione e sono in stato arrestato. Il tempo
+Azure addebita le istanze del ruolo Web al consumo, in base all'utilizzo di tempo del server su base oraria e un'applicazione in fase di distribuzione usa tempo del server anche se le istanze non sono in esecuzione e sono in stato arrestato. Il tempo
 del server viene inoltre consumato dalle distribuzioni di produzione e di gestione temporanea.
 
 Cloud9 si occupa principalmente di rendere disponibile un IDE e non offre alcun metodo diretto per l'interruzione o l'eliminazione di un'applicazione dopo la distribuzione in Azure. Per eliminare un'applicazione ospitata in Azure, eseguire la procedura seguente:
@@ -275,7 +327,6 @@ Cloud9 si occupa principalmente di rendere disponibile un IDE e non offre alcun 
   [Esecuzione nel debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [Finestra di output]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [Applicazione in esecuzione nel browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  [create-azure-account]: ../includes/create-azure-account.md
   [Download delle impostazioni di pubblicazione]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx
   [Creazione di una nuova distribuzione]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png

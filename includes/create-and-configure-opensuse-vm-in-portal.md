@@ -1,34 +1,34 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
-**Importante**: Se si desidera che una macchina virtuale utilizzi una rete virtuale, è necessario assicurarsi di specificare la rete quando si crea la macchina. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per ulteriori informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure][].
+**Importante**: Se si desidera che una macchina virtuale utilizzi una rete virtuale, è necessario assicurarsi di specificare la rete quando si crea la macchina. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per altre informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure][Informazioni generali su Rete virtuale di Azure].
 
-1.  Accedere al [portale di gestione di Azure][] con il proprio account Azure.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure] con il proprio account Azure.
 
 2.  Nel portale di gestione fare clic su **+New** nella parte inferiore sinistra della pagina Web, scegliere **Virtual Machine** e quindi **From Gallery**.
 
-    ![Creare una nuova macchina virtuale][]
+    ![Creare una nuova macchina virtuale][Creare una nuova macchina virtuale]
 
 3.  Selezionare un'immagine della macchina virtuale OpenSUSE da **Platform Images**, quindi fare clic sulla freccia Avanti nella parte inferiore destra della pagina.
 
-4.  Nella pagina **Virtual machine configuration** specificare le informazioni seguenti:
+4.  Nella pagina **Configurazione macchina virtuale** specificare le informazioni seguenti:
 
-    -   Specificare un **Virtual Machine Name**, ad esempio "testlinuxvm".
-    -   Specificare un nuovo **New User Name**, ad esempio "newuser", che verrà aggiunto al file dell'elenco Sudoers.
-    -   Nella casella **New Password** immettere una [password complessa][].
-    -   Reimmettere la password nella casella **Confirm Password**.
-    -   Selezionare un valore appropriato per **Size** nell'elenco a discesa.
+    -   Specificare un **Nome macchina virtuale**, ad esempio "testlinuxvm".
+    -   Specificare un nuovo **Nuovo nome utente**, ad esempio "newuser", che verrà aggiunto al file dell'elenco Sudoers.
+    -   Nella casella **Nuova password** immettere una [password complessa][password complessa].
+    -   Nella casella **Conferma password** ridigitare la password.
+    -   Selezionare un valore appropriato per **Dimensione** nell'elenco a discesa.
 
-    Fare clic sulla freccia Next per continuare.
+    Fare clic sulla freccia Avanti per continuare.
 
-5.  Nella pagina **Virtual machine mode** specificare le informazioni seguenti:
+5.  Nella pagina **Modalità macchina virtuale** specificare le informazioni seguenti:
 
-    -   Selezionare **Standalone Virtual Machine**.
-    -   Nella casella **DNS Name** immettere un indirizzo DNS valido. Ad esempio, "testlinuxvm".
-    -   Nella casella **Region/Affinity Group/Virtual Network** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+    -   Selezionare **Macchina virtuale autonoma**.
+    -   Nella casella **Nome DNS** immettere un indirizzo DNS valido. Ad esempio, "testlinuxvm".
+    -   Nella casella **Regione/Gruppo di affinità/Rete virtuale** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 
-	Fare clic sulla freccia Next per continuare.
+Fare clic sulla freccia Avanti per continuare.
 
-1.  Nella pagina **Virtual machine options** selezionare **(none)** nella casella **Availability Set**. Fare clic sul segno di spunta per continuare.
+1.  Nella pagina **Opzioni macchina virtuale** selezionare **(nessuno)** nella casella **Set di disponibilità**. Fare clic sul segno di spunta per continuare.
 
 2.  Attendere durante la preparazione della macchina virtuale in Azure.
 
@@ -38,7 +38,7 @@ Dopo la creazione della macchina virtuale, è necessario configurare gli endpoin
 
 1.  Nel portale di gestione fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
 
-2.  Fare clic su **Edit Endpoint** nella parte inferiore della pagina, quindi modificare l'endpoint SSH in modo che il valore per la relativa **Public Port** sia 22.
+2.  Fare clic su **Modifica endpoint** nella parte inferiore della pagina, quindi modificare l'endpoint SSH in modo che il valore per la relativa **Porta pubblica** sia 22.
 
 ## Connettersi alla macchina virtuale
 
@@ -46,7 +46,7 @@ Dopo il provisioning della macchina virtuale e la configurazione degli endpoint,
 
 ### Connettersi tramite SSH
 
-Se si utilizza un computer Linux, connettersi alla macchina virtuale tramite PuTTY. Al prompt dei comandi eseguire:
+Se si usa un computer Linux, connettersi alla macchina virtuale tramite PuTTY. Al prompt dei comandi eseguire:
 
     $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
 
@@ -54,12 +54,12 @@ Immettere la password dell'utente.
 
 ### Connettersi tramite PuTTY
 
-Se si utilizza un computer Windows, connettersi alla macchina virtuale tramite PuTTY, disponibile nell'apposita [pagina di download][].
+Se si usa un computer Windows, connettersi alla macchina virtuale tramite PuTTY, disponibile nell'apposita [pagina di download][pagina di download].
 
 1.  Scaricare e salvare il file **putty.exe** in una directory del computer. Aprire un prompt dei comandi, passare a questa cartella ed eseguire **putty.exe**.
 
 2.  Immettere "testlinuxvm.cloudapp.net" come **Nome host** e "22" per la **Porta**.
-    ![PuTTY Screen][]
+    ![PuTTY Screen][PuTTY Screen]
 
 ## Aggiornare la macchina virtuale (facoltativo)
 
@@ -74,6 +74,6 @@ Se si utilizza un computer Windows, connettersi alla macchina virtuale tramite P
   [Informazioni generali su Rete virtuale di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Creare una nuova macchina virtuale]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [password complessa]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+  [password complessa]: http://msdn.microsoft.com/it-it/library/ms161962.aspx
   [pagina di download]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

@@ -1,36 +1,34 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to scale" pageTitle="Come scalare un servizio multimediale | Documentazione di Azure" metaKeywords="" description="Informazioni su come scalare servizi multimediali specificando il numero di unit&agrave; riservate di streaming on demand e di unit&agrave; riservate di codifica di cui eseguire il provisioning nell'account in uso." metaCanonical="" services="media-services" documentationCenter="" title="Come scalare un servizio multimediale" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="juliako" />
 
 # Come scalare un servizio multimediale
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 È possibile scalare servizi multimediali specificando il numero di **unità riservate di streaming on demand** e di **unità riservate di codifica** di cui si desidera eseguire il provisioning nell'account in uso.
 
 ## Unità riservate di streaming on demand
 
-Le unità riservate di streaming on demand offrono sia capacità in uscita dedicata, acquistabile in incrementi di 200 Mbps, sia funzionalità aggiuntive che attualmente comprendono la [creazione dinamica dei pacchetti][]. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+Le unità riservate di streaming on demand offrono sia capacità in uscita dedicata, acquistabile in incrementi di 200 Mbps, sia funzionalità aggiuntive che attualmente comprendono la [creazione dinamica dei pacchetti][creazione dinamica dei pacchetti]. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
 
 Per modificare il numero di unità riservate di streaming on demand, eseguire le operazioni seguenti:
 
-1.  Nel [portale di gestione][] fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
-2.  Selezionare la pagina ORIGINS. Quindi, fare clic sull'origine da modificare.
+2.  Selezionare la pagina ENDPOINT DI STREAMING. Quindi, fare clic sull'endpoint di streaming da modificare.
 
-	![Pagina relativa all'origine][]
+3.  Per specificare il numero di unità di streaming, selezionare la scheda RIDIMENSIONA e spostare il dispositivo di scorrimento **capacità riservata**.
 
-3.  Per specificare il numero di unità riservate, selezionare la scheda SCALE e spostare il dispositivo di scorrimento **reserved capacity**.
+    ![Scale page][Scale page]
 
-    ![Pagina Scale][]
-
-4.  Fare clic sul pulsante SAVE per salvare le modifiche apportate.
+4.  Fare clic sul pulsante SALVA per salvare le modifiche apportate.
 
     Il completamento dell'allocazione di nuove unità di streaming on demand richiede circa 20 minuti.
 
-    **Nota:** attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming on demand, è possibile che lo streaming on demand venga disattivato per un periodo che può durare fino a un'ora.
+    > [Azure.Note] attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming on demand, è possibile che lo streaming on demand venga disattivato per un periodo che può durare fino a un'ora.
 
-    **Nota:** il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà utilizzato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali][].
+    > [Azure.Note] Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali][Dettagli prezzi di Servizi multimediali].
 
 ## Unità riservate di codifica
 
@@ -38,17 +36,25 @@ Il numero di unità riservate di codifica fornite corrisponde al numero di attiv
 
 Per modificare il numero di unità riservate di codifica, eseguire le operazioni seguenti:
 
-1.  Nel [portale di gestione][] fare clic su **Media Services**. Fare quindi clic sul nome del servizio multimediale.
+1.  Nel [portale di gestione][portale di gestione] fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
-2.  Selezionare la pagina PROCESSORS.
+2.  Selezionare la pagina CODIFICA.
 
-    ![Pagina relativa ai processori][]
+    In questa pagina è possibile scegliere tra tre diversi tipi di codifica delel unità riservate, ovvero Di base, Standard e Premium (come illustrato di seguito).
 
-3.  Fare clic sul pulsante SAVE per salvare le modifiche apportate.
+    ![Processors page][Processors page]
 
-    Le nuove unità riservate di codifica vengono allocate quasi immediatamente.
+    Per cambiare il numero di unità riservate per il valore selezionato in TIPO DI UNITÀ RISERVATA, usare il dispositivo di scorrimento CODIFICA.
 
-    **Nota:** il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà utilizzato per il calcolo del costo.
+    La principale differenza tra i tipi di unità riservate è data dalla velocità. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata Standard rispetto a quando si usa il tipo Di base. Per altre informazioni, vedere il blog sui tipi di unità riservata di codifica scritto da [Milan Gada][Milan Gada].
+
+    > [Azure.Note] I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Pechino, Shanghai.
+
+3.  Fare clic sul pulsante SALVA per salvare le modifiche apportate.
+
+    Le nuove unità riservate di codifica vengono allocate non appena si fa clic su SALVA.
+
+    > [Azure.Note] Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
 
 ## Apertura di un ticket di supporto
 
@@ -57,7 +63,7 @@ Per impostazione predefinita, ogni account di Media Services può includere fino
 Per aprire un ticket di supporto, eseguire le operazioni seguenti:
 
 1.  Accedere all'account Azure nel [portale di gestione][1].
-2.  Passare a [Support][].
+2.  Passare a [Support][Support].
 3.  Fare clic su "Get Support".
 4.  Selezionare la propria sottoscrizione.
 5.  Per il tipo di supporto, selezionare "Technical".
@@ -68,12 +74,11 @@ Per aprire un ticket di supporto, eseguire le operazioni seguenti:
 10. Attenersi alle istruzioni visualizzate nella pagina successiva, quindi specificare il numero di unità riservate di codifica o di streaming on demand necessarie.
 11. Fare clic su Submit per aprire il ticket.
 
-  [disclaimer]: ../includes/disclaimer.md
   [creazione dinamica dei pacchetti]: http://go.microsoft.com/fwlink/?LinkId=276874
   [portale di gestione]: https://manage.windowsazure.com/
-  [Pagina relativa all'origine]: ./media/media-services-how-to-scale/media-services-origin-page.png
-  [Pagina Scale]: ./media/media-services-how-to-scale/media-services-origin-scale.png
+  [Scale page]: ./media/media-services-how-to-scale/media-services-origin-scale.png
   [Dettagli prezzi di Servizi multimediali]: http://go.microsoft.com/fwlink/?LinkId=275107
-  [Pagina relativa ai processori]: ./media/media-services-how-to-scale/media-services-encoding-scale.png
+  [Processors page]: ./media/media-services-how-to-scale/media-services-encoding-scale.png
+  [Milan Gada]: http://azure.microsoft.com/blog/author/milanga/
   [1]: http://manage.windowsazure.com
-  [Support]: http://www.windowsazure.com/en-us/support/contact/
+  [Support]: http://www.windowsazure.com/it-it/support/contact/

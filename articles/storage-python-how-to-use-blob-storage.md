@@ -1,11 +1,11 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
+<properties urlDisplayName="Blob Service" pageTitle="Come usare il servizio di archiviazione BLOB (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="Come usare il servizio BLOB da Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
-# Utilizzo del servizio di archiviazione BLOB da Python
+# Uso del servizio di archiviazione BLOB da Python
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di
-archiviazione BLOB di Azure. Gli esempi sono scritti utilizzando l'API
+archiviazione BLOB di Azure. Gli esempi sono scritti usando l'API
 Python. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**,
 **download** ed
 **eliminazione** di BLOB. Per altre informazioni sui BLOB,
@@ -13,20 +13,20 @@ vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
- [Informazioni sull'archiviazione BLOB][Informazioni sull'archiviazione BLOB]  
- [Concetti][Concetti]  
- [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]  
- [Procedura: Creare un contenitore][Procedura: Creare un contenitore]  
- [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]  
- [Procedura: Visualizzare un elenco di BLOB in un contenitore][Procedura: Visualizzare un elenco di BLOB in un contenitore]  
- [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]  
- [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]  
- [Procedura: Caricare e scaricare BLOB di grandi dimensioni][Procedura: Caricare e scaricare BLOB di grandi dimensioni]  
- [Passaggi successivi][Passaggi successivi]  
+[Informazioni sull'archiviazione BLOB][Informazioni sull'archiviazione BLOB]
+ [Concetti][Concetti]
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+ [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
+ [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
+ [Procedura: Visualizzare un elenco di BLOB in un contenitore][Procedura: Visualizzare un elenco di BLOB in un contenitore]
+ [Procedura: Scaricare BLOB][Procedura: Scaricare BLOB]
+ [Procedura: Eliminare un BLOB][Procedura: Eliminare un BLOB]
+ [Procedura: Caricare e scaricare BLOB di grandi dimensioni][Procedura: Caricare e scaricare BLOB di grandi dimensioni]
+ [Passaggi successivi][Passaggi successivi]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a name="create-account"> </a>Creazione di un account di archiviazione di Azure
+## <a name="create-account"> </a>Creare un account di archiviazione di Azure
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -38,21 +38,21 @@ L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice
 seguente consente di creare un oggetto **BlobService**. Aggiungere il codice seguente vicino
 all'inizio del file Python da cui si vuole accedere all'archiviazione di Azure a livello di codice:
 
-    from azure.storage import *
+    from azure.storage import BlobService
 
-Il codice seguente consente di creare un oggetto **BlobService** utilizzando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **BlobService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
 
     blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-Tutti i BLOB di archiviazione risiedono in un contenitore. È possibile utilizzare un oggetto **BlobService** per creare il contenitore, se non esiste:
+Tutti i BLOB di archiviazione risiedono in un contenitore. È possibile usare un oggetto **BlobService** per creare il contenitore, se non esiste:
 
     blob_service.create_container('mycontainer')
 
-Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile creare il contenitore e passare il livello di accesso pubblico utilizzando il codice seguente:
+Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile creare il contenitore e passare il livello di accesso pubblico usando il codice seguente:
 
     blob_service.create_container('mycontainer', x_ms_blob_public_access='container') 
 
-In alternativa è possibile modificare un contenitore dopo averlo creato utilizzando il codice seguente:
+In alternativa è possibile modificare un contenitore dopo averlo creato usando il codice seguente:
 
     blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
 
@@ -71,7 +71,7 @@ Nell'esempio seguente viene caricato il contenuto del file **task1.txt** nel BLO
 
 ## <a name="list-blob"> </a>Procedura: Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, utilizzare il metodo **list\_blobs** con un ciclo
+Per elencare i BLOB in un contenitore, usare il metodo **list\_blobs** con un ciclo
 **for** per visualizzare il nome di ogni BLOB nel contenitore. Il
 codice seguente consente di inviare alla console il valore di **name** e **url** di ogni BLOB in un
 contenitore.
@@ -113,8 +113,6 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [Procedura: Scaricare BLOB]: #download-blobs
   [Procedura: Eliminare un BLOB]: #delete-blobs
   [Procedura: Caricare e scaricare BLOB di grandi dimensioni]: #large-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [guida all'installazione di Python]: ../python-how-to-install/
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serializzare i dati con la libreria Microsoft .NET per Avro | Azure" metaKeywords="" description="Informazioni sull'uso di Avro in Azure HDInsight per serializzare Big Data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serializzare i dati con la libreria Microsoft .NET per Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -810,7 +810,7 @@ I dati vengono quindi letti dal file e deserializzati in una raccolta di oggetti
 
 ## <a name="Scenario5"></a>Serializzazione tramite file contenitori di oggetti con codec di compressione personalizzato
 
-Nell'esempio seguente viene illustrato come utilizzare un codec di compressione personalizzato per i file contenitori di oggetti Avro. Le [specifiche di Avro][specifiche di Avro] consentono l'utilizzo di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato il nuovo codec, ad esempio Snappy (citato come codec facoltativo supportato nelle [specifiche Avro][specifiche Avro]), ma viene illustrato come usare l'implementazione del codec [**Deflate**][2] di .NET Framework 4.5, che fornisce un miglior algoritmo di compressione basato sulla libreria di compressione [zlib][zlib] rispetto alla versione predefinita, cioè .NET Framework 4.0.
+Nell'esempio seguente viene illustrato come usare un codec di compressione personalizzato per i file contenitori di oggetti Avro. Le [specifiche di Avro][specifiche di Avro] consentono l'utilizzo di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato il nuovo codec, ad esempio Snappy (citato come codec facoltativo supportato nelle [specifiche Avro][specifiche Avro]), ma viene illustrato come usare l'implementazione del codec [**Deflate**][2] di .NET Framework 4.5, che fornisce un miglior algoritmo di compressione basato sulla libreria di compressione [zlib][zlib] rispetto alla versione predefinita, cioè .NET Framework 4.0.
 
     // 
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1304,13 +1304,22 @@ Nell'esempio seguente viene illustrato come utilizzare un codec di compressione 
 
   [JSON]: http://www.json.org
   [specifiche di Apache Avro]: http://avro.apache.org/docs/current/spec.html
+  [**AvroRecord**]: http://msdn.microsoft.com/it-it/library/microsoft.hadoop.avro.avrorecord.aspx
   [Microsoft .NET Framework v4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [esempi di codice di Azure]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
+  [**Serializzazione con la reflection**]: #Scenario1
+  [**Serializzazione con record generici**]: #Scenario2
   [**Serializzazione tramite file contenitori di oggetti con la reflection**]: #Scenario3
   [**Serializzazione tramite file contenitori di oggetti con record generici**]: #Scenario4
+  [**Serializzazione tramite file contenitori di oggetti con codec di compressione personalizzato**]: #Scenario5
+  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/it-it/library/dn627341.aspx
+  [**AvroContainer**]: http://msdn.microsoft.com/it-it/library/microsoft.hadoop.avro.container.avrocontainer.aspx
+  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/it-it/library/dn627340.aspx
+  [**Deflate**]: http://msdn.microsoft.com/it-it/library/system.io.compression.deflatestream(v=vs.100).aspx
   [2]: http://msdn.microsoft.com/it-it/library/system.io.compression.deflatestream(v=vs.110).aspx
+  [**Codex.Null**]: http://msdn.microsoft.com/it-it/library/microsoft.hadoop.avro.container.codec.null.aspx
   [specifiche di Avro]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [specifiche Avro]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

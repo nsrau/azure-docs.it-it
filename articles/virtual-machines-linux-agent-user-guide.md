@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guida dell'utente dell'agente Linux per Azure" metaKeywords="" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Guida dell'utente dell'agente Linux di Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Guida dell'utente dell'agente Linux di Azure
 
@@ -23,7 +23,7 @@ L'agente Linux di Azure (waagent) gestisce l'interazione della macchina virtuale
 -   Garantisce la stabilità del nome dell'interfaccia di rete
 -   **Kernel**
 -   Configurazione della piattaforma virtuale NUMA
--   Utilizzo dell'entropia Hyper-V per /dev/random
+-   Uso dell'entropia Hyper-V per /dev/random
 -   Configurazione dei timeout SCSI per il dispositivo radice (che può essere remoto)
 -   **Diagnostica**
 -   Reindirizzamento della console alla porta seriale
@@ -36,17 +36,18 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 
 -   Un DVD collegato in fase di avvio per le distribuzioni IaaS. Nel DVD è incluso un file di configurazione conforme a OVF che include tutte le informazioni di provisioning diverse dalle coppie di chiavi SSH effettive.
 
--   Un endpoint TCP che espone un'API REST utilizzata per ottenere la configurazione della distribuzione e della topologia.
+-   Un endpoint TCP che espone un'API REST usata per ottenere la configurazione della distribuzione e della topologia.
 
 ### Come ottenere l'agente Linux
 
 È possibile ottenere l'agente Linux più recente direttamente da:
 
--   [I vari provider di distribuzione che supportano Linux in Azure][]
--   o dall'[archivio open source Github per l'agente Linux di Azure][]
+-   [I vari provider di distribuzione che supportano Linux in Azure][I vari provider di distribuzione che supportano Linux in Azure]
+-   o dall'[archivio open source Github per l'agente Linux di Azure][archivio open source Github per l'agente Linux di Azure]
 
 ### Distribuzioni Linux supportate
 
+-   CoreOS
 -   CentOS 6.2+
 -   Debian 7.0+
 -   Ubuntu 12.04+
@@ -167,7 +168,7 @@ Di seguito è riportato un file di configurazione di esempio:
 Le opzioni di configurazione disponibili sono descritte di seguito in modo dettagliato.
 Le opzioni di configurazione sono di tre tipi: booleano, stringa o integer.
 Le opzioni di configurazione booleane possono essere specificate come "y" o "n".
-È possibile utilizzare la parola chiave speciale "None" per alcune voci di configurazione di tipo stringa, come indicato di seguito.
+È possibile usare la parola chiave speciale "None" per alcune voci di configurazione di tipo stringa, come indicato di seguito.
 
 **Role.StateConsumer:**
 
@@ -218,7 +219,7 @@ Il tipo di crittografia per la coppia di chiavi aggiornata è configurabile dall
 Digitare: Stringa
  Valore predefinito: rsa
 
-È possibile impostare questa voce su un tipo di algoritmo di crittografia supportato dal daemon SSH nella macchina virtuale. I valori supportati sono in genere "rsa", "dsa" e "ecdsa". Si noti che "putty.exe" in Windows non supporta il tipo "ecdsa". Se pertanto si intende utilizzare putty.exe in Windows per connettersi a una distribuzione Linux, utilizzare "rsa" o "dsa".
+È possibile impostare questa voce su un tipo di algoritmo di crittografia supportato dal daemon SSH nella macchina virtuale. I valori supportati sono in genere "rsa", "dsa" e "ecdsa". Si noti che "putty.exe" in Windows non supporta il tipo "ecdsa". Se pertanto si intende usare putty.exe in Windows per connettersi a una distribuzione Linux, usare "rsa" o "dsa".
 
 **Provisioning.MonitorHostName:**
 
@@ -239,7 +240,7 @@ Se questa voce è impostata, il disco risorse fornito dalla piattaforma verrà f
 Digitare: Stringa
  Valore predefinito: ext4
 
-Specifica il tipo di file system per il disco risorse. I valori supportati variano in base alla distribuzione Linux. Se la stringa è X, è necessario che mkfs.X sia presente nell'immagine Linux. Le immagini SLES 11 in genere utilizzano il valore 'ext3'. Le immagini FreeBSD in questo caso devono utilizzare il valore 'ufs2'.
+Specifica il tipo di file system per il disco risorse. I valori supportati variano in base alla distribuzione Linux. Se la stringa è X, è necessario che mkfs.X sia presente nell'immagine Linux. Le immagini SLES 11 in genere usano il valore 'ext3'. Le immagini FreeBSD in questo caso devono usare il valore 'ufs2'.
 
 **ResourceDisk.MountPoint:**
 
@@ -281,14 +282,14 @@ Se questa voce è impostata, viene incrementato il livello di dettaglio del log.
 Digitare: Integer
  Valore predefinito: 300
 
-Consente di configurare il timeout SCSI in secondi nel disco del sistema operativo e nelle unità dati. Se questa voce non è impostata, vengono utilizzate le impostazioni predefinite del sistema.
+Consente di configurare il timeout SCSI in secondi nel disco del sistema operativo e nelle unità dati. Se questa voce non è impostata, vengono usate le impostazioni predefinite del sistema.
 
 **OS.OpensslPath:**
 
 Digitare: Stringa
  Valore predefinito: None
 
-È possibile aggiungere questa voce per specificare un percorso alternativo per il file binario openssl da utilizzare per le operazioni di crittografia.
+È possibile aggiungere questa voce per specificare un percorso alternativo per il file binario openssl da usare per le operazioni di crittografia.
 
 ## Appendice
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/it-it/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Attach a disk" pageTitle="Collegare un disco a una macchina virtuale che esegue Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso." metaCanonical="http://www.windowsazure.com/it-it/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
@@ -17,7 +17,7 @@
 
 ## <span id="initializeinlinux"></span></a>Procedura: Inizializzare un nuovo disco dati in Linux
 
-1.  Connettersi alla macchina virtuale utilizzando i passaggi descritti in precedenza in [Come accedere a una macchina virtuale che esegue Linux][Come accedere a una macchina virtuale che esegue Linux].
+1.  Connettersi alla macchina virtuale usando i passaggi descritti in precedenza in [Come accedere a una macchina virtuale che esegue Linux][Come accedere a una macchina virtuale che esegue Linux].
 
 2.  Nella finestra di SSH digitare il comando seguente, quindi immettere la password per l'account creato per la gestione della macchina virtuale:
 
@@ -31,7 +31,7 @@
 
         # sudo fdisk /dev/sdc
 
-    > [WACOM.NOTE] In questo esempio potrebbe essere necessario utilizzare `sudo -i` in alcune distribuzioni se /sbin o /usr/sbin non sono disponibili in `$PATH`.
+    > [WACOM.NOTE] In questo esempio potrebbe essere necessario usare `sudo -i` in alcune distribuzioni se /sbin o /usr/sbin non sono disponibili in `$PATH`.
 
 4.  Digitare **n** per creare una nuova partizione.
 
@@ -69,7 +69,7 @@
 
 11. Aggiungere la nuova unità a /etc/fstab:
 
-    Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) utilizzato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile utilizzare l'utilità **blkid**:
+    Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
 
         # sudo -i blkid
 
@@ -89,7 +89,7 @@
 
         UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
-    Oppure, su sistemi basati su SUSE Linux potrebbe essere necessario utilizzare un formato leggermente diverso:
+    Oppure, su sistemi basati su SUSE Linux potrebbe essere necessario usare un formato leggermente diverso:
 
         /dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
 
@@ -106,7 +106,6 @@
   [Procedura: Collegare un disco vuoto]: #attachempty
   [Procedura: Collegare un disco esistente]: #attachexisting
   [Procedura: Inizializzare un nuovo disco dati in Linux]: #initializeinlinux
-  [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Come accedere a una macchina virtuale che esegue Linux]: ../virtual-machines-linux-how-to-log-on/
   [Visualizzare i messaggi relativi al disco]: ./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png
   [Creare un nuovo dispositivo]: ./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png

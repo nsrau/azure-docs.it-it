@@ -14,7 +14,7 @@
 
         # insserv mysql
 
-4.  Ora è possibile avviare manualmente il daemon MySQL (mysqld) utilizzando il comando seguente:
+4.  Ora è possibile avviare manualmente il daemon MySQL (mysqld) usando il comando seguente:
 
         # rcmysql start
 
@@ -47,7 +47,7 @@
         mysql> CREATE DATABASE testdatabase;
         mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-    Si noti che i nomi utente e le password per il database sono utilizzati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
+    Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
 
 9.  Per eseguire l'accesso da un altro computer, eseguire il comando seguente:
 
@@ -59,12 +59,12 @@
 
         quit
 
-11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][]. Nel portale di Azure fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
+11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][portale di gestione di Azure]. Nel portale di Azure fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
 
-    ![Endpoint][]
+    ![Endpoint][Endpoint]
 
 12. Fare clic su **Aggiungi endpoint** nella parte inferiore della pagina.
-    ![Endpoints][]
+    ![Endpoints][Endpoints]
 
 13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **Public** e **Private** impostate su "3306". Questo consentirà di accedere a MySQL in modalità remota.
     ![Endpoints][1]
@@ -73,11 +73,11 @@
 
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-    Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario utilizzare il comando seguente:
+    Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario usare il comando seguente:
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. In questa esercitazione è stato illustrato come configurare MySQL, creare un database e un nuovo utente. Per ulteriori informazioni su MySQL, vedere la [Documentazione di MySQL][].
+15. In questa esercitazione è stato illustrato come configurare MySQL, creare un database e un nuovo utente. Per altre informazioni su MySQL, vedere la [Documentazione di MySQL][Documentazione di MySQL].
 
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Endpoint]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

@@ -1,8 +1,8 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Come usare il servizio di accodamento (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda. Gli esempi sono scritti in Java." metaCanonical="" services="storage" documentationCenter="Java" title="Come usare il servizio di archiviazione di accodamento di Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
-# Come utilizzare l'archiviazione di accodamento da Java
+# Come usare l'archiviazione di accodamento da Java
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK per Java]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
@@ -12,10 +12,10 @@ Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 
 -   [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
 -   [Concetti][Concetti]
--   [Creazione di un account di Archiviazione di Azure][Creazione di un account di Archiviazione di Azure]
--   [Creazione di un'applicazione Java][Creazione di un'applicazione Java]
--   [Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento][Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Creare un'applicazione Java][Creare un'applicazione Java]
+-   [Configurare l'applicazione per l'accesso all'archiviazione di accodamento][Configurare l'applicazione per l'accesso all'archiviazione di accodamento]
+-   [Configurare una stringa di connessione di archiviazione di Azure][Configurare una stringa di connessione di archiviazione di Azure]
 -   [Procedura: Creare una coda][Procedura: Creare una coda]
 -   [Procedura: Aggiungere un messaggio a una coda][Procedura: Aggiungere un messaggio a una coda]
 -   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
@@ -29,27 +29,27 @@ Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
+## <span id="CreateAccount"></span></a>Creare un account di archiviazione di Azure
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="CreateApplication"> </a>Creazione di un'applicazione Java
+## <a name="CreateApplication"> </a>Creare un'applicazione Java
 
-In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
+In questa guida si useranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
 A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][Azure Storage SDK per Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
-## <a name="ConfigureStorage"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento
+## <a name="ConfigureStorage"> </a>Configurare l'applicazione per l'accesso all'archiviazione di accodamento
 
-Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:
+Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere alle code:
 
     // Include the following imports to use queue APIs.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.queue.*;
 
-## <a name="ConnectionString"> </a>Configurazione di una stringa di connessione di archiviazione di Azure
+## <a name="ConnectionString"> </a>Configurare una stringa di connessione di archiviazione di Azure
 
-I client di archiviazione di Azure utilizzano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, utilizzando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel portale di gestione per i valori di *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel portale di gestione per i valori di *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -381,7 +381,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   [Windows Azure SDK for Java][Azure Storage SDK per Java]
+-   [Azure Storage SDK per Java][Azure Storage SDK per Java]
 -   [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
 -   [API REST di Archiviazione di Azure][API REST di Archiviazione di Azure]
 -   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
@@ -391,10 +391,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Azure Storage SDK per Android]: https://github.com/azure/azure-storage-android
   [Informazioni sull'archiviazione di accodamento]: #what-is
   [Concetti]: #Concepts
-  [Creazione di un account di Archiviazione di Azure]: #CreateAccount
-  [Creazione di un'applicazione Java]: #CreateApplication
-  [Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento]: #ConfigureStorage
-  [Configurazione di una stringa di connessione di archiviazione di Azure]: #ConnectionString
+  [Creare un account di archiviazione di Azure]: #CreateAccount
+  [Creare un'applicazione Java]: #CreateApplication
+  [Configurare l'applicazione per l'accesso all'archiviazione di accodamento]: #ConfigureStorage
+  [Configurare una stringa di connessione di archiviazione di Azure]: #ConnectionString
   [Procedura: Creare una coda]: #create-queue
   [Procedura: Aggiungere un messaggio a una coda]: #add-message
   [Procedura: Visualizzare il messaggio successivo]: #peek-message
@@ -404,8 +404,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Opzioni aggiuntive per rimuovere i messaggi dalla coda]: #additional-options
   [Procedura: Elencare le code]: #list-queues
   [Procedura: Eliminare una coda]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
   [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

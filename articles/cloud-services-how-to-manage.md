@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to manage" pageTitle="Come gestire un servizio cloud - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Informazioni su come gestire i servizi cloud nel portale di gestione di Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Come gestire i servizi cloud" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Come gestire i servizi cloud
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Nell'area **Cloud Services** del portale di gestione di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
@@ -17,35 +15,33 @@ Nell'area **Cloud Services** del portale di gestione di Azure è possibile aggio
 
 ## <span id="updaterole"></span></a>Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud
 
-Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, utilizzare **Update** nel dashboard, la pagina **Cloud services** o la pagina **Instances**. È possibile aggiornare un singolo ruolo o tutti i ruoli. Sarà necessario caricare un nuovo pacchetto del servizio e un nuovo file di configurazione del servizio.
+Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, usare **Update** nel dashboard, la pagina **Cloud services** o la pagina **Instances**. È possibile aggiornare un singolo ruolo o tutti i ruoli. Sarà necessario caricare un nuovo pacchetto del servizio e un nuovo file di configurazione del servizio.
 
 1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Update** nel dashboard, nella pagina **Cloud Services** o nella pagina **Instances**.
 
-    Verrà visualizzata la pagina **Update Deployment**.
-
     ![UpdateDeployment][UpdateDeployment]
 
-2.  In **Deployment label** immettere un nome per identificare la distribuzione, ad esempio mycloudservicev2. Il nome della distribuzione sarà presente in **quick start** nel dashboard.
+2.  In **Etichetta distribuzione**, immettere un nome per identificare la distribuzione (ad esempio, mycloudservice4). L'etichetta di distribuzione è disponibile nella **Guida introduttiva** nel dashboard.
 
-3.  In **Package file** utilizzare **Browse** per caricare il file del pacchetto del servizio (con estensione cspkg).
+3.  In **Pacchetto**, usare **Sfoglia** per caricare il file del pacchetto di servizio (.cspkg).
 
-4.  In **Configuration file** utilizzare **Browse** per caricare il file di configurazione del servizio (con estensione cscfg).
+4.  In **Configurazione**, usare **Sfoglia** per caricare il file di configurazione del servizio (.cscfg).
 
-5.  In **Role** selezionare **All** se si desidera aggiornare tutti i ruoli nel servizio cloud. Per eseguire un aggiornamento di ruolo, selezionare il ruolo da aggiornare. Anche se si seleziona un ruolo specifico per l'aggiornamento, gli aggiornamenti nel file di configurazione del servizio vengono applicati a tutti i ruoli.
+5.  In **Role** selezionare **All** se si desidera aggiornare tutti i ruoli nel servizio cloud. Per eseguire l'aggiornamento di un singolo ruolo, selezionare il ruolo da aggiornare. Anche se si seleziona un ruolo specifico per l'aggiornamento, gli aggiornamenti nel file di configurazione del servizio vengono applicati a tutti i ruoli.
 
-6.  Se l'aggiornamento comporta la modifica del numero o delle dimensioni dei ruoli, selezionare la casella di controllo **Allow update if role sizes or number of roles changes** per consentire l'esecuzione dell'aggiornamento.
+6.  Se l'aggiornamento cambia il numero o le dimensioni dei ruoli, selezionare la casella di controllo **Consenti aggiornamento se cambiano le dimensioni o il numero dei ruoli** per consentire all'aggiornamento di proseguire.
 
     Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
 
 7.  Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Update even if one or more role contain a single instance** per consentire l'esecuzione dell'aggiornamento.
 
-    Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
+    Azure può garantire una disponibilità del servizio solo del 99,95% durante l'aggiornamento del servizio cloud se ogni ruolo ha almeno due istanze (macchine virtu\*\*ali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
 
-8.  Fare clic su OK (segno di spunta) per avviare l'aggiornamento del servizio.
+8.  Fare clic su **OK** (segno di spunta) per avviare l'aggiornamento del servizio.
 
 ## <span id="swap"></span></a>Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione
 
-Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di un servizio cloud in una distribuzione di produzione. Quando si decide di distribuire una nuova versione di un servizio cloud, è possibile inserirla e testarla nell'ambiente di gestione temporanea del servizio cloud mentre i clienti utilizzano la versione corrente in produzione. Quando la nuova versione è pronta per il passaggio in produzione, è possibile utilizzare **Swap** per invertire gli URL di indirizzamento delle due distribuzioni.
+Usare **Swap** per convertire una distribuzione di gestione temporanea di un servizio cloud in una distribuzione di produzione. Quando si decide di distribuire una nuova versione di un servizio cloud, è possibile inserirla e testarla nell'ambiente di gestione temporanea del servizio cloud mentre i clienti usano la versione corrente in produzione. Quando la nuova versione è pronta per il passaggio in produzione, è possibile usare **Swap** per invertire gli URL di indirizzamento delle due distribuzioni.
 
 È possibile scambiare le distribuzioni dalla pagina **Cloud Services** o dal dashboard.
 
@@ -69,11 +65,11 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 Per visualizzare le dipendenze del servizio cloud da altre risorse, è possibile collegare un'istanza di database SQL di Azure o un account di archiviazione al servizio cloud. È possibile collegare o scollegare le risorse nella pagina **Linked Resources**. Monitorare quindi il relativo utilizzo nel dashboard del servizio cloud. Se in un account di archiviazione collegato è attivato il monitoraggio, è possibile monitorare il totale delle richieste nel dashboard del servizio cloud.
 
-Utilizzare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo utilizza nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'utilizzo). Per ulteriori informazioni, vedere [Come scalare un servizio cloud e le risorse collegate][Come scalare un servizio cloud e le risorse collegate].
+Usare **Link** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile scalare il database insieme al ruolo del servizio cloud che lo usa nella pagina **Scale** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'utilizzo). Per altre informazioni, vedere [Come scalare un servizio cloud e le risorse collegate][Come scalare un servizio cloud e le risorse collegate].
 
 È inoltre possibile monitorare, gestire e scalare il database nel nodo **Databases** del portale di gestione.
 
-In questo senso, il "collegamento" di una risorsa non comporta la connessione dell'app alla risorsa. Se si crea un nuovo database mediante **Link**, sarà necessario aggiungere le stringhe di connessione al codice dell'applicazione, quindi aggiornare il servizio cloud. Sarà anche necessario aggiungere le stringhe di connessione se l'app utilizza risorse in un account di archiviazione collegato.
+In questo senso, il "collegamento" di una risorsa non comporta la connessione dell'app alla risorsa. Se si crea un nuovo database mediante **Link**, sarà necessario aggiungere le stringhe di connessione al codice dell'applicazione, quindi aggiornare il servizio cloud. Sarà anche necessario aggiungere le stringhe di connessione se l'app usa risorse in un account di archiviazione collegato.
 
 Nella procedura seguente viene descritto come collegare una nuova istanza di database SQL, distribuita su un nuovo server di database SQL, a un servizio cloud.
 
@@ -138,9 +134,8 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 5.  Per eliminare il servizio cloud fare clic su **Delete cloud service**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
 > [WACOM.NOTE]
-> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in [Come monitorare i servizi cloud][Come monitorare i servizi cloud].
+> Se per il servizio cloud è configurato il monitoraggio dettagliato, Azure non elimina i dati di monitoraggio dall'account di archiviazione quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in [Come monitorare i servizi cloud][Come monitorare i servizi cloud].
 
-  [disclaimer]: ../includes/disclaimer.md
   [Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud]: #updaterole
   [Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione]: #swap
   [Procedura: Collegare una risorsa a un servizio cloud]: #linkresources

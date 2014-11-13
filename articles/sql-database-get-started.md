@@ -1,57 +1,57 @@
-<properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties urlDisplayName="How to create and provision" pageTitle="Introduzione al database SQL - Azure" metaKeywords="" description="Informazioni sulla creazione e la gestione dei database SQL in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Introduzione al database SQL di Azure" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
 
 # Introduzione al database SQL di Microsoft Azure
 
-Questa esercitazione illustra le nozioni fondamentali relative all'amministrazione del database SQL di Microsoft Azure tramite il portale di gestione di Azure. Se non si è esperti di amministrazione di database, seguendo queste lezioni si potranno apprendere le competenze essenziali in circa 30 minuti.
+In questa esercitazione vengono spiegate le nozioni fondamentali dell'amministrazione dei database SQL di Microsoft Azure mediante il portale di gestione di Azure. Se non si è esperti di amministrazione di database, seguendo queste lezioni si potranno apprendere le competenze essenziali in circa 30 minuti.
 
-Per questa esercitazione non è infatti necessario conoscere già SQL Server o il database SQL di Azure. Al termine dell'esercitazione si disporrà di un database di esempio su Azure e si avranno le informazioni necessarie per eseguire attività di amministrazione di base tramite il portale di gestione.
+Per questa esercitazione non è infatti necessario conoscere già SQL Server o il database SQL di Azure. Al termine dell'esercitazione l'utente avrà creato un database di esempio in Azure e avrà acquisito le informazioni necessarie a eseguire le attività di amministrazione di base con il portale di gestione.
 
-L'esercitazione prevede la creazione e il provisioning di un database di esempio sulla piattaforma di Azure e l'esecuzione di query su dati utente e di sistema mediante Excel.
+Verrà creato ed eseguito il provisioning di un database di esempio in Azure e verranno eseguite query su dati utente e di sistema con Excel.
 
 ## Sommario
 
--   [Passaggio 1: Creare un account Microsoft Azure](#Subscribe)
--   [Passaggio 2: Connettersi ad Azure e creare un database](#Subscribe)
--   [Passaggio 3: Configurare il firewall](#ConfigFirewall)
--   [Passaggio 4: Aggiungere dati e uno schema tramite lo script Transact-SQL](#AddData)
--   [Passaggio 5: Creare lo schema](#createschema)
--   [Passaggio 6: Inserire dati](#insertData)
--   [Passaggio 7: Eseguire query su dati di esempio e di sistema nel portale di gestione per il database SQL](#QueryDBSysData)
--   [Passaggio 8: Creare un account di accesso al database e assegnare le autorizzazioni](#DBLogin)
--   [Passaggio 9: Connettersi da altre applicazioni](#ClientConnection)
+-   [Passaggio 1: Creare un account Microsoft Azure][Passaggio 1: Creare un account Microsoft Azure]
+-   [Passaggio 2: Connettersi ad Azure e creare un database][Passaggio 1: Creare un account Microsoft Azure]
+-   [Passaggio 3: Configurare il firewall][Passaggio 3: Configurare il firewall]
+-   [Passaggio 4: Aggiungere dati e uno schema tramite lo script Transact-SQL][Passaggio 4: Aggiungere dati e uno schema tramite lo script Transact-SQL]
+-   [Passaggio 5: Creare lo schema][Passaggio 5: Creare lo schema]
+-   [Passaggio 6: Inserire dati][Passaggio 6: Inserire dati]
+-   [Passaggio 7: Eseguire query su dati di esempio e di sistema nel portale di gestione per il database SQL][Passaggio 7: Eseguire query su dati di esempio e di sistema nel portale di gestione per il database SQL]
+-   [Passaggio 8: Creare un account di accesso al database e assegnare le autorizzazioni][Passaggio 8: Creare un account di accesso al database e assegnare le autorizzazioni]
+-   [Passaggio 9: Connettersi da altre applicazioni][Passaggio 9: Connettersi da altre applicazioni]
 
 ## Passaggio 1: Creare un account Microsoft Azure
 
-1.  Aprire un Web browser e passare al sito [http://azure.microsoft.com](http://azure.microsoft.com)
-    Per iniziare usando un account gratuito, fare clic su Versione di valutazione gratuita nell'angolo in alto a destra e seguire le istruzioni visualizzate.
+1.  Aprire un Web browser e andare in <http://azure.microsoft.com>.
+    Per iniziare con un account gratuito, fare clic sulla versione di valutazione gratuita nell'angolo in alto a destra e seguire i passaggi visualizzati.
 
 2.  Verrà creato l'account e sarà possibile iniziare.
 
 ## Passaggio 2: Connettersi ad Azure e creare un database
 
-1.  Accedere al [portale di gestione](http://manage.windowsazure.com). Verrà visualizzato un pannello di navigazione simile al seguente.
+1.  Accedere al [portale di gestione][portale di gestione]. Verrà visualizzato un pannello di navigazione simile al seguente.
 
-    ![Pannello di navigazione][Image1]
+    ![Pannello di navigazione][Pannello di navigazione]
 
 2.  Fare clic su **New** nella parte inferiore della pagina. Quando si fa clic su **New**, viene visualizzato un elenco degli elementi che è possibile creare.
 
 3.  Fare clic su **SQL Database** e quindi su **Custom Create**.
 
-    ![Pannello di navigazione][Image2]
+    ![Pannello di navigazione][1]
 
-Questa opzione consente di creare contemporaneamente un nuovo server e un database SQL di cui si è amministratore. In qualità di amministratore di sistema, è possibile eseguire altre attività, tra cui la connessione al portale di gestione per il database SQL, che verranno eseguite più avanti nel corso di questa esercitazione.
+Se si sceglie questa opzione, vengono creati simultaneamente un nuovo server e un database SQL di cui l'utente è amministratore. In qualità di amministratore di sistema, è possibile eseguire altre attività, tra cui la connessione al portale di gestione per il database SQL, che verranno eseguite più avanti nel corso di questa esercitazione.
 
-1.  Quando si fa clic su **Custom Create**, viene visualizzata la pagina Database Settings, in cui specificare informazioni di base per la creazione di un database SQL vuoto nel server. L'aggiunta di tabelle e dati verrà effettuata più avanti.
+1.  Quando si fa clic su **Custom Create**, viene visualizzata la pagina Database Settings, In questa pagina specificare le informazioni di base per creare un database SQL vuoto nel server. L'aggiunta di tabelle e dati verrà effettuata più avanti.
 
     Completare la pagina Database Settings come illustrato nella figura seguente:
 
-    ![Pannello di navigazione][Image3]
+    ![Pannello di navigazione][2]
 
 -   Immettere **School** come nome del database.
 
--   Utilizzare le impostazioni predefinite per edizione, dimensione massima e regole di confronto.
+-   Usare le impostazioni predefinite per edizione, dimensione massima e regole di confronto.
 
 -   Scegliere **New SQL Database Server**. Selezionando un nuovo server, verrà aggiunta una nuova pagina in cui impostare l'account e l'area dell'amministratore.
 
@@ -59,11 +59,11 @@ Questa opzione consente di creare contemporaneamente un nuovo server e un databa
 
 1.  Completare la pagina Server Settings come illustrato nella figura seguente:
 
-    ![Pannello di navigazione][Image4]
+    ![Pannello di navigazione][3]
 
--   Immettere un nome di amministratore composto da una sola parola senza spazi. Per convalidare l'identità degli utenti nel database SQL viene utilizzata l'autenticazione SQL tramite una connessione crittografata. Con il nome specificato verrà creato un nuovo account di accesso con autenticazione di SQL Server che dispone di autorizzazioni di amministratore. Il nome dell'amministratore non può essere né un utente Windows né un Windows Live ID. L'autenticazione di Windows non è infatti supportata nel database SQL.
+-   Immettere un nome di amministratore composto da una sola parola senza spazi. Per convalidare l'identità degli utenti nel database SQL viene usata l'autenticazione SQL tramite una connessione crittografata. Con il nome specificato verrà creato un nuovo account di accesso con autenticazione di SQL Server che dispone di autorizzazioni di amministratore. Il nome dell'amministratore non può essere quello di un utente Windows né un nome utente Live ID. L'autenticazione Windows non è supportata nel database SQL.
 
--   Impostare una password complessa composta da più di otto caratteri, utilizzando una combinazione di caratteri in minuscolo e maiuscolo e da un numero o un simbolo. Per informazioni sulla complessità della password usare la finestra della Guida.
+-   Impostare una password complessa composta da più di otto caratteri, usando una combinazione di caratteri in minuscolo e maiuscolo e da un numero o un simbolo. Usare la finestra della Guida per dettagli sulla complessità della password.
 
 -   Scegliere un'area, che determina la posizione geografica del server. Poiché le aree non possono essere cambiate facilmente, sceglierne una significativa per questo server. Selezionare la posizione più vicina. Per ridurre i costi relativi alla larghezza di banda in uscita e la latenza dei dati, è consigliabile mantenere il database e l'applicazione Azure nella stessa area.
 
@@ -73,7 +73,7 @@ Questa opzione consente di creare contemporaneamente un nuovo server e un databa
 
 Si noti che non è stato specificato un nome di server. Poiché il server di database SQL deve essere accessibile in tutto il mondo, le voci DNS appropriate vengono configurate durante la creazione del server. Il nome generato garantisce l'assenza di conflitti tra nomi con altre voci DNS. Il nome del server di database SQL non è modificabile.
 
-Per visualizzare il nome del server che ospita il database **School** appena creato, fare clic su **Database SQL** nel pannello di navigazione sinistro, quindi fare clic sul database **School** nella visualizzazione elenco **Database SQL**. Nella pagina **Avvio rapido** scorrere verso il basso per visualizzare il nome del server.
+Per visualizzare il nome del server che ospita il database **Scuola** appena creato, fare clic su **Database SQL** nel pannello di navigazione di sinistra, quindi scegliere il database **Scuola** nella visualizzazione elenco **Database SQL**. Nella pagina **Guida introduttiva**, scorrere per visualizzare il nome del server.
 
 Nel passaggio successivo si configurerà il firewall in modo da consentire alle connessioni da applicazioni in esecuzione nel computer di accedere ai database sul server di database SQL.
 
@@ -81,49 +81,49 @@ Nel passaggio successivo si configurerà il firewall in modo da consentire alle 
 
 Per configurare il firewall in modo da consentire l'accesso alle connessioni, sarà necessario immettere informazioni nella pagina del server.
 
-**Nota:** il servizio del database SQL è disponibile solo con la porta TCP 1433 utilizzata dal protocollo TDS, pertanto assicurarsi che il firewall nella rete e nel computer locale consenta le comunicazioni TCP in uscita sulla porta 1433. Per ulteriori informazioni, vedere la pagina relativa al [firewall del database SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-it-it.aspx).
+**Nota:** il servizio del database SQL è disponibile solo con la porta TCP 1433 usata dal protocollo TDS, pertanto assicurarsi che il firewall nella rete e nel computer locale consenta le comunicazioni TCP in uscita sulla porta 1433. Per altre informazioni, vedere la pagina relativa al [firewall del database SQL][firewall del database SQL].
 
 1.  Nel pannello di navigazione a sinistra fare clic su **SQL Databases**.
 
-2.  Fare clic su **Servers** nella parte superiore della pagina. Fare quindi clic sul server appena creato per aprire la pagina del server.
+2.  Fare clic su **Servers** nella parte superiore della pagina. Quindi, fare clic sul server appena creato per aprire la pagina del server.
 
-3.  Nella pagina del server fare clic su **Configura** per aprire le impostazioni di **Indirizzi IP consentiti**, quindi fare clic sul collegamento **Aggiungere agli indirizzi IP consentiti**. Verrà così creata una nuova regola del firewall per consentire le richieste di connessione inviate dal router o dal server proxy sul quale è in ascolto il dispositivo.
+3.  Nella pagina del server fare clic su **Configura** per aprire le impostazioni **Indirizzi IP consentiti** e selezionare il collegamento **Aggiungere agli indirizzi IP consentiti**. In questo modo viene creata una nuova regola del firewall che consente le richieste di connessione dal router o dal server proxy su cui il dispositivo è in ascolto.
 
-4.  È possibile creare altre regole del firewall specificando un nome di regola e i valori iniziale e finale dell'intervallo di indirizzi IP.
+4.  È possibile creare altre regole del firewall specificando un nome della regola e i valori iniziale e finale dell'intervallo IP.
 
-5.  Per consentire le interazioni tra questo server e altri servizi di Azure, fare clic su **Sì** per l'opzione **Microsoft Azure Services**.
+5.  Per abilitare le interazioni tra il server e altri servizi Azure, fare clic su **Sì** nell'opzione **Servizi di Microsoft Azure**.
 
-6.  Per salvare le modifiche, fare clic su **SALVA** nella parte inferiore della pagina.
+6.  Per salvare le modifiche fare clic su **SALVA** nella parte inferiore della pagina.
 
 7.  Dopo aver salvato la regola, verrà visualizzata una pagina simile a quella della figura seguente.
 
-    ![Pannello di navigazione][Image7]
+    ![Pannello di navigazione][4]
 
-A questo punto si dispone di un server di database SQL in Azure, di una regola firewall che abilita l'accesso al server, di un oggetto di database e di un account di accesso amministratore, ma non è disponibile un database di lavoro sul quale eseguire query. A tale fine, il database deve avere uno schema e i dati effettivi.
+A questo punto si dispone di un server di database SQL in Azure, di una regola firewall che abilita l'accesso al server, di un oggetto di database e di un account di accesso amministratore. Tuttavia, non si ha ancora un database di lavoro su cui eseguire query. A questo scopo, il database deve avere uno schema e dati effettivi.
 
-Poiché questa esercitazione prevede l'uso degli strumenti più comuni, si userà la finestra Query nel portale di gestione per consentire al database SQL di eseguire lo script Transact-SQL per la creazione di un database predefinito.
+Poiché l'esercitazione usa solo gli strumenti disponibili, viene usata la finestra Query nel portale di gestione per il database SQL per eseguire lo script Transact-SQL che compila un database predefinito.
 
-Andando avanti può essere opportuno valutare modi alternativi per creare un database, tra cui l'approccio a livello di codice o la finestra di progettazione in SQL Server Data Tools. Se si dispone già di un database SQL Server che viene eseguito in un server locale, è possibile eseguirne facilmente la migrazione al server Azure appena configurato. Per informazioni, utilizzare i collegamenti alla fine di questa esercitazione.
+Andando avanti si potrebbero voler valutare altri metodi per la creazione di un database, inclusi gli approcci a livello di codice o l'area di progettazione in SQL Server Data Tools. Se si dispone già di un database SQL Server che viene eseguito in un server locale, è possibile eseguirne facilmente la migrazione al server Azure appena configurato. Per informazioni, usare i collegamenti alla fine di questa esercitazione.
 
 ## Passaggio 4: Aggiungere dati e uno schema tramite lo script Transact-SQL
 
-In questo passaggio vengono eseguiti due script. Il primo consente di creare uno schema per definire tabelle, colonne e relazioni, mentre il secondo consente di aggiungere i dati. Ogni passaggio viene eseguito in modo indipendente utilizzando una diversa connessione. Se si sono già creati database in SQL Server, una delle differenze che si noteranno è che nel database SQL i comandi CREATE e INSERT devono essere eseguiti in batch separati. Questo requisito imposto dal database SQL consente di ridurre al minimo gli attacchi ai dati mentre sono in transito.
+In questo passaggio vengono eseguiti due script. Il primo consente di creare uno schema per definire tabelle, colonne e relazioni, mentre il secondo consente di aggiungere i dati. Ogni passaggio viene eseguito in modo indipendente usando una diversa connessione. Se si sono già creati database in SQL Server, una delle differenze che si noteranno è che nel database SQL i comandi CREATE e INSERT devono essere eseguiti in batch separati. Questo requisito imposto dal database SQL consente di ridurre al minimo gli attacchi ai dati mentre sono in transito.
 
-**Nota:** lo schema e i valori dei dati sono tratti da questo [articolo di MSDN](http://msdn.microsoft.com/it-it/library/windowsazure/ee621790.aspx "articolo di MSDN") e sono stati modificati per l'utilizzo con il database SQL.
+**Nota:** lo schema e i valori dei dati sono tratti da questo [articolo di MSDN][articolo di MSDN] e sono stati modificati per l'utilizzo con il database SQL.
 
-1.  Passare alla home page. Nel [portale di gestione](http://manage.windowsazure.com) il database **School** è incluso nell'elenco degli elementi della home page.
+1.  Passare alla home page. Nel [portale di gestione][portale di gestione] il database **School** è incluso nell'elenco degli elementi della home page.
 
-    ![Pannello di navigazione][Image8]
+    ![Pannello di navigazione][5]
 
-2.  Fare clic su **School** per selezionarlo, quindi fare clic su **Gestisci** nella parte inferiore della pagina. Verrà aperto il portale di gestione per il database SQL. Tale portale è diverso rispetto al portale di gestione di Azure e verrà utilizzato per eseguire comandi e query Transact-SQL.
+2.  Fare clic su **Scuola** per selezionarlo, quindi fare clic su **Gestisci** nella parte inferiore della pagina. Verrà aperto il portale di gestione per il database SQL. Tale portale è diverso rispetto al portale di gestione di Azure e verrà usato per eseguire comandi e query Transact-SQL.
 
-3.  Immettere il nome di accesso e la password dell'amministratore per accedere al database **School**. Si tratta dell'account di accesso dell'amministratore specificato durante la creazione del server.
+3.  Immettere il nome di accesso e la password per accedere al database **Scuola**. Si tratta dell'account di accesso dell'amministratore specificato durante la creazione del server.
 
-4.  Nel portale di gestione per il database SQL fare clic su **Nuova query** sulla barra multifunzione. Nell'area di lavoro verrà aperta una finestra Query vuota. Nel passaggio successivo si utilizzerà questa finestra per copiare una serie di script predefiniti che consentiranno di aggiungere la struttura e i dati al database vuoto.
+4.  Nel portale di gestione per il database SQL, fare clic su **Nuova query** nella barra multifunzione. Si apre una finestra Query vuota nell'area di lavoro. Nel passaggio successivo si utilizzerà questa finestra per copiare una serie di script predefiniti che consentiranno di aggiungere la struttura e i dati al database vuoto.
 
 ## Passaggio 5: Creare lo schema
 
-In questo passaggio si creerà lo schema utilizzando lo script seguente. Lo script verifica innanzitutto l'esistenza di una tabella con lo stesso nome per evitare che non si verifichino conflitti di nomi, quindi crea la tabella utilizzando l'istruzione [CREATE TABLE](http://msdn.microsoft.com/it-it/library/windowsazure/ee336258.aspx). Lo script utilizza più avanti l'istruzione [ALTER TABLE](http://msdn.microsoft.com/it-it/library/windowsazure/ee336286.aspx) per specificare le relazioni tra chiavi primarie e tabelle.
+In questo passaggio si creerà lo schema usando lo script seguente. Lo script verifica innanzitutto l'esistenza di una tabella con lo stesso nome per evitare che non si verifichino conflitti di nomi, quindi crea la tabella usando l'istruzione [CREATE TABLE][CREATE TABLE]. Lo script usa più avanti l'istruzione [ALTER TABLE][ALTER TABLE] per specificare le relazioni tra chiavi primarie e tabelle.
 
 Copiare lo script e incollarlo nella finestra Query. Fare clic su **Run** nella parte superiore della finestra per eseguire lo script.
 
@@ -367,7 +367,7 @@ Copiare lo script e incollarlo nella finestra Query. Fare clic su **Run** nella 
 
 ## Passaggio 6: Inserire dati
 
-Aprire una nuova finestra Query e quindi incollare lo script seguente. Eseguire lo script per inserire dati. Per aggiungere i valori delle singole colonne, in questo script viene utilizzata l'istruzione [INSERT](http://msdn.microsoft.com/it-it/library/windowsazure/ee336284.aspx).
+Aprire una nuova finestra Query e quindi incollare lo script seguente. Eseguire lo script per inserire dati. Per aggiungere i valori delle singole colonne, in questo script viene usata l'istruzione [INSERT][INSERT].
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
     -- Insert data into the Person table.
@@ -459,11 +459,11 @@ In una nuova finestra Query copiare ed eseguire il seguente script Transact-SQL 
     SELECT * From Person
 </pre></div>
 
-Verrà visualizzato un set di risultati con 34 righe provenienti dalla tabella person, inclusi PersonID, LastName, FirstName, HireDate e EnrollmentDate.
+Dovrebbe essere visualizzato un set di risultati con 34 righe dalla tabella Person, che include PersonID, LastName, FirstName, HireDate ed EnrollmentDate.
 
 #### Eseguire query sui dati di sistema
 
-È anche possibile utilizzare viste di sistema e stored procedure incorporate per ottenere informazioni dal server. Ai fini di questa esercitazione, si proverà ad eseguire solo alcuni comandi.
+È anche possibile usare viste di sistema e stored procedure incorporate per ottenere informazioni dal server. Ai fini di questa esercitazione, si proverà ad eseguire solo alcuni comandi.
 
 Eseguire il comando seguente per individuare i database disponibili sul server.
 
@@ -481,30 +481,30 @@ Non chiudere la connessione del portale al database **School** perché sarà nuo
 
 ## Passaggio 8: Creare un account di accesso al database e assegnare le autorizzazioni
 
-Nel database SQL è possibile utilizzare Transact-SQL per creare account di accesso e concedere autorizzazioni. In questa lezione si utilizzerà Transact-SQL per eseguire tre operazioni,
+Nel database SQL è possibile usare Transact-SQL per creare account di accesso e concedere autorizzazioni. In questa lezione si utilizzerà Transact-SQL per eseguire tre operazioni,
 
 1.  Creare un account di accesso con autenticazione di SQL Server
-2.  Creare un utente del database e
-3.  Concedere autorizzazioni tramite l'appartenenza al ruolo.
+2.  Creare un utente database e
+3.  Concedere le autorizzazioni tramite l'appartenenza al ruolo.
 
-Per le connessioni server viene utilizzato un account di accesso con autenticazione di SQL Server. Per accedere a un database su un server di database SQL, tutti gli utenti devono fornire nome e password di un account di accesso con autenticazione di SQL Server.
+Per le connessioni server viene usato un account di accesso con autenticazione di SQL Server. Per accedere a un database su un server di database SQL, tutti gli utenti devono fornire nome e password di un account di accesso con autenticazione di SQL Server.
 
 Per creare un account di accesso, è prima necessario connettersi al database **master**.
 
 #### Creare un account di accesso con autenticazione di SQL Server
 
-1.  Nel [portale di gestione](http://manage.windowsazure.com) selezionare **Database SQL**, fare clic su **Server**, scegliere il server e quindi fare clic sulla freccia bianca per aprire
-    la pagina del server.
+1.  Nel [portale di gestione][portale di gestione] selezionare **Database SQL**, fare clic su **Server**, scegliere il server e fare clic sulla freccia bianca per aprire la
+    pagina del server.
 
-2.  Nella pagina Avvio rapido fare clic su **Gestisci server** per aprire una nuova connessione al portale di gestione per il database SQL.
+2.  Nella pagina Quick Start fare clic su **Manage Server** per aprire una nuova connessione al portale di gestione per il database SQL.
 
-3.  Specificare **master** per il database con il quale stabilire la connessione, quindi accedere con nome utente e password. Si tratta dell'account di accesso dell'amministratore specificato durante la creazione del server.
+3.  Specificare **master** per il database a cui connettersi e accedere con il nome utente e la password. Si tratta dell'account di accesso dell'amministratore specificato durante la creazione del server.
 
-4.  Il portale di gestione del database SQL verrà aperto in una nuova finestra del browser e verrà stabilita la connessione a **master**.
+4.  Il portale di gestione del database SQL si apre in una nuova finestra del browser e viene eseguita la connessione a **master**.
 
 5.  Ignorare un eventuale errore nella pagina simile a quello della figura seguente. Fare clic su **New Query** per aprire una finestra Query che consente di eseguire comandi Transact-SQL sul database **master**.
 
-    ![Pannello di navigazione][Image15]
+    ![Pannello di navigazione][6]
 
 6.  Copiare e incollare il seguente comando nella finestra Query.
 
@@ -512,7 +512,7 @@ Per creare un account di accesso, è prima necessario connettersi al database **
 
 7.  Eseguire il comando per creare un nuovo account di accesso di SQL Server denominato 'SQLDBLogin'.
 
-#### Creare un utente del database e assegnare le autorizzazioni
+#### Creare un utente database e assegnare le autorizzazioni
 
 Dopo aver creato un account di accesso con autenticazione di SQL Server, il passaggio successivo consiste nell'assegnare il database e i livelli di autorizzazione associati all'account. A tale scopo, è necessario creare un **utente database** per ogni database.
 
@@ -520,7 +520,7 @@ Dopo aver creato un account di accesso con autenticazione di SQL Server, il pass
 
     Nella pagina del portale di gestione database SQL il nome del database **School** è visibile nell'angolo in alto a sinistra.
 
-    ![Pannello di navigazione][Image12]
+    ![Pannello di navigazione][7]
 
 2.  Fare clic su **New Query** per aprire una nuova finestra Query e copiarvi l'istruzione seguente.
 
@@ -528,13 +528,13 @@ Dopo aver creato un account di accesso con autenticazione di SQL Server, il pass
 
 3.  Eseguire lo script. Questo script consente di creare un utente database in base all'account di accesso.
 
-   In seguito si assegneranno le autorizzazioni utilizzando il ruolo db\_datareader. Gli utenti database assegnati a questo ruolo possono leggere tutti i dati da tutte le tabelle utente del database.
+In seguito si assegneranno le autorizzazioni usando il ruolo db\_datareader. Gli utenti database assegnati a questo ruolo possono leggere tutti i dati da tutte le tabelle utente del database.
 
 1.  Aprire una nuova finestra Query e quindi eseguire l'istruzione successiva. Tale istruzione consente di eseguire una stored procedure incorporata che assegna il ruolo db\_datareader al nuovo utente appena creato.
 
         EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
-Si dispone ora di un nuovo account di accesso con autenticazione di SQL Server che dispone di autorizzazione di sola lettura per il database **School**. Utilizzare questa procedura per creare altri account di accesso con autenticazione di SQL Server e consentire livelli di accesso diversi ai dati.
+Si dispone ora di un nuovo account di accesso con autenticazione di SQL Server che dispone di autorizzazione di sola lettura per il database **School**. Usare questa procedura per creare altri account di accesso con autenticazione di SQL Server e consentire livelli di accesso diversi ai dati.
 
 ## Passaggio 9: Connettersi da altre applicazioni
 
@@ -542,60 +542,69 @@ Una volta creato un database operativo, è possibile connettersi ad esso da una 
 
 #### Connettersi da Excel
 
-Se nel computer è installato Microsoft Excel, è possibile usare la procedura seguente per connettersi al database di esempio.
+Se Microsoft Excel è installato nel computer, è possibile usare i seguenti passaggi per connettersi al database di esempio.
 
 1.  In Excel fare clic su **Da altre origini** nella scheda Dati e quindi scegliere **Da SQL Server**.
 
 2.  Nella Connessione guidata dati immettere il nome di dominio completo del server di database SQL, seguito da un account di accesso con autenticazione di SQL Server che dispone dell'autorizzazione per accedere al database.
 
-   È possibile trovare il nome del server nel portale di gestione di Azure, nel database SQL, nella pagina Server, nel dashboard, in **Gestisci URL**. Il nome del server è costituito da una serie di lettere e numeri, seguiti da '.database.windows.net'. Specificare tale nome nella Connessione guidata dati senza includere http:// o https://.
+Il nome del server è disponibile nel portale di gestione di Azure, nel database SQL, nella pagina del server, nel dashboard e in **Gestisci URL**. Il nome del server è costituito da una serie di lettere e numeri, seguiti da '.database.windows.net'. Specificare tale nome nella Connessione guidata dati senza includere il prefisso http:// o https://.
 
-   Immettere un account di accesso con autenticazione di SQL Server. A scopo di test, è possibile utilizzare l'account di accesso dell'amministratore creato durante la configurazione del server. Per il normale accesso ai dati utilizzare un account di accesso utente database simile a quello appena creato.
+Immettere un account di accesso con autenticazione di SQL Server. A scopo di test, è possibile usare l'account di accesso dell'amministratore creato durante la configurazione del server. Per il normale accesso ai dati usare un account di accesso utente database simile a quello appena creato.
 
-![Pannello di navigazione][Image16]
+![Pannello di navigazione][8]
 
-1.  Nella pagina successiva selezionare il database **School**, quindi scegliere **Person**. Fare clic su **Fine**. Se vengono richiesti i dati di accesso, digitarli e quindi fare clic su **OK**.
+1.  Nella pagina successiva scegliere il database **Scuola**, quindi selezionare **Person**. Fare clic su **Finish**. Se vengono richiesti i dettagli di accesso, digitarli e fare clic su **OK**.
 
 2.  Verrà visualizzata la finestra di dialogo Importa dati in cui si chiede di selezionare la modalità e la destinazione di importazione dei dati. Non modificare le opzioni predefinite selezionate e fare clic su **OK**.
 
-    ![Pannello di navigazione][Image19]
+    ![Pannello di navigazione][9]
 
-3.  Nel foglio di lavoro verrà visualizzata una tabella con un set di risultati 34 righe provenienti dalla tabella person, inclusi PersonID, LastName, FirstName, HireDate e EnrollmentDate, proprio come i risultati della query indicati nel passaggio 7.
+3.  Nel foglio di lavoro dovrebbe essere visualizzata una tabella con un set di risultati con 34 righe proveniente dalla tabella Person, che include PersonID, LastName, FirstName, HireDate ed EnrollmentDate, analoga ai risultati della query del passaggio 7.
 
-Se si utilizza solo Excel, è possibile importare una sola tabella alla volta. È quindi preferibile utilizzare il componente aggiuntivo PowerPivot per Excel, che consente di importare e lavorare con più tabelle come se fossero un singolo set di dati. In questa esercitazione non è previsto l'uso di PowerPivot, ma è possibile ottenere altre informazioni al riguardo in questo argomento relativo a [PowerPivot per Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
+Se si usa solo Excel, è possibile importare una sola tabella alla volta. È quindi preferibile usare il componente aggiuntivo PowerPivot per Excel, che consente di importare e lavorare con più tabelle come se fossero un singolo set di dati. L'uso di PowerPivot non è compreso nell'ambito di questa esercitazione, ma è possibile ottenere altre informazioni in questo argomento su [PowerPivot per Excel][PowerPivot per Excel].
 
 ## Passaggi successivi
 
-A questo punto, dopo aver acquisito familiarità con il database SQL e i portali di gestione, è possibile sperimentare altri strumenti e tecniche utilizzati dagli amministratori di database di SQL Server.
+A questo punto, dopo aver acquisito familiarità con il database SQL e i portali di gestione, è possibile sperimentare altri strumenti e tecniche usati dagli amministratori di database di SQL Server.
 
-Per gestire attivamente il nuovo database, provare a installare e utilizzare SQL Server Management Studio, il principale strumento di amministrazione dei database per gestire database SQL Server, inclusi quelli in esecuzione in Azure. Management Studio consente di salvare le query per poterle riutilizzare in futuro, aggiungere nuove tabelle e stored procedure, nonché affinare le competenze relative a Transact-SQL in un ambiente di scripting complesso che include correttore sintattico, IntelliSense e modelli. Per iniziare, attenersi alle istruzioni nella pagina relativa alla [gestione di database SQL con SQL Server Management Studio](http://www.azure.microsoft.com/it-it/documentation/articles/sql-database-manage-azure-ssms/).
+Per gestire attivamente il nuovo database, provare a installare e usare SQL Server Management Studio, il principale strumento di amministrazione dei database per gestire database SQL Server, inclusi quelli in esecuzione in Azure. Management Studio consente di salvare le query per poterle riusare in futuro, aggiungere nuove tabelle e stored procedure, nonché affinare le competenze relative a Transact-SQL in un ambiente di scripting complesso che include correttore sintattico, IntelliSense e modelli. Per iniziare, attenersi alle istruzioni nella pagina relativa alla [gestione di database SQL con SQL Server Management Studio][gestione di database SQL con SQL Server Management Studio].
 
-La padronanza del linguaggio di definizione dati e di query Transact-SQL è fondamentale per gli amministratori di database. Se non si conosce Transact-SQL, è possibile iniziare con [Esercitazione: Scrittura di istruzioni Transact-SQL](http://msdn.microsoft.com/it-it/library/ms365303.aspx) per ulteriori informazioni su alcune competenze di base.
+La padronanza del linguaggio di definizione dati e di query Transact-SQL è fondamentale per gli amministratori di database. Se non si conosce Transact-SQL, è possibile iniziare con [Esercitazione: Scrittura di istruzioni Transact-SQL][Esercitazione: Scrittura di istruzioni Transact-SQL] per ulteriori informazioni su alcune competenze di base.
 
-Sono disponibili altri metodi per spostare un database locale nel database SQL. Se si dispone di database esistenti o sono stati scaricati database di esempio per fare pratica, provare con gli approcci alternativi seguenti:
+Esistono altri metodi per spostare un database locale in un database SQL. Se si dispone di database esistenti o sono stati scaricati database di esempio per fare pratica, provare con gli approcci alternativi seguenti:
 
--   [Migrazione di database nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee730904.aspx)
--   [Copia di database nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ff951624.aspx)
--   [Distribuire un database di SQL Server a una macchina virtuale di Azure](http://msdn.microsoft.com/it-it/library/dn195938(v=sql.120).aspx)
+-   [Migrazione di database nel database SQL][Migrazione di database nel database SQL]
+-   [Copia di database nel database SQL][Copia di database nel database SQL]
+-   [Distribuire un database di SQL Server in una macchina virtuale di Azure][Distribuire un database di SQL Server in una macchina virtuale di Azure]
 
-
-[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
-[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
-[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
-[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
-[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
-[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
-[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
-[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
-[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
-[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
-[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
-[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
-[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
+  [Passaggio 1: Creare un account Microsoft Azure]: #Subscribe
+  [Passaggio 3: Configurare il firewall]: #ConfigFirewall
+  [Passaggio 4: Aggiungere dati e uno schema tramite lo script Transact-SQL]: #AddData
+  [Passaggio 5: Creare lo schema]: #createschema
+  [Passaggio 6: Inserire dati]: #insertData
+  [Passaggio 7: Eseguire query su dati di esempio e di sistema nel portale di gestione per il database SQL]: #QueryDBSysData
+  [Passaggio 8: Creare un account di accesso al database e assegnare le autorizzazioni]: #DBLogin
+  [Passaggio 9: Connettersi da altre applicazioni]: #ClientConnection
+  [portale di gestione]: http://manage.windowsazure.com
+  [Pannello di navigazione]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+  [1]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
+  [2]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
+  [3]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
+  [firewall del database SQL]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-it-it.aspx
+  [4]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
+  [articolo di MSDN]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621790.aspx "MSDN article"
+  [5]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
+  [CREATE TABLE]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336258.aspx
+  [ALTER TABLE]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336286.aspx
+  [INSERT]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336284.aspx
+  [6]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
+  [7]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
+  [8]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
+  [9]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
+  [PowerPivot per Excel]: http://go.microsoft.com/fwlink/?LinkId=396969
+  [gestione di database SQL con SQL Server Management Studio]: http://www.azure.microsoft.com/it-it/documentation/articles/sql-database-manage-azure-ssms/
+  [Esercitazione: Scrittura di istruzioni Transact-SQL]: http://msdn.microsoft.com/it-it/library/ms365303.aspx
+  [Migrazione di database nel database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/ee730904.aspx
+  [Copia di database nel database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/ff951624.aspx
+  [Distribuire un database di SQL Server in una macchina virtuale di Azure]: http://msdn.microsoft.com/it-it/library/dn195938(v=sql.120).aspx

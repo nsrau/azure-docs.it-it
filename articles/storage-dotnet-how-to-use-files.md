@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Come usare l'archiviazione file di Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Informazioni su come usare l'archiviazione file di Microsoft Azure per creare condivisioni file e gestire il contenuto di file. Gli esempi sono scritti in PowerShell e C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Come usare il servizio di archiviazione file di Microsoft Azure in .NET" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Come usare l'archiviazione file di Azure
 
@@ -26,7 +26,7 @@ L'archiviazione file offre un'archiviazione condivisa per le applicazioni che us
 
 Le applicazioni in esecuzione nelle macchine virtuali o nei servizi cloud di Azure possono montare una condivisione di archiviazione file per accedere a dati file, come se si montasse una condivisione SMB tipica per un'applicazione desktop. Non ci sono limiti per le macchine virtuali o i servizi cloud di Azure che possono montare e accedere contemporaneamente alla condivisione di archiviazione file.
 
-Poiché una condivisione di archiviazione file è una condivisione file SMB 2.1 standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file. Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure. In questa guida vengono illustrati esempi per entrambi i casi.
+Poiché una condivisione di archiviazione file è una condivisione file SMB 2.1 standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file. Gli sviluppatori possono quindi riusare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure. In questa guida vengono illustrati esempi per entrambi i casi.
 
 Di seguito sono riportati gli usi più comuni per il servizio di archiviazione file:
 
@@ -55,13 +55,10 @@ L'archiviazione file contiene i seguenti componenti:
 
 -   **Formato dell'URL:** i file sono indirizzabili con il seguente formato
     di URL:
-
-    https://`<storage
-    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
+    https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     L'URL di esempio seguente può essere usato per indirizzare uno dei file nel
     diagramma precedente:
-
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 Per dettagli su come denominare condivisioni, directory e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati][Denominazione e riferimento a condivisioni, directory, file e metadati].
@@ -72,7 +69,7 @@ L'archiviazione file di Azure è attualmente in anteprima. Per richiedere l'acce
 
 > [WACOM.NOTE] L'archiviazione file è attualmente disponibile solo per i nuovi account di archiviazione. Dopo aver ottenuto l'accesso all'archiviazione file per la sottoscrizione, creare un nuovo account di archiviazione da usare con questa guida.
 
-[WACOM.INCLUDE [create-storage-account][create-storage-account]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">Usare PowerShell per creare una condivisione file</span>Usare PowerShell per creare una condivisione file
 
@@ -245,7 +242,7 @@ per informazioni più dettagliate.
     -   [Introduzione al servizio file di Microsoft Azure][Introduzione al servizio file di Microsoft Azure]
     -   [Mantenimento delle connessioni ai file di Microsoft Azure][Mantenimento delle connessioni ai file di Microsoft Azure]
 
--   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
+-   Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
     -   Per archiviare dati non strutturati, usare [Archiviazione BLOB][Archiviazione BLOB].
     -   Per archiviare dati strutturati, usare [Archiviazione tabelle][Archiviazione tabelle].
     -   Usare [Archiviazione di accodamento][Archiviazione di accodamento] per archiviare i messaggi in modo affidabile.
@@ -265,7 +262,6 @@ per informazioni più dettagliate.
   [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/dn249410.aspx
   [Denominazione e riferimento a condivisioni, directory, file e metadati]: http://msdn.microsoft.com/it-it/library/azure/dn167011.aspx
   [pagina di anteprima di Microsoft Azure]: /it-it/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
   [Come installare e configurare Azure PowerShell]: /it-it/documentation/articles/install-configure-powershell/
   [Creare una macchina virtuale che esegue Windows Server]: /it-it/documentation/articles/virtual-machines-windows-tutorial/
   [Come accedere a una macchina virtuale che esegue Windows Server]: /it-it/documentation/articles/virtual-machines-log-on-windows-server/

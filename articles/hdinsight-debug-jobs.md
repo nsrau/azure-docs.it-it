@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Eseguire il debug di Hadoop in HDInsight: Messaggi di errore | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi." services="hdinsight" title="Eseguire il debug di Hadoop in HDInsight: messaggi di errore" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -19,51 +19,51 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 
 ### Errori di HDInsight
 
-[AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]  
-[AzureRegionNotSupported][AzureRegionNotSupported]  
-[ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]  
-[ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]  
-[ClusterNameUnavailable][ClusterNameUnavailable]  
-[ClusterUserNameInvalid][ClusterUserNameInvalid]  
-[ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]  
-[ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]  
-[DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]  
-[DeploymentDeletionFailure][DeploymentDeletionFailure]  
-[DnsMappingNotFound][DnsMappingNotFound]  
-[DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]  
-[DuplicateClusterInHostedService][DuplicateClusterInHostedService]  
-[FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]  
-[HdiRestoreClusterAltered][HdiRestoreClusterAltered]  
-[HeadNodeConfigNotFound][HeadNodeConfigNotFound]  
-[HeadNodeConfigNotFound][HeadNodeConfigNotFound]  
-[HostedServiceCreationFailure][HostedServiceCreationFailure]  
-[HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]  
-[HostedServiceNotFound][HostedServiceNotFound]  
-[HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]  
-[InsufficientResourcesCores][InsufficientResourcesCores]  
-[InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]  
-[InternalErrorRetryRequest][InternalErrorRetryRequest]  
-[InvalidAzureStorageLocation][InvalidAzureStorageLocation]  
-[InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]  
-[InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]  
-[InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]  
-[InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]  
-[InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]  
-[InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]  
-[MoreThanOneHeadNode][MoreThanOneHeadNode]  
-[OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]  
-[ParameterNullOrEmpty][ParameterNullOrEmpty]  
-[PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]  
-[RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]  
-[StorageAccountNotColocated][StorageAccountNotColocated]  
-[SubscriptionIdNotActive][SubscriptionIdNotActive]  
-[SubscriptionIdNotFound][SubscriptionIdNotFound]  
-[UnableToResolveDNS][UnableToResolveDNS]  
-[UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]  
-[VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]  
-[VersionNotSupported][VersionNotSupported]  
-[VersionNotSupportedInRegion][VersionNotSupportedInRegion]  
-[WasbAccountConfigNotFound][WasbAccountConfigNotFound]  
+[AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]
+[AzureRegionNotSupported][AzureRegionNotSupported]
+[ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]
+[ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]
+[ClusterNameUnavailable][ClusterNameUnavailable]
+[ClusterUserNameInvalid][ClusterUserNameInvalid]
+[ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]
+[ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]
+[DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]
+[DeploymentDeletionFailure][DeploymentDeletionFailure]
+[DnsMappingNotFound][DnsMappingNotFound]
+[DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]
+[DuplicateClusterInHostedService][DuplicateClusterInHostedService]
+[FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]
+[HdiRestoreClusterAltered][HdiRestoreClusterAltered]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HostedServiceCreationFailure][HostedServiceCreationFailure]
+[HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]
+[HostedServiceNotFound][HostedServiceNotFound]
+[HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]
+[InsufficientResourcesCores][InsufficientResourcesCores]
+[InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]
+[InternalErrorRetryRequest][InternalErrorRetryRequest]
+[InvalidAzureStorageLocation][InvalidAzureStorageLocation]
+[InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]
+[InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]
+[InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]
+[InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]
+[InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]
+[InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]
+[MoreThanOneHeadNode][MoreThanOneHeadNode]
+[OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]
+[ParameterNullOrEmpty][ParameterNullOrEmpty]
+[PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]
+[RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]
+[StorageAccountNotColocated][StorageAccountNotColocated]
+[SubscriptionIdNotActive][SubscriptionIdNotActive]
+[SubscriptionIdNotFound][SubscriptionIdNotFound]
+[UnableToResolveDNS][UnableToResolveDNS]
+[UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]
+[VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]
+[VersionNotSupported][VersionNotSupported]
+[VersionNotSupportedInRegion][VersionNotSupportedInRegion]
+[WasbAccountConfigNotFound][WasbAccountConfigNotFound]
 
 ## <span id="discription-mitigation-errors"></span></a>Diagnostica e risoluzione degli errori
 
@@ -85,12 +85,12 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 ### <span id="ClusterDnsNameInvalidReservedWord"></span></a>ClusterDnsNameInvalidReservedWord
 
 -   **Descrizione**: il nome DNS del cluster *NomeDNS* non è valido. Il nome deve iniziare e finire con un carattere alfanumerico e può contenere solo il carattere speciale '-'.
--   **Soluzione**: assicurarsi che il nome utilizzato sia un nome DNS valido per il cluster, che inizi e finisca con un carattere alfanumerico e che non contenga caratteri speciali diversi dal trattino '-', quindi riprovare.
+-   **Soluzione**: assicurarsi che il nome usato sia un nome DNS valido per il cluster, che inizi e finisca con un carattere alfanumerico e che non contenga caratteri speciali diversi dal trattino '-', quindi riprovare.
 
 ### <span id="ClusterNameUnavailable"></span></a>ClusterNameUnavailable
 
 -   **Descrizione**: il nome del cluster *NomeCluster* non è disponibile. Scegliere un altro nome.
--   **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se utilizza il portale, durante la procedura di creazione viene indicato se un nome di cluster è già in uso.
+-   **Soluzione**: l'utente deve specificare un nome di cluster che sia univoco e insistente, quindi riprovare. Se usa il portale, durante la procedura di creazione viene indicato se un nome di cluster è già in uso.
 
 ### <span id="ClusterPasswordInvalid"></span></a>ClusterPasswordInvalid
 
@@ -110,7 +110,7 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 ### <span id="ContainerNameMisMatchWithDnsName"></span></a>ContainerNameMisMatchWithDnsName
 
 -   **Descrizione**: il nome del contenitore nell'URI *URIContenitore* e il nome DNS *NomeDns* nel corpo della richiesta devono corrispondere.
--   **Soluzione**: verificare che il nome del contenitore e il nome DNS utilizzati siano uguali, quindi riprovare.
+-   **Soluzione**: verificare che il nome del contenitore e il nome DNS usati siano uguali, quindi riprovare.
 
 ### <span id="DataNodeDefinitionNotFound"></span></a>DataNodeDefinitionNotFound
 
@@ -160,7 +160,7 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 ### <span id="HostedServiceHasProductionDeployment"></span></a>HostedServiceHasProductionDeployment
 
 -   **Descrizione**: il servizio ospitato *NomeServizioOspitato* include già una distribuzione di produzione. Un servizio ospitato non può contenere più distribuzioni di produzione. Ripetere la richiesta con un nome di cluster diverso.
--   **Soluzione**: utilizzare un nome di cluster diverso e ripetere la richiesta.
+-   **Soluzione**: usare un nome di cluster diverso e ripetere la richiesta.
 
 ### <span id="HostedServiceNotFound"></span></a>HostedServiceNotFound
 
@@ -250,7 +250,7 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 ### <span id="StorageAccountNotColocated"></span></a>StorageAccountNotColocated
 
 -   **Descrizione**: l'account di archiviazione *NomeAccountArchiviazione* si trova nell'area *NomeAreaGeograficaCorrente*. Dovrebbe corrispondere all'area del cluster *NomeAreaGeograficaCluster*.
--   **Soluzione**: specificare un account di archiviazione nella stessa area del cluster oppure, se i dati si trovano già nell'account di archiviazione, creare un nuovo cluster nella stessa area dell'account di archiviazione esistente. Se si utilizza il portale, questo problema verrà segnalato in anticipo.
+-   **Soluzione**: specificare un account di archiviazione nella stessa area del cluster oppure, se i dati si trovano già nell'account di archiviazione, creare un nuovo cluster nella stessa area dell'account di archiviazione esistente. Se si usa il portale, questo problema verrà segnalato in anticipo.
 
 ### <span id="SubscriptionIdNotActive"></span></a>SubscriptionIdNotActive
 
@@ -265,12 +265,12 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 ### <span id="UnableToResolveDNS"></span></a>UnableToResolveDNS
 
 -   **Descrizione**: impossibile risolvere il DNS *URLDNS*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.
--   **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con .com. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
+-   **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
 
 ### <span id="UnableToVerifyLocationOfResource"></span></a>UnableToVerifyLocationOfResource
 
 -   **Descrizione**: impossibile verificare il percorso della risorsa *URLDNS*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.
--   **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con .com. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
+-   **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
 
 ### <span id="VersionCapabilityNotAvailable"></span></a>VersionCapabilityNotAvailable
 

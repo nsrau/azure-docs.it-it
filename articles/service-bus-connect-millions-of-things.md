@@ -1,6 +1,6 @@
-<properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties pageTitle="Connettere milioni di &quot;cose&quot; al cloud" metaKeywords="Service Bus, internet of things" description="Informazioni su come connettere milioni di &quot;cose&quot; al cloud con Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connettere milioni di &quot;cose&quot; al cloud" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Connettere milioni di "cose" al cloud
 
@@ -17,7 +17,7 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
 
 -   [Partizionamento delle entità di messaggistica][Partizionamento delle entità di messaggistica]
 -   [Argomenti del bus di servizio][Argomenti del bus di servizio]
--   [Utilizzo di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows][Utilizzo di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]
+-   [Uso di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows][Uso di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]
 
 ## Argomenti generali
 
@@ -34,7 +34,7 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
   [Introduzione al bus di servizio]: http://azure.microsoft.com/it-it/documentation/services/service-bus/
   [Partizionamento delle entità di messaggistica]: http://msdn.microsoft.com/it-it/library/azure/dn520246.aspx
   [Argomenti del bus di servizio]: http://azure.microsoft.com/it-it/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Utilizzo di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]: http://msdn.microsoft.com/it-it/library/azure/dn235560.aspx
+  [Uso di Apache Qpid Proton C con il bus di servizio di Azure in Linux e Windows]: http://msdn.microsoft.com/it-it/library/azure/dn235560.aspx
   [Comunicazione assistita con i servizi (SAC, Service Assisted Communication) per i dispositivi connessi]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
   [Azure Active Directory]: http://azure.microsoft.com/it-it/documentation/services/active-directory/
   [Servizi cloud]: http://azure.microsoft.com/it-it/documentation/services/cloud-services/

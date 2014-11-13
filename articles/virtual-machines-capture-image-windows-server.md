@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="Acquisire un'immagine di una macchina virtuale che esegue Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure che esegue Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="Come acquisire un'immagine di una macchina virtuale che esegue Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Come acquisire una macchina virtuale Windows da usare come modello
 
@@ -25,7 +25,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 4.  Verrà visualizzata la finestra di dialogo **Utilità preparazione sistema**. Eseguire le operazioni seguenti:
 
-    -   In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che l'opzione **Generalizza** sia selezionata. Per ulteriori informazioni sull'utilizzo di Sysprep, vedere [Introduzione all'utilizzo di SysPrep][Introduzione all'utilizzo di SysPrep].
+    -   In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che l'opzione **Generalizza** sia selezionata. Per altre informazioni sull'utilizzo di Sysprep, vedere [Introduzione all'utilizzo di SysPrep][Introduzione all'utilizzo di SysPrep].
 
     -   In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
 

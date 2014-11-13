@@ -1,8 +1,8 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Come usare il servizio tabelle da Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
-# Come utilizzare il servizio tabelle da Node.js
+# Come usare il servizio tabelle da Node.js
 
 In questa guida viene spiegato come eseguire diversi scenari comuni con il servizio tabelle di Windows
 Azure. Gli esempi sono scritti con l'API
@@ -14,14 +14,14 @@ informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi suc
 
 -   [Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
 -   [Concetti][Concetti]
--   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
 -   [Creazione di un'applicazione Node.js][Creazione di un'applicazione Node.js]
 -   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
 -   [Configurazione di una connessione di archiviazione di Azure][Configurazione di una connessione di archiviazione di Azure]
 -   [Procedura: Creare una tabella][Procedura: Creare una tabella]
 -   [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
 -   [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità]
--   [Procedura: Utilizzare i gruppi di entità][Procedura: Utilizzare i gruppi di entità]
+-   [Procedura: Usare i gruppi di entità][Procedura: Usare i gruppi di entità]
 -   [Procedura: Recuperare un'entità][Procedura: Recuperare un'entità]
 -   [Procedura: Eseguire query su un set di entità][Procedura: Eseguire query su un set di entità]
 -   [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
@@ -37,16 +37,16 @@ informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi suc
 
 ## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
 Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK per Node.js, che comprende un set di librerie che
 comunicano con i servizi di archiviazione REST.
 
-### Utilizzare Node Package Manager (NPM) per ottenere il pacchetto
+### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Utilizzare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
+1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 
 2.  Digitare **npm install azure-storage** nella finestra di comando, che dovrebbe restituire il seguente output:
 
@@ -67,8 +67,8 @@ comunicano con i servizi di archiviazione REST.
 
 ### Importare il pacchetto
 
-Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file
-**server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
+Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file
+**server.js** dell'applicazione dove si intende usare l'archiviazione:
 
     var azure = require('azure-storage');
 
@@ -98,7 +98,7 @@ esiste ancora. Nell'esempio seguente viene creata una nuova tabella denominata "
 
 ### Filtri
 
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **TableService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **TableService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
         function handle (requestOptions, next)
 
@@ -108,7 +108,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 
 In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
-Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **TableService** che utilizza **ExponentialRetryPolicyFilter**:
+Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **TableService** che usa **ExponentialRetryPolicyFilter**:
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
     var tableSvc = azure.createTableService().withFilter(retryOperations);
@@ -189,12 +189,12 @@ Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'
 >     `entity2['.metadata'].etag = currentEtag;`
 >
 > 3.  Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
-
-Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, è necessario utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
+>
+Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, è necessario usare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
 
 In `result` per le operazioni di aggiornamento riuscite correttamente è incluso il valore **Etag** dell'entità aggiornata.
 
-## <a name="change-entities"> </a>Come utilizzare gruppi di entità
+## <a name="change-entities"> </a>Come usare gruppi di entità
 
 È talvolta consigliabile inviare più operazioni in un
 batch per garantire l'elaborazione atomica da parte del server. A questo scopo,
@@ -228,7 +228,7 @@ Nell'esempio seguente viene dimostrato l'invio di due entità in un batch:
 
 Per le operazioni batch riuscite correttamente, `result` conterrà le informazioni su ciascuna operazione nel batch.
 
-### Utilizzo delle operazioni in batch
+### Uso delle operazioni in batch
 
 Le operazioni aggiunte a un batch possono essere esaminate visualizzando la proprietà `operations`. Per usare le operazioni sono disponibili anche i seguenti metodi.
 
@@ -297,7 +297,7 @@ Ciò riduce la larghezza di banda e può migliorare le prestazioni della query, 
 
 ## <a name="delete-entity"> </a>Come eliminare un'entità
 
-È possibile eliminare un'entità utilizzando le relative chiavi di riga e di partizione. In questo
+È possibile eliminare un'entità usando le relative chiavi di riga e di partizione. In questo
 esempio, l'oggetto **task1** contiene i valori **RowKey** e
 **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi
 passato al metodo **deleteEntity**.
@@ -416,27 +416,25 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 -   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
--   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
 -   Archivio [Azure SDK for Node][Azure SDK for Node] su GitHub.
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio tabelle]: #what-is
   [Concetti]: #concepts
-  [Creazione di un account di archiviazione di Azure]: #create-account
+  [Creare un account di archiviazione di Azure]: #create-account
   [Creazione di un'applicazione Node.js]: #create-app
   [Configurazione dell'applicazione per l'accesso all'archiviazione]: #configure-access
   [Configurazione di una connessione di archiviazione di Azure]: #setup-connection-string
   [Procedura: Creare una tabella]: #create-table
   [Procedura: Aggiungere un'entità a una tabella]: #add-entity
   [Procedura: Aggiornare un'entità]: #update-entity
-  [Procedura: Utilizzare i gruppi di entità]: #change-entities
+  [Procedura: Usare i gruppi di entità]: #change-entities
   [Procedura: Recuperare un'entità]: #query-for-entity
   [Procedura: Eseguire query su un set di entità]: #query-set-entities
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
   [Procedura: Usare le firme di accesso condiviso di Azure]: #sas
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/

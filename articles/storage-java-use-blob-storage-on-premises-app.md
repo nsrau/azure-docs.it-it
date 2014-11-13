@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Image Gallery w/ Storage" pageTitle="Applicazione locale con archiviazione BLOB (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Informazioni su come creare un'applicazione console che carica un'immagine in Azure e quindi visualizza l'immagine nel browser. Esempi di codice in Java." metaCanonical="" services="storage" documentationCenter="Java" title="Applicazione locale con archiviazione BLOB" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Applicazione locale con archiviazione BLOB
 
@@ -11,9 +11,9 @@ HTML che visualizza l'immagine nel browser.
 
 ## Sommario
 
--   [Prerequisiti][]
--   [Per utilizzare l'archivio BLOB di Azure per caricare un file][]
--   [Per eliminare un contenitore][]
+-   [Prerequisiti][Prerequisiti]
+-   [Per usare l'archivio BLOB di Azure per caricare un file][Per usare l'archivio BLOB di Azure per caricare un file]
+-   [Per eliminare un contenitore][Per eliminare un contenitore]
 
 ## <a name="bkmk_prerequisites"> </a>Prerequisiti
 
@@ -22,20 +22,21 @@ HTML che visualizza l'immagine nel browser.
 3.  JAR per le librerie di Azure per Java e qualsiasi JAR
     di dipendenza applicabile installati e presenti nel percorso di compilazione usato dal
     compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di
-    Azure SDK per Java][].
+    Azure SDK per Java][Download di
+    Azure SDK per Java].
 4.  Account di Archiviazione di Azure configurato. Il nome
     account e la chiave dell'account per l'account di archiviazione verranno usati dal codice
-    seguente. Vedere [Come creare un account di archiviazione][] per informazioni sulla creazione di un account di archiviazione
-    e [Come gestire gli account di archiviazione][] per informazioni sul recupero della chiave
+    seguente. Vedere [Come creare un account di archiviazione][Come creare un account di archiviazione] per informazioni sulla creazione di un account di archiviazione
+    e [Come gestire gli account di archiviazione][Come gestire gli account di archiviazione] per informazioni sul recupero della chiave
     dell'account.
 5.  Avere creato un file di immagine locale denominato archiviato nel percorso
     c:\\myimages\\image1.jpg. In alternativa, modificare il costruttore
     **FileInputStream** nell'esempio per usare un percorso e un nome
     file di immagine diversi.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## <a name="bkmk_uploadfile"> </a>Per utilizzare l'archivio BLOB di Azure per caricare un file
+## <a name="bkmk_uploadfile"> </a>Per usare l'archivio BLOB di Azure per caricare un file
 
 Di seguito viene presentata una procedura dettagliata. Se si preferisce ignorarla,
 l'intero codice viene presentato più avanti in questo argomento.
@@ -80,7 +81,7 @@ vengono usate in questo esempio):
 -   **CloudStorageAccount**: usata per inizializzare l'oggetto account con
     la chiave e il nome account di archiviazione di Azure e per creare
     l'oggetto client BLOB.
--   **CloudBlobClient**: utilizzata per accedere al servizio BLOB.
+-   **CloudBlobClient**: usata per accedere al servizio BLOB.
 -   **CloudBlobContainer**: usata per creare un contenitore BLOB, elencare i
     BLOB nel contenitore ed eliminare il contenitore.
 -   **CloudBlockBlob**: usata per caricare un file di immagine locale nel
@@ -219,7 +220,7 @@ Scrivere nel file locale, aggiungendo gli elementi **\<html\>**, **\<header\>** 
     stream.println("<body>");
 
 Scorrere l'elenco di BLOB caricati. Per ogni BLOB, nella pagina
-HTML creare un elemento **<img\>** il cui attributo **src** è stato inviato
+HTML creare un elemento **\<img\>** il cui attributo **src** è stato inviato
 all'URI del BLOB poiché esiste nell'account di archiviazione di Azure.
 Sebbene in questo esempio sia stata aggiunta solo un'immagine, se ne fossero state aggiunte altre,
 questo codice le itererebbe tutte.
@@ -234,7 +235,7 @@ in blocchi, modificare il codice, se necessario.
     stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
     }
 
-Chiudere l'elemento **<body\>** e l'elemento **<html\>**.
+Chiudere l'elemento **\<body\>** e l'elemento **\<html\>**.
 
     stream.println("</body>");
     stream.println("</html>");
@@ -364,7 +365,7 @@ il codice sorgente sia sicuro.
 
 Poiché l'archiviazione viene addebitata, potrebbe essere necessario eliminare il contenitore
 **gettingstarted** dopo essersi esercitati con questo
-esempio. Per eliminare un contenitore, utilizzare il metodo **CloudBlobContainer.delete**
+esempio. Per eliminare un contenitore, usare il metodo **CloudBlobContainer.delete**
 :
 
     container = serviceClient.getContainerReference("gettingstarted");
@@ -418,13 +419,12 @@ l'eliminazione del contenitore denominato **gettingstarted**.
         }
     }
 
-Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Procedura Usare il servizio di archiviazione BLOB da Java][].
+Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Procedura
+Usare il servizio di archiviazione BLOB da Java][Procedura
+Usare il servizio di archiviazione BLOB da Java].
 
   [Prerequisiti]: #bkmk_prerequisites
-  [Per utilizzare l'archivio BLOB di Azure per caricare un file]: #bkmk_uploadfile
+  [Per usare l'archivio BLOB di Azure per caricare un file]: #bkmk_uploadfile
   [Per eliminare un contenitore]: #bkmk_deletecontainer
-  [Download di Azure SDK per Java]: http://www.windowsazure.com/en-us/develop/java/
-  [Come creare un account di archiviazione]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [Come gestire gli account di archiviazione]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [create-account-note]: ../includes/create-account-note.md
-  [Procedura Usare il servizio di archiviazione BLOB da Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
+  [Come creare un account di archiviazione]: http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/
+  [Come gestire gli account di archiviazione]: http://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/

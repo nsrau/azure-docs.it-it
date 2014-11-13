@@ -1,4 +1,6 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Introduzione a Gestione API di Azure" metaKeywords="" description="Informazioni su come creare API e operazioni e su come iniziare a usare Gestione API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Introduzione a Gestione API di Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introduzione a Gestione API di Azure
 
@@ -46,17 +48,15 @@ Per creare l'**API My Echo**, fare clic su **API** nel menu **Gestione API** sul
 
 Per configurare la nuova API, vengono usati i tre campi seguenti.
 
--	Digitare **My Echo API** nella casella di testo **Titolo API Web**. La casella **Titolo API Web** consente di specificare un nome univoco e descrittivo per l'API, che viene visualizzato nel portale di gestione e nel portale per sviluppatori.
--	Digitare **<http://echoapi.cloudapp.net/api>** nella casella di testo **URL del servizio Web**. Il valore specificato nella casella **URL del servizio Web** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.
+-   Digitare **My Echo API** nella casella di testo **Titolo API Web**. La casella **Titolo API Web** consente di specificare un nome univoco e descrittivo per l'API, che viene visualizzato nel portale di gestione e nel portale per sviluppatori.
+-   Digitare **http://echoapi.cloudapp.net/api** nella casella di testo **URL del servizio Web**. Il valore specificato nella casella **URL del servizio Web** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.
 -   Digitare **myecho** nella casella di testo **Suffisso dell'URL dell'API Web**. Il valore della casella **Suffisso dell'URL dell'API Web** viene aggiunto all'URL di base del servizio Gestione API. Le API condividono un URL di base comune al quale viene aggiunto un suffisso univoco che consente di distinguerle.
 
 Fare clic su **Salva** per creare l'API. Una volta creata la nuova API, la pagina di riepilogo dell'API viene visualizzata nel portale di gestione.
 
 ![API summary][API summary]
 
-
 > Nell'API Echo di esempio non viene usata l'autenticazione, ma per altre informazioni sulla configurazione dell'autenticazione, vedere [Configurare le impostazioni dell'API][Configurare le impostazioni dell'API].
-
 
 ## <a name="add-operation"> </a>Aggiungere un'operazione
 
@@ -70,25 +70,24 @@ Fare clic su **aggiungi operazione** per aggiungere una nuova operazione. Verrà
 
 In questo esempio verrà specificata un'operazione GET per il servizio Echo. Immettere i valori seguenti nei campi della scheda **Firma**.
 
--	Digitare **GET** nella casella **Verbo HTTP**. Quando si inizia a digitare, è possibile selezionare **GET** nell'elenco di verbi HTTP visualizzato.
--	Digitare **/resource** nella casella di testo **Modello di URL**.
--	Digitare **GET resource** nella casella di testo **Nome visualizzato**.
--	Digitare **A demonstration of a GET call on a sample resource. It is handled by an "echo" backend which returns a response equal to the request (the supplied headers and body are being returned as received).** nella casella di testo **Descrizione**. Questa descrizione viene usata per generare la documentazione per questa operazione quando gli sviluppatori usano l'API.
+-   Digitare **GET** nella casella **Verbo HTTP**. Quando si inizia a digitare, è possibile selezionare **GET** nell'elenco di verbi HTTP visualizzato.
+-   Digitare **/resource** nella casella di testo **Modello di URL**.
+-   Digitare **GET resource** nella casella di testo **Nome visualizzato**.
+-   Digitare **A demonstration of a GET call on a sample resource. It is handled by an "echo" backend which returns a response equal to the request (the supplied headers and body are being returned as received).** nella casella di testo **Descrizione**. Questa descrizione viene usata per generare la documentazione per questa operazione quando gli sviluppatori usano l'API.
 
 Fare clic su **Parametri** per configurare i parametri di query di tipo stringa per l'operazione. Per aggiungere un parametro di query, fare clic su **Aggiungi parametro di query** e specificare i seguenti valori.
 
--	Digitare **param1** nella casella di testo **Nome**.
--	Digitare **A sample parameter that is required.** nella casella di testo **Descrizione**.
--	Fare clic nel campo **Tipo** e selezionare **string** nell'elenco. I tipi supportati sono **string**, **number**, **boolean** e **dateTime**.
--	Fare clic nel campo **Valori**, digitare **sample** nella casella di testo e fare clic sul segno più per aggiungere il testo del valore predefinito al parametro. Dopo aver aggiunto il testo predefinito, fare clic in un punto qualsiasi all'esterno del campo **Valori** per chiudere la finestra di aggiunta valori.
+-   Digitare **param1** nella casella di testo **Nome**.
+-   Digitare **A sample parameter that is required.** nella casella di testo **Descrizione**.
+-   Fare clic nel campo **Tipo** e selezionare **string** nell'elenco. I tipi supportati sono **string**, **number**, **boolean** e **dateTime**.
+-   Fare clic nel campo **Valori**, digitare **sample** nella casella di testo e fare clic sul segno più per aggiungere il testo del valore predefinito al parametro. Dopo aver aggiunto il testo predefinito, fare clic in un punto qualsiasi all'esterno del campo **Valori** per chiudere la finestra di aggiunta valori.
 -   Selezionare la casella di controllo **Obbligatorio**.
 
 Fare clic su **Salva** per aggiungere la nuova operazione configurata all'API.
 
-
 ## <a name="add-api-to-product"> </a>Aggiungere la nuova API a un prodotto
 
-Prima di effettuare chiamate API gli sviluppatori devono effettuare la sottoscrizione di un prodotto. I prodotti offrono l'accesso a una o più API e possono prevedere restrizioni relative all'accesso, come quote di uso e limiti di velocità. In questo passaggio dell'esercitazione l'API My Echo verrà aggiunta a un prodotto esistente.
+Prima di effettuare chiamate API gli sviluppatori devono effettuare la sottoscrizione di un prodotto. I prodotti offrono l'accesso a una o più API e possono prevedere restrizioni relative all'accesso, come quote di uso e limiti di frequenza. In questo passaggio dell'esercitazione l'API My Echo verrà aggiunta a un prodotto esistente.
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizzare e configurare i prodotti disponibili in questa istanza dell'API.
 
@@ -96,8 +95,8 @@ Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizz
 
 Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio:
 
--	**Starter**
--	**Senza limiti**
+-   **Starter**
+-   **Senza limiti**
 
 In questa esercitazione verrà usato il prodotto **Starter**. Fare clic su **Starter** per visualizzare le impostazioni, incluse le API associate al prodotto.
 
@@ -113,7 +112,7 @@ Selezionare la casella **API My Echo** e fare clic su **Salva**.
 
 A questo punto, l'**API My Echo** è associata a un prodotto e gli sviluppatori possono effettuare la sottoscrizione per iniziare a usare l'API.
 
->In questo passaggio dell'esercitazione viene usato il prodotto **Starter**, che viene fornito preconfigurato e pronto per l'uso. Per una guida dettagliata sulla creazione e la pubblicazione di un nuovo prodotto, vedere [Come creare e pubblicare un prodotto][Come creare e pubblicare un prodotto].
+> In questo passaggio dell'esercitazione viene usato il prodotto **Starter**, che viene fornito preconfigurato e pronto per l'uso. Per una guida dettagliata sulla creazione e la pubblicazione di un nuovo prodotto, vedere [Come creare e pubblicare un prodotto][Come creare e pubblicare un prodotto].
 
 L'utente amministratore è automaticamente sottoscritto a tutti i prodotti e può accedere alle API a cui questi forniscono accesso. Non è quindi necessario sottoscrivere manualmente il prodotto appena creato prima che poter effettuare una chiamata.
 
@@ -135,13 +134,11 @@ Fare clic su **GET su risorsa** e quindi su **Apri console**.
 
 Immettere alcuni valori per i parametri, specificare la chiave sviluppatore e fare clic su **GET HTTP**.
 
-![HTTP Get][HTTP Get]
+![GET HTTP][GET HTTP]
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
 ![Response][Response]
-
-
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -171,5 +168,5 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
   [Portale per sviluppatori]: ./media/api-management-get-started/api-management-developer-portal-menu.png
   [4]: ./media/api-management-get-started/api-management-developer-portal-myecho-api.png
   [Operation console]: ./media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
-  [HTTP Get]: ./media/api-management-get-started/api-management-invoke-get.png
+  [GET HTTP]: ./media/api-management-get-started/api-management-invoke-get.png
   [Response]: ./media/api-management-get-started/api-management-invoke-get-response.png

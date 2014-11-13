@@ -1,14 +1,19 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL worker role" pageTitle="Configurare SSL per un ruolo di lavoro del servizio cloud (Node.js)" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configurazione di SSL per un'applicazione Node.js in un ruolo di lavoro di Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Configurazione di SSL per un'applicazione Node.js in un ruolo di lavoro di Azure
 
-La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. Questa attività comune illustra come specificare un endpoint HTTPS per un'applicazione Node.js ospitata in un ruolo di lavoro in un Servizio cloud di Azure.
+La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per
+proteggere i dati inviati tramite Internet. Questa attività comune illustra
+come specificare un endpoint HTTPS per un'applicazione Node.js ospitata in un ruolo di lavoro in un Servizio cloud di Azure.
 
+<div class="dev-callout">
 
-   <b>Nota</b>
-   <p>I passaggi illustrati in questo articolo riguardano esclusivamente le applicazioni Node ospitate come Servizio cloud di Azure in un ruolo di lavoro.</p>
+**Nota**
+I passaggi illustrati in questo articolo riguardano esclusivamente le applicazioni Node ospitate come Servizio cloud di Azure in un ruolo di lavoro.
+
+</div>
 
 Questa attività include i passaggi seguenti:
 
@@ -20,7 +25,8 @@ Questa attività include i passaggi seguenti:
 
 ## <a name="step1"> </a>Passaggio 1: Creare un servizio Node.js e pubblicarlo sul cloud
 
-È possibile creare un semplice servizio Node.js di tipo "hello world" usando Azure PowerShell e attenendosi alla procedura seguente:
+È possibile creare un semplice servizio Node.js di tipo "hello
+world" usando Azure PowerShell e attenendosi alla procedura seguente:
 
 1.  Dal **menu Start** o dalla **schermata Start** cercare **Azure PowerShell**. Fare infine clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
 
@@ -39,17 +45,24 @@ Questa attività include i passaggi seguenti:
     ![][2]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Se le impostazioni per la sottoscrizione di Azure non sono state importate in precedenza, verr&agrave; visualizzato un errore quando si tenta di eseguire la pubblicazione. Per informazioni sul download e sull'importazione delle impostazioni di pubblicazione per la sottoscrizione, vedere <a href="https://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Come usare Azure PowerShell per Node.js</a></p>
-</div>
+
+    **Nota**
+    Se le impostazioni per la sottoscrizione di Azure non sono state importate in precedenza, verrà visualizzato un errore quando si tenta di eseguire la pubblicazione. Per informazioni sul download e sull'importazione delle impostazioni di pubblicazione per la sottoscrizione, vedere [Come usare Azure PowerShell per Node.js][Come usare Azure PowerShell per Node.js]
+
+    </div>
 
 Il valore **URL sito Web creato** restituito dal cmdlet **Publish-AzureServiceProject** include il nome di dominio completo per l'applicazione ospitata. Sarà necessario ottenere un certificato SSL per tale nome di dominio completo specifico e distribuirlo in Azure.
 
 ## <a name="step2"> </a>Passaggio 2: Ottenere un certificato SSL
 
-Per configurare SSL per un'applicazione, è necessario innanzitutto ottenere un certificato SSL che sia stato firmato da un'Autorità di certificazione (CA), ovvero un ente di terze parti attendibile che rilascia certificati per questo scopo. Se non se ne dispone già, è necessario ottenerne uno da un rivenditore di certificati SSL.
+Per configurare SSL per un'applicazione, è necessario innanzitutto ottenere un certificato
+SSL che sia stato firmato da un'Autorità di certificazione (CA), ovvero un
+ente di terze parti attendibile che rilascia certificati per questo scopo. Se non se
+ne dispone già, è necessario ottenerne uno da un rivenditore
+di certificati SSL.
 
-Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azure:
+Il certificato deve soddisfare i requisiti seguenti per i certificati
+SSL in Azure:
 
 -   Il certificato deve includere una chiave privata.
 -   Il certificato deve essere creato per lo scambio di chiave (file con estensione **pfx**).
@@ -57,7 +70,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
     al servizio cloud. Non è possibile ottenere un certificato SSL per il dominio
     cloudapp.net. Il nome del soggetto del certificato deve pertanto corrispondere
     al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio, **sitoprotetto.cloudapp.net**.
--   Per il certificato deve essere utilizzata una crittografia di almeno 2048 bit.
+-   Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Il file con estensione **pfx** contenente il certificato verrà aggiunto al progetto di servizio e verrà distribuito in Azure nei passaggi seguenti.
 
@@ -65,7 +78,7 @@ Il file con estensione **pfx** contenente il certificato verrà aggiunto al prog
 
 Quando un'applicazione Node.js viene distribuita in un ruolo di lavoro, il certificato del server e la connessione SSL vengono gestiti da Node.exe. Per gestire il traffico SSL, è necessario usare il modulo 'https' invece del modulo 'http'. Eseguire la procedura seguente per aggiungere il certificato SSL al progetto e quindi modificare l'applicazione in modo che utilizzi il certificato.
 
-1.  Salvare il file con estensione **pfx** fornito dall'Autorità di certificazione (CA, Certificate Authority) nella directory contenente l'applicazione. Ad esempio, **c:\\node\\securesite\\workerrole1** è la directory che include l'applicazione utilizzata in questo articolo.
+1.  Salvare il file con estensione **pfx** fornito dall'Autorità di certificazione (CA, Certificate Authority) nella directory contenente l'applicazione. Ad esempio, **c:\\node\\securesite\\workerrole1** è la directory che include l'applicazione usata in questo articolo.
 
 2.  Aprire il file **c:\\node\\securesite\\workerrole1\\server.js** usando Notepad.exe e quindi sostituire i contenuti del file con il codice seguente:
 
@@ -83,9 +96,11 @@ Quando un'applicazione Node.js viene distribuita in un ruolo di lavoro, il certi
         }).listen(port);
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>&Egrave; necessario sostituire 'certificate.pfx' con il nome del file di certificato e &quot;password&quot; con l'eventuale password corrispondente.</p>
-</div>
+
+    **Nota**
+    È necessario sostituire 'certificate.pfx' con il nome del file di certificato e "password" con l'eventuale password corrispondente.
+
+    </div>
 
 3.  Salvare il file **server.js**.
 
@@ -95,7 +110,8 @@ Al termine delle modifiche al file **server.js**, l'applicazione rimarrà in att
 
 Poiché l'applicazione è ora in attesa sulla porta 443, è necessario modificare anche la definizione del servizio, in modo da consentire le comunicazioni su tale porta.
 
-1.  Nella directory del servizio aprire il file di definizione del servizio     (**ServiceDefinition.csdef**) e aggiornare l'elemento http **InputEndpoint** nella sezione **Endpoints** in modo da permettere le comunicazioni sulla porta 443:
+1.  Nella directory del servizio aprire il file di definizione del servizio
+    (**ServiceDefinition.csdef**) e aggiornare l'elemento http **InputEndpoint** nella sezione **Endpoints** in modo da permettere le comunicazioni sulla porta 443:
 
         <WorkerRole name="WorkerRole1" vmsize="Small">
         ...
@@ -108,12 +124,14 @@ Poiché l'applicazione è ora in attesa sulla porta 443, è necessario modificar
 
     Al termine di questa modifica, salvare il file **ServiceDefinition.csdef**.
 
-2.  Aggiornare la configurazione modificata nel cloud, pubblicando    di nuovo il servizio. Al prompt di Azure PowerShell
+2.  Aggiornare la configurazione modificata nel cloud, pubblicando
+    di nuovo il servizio. Al prompt di Azure PowerShell
     digitare **Publish-AzureServiceProject** dalla directory del servizio.
 
 ## <a name="step5"> </a>Passaggio 5: Connettersi all'istanza del ruolo usando HTTPS
 
-Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
+Ora che la distribuzione è in esecuzione in Azure, è possibile
+connettersi a questa usando HTTPS.
 
 1.  Nel portale di gestione selezionare il servizio cloud e quindi fare clic su **Dashboard**.
 
@@ -122,13 +140,17 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
     ![URL sito][URL sito]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>Se nell'URL del sito visualizzato nel portale non &egrave; specificato HTTPS, sar&agrave; necessario immettere manualmente l'URL nel browser usando HTTPS invece di HTTP.</p>
-</div>
+
+    **Nota**
+    Se nell'URL del sito visualizzato nel portale non è specificato HTTPS, sarà necessario immettere manualmente l'URL nel browser usando HTTPS invece di HTTP.
+
+    </div>
 
 3.  Verrà aperta una nuova finestra del browser, in cui sarà visualizzato il sito Web desiderato.
 
-    Nel browser verrà visualizzata un'icona a forma di lucchetto, per indicare che la connessione    in uso è di tipo HTTPS. Ciò indica anche che l'applicazione    è stata configurata correttamente per SSL.
+    Nel browser verrà visualizzata un'icona a forma di lucchetto, per indicare che la connessione
+    in uso è di tipo HTTPS. Ciò indica anche che l'applicazione
+    è stata configurata correttamente per SSL.
 
     ![][3]
 
@@ -149,6 +171,7 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
   [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Come usare Azure PowerShell per Node.js]: https://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [URL sito]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [Come associare un certificato a un servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/gg465718.aspx

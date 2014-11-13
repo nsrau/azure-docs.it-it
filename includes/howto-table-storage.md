@@ -22,17 +22,17 @@ della domanda
 
 Il servizio tabelle contiene i componenti seguenti:
 
-![Table1][]
+![Table1][Table1]
 
 -   **Formato dell'URL:** il codice fa riferimento alle tabelle in un account usando il formato
     di indirizzo seguente:
-    <http://>`<storage account>`.table.core.windows.net/`<table>`
+    http://`<storage account>`.table.core.windows.net/`<table>`
 
     È possibile fare riferimento direttamente alle tabelle di Azure usando questo indirizzo con
-    il protocollo OData. Per altre informazioni, vedere [OData.org][]
+    il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org]
 
 -   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito
-    esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][].
+     esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][Obiettivi di scalabilità e prestazioni per Archiviazione di Azure].
 
 -   **Tabella**: una tabella è una raccolta di entità. Le tabelle non
     impongono uno schema sulle entità, pertanto una singola tabella può contenere
@@ -52,4 +52,4 @@ Il servizio tabelle contiene i componenti seguenti:
 
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-  [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+  [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/dn249410.aspx

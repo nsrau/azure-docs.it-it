@@ -1,10 +1,12 @@
-<properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Learn how to enable and collect data from performance counters in Azure applications. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Using performance counters in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Performance Profiling" pageTitle="Uso dei contatori delle prestazioni in Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Informazioni sull'abilitazione e la raccolta di dati dai contatori delle prestazioni nelle applicazioni Azure. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Uso dei contatori di prestazioni in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
-# Utilizzo dei contatori di prestazioni in Azure
+# Uso dei contatori di prestazioni in Azure
 
-È possibile usare i contatori delle prestazioni in un'applicazione Azure per raccogliere dati che contribuiscono a individuare i colli di bottiglia e a ottimizzare le prestazioni di sistema e dell'applicazione. I contatori delle prestazioni disponibili per Windows Server 2008, Windows Server 2012, IIS e ASP.NET possono essere utilizzati per raccogliere dati e per determinare l'integrità dell'applicazione Azure.
+È possibile usare i contatori delle prestazioni in un'applicazione Azure per
+raccogliere dati che contribuiscono a individuare i colli di bottiglia e a ottimizzare
+le prestazioni di sistema e dell'applicazione. I contatori delle prestazioni disponibili per Windows Server 2008, Windows Server 2012, IIS e ASP.NET possono essere usati per raccogliere dati e per determinare l'integrità dell'applicazione Azure.
 
 È possibile configurare i contatori delle prestazioni prima della distribuzione o in fase di esecuzione in Visual Studio 2012 o Visual Studio 2013 mediante Azure SDK 2.0 o versioni successive. Per altre informazioni, vedere [Configurazione di Diagnostica Azure][Configurazione di Diagnostica Azure]. Per informazioni sulla configurazione manuale dei contatori delle prestazioni nell'applicazione, vedere [Come configurare i contatori delle prestazioni][Come configurare i contatori delle prestazioni].
 

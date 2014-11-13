@@ -1,15 +1,15 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Esercitazione in Azure" metaKeywords="" description="Esercitazione che mostra come distribuire IPython Notebook in Azure usando macchine virtuali (VM, Virtual Machine) Linux o Windows." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook in Azure" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # IPython Notebook in Azure
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Il <a href="http://ipython.org">progetto IPython</a> rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.</p>
+<p>Il <a href="http://ipython.org">progetto IPython</a> rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da usare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.</p>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/python/ipy-youtube2.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">5:22</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/python/ipy-youtube2.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"> </span></a> <span class="time">Riproduci video 5:22</span></div>
 
 </div>
 
@@ -22,15 +22,15 @@ della struttura di una registrazione audio:
 
 ![Schermata][Schermata]
 
-Questo documento illustra come distribuire IPython Notebook in Windows Azure
-usando macchine virtuali Linux o Windows. Con IPython Notebook
+Questo documento mostra come distribuire IPython Notebook in Microsoft
+Azure con macchine virtuali Linux o Windows. Con IPython Notebook
 in Azure, è possibile fornire un'interfaccia accessibile tramite Web a risorse
 di calcolo scalabili, con la potenza di Python e delle numerose librerie
 correlate. Poiché l'installazione viene eseguita interamente nel cloud,
 gli utenti possono accedere a queste risorse senza la necessità di una
 configurazione locale, ma con un semplice Web browser moderno.
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Creazione e configurazione di una macchina virtuale in Azure
 
@@ -41,11 +41,11 @@ macchine virtuali sia Linux che Windows e in questo articolo verrà descritta la
 
 ### Macchina virtuale Linux
 
-Attenersi alle istruzioni riportate [qui][qui] per creare una macchina virtuale della distribuzione *OpenSUSE* o *Ubuntu*. In questa esercitazione si utilizzano OpenSUSE 12.3 e Ubuntu Server 13.04. Si presuppone che il nome utente predefinito sia *azureuser*.
+Attenersi alle istruzioni riportate [qui][qui] per creare una macchina virtuale della distribuzione *OpenSUSE* o *Ubuntu*. In questa esercitazione si usano OpenSUSE 13.1 e Ubuntu Server 14.04 LTS. Si presuppone che il nome utente predefinito sia *azureuser*.
 
 ### Macchina virtuale Windows
 
-Attenersi alle istruzioni riportate [qui][1] per creare una macchina virtuale della distribuzione *Windows Server 2012 Datacenter*. In questa esercitazione si presuppone che il nome utente predefinito sia *azureuser*.
+Attenersi alle istruzioni riportate [qui][1] per creare una macchina virtuale della distribuzione *Windows Server 2012 R2 Datacenter*. In questa esercitazione si presuppone che il nome utente predefinito sia *azureuser*.
 
 ## Creazione di un endpoint per IPython Notebook
 
@@ -79,6 +79,7 @@ Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre 
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
+    sudo zypper install python-jinja2
     sudo zypper install ipython
 
 ### Linux (Ubuntu)
@@ -95,41 +96,45 @@ Installare [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e altre 
 
 ### Windows
 
-Per installare IPython e le relative dipendenze nella macchina virtuale Windows, utilizzare Desktop remoto per connettersi alla macchina virtuale. Quindi completare la procedura seguente,
+Per installare IPython e le relative dipendenze nella macchina virtuale Windows, usare Desktop remoto per connettersi alla macchina virtuale. Quindi completare la procedura seguente,
 usando Windows PowerShell per eseguire tutte le azioni dalla riga di comando.
 
 **Nota**: per scaricare contenuti tramite Internet Explorer, è necessario modificare alcune impostazioni di sicurezza. In **Gestione server** fare clic su **Server locale**, quindi su **Configurazione sicurezza avanzata IE** e disattivare questa opzione per gli amministratori. È possibile abilitarla di nuovo dopo aver installato IPython.
 
-1.  Installare Python 2.7.5 (32 bit) da [python.org][python.org].
-    È inoltre necessario aggiungere `C:\Python27` e `C:\Python27\Scripts` alla variabile
-    di ambiente `PATH`.
+1.  Installare Python 2.7.8 (32 bit) da [python.org][python.org].
+    È inoltre necessario aggiungere `C:\Python27` e `C:\Python27\Scripts` alla variabile di ambiente`PATH`
+    .
 
-2.  Installare distribute scaricando il file **distribute\_setup.py**
-    da [python-distribute.org][python-distribute.org] e quindi eseguendo il
+2.  Installare pip e setuptools scaricando il file **get-pip.py**
+    da <https://pip.pypa.io/en/latest/installing.html> e quindi eseguendo il
     comando:
 
-        python distribute_setup.py
+        python get-pip.py
 
-3.  Installare [Tornado][Tornado] e [PyZMQ][PyZMQ] eseguendo i comandi seguenti:
+3.  Installare [Tornado][Tornado] e [PyZMQ][PyZMQ] e altre dipendenze di IPython eseguendo i comandi seguenti:
 
         easy_install tornado
         easy_install pyzmq
+        easy_install jinja2
+        easy_install six
+        easy_install python-dateutil
+        easy_install pyparsing
 
 4.  Scaricare e installare [NumPy][NumPy] usando il
-    file di installazione binario con estensione `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è **numpy-1.7.1-win32-superpack-python2.7.exe**.
+    file di installazione binario con estensione `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è **numpy-1.9.0-win32-superpack-python2.7.exe**.
 
 5.  Scaricare e installare [Matplotlib][Matplotlib] usando il
-    file di installazione binario con estensione `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è **matplotlib-1.2.1.win32-py2.7.exe**.
+    file di installazione binario con estensione `.exe` disponibile sul sito Web. Al momento della stesura di questo articolo, la versione più recente è **matplotlib-1.4.0.win32-py2.7.exe**.
 
-6.  Scaricare e installare OpenSSL. Le versioni di OpenSSL per Windows sono disponibili all'indirizzo [][]<http://slproweb.com/products/Win32OpenSSL.html></a>.
+6.  Scaricare e installare OpenSSL. Le versioni di OpenSSL per Windows sono disponibili all'indirizzo <http://slproweb.com/products/Win32OpenSSL.html>.
 
     -   Se si installa una versione **Light**, è necessario installare anche **Visual C++ 2008 Redistributable**, disponibile nella stessa pagina.
 
     -   È necessario aggiungere `C:\OpenSSL-Win32\bin` alla variabile di ambiente `PATH`.
 
-    > [WACOM.NOTE] Quando si installa OpenSSL, utilizzare la versione 1.0.1g o successiva, in quanto include una correzione per la vulnerabilità di sicurezza Heartbleed.
+    > [WACOM.NOTE] Quando si installa OpenSSL, usare la versione 1.0.1g o successiva, in quanto include una correzione per la vulnerabilità di sicurezza Heartbleed.
 
-7.  Installare IPython utilizzando il comando:
+7.  Installare IPython usando il comando:
 
         easy_install ipython
 
@@ -194,8 +199,8 @@ verrà stampata come segue:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
 In seguito verrà modificato il file di configurazione del profilo,
-che corrisponde al file `ipython_notebook_config.py` della directory corrente. Questo file include
-diversi campi che per impostazione predefinita sono tutti impostati come commento. È
+`ipython_notebook_config.py` che corrisponde al file della directory corrente. Tenere presente che questo file potrebbe non esistere, ma in questo caso è sufficiente crearlo. Questo
+file ha alcuni campi, tutti impostati come commento per impostazione predefinita. È
 possibile aprire questo file con qualsiasi editor di testo, assicurandosi che
 includa almeno il contenuto seguente:
 
@@ -333,10 +338,7 @@ Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato
 con l'integrazione di un editor avanzato con IntelliSense, debug, profilatura ed
 elaborazione parallela.
 
-  [progetto IPython]: http://ipython.org
-  [video di esercitazione]: http://go.microsoft.com/fwlink/?LinkID=254535&clcid=0x409
   [Schermata]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [qui]: /it-it/manage/linux/tutorials/virtual-machine-from-gallery/
   [1]: /it-it/manage/windows/tutorials/virtual-machine-from-gallery/
   [2]: ./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png
@@ -345,9 +347,7 @@ elaborazione parallela.
   [Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
   [Tornado]: http://www.tornadoweb.org/ "Tornado"
   [python.org]: http://www.python.org/download
-  [python-distribute.org]: http://python-distribute.org/
   [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-  []: http://slproweb.com/products/Win32OpenSSL.html
   [4]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png
   [5]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png
   [6]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png
@@ -356,6 +356,4 @@ elaborazione parallela.
   [9]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png
   [10]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png
   [11]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png
-  [esempi
-  di blocchi appunti]: https://github.com/ipython/ipython/tree/master/examples/notebooks
   [Python Tools for Visual Studio]: http://pytools.codeplex.com

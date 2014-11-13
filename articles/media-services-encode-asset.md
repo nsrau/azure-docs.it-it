@@ -1,12 +1,12 @@
-<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to Encode an Asset" pageTitle="Come codificare un asset per Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare il codificatore multimediale di Azure per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="Procedura: Codificare un asset" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Procedura: Codificare un asset
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Ottenere un'istanza del processore di contenuti multimediali][Procedura: Ottenere un'istanza del processore di contenuti multimediali].
 
-È possibile codificare il contenuto multimediale nel server utilizzando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È inoltre possibile utilizzare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace][]. È possibile specificare i dettagli relativi alle attività di codifica utilizzando stringhe di [set di impostazioni per il codificatore][] oppure file di configurazione.
+È possibile codificare il contenuto multimediale nel server usando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace][Azure Marketplace]. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di [set di impostazioni per il codificatore][set di impostazioni per il codificatore] oppure file di configurazione.
 
 ## Codifica in formato MP4
 
@@ -18,7 +18,7 @@ Il metodo seguente permette di caricare un singolo asset e creare un processo pe
         IJob job = _context.Jobs.Create("My encoding job");
 
         // Get a reference to the Azure Media Encoder
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
 
         // Create a task with the encoding details, using a string preset.
         ITask task = job.Tasks.AddNew("My encoding task",
@@ -94,7 +94,7 @@ Il metodo seguente permette di caricare un singolo asset e creare un processo pe
         }
     }
 
-
+<p>
 </code>
 
 </pre>
@@ -106,65 +106,29 @@ Se si desidera codificare un video in formato Smooth Streaming, sono disponibili
 -   Eseguire la codifica direttamente nel formato Smooth Streaming
 -   Eseguire la codifica nel formato MP4 e quindi eseguire la conversione in formato Smooth Streaming
 
+</p>
+Per eseguire la codifica direttamente nel formato Smooth Streaming, usare il codice riportato sopra con uno dei set di impostazioni del codificatore per Smooth Streaming. Per un elenco completo dei set di impostazioni del codificatore, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][Stringhe di set di impostazioni di attività per Azure Media Encoder].
 
-Per eseguire la codifica direttamente nel formato Smooth Streaming, utilizzare il codice riportato sopra con uno dei set di impostazioni del codificatore per Smooth Streaming. Per un elenco completo dei set di impostazioni del codificatore, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][].
+Per convertire un file MP4 in formato Smooth Streaming, usare Azure Media Packager. Azure Media Packager non supporta set di impostazioni in formato stringa. È quindi necessario specificare le opzioni di configurazione in XML. Il codice XML necessario per la conversione dal formato MP4 al formato Smooth Streaming è disponibile nel [set di impostazioni di attività per Azure Media Packager][set di impostazioni di attività per Azure Media Packager]. Copiare e incollare il codice XML in un file denominato MediaPackager\_MP4ToSmooth.xml nel progetto. Nel codice seguente viene illustrato come convertire un asset MP4 nel formato Smooth Streaming. Il metodo seguente accetta un asset esistente e lo converte.
 
-Per convertire un file MP4 in formato Smooth Streaming, utilizzare Azure Media Packager. Azure Media Packager non supporta set di impostazioni in formato stringa. È quindi necessario specificare le opzioni di configurazione in XML. Il codice XML necessario per la conversione dal formato MP4 al formato Smooth Streaming è disponibile nel [set di impostazioni di attività per Azure Media Packager][]. Copiare e incollare il codice XML in un file denominato MediaPackager\_MP4ToSmooth.xml nel progetto. Nel codice seguente viene illustrato come convertire un asset MP4 nel formato Smooth Streaming. Il metodo seguente accetta un asset esistente e lo converte.
+    private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath) { // Declare a new job to contain the tasks IJob job = _context.Jobs.Create("Convert to Smooth Streaming job"); // Set up the first Task to convert from MP4 to Smooth Streaming. // Read in task configuration XML string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml")); // Get a media packager reference IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager"); // Create a task with the conversion details, using the configuration data ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task", processor, configMp4ToSmooth, TaskOptions.None); // Specify the input asset to be converted. task.InputAssets.Add(assetToConvert); // Add an output asset to contain the results of the job. task.OutputAssets.AddNew("Streaming output asset", AssetCreationOptions.None); // Use the following event handler to check job progress. // The StateChange method is the same as the one in the previous sample job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged); // Launch the job. job.Submit(); // Check job execution and wait for job to finish. Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None); progressJobTask.Wait(); // Get a refreshed job reference after waiting on a thread. job = GetJob(job.Id); // Check for errors if (job.State == JobState.Error) { Console.WriteLine("\nExiting method due to job error."); } return job;}
 
-<pre><code>
-private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
- {
-	// Declare a new job to contain the tasks
-    IJob job = _context.Jobs.Create("Convert to Smooth Streaming job");
-    // Set up the first Task to convert from MP4 to Smooth Streaming. 
-    // Read in task configuration XML
-    string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
-    // Get a media packager reference
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
-    // Create a task with the conversion details, using the configuration data
-    ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
-           processor,
-           configMp4ToSmooth,
-           TaskOptions.None);
-    // Specify the input asset to be converted.
-    task.InputAssets.Add(assetToConvert);
-    // Add an output asset to contain the results of the job.
-    task.OutputAssets.AddNew("Streaming output asset", AssetCreationOptions.None);
-    // Use the following event handler to check job progress. 
-	// The StateChange method is the same as the one in the previous sample
-    job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
-    // Launch the job.
-    job.Submit();
-    // Check job execution and wait for job to finish. 
-    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-    progressJobTask.Wait();
-    // Get a refreshed job reference after waiting on a thread.
-    job = GetJob(job.Id);
-    // Check for errors
-    if (job.State == JobState.Error)
-    {
-        Console.WriteLine("\nExiting method due to job error.");
-    }
-    return job;
-}
-</code></pre>
-
-
+</p>
 Per altre informazioni sull'elaborazione di asset, vedere:
 
--   [Elaborazione di asset con Media Services SDK per .NET][]
--   [Elaborazione di asset con l'API REST di Servizi multimediali][]
+-   [Elaborazione di asset con Media Services SDK per .NET][Elaborazione di asset con Media Services SDK per .NET]
+-   [Elaborazione di asset con l'API REST di Servizi multimediali][Elaborazione di asset con l'API REST di Servizi multimediali]
 
-
+</p>
 ## Passaggi successivi
 
-Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali][].
+Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali][Come verificare l'avanzamento di un processo con Servizi multimediali].
 
-  [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409
+  [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
   [Azure Marketplace]: https://datamarket.azure.com/
-  [set di impostazioni per il codificatore]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
-  [set di impostazioni di attività per Azure Media Packager]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
-  [Elaborazione di asset con Media Services SDK per .NET]: http://msdn.microsoft.com/en-us/library/jj129580.aspx
-  [Elaborazione di asset con l'API REST di Servizi multimediali]: http://msdn.microsoft.com/en-us/library/jj129574.aspx
-  [Come verificare l'avanzamento di un processo con Servizi multimediali]: http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409
+  [set di impostazioni per il codificatore]: http://msdn.microsoft.com/it-it/library/hh973610.aspx
+  [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/it-it/library/jj129582.aspx
+  [set di impostazioni di attività per Azure Media Packager]: http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx
+  [Elaborazione di asset con Media Services SDK per .NET]: http://msdn.microsoft.com/it-it/library/jj129580.aspx
+  [Elaborazione di asset con l'API REST di Servizi multimediali]: http://msdn.microsoft.com/it-it/library/jj129574.aspx
+  [Come verificare l'avanzamento di un processo con Servizi multimediali]: ../media-services-check-job-progress/

@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Introduzione a Linux in Azure - Esercitazione di Azure" metaKeywords="Azure Linux vm, Linux vm" description="Informazioni sull'uso delle macchine virtuali Linux in Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduzione a Linux in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Introduzione a Linux in Azure
 
@@ -10,7 +10,7 @@ In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell
 
 -   [Autenticazione: nomi utente, password e chiavi SSH.][Autenticazione: nomi utente, password e chiavi SSH.]
 -   [Generazione e utilizzo di chiavi SSH per l'accesso a macchine virtuali Linux.][Generazione e utilizzo di chiavi SSH per l'accesso a macchine virtuali Linux.]
--   [Utilizzo di sudo per ottenere privilegi utente avanzati][Utilizzo di sudo per ottenere privilegi utente avanzati]
+-   [Uso di sudo per ottenere privilegi utente avanzati][Uso di sudo per ottenere privilegi utente avanzati]
 -   [Configurazione del firewall][Configurazione del firewall]
 -   [Modifica del nome host][Modifica del nome host]
 -   [Acquisizione di immagini di macchine virtuali][Acquisizione di immagini di macchine virtuali]
@@ -36,11 +36,11 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
         chmod 600 myPrivateKey.key
 
-3.  Convertire myCert.pem in myCert.cer (certificato X509 con codifica DER)
+3.  Convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER)
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  Caricare myCert.pem durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file authorized\_keys per l'utente specificato nella macchina virtuale.
+4.  Caricare `myCert.cer` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `~/.ssh/authorized_keys` per l'utente specificato nella macchina virtuale.
 
 5.  Connettersi alla macchina virtuale Linux tramite ssh.
 
@@ -48,7 +48,11 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
     La prima volta che si effettua l'accesso, verrà richiesto di accettare l'ID digitale della chiave pubblica dell'host.
 
-6.  Facoltativamente, è possibile copiare `myPrivateKey.key` in `~/.ssh/id\_rsa` in modo che il client openssh possa automaticamente prelevare la chiave senza usare l'opzione -i.
+6.  Se si preferisce, si può copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client openssh possa automaticamente selezionarlo senza che venga usata l'opzione -i.
+     In alternativa, è possibile modificare `~/.ssh/config` per includere una sezione per la macchina virtuale:
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### Generare una chiave da una chiave esistente compatibile con OpenSSH
 
@@ -60,7 +64,7 @@ Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `opens
 
 Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in seguito usata per il provisioning di una macchina virtuale Linux in Azure. Durante il provisioning, il file `.pem` verrà convertito in una chiave pubblica compatibile con `openssh` e inserito in `~/.ssh/authorized_keys`.
 
-## <span id="superuserprivileges"></span></a>Utilizzo di sudo per ottenere privilegi utente avanzati `sudo`
+## <span id="superuserprivileges"></span></a>Uso di sudo per ottenere privilegi utente avanzati `sudo`
 
 L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo`. Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
 
@@ -68,8 +72,7 @@ L'account utente specificato durante la distribuzione di istanze di macchine vir
 
 Facoltativamente, è possibile ottenere una shell di root usando **sudo -s**.
 
-    - Vedere [Utilizzo di privilegi root su Linux in Macchine virtuali di Azure][Utilizzo di privilegi root su Linux in Macchine virtuali di Azure]
-
+-   Vedere [Uso di privilegi root su Linux in Macchine virtuali di Azure][Uso di privilegi root su Linux in Macchine virtuali di Azure]
 
 ## <span id="firewallconfiguration"></span></a>Configurazione del firewall
 
@@ -95,7 +98,7 @@ L'agente Linux di Azure include funzionalità per il rilevamento automatico dell
 
 Le immagini Ubuntu usano cloud-init, che offre capacità aggiuntive per il bootstrap di una macchina virtuale.
 
-- Vedere il post di blog relativo ai [dati personalizzati e Cloud-Init in Microsoft Azure][dati personalizzati e Cloud-Init in Microsoft Azure]
+-   Vedere il post di blog relativo ai [dati personalizzati e Cloud-Init in Microsoft Azure][dati personalizzati e Cloud-Init in Microsoft Azure]
 
 ## <span id="virtualmachine"></span></a>Acquisizione di immagini di macchine virtuali
 
@@ -115,21 +118,21 @@ Ogni macchina virtuale ha un *disco risorse* temporaneo locale collegato. Poich�
 
 In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu).
 
-   >[WACOM.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+    >[WACOM.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in modo dettagliato nell'esercitazione: [Come collegare un disco dati a una macchina virtuale][Come collegare un disco dati a una macchina virtuale].
 
--   Vedere anche: [Configurazione dei RAID software in Linux][Configurazione dei RAID software in Linux]
+-   Vedere anche la pagina relativa alla [Configurazione dei RAID software in Linux][Configurazione dei RAID software in Linux]
 
   [Autenticazione: nomi utente, password e chiavi SSH.]: #authentication
   [Generazione e utilizzo di chiavi SSH per l'accesso a macchine virtuali Linux.]: #keygeneration
-  [Utilizzo di sudo per ottenere privilegi utente avanzati]: #superuserprivileges
+  [Uso di sudo per ottenere privilegi utente avanzati]: #superuserprivileges
   [Configurazione del firewall]: #firewallconfiguration
   [Modifica del nome host]: #hostnamechanges
   [Acquisizione di immagini di macchine virtuali]: #virtualmachine
   [Collegamento di dischi]: #attachingdisks
   [Come usare SSH con Linux in Azure]: ../linux-use-ssh-key/
-  [Utilizzo di privilegi root su Linux in Macchine virtuali di Azure]: ../virtual-machines-linux-use-root-privileges/
+  [Uso di privilegi root su Linux in Macchine virtuali di Azure]: ../virtual-machines-linux-use-root-privileges/
   [Come configurare gli endpoint a una macchina virtuale]: ../virtual-machines-set-up-endpoints/
   [Guida dell'utente dell'agente Linux di Azure]: ../virtual-machines-linux-agent-user-guide/
   [dati personalizzati e Cloud-Init in Microsoft Azure]: http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/

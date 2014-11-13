@@ -1,20 +1,20 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Esempio GraySort da 10 GB | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Informazioni su come eseguire un ordinamento GraySort di utilizzo generale su Hadoop con HDInsight tramite Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Esempio GraySort da 10 GB" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Esempio GraySort di Hadoop da 10 GB in HDInsight
 
-Questo argomento di esempio illustra come eseguire un programma MapReduce GraySort per Hadoop di utilizzo generale in Azure HDInsight usando Azure PowerShell. GraySort è un ordinamento benchmark che utilizza come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità molto elevate di dati, in genere almeno 100 TB.
+Questo argomento di esempio illustra come eseguire un programma MapReduce GraySort per Hadoop di utilizzo generale in Azure HDInsight usando Azure PowerShell. GraySort è un ordinamento benchmark che usa come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità molto elevate di dati, in genere almeno 100 TB.
 
-In questo esempio vengono utilizzati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono utilizzate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento di terabyte di utilizzo generale ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per altre informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark][].
+In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento di terabyte di utilizzo generale ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per altre informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark][Sortbenchmark].
 
-In questo esempio vengono utilizzati tre set di programmi MapReduce:
+In questo esempio vengono usati tre set di programmi MapReduce:
 
 1.  **TeraGen** è un programma MapReduce utilizzabile per generare le righe di dati da ordinare.
-2.  **TeraSort** esegue il campionamento dei dati di input e utilizza MapReduce per ordinare i dati in un ordine totale. TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che utilizza un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi che corrispondono ai criteri sample[i-1] \<= key \< sample[i] vengono inviate a reduce i. Ciò consente di assicurare che l'output di reduce i sia inferiore all'output di reduce i+1.
+2.  **TeraSort** esegue il campionamento dei dati di input e usa MapReduce per ordinare i dati in un ordine totale. TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che usa un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi che corrispondono ai criteri sample[i-1] \<= key \< sample[i] vengono inviate a reduce i. Ciò consente di assicurare che l'output di reduce i sia inferiore all'output di reduce i+1.
 3.  **TeraValidate** è un programma MapReduce che convalida l'ordinamento globale dell'output. Crea una funzione Map per ogni file nella directory di output e ogni funzione Map assicura che ogni chiave sia inferiore o uguale alla precedente. La funzione Map genera inoltre record della prima e dell'ultima chiave di ogni file, mentre la funzione Reduce assicura che la prima chiave del file sia superiore all'ultima chiave di file i-1. Eventuali problemi vengono segnalati come output della funzione Reduce insieme alle chiavi che non rispettano l'ordinamento.
 
-Il formato di input e il formato di output, utilizzati da tutte e tre le applicazioni, consentono di leggere e scrivere i file di testo nel formato corretto. Nell'output della funzione Reduce la replica è impostata su 1, invece che sul valore predefinito 3, poiché il contesto del benchmark non necessita della replica dei dati di output in più nodi.
+Il formato di input e il formato di output, usati da tutte e tre le applicazioni, consentono di leggere e scrivere i file di testo nel formato corretto. Nell'output della funzione Reduce la replica è impostata su 1, invece che sul valore predefinito 3, poiché il contesto del benchmark non necessita della replica dei dati di output in più nodi.
 
 **Si apprenderà come:**
 
@@ -23,20 +23,20 @@ Il formato di input e il formato di output, utilizzati da tutte e tre le applica
 
 **Prerequisiti**:
 
--   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese][].
+-   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese][Abbonamento di prova gratuito di un mese].
 
--   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight][]
+-   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight][Provisioning di cluster HDInsight]
 
--   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][].
+-   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][Installazione e configurazione di Azure PowerShell].
 
 ## Contenuto dell'articolo
 
 In questo argomento viene illustrato come eseguire la serie di programmi MapReduce che costituiscono l'esempio, viene presentato il codice Java per il programma MapReduce, vengono riepilogati i concetti appresi e vengono indicati alcuni passaggi successivi. L'argomento include le sezioni seguenti:
 
-1.  [Esecuzione dell'esempio con Azure PowerShell][]
-2.  [Codice Java per il programma MapReduce TeraSort][]
-3.  [Riepilogo][]
-4.  [Passaggi successivi][]
+1.  [Esecuzione dell'esempio con Azure PowerShell][Esecuzione dell'esempio con Azure PowerShell]
+2.  [Codice Java per il programma MapReduce TeraSort][Codice Java per il programma MapReduce TeraSort]
+3.  [Riepilogo][Riepilogo]
+4.  [Passaggi successivi][Passaggi successivi]
 
 ## <span id="run-sample"></span></a>Esecuzione dell'esempio con Azure PowerShell
 
@@ -391,22 +391,22 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 
 ## <span id="summary"></span></a>Riepilogo
 
-In questo esempio è stato illustrato come eseguire una serie di processi MapReduce utilizzando Azure HDInsight, in cui l'output di un processo viene utilizzato come input per il processo successivo della serie.
+In questo esempio è stato illustrato come eseguire una serie di processi MapReduce usando Azure HDInsight, in cui l'output di un processo viene usato come input per il processo successivo della serie.
 
 ## <span id="next-steps"></span></a>Passaggi successivi
 
 Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite istruzioni sull'utilizzo di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
--   [Introduzione all'utilizzo di Azure HDInsight][]
--   [Esempio: Calcolo del Pi greco][]
--   [Esempio: Conteggio parole][]
--   [Esempio: streaming C#][]
--   [Usare Pig con HDInsight][]
--   [Usare Hive con HDInsight][]
--   [Documentazione di Azure HDInsight SDK][]
+-   [Introduzione all'utilizzo di Azure HDInsight][Introduzione all'utilizzo di Azure HDInsight]
+-   [Esempio: Calcolo del Pi greco][Esempio: Calcolo del Pi greco]
+-   [Esempio: Conteggio parole][Esempio: Conteggio parole]
+-   [Esempio: streaming C#][Esempio: streaming C#]
+-   [Usare Pig con HDInsight][Usare Pig con HDInsight]
+-   [Usare Hive con HDInsight][Usare Hive con HDInsight]
+-   [Documentazione di Azure HDInsight SDK][Documentazione di Azure HDInsight SDK]
 
   [Sortbenchmark]: http://sortbenchmark.org/
-  [Abbonamento di prova gratuito di un mese]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Abbonamento di prova gratuito di un mese]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Provisioning di cluster HDInsight]: ../hdinsight-provision-clusters/
   [Installazione e configurazione di Azure PowerShell]: ../install-configure-powershell/
   [Esecuzione dell'esempio con Azure PowerShell]: #run-sample
@@ -419,4 +419,4 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
   [Esempio: streaming C#]: ../hdinsight-sample-csharp-streaming/
   [Usare Pig con HDInsight]: ../hdinsight-use-pig/
   [Usare Hive con HDInsight]: ../hdinsight-use-hive/
-  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentazione di Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx

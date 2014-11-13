@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Esempio WordCount di Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Informazioni su come eseguire un esempio MapReduce semplice in HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Esempio WordCount di Hadoop in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -10,14 +10,14 @@ Il programma MapReduce Hadoop legge il file di testo e conta le occorrenze di og
 
 **Si apprenderà come:**
 
--   Utilizzare Azure PowerShell per eseguire un programma MapReduce su un cluster HDInsight.
+-   Usare Azure PowerShell per eseguire un programma MapReduce su un cluster HDInsight.
 -   Scrivere programmi MapReduce in Java.
 
 **Prerequisiti**:
 
 -   È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese][Abbonamento di prova gratuito di un mese].
 
--   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Introduzione ad Azure HDInsight][Introduzione ad Azure HDInsight] o Provisioning di cluster HDInsight
+-   È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Introduzione ad Azure HDInsight][Introduzione ad Azure HDInsight] o [Provisioning di cluster HDInsight][Provisioning di cluster HDInsight].
 
 -   È necessario che Azure PowerShell sia installato e configurato per l'utilizzo con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][Installazione e configurazione di Azure PowerShell]
 
@@ -73,7 +73,7 @@ In questo argomento viene illustrato come eseguire l'esempio, viene presentato i
         $storageAccountName = "<StorageAccountName>"   # Azure storage account name
         $containerName = "<ContainerName>"             # Blob storage container name
 
-    L'account di archiviazione di Azure corrisponde all'account creato in precedenza in questa esercitazione. L'account di archiviazione viene utilizzato per l'hosting del contenitore BLOB utilizzato come file system predefinito per il cluster HDInsight. Il nome del contenitore di archiviazione BLOB corrisponde in genere al nome del cluster HDInsight, a meno che non venga specificato un nome diverso durante il provisioning del cluster.
+    L'account di archiviazione di Azure corrisponde all'account creato in precedenza in questa esercitazione. L'account di archiviazione viene usato per l'hosting del contenitore BLOB usato come file system predefinito per il cluster HDInsight. Il nome del contenitore di archiviazione BLOB corrisponde in genere al nome del cluster HDInsight, a meno che non venga specificato un nome diverso durante il provisioning del cluster.
 
 3.  Per creare un oggetto contesto archiviazione di Azure, eseguire i comandi seguenti:
 
@@ -84,7 +84,7 @@ In questo argomento viene illustrato come eseguire l'esempio, viene presentato i
         $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
         $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-    Il comando *Select-AzureSubscription* consente di impostare la sottoscrizione corrente, nel caso in cui siano disponibili più sottoscrizioni e non si desideri utilizzare la sottoscrizione predefinita.
+    Il comando *Select-AzureSubscription* consente di impostare la sottoscrizione corrente, nel caso in cui siano disponibili più sottoscrizioni e non si desideri usare la sottoscrizione predefinita.
 
 4.  Per scaricare l'output del processo MapReduce dal contenitore BLOB alla workstation, eseguire il comando seguente:
 
@@ -97,7 +97,7 @@ In questo argomento viene illustrato come eseguire l'esempio, viene presentato i
 
         cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-    Il processo MapReduce produce un file denominato *part-r-00000*, che include le parole e i conteggi. Lo script utilizza il comando findstr per elencare tutte le parole contenenti *"there"*.
+    Il processo MapReduce produce un file denominato *part-r-00000*, che include le parole e i conteggi. Lo script usa il comando findstr per elencare tutte le parole contenenti *"there"*.
 
 L'output dello script WordCount dovrebbe essere visualizzato nella finestra dei comandi:
 
@@ -193,6 +193,7 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
 
   [Abbonamento di prova gratuito di un mese]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Introduzione ad Azure HDInsight]: ../hdinsight-get-started/
+  [Provisioning di cluster HDInsight]: ../hdinsight-provision-clusters/
   [Installazione e configurazione di Azure PowerShell]: ../install-configure-powershell/
   [Esecuzione dell'esempio con Azure PowerShell]: #run-sample
   [Codice Java per il programma MapReduce WordCount]: #java-code

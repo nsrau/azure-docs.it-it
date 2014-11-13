@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Sviluppare una soluzione predittiva con Azure Machine Learning" pageTitle="Sviluppare una soluzione predittiva con Machine Learning | Azure" description="Procedura dettagliata per creare un semplice esperimento di analisi predittiva in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Sviluppare una soluzione predittiva con Azure Machine Learning
 
@@ -12,15 +12,15 @@ In questa procedura dettagliata verranno descritti i processi di sviluppo di un 
 
 Attenersi alla procedura descritta di seguito.
 
-1.  [Creare un'area di lavoro ML][]
-2.  [Caricare i dati esistenti][]
-3.  [Creare un nuovo esperimento][]
-4.  [Addestrare e valutare i modelli][]
-5.  [Pubblicare il servizio Web][]
-6.  [Accedere al servizio Web][]
+1.  [Creare un'area di lavoro ML][Creare un'area di lavoro ML]
+2.  [Caricare i dati esistenti][Caricare i dati esistenti]
+3.  [Creare un nuovo esperimento][Creare un nuovo esperimento]
+4.  [Addestrare e valutare i modelli][Addestrare e valutare i modelli]
+5.  [Pubblicare il servizio Web][Pubblicare il servizio Web]
+6.  [Accedere al servizio Web][Accedere al servizio Web]
 
 Questa procedura dettagliata è basata su una versione semplificata dell'
-[esperimento di esempio per la predizione del rischio di credito][].
+[esperimento di esempio per la predizione del rischio di credito][esperimento di esempio per la predizione del rischio di credito].
 
   [Creare un'area di lavoro ML]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [Caricare i dati esistenti]: ../machine-learning-walkthrough-2-upload-data/

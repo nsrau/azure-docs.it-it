@@ -1,17 +1,17 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Informazioni su come usare il Servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." metaCanonical="" services="storage" documentationCenter="PHP" title="Come usare il Servizio tabelle da PHP" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
-# Come utilizzare il Servizio tabelle da PHP
+# Come usare il Servizio tabelle da PHP
 
-In questa guida verranno illustrati diversi scenari di utilizzo comuni del Servizio tabelle di Azure. Gli esempi sono scritti in PHP e utilizzano [Azure SDK per PHP][Azure SDK per PHP]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per ulteriori informazioni sul Servizio tabelle di Azure, vedere la sezione [Passaggi successivi][Passaggi successivi].
+In questa guida verranno illustrati diversi scenari di utilizzo comuni del Servizio tabelle di Azure. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP][Azure SDK per PHP]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per altre informazioni sul Servizio tabelle di Azure, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
 -   [Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
 -   [Concetti][Concetti]
--   [Creazione di un account di Archiviazione di Azure][Creazione di un account di Archiviazione di Azure]
--   [Creazione di un'applicazione PHP][Creazione di un'applicazione PHP]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Creare un'applicazione PHP][Creare un'applicazione PHP]
 -   [Configurazione dell'applicazione per accedere al Servizio tabelle][Configurazione dell'applicazione per accedere al Servizio tabelle]
 -   [Configurazione di una connessione di Archiviazione di Azure][Configurazione di una connessione di Archiviazione di Azure]
 -   [Procedura: Creare una tabella][Procedura: Creare una tabella]
@@ -27,25 +27,25 @@ In questa guida verranno illustrati diversi scenari di utilizzo comuni del Servi
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <span id="CreateAccount"></span></a>Creazione di un account di archiviazione di Azure
+## <span id="CreateAccount"></span></a>Creare un account di archiviazione di Azure
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <span id="CreateApplication"></span></a>Creazione di un'applicazione PHP
+## <span id="CreateApplication"></span></a>Creare un'applicazione PHP
 
-Per creare un'applicazione PHP che accede al Servizio tabelle di Azure, è sufficiente fare riferimento alle classi in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile utilizzare qualsiasi strumento di sviluppo, incluso il Blocco note.
+Per creare un'applicazione PHP che accede al Servizio tabelle di Azure, è sufficiente fare riferimento alle classi in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
 In questa guida si useranno le funzionalità del Servizio tabelle che possono essere chiamate da un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
-## <span id="GetClientLibrary"></span></a>Acquisizione delle librerie client di Azure
+## <span id="GetClientLibrary"></span></a>Acquisire le librerie client di Azure
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureStorage"></span></a>Configurazione dell'applicazione per accedere al Servizio tabelle
 
-Per utilizzare le API del Servizio tabelle di Azure, è necessario:
+Per usare le API del Servizio tabelle di Azure, è necessario:
 
-1.  Fare riferimento al file autoloader mediante l'istruzione [require\_once][require\_once].
+1.  Fare riferimento al file autoloader mediante l'istruzione [require\_once][require\_once]
 2.  Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -70,10 +70,11 @@ Per accedere alla memoria dell'emulatore:
 
     UseDevelopmentStorage=true
 
-Per creare un client di servizio di Azure, è necessario utilizzare la classe **ServicesBuilder**. È possibile:
+Per creare un client di servizio di Azure, è necessario usare la classe **ServicesBuilder**. È possibile:
 
 -   passare la stringa di connessione direttamente a essa o
--   utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
+-   usare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
+
     -   per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
     -   è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
@@ -87,7 +88,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 
 ## <span id="CreateTable"></span></a>Procedura: Creare una tabella
 
-Un oggetto **TableRestProxy** consente di creare una tabella utilizzando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per ulteriori informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle][Impostazione di timeout per operazioni del servizio tabelle].
+Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del Servizio tabelle. Per altre informazioni sul timeout del Servizio tabelle, vedere [Impostazione di timeout per operazioni del servizio tabelle][Impostazione di timeout per operazioni del servizio tabelle].
 
     require_once 'vendor\autoload.php';
 
@@ -147,7 +148,7 @@ Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e pa
 
 Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][Informazioni sul modello di dati del servizio tabelle].
 
-La classe **TableRestProxy** offre due metodi alternativi per l'inserimento delle entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per utilizzare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come utilizzare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Se è stata inserita in precedenza (come illustrato nell'esempio precedente), la proprietà `DueDate` verrà aggiornata e verrà aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
+La classe **TableRestProxy** offre due metodi alternativi per l'inserimento delle entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per usare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come usare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Se è stata inserita in precedenza (come illustrato nell'esempio precedente), la proprietà `DueDate` verrà aggiornata e verrà aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
 
     require_once 'vendor\autoload.php';
 
@@ -218,7 +219,7 @@ Il metodo **TableRestProxy-\>getEntity** consente di recuperare una singola enti
 
 ## <span id="RetEntitiesInPartition"></span></a>Procedura: Recuperare tutte le entità di una partizione
 
-Le query di entità vengono create utilizzando filtri (per ulteriori informazioni, vedere [Query di tabelle ed entità][Query di tabelle ed entità]). Per recuperare tutte le entità in una partizione, utilizzare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
+Le query di entità vengono create usando filtri (per altre informazioni, vedere [Query di tabelle ed entità][Query di tabelle ed entità]). Per recuperare tutte le entità in una partizione, usare il filtro "PartitionKey eq *partition\_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities**.
 
     require_once 'vendor\autoload.php';
 
@@ -250,7 +251,7 @@ Le query di entità vengono create utilizzando filtri (per ulteriori informazion
 
 ## <span id="RetrieveSubset"></span></a>Procedura: Recuperare un subset di entità in una partizione
 
-Lo stesso modello applicato nell'esempio precedente può essere utilizzato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro utilizzato (per altre informazioni, vedere [Query di tabelle ed entità][Query di tabelle ed entità]). Nell'esempio seguente viene illustrato come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
+Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato sarà determinato dal filtro usato (per altre informazioni, vedere [Query di tabelle ed entità][Query di tabelle ed entità]). Nell'esempio seguente viene illustrato come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e `DueDate` precedente a una data specificata.
 
     require_once 'vendor\autoload.php';
 
@@ -282,7 +283,7 @@ Lo stesso modello applicato nell'esempio precedente può essere utilizzato per r
 
 ## <span id="RetPropertiesSubset"></span></a>Procedura: Recuperare un subset di proprietà di entità
 
-È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query-\>addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy-\>queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, utilizzare un filtro come illustrato nelle query precedenti.
+È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare la proprietà da recuperare, passare il nome della proprietà al metodo **Query-\>addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy-\>queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, usare un filtro come illustrato nelle query precedenti.
 
     require_once 'vendor\autoload.php';
 
@@ -320,7 +321,7 @@ Lo stesso modello applicato nell'esempio precedente può essere utilizzato per r
 
 ## <span id="UpdateEntity"></span></a>Procedura: Aggiornare un'entità
 
-È possibile aggiornare un'entità esistente utilizzando i metodi **Entity-\>setProperty** e **Entity-\>addProperty** sull'entità e quindi chiamando **TableRestProxy-\>updateEntity**. Nell'esempio seguente viene recuperata un'entità, modificata una proprietà, rimossa un'altra proprietà e aggiunta una nuova proprietà. Si noti che la rimozione di una proprietà è effettuata impostando il suo valore su **null**.
+È possibile aggiornare un'entità esistente usando i metodi **Entity-\>setProperty** e **Entity-\>addProperty** sull'entità e quindi chiamando **TableRestProxy-\>updateEntity**. Nell'esempio seguente viene recuperata un'entità, modificata una proprietà, rimossa un'altra proprietà e aggiunta una nuova proprietà. Si noti che la rimozione di una proprietà è effettuata impostando il suo valore su **null**.
 
     require_once 'vendor\autoload.php';
 
@@ -379,7 +380,7 @@ Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKe
         echo $code.": ".$error_message."<br />";
     }
 
-Si noti che per effettuare controlli di concorrenza è possibile impostare il valore Etag per un'entità da eliminare utilizzando il metodo **DeleteEntityOptions-\>setEtag** e passando l'oggetto **DeleteEntityOptions** a **deleteEntity** come quarto parametro.
+Si noti che per effettuare controlli di concorrenza è possibile impostare il valore Etag per un'entità da eliminare usando il metodo **DeleteEntityOptions-\>setEtag** e passando l'oggetto **DeleteEntityOptions** a **deleteEntity** come quarto parametro.
 
 ## <span id="BatchOperations"></span></a>Procedura: Operazioni batch su tabella
 
@@ -435,7 +436,7 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
         echo $code.": ".$error_message."<br />";
     }
 
-Per ulteriori informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità][Esecuzione di transazioni di gruppi di entità].
+Per altre informazioni su operazioni batch su tabella, vedere [Esecuzione di transazioni di gruppi di entità][Esecuzione di transazioni di gruppi di entità].
 
 ## <span id="DeleteTable"></span></a>Procedura: Eliminare una tabella
 
@@ -473,8 +474,8 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
   [Passaggi successivi]: #NextSteps
   [Informazioni sul Servizio tabelle]: #what-is
   [Concetti]: #concepts
-  [Creazione di un account di Archiviazione di Azure]: #CreateAccount
-  [Creazione di un'applicazione PHP]: #CreateApplication
+  [Creare un account di archiviazione di Azure]: #CreateAccount
+  [Creare un'applicazione PHP]: #CreateApplication
   [Configurazione dell'applicazione per accedere al Servizio tabelle]: #ConfigureStorage
   [Configurazione di una connessione di Archiviazione di Azure]: #ConnectionString
   [Procedura: Creare una tabella]: #CreateTable
@@ -486,9 +487,7 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
   [Procedura: Aggiornare un'entità]: #UpdateEntity
   [Procedura: Operazioni batch su tabella]: #BatchOperations
   [Procedura: Eliminare una tabella]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [Impostazione di timeout per operazioni del servizio tabelle]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894042.aspx
   [Informazioni sul modello di dati del servizio tabelle]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx
   [Query di tabelle ed entità]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx

@@ -4,7 +4,7 @@ Il servizio di archiviazione di accodamento di Azure consente di archiviare
 grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante
 chiamate autenticate con HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è
 di 64 KB e una coda può contenere milioni di messaggi, nei limiti della
-capacità complessiva di un account di archiviazione. Un account di archiviazione può includere fino a 200 TB di dati relativi a BLOB, code e tabelle. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][].
+capacità complessiva di un account di archiviazione. Un account di archiviazione può includere fino a 200 TB di dati relativi a BLOB, code e tabelle. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][Obiettivi di scalabilità e prestazioni per Archiviazione di Azure].
 
 Di seguito sono riportati gli utilizzi più comuni per il servizio di archiviazione di accodamento.
 
@@ -16,19 +16,19 @@ Di seguito sono riportati gli utilizzi più comuni per il servizio di archiviazi
 
 Il servizio di accodamento contiene i componenti seguenti:
 
-![Queue1][]
+![Queue1][Queue1]
 
 -   **Formato dell'URL:** è possibile fare riferimento alle code usando il formato di URL seguente:
-    <http://>`<storage account>`.queue.core.windows.net/`<queue>`
+    http://`<storage account>`.queue.core.windows.net/`<queue>`
 
 L'URL seguente fa riferimento a una delle code nel diagramma:
- <http://myaccount.queue.core.windows.net/imagesToDownload>
+ http://myaccount.queue.core.windows.net/imagesToDownload
 
--**Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][].
+-**Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][Obiettivi di scalabilità e prestazioni per Archiviazione di Azure].
 
 -   **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda.
 
 -   **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
-  [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+  [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/dn249410.aspx
   [Queue1]: ./media/howto-queue-storage/queue1.png

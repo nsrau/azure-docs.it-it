@@ -28,7 +28,7 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Per ulteriori informazioni sull'installazione di MongoDB su Linux, vedere [Avvio rapido in Unix][Avvio rapido in Unix].
+    Per altre informazioni sull'installazione di MongoDB su Linux, vedere [Avvio rapido in Unix][Avvio rapido in Unix].
 
 5.  Per avviare il database, eseguire:
 
@@ -62,7 +62,6 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
     ![Endpoint][2]
 
-  [sicurezza e amministrazione]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Avvio rapido in Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Endpoint]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

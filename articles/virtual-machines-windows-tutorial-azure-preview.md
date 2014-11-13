@@ -1,14 +1,14 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" metaKeywords="Azure image gallery vm" description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando la raccolta di macchine virtuali nel portale di anteprima di Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Creare una macchina virtuale che esegue Windows Server nel portale di anteprima di Azure
+# Creare una macchina virtuale con Windows nel portale di anteprima di Azure
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Portale di Azure</a><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Portale di anteprima di Azure</a></div>
 
-Questa esercitazione illustra come creare una macchina virtuale di Azure che esegue Windows Server usando la raccolta di macchine virtuali presente nel portale di anteprima di Azure. Nella raccolta è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, di sistemi operativi basati su Linux e di applicazioni.
+Questa esercitazione mostra come è facile creare una macchina virtuale di Azure che esegue Windows usando come esempio un'immagine di Windows Server dalla Raccolta immagini nel portale di anteprima di Azure. Nella raccolta è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, di sistemi operativi basati su Linux e di applicazioni.
 
-> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creazione di un account Azure][Creazione di un account Azure].
+> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure][Creare un account Azure].
 
 In questa esercitazione si apprenderà come:
 
@@ -19,7 +19,9 @@ Per altre informazioni, vedere [Macchine virtuali][Macchine virtuali].
 
 ## <span id="createvirtualmachine"></span> </a>Come creare la macchina virtuale
 
-Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale che esegue Windows Server. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
+Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale usando Windows Server come esempio. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
+
+> [WACOM.NOTE] Il numero e il tipo di immagini disponibili nella raccolta dipende dal tipo di sottoscrizione dell'utente. Questa esercitazione usa un'immagine di Windows Server, ma una sottoscrizione MSDN potrebbe avere immagini aggiuntive disponibili, incluse le immagini desktop.
 
 1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure]. Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita][versione di valutazione gratuita].
 
@@ -89,9 +91,9 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 
 [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali]
 
-  [Portale di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial/ "Azure Portal"
-  [Portale di anteprima di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure Preview Portal"
-  [Creazione di un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
+[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure][Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]
+
+  [Creare un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
   [Come creare la macchina virtuale]: #createvirtualmachine
   [Come accedere alla macchina virtuale dopo averla creata]: #logon
   [Macchine virtuali]: http://go.microsoft.com/fwlink/p/?LinkID=271224
@@ -111,3 +113,4 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
   [Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server]: http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Connettere un disco dati a una macchina virtuale]: http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/
   [Gestione della disponibilità delle macchine virtuali]: http://www.windowsazure.com/it-it/documentation/articles/manage-availability-virtual-machines/
+  [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx

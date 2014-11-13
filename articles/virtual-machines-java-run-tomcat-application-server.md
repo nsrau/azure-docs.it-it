@@ -1,10 +1,10 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Come eseguire un server applicazioni Java su una macchina virtuale" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
-Con Azure è possibile utilizzare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Una volta completata la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione in Azure e configurarla per eseguire un server applicazioni Java.
+Con Azure è possibile usare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Una volta completata la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione in Azure e configurarla per eseguire un server applicazioni Java.
 
 Si apprenderà come:
 
@@ -30,32 +30,33 @@ Ai fini di questa esercitazione, in una macchina virtuale verrà installato un s
 5.  Nella finestra di dialogo **Virtual machine configuration**:
 
     1.  Specificare un nome per la macchina virtuale.
-    2.  Specificare la dimensione da utilizzare per la macchina virtuale.
-    3.  Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
-    4.  Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
+    2.  Specificare la dimensione da usare per la macchina virtuale.
+    3.  Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale.
+    4.  Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore.
     5.  Fare clic su **Avanti**.
 
-6.  Nella finestra di dialogo **Virtual machine configuration** successiva:
+6.  Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
 
-    1.  Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
-    2.  Il valore di **Cloud service DNS name** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che in Azure sia indicato che è univoco.
-    3.  Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **West US**.
-    4.  Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
-    5.  Nella casella **Availability Set** selezionare **(None)**.
+    1.  Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**.
+    2.  Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che in Azure sia indicato che è univoco.
+    3.  Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **Stati Uniti occidentali**.
+    4.  Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente**.
+    5.  Nella casella **Set di disponibilità** selezionare **(Nessuno)**.
     6.  Fare clic su **Avanti**.
 
-7.  Nella finestra di dialogo **Virtual machine configuration** finale:
+7.  Nella finestra di dialogo **Configurazione macchina virtuale** finale:
 
     1.  Accettare le voci di endpoint predefinite.
-    2.  Fare clic su **Complete**.
+    2.  Fare clic su **Operazione completata**.
 
 ## Per accedere in remoto alla macchina virtuale
 
 1.  Accedere al [portale di gestione][portale di gestione di Azure].
-2.  Fare clic su **Virtual machines**.
+2.  Fare clic su **Macchine virtuali**.
 3.  Fare clic sul nome della macchina virtuale a cui si desidera accedere.
-4.  Fare clic su **Connect**.
-5.  Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, utilizzare i valori specificati durante la creazione della macchina virtuale.
+4.  Una volta avviata la macchina virtuale, un menu a comparsa nella parte inferiore della pagina consente le connessioni.
+5.  Fare clic su **Connetti**.
+6.  Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Ciò implica salvare o aprire il file RDP che contiene i dettagli della connessione. Potrebbe essere necessario copiare url:port nell'ultima parte della prima riga del file RDP e incollarlo in un'applicazione di accesso remoto.
 
 ## Per installare un server applicazioni Java sulla macchina virtuale
 
@@ -79,9 +80,9 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 ## Per creare un endpoint per la macchina virtuale
 
 1.  Accedere al [portale di gestione][portale di gestione di Azure].
-2.  Fare clic su **Virtual machines**.
+2.  Fare clic su **Macchine virtuali**.
 3.  Fare clic sul nome della macchina virtuale che esegue il server applicazioni Java.
-4.  Fare clic su **Endpoints**.
+4.  Fare clic su **Endpoint**.
 5.  Fare clic su **Aggiungi**.
 6.  Nella finestra di dialogo **Add endpoint** assicurarsi che l'opzione **Add standalone endpoint** sia selezionata, quindi fare clic su **Next**.
 7.  Nella finestra di dialogo **New endpoint details**:
@@ -122,7 +123,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 
 ![Nome della nuova regola connessioni in entrata][Nome della nuova regola connessioni in entrata]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **[http://\*nome\\_DNS\][http://\*nome\\_DNS\]*.cloudapp.net**, dove*** nome\_DNS**\* è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*nome\_DNS*.cloudapp.net**, dove ***nome\_DNS*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## Considerazioni sul ciclo di vita delle applicazioni
 
@@ -138,7 +139,6 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
 -   Per informazioni su altri servizi, ad esempio Archiviazione, Service Bus, Database SQL di Azure e altri ancora che può essere utile includere nelle applicazioni Java, fare riferimento alle informazioni disponibili all'indirizzo [http://www.windowsazure.com/it-it/develop/java/][http://www.windowsazure.com/it-it/develop/java/].
 
   [Macchina virtuale che esegue Apache Tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Nuova regola connessioni in entrata]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
   [Porta della nuova regola connessioni in entrata]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png

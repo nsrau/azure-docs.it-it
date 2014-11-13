@@ -1,6 +1,6 @@
-<properties title="Microsoft Azure Machine Learning Frequently Asked Questions (FAQ)" pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" videoId="" scriptId="" />
+<properties title="Domande frequenti su Microsoft Azure Machine Learning" pageTitle="Domande frequenti su Azure Machine Learning | Azure" description="Domande frequenti su Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pamehta"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
 
 # Domande frequenti su Microsoft Azure Machine Learning
 
@@ -18,11 +18,11 @@ Azure ML Studio è un ambiente workbench accessibile tramite un Web browser. In 
 
 Il servizio ML API consente di distribuire modelli predittivi creati in ML Studio come un servizio Web scalabile con tolleranza di errore. I servizi Web creati tramite il servizio ML API sono API REST che forniscono un'interfaccia di comunicazione tra le applicazioni esterne e il modello di analisi predittivo. Il servizio Web consente di comunicare con un modello predittivo in tempo reale per ricevere risultati predittivi e incorporarli in qualsiasi applicazione client esterna. Il servizio ML API si basa su Microsoft Azure per la distribuzione, l'hosting e la gestione delle API REST di Azure ML. Quando si usa il servizio Azure ML API, vengono creati due tipi di servizi. Il servizio Esecuzione batch per l'accesso batch asincrono e il servizio Richiesta-risposta per la risposta sincrona a bassa latenza.
 
-È possibile collocare un modello predittivo nella gestione temporanea all'interno dell'area di lavoro. Il servizio ML API genera anche le pagine della guida per i servizi Web. Nelle pagine della guida del servizio Web vengono forniti esempi di codice per richiamare il servizio Web in C\#, R e Python. Per testare il servizio Web è possibile effettuare chiamate interattive al servizio. Il servizio Web nell'ambiente di gestione temporanea può quindi essere spostato nell'ambiente di produzione con pochi clic. Una volta in produzione, è possibile monitorare i servizi distribuiti e tracciarne l'utilizzo e gli eventuali errori nel portale di Azure. Aggiornare i servizi Web è facile, perché basta aggiornare il modello in ML Studio ed eseguire il push delle modifiche nel servizio nell'ambiente di gestione temporanea.
+È possibile collocare un modello predittivo nella gestione temporanea all'interno dell'area di lavoro. Il servizio ML API genera anche le pagine della guida per i servizi Web. Nelle pagine della guida del servizio Web vengono forniti esempi di codice per richiamare il servizio Web in C#, R e Python. Per testare il servizio Web è possibile effettuare chiamate interattive al servizio. Il servizio Web nell'ambiente di gestione temporanea può quindi essere spostato nell'ambiente di produzione con pochi clic. Una volta in produzione, è possibile monitorare i servizi distribuiti e tracciarne l'utilizzo e gli eventuali errori nel portale di Azure. Aggiornare i servizi Web è facile, perché basta aggiornare il modello in ML Studio ed eseguire il push delle modifiche nel servizio nell'ambiente di gestione temporanea.
 
 **4. Come si accede a Microsoft Azure Machine Learning?**
 
-Per informazioni sul servizio Azure Machine Learning, vedere la pagina di [introduzione][]. Visitare la pagina [Azure Machine Learning Center][] per ottenere aggiornamenti sul servizio, leggere le ultime novità nel blog del team di ML, partecipare alla community di Machine Learning attraverso i forum, accedere alle pagine della guida sul prodotto, visualizzare la raccolta di modelli e inviare commenti e suggerimenti sul servizio per contribuire a migliorarlo.
+Per informazioni sul servizio Azure Machine Learning, vedere la pagina di [introduzione][introduzione]. Visitare la pagina [Azure Machine Learning Center][Azure Machine Learning Center] per ottenere aggiornamenti sul servizio, leggere le ultime novità nel blog del team di ML, partecipare alla community di Machine Learning attraverso i forum, accedere alle pagine della guida sul prodotto, visualizzare la raccolta di modelli e inviare commenti e suggerimenti sul servizio per contribuire a migliorarlo.
 
 ### FATTURAZIONE
 
@@ -36,11 +36,11 @@ Gli addebiti vengono aggregati per area di lavoro della sottoscrizione. In ogni 
 -   Ore stima servizio API: questo misuratore include gli addebiti di calcolo accumulati dai servizi Web in esecuzione nell'ambiente di produzione.
 -   Stime servizio API (in millesimi): questo misuratore include gli addebiti accumulati per ogni chiamata al servizio Web nell'ambiente di produzione.
 
-Per i dettagli sui prezzi, vedere la pagina Prezzi all'indirizzo [http://azure.microsoft.com/it-it/pricing/details/machine-learning/][].
+Per i dettagli sui prezzi, vedere la pagina Prezzi all'indirizzo [http://azure.microsoft.com/it-it/pricing/details/machine-learning/][http://azure.microsoft.com/it-it/pricing/details/machine-learning/].
 
 **6. È disponibile una versione di valutazione di Azure Machine Learning?**
 
-Azure ML fa parte della versione di valutazione gratuita di Azure. Quando si effettua l'iscrizione alla versione di valutazione gratuita di Azure, è possibile provare tutti i servizi di Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [http://azure.microsoft.com/it-it/pricing/free-trial-faq/][].
+Azure ML fa parte della versione di valutazione gratuita di Azure. Quando si effettua l'iscrizione alla versione di valutazione gratuita di Azure, è possibile provare tutti i servizi di Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [http://azure.microsoft.com/it-it/pricing/free-trial-faq/][http://azure.microsoft.com/it-it/pricing/free-trial-faq/].
 
 ### MACHINE LEARNING STUDIO
 
@@ -62,7 +62,7 @@ ML Studio include algoritmi ML all'avanguardia, ad esempio alberi di decisione c
 
 **10. L'algoritmo, l'origine dati, il formato di dati o l'operazione di conversione dati di apprendimento automatico non è disponibile in Azure ML Studio. Quali sono le alternative?**
 
-È possibile visitare il [forum con i commenti e suggerimenti degli utenti][] per visualizzare le richieste di funzionalità a cui stiamo dando seguito. Se la funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente.
+È possibile visitare il [forum con i commenti e suggerimenti degli utenti][forum con i commenti e suggerimenti degli utenti] per visualizzare le richieste di funzionalità a cui stiamo dando seguito. Se la funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente.
 
 **11. È possibile importare il codice esistente in ML Studio?**
 
@@ -100,23 +100,23 @@ Dopo che il modello predittivo è stato distribuito nell'ambiente di produzione,
 
 **17. Dove è possibile trovare risorse di formazione per Azure ML?**
 
-In [Azure Machine Learning Center][] sono disponibili esercitazioni video e procedure dettagliate. Nelle procedure dettagliate viene fornita un'introduzione ai servizi e viene descritto il ciclo di vita delle operazioni di importazione dei dati, pulizia dei dati, creazione di modelli predittivi e importazione dei modelli nell'ambiente di produzione con Azure ML.
+In [Azure Machine Learning Center][Azure Machine Learning Center] sono disponibili esercitazioni video e procedure dettagliate. Nelle procedure dettagliate viene fornita un'introduzione ai servizi e viene descritto il ciclo di vita delle operazioni di importazione dei dati, pulizia dei dati, creazione di modelli predittivi e importazione dei modelli nell'ambiente di produzione con Azure ML.
 
 Le esercitazioni video offrono invece una panoramica visiva di ML Studio e del servizio ML API. Nelle esercitazioni video viene fornita una panoramica del servizio e vengono descritti i moduli di ingresso, pulizia ed elaborazione dei dati più comuni e le procedure per la creazione e la successiva distribuzione dei modelli predittivi. Nelle esercitazioni video vengono anche illustrate attività quali il provisioning dell'area di lavoro e la distribuzione dei modelli di gestione temporanea nell'ambiente di produzione.
 
-Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. È possibile inviare richieste di ulteriore materiale di formazione nel [forum dei commenti e suggerimenti degli utenti][] di Machine Learning Center.
+Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. È possibile inviare richieste di ulteriore materiale di formazione nel [forum dei commenti e suggerimenti degli utenti][forum dei commenti e suggerimenti degli utenti] di Machine Learning Center.
 
 **18. Come è possibile richiedere supporto per Azure ML?**
 
-Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per richiedere supporto tecnico per Azure ML, selezionare il servizio 'Machine Learning'. Scegliere una delle categorie di argomenti per inviare il ticket di supporto. Per altre informazioni sull'offerta di supporto di Azure, vedere [http://azure.microsoft.com/it-it/support/options/][]
+Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per richiedere supporto tecnico per Azure ML, selezionare il servizio 'Machine Learning'. Scegliere una delle categorie di argomenti per inviare il ticket di supporto. Per altre informazioni sull'offerta di supporto di Azure, vedere [http://azure.microsoft.com/it-it/support/options/][http://azure.microsoft.com/it-it/support/options/]
 
-È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure][].
+È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure][forum di Azure].
 
   [introduzione]: http://go.microsoft.com/fwlink/?LinkId=404226
   [Azure Machine Learning Center]: http://azure.microsoft.com/it-it/documentation/services/machine-learning/
-  [http://azure.microsoft.com/it-it/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
-  [http://azure.microsoft.com/it-it/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
+  [http://azure.microsoft.com/it-it/pricing/details/machine-learning/]: http://azure.microsoft.com/it-it/pricing/details/machine-learning/
+  [http://azure.microsoft.com/it-it/pricing/free-trial-faq/]: http://azure.microsoft.com/it-it/pricing/free-trial-faq/
   [forum con i commenti e suggerimenti degli utenti]: http://go.microsoft.com/fwlink/?LinkId=404231
   [forum dei commenti e suggerimenti degli utenti]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [http://azure.microsoft.com/it-it/support/options/]: http://azure.microsoft.com/en-us/support/options/
+  [http://azure.microsoft.com/it-it/support/options/]: http://azure.microsoft.com/it-it/support/options/
   [forum di Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

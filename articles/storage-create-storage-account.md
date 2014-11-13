@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to create" pageTitle="Come creare un account di archiviazione | Azure" metaKeywords="" description="Informazioni su come creare un account di archiviazione nel portale di gestione di Azure." metaCanonical="" services="storage" documentationCenter="" title="Come creare un account di archiviazione" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Come creare un account di archiviazione
 
@@ -23,13 +23,13 @@ Per informazioni sulla capacità e sulla velocità effettiva dell'account di arc
 
     ![NewStorageAccount][NewStorageAccount]
 
-3.  In **URL** immettere un nome di sottodominio da utilizzare nell'URL dell'account di archiviazione. Per accedere a un oggetto in memoria, si aggiungerà il percorso dell'oggetto all'endpoint. L'URL per accedere a un BLOB, ad esempio, potrebbe essere http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+3.  In **URL** immettere un nome di sottodominio da usare nell'URL dell'account di archiviazione. Per accedere a un oggetto in memoria, si aggiungerà il percorso dell'oggetto all'endpoint. L'URL per accedere a un BLOB, ad esempio, potrebbe essere http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 4.  In **Region/Affinity Group** selezionare un'area o un gruppo di affinità per la memoria. Selezionare un gruppo di affinità invece di un'area se si desidera che servizi di archiviazione si trovino nello stesso data center con gli altri servizi di Azure in uso. Ciò può migliorare le prestazioni e non sono previste spese per l'uscita.
 
-    > [WACOM.NOTE] \> Per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È inoltre possibile creare e gestire gruppi di affinità mediante l'API Gestione servizi di Azure. Per ulteriori informazioni, vedere [Operazioni sui gruppi di affinità][Operazioni sui gruppi di affinità].
+    > [WACOM.NOTE] \> Per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È inoltre possibile creare e gestire gruppi di affinità mediante l'API Gestione servizi di Azure. Per altre informazioni, vedere [Operazioni sui gruppi di affinità][Operazioni sui gruppi di affinità].
 
-5.  Se si dispone di più sottoscrizioni di Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione. È possibile creare fino a cinque account di archiviazione per una sottoscrizione.
+5.  Se si dispone di più sottoscrizioni di Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui usare l'account di archiviazione. È possibile creare fino a cinque account di archiviazione per una sottoscrizione.
 
 6.  In **Replication** selezionare i livello di replica desiderato per l'account di archiviazione.
 
@@ -37,7 +37,7 @@ Per informazioni sulla capacità e sulla velocità effettiva dell'account di arc
 
 7.  Fare clic su **Create Storage Account**.
 
-    Potrebbero essere necessari alcuni minuti per creare l'account di archiviazione. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale. Il nuovo account di archiviazione creato presenta lo stato **Online** ed è pronto per essere utilizzato.
+    Potrebbero essere necessari alcuni minuti per creare l'account di archiviazione. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale. Il nuovo account di archiviazione creato presenta lo stato **Online** ed è pronto per essere usato.
 
     ![StoragePage][StoragePage]
 
@@ -45,7 +45,7 @@ Per informazioni sulla capacità e sulla velocità effettiva dell'account di arc
 
 -   Per altre informazioni sull'archiviazione di Azure, vedere la relativa documentazione sul sito Web [azure.com][azure.com] e su [MSDN][MSDN].
 
--   Visitare il [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
+-   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
 
   [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/dn249410.aspx
   [Procedura: Creare un account di archiviazione]: #create
@@ -53,7 +53,6 @@ Per informazioni sulla capacità e sulla velocità effettiva dell'account di arc
   [portale di gestione]: https://manage.windowsazure.com
   [NewStorageAccount]: ./media/storage-create-storage-account/storage_NewStorageAccount.png
   [Operazioni sui gruppi di affinità]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460798.aspx
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
   [azure.com]: http://azure.microsoft.com/it-it/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/it-it/library/gg433040.aspx

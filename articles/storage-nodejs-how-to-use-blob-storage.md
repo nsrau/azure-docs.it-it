@@ -1,8 +1,8 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Come usare il servizio di archiviazione BLOB (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Come usare il servizio BLOB da Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
-# Come utilizzare il servizio BLOB da Node.js
+# Come usare il servizio BLOB da Node.js
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio BLOB di
 Azure. Gli esempi sono scritti usando l'API
@@ -15,10 +15,10 @@ vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 -   [Informazioni sul servizio BLOB][Informazioni sul servizio BLOB]
 -   [Concetti][Concetti]
--   [Creazione di un account di archiviazione di Azure][Creazione di un account di archiviazione di Azure]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
 -   [Creazione di un'applicazione Node.js][Creazione di un'applicazione Node.js]
 -   [Configurazione dell'applicazione per l'accesso all'archiviazione][Configurazione dell'applicazione per l'accesso all'archiviazione]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Configurare una stringa di connessione di archiviazione di Azure][Configurare una stringa di connessione di archiviazione di Azure]
 -   [Procedura: Creare un contenitore][Procedura: Creare un contenitore]
 -   [Procedura: Caricare un BLOB in un contenitore][Procedura: Caricare un BLOB in un contenitore]
 -   [Procedura: Elencare i BLOB in un contenitore][Procedura: Elencare i BLOB in un contenitore]
@@ -36,16 +36,16 @@ vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## <a name="create-app"> </a>Creazione di un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o [Sito Web con WebMatrix][Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurazione dell'applicazione per l'accesso all'archiviazione
 
 Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK per Node.js, che comprende un set di librerie che
 comunicano con i servizi di archiviazione REST.
 
-### Utilizzare Node Package Manager (NPM) per ottenere il pacchetto
+### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Utilizzare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
+1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 
 2.  Digitare **npm install azure-storage** nella finestra di comando, che dovrebbe
     restituire il seguente output:
@@ -67,8 +67,8 @@ comunicano con i servizi di archiviazione REST.
 
 ### Importare il pacchetto
 
-Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file
-**server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
+Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file
+**server.js** dell'applicazione dove si intende usare l'archiviazione:
 
     var azure = require('azure-storage');
 
@@ -116,7 +116,7 @@ Nell'esempio seguente viene illustrata l'impostazione del livello di accesso su 
       }
     });
 
-In alternativa, è possibile modificare il livello di accesso di un contenitore utilizzando **setContainerAcl** per specificare il livello di accesso. Nell'esempio seguente viene illustrata la modifica del livello di accesso al contenitore:
+In alternativa, è possibile modificare il livello di accesso di un contenitore usando **setContainerAcl** per specificare il livello di accesso. Nell'esempio seguente viene illustrata la modifica del livello di accesso al contenitore:
 
     blobSvc.setContainerAcl('mycontainer', null, 'container', function(error, result, response){
       if(!error){
@@ -128,7 +128,7 @@ Il risultato conterrà informazioni sull'operazione, incluse le informazioni **E
 
 ### Filtri
 
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **BlobService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **BlobService**. Le operazioni di filtro possono includere registrazione, ripetizione automatica di tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
         function handle (requestOptions, next)
 
@@ -138,7 +138,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 
 In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
-Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **BlobService** che utilizza **ExponentialRetryPolicyFilter**:
+Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **BlobService** che usa **ExponentialRetryPolicyFilter**:
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
     var blobSvc = azure.createBlobService().withFilter(retryOperations);
@@ -175,7 +175,7 @@ Per caricare i dati in un BLOB di pagine, usare le operazioni seguenti:
 
 -   **createPageBlob**: crea un nuovo BLOB di pagine con una lunghezza specifica.
 
--   **createPageBlobFromFile**: crea un nuovo BLOB di pagine e carica i contenuti di un file.
+-   **createPageBlobFromLocalFile**: crea un nuovo BLOB di pagine e carica i contenuti di un file.
 
 -   **createPageBlobFromStream**: crea un nuovo BLOB di pagine e carica i contenuti di un flusso.
 
@@ -185,7 +185,7 @@ Per caricare i dati in un BLOB di pagine, usare le operazioni seguenti:
 
 Nell'esempio seguente viene caricato il contenuto del file **test.txt** nel BLOB **mypageblob**.
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -369,17 +369,17 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti
 seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
 -   [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
 -   Archivio [Azure SDK for Node][Azure SDK for Node] su GitHub.
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul servizio BLOB]: #what-is
   [Concetti]: #concepts
-  [Creazione di un account di archiviazione di Azure]: #create-account
+  [Creare un account di archiviazione di Azure]: #create-account
   [Creazione di un'applicazione Node.js]: #create-app
   [Configurazione dell'applicazione per l'accesso all'archiviazione]: #configure-access
-  [Configurazione di una stringa di connessione di archiviazione di Azure]: #setup-connection-string
+  [Configurare una stringa di connessione di archiviazione di Azure]: #setup-connection-string
   [Procedura: Creare un contenitore]: #create-container
   [Procedura: Caricare un BLOB in un contenitore]: #upload-blob
   [Procedura: Elencare i BLOB in un contenitore]: #list-blob
@@ -387,8 +387,6 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [Procedura: Eliminare un BLOB]: #delete-blobs
   [Procedura: Accesso simultaneo]: #concurrent-access
   [Procedura: Usare le firme di accesso condiviso di Azure]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/

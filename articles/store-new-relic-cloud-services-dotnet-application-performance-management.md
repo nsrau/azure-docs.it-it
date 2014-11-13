@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="New Relic" pageTitle="Uso di New Relic con Azure - Guide alle funzionalit&agrave; di Azure" metaKeywords="" description="Informazioni sull'uso del servizio New Relic per gestire e monitorare l'applicazione Azure." metaCanonical="" services="" documentationCenter=".NET" title="Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure" authors="" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
@@ -7,7 +7,7 @@
 Questa guida descrive come aggiungere New Relic per un monitoraggio
 di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice
 e rapido per aggiungere New Relic all'applicazione e ne
-verranno presentate alcune funzionalità. Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic][Utilizzo di New Relic].
+verranno presentate alcune funzionalità. Per altre informazioni sull'utilizzo di New Relic, vedere [Uso di New Relic][Uso di New Relic].
 
 ## Informazioni su New Relic
 
@@ -35,7 +35,7 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Sto
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-## Iscrizione a New Relic utilizzando Azure Store
+## Iscrizione a New Relic usando Azure Store
 
 New Relic si integra facilmente con i ruoli Web e di lavoro di Azure.
 
@@ -63,7 +63,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 ### Passaggio 2. Installare il pacchetto Nuget
 
 1.  Aprire la soluzione Visual Studio o crearne una nuova selezionando
-     **File \> Nuovo \> Progetto**.
+     **** File \> Nuovo \> Progetto.
 
     ![Visual Studio][Visual Studio]
 
@@ -88,7 +88,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
     ![Immettere il codice di licenza][Immettere il codice di licenza]
 
 6.  Facoltativo: al prompt del nome dell'applicazione, immettere il nome dell'applicazione
-    come verrà visualizzato nel dashboard di New Relic. In alternativa, è possibile utilizzare il nome della soluzione come nome predefinito.
+    come verrà visualizzato nel dashboard di New Relic. In alternativa, è possibile usare il nome della soluzione come nome predefinito.
 
     ![Immettere il nome dell'applicazione][Immettere il nome dell'applicazione]
 
@@ -115,11 +115,11 @@ Per visualizzare il dashboard di New Relic:
 
     Dopo avere selezionato un'applicazione dall'elenco nel menu **Applications**, nel dashboard **Overview** verranno visualizzate le informazioni relative al server applicazioni e al browser.
 
-### <span id="using-new-relic"></span></a>Utilizzare New Relic
+### <span id="using-new-relic"></span></a>Usare New Relic
 
 Dopo avere selezionato l'applicazione dall'elenco nel menu Applications, nel dashboard Overview verranno visualizzate le informazioni relative al server applicazioni e al browser. Per passare da una visualizzazione all'altra, fare clic sul pulsante **App server** o **Browser**.
 
-Oltre alle funzioni fornite dall'[interfaccia utente standard di New Relic][interfaccia utente standard di New Relic] e dal [drill-down dei dashboard][drill-down dei dashboard], nel dashboard Applications Overview sono disponibili funzioni aggiuntive.
+Oltre alle funzioni fornite dall'[interfaccia utente standard di New Relic][interfaccia utente standard di New Relic] e [dal drill-down dei dashboard][dal drill-down dei dashboard], nel dashboard Applications Overview sono disponibili funzioni aggiuntive.
 
 <table>
 <colgroup>
@@ -175,7 +175,7 @@ Di seguito è riportato un esempio del dashboard Applications Overview quando è
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiuntive:
+Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
 
 -   [Installazione dell'agente .NET in Azure][Installazione dell'agente .NET in Azure]: procedure di installazione dell'agente .NET di New Relic
 -   [Interfaccia utente di New Relic][Interfaccia utente di New Relic]:
@@ -186,7 +186,7 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
     relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
 -   [Supporto][Supporto]: risorse disponibili tramite l'Help Center di New Relic
 
-  [Utilizzo di New Relic]: #using-new-relic
+  [Uso di New Relic]: #using-new-relic
   [pagina dedicata a New Relic in Azure Store]: http://www.windowsazure.com/it-it/gallery/store/new-relic/new-relic/
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Visual Studio]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png
@@ -200,7 +200,7 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
   [Impostazioni di pubblicazione]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png
   [Dashboard di monitoraggio di New Relics]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png
   [interfaccia utente standard di New Relic]: https://newrelic.com/docs/site/the-new-relic-ui#functions
-  [drill-down dei dashboard]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
+  [dal drill-down dei dashboard]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
   [1]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png
   [Installazione dell'agente .NET in Azure]: https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure

@@ -1,11 +1,13 @@
 ### Installazione tramite Composer
 
-1.  [Installare Git][].
+1.  [Installare Git][Installare Git].
 
-    <div class="dev-callout"> 
-<b>Nota</b> 
-<p>In Windows sar&agrave; inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.</p>
-</div>
+    <div class="dev-callout">
+
+    **Nota**
+    In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+
+    </div>
 
 2.  Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
@@ -22,7 +24,7 @@
             "minimum-stability": "dev"
         }
 
-3.  Scaricare **[composer.phar][]** nella radice del progetto.
+3.  Scaricare **[composer.phar][composer.phar]** nella radice del progetto.
 
 4.  Aprire un prompt dei comandi ed eseguire quanto segue nella radice del progetto
 
@@ -32,16 +34,18 @@
 
 Per scaricare e installare manualmente le librerie client PHP per Azure, attenersi alla procedura seguente:
 
-1.  Scaricare un archivio ZIP contenente le librerie da [GitHub][]. In alternativa, dopo il fork dell'archivio, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
+1.  Scaricare un archivio ZIP contenente le librerie da [GitHub][GitHub]. In alternativa, dopo il fork del repository, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
 
-    <div class="dev-callout"> 
-<b>Nota</b> 
-<p>Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> e <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a>. Il modo consigliato per risolvere queste dipendenze &egrave; installare tali pacchetti utilizzando <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Nota**
+    Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP\_Request2][HTTP\_Request2], [Mail\_mime][Mail\_mime] e [Mail\_mimeDecode][Mail\_mimeDecode]. Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [PEAR package manager][PEAR package manager].
+
+    </div>
 
 2.  Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione.
 
-Per altre informazioni sull'installazione delle librerie client PHP per Azure, comprese informazioni sull'installazione di un pacchetto PEAR, vedere [Download di Azure SDK per PHP][].
+Per altre informazioni sull'installazione delle librerie client PHP per Azure, comprese informazioni sull'installazione di un pacchetto PEAR, vedere [Download di Azure SDK per PHP][Download di Azure SDK per PHP].
 
   [Installare Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar

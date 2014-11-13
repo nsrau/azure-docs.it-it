@@ -4,11 +4,11 @@
 
 Quando si crea una macchina virtuale, viene creato automaticamente un servizio cloud per contenerla. È possibile creare più macchine virtuali nello stesso servizio cloud per consentire loro di comunicare, per bilanciare il carico tra le macchine virtuali e per garantire una disponibilità elevata di tali macchine.
 
-Per ulteriori informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del carico delle macchine virtuali][Bilanciamento del carico delle macchine virtuali]. Per ulteriori informazioni sulla gestione della disponibilità dell'applicazione, vedere [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali].
+Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del carico delle macchine virtuali][Bilanciamento del carico delle macchine virtuali]. Per altre informazioni sulla gestione della disponibilità dell'applicazione, vedere [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali].
 
 È innanzitutto necessario creare una macchina virtuale con un nuovo servizio cloud e sarà quindi possibile connettere macchine virtuali aggiuntive alla prima macchina nell'ambito dello stesso servizio cloud.
 
-1.  Creare una macchina virtuale utilizzando i passaggi descritti in [Come creare una macchina virtuale personalizzata][Come creare una macchina virtuale personalizzata].
+1.  Creare una macchina virtuale usando i passaggi descritti in [Come creare una macchina virtuale personalizzata][Come creare una macchina virtuale personalizzata].
 
 2.  Dopo aver creato la prima macchina virtuale personalizzata nella barra dei comandi del [portale di gestione][portale di gestione], fare clic su **New**.
 
@@ -24,11 +24,11 @@ Per ulteriori informazioni sul bilanciamento del carico delle macchine virtuali,
 
     Verrà visualizzata la prima pagina **Virtual machine configuration**.
 
-5.  In **Virtual Machine Name** digitare il nome da utilizzare per la macchina virtuale.
+5.  In **Virtual Machine Name** digitare il nome da usare per la macchina virtuale.
 
-6.  In **Size** selezionare le dimensioni da utilizzare per la macchina virtuale. Il valore da selezionare dipende dal numero di core necessari per l'applicazione.
+6.  In **Size** selezionare le dimensioni da usare per la macchina virtuale. Il valore da selezionare dipende dal numero di core necessari per l'applicazione.
 
-7.  In **New User Name** digitare un nome per l'account amministrativo da utilizzare per la gestione del server.
+7.  In **New User Name** digitare un nome per l'account amministrativo da usare per la gestione del server.
 
 8.  In **New Password** immettere una password complessa per l'account amministrativo. In **Confirm Password** ridigitare la password.
 
@@ -38,7 +38,7 @@ Per ulteriori informazioni sul bilanciamento del carico delle macchine virtuali,
 
 11. In **Storage Account** selezionare un account di archiviazione per archiviare il file VHD oppure lasciare il campo impostato sull'opzione predefinita per creare l'account di archiviazione automaticamente. Verrà creato automaticamente un solo account di archiviazione. Tutte le altre macchine virtuali create con questa impostazione verranno inserite in questo account di archiviazione. È possibile creare un massimo di 20 account di archiviazione.
 
-12. Per utilizzare un set di disponibilità, selezionare quello creato quando si è creata la prima macchina virtuale.
+12. Per usare un set di disponibilità, selezionare quello creato quando si è creata la prima macchina virtuale.
 
 13. Verificare la configurazione dell'endpoint predefinito e, se necessario, modificarla.
 

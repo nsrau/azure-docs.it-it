@@ -1,33 +1,33 @@
-<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Come usare il servizio di accodamento (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda. Gli esempi sono scritti in Python." metaCanonical="" services="storage" documentationCenter="Python" title="Come usare il servizio di archiviazione di accodamento di Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
-# Come utilizzare il servizio di archiviazione di accodamento di Python
+# Come usare il servizio di archiviazione di accodamento di Python
 
 Questa guida illustra come eseguire scenari comuni del servizio di archiviazione
 di accodamento di Windows Azure. Gli esempi sono scritti usando l'API
 Python. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il
 **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed
-eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
+eliminazione delle code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
- [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]  
- [Concetti][Concetti]  
- [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]  
- [Procedura: Creare una coda][Procedura: Creare una coda]  
- [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]  
- [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]  
- [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]  
- [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]  
- [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]  
- [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]  
- [Procedura: Eliminare una coda][Procedura: Eliminare una coda]  
- [Passaggi successivi][Passaggi successivi]  
+[Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
+ [Concetti][Concetti]
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+ [Procedura: Creare una coda][Procedura: Creare una coda]
+ [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]
+ [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
+ [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
+ [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
+ [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]
+ [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
+ [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
+ [Passaggi successivi][Passaggi successivi]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <a name="create-account"> </a>Creazione di un account di archiviazione di Azure
+## <a name="create-account"> </a>Creare un account di archiviazione di Azure
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -35,11 +35,11 @@ eliminazione delle code**. Per ulteriori informazioni sulle code, fare riferimen
 
 ## <a name="create-queue"> </a>Procedura: Creare una coda
 
-L'oggetto **QueueService** consente di utilizzare le code. Il codice seguente consente di creare un oggetto **QueueService**. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
+L'oggetto **QueueService** consente di usare le code. Il codice seguente consente di creare un oggetto **QueueService**. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
 
-    from azure.storage import *
+    from azure.storage import QueueService
 
-Il codice seguente consente di creare un oggetto **QueueService** utilizzando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **QueueService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
 
     queue_service = QueueService(account_name='myaccount', account_key='mykey')
 
@@ -83,8 +83,8 @@ dopo l'elaborazione del messaggio.
 ## <a name="change-contents"> </a>Procedura: Cambiare il contenuto di un messaggio in coda
 
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il
-messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo
-stato. La coda seguente utilizza il metodo **update\_message**
+messaggio rappresenta un'attività di lavoro, è possibile usare questa funzionalità per aggiornarne lo
+stato. La coda seguente usa il metodo **update\_message**
  per aggiornare un messaggio.
 
     messages = queue_service.get_messages('taskqueue')
@@ -96,7 +96,7 @@ stato. La coda seguente utilizza il metodo **update\_message**
 È possibile personalizzare il recupero di messaggi da una coda in due modi.
 Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più
 lungo o più breve assegnando al codice più o meno
-tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo
+tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo
 **get\_messages** per recuperare 16 messaggi con una sola chiamata. Quindi, ogni messaggio
 viene elaborato con un ciclo for. Per ogni messaggio, inoltre, il timeout di invisibilità viene
 impostato su cinque minuti.
@@ -110,7 +110,7 @@ impostato su cinque minuti.
 
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo
 **get\_queue\_metadata** chiede al servizio di accodamento di restituire i metadati
-relativi alla coda. Per trovare il conteggio, è consigliabile utilizzare **x-ms-approximate-messages-count** come indice nel dizionario restituito.
+relativi alla coda. Per trovare il conteggio, è consigliabile usare **x-ms-approximate-messages-count** come indice nel dizionario restituito.
 Il risultato è approssimativo perché è possibile che vengano aggiunti o rimossi messaggi dopo che il servizio di
 accodamento ha risposto alla richiesta.
 
@@ -144,8 +144,6 @@ per altre informazioni sulle attività di archiviazione più complesse.
   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
   [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
   [Procedura: Eliminare una coda]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [guida all'installazione di Python]: ../python-how-to-install/
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

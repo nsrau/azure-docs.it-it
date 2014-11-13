@@ -1,6 +1,10 @@
 # Uso della rete CDN per Azure
 
-La rete per la distribuzione di contenuti (CDN) di Azure offre agli sviluppatori una soluzione globale per il recapito di contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America. Per un elenco aggiornato delle ubicazioni dei nodi della rete CDN, vedere [Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure][Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure].
+La rete per la distribuzione di contenuti (CDN) di Azure offre agli sviluppatori una
+soluzione globale per il recapito di contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB
+e contenuto statico di istanze di calcolo in nodi fisici negli Stati
+Uniti, in Europa, Asia, Australia e Sud America. Per un elenco aggiornato delle
+ubicazioni dei nodi della rete CDN, vedere [Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure][Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure].
 
 Questa attività include i passaggi seguenti:
 
@@ -21,13 +25,22 @@ I clienti esistenti della rete CDN possono ora usare la Rete di distribuzione de
 ## Passaggio 1: Creare un account di archiviazione
 
 </p>
-Usare la procedura seguente per creare un nuovo account di archiviazione per una sottoscrizione di Azure. Un account di archiviazione consente di accedere ai servizi di archiviazione di Azure. L'account di archiviazione rappresenta il livello più elevato dello spazio dei nomi per l'accesso a ogni componente dei servizi di archiviazione di Azure, ovvero: servizi BLOB, servizi di accodamento e servizi tabelle. Per altre informazioni sui servizi di archiviazione di Azure, vedere la pagina relativa all'[uso dei servizi di archiviazione di Azure].
+Usare la procedura seguente per creare un nuovo account di archiviazione per una
+sottoscrizione di Azure. Un account di archiviazione consente di accedere ai
+servizi di archiviazione di Azure. L'account di archiviazione rappresenta il livello più elevato
+dello spazio dei nomi per l'accesso a ogni componente dei servizi di archiviazione di Azure,
+ovvero: servizi BLOB, servizi di accodamento e servizi tabelle. Per altre
+informazioni sui servizi di archiviazione di Azure, vedere la pagina relativa all'[uso dei
+servizi di archiviazione di Azure].
 
-Per creare un account di archiviazione, è necessario essere amministratori del servizio o coamministratori della sottoscrizione.
+Per creare un account di archiviazione, è necessario essere amministratori
+del servizio o coamministratori della sottoscrizione.
 
 <div class="dev-callout">
-<strong>Nota</strong>
-<p>Per informazioni sull'esecuzione di questa operazione tramite l'API di Gestione servizi di Azure, vedere l'argomento di riferimento <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx">Creare un account di archiviazione</a>.</p>
+
+**Nota**
+Per informazioni sull'esecuzione di questa operazione tramite l'API di Gestione servizi di Azure, vedere l'argomento di riferimento [Creare un account di archiviazione][Creare un account di archiviazione].
+
 </div>
 
 **Per creare un account di archiviazione per una sottoscrizione di Azure**
@@ -38,15 +51,21 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
     Verrà visualizzata la finestra di dialogo **Crea account di archiviazione**.
 
-    ![Crea account di archiviazione][1]
+    ![Create Storage Account][Create Storage Account]
 
 4.  Nel campo **URL** immettere un nome di sottodominio. Il nome può contenere tra 3 e 24 lettere minuscole e numeri.
 
-    Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione. Per fare riferimento a una risorsa contenitore nel servizio BLOB, usare un URI con il formato seguente, dove *\<EtichettaAccountArchiviazione\>* corrisponde al valore immesso in **Immettere un URL**:
+    Questo valore diventa il nome host all'interno dell'URI usato per fare
+    riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione. Per
+    fare riferimento a una risorsa contenitore nel servizio BLOB, usare un
+    URI con il formato seguente, dove *\<EtichettaAccountArchiviazione\>* corrisponde
+    al valore immesso in **Immettere un URL**:
 
     http://*\<EtichettaAccountArchiviazione\>*.blob.core.windows.net/*\<contenitorepersonale\>*
 
-    **Importante:** L'etichetta dell'URL costituisce il sottodominio dell'URI dell'account di archiviazione e deve essere univoco in tutti i servizi ospitati in Azure.
+    **Importante:** L'etichetta dell'URL costituisce il sottodominio dell'URI dell'account di
+    archiviazione e deve essere univoco in tutti i servizi ospitati in
+    Azure.
 
     Questo valore viene usato anche come nome dell'account di archiviazione nel portale o quando si accede a questo account a livello di codice.
 
@@ -63,7 +82,11 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 ## Passaggio 2: Creare un nuovo endpoint della rete CDN per l'account di archiviazione
 
 </p>
-Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o a un servizio ospitato, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN. Se si modifica un oggetto attualmente memorizzato nella cache nella rete CDN, il nuovo contenuto sarà disponibile tramite la rete CDN solo dopo l'aggiornamento del contenuto della rete CDN alla scadenza della durata specificata per il contenuto memorizzato nella cache.
+Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o a un servizio ospitato, tutti gli oggetti disponibili
+pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN. Se si
+modifica un oggetto attualmente memorizzato nella cache nella rete CDN, il nuovo contenuto
+sarà disponibile tramite la rete CDN solo dopo l'aggiornamento del contenuto della rete CDN
+alla scadenza della durata specificata per il contenuto memorizzato nella cache.
 
 **Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
 
@@ -77,16 +100,15 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 
 5.  Dopo la creazione, l'endpoint sarà visualizzato in un elenco di endpoint per la sottoscrizione. Nella visualizzazione elenco sono mostrati gli URL da usare per accedere a contenuto memorizzato nella cache, oltre al dominio di origine.
 
-    Il dominio di origine indica l'ubicazione da cui il contenuto viene memorizzato nella cache dalla rete CDN. Il dominio di origine può essere un account di archiviazione o un servizio cloud. In questo esempio viene usato un account di archiviazione. Il contenuto di archiviazione viene memorizzato nella cache dei server perimetrali in base all'impostazione di controllo della cache specificata dall'utente o dall'euristica predefinita della rete di memorizzazione nella cache. Per altre informazioni, vedere [Come gestire la scadenza del contenuto di BLOB][Come gestire la scadenza del contenuto di BLOB].
+    Il dominio di origine indica l'ubicazione da cui il contenuto viene memorizzato nella cache
+    dalla rete CDN. Il dominio di origine può essere un account di archiviazione o un servizio cloud. In questo esempio viene usato un account di archiviazione. Il contenuto di archiviazione viene memorizzato nella cache dei server perimetrali in base all'impostazione di controllo della cache specificata dall'utente o dall'euristica predefinita della rete di memorizzazione nella cache. Per altre informazioni, vedere [Come gestire la scadenza del contenuto di BLOB][Come gestire la scadenza del contenuto di BLOB].
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>La configurazione creata per l'endpoint non sar&agrave;
-disponibile immediatamente. Potrebbero essere necessari fino a 60 minuti per la
-propagazione della registrazione nella rete CDN. &Egrave; possibile che gli utenti che provano a usare
-immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400
-(Richiesta non valida) fino a quando il contenuto non risulter&agrave; disponibile tramite la rete CDN.</p>
-</div>
+
+    **Nota**
+    La configurazione creata per l'endpoint non sarà disponibile immediatamente. Potrebbero essere necessari fino a 60 minuti per la propagazione della registrazione nella rete CDN. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 (Richiesta non valida) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
+
+    </div>
 
 <span id="Step3"></span> </a>
 
@@ -95,23 +117,32 @@ immediatamente il nome di dominio della rete CDN ricevano un errore con codice d
 </p>
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
 
-http://\<*SpaziodeinomiCDN*\>.vo.msecnd.net/\<*ContenitorePubblicoPersonale*\>/\<*NomeBLOB*\>
+http://\<*SpazioDeiNomiCDN*\>.vo.msecnd.net/\<*ContenitorePubblicoPersonale*\>/\<*NomeBLOB*\>
 
 <span id="Step4"></span> </a>
 
 ## Passaggio 4: Rimuovere contenuto dalla rete CDN
 
 </p>
-Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione di contenuti (CDN) di Azure, è possibile eseguire una delle operazioni seguenti:
+Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione
+di contenuti (CDN) di Azure, è possibile eseguire una delle operazioni seguenti:
 
--   Per un oggetto BLOB di Azure è possibile eliminare tale oggetto dal contenitore pubblico.
+-   Per un oggetto BLOB di Azure è possibile eliminare tale oggetto dal contenitore
+    pubblico.
 -   È possibile rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Limitare l'accesso a contenitori e Blob][Limitare l'accesso a contenitori e Blob].
--   L'endpoint della rete CDN può essere disabilitato o eliminato tramite il portale di gestione.
--   È possibile modificare il servizio ospitato, in modo che non risponda più a richieste per l'oggetto.
+-   L'endpoint della rete CDN può essere disabilitato o eliminato tramite il portale di
+    gestione.
+-   È possibile modificare il servizio ospitato, in modo che non risponda più a richieste per
+    l'oggetto.
 
-Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino alla scadenza della durata prevista per l'oggetto. Al termine della durata prevista, la rete CDN verificherà se l'endpoint della rete CDN è ancora valido e se l'oggetto è ancora accessibile in modo anonimo. In caso contrario, l'oggetto non sarà più memorizzato nella cache.
+Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino alla
+scadenza della durata prevista per l'oggetto. Al termine della durata
+prevista, la rete CDN verificherà se l'endpoint della rete CDN è ancora
+valido e se l'oggetto è ancora accessibile in modo anonimo. In caso contrario, l'oggetto
+non sarà più memorizzato nella cache.
 
-Per la rete CDN di Azure non è attualmente disponibile alcuno strumento esplicito per la ripulitura.
+Per la rete CDN
+di Azure non è attualmente disponibile alcuno strumento esplicito per la ripulitura.
 
 ## Risorse aggiuntive
 
@@ -120,18 +151,18 @@ Per la rete CDN di Azure non è attualmente disponibile alcuno strumento esplici
 -   [Informazioni sull'API di gestione del servizio][Informazioni sull'API di gestione del servizio]
 -   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato][Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]
 
-  [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
-  [Step 1: Create a storage account]: #Step1
-  [Step 2: Create a new CDN endpoint for your storage account]: #Step2
-  [Step 3: Access your CDN content]: #Step3
-  [Step 4: Delete your CDN content]: #Step4
-  [Azure Management Portal]: https://manage.windowsazure.com/
-  [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
-  [Operations on Affinity Groups]: http://msdn.microsoft.com/library/azure/ee460798.aspx
-  [How to Manage Expiration of Blob Content]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-  [Restrict Access to Containers and Blobs]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-  [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Ubicazioni dei nodi della rete di distribuzione dei contenuti (CDN) di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680302.aspx
+  [Passaggio 1: Creare un account di archiviazione]: #Step1
+  [Passaggio 2: Creare un nuovo endpoint della rete CDN per l'account di archiviazione]: #Step2
+  [Passaggio 3: Accedere ai contenuti della rete CDN]: #Step3
+  [Passaggio 4: Eliminare i contenuti della rete CDN]: #Step4
+  [portale di gestione di Azure]: https://manage.windowsazure.com/
+  [piano di fatturazione specifico]: /it-it/pricing/calculator/?scenario=full
+  [Creare un account di archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
+  [Create Storage Account]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [Operazioni sui gruppi di affinità]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+  [Come gestire la scadenza del contenuto di BLOB]: http://msdn.microsoft.com/it-it/library/gg680306.aspx
+  [Limitare l'accesso a contenitori e Blob]: http://msdn.microsoft.com/it-it/library/dd179354.aspx
+  [Procedura: Gestione degli account di archiviazione per una sottoscrizione di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh531567.aspx
+  [Informazioni sull'API di gestione del servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460807.aspx
+  [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx

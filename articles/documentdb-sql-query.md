@@ -1,6 +1,6 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Eseguire query con DocumentDB SQL" pageTitle="Eseguire query con DocumentDB SQL | Azure" description="DocumentDB supporta l'esecuzione di query basate su una grammatica simile a quella SQL su documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Query DocumentDB
 
@@ -132,7 +132,7 @@ La query successiva restituisce tutti i nomi dei bambini nella famiglia il cui I
 
 -   Poiché il linguaggio SQL di DocumentDB elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al linguaggio SQL che fa riferimento al riferimento in due parti di `<table>.<column>`.
 -   Il linguaggio interagisce con i dati senza schema, perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.
--   DocumentDB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON] (<http://www.json.org/>).
+-   DocumentDB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON] (http://www.json.org/).
 -   Una raccolta di DocumentDB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno dei e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni PK-FK. È un aspetto importante da sottolineare alla luce dei join tra documenti, di cui si discuterà più avanti in questo articolo.
 
 # Indicizzazione di DocumentDB
@@ -153,7 +153,7 @@ Di conseguenza, durante la progettazione del sottosistema di indicizzazione di D
 
 -   Efficienza nell'archiviazione: Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili. Ciò è fondamentale perché DocumentDB consente allo sviluppatore di accettare compromessi basati sul costo tra spese relative all'indice e prestazioni delle query.
 
-Per informazioni su come configurare i criteri di indicizzazione per una raccolta, vedere gli [esempi di DocumentDB] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>) su MSDN. Verrà ora analizzato più dettagliatamente il linguaggio SQL di DocumentDB.
+Per informazioni su come configurare i criteri di indicizzazione per una raccolta, vedere gli [esempi di DocumentDB] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) su MSDN. Verrà ora analizzato più dettagliatamente il linguaggio SQL di DocumentDB.
 
 # Nozioni di base sulle query di DocumentDB
 
@@ -317,7 +317,7 @@ Confronto
 <tr>
 
 <td>
-Stringa
+String
 
 </td>
 
@@ -1321,7 +1321,7 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 
        UserDefinedFunction sqrtUdf = new UserDefinedFunction
        {
-           Name = "SQRT",
+           Id = "SQRT",
            Body = @"function(number) { 
                        return Math.sqrt(number);
                    };",
@@ -1374,7 +1374,7 @@ Per ampliare la potenza delle UDF, verrà ora analizzato un altro esempio che pr
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
-           Name = "SEALEVEL",
+           Id = "SEALEVEL",
            Body = @"function(city) {
                 switch (city) {
                     case 'seattle':
@@ -1432,13 +1432,13 @@ LINQ è un modello di programmazione .NET che esprime il calcolo come query su f
 
 Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Grazie al client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che reindirizzerebbe la query al provider di query di DocumentDB, il quale a sua volta traduce la query di LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
 
-![][]
+![][0]
 
 ## Mapping .NET e JSON
 
 Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio descritto di seguito. L'oggetto Family creato viene mappato al documento JSON, come illustrato di seguito. Viceversa, il documento JSON viene mappato nuovamente a un oggetto .NET.
 
-**Classe C\#**
+**Classe C#**
 
     public class Family
     {
@@ -1844,7 +1844,7 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
 
 Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count`.
 
-Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di DocumentDB][].
+Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di DocumentDB][Livelli di coerenza di DocumentDB].
 
 Se i criteri di indicizzazione configurati sulla raccolta non possono supportare la query specificata, il server di DocumentDB restituisce il codice di errore 400 (Richiesta non valida). Questo codice viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
@@ -1925,7 +1925,7 @@ Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine de
 
 Gli sviluppatori possono anche controllare esplicitamente il paging creando un oggetto `IDocumentQueryable` che usi l'oggetto `IQueryable`, quindi leggendo i valori `ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` a `FeedOptions`. È possibile impostare `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
 
-Per altri esempi di query, vedere gli [esempi di .NET in DocumentDB] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>).
+Per altri esempi di query, vedere gli [esempi di .NET in DocumentDB] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content).
 
 ## API lato server JavaScript
 
@@ -1965,25 +1965,21 @@ Nell'esempio seguente viene illustrato come usare queryDocuments nell'API del se
 
 # Riferimenti
 
-1.  [Introduzione ad Azure DocumentDB][]
-2.  [Specifica del linguaggio SQL di DocumentDB] (<http://go.microsoft.com/fwlink/p/?LinkID=510612>)
-3.  [Esempi di .NET in DocumentDB] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>)
+1.  [Introduzione ad Azure DocumentDB][Introduzione ad Azure DocumentDB]
+2.  [Specifica del linguaggio SQL di DocumentDB] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.  [Esempi di .NET in DocumentDB] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)
 4.  [Livelli di coerenza in DocumentDB][Livelli di coerenza di DocumentDB]
-5.  ANSI SQL 2011 - [][]<http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681></a>
-6.  JSON [][1]<http://json.org/></a>
-7.  Specifiche Javascript [][2]<http://www.ecma-international.org/publications/standards/Ecma-262.htm></a>
-8.  LINQ [][3][http://msdn.microsoft.com/it-it/library/bb308959.aspx][3]</a>
-9.  Tecniche di valutazione delle query per database di grandi dimensioni [][4]<http://dl.acm.org/citation.cfm?id=152611></a>
+5.  ANSI SQL 2011 - <http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681>
+6.  JSON <http://json.org/>
+7.  Specifiche Javascript <http://www.ecma-international.org/publications/standards/Ecma-262.htm>
+8.  LINQ [http://msdn.microsoft.com/it-it/library/bb308959.aspx][http://msdn.microsoft.com/it-it/library/bb308959.aspx]
+9.  Tecniche di valutazione delle query per database di grandi dimensioni <http://dl.acm.org/citation.cfm?id=152611>
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-  []: ./media/documentdb-sql-query/sql-query1.png
+  [0]: ./media/documentdb-sql-query/sql-query1.png
   [Livelli di coerenza di DocumentDB]: ../documentdb-consistency-levels
   [Introduzione ad Azure DocumentDB]: ../documentdb-introduction
-  []: http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681
-  [1]: http://json.org/
-  [2]: http://www.ecma-international.org/publications/standards/Ecma-262.htm
-  [3]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
-  [4]: http://dl.acm.org/citation.cfm?id=152611
+  [http://msdn.microsoft.com/it-it/library/bb308959.aspx]: http://msdn.microsoft.com/it-it/library/bb308959.aspx

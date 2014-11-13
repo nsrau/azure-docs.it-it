@@ -1,4 +1,4 @@
-I dati dell'account di archiviazione vengono replicati per assicurarne la durabilità e l'elevata disponibilità, in modo da soddisfare il [contratto di servizio di Archiviazione di Azure][] anche in caso di errori hardware temporanei. Il servizio di archiviazione di Azure è distribuito in 15 aree geografiche in tutto il mondo e include il supporto per la replica dei dati tra aree geografiche. Sono disponibili varie opzioni per replicare i dati nell'account di archiviazione:
+I dati dell'account di archiviazione vengono replicati per assicurarne la durabilità e l'elevata disponibilità, in modo da soddisfare il [contratto di servizio di Archiviazione di Azure][contratto di servizio di Archiviazione di Azure] anche in caso di errori hardware temporanei. Il servizio di archiviazione di Azure è distribuito in 15 aree geografiche in tutto il mondo e include il supporto per la replica dei dati tra aree geografiche. Sono disponibili varie opzioni per replicare i dati nell'account di archiviazione:
 
 -   Con *l'archiviazione con ridondanza locale* vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.
 
@@ -16,11 +16,11 @@ I dati dell'account di archiviazione vengono replicati per assicurarne la durabi
 
 -   *Archiviazione con ridondanza geografica e accesso in lettura*: garantisce tutti i vantaggi dell'archiviazione con ridondanza geografica e consente inoltre l'accesso in lettura ai dati nell'area geografica secondaria in caso di non disponibilità dell'area geografica principale. Questo tipo di archiviazione è consigliato per ottenere la massima disponibilità oltre alla durabilità dei dati.
 
-Per informazioni dettagliate sulle opzioni di replica, vedere il [Blog del team di Archiviazione di Azure][] e [Opzioni di ridondanza di Archiviazione di Azure][].
+Per informazioni dettagliate sulle opzioni di replica, vedere il [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure] e [Opzioni di ridondanza di Archiviazione di Azure][Opzioni di ridondanza di Archiviazione di Azure].
 
-Le differenze di prezzo tra le varie opzioni di archiviazione sono disponibili nella pagina [Prezzi di Archiviazione di Azure][].
+Le differenze di prezzo tra le varie opzioni di archiviazione sono disponibili nella pagina [Prezzi di Archiviazione di Azure][Prezzi di Archiviazione di Azure].
 
-  [contratto di servizio di Archiviazione di Azure]: /en-us/support/legal/sla/
+  [contratto di servizio di Archiviazione di Azure]: /it-it/support/legal/sla/
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Opzioni di ridondanza di Archiviazione di Azure]: http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx
-  [Prezzi di Archiviazione di Azure]: /en-us/pricing/details/storage/
+  [Opzioni di ridondanza di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn727290.aspx
+  [Prezzi di Archiviazione di Azure]: /it-it/pricing/details/storage/

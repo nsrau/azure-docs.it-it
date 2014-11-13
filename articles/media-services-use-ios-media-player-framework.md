@@ -1,8 +1,8 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Media Player Framework" pageTitle="Usare Media Player Framework per iOS con Servizi multimediali di Azure" metaKeywords="" description="Informazioni su come usare la libreria Media Player Framework per iOS di Servizi multimediali di Azure per creare app complesse e dinamiche." metaCanonical="" services="media-services" documentationCenter="" title="Come usare Media Player Framework per iOS di Servizi multimediali di Azure" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
-# Come utilizzare Media Player Framework per iOS di Servizi multimediali di Azure
+# Come usare Media Player Framework per iOS di Servizi multimediali di Azure
 
 La libreria Media Player Framework per iOS di Servizi multimediali di Azure consente agli sviluppatori per dispositivi iPod, iPhone e iPad di creare con facilità applicazioni client complesse e dinamiche, in grado di generare e combinare rapidamente flussi audio e video. Ad esempio, nelle applicazioni in cui vengono visualizzati contenuti sportivi è possibile inserire facilmente qualsiasi tipo di annuncio e controllarne la frequenza di visualizzazione anche quando si ritorna al contenuto principale. Questa funzionalità è utile anche per le applicazioni didattiche, ad esempio per creare lezioni in cui vengono visualizzate digressioni o intestazioni laterali prima di tornare al contenuto principale.
 
@@ -17,11 +17,11 @@ In genere, la compilazione di un'applicazione in grado di creare flussi di conte
 
 La combinazione di queste funzionalità con quelle di riproduzione multimediale dei dispositivi iOS consente di creare esperienze multimediali avanzate in tempi brevi e con meno risorse.
 
-L'SDK contiene un'applicazione SamplePlayer che illustra come creare un'applicazione per iOS che utilizzi la maggior parte di queste funzionalità per creare un flusso di contenuti in tempo reale e consentire all'utente di attivare dinamicamente altro contenuto con la semplice pressione di un pulsante. In questa esercitazione vengono illustrati i componenti principali dell'applicazione SamplePlayer e viene mostrato come utilizzarli come punto di partenza per creare un'applicazione.
+L'SDK contiene un'applicazione SamplePlayer che illustra come creare un'applicazione per iOS che utilizzi la maggior parte di queste funzionalità per creare un flusso di contenuti in tempo reale e consentire all'utente di attivare dinamicamente altro contenuto con la semplice pressione di un pulsante. In questa esercitazione vengono illustrati i componenti principali dell'applicazione SamplePlayer e viene mostrato come usarli come punto di partenza per creare un'applicazione.
 
 ## Introduzione all'applicazione SamplePlayer
 
-Nella procedura riportata di seguito viene descritto come ottenere l'applicazione e vengono presentate le aree dell'applicazione che utilizzano il framework.
+Nella procedura riportata di seguito viene descritto come ottenere l'applicazione e vengono presentate le aree dell'applicazione che usano il framework.
 
 1.  Clonare l'archivio Git.
 
@@ -31,7 +31,7 @@ Nella procedura riportata di seguito viene descritto come ottenere l'applicazion
 
 3.  Di seguito è illustrata la struttura del lettore di esempio:
 
-![Struttura del codice di esempio HLS][]
+![Struttura del codice di esempio HLS][Struttura del codice di esempio HLS]
 
 1.  Nella cartella iPad sono presenti due file con estensione xib: **SeekbarViewController** e **SamplePlayerViewController**. Consentono di creare il layout dell'interfaccia utente dell'applicazione per iPad. Analogamente, nella cartella iPhone sono presenti due file con estensione xib che consentono di definire la barra di scorrimento e il controller.
 
@@ -39,20 +39,20 @@ Nella procedura riportata di seguito viene descritto come ottenere l'applicazion
 
 ## Informazioni sul layout dell'interfaccia utente
 
-L'interfaccia del lettore è definita tramite due file con estensione xib. Nella sezione seguente verrà utilizzato il layout di un dispositivo iPad come esempio, tuttavia, il layout dell'iPhone è molto simile e i principi sono gli stessi.
+L'interfaccia del lettore è definita tramite due file con estensione xib. Nella sezione seguente verrà usato il layout di un dispositivo iPad come esempio, tuttavia, il layout dell'iPhone è molto simile e i principi sono gli stessi.
 
 ### SamplePlayerViewController\_iPad.xib
 
-![Barra degli indirizzi del lettore di esempio][]
+![Barra degli indirizzi del lettore di esempio][Barra degli indirizzi del lettore di esempio]
 
--   In **Media URL** viene specificato l'URL utilizzato per caricare un flusso multimediale. L'applicazione dispone di un elenco prepopolato di URL multimediali che è possibile utilizzare tramite i pulsanti di selezione dell'URL. In alternativa, è possibile specificare l'URL del contenuto HLS (HTTP Live Streaming) personalizzato. Il contenuto multimediale verrà usato come primo contenuto principale.
+-   In **Media URL** viene specificato l'URL usato per caricare un flusso multimediale. L'applicazione include un elenco prepopolato di URL multimediali che è possibile usare tramite i pulsanti di selezione dell'URL. In alternativa, è possibile specificare l'URL del contenuto HLS (HTTP Live Streaming) personalizzato. Il contenuto multimediale verrà usato come primo contenuto principale.
     **Nota: non lasciare questo URL vuoto.**
 
 -   I pulsanti **URL Selection** consentono di selezionare URL alternativi dall'elenco di URL del contenuto multimediale.
 
 ### SeekbarViewController\_iPad.xib
 
-![Controller Seek Bar][]
+![Controller Seek Bar][Controller Seek Bar]
 
 -   Usare il **pulsante di riproduzione** per riprodurre e sospendere la riproduzione del contenuto multimediale.
 
@@ -92,7 +92,7 @@ Nel codice di esempio precedente:
 
 **Nota:** programmare sempre il contenuto principale prima di pianificare eventuali annunci, inclusi gli annunci preroll.
 
-### Variante: Se è in corso la riproduzione di due video di contenuto principali, è possibile programmare la riproduzione del secondo contenuto dopo il primo utilizzando il codice seguente:
+### Variante: Se è in corso la riproduzione di due video di contenuto principali, è possibile programmare la riproduzione del secondo contenuto dopo il primo usando il codice seguente:
 
     //Schedule second content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -112,13 +112,13 @@ Nella versione corrente è supportato solo un annuncio **pauseTimeline=false** e
 
 Di seguito sono riportati alcuni aspetti importanti:
 
--   Tutti gli elementi \*\*LinearTime.duration\*\* devono essere impostati su 0 durante la programmazione di un annuncio.
--   Quando \*\*clipEndMediaTime\*\* è più lungo rispetto alla durata dell'annuncio, l'annuncio termina dopo la fine e non viene generata alcuna eccezione. Si consiglia di verificare se la durata naturale di un annuncio è compresa nell'intervallo di rendering (\*\*clipEndMediaTime\*\*) in modo da non perdere un'opportunità di annuncio.
+-   Tutti gli elementi **LinearTime.duration** devono essere impostati su 0 durante la programmazione di un annuncio.
+-   Quando **clipEndMediaTime** è più lungo rispetto alla durata dell'annuncio, l'annuncio termina dopo la fine e non viene generata alcuna eccezione. Si consiglia di verificare se la durata naturale di un annuncio è compresa nell'intervallo di rendering (**clipEndMediaTime**) in modo da non perdere un'opportunità di annuncio.
 -   Sono supportati gli annunci preroll, midroll e postroll. Gli annunci preroll possono essere programmati solo immediatamente all'inizio di qualsiasi contenuto. Ad esempio, non è possibile programmare un annuncio preroll per il secondo contenuto in uno scenario RCE (Rough Cut Editing).
 -   Sono supportati gli annunci a più riproduzioni e a riproduzione singola e possono essere usati in abbinamento ad annunci preroll, midroll o postroll.
 -   Il formato dell'annuncio può essere MP4 o HLS.
 
-
+</p>
 ### Come programmare annunci preroll, midroll, postroll e podcast annuncio
 
 #### Programmazione di annunci preroll
@@ -142,7 +142,7 @@ Di seguito sono riportati alcuni aspetti importanti:
 L'oggetto **AdInfo** rappresenta tutte le informazioni relative al clip dell'annuncio:
 
 -   **ClipURL** indica l'URL per l'origine del clip.
--   La proprietà **mediaTime** indica la durata della riproduzione di un annuncio. (**clipBeginMediaTime** indica l'ora di inizio di un annuncio e **clipEndMediaTime** definisce la fine dell'annuncio). Nel codice di esempio precedente, è stato programmato un annuncio per 5 secondi, con inizio al secondo 0 e fino al 5° secondo della durata dell'annuncio.
+-   La proprietà **mediaTime** indica la durata della riproduzione di un annuncio (**clipBeginMediaTime** indica l'ora di inizio di un annuncio e **clipEndMediaTime** definisce la fine dell'annuncio). Nel codice di esempio precedente, è stato programmato un annuncio per 5 secondi, con inizio al secondo 0 e fino al 5° secondo della durata dell'annuncio.
 -   L'oggetto **Policy** non è attualmente usato dal framework.
 -   È necessario impostare il valore **appendTo** su -1 se non si tratta di un podcast annuncio.
 -   Il valore di **type** può essere di tipo preroll, midroll, postroll o podcast annuncio. Poiché ad esso non sono associati intervalli, per gli annunci preroll o postroll è necessario specificare il tipo.
@@ -215,7 +215,7 @@ Prendere nota delle informazioni seguenti:
 
 Come illustrato nell'esempio di codice precedente, se si imposta **deleteAfterPlay** su **YES**, l'annuncio viene riprodotto solo una volta. Se invece si imposta **deleteAfterPlay** su **NO**, l'annuncio viene riprodotto in modo continuo, ovvero "a più riproduzioni".
 
-### Per altre informazioni, fare riferimento al [wiki di Media Player Framework di Azure][].
+### Per altre informazioni, fare riferimento al [wiki di Media Player Framework di Azure][wiki di Media Player Framework di Azure].
 
   [Struttura del codice di esempio HLS]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
   [Barra degli indirizzi del lettore di esempio]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png

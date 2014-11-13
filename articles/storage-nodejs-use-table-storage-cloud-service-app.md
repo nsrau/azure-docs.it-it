@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="App Web con il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Esercitazione basata sull'esercitazione per la creazione di un'app Web con Express e in cui vengono aggiunti i servizi di archiviazione di Azure e il modulo di Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Creazione di un'applicazione Web Node.js con Archiviazione" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
 
@@ -16,16 +16,16 @@ di Azure consente l'archiviazione di dati non strutturati, a tolleranza di error
 disponibilità elevata. Archiviazione di Azure include diverse strutture di dati
 in cui è possibile archiviare i dati e accedervi ed è possibile usare i servizi
 di archiviazione dalle API incluse in Azure SDK per Node.js o tramite
-le API REST. Per ulteriori informazioni, vedere [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
+le API REST. Per altre informazioni, vedere [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure].
 
 In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js
 a un Servizio cloud di Azure][Creazione e distribuzione di un'applicazione Node.js
-a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
+a un Servizio cloud di Azure] e [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure][Creazione di un'applicazione Node.js con Express].
 
 Si apprenderà come:
 
--   Utilizzare il motore dei modelli Jade
--   Utilizzare i servizi di gestione dati di Azure
+-   Usare il motore dei modelli Jade
+-   Usare i servizi di gestione dati di Azure
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -39,10 +39,10 @@ Tali impostazioni verranno passate a Node come variabili di ambiente, che
 verranno quindi lette da Azure SDK.
 
 <div class="dev-callout">
-<strong>Nota</strong>
-<p>Le credenziali di archiviazione vengono usate solo quando l'applicazione viene
-distribuita in Azure. Quando l'applicazione &egrave; in esecuzione nell'emulatore,
-verr&agrave; usato l'emulatore di archiviazione.</p>
+
+**Nota**
+Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. Quando l'applicazione è in esecuzione nell'emulatore, verrà usato l'emulatore di archiviazione.
+
 </div>
 
 Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione
@@ -59,9 +59,11 @@ e aggiungerle alle impostazioni di web.config:
     Verrà recuperato l'elenco di account di archiviazione e di chiavi dell'account associati al servizio ospitato.
 
     <div class="dev-callout">
-<strong>Nota</strong>
-	<p>Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esister&agrave; gi&agrave; un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.</p>
-</div>
+
+    **Nota**
+    Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
+
+    </div>
 
 4.  Aprire il file **ServiceDefinition.csdef** contenente le impostazioni dell'ambiente usate quando l'applicazione viene distribuita in Azure:
 
@@ -101,7 +103,7 @@ e aggiungerle alle impostazioni di web.config:
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-## Utilizzo del servizio tabelle in un'applicazione Node
+## Uso del servizio tabelle in un'applicazione Node
 
 In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js** esistente e si creerà un nuovo file **tasklist.js** che utilizzi il modello.
 
@@ -190,7 +192,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 1.  Nella directory **WebRole1/routes** creare un nuovo file denominato **tasklist.js** e aprirlo in un editor di testo.
 
-2.  Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, utilizzati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
+2.  Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, usati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
 
         var azure = require('azure-storage');
         var async = require('async');
@@ -322,7 +324,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 ### Modificare il layout globale
 
-Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
 1.  Scaricare ed estrarre i file per [Twitter Bootstrap][1]. Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
+<properties urlDisplayName="HDInsight High Availability" pageTitle="Disponibilit&agrave; dei cluster Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight distribuisce cluster affidabili e a disponibilit&agrave; elevata." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Disponibilit&agrave; dei cluster Hadoop in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -37,7 +37,7 @@ La creazione e il provisioning di un cluster con PowerShell sono documentati in 
     # Configured with an ExtraLarge Headnode VM
     New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
-Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster con l'SDK sono documentati in [Utilizzo di .NET SDK per HDInsight][Utilizzo di .NET SDK per HDInsight]. La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
+Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster con l'SDK sono documentati in [Uso di .NET SDK per HDInsight][Uso di .NET SDK per HDInsight]. La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
 
     # Create a new HDInsight cluster with the HDInsight SDK
     # Configured with an ExtraLarge Headnode VM
@@ -58,7 +58,7 @@ Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster 
 
 -   [ZooKeeper][ZooKeeper]
 -   [Connessione a cluster HDInsight tramite RDP][Connessione a cluster HDInsight tramite RDP]
--   [Utilizzo di .NET SDK per HDInsight][Utilizzo di .NET SDK per HDInsight]
+-   [Uso di .NET SDK per HDInsight][Uso di .NET SDK per HDInsight]
 
   [0]: http://i.imgur.com/jrUmrH4.png
   [ZooKeeper]: http://zookeeper.apache.org/
@@ -66,4 +66,4 @@ Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster 
   [1]: http://i.imgur.com/MYTkCHW.png
   [2]: http://i.imgur.com/eL6jzgB.png
   [Amministrazione di HDInsight tramite PowerShell]: ../hdinsight-administer-use-powershell/
-  [Utilizzo di .NET SDK per HDInsight]: ../hdinsight-provision-clusters/#sdk
+  [Uso di .NET SDK per HDInsight]: ../hdinsight-provision-clusters/#sdk

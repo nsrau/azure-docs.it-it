@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Usare Python con Hive e Pig in Azure HDInsight" metaKeywords="" description="Informazioni su come usare le funzioni definite dall'utente di Python da Hive e Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Usare Python con Hive e Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Usare Python con Hive e Pig in HDInsight
 
 Hive e Pig sono soluzioni ottimali per usare i dati in HDInsight, ma in alcuni casi è necessario un linguaggio più generico. Sia Hive che Pig consentono di creare funzioni definite dall'utente usando una vasta gamma di linguaggi di programmazione. In questo articolo verrà illustrato come usare una funzione definita dall'utente Python da Hive e Pig.
 
-> [WACOM.NOTE] La procedura descritta in questo articolo è valida per il cluster HDInsight versioni 2.1, 3.0 e 3.1 in anteprima.
+> [WACOM.NOTE] La procedura descritta in questo articolo è valida per il cluster HDInsight versioni 2.1, 3.0 e 3.1.
 
 ## Sommario
 
@@ -112,7 +112,7 @@ Ecco il file **jython.py** usato nell'esempio di Pig:
 
 In precedenza l'input di **LINE** è stato definito come chararray perché non conteneva uno schema coerente. Con lo script **jython.py** i dati vengono trasformati in uno schema coerente per l'output, come descritto di seguito:
 
-1.  L'istruzione <**@outputSchema*>\* definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
+1.  L'istruzione **@outputSchema** definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
 
     -   date - data di creazione della voce del log
     -   time - ora di creazione della voce del log
@@ -128,7 +128,7 @@ In precedenza l'input di **LINE** è stato definito come chararray perché non c
 
 5.  I valori vengono infine restituiti a Pig.
 
-Quando i dati vengono restituiti a Pig, lo schema sarà coerente, come quello definito nell'istruzione <strong> @outputSchema </strong>.
+Quando i dati vengono restituiti a Pig, lo schema sarà coerente, come quello definito nell'istruzione **@outputSchema**.
 
 Per informazioni su come eseguire questo esempio nel cluster HDInsight, vedere [Esecuzione degli esempi][Esecuzione degli esempi].
 
@@ -159,7 +159,7 @@ In queste procedure viene usato Windows Azure PowerShell. Se questo non è già 
 
 ### Uso del Dashboard di Hive (solo esempio di Hive)
 
-1.  Dopo aver caricato il file, aprire un browser e passare a [https://NomeCluster.azurehdinsight.net/][https://NomeCluster.azurehdinsight.net/]. Quando vengono richieste le credenziali, immettere il nome utente e la password dell'amministratore del cluster.
+1.  Dopo aver caricato il file, aprire un browser e passare a https://NomeCluster.azurehdinsight.net/. Quando vengono richieste le credenziali, immettere il nome utente e la password dell'amministratore del cluster.
 
     > [WACOM.NOTE] È anche possibile usare il collegamento **Gestione del cluster** nella parte inferiore del **Dashboard** di HDInsight nel portale di gestione di Azure per avviare il Dasboard di Hive.
 
@@ -293,6 +293,5 @@ Per eseguire processi in HDInsight in modalità remota senza usare PowerShell, v
   [streaming.py]: #streamingpy
   [jython.py]: #jythonpy
   [Caricare dati per processi Hadoop in HDInsight]: /it-it/documentation/articles/hdinsight-upload-data/
-  [https://NomeCluster.azurehdinsight.net/]: https://YourClusterName.azurehdinsight.net/
   [come distribuire un modulo in Azure HDInsight]: http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx
   [come usare Azure HDInsight da Linux]: http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx

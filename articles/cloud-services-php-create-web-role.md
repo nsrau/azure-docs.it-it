@@ -1,6 +1,6 @@
-<properties linkid="develop-php-common-tasks-create-web-and-worker-roles" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="bswan" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creare ruoli Web e di lavoro" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="Come creare ruoli Web e di lavoro PHP" authors="bswan" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan" />
 
 # Come creare ruoli Web e di lavoro PHP
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere la pagina relativa alla [definizione di servizio 
 
 ## <a name="DownloadSdk"></a>Download di Azure SDK per PHP
 
-[Azure SDK per PHP][Azure SDK per PHP] è composto da diversi componenti. In quest'articolo ne verranno presi in considerazione solo due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione guidata piattaforma Web Microsoft all'indirizzo: [Installazione di Azure PowerShell e degli emulatori di Azure][Installazione di Azure PowerShell e degli emulatori di Azure].
+[Azure SDK per PHP][Azure SDK per PHP] è composto da diversi componenti. In questo articolo ne verranno presi in considerazione due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione guidata piattaforma Web Microsoft all'indirizzo: [Installazione di Azure PowerShell e degli emulatori di Azure][Installazione di Azure PowerShell e degli emulatori di Azure].
 
 ## <a name="CreateProject"></a>Procedura: Creare un progetto di servizi cloud
 
@@ -100,7 +100,7 @@ Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
 
 ## <a name="OwnPHP"></a>Procedura: Usare il proprio runtime PHP
 
-In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo come sopra descritto, può essere consigliabile fornire un proprio runtime PHP. Ad esempio, è possibile usare lo stesso runtime PHP in un ruolo Web o di lavoro utilizzato nell'ambiente di sviluppo, in modo che sia più semplice assicurarsi che il comportamento dell'applicazione non cambi nell'ambiente di produzione.
+In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo come sopra descritto, può essere consigliabile fornire un proprio runtime PHP. Ad esempio, è possibile usare lo stesso runtime PHP in un ruolo Web o di lavoro usato nell'ambiente di sviluppo, in modo che sia più semplice assicurarsi che il comportamento dell'applicazione non cambi nell'ambiente di produzione.
 
 ### <a name="OwnPHPWebRole"></a>Configurazione di un ruolo Web per l'uso del proprio runtime PHP
 
@@ -108,7 +108,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, es
 
 1.  Creare un progetto di servizio Azure e aggiungere un ruolo Web PHP come descritto nelle sezioni [Procedura: Creazione di un progetto di servizi cloud][Procedura: Creare un progetto di servizi cloud] e [Procedura: Aggiunta di ruoli Web e di lavoro PHP][Procedura: Aggiungere ruoli Web e di lavoro PHP] sopra riportate.
 2.  Creare una cartella `php` nella cartella `bin` che si trova nella directory radice del proprio ruolo Web, quindi aggiungere il proprio runtime PHP (tutti i binari, i file di configurazione, le sottocartelle, ecc.) alla cartella `php`.
-3.  (FACOLTATIVO) Se il proprio runtime PHP utilizza i [Driver Microsoft per PHP per SQL Server][Driver Microsoft per PHP per SQL Server], sarà necessario configurare il proprio ruolo Web per installare [SQL Server Native Client 2012][SQL Server Native Client 2012] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla cartella `bin` nella directory radice del proprio ruolo Web. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer][sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non utilizza i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
+3.  (FACOLTATIVO) Se il proprio runtime PHP usa i [Driver Microsoft per PHP per SQL Server][Driver Microsoft per PHP per SQL Server], sarà necessario configurare il proprio ruolo Web per installare [SQL Server Native Client 2012][SQL Server Native Client 2012] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla cartella `bin` nella directory radice del proprio ruolo Web. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer][sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -132,7 +132,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, es
 
 5.  Aggiungere i file applicazione alla directory radice del proprio ruolo Web, che sarà la directory radice del server Web.
 
-6.  Pubblicare l'applicazione come descritto nella sezione [Procedura: Pubblicazione dell'applicazione][Procedura: Pubblicare l'applicazione] di seguito riportata.
+6.  Pubblicare l'applicazione come descritto nella sezione [Procedura: Pubblicazione dell'applicazione][Procedura: Pubblicare l'applicazione] riportata di seguito.
 
 <div class="dev-callout"> 
 <b>Nota</b> 
@@ -145,7 +145,7 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 
 1.  Creare un progetto di servizio Azure e aggiungere un ruolo di lavoro PHP come descritto nelle sezioni [Procedura: Creazione di un progetto di servizi cloud][Procedura: Creare un progetto di servizi cloud] e [Procedura: Aggiunta di ruoli Web e di lavoro PHP][Procedura: Aggiungere ruoli Web e di lavoro PHP] sopra riportate.
 2.  Creare una cartella `php` nella directory radice del proprio ruolo Web, quindi aggiungere il proprio runtime PHP (tutti i binari, i file di configurazione, le sottocartelle, ecc.) alla cartella `php`.
-3.  (FACOLTATIVO) Se il proprio runtime PHP utilizza i [Driver Microsoft per PHP per SQL Server][Driver Microsoft per PHP per SQL Server], sarà necessario configurare il proprio ruolo di lavoro per installare [SQL Server Native Client 2012][SQL Server Native Client 2012] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla directory radice del proprio ruolo di lavoro. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer][sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non utilizza i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
+3.  (FACOLTATIVO) Se il proprio runtime PHP usa i [Driver Microsoft per PHP per SQL Server][Driver Microsoft per PHP per SQL Server], sarà necessario configurare il proprio ruolo di lavoro per installare [SQL Server Native Client 2012][SQL Server Native Client 2012] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla directory radice del proprio ruolo di lavoro. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer][sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -178,7 +178,7 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 
 5.  Aggiungere i file applicazione alla directory radice del proprio ruolo di lavoro,
 
-6.  Pubblicare l'applicazione come descritto nella sezione [Procedura: Pubblicazione dell'applicazione][Procedura: Pubblicare l'applicazione] di seguito riportata.
+6.  Pubblicare l'applicazione come descritto nella sezione [Procedura: Pubblicazione dell'applicazione][Procedura: Pubblicare l'applicazione] riportata di seguito.
 
 ## <a name="Emulators"></a>Procedura: Eseguire l'applicazione negli emulatori di calcolo e archiviazione
 

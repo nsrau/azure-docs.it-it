@@ -1,48 +1,48 @@
-<properties linkid="develop-python-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Informazioni su come usare il Servizio tabelle da Python per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." metaCanonical="" services="storage" documentationCenter="Python" title="Come usare il servizio di archiviazione tabelle di Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
-# Come utilizzare il servizio di archiviazione tabelle di Python
+# Come usare il servizio di archiviazione tabelle di Python
 
 Questa guida illustra come eseguire scenari comuni del servizio di archiviazione tabelle di Windows
 Azure. Gli esempi sono scritti usando l'API
 Python. Gli scenari presentati includono la **creazione e l'eliminazione di una
 tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre
-informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
- [Informazioni sul Servizio tabelle][]  
- [Concetti][]  
- [Creare un account di archiviazione di Azure][]  
- [Procedura: Creare una tabella][]  
- [Procedura: Aggiungere un'entità a una tabella][]  
- [Procedura: Aggiornare un'entità][]  
- [Procedura: Modificare un gruppo di entità][]  
- [Procedura: Eseguire query su un'entità][]  
- [Procedura: Eseguire query su un set di entità][]  
- [Procedura: Eseguire query su un subset di proprietà di entità][]  
- [Procedura: Eliminare un'entità][]  
- [Procedura: Eliminare una tabella][]  
- [Passaggi successivi][]  
+[Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
+ [Concetti][Concetti]
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+ [Procedura: Creare una tabella][Procedura: Creare una tabella]
+ [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
+ [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità]
+ [Procedura: Modificare un gruppo di entità][Procedura: Modificare un gruppo di entità]
+ [Procedura: Eseguire query su un'entità][Procedura: Eseguire query su un'entità]
+ [Procedura: Eseguire query su un set di entità][Procedura: Eseguire query su un set di entità]
+ [Procedura: Eseguire query su un subset di proprietà di entità][Procedura: Eseguire query su un subset di proprietà di entità]
+ [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
+ [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]
+ [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <a name="create-account"> </a>Creazione di un account di archiviazione di Azure
+## <a name="create-account"> </a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][].
+**Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python][guida all'installazione di Python].
 
 ## <a name="create-table"> </a>Come creare una tabella
 
-L'oggetto **TableService** consente di utilizzare i servizi tabelle. Il
+L'oggetto **TableService** consente di usare i servizi tabelle. Il
 codice seguente consente di creare un oggetto **TableService**. Aggiungere il codice seguente vicino
 all'inizio del file Python da cui si vuole accedere all'archiviazione di Azure a livello di codice:
 
-    from azure.storage import *
+    from azure.storage import TableService, Entity
 
-Il codice seguente consente di creare un oggetto **TableService** utilizzando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **TableService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
 
     table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -135,7 +135,7 @@ query, in particolare per entità di grandi dimensioni. Usare il parametro **sel
  e passare i nomi delle proprietà da inoltrare
 al client.
 
-La query nel codice seguente restituisce solo le **descrizioni** delle entitànella tabella.
+La query nel codice seguente restituisce solo le **descrizioni** delle entità nella tabella.
 
 *Si noti che il frammento seguente funziona solo su un servizio di archiviazione
 cloud e non è supportato dall'emulatore di
@@ -147,7 +147,7 @@ archiviazione.*
 
 ## <a name="delete-entity"> </a>Come eliminare un'entità
 
-È possibile eliminare un'entità utilizzando le relative chiavi di riga e di partizione.
+È possibile eliminare un'entità usando le relative chiavi di riga e di partizione.
 
     table_service.delete_entity('tasktable', 'tasksSeattle', '1')
 
@@ -162,8 +162,8 @@ Nell'esempio di codice seguente viene illustrato come eliminare una tabella da u
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle, visitare
 i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di archiviazione di Azure][]
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di archiviazione di Azure][Blog del team di archiviazione di Azure]
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio tabelle]: #what-is
@@ -178,8 +178,6 @@ i collegamenti seguenti per altre informazioni sulle attività di archiviazione 
   [Procedura: Eseguire query su un subset di proprietà di entità]: #query-entity-properties
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [guida all'installazione di Python]: ../python-how-to-install/
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

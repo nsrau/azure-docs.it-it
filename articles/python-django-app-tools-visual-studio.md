@@ -1,6 +1,6 @@
-<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Django with Visual Studio" pageTitle="Django con Visual Studio (Python) - Esercitazione di Azure" metaKeywords="Azure Django web app, Azure Django virtual machine" description="Esercitazione che spiega come creare un'applicazione Web Django ospitata in una macchina virtuale di Azure." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creazione di applicazioni Django con Python Tools per Visual Studio 1.5" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Creazione di applicazioni Django con Python Tools per Visual Studio 1.5
 
@@ -19,14 +19,16 @@ Si apprenderà come:
 -   Eseguire l'applicazione Django localmente nell'emulatore di calcolo
 -   Pubblicare e ripubblicare l'applicazione in Azure.
 
-Seguendo questa esercitazione, verrà creata una semplice applicazione Web Hello World.
- L'applicazione verrà ospitata in un'istanza di un ruolo Web che, quando eseguito in Azure, verrà a sua volta ospitato in una macchina virtuale dedicata.
+Seguendo questa esercitazione, si creerà una semplice applicazione
+Web Hello World. L'applicazione verrà ospitata in un'istanza di un ruolo Web
+che, quando eseguito in Azure, verrà a sua volta ospitato
+in una macchina virtuale dedicata.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Configurazione dell'ambiente di sviluppo
 
@@ -152,11 +154,11 @@ Sarà ora necessario attendere che l'applicazione venga impostata e distribuita.
 
 Al termine dell'impostazione, è possibile fare clic sul collegamento sotto Nome DNS per visualizzare il sito Web in esecuzione nel cloud:
 
-![L'applicazione Django nel cloud](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
+![L'applicazione Django nel cloud][L'applicazione Django nel cloud]
+
   [video di Youtube]: http://www.youtube.com/watch?v=UsLti4KlgAY
   [esercitazione più recente e dettagliata]: ../web-sites-python-create-deploy-django-app/
-  []: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
-  [create-account-note]: ../includes/create-account-note.md
+  [0]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
   [installazione di Python]: ../python-how-to-install/
   [Modelli nuovo progetto Python]: ./media/python-django-app-tools-visual-studio/ptvs-dj-NewProject.png
   [Visual Studio aperto con il nuovo progetto Django]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstProject.png

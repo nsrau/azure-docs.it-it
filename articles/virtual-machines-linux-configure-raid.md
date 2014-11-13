@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/it-it/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." metaCanonical="http://www.windowsazure.com/it-it/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Configurazione dei RAID software in Linux
 
@@ -113,7 +113,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
         # sudo mkdir /data
 
-2.  Quando si modifica /etc/fstab è consigliabile utilizzare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system. Usare l'utility `blkid` per determinare l'UUID del nuovo file system:
+2.  Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system. Usare l'utility `blkid` per determinare l'UUID del nuovo file system:
 
         # sudo /sbin/blkid
         ...........
@@ -143,7 +143,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 5.  Parametri facoltativi
 
-    Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file /etc/fstab. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per ulteriori informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
+    Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file /etc/fstab. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per altre informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
 
     Esempio (Ubuntu):
 

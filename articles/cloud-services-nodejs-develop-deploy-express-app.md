@@ -1,10 +1,13 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Web App with Express" pageTitle="App Web con Express (Node.js) - Esercitazione di Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Esercitazione basata sull'esercitazione del servizio cloud e che illustra come usare il modulo Express." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure
 
-Node.js include un set minimo di funzionalità nel runtime core. Gli sviluppatori utilizzano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js.. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express][Express] che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
+Node.js include un set minimo di funzionalità nel runtime core.
+Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità
+aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione
+si creerà una nuova applicazione usando il modulo [Express][Express] che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -46,7 +49,8 @@ Eseguire la procedura seguente per creare un nuovo progetto servizio cloud denom
 
     ![Output del comando express][Output del comando express]
 
-3.  Per installare le dipendenze aggiuntive definite nel file package.json, immettere il comando seguente:
+3.  Per installare le dipendenze aggiuntive definite nel file package.json,
+    immettere il comando seguente:
 
         PS C:\node\expressapp\WebRole1> npm install
 
@@ -68,7 +72,8 @@ Eseguire la procedura seguente per creare un nuovo progetto servizio cloud denom
 
     Questa modifica è obbligatoria perché il file (in precedenza **bin/www**) è stato spostato nella stessa directory del file dell'app richiesto. Al termine di questa modifica, salvare il file **server.js**.
 
-6.  Usare il comando seguente per eseguire l'applicazione nell'emulatore di Microsoft Azure:
+6.  Usare il comando seguente per eseguire l'applicazione nell'emulatore di Microsoft
+    Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -76,7 +81,8 @@ Eseguire la procedura seguente per creare un nuovo progetto servizio cloud denom
 
 ## Modifica della visualizzazione
 
-Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome to Express in Azure".
+Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome to Express in
+Azure".
 
 1.  Immettere il comando seguente per aprire il file index.jade:
 
@@ -84,17 +90,18 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
 
     ![Contenuto del file index.jade.][Contenuto del file index.jade.]
 
-    Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [][]<http://jade-lang.com></a>.
+    Jade è il motore di visualizzazione predefinito usato dalle applicazioni Express. Per altre
+    informazioni sul motore di visualizzazione Jade, vedere <http://jade-lang.com>.
 
 2.  Modificare l'ultima riga di testo aggiungendo **in Azure**.
 
-    ![Nell'ultima riga del file index.jade risulta: p Welcome to \#{title} in Azure][Nell'ultima riga del file index.jade risulta: p Welcome to \#{title} in Azure]
+    ![The index.jade file, the last line reads: p Welcome to \#{title} in Azure][The index.jade file, the last line reads: p Welcome to \#{title} in Azure]
 
 3.  Salvare il file e chiudere il Blocco note.
 
 4.  Aggiornare il tuo browser per vedere le modifiche.
 
-    ![Una finestra del browser in cui la pagina contiene Welcome to Express in Azure][Una finestra del browser in cui la pagina contiene Welcome to Express in Azure]
+    ![A browser window, the page contains Welcome to Express in Azure][A browser window, the page contains Welcome to Express in Azure]
 
 Dopo aver testato l'applicazione, usare il cmdlet **Stop-AzureEmulator** per arrestare l'emulatore.
 
@@ -106,16 +113,15 @@ Nella finestra di Azure PowerShell usare il cmdlet **Publish-AzureServiceProject
 
 Al termine dell'operazione di distribuzione, verrà aperto il browser e verrà visualizzata la pagina Web.
 
-![Visualizzazione della pagina Express in un Web browser. L'URL indica che la pagina ora è ospitata su Azure.][Visualizzazione di Welcome to Express in Azure in un Web browser]
+![A web browser displaying the Express page. L'URL indica che la pagina ora è ospitata su Azure.][Visualizzazione di Welcome to Express in Azure in un Web browser]
 
   [Express]: http://expressjs.com/
   [Visualizzazione di Welcome to Express in Azure in un Web browser]: ./media/cloud-services-nodejs-develop-deploy-express-app/node36.png
   [Icona di Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png
-  [install-dev-tools]: ../includes/install-dev-tools.md
   [Visualizzazione dell'output del comando npm install express in Windows PowerShell.]: ./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png
   [Output del comando express]: ./media/cloud-services-nodejs-develop-deploy-express-app/node23.png
   [Output del comando npm install]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
   [Una pagina Web contenente Welcome to Express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [Contenuto del file index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
-  []: http://jade-lang.com
-  [Una finestra del browser in cui la pagina contiene Welcome to Express in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png
+  [The index.jade file, the last line reads: p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
+  [A browser window, the page contains Welcome to Express in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Check Job Progress" pageTitle="Come controllare lo stato dei processi in Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="Procedura: Controllare lo stato dei processi" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Procedura: Controllare lo stato dei processi
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Codificare un asset][].
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Codificare un asset][Procedura: Codificare un asset].
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. Nell'esempio di codice seguente viene definito il gestore dell'evento StateChanged, che monitora l'avanzamento del processo e ne indica lo stato aggiornato. Il codice consente inoltre di definire il metodo helper LogJobStop, che registra i dettagli degli errori.
 
@@ -83,9 +83,9 @@ Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. Ne
         return jobID.Replace(":", "_");
     }
 
-# Passaggi successivi
+## Passaggi successivi
 
-Dopo avere creato un processo e averne verificato l'avanzamento, il passaggio successivo consiste nel proteggere gli asset. Per ulteriori informazioni, vedere la [procedura per proteggere un asset con Servizi multimediali di Azure][].
+Dopo avere creato un processo e averne verificato l'avanzamento, il passaggio successivo consiste nel proteggere gli asset. Per altre informazioni, vedere la [procedura per proteggere un asset con Servizi multimediali di Azure][procedura per proteggere un asset con Servizi multimediali di Azure].
 
   [Procedura: Codificare un asset]: http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409
   [procedura per proteggere un asset con Servizi multimediali di Azure]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409

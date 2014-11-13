@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Personalizzazione del portale per sviluppatori in Gestione API di Azure" metaKeywords="" description="Informazioni su come personalizzare il portale per sviluppatori in Gestione API di Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="Personalizzazione del portale per sviluppatori in Gestione API di Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Personalizzazione del portale per sviluppatori in Gestione API di Azure
 
-Questa guida descrive come modificare l'aspetto del portale per sviluppatori in Gestione API (Anteprima) per mantenere l'uniformità con il proprio marchio.
+Questa guida descrive come modificare l'aspetto del portale per sviluppatori in Gestione API per mantenere l'uniformità con il proprio marchio.
 
 ## Contenuto dell'argomento
 

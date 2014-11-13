@@ -1,8 +1,8 @@
-<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="Acquisire un'immagine di una macchina virtuale che esegue Linux" metaKeywords="Azure Linux vm, Linux vm" description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure che esegue Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="Come acquisire un'immagine di una macchina virtuale che esegue Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
-# Come acquisire una macchina virtuale Linux da usare come modello
+# Come acquisire un'immagine di una macchina virtuale che esegue Linux
 
 Questo articolo illustra come acquisire una macchina virtuale Linux in modo da usarla come modello per creare altre macchine virtuali. Questo modello di macchina virtuale include il disco del sistema operativo e gli eventuali dischi dati connessi alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
 

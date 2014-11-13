@@ -1,14 +1,14 @@
-<properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine" pageTitle="Creare una macchina virtuale che esegue Windows in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Come creare una macchina virtuale (VM) Windows in Azure, eseguire l'accesso e collegare un disco dati" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav, rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="kathydav" />
 
-# Creazione di una macchina virtuale che esegue Windows Server
+# Creare una macchina virtuale che esegue Windows
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Portale di Azure</a><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Portale di anteprima di Azure</a></div>
 
-Questa esercitazione illustra come creare una macchina virtuale di Azure che esegue Windows Server usando la raccolta immagini presente nel portale di gestione di Azure. Nella Raccolta immagini è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, sistemi operativi basati su Linux e di applicazioni.
+Questa esercitazione mostra come è facile creare una macchina virtuale di Azure che esegue Windows usando come esempio un'immagine di Windows Server dalla Raccolta immagini nel portale di gestione di Azure. Nella Raccolta immagini è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, sistemi operativi basati su Linux e di applicazioni.
 
-> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creazione di un account Azure][Creazione di un account Azure].
+> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure][Creare un account Azure].
 
 In questa esercitazione si apprenderà come:
 
@@ -22,15 +22,17 @@ Per altre informazioni, vedere [Macchine virtuali][Macchine virtuali].
 
 Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gestione per la creazione di una macchina virtuale. Questa opzione offre un maggior numero di scelte di configurazione rispetto all'opzione **Creazione rapida**. Ad esempio, se si vuole aggiungere una macchina virtuale a una rete virtuale, sarà necessario usare l'opzione **Da raccolta**.
 
-> [WACOM.NOTE] È anche possibile provare il [portale di anteprima di Azure][portale di anteprima di Azure], più avanzato e personalizzabile, per creare una macchina virtuale, automatizzare la distribuzione di modelli di applicazioni su più macchine virtuali, usare le funzionalità di diagnostica e monitoraggio delle macchine virtuali avanzate e altro ancora. Le opzioni di configurazione per le macchine virtuali disponibili nei due portali sono sostanzialmente simili ma non identiche.
+> [WACOM.NOTE] Il numero e il tipo di immagini disponibili nella raccolta dipende dal tipo di sottoscrizione dell'utente. Questa esercitazione usa un'immagine di Windows Server, ma una sottoscrizione MSDN potrebbe avere immagini aggiuntive disponibili, incluse le immagini desktop.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+> È anche possibile provare il [portale di anteprima di Azure][portale di anteprima di Azure], più avanzato e personalizzabile, per creare una macchina virtuale, automatizzare la distribuzione di modelli di applicazioni su più macchine virtuali, usare le funzionalità di diagnostica e monitoraggio delle macchine virtuali avanzate e altro ancora. Le opzioni di configurazione per le macchine virtuali disponibili nei due portali sono sostanzialmente simili ma non identiche.
+
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>Come accedere alla macchina virtuale dopo averla creata
 
 Questa sezione descrive come accedere alla macchina virtuale per gestirne le impostazioni e le applicazioni che verranno eseguite al suo interno.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server][virtual-machines-log-on-win-server]]
+[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
 ## <span id="attachdisk"></span> </a>Come collegare un disco dati alla nuova macchina virtuale
 
@@ -52,6 +54,8 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
 5.  Le impostazioni **Virtual Machine Name**, **Storage Location**, **File Name** e **Host Cache Preference** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Size**. Fare quindi clic sul segno di spunta per connettere il disco vuoto alla macchina virtuale.
 
+    > [WACOM.NOTE] Vale la pena sottolineare che le immagini del disco in Azure vengono archiviate come BLOB di pagine nell'Archiviazione di Azure. Esternamente ad Azure, per i dischi rigidi virtuali può essere usato un formato VHD o VHDX. I dischi possono inoltre essere fissi, espansi dinamicamente o dischi differenze. Azure supporta dischi fissi di formato VHD. In caso di formato fisso, il disco logico viene disposto in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset del BLOB X. In un piè di pagina alla fine del BLOB vengono descritte le proprietà del disco rigido virtuale. Spesso, con il formato fisso si verifica uno spreco di spazio poiché nella maggior parte dei dischi sono presenti intervalli inutilizzati di grandi dimensioni. Tuttavia, in Azure i file con estensione vhd vengono archiviati in un formato di tipo sparse, pertanto si ottengono contemporaneamente i vantaggi sia dei dischi fissi sia di quelli dinamici. Altre informazioni sono disponibili in [Informazioni sui dischi rigidi virtuali in Azure][Informazioni sui dischi rigidi virtuali in Azure]
+
     ![Definizione delle dimensioni del disco vuoto][Definizione delle dimensioni del disco vuoto]
 
     > [WACOM.NOTE] Tutti i dischi vengono creati da un file VHD in Archiviazione di Azure. In **Nome file** è possibile specificare un nome per il file VHD aggiunto alla risorsa di archiviazione, tuttavia il nome del disco viene generato automaticamente in Azure.
@@ -60,7 +64,7 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
     ![Attach Empty Disk][Attach Empty Disk]
 
-    Quando viene collegato alla macchina virtuale, il disco dati è offline e non inizializzato. Prima di poterlo utilizzare per l'archiviazione dei dati, sarà necessario accedere alla macchina virtuale e inizializzarlo.
+    Quando viene collegato alla macchina virtuale, il disco dati è offline e non inizializzato. Prima di poterlo usare per l'archiviazione dei dati, sarà necessario accedere alla macchina virtuale e inizializzarlo.
 
 7.  Per connettersi alla macchina virtuale, attenersi ai passaggi descritti nella sezione precedente, [Come accedere alla macchina virtuale dopo averla creata][Come accedere alla macchina virtuale dopo averla creata] (\#logon).
 
@@ -98,25 +102,34 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 
 [Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server][Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server]
 
-[Connettere un disco dati a una macchina virtuale][Collegamento di un disco dati]
-
 [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali]
 
-  [Portale di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial/ "Azure Portal"
-  [Portale di anteprima di Azure]: /it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure Preview Portal"
-  [Creazione di un account Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure][Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]
+
+[VIDEO: Introduzione ai dischi rigidi virtuali][VIDEO: Introduzione ai dischi rigidi virtuali]
+
+[VIDEO: Risposte alle domande frequenti sull'esecuzione di Windows in Azure con Mark Russinovich][VIDEO: Risposte alle domande frequenti sull'esecuzione di Windows in Azure con Mark Russinovich]
+
+[VIDEO: Aggiunta di una nuova macchina virtuale a una Web farm creando immagini riutilizzabili][VIDEO: Aggiunta di una nuova macchina virtuale a una Web farm creando immagini riutilizzabili]
+
+[VIDEO: Aggiunta di dischi rigidi virtuali, account di archiviazione e ridimensionamento di macchine virtuali][VIDEO: Aggiunta di dischi rigidi virtuali, account di archiviazione e ridimensionamento di macchine virtuali]
+
+[VIDEO: Scott Guthrie parla delle macchine virtuali][VIDEO: Scott Guthrie parla delle macchine virtuali]
+
+[VIDEO: Nozioni di base su archiviazione e dischi con le macchine virtuali di Azure][VIDEO: Nozioni di base su archiviazione e dischi con le macchine virtuali di Azure]
+
+  [Creare un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
   [Come creare la macchina virtuale]: #createvirtualmachine
   [Come accedere alla macchina virtuale dopo averla creata]: #logon
   [Come collegare un disco dati alla nuova macchina virtuale]: #attachdisk
   [Macchine virtuali]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [portale di anteprima di Azure]: https://portal.azure.com
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
   [Collegamento di un disco dati]: http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Select MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Selezione del Dashboard]: ./media/virtual-machines-windows-tutorial/dashboard.png
   [Selezione di Connetti sulla barra dei comandi]: ./media/virtual-machines-windows-tutorial/commandbarattach.png
+  [Informazioni sui dischi rigidi virtuali in Azure]: http://msdn.microsoft.com/it-it/library/azure/dn790344.aspx
   [Definizione delle dimensioni del disco vuoto]: ./media/virtual-machines-windows-tutorial/emptydisksize.png
   [Attach Empty Disk]: ./media/virtual-machines-windows-tutorial/disklistwithdatadisk.png
   [Espandere Servizi file e archiviazione in Server Manager]: ./media/virtual-machines-windows-tutorial/fileandstorageservices.png
@@ -128,3 +141,10 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
   [Come connettere macchine virtuali in un servizio cloud]: http://www.windowsazure.com/it-it/documentation/articles/cloud-services-connect-virtual-machine/
   [Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server]: http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Gestione della disponibilità delle macchine virtuali]: http://www.windowsazure.com/it-it/documentation/articles/manage-availability-virtual-machines/
+  [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+  [VIDEO: Introduzione ai dischi rigidi virtuali]: http://azure.microsoft.com/it-it/documentation/videos/getting-started-with-azure-virtual-machines
+  [VIDEO: Risposte alle domande frequenti sull'esecuzione di Windows in Azure con Mark Russinovich]: http://azure.microsoft.com/it-it/documentation/videos/mark-russinovich-windows-on-azure
+  [VIDEO: Aggiunta di una nuova macchina virtuale a una Web farm creando immagini riutilizzabili]: http://azure.microsoft.com/it-it/documentation/videos/adding-virtual-machines-web-farm
+  [VIDEO: Aggiunta di dischi rigidi virtuali, account di archiviazione e ridimensionamento di macchine virtuali]: http://azure.microsoft.com/it-it/documentation/videos/adding-drives-scaling-virtual-machines
+  [VIDEO: Scott Guthrie parla delle macchine virtuali]: http://azure.microsoft.com/it-it/documentation/videos/virtual-machines-scottgu
+  [VIDEO: Nozioni di base su archiviazione e dischi con le macchine virtuali di Azure]: http://azure.microsoft.com/it-it/documentation/videos/storage-and-disks-virtual-machines

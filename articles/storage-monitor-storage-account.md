@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to monitor" pageTitle="Come monitorare un account di archiviazione | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Informazioni su come monitorare un account di archiviazione in Azure usando il portale di gestione." metaCanonical="" services="storage" documentationCenter="" title="Come monitorare un account di archiviazione" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -8,9 +8,11 @@
 
 Finché non viene configurato il monitoraggio per un account di archiviazione, i relativi dati non verranno raccolti e i grafici delle metriche saranno vuoti nel dashboard e nella pagina **Monitor**.
 
-<div class="dev-callout"> 
-<b>Nota</b> 
-<p>All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
+<div class="dev-callout">
+
+**Nota**
+All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione][Analisi archiviazione e fatturazione].
+
 </div>
 
 ## Sommario
@@ -46,9 +48,9 @@ Finché non viene configurato il monitoraggio per un account di archiviazione, i
 
 I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard e nella pagina **Monitor** dopo circa un'ora.
 
-Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per ulteriori informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][Informazioni sulle metriche di Analisi archiviazione].
+Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per altre informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione][Informazioni sulle metriche di Analisi archiviazione].
 
-Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è possibile scegliere quali metriche monitorare nel portale di gestione e quali tracciare sui grafici delle metriche. Per ogni livello di monitoraggio viene visualizzato un set predefinito di metriche. È possibile utilizzare **Add Metrics** per aggiungere o rimuovere metriche dall'elenco.
+Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è possibile scegliere quali metriche monitorare nel portale di gestione e quali tracciare sui grafici delle metriche. Per ogni livello di monitoraggio viene visualizzato un set predefinito di metriche. È possibile usare **Add Metrics** per aggiungere o rimuovere metriche dall'elenco.
 
 ## <span id="customizestoragemonitoring"></span></a>Procedura: Personalizzare il dashboard per il monitoraggio
 
@@ -84,14 +86,16 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 
 2.  Fare clic su **Monitor**.
 
-    Verrà visualizzata la pagina **Monitor**. Per impostazione predefinita, nella tabella viene visualizzato un subset delle metriche disponibili per il monitoraggio. Nella figura è illustrata la visualizzazione predefinita di Monitor per un account di archiviazione con il monitoraggio dettagliato configurato per tutti e tre i servizi. Utilizzare **Add Metrics** per selezionare le metriche da monitorare tra quelle disponibili.
+    Verrà visualizzata la pagina **Monitor**. Per impostazione predefinita, nella tabella viene visualizzato un subset delle metriche disponibili per il monitoraggio. Nella figura è illustrata la visualizzazione predefinita di Monitor per un account di archiviazione con il monitoraggio dettagliato configurato per tutti e tre i servizi. Usare **Add Metrics** per selezionare le metriche da monitorare tra quelle disponibili.
 
-    ![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
-    <div class="dev-callout"> 
-<b>Nota</b> 
-	<p>Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Nota**
+    Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per altre informazioni, vedere [Analisi archiviazione e fatturazione][Analisi archiviazione e fatturazione].
+
+    </div>
 
 3.  Fare clic su **Add Metrics**.
 
@@ -129,7 +133,7 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
-2.  Fare clic su **Configure** e utilizzare il tasto freccia GIÙ per scorrere fino a **logging**, come illustrato di seguito.
+2.  Fare clic su **Configure** e usare il tasto freccia GIÙ per scorrere fino a **logging**, come illustrato di seguito.
 
     ![Storagelogging][Storagelogging]
 
@@ -143,6 +147,7 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione][Informazioni sulla registrazione di Analisi archiviazione].
 
+  [Analisi archiviazione e fatturazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx
   [Procedura: Configurare il monitoraggio per un account di archiviazione]: #configurestoragemonitoring
   [Procedura: Personalizzare il dashboard per il monitoraggio]: #customizestoragemonitoring
   [Procedura: Personalizzare la pagina Monitor]: #customizemonitorpage
@@ -152,6 +157,7 @@ I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nel
   [portale di gestione]: https://manage.windowsazure.com/
   [MonitoringOptions]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
   [Informazioni sulle metriche di Analisi archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/hh343258.aspx
+  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
   [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png

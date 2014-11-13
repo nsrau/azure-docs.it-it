@@ -1,6 +1,6 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB and its value to cloud and mobile applications. Also, learn about how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Introduzione a Microsoft Azure DocumentDB" pageTitle="Introduzione a Microsoft Azure DocumentDB | Azure" description="Informazioni su Azure DocumentDB e su quali vantaggi pu&ograve; offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Introduzione a Microsoft Azure DocumentDB
 
@@ -45,7 +45,7 @@ Tutte le risorse disponibili in Azure DocumentDB sono modellate e archiviate com
 
 La figura seguente mostra le relazioni tra le risorse di Azure DocumentDB:
 
-![][]
+![][0]
 
 Un account di database è costituito da un insieme di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, UDF, documenti e allegati correlati. Un database include anche utenti associati, ognuno dei quali ha un insieme di autorizzazioni per accedere alle diverse raccolte, stored procedure, trigger, UDF, documenti o allegati disponibili. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti, le stored procedure, i trigger, le funzioni UDF e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 
@@ -53,10 +53,10 @@ Un account di database è costituito da un insieme di database, ognuno dei quali
 
 Azure DocumentDB espone risorse tramite un'API REST che può essere chiamata da qualsiasi linguaggio in grado di effettuare richieste HTTP/HTTPS. In Azure DocumentDB sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni. Queste librerie semplificano molti aspetti dell'uso di Azure DocumentDB tramite la gestione di dettagli quali la memorizzazione nella cache, la gestione delle eccezioni, l'esecuzione automatica di nuovi tentativi e così via. Le librerie attualmente disponibili riguardano i linguaggi e le piattaforme seguenti, ma presto ne saranno disponibili altre:
 
--   [.NET][]
--   [Node.js][]
--   [JavaScript][]
--   [Python][]
+-   [.NET][.NET]
+-   [Node.js][Node.js]
+-   [JavaScript][JavaScript]
+-   [Python][Python]
 
 Oltre alle operazioni di base di creazione, lettura, aggiornamento ed eliminazione, Azure DocumentDB offre un'interfaccia di query SQL query avanzata per il recupero di documenti JSON e supporto lato server per l'esecuzione transazionale di logica dell'applicazione JavaScript. Le interfacce di esecuzione di query e script sono disponibili tramite tutte le librerie delle piattaforme, oltre alle API REST.
 
@@ -78,16 +78,18 @@ L'esecuzione di JavaScript in DocumentDB è modellata sui concetti supportati da
 
 Per iniziare a usare Azure DocumentDB, vedere le risorse seguenti:
 
--   [Informazioni sui concetti relativi a DocumentDB][]
--   [Interagire con risorse di DocumentDB][]
--   [Creare un account di database][]
--   [Introduzione a DocumentDB][]
+-   [Provare DocumentDB][Provare DocumentDB]
+-   [Informazioni sui concetti relativi a DocumentDB][Informazioni sui concetti relativi a DocumentDB]
+-   [Interagire con risorse di DocumentDB][Interagire con risorse di DocumentDB]
+-   [Creare un account di database][Creare un account di database]
+-   [Introduzione a DocumentDB][Introduzione a DocumentDB]
 
-  []: ./media/documentdb-introduction/intro.png
+  [0]: ./media/documentdb-introduction/intro.png
   [.NET]: http://go.microsoft.com/fwlink/?LinkID=402989
   [Node.js]: http://go.microsoft.com/fwlink/?LinkID=402990
   [JavaScript]: http://go.microsoft.com/fwlink/?LinkID=402991
   [Python]: http://go.microsoft.com/fwlink/?LinkID=402992
+  [Provare DocumentDB]: https://portal.azure.com/#gallery/Microsoft.DocumentDB
   [Informazioni sui concetti relativi a DocumentDB]: /documentation/articles/documentdb-resources/
   [Interagire con risorse di DocumentDB]: /documentation/articles/documentdb-interactions-with-resources/
   [Creare un account di database]: /documentation/articles/documentdb-create-account/

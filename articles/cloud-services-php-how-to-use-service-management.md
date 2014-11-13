@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Service Management" pageTitle="Come usare le API di Gestione servizi di Azure (PHP)" metaKeywords="" description="Informazioni su come usare le API di Gestione servizi PHP di Azure per gestire servizi cloud e altre applicazioni di Azure." metaCanonical="" services="" documentationCenter="PHP" title="Come usare la gestione dei servizi da PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -37,7 +37,7 @@ Azure SDK per PHP include l'[API di Gestione servizi di Azure][API di Gestione s
 
 ## <span id="CreateApplication"></span></a>Creare un'applicazione PHP
 
-Per creare un'applicazione PHP che utilizza Gestione servizi di Azure, è sufficiente fare riferimento alle classi disponibili in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
+Per creare un'applicazione PHP che usa Gestione servizi di Azure, è sufficiente fare riferimento alle classi disponibili in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
 In questa guida si useranno le funzionalità del servizio che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
@@ -57,7 +57,7 @@ Per creare il certificato `.cer`, eseguire il comando seguente:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Per altre informazioni sui certificati Azure, vedere la pagina relativa alla [panoramica dei certificati in Azure][panoramica dei certificati in Azure]. Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Per altre informazioni sui certificati Azure, vedere la pagina relativa alla [panoramica dei certificati in Azure][panoramica dei certificati in Azure]. Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo <http://www.openssl.org/docs/apps/openssl.html>.
 
 Se il file delle impostazioni di pubblicazione è stato scaricato e importato tramite gli [strumenti da riga di comando di Azure][strumenti da riga di comando di Azure], è possibile usare il file `.pem` creato dagli strumenti anziché crearne uno personalizzato. Il file `.cer` creato dagli strumenti viene caricato in Azure e contestualmente il file `.pem` viene inserito nella sottodirectory `.azure` della directory utente del computer.
 
@@ -73,7 +73,7 @@ Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere car
 
     $serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 
-Nell'esempio precedente `$serviceManagementRestProxy` è un oggetto [ServiceManagementRestProxy][ServiceManagementRestProxy]. La **ServiceManagementRestProxy** è la classe principale utilizzata per gestire i servizi di Azure.
+Nell'esempio precedente `$serviceManagementRestProxy` è un oggetto [ServiceManagementRestProxy][ServiceManagementRestProxy]. La **ServiceManagementRestProxy** è la classe principale usata per gestire i servizi di Azure.
 
 ## <span id="ListAvailableLocations"></span></a>Procedura: Creare un elenco delle località disponibili
 
@@ -507,7 +507,7 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
 
 ## <span id="DeleteAffinityGroup"></span></a>Procedura: Eliminare un gruppo di affinità
 
-È possibile eliminare un gruppo di affinità passando il relativo nome al metodo **deleteAffinityGroup**. Si noti che per eliminare un gruppo di affinità, è prima necessario annullare la relativa associazione da qualsiasi servizio oppure eliminare i servizi che lo utilizzano.
+È possibile eliminare un gruppo di affinità passando il relativo nome al metodo **deleteAffinityGroup**. Si noti che per eliminare un gruppo di affinità, è prima necessario annullare la relativa associazione da qualsiasi servizio oppure eliminare i servizi che lo usano.
 
     require_once 'vendor\autoload.php';
 
@@ -552,11 +552,9 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
   [Procedura: Eliminare un gruppo di affinità]: #DeleteAffinityGroup
   [creare un account Azure]: /it-it/pricing/free-trial/
   [API di Gestione servizi di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [OpenSSL]: http://www.openssl.org/
   [scaricare nella versione per Windows]: http://www.openssl.org/related/binaries.html
   [panoramica dei certificati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg981935.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
   [strumenti da riga di comando di Azure]: ../command-line-tools/
   [servizio cloud]: ../cloud-services-what-is/
   [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
@@ -564,6 +562,7 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
   [pacchetto del servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433093
   [cmdlet di Azure PowerShell]: ../install-configure-powershell/
   [strumento da riga di comando cspack]: http://msdn.microsoft.com/it-it/library/windowsazure/gg432988.aspx
+  [Schema di configurazione dei servizi di Azure (con estensione cscfg)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
   [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh386336.aspx
   [servizio di archiviazione]: ../storage-whatis-account/
   [BLOB]: ../storage-php-how-to-use-blobs/

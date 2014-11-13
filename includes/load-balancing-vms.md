@@ -1,6 +1,6 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+<properties title="Bilanciamento del carico per i servizi di infrastruttura di Azure" pageTitle="Bilanciamento del carico per i servizi di infrastruttura di Azure" description="Descrive le funzionalit&agrave; per eseguire il bilanciamento del carico in Gestione traffico e il bilanciamento del carico." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 # Bilanciamento del carico per i servizi di infrastruttura di Azure
 

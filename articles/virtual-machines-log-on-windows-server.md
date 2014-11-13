@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn to use the Azure Management Portal to log on to a virtual machine running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Accedere a una macchina virtuale che esegue Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Informazioni su come usare il portale di gestione per accedere a una macchina virtuale che esegue Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Come accedere a una macchina virtuale che esegue Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="08/05/2014" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="08/05/2014" ms.author="kathydav" />
 
 # Come accedere a una macchina virtuale che esegue Windows Server
 
@@ -12,11 +12,11 @@ Per avviare una connessione Desktop remoto per una macchina virtuale che esegue 
 
 2.  Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale appropriata.
 
-3.  Nella barra dei comandi fare clic su **Connetti**.
+3.  Nella barra dei comandi fare clic su **Connect**.
 
     ![Accesso alla macchina virtuale][Accesso alla macchina virtuale]
 
-4.  Fare clic su **Apri** per usare il file di Remote Desktop Protocol creato automaticamente per la macchina virtuale.
+4.  Fare clic su **Apri** per usare il file RDP (Remote Desktop Protocol) creato automaticamente per la macchina virtuale.
 
 5.  Fare clic su **Connetti** per continuare.
 
@@ -24,7 +24,7 @@ Per avviare una connessione Desktop remoto per una macchina virtuale che esegue 
 
 6.  Digitare il nome utente e la password dell'account amministrativo della macchina virtuale, quindi fare clic su **OK**. Il nome utente e la password devono corrispondere a quelli specificati al momento della creazione della macchina virtuale, a meno che tale macchina non sia ora un controller di dominio. In tal caso, digitare il nome utente e la password dell'account amministratore del dominio.
 
-7.  Fare clic su **Sì** per verificare l'identità della macchina virtuale.
+7.  Fare clic su **Yes** per verificare l'identità della macchina virtuale.
 
     ![Verificare l'identità della macchina virtuale][Verificare l'identità della macchina virtuale]
 

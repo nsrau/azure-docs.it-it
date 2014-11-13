@@ -6,8 +6,8 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 </div>
 
 1.  Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start**.
-2.  Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *<http://>\*.mongodb.org* all'elenco dei siti attendibili.
-3.  Passare alla pagina dei [download di MongoDB][].
+2.  Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://\*.mongodb.org* all'elenco dei siti attendibili.
+3.  Passare alla pagina dei [download di MongoDB][download di MongoDB].
 4.  Individuare la versione più recente nella sezione **Production Release (Recommended)** e fare clic sul collegamento \***2008+** nella colonna relativa a Windows a 64 bit. Fare clic su **Salva con nome** e salvare il file con estensione zip sul desktop.
 5.  Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto** Specificare "C:" e fare clic su **Estrai**. Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo, come ad esempio "MongoDB".
 6.  Creare le directory dei dati e dei log nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi. Digitare:
@@ -45,13 +45,13 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
         C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-    Verrà creato un servizio denominato "Mongo DB" con la descrizione "Mongo DB". È necessario utilizzare l'opzione **--logpath** per specificare un file di log, poiché il servizio in esecuzione non disporrà di una finestra di comando in cui visualizzare l'output. L'opzione **--logpath** specifica che dopo il riavvio del servizio l'output verrà aggiunto al file di log esistente. L'opzione **--dbpath** specifica il percorso della directory dei dati. Per altre opzioni della riga di comando relative ai servizi, vedere [Opzioni della riga di comando relative ai servizi][].
+    Verrà creato un servizio denominato "Mongo DB" con la descrizione "Mongo DB". È necessario usare l'opzione **--logpath** per specificare un file di log, poiché il servizio in esecuzione non disporrà di una finestra di comando in cui visualizzare l'output. L'opzione **--logpath** specifica che dopo il riavvio del servizio l'output verrà aggiunto al file di log esistente. L'opzione **--dbpath** specifica il percorso della directory dei dati. Per altre opzioni della riga di comando relative ai servizi, vedere [Opzioni della riga di comando relative ai servizi][Opzioni della riga di comando relative ai servizi].
 
 10. Ora che MongoDB è stato installato ed è in esecuzione, è necessario aprire una porta in Windows Firewall per poter eseguire la connessione remota a MongoDB. Dal menu **Start** scegliere **Strumenti di amministrazione** e quindi **Windows Firewall con protezione avanzata**.
 
 11. Nel riquadro sinistro selezionare **Regole connessioni in entrata**. Nel riquadro **Azioni** a destra selezionare **Nuova regola**.
 
-    ![Windows Firewall][]
+    ![Windows Firewall][Windows Firewall]
 
     In **Creazione guidata nuova regola connessioni in entrata** selezionare **Porta** e quindi fare clic su **Avanti**.
 
@@ -75,7 +75,7 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
 12. A questo punto è possibile configurare un endpoint per MongoDB se non è stato già fatto durante la creazione della macchina virtuale. Per la connessione a MongoDB in modalità remota, sono necessari sia la regola firewall che l'endpoint. Nel portale di gestione fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
 
-    ![Endpoint][]
+    ![Endpoint][Endpoint]
 
 13. Fare clic su **Add Endpoint** nella parte inferiore della pagina. Selezionare**Add Endpoint** e quindi fare clic su **Next**.
 
@@ -85,7 +85,6 @@ Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macc
 
     ![Endpoint][7]
 
-  [sicurezza e amministrazione]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [download di MongoDB]: http://www.mongodb.org/downloads
   [Opzioni della riga di comando relative ai servizi]: http://www.mongodb.org/display/DOCS/Windows+Service
   [Windows Firewall]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png

@@ -1,8 +1,8 @@
-<properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
+<properties urlDisplayName="Queue Service" pageTitle="Come usare l'archiviazione di accodamento da .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Informazioni su come usare il servizio di archiviazione di accodamento di Microsoft Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Come usare il servizio di archiviazione di accodamento di Microsoft Azure" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
-# Come utilizzare l'archiviazione di accodamento da .NET
+# Come usare l'archiviazione di accodamento da .NET
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di
 archiviazione di accodamento di Azure. Negli esempi, scritti in codice C#
@@ -20,14 +20,14 @@ alla sezione [Passaggi successivi][Passaggi successivi].
 -   [Informazioni sull'archiviazione di accodamento][Informazioni sull'archiviazione di accodamento]
 -   [Concetti][Concetti]
 -   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
--   [Configurazione di una stringa di connessione di archiviazione di Azure][Configurazione di una stringa di connessione di archiviazione di Azure]
+-   [Configurare una stringa di connessione di archiviazione di Azure][Configurare una stringa di connessione di archiviazione di Azure]
 -   [Procedura: Accedere all'archiviazione di accodamento a livello di codice][Procedura: Accedere all'archiviazione di accodamento a livello di codice]
 -   [Procedura: Creare una coda][Procedura: Creare una coda]
 -   [Procedura: Inserire un messaggio in una coda][Procedura: Inserire un messaggio in una coda]
 -   [Procedura: Visualizzare il messaggio successivo][Procedura: Visualizzare il messaggio successivo]
 -   [Procedura: Cambiare il contenuto di un messaggio in coda][Procedura: Cambiare il contenuto di un messaggio in coda]
 -   [Procedura: Rimuovere il messaggio successivo dalla coda][Procedura: Rimuovere il messaggio successivo dalla coda]
--   [Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda]
+-   [Procedura: Usare opzioni aggiuntive per rimuovere i messaggi dalla coda][Procedura: Usare opzioni aggiuntive per rimuovere i messaggi dalla coda]
 -   [Procedura: Recuperare la lunghezza della coda][Procedura: Recuperare la lunghezza della coda]
 -   [Procedura: Eliminare una coda][Procedura: Eliminare una coda]
 -   [Passaggi successivi][Passaggi successivi]
@@ -43,7 +43,7 @@ alla sezione [Passaggi successivi][Passaggi successivi].
 
 ## 
 
-## <a name="setup-connection-string"></a><span class="short-header">Configurazione di una stringa di connessione</span>Configurazione di una stringa di connessione di archiviazione di Azure
+## <a name="setup-connection-string"></a><span class="short-header">Configurazione di una stringa di connessione</span>Configurare una stringa di connessione di archiviazione di Azure
 
 </h2>
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
@@ -54,7 +54,7 @@ alla sezione [Passaggi successivi][Passaggi successivi].
 
 Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][Centro per sviluppatori .NET]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][Centro per sviluppatori .NET]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Dichiarazioni dello spazio dei nomi
 
@@ -70,7 +70,7 @@ Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll
 ### Recupero della stringa di connessione
 
 Per rappresentare
-le informazioni dell'account di archiviazione, è possibile utilizzare il tipo **CloudStorageAccount**. Se si intende usare un modello di progetto di Windows
+le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si intende usare un modello di progetto di Windows
 Azure e/o si dispone di un riferimento a
 Microsoft.WindowsAzure.CloudConfigurationManager, è
 possibile usare il tipo **CloudConfigurationManager** per
@@ -97,7 +97,8 @@ Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto *
 Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di
 questa guida viene usata una stringa di connessione di archiviazione archiviata nella configurazione del servizio dell'applicazione
 Azure. Sono inoltre disponibili altri modi per creare un
-oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount][CloudStorageAccount].
+oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount][CloudStorageAccount]
+.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,12 +165,12 @@ dalla coda chiamando il metodo **PeekMessage**.
 ## <a name="change-contents"></a><span class="short-header">Cambiare il contenuto di un messaggio</span>Procedura: Cambiare il contenuto di un messaggio in coda
 
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il
-messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo
+messaggio rappresenta un'attività di lavoro, è possibile usare questa funzionalità per aggiornarne lo
 stato. Il codice seguente consente di aggiornare il messaggio
 in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60
 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a
 disposizione un altro minuto per continuare l'elaborazione del messaggio. È
-possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi
+possibile usare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi
 in coda, senza la necessità di ricominciare dall'inizio se un passaggio di
 elaborazione non riesce a causa di errori hardware o software. In genere,
 è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più
@@ -227,7 +228,7 @@ messaggio.
 È possibile personalizzare il recupero di messaggi da una coda in due modi.
 Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più
 lungo o più breve assegnando al codice più o meno
-tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo
+tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo
 **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio
 viene elaborato con un ciclo **foreach**. Per ogni messaggio, inoltre, il timeout
 di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano
@@ -305,12 +306,12 @@ informazioni sulle attività di archiviazione più complesse.
 -   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
     -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][Informazioni di riferimento sulla libreria client di archiviazione per .NET]
     -   [Informazioni di riferimento sulle API REST][Informazioni di riferimento sulle API REST]
--   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][archiviazione e all'accesso di dati in Azure].
+-   Per altre informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][archiviazione e all'accesso di dati in Azure].
 -   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][Introduzione all'uso dell'SDK di Processi Web di Azure].
--   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle][Archiviazione tabelle].
-    -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB][Archiviazione BLOB].
-    -   Per archiviare dati relazionali, utilizzare [Database SQL][Database SQL].
+-   Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
+    -   Per archiviare dati strutturati, usare [Archiviazione tabelle][Archiviazione tabelle].
+    -   Per archiviare dati non strutturati, usare [Archiviazione BLOB][Archiviazione BLOB].
+    -   Per archiviare dati relazionali, usare [Database SQL][Database SQL].
 
   [Passaggi successivi]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
@@ -319,18 +320,15 @@ informazioni sulle attività di archiviazione più complesse.
   [Informazioni sull'archiviazione di accodamento]: #what-is
   [Concetti]: #concepts
   [Creare un account di archiviazione di Azure]: #create-account
-  [Configurazione di una stringa di connessione di archiviazione di Azure]: #setup-connection-string
+  [Configurare una stringa di connessione di archiviazione di Azure]: #setup-connection-string
   [Procedura: Creare una coda]: #create-queue
   [Procedura: Inserire un messaggio in una coda]: #insert-message
   [Procedura: Visualizzare il messaggio successivo]: #peek-message
   [Procedura: Cambiare il contenuto di un messaggio in coda]: #change-contents
   [Procedura: Rimuovere il messaggio successivo dalla coda]: #get-message
-  [Procedura: Utilizzare opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
+  [Procedura: Usare opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
   [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
   [Procedura: Eliminare una coda]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
   [Centro per sviluppatori .NET]: http://www.windowsazure.com/it-it/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

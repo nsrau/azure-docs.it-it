@@ -1,6 +1,6 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Informazioni sulle tecnologie NoSQL in Azure | Azure" metaKeywords="" description="Informazioni su come le tecnologie NoSQL in HDInsight possono facilitare la gestione dei dati non adatti ai database relazionali, ad esempio set di Big Data e documenti JSON o grafici." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Gestione dati: Informazioni sulle tecnologie NoSQL in Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
 
 # Gestione dati: Informazioni sulle tecnologie NoSQL in Azure
 
@@ -29,6 +29,6 @@ La tecnologia relazionale è data tempo l'approccio predominante per l'utilizzo 
 
 **Revisione:** 1.0
 
-**Download:** [Informazioni sulle tecnologie NoSQL in Azure - file PDF][]
+**Download:** [Informazioni sulle tecnologie NoSQL in Azure - file PDF][Informazioni sulle tecnologie NoSQL in Azure - file PDF]
 
   [Informazioni sulle tecnologie NoSQL in Azure - file PDF]: http://go.microsoft.com/fwlink/p/?LinkId=330292

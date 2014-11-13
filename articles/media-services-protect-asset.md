@@ -1,16 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Come crittografare asset in Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare la tecnologia di protezione Microsoft PlayReady per crittografare un asset in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="Procedura: Proteggere un asset con la tecnologia di protezione PlayReady" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="playready"></a>Procedura: Proteggere un asset con la tecnologia di protezione PlayReady
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Controllare lo stato dei processi][].
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Controllare lo stato dei processi][Procedura: Controllare lo stato dei processi].
 
-In Servizi multimediali di Azure è possibile inviare un processo che si integra con la tecnologia di protezione Microsoft PlayReady per crittografare un asset. Nel codice di questa sezione vengono utilizzati diversi file di streaming da una cartella di input, viene creata un'attività e vengono crittografati i file con PlayReady.
+In Servizi multimediali di Azure è possibile inviare un processo che si integra con la tecnologia di protezione Microsoft PlayReady per crittografare un asset. Nel codice di questa sezione vengono usati diversi file di streaming da una cartella di input, viene creata un'attività e vengono crittografati i file con PlayReady.
 
 Nell'esempio seguente viene illustrato come creare un semplice processo per applicare la protezione PlayReady.
 
-1.  Recuperare i dati di configurazione. È possibile ottenere un file di configurazione di esempio nell'argomento [Set di impostazioni di attività per Azure Media Encryptor][].
+1.  Recuperare i dati di configurazione. È possibile ottenere un file di configurazione di esempio nell'argomento [Set di impostazioni di attività per Azure Media Encryptor][Set di impostazioni di attività per Azure Media Encryptor].
 2.  Caricare un file di input MP4
 3.  Convertire il file MP4 in un asset Smooth Streaming
 4.  Crittografare l'asset con PlayReady
@@ -32,7 +32,7 @@ Nell'esempio di codice seguente viene illustrato come implementare i passaggi:
         string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
         // Get a media processor instance
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
         // Create a task with the conversion details, using the configuration data 
         ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -55,7 +55,7 @@ Nell'esempio di codice seguente viene illustrato come implementare i passaggi:
         string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
         // Get a media processor instance
-        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
         // Create a second task, specifying a task name, the media processor, and configuration
         ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -103,16 +103,16 @@ Nell'esempio di codice seguente viene illustrato come implementare i passaggi:
 
 Per altre informazioni sulla protezione PlayReady, vedere:
 
--   [Protezione di asset con Microsoft PlayReady][]
--   [Microsoft PlayReady][]
+-   [Protezione di asset con Microsoft PlayReady][Protezione di asset con Microsoft PlayReady]
+-   [Microsoft PlayReady][Microsoft PlayReady]
 
 </p>
 ## Passaggi successivi
 
-Dopo avere acquisito i concetti relativi alla protezione di asset con Servizi multimediali, è possibile passare all'argomento [Come gestire gli asset][].
+Dopo avere acquisito i concetti relativi alla protezione di asset con Servizi multimediali, è possibile passare all'argomento [Come gestire gli asset][Come gestire gli asset].
 
-  [Procedura: Controllare lo stato dei processi]: http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409
-  [Set di impostazioni di attività per Azure Media Encryptor]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [Protezione di asset con Microsoft PlayReady]: http://msdn.microsoft.com/en-us/library/dn189154.aspx
+  [Procedura: Controllare lo stato dei processi]: ../media-services-check-job-progress/
+  [Set di impostazioni di attività per Azure Media Encryptor]: http://msdn.microsoft.com/it-it/library/hh973610.aspx
+  [Protezione di asset con Microsoft PlayReady]: http://msdn.microsoft.com/it-it/library/dn189154.aspx
   [Microsoft PlayReady]: http://www.microsoft.com/PlayReady/
-  [Come gestire gli asset]: http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409
+  [Come gestire gli asset]: ../media-services-manage-assets/

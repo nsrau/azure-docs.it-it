@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="Gestire la disponibilit&agrave; delle macchine virtuali - Azure" metaKeywords="" description="Informazioni su come usare pi&ugrave; macchine virtuali per garantire la disponibilit&agrave; per l'applicazione Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # Gestione della disponibilità delle macchine virtuali
 
@@ -25,13 +25,15 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 
 Per garantire ridondanza a un'applicazione è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni sui contratti di servizio, vedere la sezione "Servizi cloud, macchine virtuali e rete virtuale" in [Contratti di servizio][Contratti di servizio].
 
-A ciascuna delle macchine virtuali incluse nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Per ogni set di disponibilità, inoltre, vengono assegnati cinque domini di aggiornamento non configurabili dall'utente che indicano i gruppi di macchine virtuali, con il relativo hardware fisico sottostante, che è possibile aggiornare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante gli eventi di manutenzione pianificata, ma viene sempre riavviato un dominio di aggiornamento per volta.
+A ogni macchina virtuale nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Per ogni set di disponibilità, inoltre, vengono assegnati cinque domini di aggiornamento non configurabili dall'utente che indicano i gruppi di macchine virtuali, con il relativo hardware fisico sottostante, che è possibile aggiornare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante gli eventi di manutenzione pianificata, ma viene sempre riavviato un dominio di aggiornamento per volta.
 
 I domini di errore definiscono il gruppo di macchine virtuali che condividono una fonte di alimentazione e uno switch di rete comuni. Per impostazione predefinita, le macchine virtuali configurate nell'ambito di un set di disponibilità vengono suddivise tra due domini di errore. Il raggruppamento di più macchine virtuali in un set di disponibilità non garantisce la protezione dell'applicazione da eventuali errori del sistema operativo o di singole applicazioni, ma limita le conseguenze prodotte da potenziali guasti dell'hardware fisico e interruzioni di rete o di alimentazione.
 
 <!--Image reference-->
 
 ![configurazione dei domini di aggiornamento/errore][configurazione dei domini di aggiornamento/errore]
+
+> [WACOM.NOTE] Per istruzioni, vedere [Come configurare un set di disponibilità per le macchine virtuali][Come configurare un set di disponibilità per le macchine virtuali].
 
 ### Configurare ogni livello dell'applicazione in set di disponibilità separati
 
@@ -53,11 +55,14 @@ Se il bilanciamento del carico non è configurato in modo da bilanciare il traff
 
 Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non hanno diritto alle garanzie dei contratti di servizio e subiscono tempi di inattività durante gli eventi di manutenzione pianificata di Azure. Se in un set di disponibilità si distribuisce un'unica istanza di macchine virtuali, inoltre, non si ricevono più preavvisi o notifiche di manutenzione alla piattaforma. In questa configurazione, quindi, l'istanza di macchina virtuale viene riavviata senza alcun preavviso ogni volta che viene eseguita la manutenzione della piattaforma.
 
+<!-- Link references -->
+
   [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
   [Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configure-each-application-tier-into-separate-availability-sets
   [Combinare il bilanciamento del carico con set di disponibilità]: #combine-the-load-balancer-with-availability-sets
   [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
   [Contratti di servizio]: ../../../support/legal/sla/
   [configurazione dei domini di aggiornamento/errore]: ./media/virtual-machines-manage-availability/ud-fd-configuration.png
+  [Come configurare un set di disponibilità per le macchine virtuali]: ../virtual-machines-how-to-configure-availability
   [Livelli di applicazione]: ./media/virtual-machines-manage-availability/application-tiers.png
   [Bilanciamento del carico delle macchine virtuali]: ../load-balance-virtual-machines/

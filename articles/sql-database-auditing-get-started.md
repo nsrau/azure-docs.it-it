@@ -1,6 +1,6 @@
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+<properties title="Introduzione al controllo del database SQL" pageTitle="Introduzione al controllo del database SQL | Azure" description="Introduzione al controllo del database SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"/>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # Introduzione al controllo del database SQL
 
@@ -45,29 +45,28 @@ Stringa di connessione con sicurezza abilitata: \<*nome server*\>.database.**sec
 ## <span id="subheading-2"></span></a>Configurare il controllo per il database
 
 1.  [Iscriversi all'anteprima della funzionalità di controllo][iscriversi all'anteprima].
-2.  È anche necessario [iscriversi all'anteprima dei nuovi livelli di servizio][iscriversi all'anteprima dei nuovi livelli di servizio] e creare un database Basic, Standard o Premium.
-3.  Avviare il [portale di anteprima di Azure][portale di anteprima di Azure] all'indirizzo <https://portal.azure.com>.
-4.  Fare clic sul database che si vuole controllare e fare clic su **Anteprima controllo** per abilitare l'anteprima del controllo e avviare il pannello di configurazione del controllo.
+2.  Avviare il [portale di anteprima di Azure][portale di anteprima di Azure] all'indirizzo https://portal.azure.com.
+3.  Fare clic sul database che si vuole controllare e fare clic su **Anteprima controllo** per abilitare l'anteprima del controllo e avviare il pannello di configurazione del controllo.
 
-    ![](./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png)
+    ![][0]
 
-5.  Nel pannello di configurazione del controllo selezionare l'account di archiviazione di Azure in cui salvare i log. **Suggerimento:** per sfruttare al massimo i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati.
+4.  Nel pannello di configurazione del controllo selezionare l'account di archiviazione di Azure in cui salvare i log. **Suggerimento:** per sfruttare al massimo i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati.
 
     ![][1]
 
-6.  In **Opzioni di controllo** fare clic su **Tutto** per registrare tutti gli eventi oppure scegliere singoli tipi di evento.
+5.  In **Opzioni di controllo** fare clic su **Tutto** per registrare tutti gli eventi oppure scegliere singoli tipi di evento.
 
     ![][2]
 
-7.  Selezionare **Salva questa configurazione come predefinita** per applicare le impostazioni a tutti i future database nel server e a qualsiasi database per cui non è stato ancora configurato il controllo. In seguito sarà possibile eseguire l'override delle impostazioni per qualsiasi database seguendo la stessa procedura.
+6.  Selezionare **Salva questa configurazione come predefinita** per applicare le impostazioni a tutti i future database nel server e a qualsiasi database per cui non è stato ancora configurato il controllo. In seguito sarà possibile eseguire l'override delle impostazioni per qualsiasi database seguendo la stessa procedura.
 
     ![][3]
 
-8.  Fare clic su **Mostra stringhe di connessione database** e quindi copiare o prendere nota della stringa di connessione con sicurezza abilitata appropriata per l'applicazione. Usare questa stringa per qualsiasi applicazione client di cui si vogliono monitorare le attività.
+7.  Fare clic su **Mostra stringhe di connessione database** e quindi copiare o prendere nota della stringa di connessione con sicurezza abilitata appropriata per l'applicazione. Usare questa stringa per qualsiasi applicazione client di cui si vogliono monitorare le attività.
 
     ![][4]
 
-9.  Fare clic su **OK**.
+8.  Fare clic su **OK**.
 
 ## <span id="subheading-3"></span>Analizzare i log di controllo e i report</a>
 
@@ -81,9 +80,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 
 ![][5]
 
-<!--Anchors-->
-<!--Image references-->
-<!--Link references-->
+<!--Anchors--> <!--Image references--> <!--Link references-->
 
   [iscriversi all'anteprima]: http://go.microsoft.com/fwlink/?LinkId=404163
   [Centro protezione Azure]: http://azure.microsoft.com/it-it/support/trust-center/compliance/
@@ -91,9 +88,8 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
   [Configurare il controllo per il database]: #subheading-2
   [Analizzare i log di controllo e i report]: #subheading-3
   [riferimento sul formato dei log di controllo]: http://go.microsoft.com/fwlink/?LinkId=506733
-  [iscriversi all'anteprima dei nuovi livelli di servizio]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [portale di anteprima di Azure]: https://portal.azure.com
-  
+  [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
   [2]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
   [3]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png

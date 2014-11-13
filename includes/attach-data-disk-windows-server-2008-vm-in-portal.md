@@ -1,6 +1,6 @@
 Per collegare un disco dati, attenersi alla procedura seguente:
 
-1.  Nel [portale di gestione di Azure][] fare clic su **Virtual Machines** quindi selezionare la macchina virtuale appena creata (**testwinvm**).
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Virtual Machines** quindi selezionare la macchina virtuale appena creata (**testwinvm**).
 
 2.  Sulla barra dei comandi fare clic su **Attach** e quindi su **Attach Empty Disk**.
 
@@ -8,7 +8,7 @@ Per collegare un disco dati, attenersi alla procedura seguente:
 
 3.  Le impostazioni **Virtual Machine Name**, **Storage Location** e **File Name** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Size**.
 
-    ![Attach Empty Disk][]
+    ![Attach Empty Disk][Attach Empty Disk]
 
     **Nota:** tutti i dischi vengono creati da un file VHD in Archiviazione di Azure. È possibile specificare un nome per il file VHD aggiunto alla risorsa di archiviazione, tuttavia il nome del disco viene generato automaticamente in Azure.
 
@@ -26,25 +26,25 @@ Per collegare un disco dati, attenersi alla procedura seguente:
 
 1.  Dopo avere effettuato il provisioning della macchina virtuale, fare clic su **Virtual Machines** nel portale di gestione quindi fare clic sulla nuova macchina virtuale. Verranno visualizzate le informazioni sulla macchina virtuale.
 
-2.  Nella parte inferiore della pagina fare clic su **Connect**. Aprire il file .rpd utilizzando il programma Desktop remoto Windows (*%windir%\\system32\\mstsc.exe*).
+2.  Nella parte inferiore della pagina fare clic su **Connect**. Aprire il file .rpd usando il programma Desktop remoto Windows (*%windir%\\system32\\mstsc.exe*).
 
 3.  Nella finestra di dialogo **Protezione di Windows** immettere la password dell'account **Administrator**. (Potrebbe essere richiesta la verifica delle credenziali della macchina virtuale). In occasione del primo accesso alla macchina virtuale, potrebbe essere necessario completare diversi processi, come la configurazione del desktop, l'aggiornamento di Windows e il completamento delle attività di configurazione iniziali di Windows. Dopo avere eseguito la connessione alla macchina virtuale con Desktop remoto Windows, la macchina virtuale funziona come qualsiasi altro computer.
 
 4.  Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro espandere **Storage**, quindi fare clic su **Disk Management**.
 
-    ![Server Manager][]
+    ![Server Manager][Server Manager]
 
 5.  Verrà visualizzata la finestra **Initalize Disk**. Fare clic su **OK**.
 
-    ![Initialize Disk][]
+    ![Initialize Disk][Initialize Disk]
 
 6.  Fare clic con il pulsante destro del mouse sull'area di allocazione spazio per il disco 2, scegliere **New Simple Volume**, quindi terminare la procedura guidata con i valori predefiniti.
 
-    ![New Simple Volume][]
+    ![New Simple Volume][New Simple Volume]
 
     Il disco sarà ora online e pronto per l'uso con una nuova lettera di unità.
 
-    ![Initialize Success][]
+    ![Initialize Success][Initialize Success]
 
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Attach Empty Disk]: ./media/attach-data-disk-windows-server-2008-vm-in-portal/AttachDataDiskWinVM2.png

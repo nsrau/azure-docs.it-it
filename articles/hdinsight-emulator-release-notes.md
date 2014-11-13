@@ -1,11 +1,21 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="Note sulla versione: Microsoft HDInsight Emulator per Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Informazioni aggiornate sulle versioni pi&ugrave; recenti di HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Note sulla versione: Microsoft HDInsight Emulator per Azure" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
 
 # Note sulla versione: Microsoft HDInsight Emulator per Azure
 
 > [WACOM.NOTE]
 > Il modo più semplice per verificare il numero di versione consiste nell'osservare la voce "Microsoft HDInsight Emulator per Azure" (per la versione 1.0.0.0 o versioni successive) o "Microsoft HDInsight Developer Preview" (per le versioni precedenti a 1.0.0.0) in Installazione applicazioni.
+
+## v2.0.0.0, rilasciata il 29/8/2014
+
+-   Questa versione consente di aggiornare HDInsight Emulator in modo da poterlo usare con gli stessi progetti Hadoop attualmente attivi nel servizio nella versione 3.1.
+
+-   Come le versioni preliminari del prodotto, anche questa versione è destinata a scenari di sviluppo e pertanto supporta solo distribuzioni a nodo singolo.
+
+### Novità
+
+-   [Versioni aggiornate dei componenti di Hadoop][Versioni aggiornate dei componenti di Hadoop] corrispondenti alla versione 3.1 del servizio. È incluso il supporto per Hive 0.13 e Tez.
 
 ## v1.0.0.0, rilasciata il 28/10/2013
 
@@ -15,11 +25,11 @@
 
 ### Novità
 
--   Sono stati aggiunti script per semplificare l'impostazione di tutti i servizi Apache Hadoop per l'avvio automatico o manuale. L'impostazione predefinita prevede ancora l'avvio automatico, ma ora è possibile modificare tutti i servizi utilizzando gli script set-onebox-manualstart.cmd o set-onebox-autostart.cmd installati in C:\\Hadoop.
+-   Sono stati aggiunti script per semplificare l'impostazione di tutti i servizi Apache Hadoop per l'avvio automatico o manuale. L'impostazione predefinita prevede ancora l'avvio automatico, ma ora è possibile modificare tutti i servizi usando gli script set-onebox-manualstart.cmd o set-onebox-autostart.cmd installati in C:\\Hadoop.
 
 -   Il numero di dipendenze di installazione necessarie è stato ridotto notevolmente, per accelerare le installazioni.
 
--   Correzione di bug nel comando utilizzato per eseguire esempi Pig nello script RunSamples.ps1 installato nella cartella GettingStarted.
+-   Correzione di bug nel comando usato per eseguire esempi Pig nello script RunSamples.ps1 installato nella cartella GettingStarted.
 
 -   Questa versione contiene un aggiornamento alla versione 1.1 di Hortonworks Data Platform corrispondente ai servizi Hortonworks Data Platform disponibili nella versione 1.6 del cluster Azure HDInsight.
 
@@ -63,7 +73,7 @@
 
 -   Connessione a più cluster, compresa l'installazione locale e quelli in esecuzione in remoto mediante il servizio Azure HDInsight.
 
--   Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/](http://azure.microsoft.com/it-it/documentation/services/hdinsight/).
+-   Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/][http://azure.microsoft.com/it-it/documentation/services/hdinsight/].
 
 -   Configurare WASB in un cluster locale
 
@@ -80,14 +90,14 @@ Numeri di porta
 -   Gli endpoint API REST in un'installazione locale di HDInsight e il servizio Azure HDInsight sono accessibili tramite diversi numeri di porta per gli stessi servizi:
 
     Locale:
-    Oozie: <http://localhost:11000/oozie/v1/admin/status>
-    Templeton: <http://localhost:50111/templeton/v1/status>
-    ODBC: utilizzare la porta 10000 nella stringa di connessione o nella configurazione DSN.
+    Oozie: http://localhost:11000/oozie/v1/admin/status
+    Templeton: http://localhost:50111/templeton/v1/status
+    ODBC: usare la porta 10000 nella stringa di connessione o nella configurazione DSN.
 
     Servizio HDInsight:
-    Oozie: <http://ServerFQDN:563/oozie/v1/admin/status>
-    Templeton: <http://ServerFQDN:563/templeton/v1/status>
-    ODBC: utilizzare la porta 563 nella stringa di connessione o nella configurazione DSN
+    Oozie: http://ServerFQDN:563/oozie/v1/admin/status
+    Templeton: http://ServerFQDN:563/templeton/v1/status
+    ODBC: usare la porta 563 nella stringa di connessione o nella configurazione DSN
 
 -   Configurazione di ASV nel cluster locale:
 
@@ -133,7 +143,7 @@ Numeri di porta
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3.  Accedere a qualsiasi file su tale account utilizzando l'URI completo: asv:[//{container}@{account}/{path][//{container}@{account}/{path]} (oppure asvs:// se si vuole usare HTTPS per l'accesso ai dati). Esempio:
+    3.  Accedere a qualsiasi file su tale account usando l'URI completo: asv://{container}@{account}/{path} (or asvs:// if you want to use HTTPS for accessing the data). Esempio:
 
             hadoop fs -lsr 
             asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -178,7 +188,7 @@ Numeri di porta
 
 -   La console JavaScript non viene caricata
 
-    -   In alcune installazioni la console JavaScript non viene caricata e nella pagina viene visualizzato un errore HTTP 404. Per risolvere il problema, passare direttamente a <http://localhost:8080> per usare la console.
+    -   In alcune installazioni la console JavaScript non viene caricata e nella pagina viene visualizzato un errore HTTP 404. Per risolvere il problema, passare direttamente a http://localhost:8080 per usare la console.
 -   Quando si passa al dashboard di HDInsight viene chiesto di specificare le credenziali di accesso
 
     -   Alcuni utenti hanno segnalato che viene visualizzata una finestra di dialogo di accesso quando si passa al dashboard di HDInsight. In questo caso è possibile specificare le credenziali di accesso dell'utente corrente per passare al dashboard.
@@ -243,7 +253,8 @@ Numeri di porta
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
--   [Introduzione all'utilizzo di HDInsight Emulator][Introduzione all'utilizzo di HDInsight Emulator]
+-   [Introduzione all'uso di HDInsight Emulator][Introduzione all'uso di HDInsight Emulator]
 
-  [//{container}@{account}/{path]: mailto://{container}@{account}/{path
-  [Introduzione all'utilizzo di HDInsight Emulator]: ../hdinsight-get-started-emulator/
+  [Versioni aggiornate dei componenti di Hadoop]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/
+  [http://azure.microsoft.com/it-it/documentation/services/hdinsight/]: http://azure.microsoft.com/it-it/documentation/services/hdinsight/
+  [Introduzione all'uso di HDInsight Emulator]: ../hdinsight-get-started-emulator/

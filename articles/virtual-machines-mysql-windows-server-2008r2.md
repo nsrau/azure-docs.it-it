@@ -1,14 +1,14 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MySQL" pageTitle="Creare una macchina virtuale che esegue MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Creare una macchina virtuale di Azure che esegue Windows Server 2008 R2, quindi installare e configurare un database MySQL nella macchina virtuale." metaCanonical="" services="virtual-machines" documentationCenter="" title="Installare MySQL in una macchina virtuale che esegue Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
-# Installazione di MySQL in una macchina virtuale che esegue Windows Server 2008 R2 in Azure
+# Installare MySQL in una macchina virtuale che esegue Windows Server 2008 R2 in Azure
 
 [MySQL][MySQL] è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di gestione di Azure][portale di gestione di Azure], è possibile creare una macchina virtuale che esegue Windows Server 2008 R2. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MySQL.
 
 In questa esercitazione si apprenderà come:
 
--   Utilizzare il portale di gestione per creare una macchina virtuale che esegue Windows Server 2008 R2.
+-   Usare il portale di gestione per creare una macchina virtuale che esegue Windows Server 2008 R2.
 
 -   Installare ed eseguire MySQL Community Server nella macchina virtuale.
 
@@ -20,7 +20,7 @@ In questa esercitazione si apprenderà come:
 
 [WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
-## Installazione ed esecuzione di MySQL Community Server nella macchina virtuale
+## Installare ed eseguire MySQL Community Server nella macchina virtuale
 
 Per installare, configurare ed eseguire MySQL Community Server, eseguire la procedura seguente:
 
@@ -117,7 +117,7 @@ Per installare, configurare ed eseguire MySQL Community Server, eseguire la proc
         mysql> CREATE DATABASE testdatabase;
         mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-    Si noti che i nomi utente e le password per il database sono utilizzati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel computer.
+    Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel computer.
 
 28. Per eseguire l'accesso da un altro computer, eseguire il comando seguente:
 
@@ -145,13 +145,13 @@ Per installare, configurare ed eseguire MySQL Community Server, eseguire la proc
 
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-    Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario utilizzare il comando seguente:
+    Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario usare il comando seguente:
 
         mysql -u mysqluser -p -h testwinvm.cloudapp.net
 
 ## Riepilogo
 
-In questa esercitazione è stato illustrato come creare una macchina virtuale Windows 2008 R2 e come stabilire una connessione remota a quest'ultima. È stato inoltre illustrato come installare e configurare MySQL nella macchina virtuale, come creare un database e un nuovo utente MySQL. Per ulteriori informazioni su MySQL, vedere la [Documentazione di MySQL][Documentazione di MySQL].
+In questa esercitazione è stato illustrato come creare una macchina virtuale Windows 2008 R2 e come stabilire una connessione remota a quest'ultima. È stato inoltre illustrato come installare e configurare MySQL nella macchina virtuale, come creare un database e un nuovo utente MySQL. Per altre informazioni su MySQL, vedere la [Documentazione di MySQL][Documentazione di MySQL].
 
   [MySQL]: http://www.mysql.com
   [portale di gestione di Azure]: http://manage.windowsazure.com
