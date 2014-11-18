@@ -156,16 +156,16 @@ Per salvare i log del server Web nel file system, scegliere **File System**. Ver
 
 Per impostazione predefinita, i log del server Web non vengono mai eliminati. Per specificare un periodo di tempo trascorso il quale i log vengono automaticamente eliminati, selezionare **Set Retention** e immettere il numero di giorni per la conservazione dei log nella casella **Retention Period**. Questa impostazione è disponibile per entrambe le opzioni di salvataggio, nell'account di archiviazione di Azure e nel file system.
 
--   **Detailed Error Messages**: attivare la registrazione dei messaggi di errore dettagliati per registrare ulteriori informazioni sugli errori HTTP (codici di stato maggiori di 400).
+- **Detailed Error Messages**: attivare la registrazione dei messaggi di errore dettagliati per registrare ulteriori informazioni sugli errori HTTP (codici di stato maggiori di 400).
 
--   **Failed Request Tracing**: attivare la traccia delle richieste non riuscite per acquisire informazioni sulle richieste client non riuscite, ad esempio un codice di stato HTTP della serie 400. La traccia delle richieste non riuscite genera un documento XML contenente una traccia dei moduli di richiesta passati tramite IIS, i dettagli restituiti da modulo e l'ora in cui è stato richiamato il modulo. Queste informazioni possono essere utilizzate per isolare il componente in cui si è verificato l'errore.
+- **Failed Request Tracing**: attivare la traccia delle richieste non riuscite per acquisire informazioni sulle richieste client non riuscite, ad esempio un codice di stato HTTP della serie 400. La traccia delle richieste non riuscite genera un documento XML contenente una traccia dei moduli di richiesta passati tramite IIS, i dettagli restituiti da modulo e l'ora in cui è stato richiamato il modulo. Queste informazioni possono essere utilizzate per isolare il componente in cui si è verificato l'errore.
 
 Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salva** nella parte inferiore della pagina di gestione **Configura** per applicare le opzioni impostate.
 
 <div class="dev-callout">
 
-**Importante**
-La registrazione e la traccia sottopongono il sito Web a un carico significativo. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.
+<b>Importante</b>
+<p>La registrazione e la traccia sottopongono il sito Web a un carico significativo. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.</p>
 
 </div>
 
@@ -208,9 +208,8 @@ La registrazione e la traccia sottopongono il sito Web a un carico significativo
 
     <div class="dev-callout">
 
-    **Nota**
-    Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell][introduzione ai cmdlet di Azure PowerShell] per informazioni sull'installazione e la configurazione.
-
+    <b>Nota</b>
+    <p>Se <b>Azure PowerShell</b> non è installato, vedere l'<a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx">introduzione ai cmdlet di Azure PowerShell</a> per informazioni sull'installazione e la configurazione.</p>
     </div>
 
 2.  Dal prompt di Azure PowerShell, utilizzare i comandi seguenti per scaricare i file di log:
@@ -240,10 +239,8 @@ Verranno scaricati i file di log per il sito Web specificato da **nomesitoWeb** 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
 <div class="dev-callout">
-
-**Nota**
-Se il comando **azure** non è installato, vedere [Come utilizzare gli strumenti da riga di comando di Azure][Come utilizzare gli strumenti da riga di comando di Azure] per informazioni sull'installazione e la configurazione.
-
+<b>Nota</b>
+<p>Se il comando <b>azure</b> non è installato, vedere <a href="http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/">Come utilizzare gli strumenti da riga di comando di Azure</a> per informazioni sull'installazione e la configurazione.</p>
 </div>
 
 ### Lettura dei file di log
@@ -300,7 +297,7 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 2.  Fare clic sulla scheda **Configura**.
 3.  Passare alla sezione **Monitoring** per immettere le impostazioni dell'endpoint.
 4.  Immettere un nome per l'endpoint.
-5.  Immettere l'URL per il servizio da monitorare. Ad esempio, [][]<http://contoso.cloudapp.net></a>.
+5.  Immettere l'URL per il servizio da monitorare. Ad esempio, [http://contoso.cloudapp.net](http://contoso.cloudapp.net).
 6.  Selezionare una o più posizioni geografiche nell'elenco.
 7.  Facoltativamente, ripetere i passaggi precedenti per creare un secondo endpoint.
 8.  Fare clic su **Save**. Potrebbero essere necessari alcuni istanti prima che i dati di monitoraggio dell'endpoint Web siano disponibili nelle schede **Dashboard** e **Monitor**.
@@ -323,9 +320,6 @@ Per altre informazioni sul monitoraggio degli endpoint del sito Web, vedere i vi
   [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
   [Come gestire gli account di archiviazione]: https://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [introduzione ai cmdlet di Azure PowerShell]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx
-  [Come utilizzare gli strumenti da riga di comando di Azure]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/
   [formato di log esteso W3C]: http://go.microsoft.com/fwlink/?LinkID=90561
-  []: http://contoso.cloudapp.net
   [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint]: http://www.windowsazure.com/it-it/documentation/videos/websites-and-endpoint-monitoring-scottgu/
   [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow]: http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/

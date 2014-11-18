@@ -10,7 +10,7 @@ In questa esercitazione viene illustrato come distribuire un'applicazione creata
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-In questa esercitazione vengono utilizzati Python 2.7 e Django 1.4. È possibile scaricarli autonomamente oppure installarli in modo semplice e rapido tramite il collegamento di Windows Installer, disponibile all'indirizzo [][]<http://www.windowsazure.com/it-it/develop/python/></a>.
+In questa esercitazione vengono utilizzati Python 2.7 e Django 1.4. È possibile scaricarli autonomamente oppure installarli in modo semplice e rapido tramite il collegamento di Windows Installer, disponibile all'indirizzo [http://www.windowsazure.com/it-it/develop/python/](http://www.windowsazure.com/it-it/develop/python/).
 
 **Nota**: Python (2.7.3 o 3.4.0, a seconda della selezione effettuata) e il gestore wfastcgi sono attualmente preinstallati in Siti Web di Azure, ma framework Web quali Django non sono inclusi. Se lo si preferisce, è possibile utilizzare comunque un altro interprete per Python. È necessario includerlo semplicemente nell'archivio Git e configurare il sito Web in modo che usi tale interprete in sostituzione dell'interprete per Python 2.7 già installato.
 
@@ -122,7 +122,7 @@ Tornare infine al Dashboard. Passare a **SITE URL** a sinistra. Fare clic sul co
 
 È possibile continuare lo sviluppo dell'applicazione Django utilizzando gli strumenti già in uso. Se si utilizza [Python Tools for Visual Studio][Python Tools for Visual Studio] per lo sviluppo, è probabile che si desideri installare [VisualGit][VisualGit] per ottenere l'integrazione del controllo del codice sorgente dall'interno di Visual Studio.
 
-È possibile che l'applicazione includa altre dipendenze oltre a quelle relative a Python e Django. Se Python è stato installato mediante il programma di installazione disponibile all'indirizzo [][]<http://www.windowsazure.com/it-it/develop/python/></a>, PIP sarà già stato installato e sarà possibile utilizzarlo per aggiungere rapidamente nuove dipendenze. Ad esempio, per installare il toolkit per linguaggi naturali e tutte le relative dipendenze, digitare:
+È possibile che l'applicazione includa altre dipendenze oltre a quelle relative a Python e Django. Se Python è stato installato mediante il programma di installazione disponibile all'indirizzo [http://www.windowsazure.com/it-it/develop/python/](http://www.windowsazure.com/it-it/develop/python/), PIP sarà già stato installato e sarà possibile utilizzarlo per aggiungere rapidamente nuove dipendenze. Ad esempio, per installare il toolkit per linguaggi naturali e tutte le relative dipendenze, digitare:
 
     pip install nltk
 

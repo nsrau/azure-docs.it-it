@@ -6,9 +6,9 @@
 
 ***Data ultimo aggiornamento: 15 ottobre 2013.***
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/it-it/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>Nota</strong><p>&Egrave; disponibile una <a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">versione pi&ugrave; recente di questa esercitazione</a>. &Egrave; comunque possibile seguire questa versione se si desidera utilizzare Visual Studio 2012, tuttavia la nuova versione risulter&agrave; molto pi&ugrave; semplice da seguire.</p></div>
+<div class="dev-callout"><strong>Nota</strong><p>&Egrave; disponibile una <a href="/it-it/develop/net/tutorials/web-site-with-sql-database/">versione pi&ugrave; recente di questa esercitazione</a>. &Egrave; comunque possibile seguire questa versione se si desidera utilizzare Visual Studio 2012, tuttavia la nuova versione risulter&agrave; molto pi&ugrave; semplice da seguire.</p></div>
 
 In questa esercitazione verrà illustrato come creare un'applicazione Web ASP.NET MVC 4 sicura che consenta agli utenti di effettuare l'accesso utilizzando credenziali di Facebook, Yahoo e Google. L'applicazione verrà inoltre distribuita in Azure.
 
@@ -381,7 +381,7 @@ In questa esercitazione non vengono riportati tutti i passaggi necessari per la 
 -   [Microsoft][Microsoft]
 -   [Twitter][Twitter]
 
-Passare alla pagina [][]<https://developers.facebook.com/apps></a> ed effettuare l'accesso se necessario. Fare clic su **Register as a Developer** e completare il processo di registrazione. Dopo aver completato la registrazione, fare clic su **Create New App**. Immettere un nome per l'app. Non è necessario immettere uno spazio dei nomi per l'app.
+Passare alla pagina [][0]<https://developers.facebook.com/apps></a> ed effettuare l'accesso se necessario. Fare clic su **Register as a Developer** e completare il processo di registrazione. Dopo aver completato la registrazione, fare clic su **Create New App**. Immettere un nome per l'app. Non è necessario immettere uno spazio dei nomi per l'app.
 
 ![Creazione di una nuova app FB][Creazione di una nuova app FB]
 
@@ -595,7 +595,7 @@ Viene visualizzata la procedura guidata **Pubblica sito Web**.
     ![Aggiunta SQL][Aggiunta SQL]
 
 5.  Fare clic su **Pubblica**.
-6.  Passare alla pagina [][]<https://developers.facebook.com/apps></a> e sostituire le impostazioni per **Domini app** e **URL sito** con quelle relative all'URL di Azure.
+6.  Passare alla pagina [][0]<https://developers.facebook.com/apps></a> e sostituire le impostazioni per **Domini app** e **URL sito** con quelle relative all'URL di Azure.
 7.  Testare l'applicazione. Verificare che solo gli utenti nel ruolo *canEdit* possano modificare i dati. Verificare che gli utenti anonimi possano solamente visualizzare la home page. Verificare che gli utenti autenticati possano spostarsi in tutti i collegamenti che non consentono la modifica dei dati.
 8.  La prossima volta che si pubblica l'applicazione, assicurarsi di deselezionare **Aggiorna database** in **DefaultConnectionDeploy**.
 
@@ -700,11 +700,10 @@ Per altre informazioni su Entity Framework e su Migrazioni Code First, vedere:
 -   [Introduzione a Entity Framework con MVC][Introduzione a Entity Framework con MVC]
 -   [Migrazioni Code First][10]
 
-<!-- bookmarks --> <!-- links --> <!-- links from Tom's hopefully no collisions --> <!-- images-->
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
-  [versione più recente di questa esercitazione]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [Visual Studio 2013]: /it-it/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
+  [Visual Studio 2012]: /it-it/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
+  [versione più recente di questa esercitazione]: /it-it/develop/net/tutorials/web-site-with-sql-database/
   [pagina di accesso]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Configurare l'ambiente di sviluppo]: #bkmk_setupdevenv
@@ -752,7 +751,7 @@ Per altre informazioni su Entity Framework e su Migrazioni Code First, vedere:
   [Migrazioni Code First]: http://msdn.microsoft.com/library/hh770484.aspx
   [Console di Gestione pacchetti nel menu Strumenti]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png
   [enable-migrations]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png
-  [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx
+  [DbContext]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=VS.103).aspx
   [seeding e al debug di database di Entity Framework (EF)]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [Package Manager Console commands]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png
   [Visualizzazione MVC dei dati]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png
@@ -760,7 +759,7 @@ Per altre informazioni su Entity Framework e su Migrazioni Code First, vedere:
   [Facebook]: http://developers.facebook.com/
   [Microsoft]: http://go.microsoft.com/fwlink/?LinkID=144070
   [Twitter]: http://dev.twitter.com/
-  []: https://developers.facebook.com/apps/
+  [0]: https://developers.facebook.com/apps/
   [Creazione di una nuova app FB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png
   [Nuova app FB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png
   [Tester FB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png
@@ -768,16 +767,16 @@ Per altre informazioni su Entity Framework e su Migrazioni Code First, vedere:
   [ID utente]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png
   [roleID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png
   [Tabella UserId e RoleId]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUR.png
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
+  [Authorize]: http://msdn.microsoft.com/it-it/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
+  [RequireHttps]: http://msdn.microsoft.com/it-it/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
   [protezione dell'app ASP.NET MVC 4 e al nuovo attributo AllowAnonymous]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [CAPTCHA]: http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership
   [Abilitazione di SSL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSSL.png
   [3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxS2.png
   [Avviso certificato]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT.png
   [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png
-  [dbDacFx]: http://msdn.microsoft.com/en-us/library/dd394698.aspx
-  [Area download di Microsoft SQL Server 2012 Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [dbDacFx]: http://msdn.microsoft.com/it-it/library/dd394698.aspx
+  [Area download di Microsoft SQL Server 2012 Express]: http://www.microsoft.com/it-it/download/details.aspx?id=29062
   [ITA\\x64\\SQLManagementStudio\_x64\_ITA.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe
   [ITA\\x86\\SQLManagementStudio\_x86\_ITA.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe
   [Installazione di SQL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png
@@ -805,15 +804,15 @@ Per altre informazioni su Entity Framework e su Migrazioni Code First, vedere:
   [@blowdart]: https://twitter.com/blowdart
   [Customizing External Login Buttons in ASP.NET MVC 4]: http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/
   [Autenticazione di Azure]: http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication
-  [Creazione di un sito Intranet mediante ASP.NET MVC]: http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx
-  [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [Creazione di un sito Intranet mediante ASP.NET MVC]: http://msdn.microsoft.com/it-it/library/gg703322(v=vs.98).aspx
+  [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure]: http://www.windowsazure.com/it-it/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Introduzione ad ASP.NET MVC 4]: http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
   [Introduzione a Entity Framework con MVC]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
   [OAuth 2.0 and Sign-In]: http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx
-  [Attività comuni]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
-  [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [la versione della presente esercitazione dedicata ai servizi cloud]: http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/
-  [Sviluppo di applicazioni Web con Azure]: http://msdn.microsoft.com/en-us/library/Hh674484
+  [Attività comuni]: http://www.windowsazure.com/it-it/develop/net/common-tasks/
+  [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [la versione della presente esercitazione dedicata ai servizi cloud]: http://www.windowsazure.com/it-it/develop/net/tutorials/cloud-service-with-sql-database/
+  [Sviluppo di applicazioni Web con Azure]: http://msdn.microsoft.com/it-it/library/Hh674484
   [offerte per l'archiviazione dei dati in Azure]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
   [utilizzo del database SQL di Azure in ASP.NET Data Access Content Map]: http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb
-  [10]: http://msdn.microsoft.com/en-us/library/hh770484
+  [10]: http://msdn.microsoft.com/it-it/library/hh770484

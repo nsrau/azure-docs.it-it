@@ -9,7 +9,7 @@ In questa esercitazione verranno descritte le opzioni per la creazione e la conf
 > [WACOM.NOTE] Per selezionare la versione di Python da usare nel portale di Siti Web di Azure aprire la scheda Configura del sito Web e modificare l'impostazione **Versione Python**.
 
 Per un esempio più complesso di configurazione del framework Django sulla piattaforma Siti Web di Azure, vedere l'esercitazione seguente:
-[][]http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django</a>.
+[http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django](http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django).
 
 ## Supporto WSGI
 

@@ -1,106 +1,96 @@
-<properties urlDisplayName="Table Service" pageTitle="Come usare l'archiviazione tabelle da .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Informazioni su come usare il servizio di archiviazione tabelle di Microsoft Azure per creare ed eliminare tabelle e per inserire ed eseguire query su entit&agrave; di una tabella." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Come usare il servizio di archiviazione tabelle di Microsoft Azure" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="Table Service" pageTitle="Come usare l'archiviazione tabelle da .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
+
+
 # Come usare l'archiviazione tabelle da .NET
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione tabelle di
-Azure. Negli esempi, scritti in C#,
-viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono la **creazione ed
-eliminazione di una tabella** e l'**utilizzo di entità di tabella**. Per altre
-informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
-> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet][NuGet] o come parte di [Azure SDK per .NET][Azure SDK per .NET]. Vedere [Procedura: Accedere all'archiviazione tabelle a livello di codice][Procedura: Accedere all'archiviazione tabelle a livello di codice], per informazioni su come ottenere la libreria client di archiviazione.
+Questa guida illustra diversi scenari d'uso comuni del 
+Servizio di archiviazione tabelle di Azure. Negli esempi, scritti in codice C\#,
+viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono **creazione ed
+eliminazione di una tabella** e l'**uso di entità tabella**. Per altre
+informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+
+> [WACOM.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o come parte di [Azure SDK per .NET](/it-it/downloads/). Vedere [Procedura: Accedere all'archiviazione tabelle a livello di codice][], per informazioni su come ottenere la libreria client di archiviazione.
 
 ## Sommario
 
--   [Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]
--   [Concetti][Concetti]
--   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
--   [Configurazione di una stringa di connessione di archiviazione][Configurazione di una stringa di connessione di archiviazione]
--   [Procedura: Accedere all'archiviazione tabelle a livello di codice][Procedura: Accedere all'archiviazione tabelle a livello di codice]
--   [Procedura: Creare una tabella][Procedura: Creare una tabella]
--   [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]
--   [Procedura: Inserire un batch di entità][Procedura: Inserire un batch di entità]
--   [Procedura: Recuperare tutte le entità di una partizione][Procedura: Recuperare tutte le entità di una partizione]
--   [Procedura: Recuperare un intervallo di entità in una partizione][Procedura: Recuperare un intervallo di entità in una partizione]
--   [Procedura: Recuperare una singola entità][Procedura: Recuperare una singola entità]
--   [Procedura: Sostituire un'entità][Procedura: Sostituire un'entità]
--   [Procedura: Inserire o sostituire un'entità][Procedura: Inserire o sostituire un'entità]
--   [Procedura: Eseguire una query su un subset di proprietà di entità][Procedura: Eseguire una query su un subset di proprietà di entità]
--   [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]
--   [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]
--   [Passaggi successivi][Passaggi successivi]
+-   [Informazioni sul servizio tabelle][]
+-   [Concetti][]
+-   [Creare un account di archiviazione di Azure][]
+-   [Configurare una stringa di connessione di archiviazione][]
+-   [Procedura: Accedere all'archiviazione tabelle a livello di codice][]
+-   [Procedura: Creare una tabella][]
+-   [Procedura: Aggiungere un'entità a una tabella][]
+-   [Procedura: Inserire un batch di entità][]
+-   [Procedura: Recuperare tutte le entità di una partizione][]
+-   [Procedura: Recuperare un intervallo di entità in una partizione][]
+-   [Procedura: Recuperare una singola entità][]
+-   [Procedura: Sostituire un'entità][]
+-   [Procedura: Inserire o sostituire un'entità][]
+-   [Procedura: Eseguire una query su un subset di proprietà di entità][]
+-   [Procedura: Eliminare un'entità][]
+-   [Procedura: Eliminare una tabella][]
+-   [Passaggi successivi][]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## 
+## <h2><a name="create-account"></a><span class="short-header">Creare un account</span>Creare un account di archiviazione di Azure</h2>
 
-## <a name="create-account"></a><span class="short-header">Creare un account</span>Creare un account di archiviazione di Azure
-
-</h2>
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## 
+## <h2><a name="setup-connection-string"></a><span class="short-header">Configurare una stringa di connessione di archiviazione</span>Configurare una stringa di connessione di archiviazione</h2>
 
-## <a name="setup-connection-string"></a><span class="short-header">Configurazione di una stringa di connessione</span>Configurazione di una stringa di connessione di archiviazione
-
-</h2>
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## 
+## <h2> <a name="configure-access"> </a><span  class="short-header">Accedere a livello di codice</span>Procedura: Accedere all'archiviazione tabelle a livello di codice</h2>
 
-## <a name="configure-access"> </a><span class="short-header">Accedere a livello di programmazione</span>Procedura: Accedere all'archiviazione tabelle a livello di codice
+<h3>Recupero dell'assembly</h3>
+Per recuperare l'assembly Microsoft.WindowsAzure.Storage.dll, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.  Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-</h2>
-### Recupero dell'assembly
+`Il file `Microsoft.WindowsAzure.Storage.dll<a href="http://www.windowsazure.com/it-it/develop/net/#"> è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal </a>Centro per sviluppatori .NET. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
-Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
-
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal [Centro per sviluppatori .NET][Centro per sviluppatori .NET]. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
-
-### Dichiarazioni dello spazio dei nomi
-
-Aggiungere le dichiarazioni dello spazio dei nomi del codice seguenti all'inizio del file
-C# in cui si intende accedere ad Archiviazione di Azure a livello di codice:
+<h3>Dichiarazioni dello spazio dei nomi</h3>
+Aggiungere le dichiarazioni dello spazio dei nomi seguenti all'inizio del file C\#
+in cui si vuole accedere a livello di codice ad Archiviazione di Azure:
 
     using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+	using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Table;
 
 Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll`.
 
-### Recupero della stringa di connessione
-
-Per rappresentare
-le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si intende usare un modello di progetto di
-Azure e/o si dispone di un riferimento allo spazio dei nomi
-Microsoft.WindowsAzure.CloudConfigurationManager, è
+<h3>Recupero della stringa di connessione</h3>
+È possibile usare il tipo **CloudStorageAccount** per rappresentare 
+le informazioni dell'account di archiviazione. Se si intende usare un 
+modello di progetto di Azure e/o si dispone di un riferimento
+allo spazio dei nomi Microsoft.WindowsAzure.CloudConfigurationManager, è 
 possibile usare il tipo **CloudConfigurationManager** per
-recuperare la stringa di connessione di archiviazione e le informazioni
-dell'account di archiviazione dalla configurazione dei servizi di Azure:
+recuperare la stringa di connessione di archiviazione e le informazioni dell'account di archiviazione
+dalla configurazione dei servizi di Azure:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.CloudConfigurationManager e la stringa di connessione si trova nel file `web.config` o `app.config` come illustrato in precedenza, per recuperarla è possibile usare **ConfigurationManager**. Sarà necessario aggiungere un riferimento a System.Configuration.dll al progetto e aggiungere un'altra dichiarazione dello spazio dei nomi:
+Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.CloudConfigurationManager e la stringa di connessione si trova nel file `web.config` o `app.config` come illustrato in precedenza, per recuperarla è possibile usare **ConfigurationManager**.  Sarà necessario aggiungere un riferimento a System.Configuration.dll al progetto e aggiungere un'altra dichiarazione dello spazio dei nomi:
 
-    using System.Configuration;
-    ...
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+	using System.Configuration;
+	...
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 
-### Dipendenze ODataLib
+<h3>Dipendenze ODataLib</h3>
+Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services.  È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet.  I pacchetti ODataLib specifici sono [OData], [Edm] e [Spatial].
 
-Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData][OData], [Edm][Edm] e [Spatial][Spatial].
+<h2><a name="create-table"></a><span class="short-header">Creare una tabella</span>Procedura: Creare una tabella</h2>
 
-## <a name="create-table"></a><span class="short-header">Creare una tabella</span>Procedura: Creare una tabella
-
-Per ottenere oggetti di riferimento per tabelle ed
-entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un
-oggetto **CloudTableClient** e di usarlo per creare una nuova tabella. In tutto il codice incluso in questa guida si presuppone
-che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che
-usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure.
+È possibile usare un oggetto **CloudTableClient** per ottenere oggetti di riferimento per tabelle
+ed entità. Il codice seguente consente di creare un oggetto **CloudTableClient**
+e di usarlo per creare una nuova tabella. In tutto il codice incluso in questa guida si presuppone
+che l'applicazione da compilare sia un progetto servizio cloud di Azure e
+che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -113,19 +103,19 @@ usi una stringa di connessione di archiviazione archiviata nella configurazione 
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-## <a name="add-entity"></a><span class="short-header">Aggiungere un'entità a una tabella</span>Procedura: Aggiungere un'entità a una tabella
+<h2><a name="add-entity"></a><span class="short-header">Aggiungere un'entità a una tabella</span>Procedura: Aggiungere un'entità a una tabella</h2>
 
-Per eseguire il mapping di entità a oggetti C#, viene usata una classe personalizzata derivata da
-**TableEntity**. Per aggiungere un'entità a una classe, creare una
+Le entità eseguono il mapping degli oggetti a C\# mediante una classe personalizzata derivata da
+**TableEntity**. Per aggiungere un'entità a una tabella, creare una
 classe che definisca le proprietà dell'entità. Il codice seguente
-consente di definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di
-riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione
-di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la
-stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione
-diverse, tuttavia l'utilizzo di chiavi di partizione diverse assicura una maggiore scalabilità in caso di
-operazioni parallele. Per tutte le proprietà da archiviare nel servizio tabelle,
+consente di definire una classe di entità che usa il nome e il cognome del cliente rispettivamente
+come chiave di riga e chiave di partizione. La combinazione della chiave di partizione
+e della chiave di riga di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con
+la stessa chiave di partizione vengono eseguite più rapidamente di quelle con
+chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità
+in caso di operazioni parallele.  Per tutte le proprietà da archiviare nel servizio tabelle, 
 la proprietà deve essere una proprietà pubblica di un tipo supportato che espone sia `get` che `set`.
- Il tipo dell'entità *deve* inoltre esporre un costruttore senza parametri.
+Il tipo di entità *deve* inoltre esporre un costruttore senza parametri.
 
     public class CustomerEntity : TableEntity
     {
@@ -134,7 +124,7 @@ la proprietà deve essere una proprietà pubblica di un tipo supportato che espo
             this.PartitionKey = lastName;
             this.RowKey = firstName;
         }
-        
+		
         public CustomerEntity() { }
 
         public string Email { get; set; }
@@ -143,8 +133,8 @@ la proprietà deve essere una proprietà pubblica di un tipo supportato che espo
     }
 
 Per eseguire le operazioni su tabelle che interessano entità, viene usato l'oggetto **CloudTable**
- creato in "Procedura: Creare una tabella". L'operazione da eseguire è
-rappresentata da un oggetto **TableOperation**. Nell'esempio di codice seguente viene illustrata la creazione dell'oggetto **CloudTable** e quindi di un oggetto **CustomerEntity**. Per preparare l'operazione, viene creato un oggetto **TableOperation** per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato **CloudTable.Execute**.
+creato in "Procedura: Creare una tabella"  L'operazione da eseguire
+è rappresentata da un oggetto **TableOperation**.  L'esempio di codice seguente illustra la creazione dell'oggetto **CloudTable** e quindi di un oggetto **CustomerEntity**.  Per preparare l'operazione, viene creato un oggetto **TableOperation** per inserire l'entità customer nella tabella.  Infine, per eseguire l'operazione viene chiamato **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -152,9 +142,9 @@ rappresentata da un oggetto **TableOperation**. Nell'esempio di codice seguente 
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+	
+	// Create the CloudTable object that represents the "people" table.
+	CloudTable table = tableClient.GetTableReference("people");
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -167,11 +157,11 @@ rappresentata da un oggetto **TableOperation**. Nell'esempio di codice seguente 
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-## <a name="insert-batch"></a><span class="short-header">Inserire un batch di entità</span>Procedura: Inserire un batch di entità
+<h2><a name="insert-batch"></a><span class="short-header">Inserire un batch di entità</span>Procedura: Inserire un batch di entità</h2>
 
-Per inserire un batch di entità in una tabella, è possibile usare un'unica operazione
-di scrittura. Di seguito sono riportate altre informazioni sulle operazioni
-batch:
+Per inserire un batch di entità in una tabella, è possibile usare un'unica
+operazione di scrittura. Di seguito sono riportate altre informazioni sulle operazioni batch
+:
 
 1.  È possibile usare una singola operazione batch per eseguire operazioni di aggiornamento, eliminazione e inserimento.
 2.  Una singola operazione batch può includere fino a 100 entità.
@@ -180,7 +170,6 @@ batch:
 4.  È possibile eseguire una query come operazione batch, ma deve essere l'unica operazione del batch.
 
 <!-- -->
-
 L'esempio di codice seguente consente di creare due oggetti entità e di aggiungerli
 a un oggetto **TableBatchOperation** usando il metodo **Insert**. Per eseguire l'operazione, viene quindi chiamato **CloudTable.Execute**.
 
@@ -190,36 +179,36 @@ a un oggetto **TableBatchOperation** usando il metodo **Insert**. Per eseguire l
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-    // Create the CloudTable object that represents the "people" table.
+    
+	// Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();
 
     // Create a customer entity and add it to the table.
-    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-    customer1.Email = "Jeff@contoso.com";
-    customer1.PhoneNumber = "425-555-0104";
+	CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
+	customer1.Email = "Jeff@contoso.com";
+	customer1.PhoneNumber = "425-555-0104";
             
-    // Create another customer entity and add it to the table.
-    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-    customer2.Email = "Ben@contoso.com";
-    customer2.PhoneNumber = "425-555-0102";
+	// Create another customer entity and add it to the table.
+	CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+	customer2.Email = "Ben@contoso.com";
+	customer2.PhoneNumber = "425-555-0102";
             
-    // Add both customer entities to the batch insert operation.
-    batchOperation.Insert(customer1);
-    batchOperation.Insert(customer2);
+	// Add both customer entities to the batch insert operation.
+	batchOperation.Insert(customer1);
+	batchOperation.Insert(customer2);
 
-    // Execute the batch operation.
-    table.ExecuteBatch(batchOperation);
+	// Execute the batch operation.
+	table.ExecuteBatch(batchOperation);
 
-## <a name="retrieve-all-entities"></a><span class="short-header">Recuperare tutte le entità</span>Procedura: Recuperare tutte le entità di una partizione
+<h2><a name="retrieve-all-entities"></a><span class="short-header">Recuperare tutte le entità</span>Procedura: Recuperare tutte le entità di una partizione</h2>
 
-Per eseguire una query su una tabella per recuperare tutte le entità incluse in una partizione, usare un oggetto **TableQuery**.
-Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'
-. Questo esempio consente di stampare sulla console i campi di
-ogni entità inclusa nei risultati della query.
+Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**..
+Nell'esempio di codice seguente viene specificato un filtro per le entità in cui 'Smith'
+rappresenta la chiave di partizione. Questo esempio consente di stampare sulla console i campi
+di ogni entità inclusa nei risultati della query.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -241,12 +230,12 @@ ogni entità inclusa nei risultati della query.
             entity.Email, entity.PhoneNumber);
     }
 
-## <a name="retrieve-range-entities"></a><span class="short-header">Recuperare un intervallo di entità</span>Procedura: Recuperare un intervallo di entità in una partizione
+<h2><a name="retrieve-range-entities"></a><span class="short-header">Recuperare un intervallo di entità</span>Procedura: Recuperare un intervallo di entità in una partizione</h2>
 
 Se non si vuole eseguire una query su tutte le entità incluse in una partizione, è possibile
-specificare un intervallo combinando il filtro della chiave di partizione con quello della chiave di riga. Nell'esempio di codice seguente vengono
-usati due filtri per recuperare tutte le entità della partizione 'Smith' in cui la chiave
-di riga (nome) inizia con una lettera che precede la 'E' nell'alfabeto e quindi
+specificare un intervallo combinando il filtro della chiave di partizione con quello della chiave di riga. Nell'esempio di codice seguente
+vengono usati due filtri per recuperare tutte le entità della partizione 'Smith' in cui la chiave di riga
+(nome) inizia con una lettera che precede la 'E' nell'alfabeto e quindi
 stampare i risultati della query.
 
     // Retrieve the storage account from the connection string.
@@ -259,7 +248,7 @@ stampare i risultati della query.
     //Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
-    // Create the table query.
+	// Create the table query.
     TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
         TableQuery.CombineFilters(
             TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
@@ -273,14 +262,14 @@ stampare i risultati della query.
             entity.Email, entity.PhoneNumber);
     }
 
-## <a name="retrieve-single-entity"></a><span class="short-header">Recuperare una singola entità</span>Procedura: Recuperare una singola entità
+<h2><a name="retrieve-single-entity"></a><span class="short-header">Recuperare una singola entità</span>Procedura: Recuperare una singola entità</h2>
 
 Per recuperare una singola entità specifica, è possibile scrivere una query. Il
 codice seguente usa un oggetto **TableOperation** per specificare il cliente 'Ben Smith'.
-Questo metodo restituisce una sola entità invece di una
-raccolta e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**.
-Specificare sia la partizione che le chiavi di riga in una query è il modo più veloce per
-recuperare una singola entità dal servizio Tabelle.
+Questo metodo restituisce una sola entità anziché una
+raccolta e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**..
+La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per 
+recuperare una singola entità dal servizio tabelle.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -299,25 +288,25 @@ recuperare una singola entità dal servizio Tabelle.
     TableResult retrievedResult = table.Execute(retrieveOperation);
 
     // Print the phone number of the result.
-    if (retrievedResult.Result != null)
-       Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-    else
-       Console.WriteLine("The phone number could not be retrieved.");
+	if (retrievedResult.Result != null)
+	   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+	else
+	   Console.WriteLine("The phone number could not be retrieved.");
 
-## <a name="replace-entity"></a><span class="short-header">Sostituire un'entità</span>Procedura: Sostituire un'entità
+<h2><a name="replace-entity"></a><span class="short-header">Sostituire un'entità</span>Procedura: Sostituire un'entità</h2>
 
-Per aggiornare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto
-entità e quindi salvare le modifiche nel servizio tabelle. Il
-codice seguente consente di modificare il numero di telefono di un cliente esistente. Invece di una
-chiamata a **Insert**, nel codice viene usata l'operazione
+Per aggiornare un'entità, recuperarla dal servizio tabelle, modificare
+l'oggetto entità e quindi salvare le modifiche nel servizio tabelle. Il
+codice seguente consente di modificare il numero di telefono di un cliente esistente. Invece di
+una chiamata a **Insert**, nel codice viene usata l'operazione 
 **Replace**. In questo modo l'entità viene completamente sostituita nel server,
 a meno che non sia stata modificata da quando è stata recuperata. In
-questo caso, infatti, l'operazione non viene eseguita per impedire all'applicazione di sovrascrivere
-inavvertitamente una modifica effettuata tra il recupero e
-l'aggiornamento da parte di un altro componente dell'applicazione. Per risolvere questo errore,
-recuperare di nuovo l'entità, apportare le modifiche, se ancora valide, quindi
-eseguire un'altra operazione **Replace**. Nella sezione successiva verrà
-illustrato come ignorare questo comportamento.
+questo caso, infatti, l'operazione non viene eseguita  per impedire all'applicazione
+di sovrascrivere inavvertitamente una modifica effettuata tra il recupero e 
+l'aggiornamento da parte di un altro componente dell'applicazione.  Per risolvere questo errore,
+recuperare di nuovo l'entità, apportare le modifiche, se ancora valide, quindi 
+eseguire un'altra operazione **Replace**.  La sezione successiva
+illustra come ignorare questo comportamento.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -339,34 +328,34 @@ illustrato come ignorare questo comportamento.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-    {
-       // Change the phone number.
-       updateEntity.PhoneNumber = "425-555-0105";
+	{
+	   // Change the phone number.
+	   updateEntity.PhoneNumber = "425-555-0105";
 
-       // Create the InsertOrReplace TableOperation
-       TableOperation updateOperation = TableOperation.Replace(updateEntity);
+	   // Create the InsertOrReplace TableOperation
+	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
-       // Execute the operation.
-       table.Execute(updateOperation);
+	   // Execute the operation.
+	   table.Execute(updateOperation);
 
-       Console.WriteLine("Entity updated.");
-    }
+	   Console.WriteLine("Entity updated.");
+	}
 
-    else
-       Console.WriteLine("Entity could not be retrieved.");
+	else
+	   Console.WriteLine("Entity could not be retrieved.");
 
-## <a name="insert-or-replace-entity"></a><span class="short-header">Inserire o sostituire un'entità</span>Procedura: Inserire o sostituire un'entità
+<h2><a name="insert-or-replace-entity"></a><span class="short-header">Inserire o sostituire un'entità</span>Procedura: Inserire o sostituire un'entità</h2>
 
 Le operazioni **Replace** non vengono eseguite se l'entità è stata modificata rispetto
-a quando è stata recuperata dal server. È inoltre necessario recuperare innanzitutto
-l'entità dal server per la corretta esecuzione dell'operazione **Replace**.
- In alcuni casi, tuttavia, non è noto se l'entità è già esistente nel server
+a quando è stata recuperata dal server.  Per la corretta esecuzione
+di **Replace** è inoltre necessario recuperare prima l'entità dal server.
+In alcuni casi, tuttavia, non è noto se l'entità è già esistente nel server
 e i valori in essa archiviati sono irrilevanti, pertanto devono essere
-sovrascritti completamente dall'aggiornamento. A tale scopo, è necessario usare un'operazione **InsertOrReplace**
-. Questa operazione inserisce l'entità se non è già esistente oppure la
-sostituisce se esiste già, indipendentemente dalla data dell'ultimo aggiornamento. Nell'esempio di codice
-seguente l'entità customer per Ben Smith viene comunque recuperata, ma viene salvata di nuovo nel server tramite l'operazione **InsertOrReplace**. Tutte le modifiche
-apportate all'entità tra le operazioni di recupero e aggiornamento verranno
+sovrascritti completamente dall'aggiornamento.  A tale scopo, è necessario usare un'operazione **InsertOrReplace**
+.  Questa operazione inserisce l'entità se non è già esistente oppure
+la sostituisce se esiste già, indipendentemente dalla data dell'ultimo aggiornamento.  Nell' 
+esempio di codice seguente l'entità customer per Ben Smith viene comunque recuperata, ma viene salvata di nuovo nel server tramite l'operazione **InsertOrReplace**.  Tutte le modifiche
+apportate all'entità tra le operazioni di recupero e aggiornamento verranno 
 sovrascritte.
 
     // Retrieve the storage account from the connection string.
@@ -389,28 +378,28 @@ sovrascritte.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-    {
-       // Change the phone number.
-       updateEntity.PhoneNumber = "425-555-1234";
+	{
+	   // Change the phone number.
+	   updateEntity.PhoneNumber = "425-555-1234";
 
-       // Create the InsertOrReplace TableOperation
-       TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
+	   // Create the InsertOrReplace TableOperation
+	   TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
 
-       // Execute the operation.
-       table.Execute(insertOrReplaceOperation);
+	   // Execute the operation.
+	   table.Execute(insertOrReplaceOperation);
 
-       Console.WriteLine("Entity was updated.");
-    }
+	   Console.WriteLine("Entity was updated.");
+	}
 
-    else
-       Console.WriteLine("Entity could not be retrieved.");
+	else
+	   Console.WriteLine("Entity could not be retrieved.");
 
-## <a name="query-entity-properties"></a><span class="short-header">Eseguire una query su un subset di proprietà</span>Procedura: Eseguire una query su un subset di proprietà di entità
+<h2><a name="query-entity-properties"></a><span class="short-header">Eseguire una query su un subset di proprietà</span>Procedura: Eseguire una query su un subset di proprietà di entità</h2>
 
-Una query tabella consente di recuperare alcune proprietà da un'entità, ma non tutte. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice
-seguente restituisce solo gli indirizzi di posta elettronica di entità nella
-tabella. A tale scopo viene usata una query di **DynamicTableEntity** e
-anche un oggetto **EntityResolver**. Per altre informazioni sulla proiezione, vedere questo [post di blog][post di blog]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si usa un account sul servizio tabelle.
+Una query tabella consente di recuperare alcune proprietà da un'entità, ma non tutte. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel
+codice seguente restituisce solo gli indirizzi di posta elettronica di entità nella
+tabella. A tale scopo viene usata una query di **DynamicTableEntity** e 
+anche un oggetto **EntityResolver**. Per altre informazioni sulla proiezione, vedere questo [post di blog][]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si usa un account sul servizio tabelle.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -433,11 +422,11 @@ anche un oggetto **EntityResolver**. Per altre informazioni sulla proiezione, ve
         Console.WriteLine(projectedEmail);
     }
 
-## <a name="delete-entity"></a><span class="short-header">Eliminare un'entità</span>Procedura: Eliminare un'entità
+<h2><a name="delete-entity"></a><span class="short-header">Eliminare un'entità</span>Procedura: Eliminare un'entità</h2>
 
-Per eliminare facilmente un'entità dopo averla recuperata, è possibile usare lo stesso modello illustrato
-per aggiornare un'entità. Il codice
-seguente consente di recuperare ed eliminare un'entità customer.
+Per eliminare facilmente un'entità dopo averla recuperata, è possibile usare lo stesso modello
+illustrato per aggiornare un'entità.  Il codice seguente
+consente di recuperare ed eliminare un'entità customer.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -459,24 +448,24 @@ seguente consente di recuperare ed eliminare un'entità customer.
     CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
 
     // Create the Delete TableOperation.
-    if (deleteEntity != null)
-    {
-       TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+	if (deleteEntity != null)
+	{
+	   TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 
-       // Execute the operation.
-       table.Execute(deleteOperation);
+	   // Execute the operation.
+	   table.Execute(deleteOperation);
 
-       Console.WriteLine("Entity deleted.");
-    }
+	   Console.WriteLine("Entity deleted.");
+	}
 
-    else
-       Console.WriteLine("Could not retrieve the entity.");
+	else
+	   Console.WriteLine("Could not retrieve the entity.");
 
-## <a name="delete-table"></a><span class="short-header">Eliminare una tabella</span>Procedura: Eliminare una tabella
+<h2><a name="delete-table"></a><span class="short-header">Eliminare una tabella</span>Procedura: Eliminare una tabella</h2>
 
 L'esempio di codice seguente consente infine di eliminare una tabella dall'account di archiviazione. Una
-tabella eliminata non potrà essere creata nuovamente per un
-certo periodo di tempo.
+tabella eliminata non potrà essere creata nuovamente per
+un certo periodo di tempo.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -491,29 +480,38 @@ certo periodo di tempo.
     // Delete the table it if exists.
     table.DeleteIfExists();
 
-## <a name="next-steps"></a><span class="short-header">Passaggi successivi</span>Passaggi successivi
+<h2><a name="next-steps"></a><span class="short-header">Passaggi successivi</span>Passaggi successivi</h2>
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti
-seguenti per altre informazioni sulle attività di archiviazione più complesse.
+A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, usare i collegamenti seguenti
+per informazioni su come eseguire attività di archiviazione più complesse.
 
--   Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
-    -   [Informazioni di riferimento sulla libreria client di archiviazione per .NET][Informazioni di riferimento sulla libreria client di archiviazione per .NET]
-    -   [Informazioni di riferimento sulle API REST][Informazioni di riferimento sulle API REST]
--   Per altre informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso di dati in Azure][archiviazione e all'accesso di dati in Azure].
--   Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure][Introduzione all'uso dell'SDK di Processi Web di Azure].
--   Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati non strutturati, usare [Archiviazione BLOB][Archiviazione BLOB].
-    -   Per archiviare dati strutturati, usare [Archiviazione di accodamento][Archiviazione di accodamento].
-    -   Per archiviare dati relazionali, usare [Database SQL][Database SQL].
+<ul>
+<li>Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
+  <ul>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
+    </li>
+    <li><a href="http://msdn.microsoft.com/it-it/library/windowsazure/dd179355">Informazioni di riferimento sulle API REST</a></li>
+  </ul>
+</li>
+<li>Per altre informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx">Archiviazione e accesso ai dati in Azure</a>.</li>
+<li>Per altre informazioni su come usare Archiviazione di Azure nei processi back-end per Siti Web di Azure, vedere <a href="/it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Introduzione ad Azure WebJobs SDK</a>.</li>
+<li>Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
+  <ul>
+    <li>Per archiviare dati non strutturati, usare l'<a href="/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/">archiviazione BLOB</a>.</li>
+    <li>Per archiviare dati strutturati, usare l'<a href="/it-it/documentation/articles/storage-dotnet-how-to-use-queues/">archiviazione di accodamento</a>.</li>
+    <li>Per archiviare dati relazionali, usare il <a href="/it-it/documentation/articles/sql-database-dotnet-how-to-use/">database SQL</a>.</li>
+  </ul>
+</li>
+</ul>
 
   [Passaggi successivi]: #next-steps
-  [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK per .NET]: /it-it/downloads/
-  [Procedura: Accedere all'archiviazione tabelle a livello di codice]: #configure-access
-  [Informazioni sul Servizio tabelle]: #what-is
+  [Informazioni sul servizio tabelle]: #what-is
   [Concetti]: #concepts
   [Creare un account di archiviazione di Azure]: #create-account
-  [Configurazione di una stringa di connessione di archiviazione]: #setup-connection-string
+  [Creare un progetto Azure in Visual Studio]: #create-project
+  [Configurare l'applicazione per l'accesso all'archiviazione]: #configure-access
+  [Configurare una stringa di connessione di archiviazione]: #setup-connection-string
+  [Procedura: Accedere all'archiviazione tabelle a livello di codice]: #configure-access
   [Procedura: Creare una tabella]: #create-table
   [Procedura: Aggiungere un'entità a una tabella]: #add-entity
   [Procedura: Inserire un batch di entità]: #insert-batch
@@ -525,15 +523,20 @@ seguenti per altre informazioni sulle attività di archiviazione più complesse.
   [Procedura: Eseguire una query su un subset di proprietà di entità]: #query-entity-properties
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
-  [Centro per sviluppatori .NET]: http://www.windowsazure.com/it-it/develop/net/#
+  [Scaricare e installare Azure SDK for .NET]: /it-it/develop/net/
+  [Creazione di un progetto Azure con Visual Studio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405487.aspx
+  
+  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
+  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
+  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
+  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
+  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+  
+  [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+  [Informazioni di riferimento sulla libreria client .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Informazioni di riferimento sulla libreria client di archiviazione per .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179355
-  [archiviazione e all'accesso di dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Introduzione all'uso dell'SDK di Processi Web di Azure]: /it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Archiviazione BLOB]: /it-it/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Archiviazione di accodamento]: /it-it/documentation/articles/storage-dotnet-how-to-use-queues/
-  [Database SQL]: /it-it/documentation/articles/sql-database-dotnet-how-to-use/
