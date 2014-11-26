@@ -400,9 +400,9 @@ Per inviare una notifica tramite un servizio mobile, eseguire quanto descritto i
 
 In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi Android. Per indirizzare le notifiche a utenti specifici, fare riferimento all'esercitazione [Utilizzo di Hub di notifica per inviare notifiche push agli utenti][Utilizzo di Hub di notifica per inviare notifiche push agli utenti], mentre se si desidera segmentare gli utenti in base a gruppi di interesse, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie][Utilizzo di Hub di notifica per inviare le ultime notizie]. Per altre informazioni sull'utilizzo di Hub di notifica, vedere la pagina relativa alle [linee guida per gli hub di notifica][linee guida per gli hub di notifica] e quella relativa alle [procedure di Hub di notifica per Android][procedure di Hub di notifica per Android].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Xamarin.Android]: /it-it/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [app NotificationHubs]: http://go.microsoft.com/fwlink/p/?LinkId=331329

@@ -293,7 +293,5 @@ bus di servizio, usare i collegamenti seguenti per ottenere ulteriori informazio
     di Service Bus - .NET].
 
   [Passaggi successivi]: #next-steps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

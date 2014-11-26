@@ -628,7 +628,6 @@ Per implementare l'applicazione creata in questa esercitazione come progetto Web
 
 Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure][Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]. Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure].
 
-  [create-account-note]: ../includes/create-account-note.md
   [Passaggi successivi]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx

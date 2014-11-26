@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## Log in streaming e console
 
@@ -40,7 +40,7 @@ In una app node.js è possibile scrivere il codice seguente per ottenere lo stes
 
 La diagnostica viene abilitata a livello di sito Web individuale. Dall'interno del [portale][portale] fare clic sul pulsante **Browse** nella barra dei menu visualizzata a sinistra, quindi scegliere **Websites** per visualizzare un elenco di tutti i siti Web.
 
-![][]
+![][0]
 
 Fare clic sul nome del sito Web da configurare. Fare quindi clic sulla parte denominata **DIAGNOSTIC LOGS** e impostare l'interruttore **Application Logging (Filesystem)** sulla posizione **ON**. Viene visualizzata l'opzione **Level**, che consentirà di modificare il livello di gravità delle tracce da acquisire. Impostare il livello su **Verbose** se si sta solo acquisendo familiarità con la funzionalità, poiché questa impostazione garantirà la registrazione di tutte le istruzioni di traccia.
 
@@ -64,9 +64,9 @@ Per acquisire familiarità con la console, provare ad eseguire semplici comandi 
 
     cd
 
-<!-- Images. -->
+
 
   [portale]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

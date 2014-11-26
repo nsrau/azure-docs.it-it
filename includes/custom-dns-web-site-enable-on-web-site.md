@@ -4,11 +4,11 @@ Al termine della propagazione dei record per il nome di dominio, è necessario a
 >
 > È possibile utilizzare un servizio come <http://www.digwebinterface.com/> per verificare se il record CNAME è disponibile.
 
-1.  Accedere al [portale di gestione di Azure][] dal browser.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure] dal browser.
 
 2.  Nella scheda **Siti Web** fare clic sul nome del sito, selezionare **Dashboard** e quindi scegliere **Gestisci domini** nella parte inferiore della pagina.
 
-    ![][]
+    ![][0]
 
 3.  Usare le caselle di testo **NOMI DI DOMINIO** per immettere i nomi di dominio da associare a questo sito Web.
 
@@ -21,5 +21,5 @@ Al termine della propagazione dei record per il nome di dominio, è necessario a
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento al Web di Azure avvenga correttamente.
 
   [portale di gestione di Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-7.png

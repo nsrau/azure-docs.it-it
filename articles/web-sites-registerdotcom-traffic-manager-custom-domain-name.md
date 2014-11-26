@@ -58,21 +58,14 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 ## <a name="enabledomain"></a>Abilitare il sito Web di Gestione traffico
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Register.com]: /it-it/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.register.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Informazioni sui record DNS]: #understanding-records
   [Configurazione dei siti Web per la modalità standard]: #bkmk_configsharedmode
   [Aggiunta di un record DNS per il dominio personalizzato]: #bkmk_configurecname
   [Abilitazione di Gestione traffico per il proprio sito Web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [pagina dell'account personale]: ./media/web-sites-custom-domain-name/rdotcom-myaccount.png
   [Impostazioni tecniche avanzate]: ./media/web-sites-custom-domain-name/rdotcom-advancedsettingstm.png
   [Modulo CNAME]: ./media/web-sites-custom-domain-name/rdotcom-editcnamerecordtm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

@@ -1,6 +1,6 @@
 <properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Uso di processi Web per l'esecuzione di attività in background in Siti Web di Microsoft Azure
 
@@ -225,7 +225,6 @@ Per distribuire i processi Web è anche possibile usare FTP, Git o Web Deploy. P
 
 Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure][versione di valutazione gratuita di Microsoft Azure].
 
-<!-- LINKS --> <!-- IMAGES -->
 
   [Tipi di file consentiti per gli script]: #acceptablefiles
   [Creazione di un'attività su richiesta]: #CreateOnDemand

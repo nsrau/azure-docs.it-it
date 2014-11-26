@@ -223,8 +223,8 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+
+ 
 <!-- URLs.-->
   [Use Notification Hubs to broadcast localized breaking news]: ./breakingnews-localized-wp8.md 
 [Notify users with Notification Hubs]: /it-it/manage/services/notification-hubs/notify-users/
@@ -237,7 +237,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
   [Invio di notifiche dal back-end]: #send
   [Esecuzione dell'app e generazione di notifiche]: #test-app
   [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

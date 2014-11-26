@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Interagire con risorse di DocumentDB
 
@@ -12,7 +12,7 @@ DocumentDB offre un modello di programmazione RESTful su HTTP semplice e aperto.
 
 Le entità gestite da DocumentDB sono definite **risorse**, identificate in modo univoco dal rispettivo URI logico. Gli sviluppatori possono interagire con le risorse usando verbi HTTP standard, intestazioni di richiesta/risposta e codici di stato. Come illustrato nel diagramma seguente, il **modello di risorse** di DocumentDB è costituito da un insieme di risorse disponibili in un account di database e indirizzabili singolarmente tramite un URI logico e stabile. Un insieme di risorse viene definito **feed** nel presente documento.
 
-![][]
+![][0]
 
 ## Modello di risorse gerarchico in un account di database
 
@@ -283,14 +283,14 @@ DocumentDB espone un modello di indirizzamento logico secondo cui ogni risorsa h
 -   Specifica JSON [][2]<http://-www.ietf.org/rfc/rfc4627.txt></a>
 -   Specifica HTTP [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a>
 -   Tag di entità [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a>
--   [Query DocumentDB][]
--   [Riferimento SQL DocumentDB][]
--   [Programmazione con DocumentDB: stored procedure, trigger e UDF][]
--   [Documentazione di riferimento di DocumentDB][]
+-   [Query DocumentDB][Query DocumentDB]
+-   [Riferimento SQL DocumentDB][Riferimento SQL DocumentDB]
+-   [Programmazione con DocumentDB: stored procedure, trigger e UDF][Programmazione con DocumentDB: stored procedure, trigger e UDF]
+-   [Documentazione di riferimento di DocumentDB][Documentazione di riferimento di DocumentDB]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

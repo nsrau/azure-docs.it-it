@@ -8,7 +8,7 @@ Annotare il nome del file e il percorso del certificato esportato.
 
 > [WACOM.NOTE] In questa esercitazione viene creato un file QuickstartPusher.p12. Il nome e il percorso del file potrebbero essere diversi.
 
-1.  Accedere al [portale di gestione di Azure][], fare clic su **Mobile Services** e quindi sull'app.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
     ![][1]
 
@@ -26,7 +26,7 @@ Annotare il nome del file e il percorso del certificato esportato.
 
 Il servizio mobile è ora configurato per funzionare con APNS.
 
-<!-- URLs. -->
+
 
    
   [portale di gestione di Azure]: https://manage.windowsazure.com/

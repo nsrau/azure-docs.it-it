@@ -12,7 +12,7 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
 3.  Nel portale di gestione di Azure fare clic su Manage per il database associato al servizio mobile.
 
-    ![][]
+    ![][0]
 
 4.  Nel portale di gestione eseguire una query per visualizzare le modifiche apportate dall'app di Windows Store. La query da usare sarà simile alla seguente, ma anziché `todolist` conterrà il nome del database.
 
@@ -22,5 +22,5 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
 L'esercitazione **Introduzione ai dati** per Android è terminata.
 
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png

@@ -139,8 +139,6 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script][Autorizzazio
   [Aggiunta dell'autenticazione all'app]: #add-authentication
   [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /it-it/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [2]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens

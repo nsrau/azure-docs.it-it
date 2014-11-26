@@ -284,7 +284,6 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 
 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [versione per back-end JavaScript]: /it-it/develop/mobile/tutorials/get-started-with-data-wp8
   [Download del progetto dell'app per Windows Phone 8]: #download-app
   [Creazione di un nuovo servizio mobile]: #create-service
@@ -300,7 +299,6 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [versione dell'app di Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-service-overview-page.png
   [4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/download-service-project.png
@@ -316,12 +314,10 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-nuget-packages.png
   [15]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/copy-mobileserviceclient-snippet.png
   [16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-pasted-mobileserviceclient.png
-  [mobile-services-how-to-configure-iis-express]: ../includes/mobile-services-how-to-configure-iis-express.md
   [17]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-build-solution.png
   [18]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-run-solution.png
   [19]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/local-item-checked.png
   [20]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [21]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-items.png
   [22]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-sql-azure-database.png
   [23]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/sql-azure-query.png

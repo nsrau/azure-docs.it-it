@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Creazione di applicazioni Django con Python Tools 2.0 per Visual Studio
 
@@ -16,7 +16,7 @@
 
 Questa esercitazione si concentra su Python Tools per Visual Studio e Azure. Per informazioni più dettagliate su Django e sull'applicazione per sondaggi creata in questa esercitazione, vedere [][]<https://www.djangoproject.com/></a>.
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Requisiti
 
@@ -306,7 +306,7 @@ L'applicazione Web è quasi pronta per l'uso, ma prima è necessario configurare
 
 8.  Passare a **http://localhost:{port}/**. Verrà visualizzato un indice dei sondaggi che sono stati aggiunti.
 
-    ![][]
+    ![][0]
 
 9.  Fare clic su uno dei sondaggi per passare alla pagina di voto.
 
@@ -566,9 +566,7 @@ L'hosting di Django in una macchina virtuale esula dall'ambito di questa esercit
 
 In questa esercitazione è stata sviluppata un'applicazione Django usando [Python Tools per Visual Studio][Python Tools 2.0 per Visual Studio]. Sono stati utilizzati 3 diversi database: database di sqlite3, SQL Server e MySQL. Infine, l'applicazione è stata pubblicata in Siti Web di Azure e Servizi cloud di Azure.
 
-  [guarda l'esercitazione]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [Python Tools 2.0 per Visual Studio]: http://pytools.codeplex.com
   [Python 2.7 (32 bit)]: http://www.python.org/download/
   [scaricare il codice sorgente del progetto]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@ In questa esercitazione è stata sviluppata un'applicazione Django usando [Pytho
   [Web browser]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [Aggiunta di un sondaggio]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [Indice dei sondaggi]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [Dettagli del sondaggio]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [Risultati del sondaggio]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

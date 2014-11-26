@@ -1,6 +1,6 @@
 <properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Come creare API, operazioni e prodotti in Gestione API di Azure
 
@@ -12,24 +12,24 @@ Un'API in Gestione API rappresenta un set di operazioni che possono essere richi
 
 Questa guida illustra come creare e configurare una nuova API in Gestione API.
 
--   [Come creare le API][]
+-   [Come creare le API][Come creare le API]
 
 ## <a name="add-operations"> </a>Come aggiungere operazioni a un'API
 
 Prima di poter usare un'API in Gestione API, è necessario aggiungervi le operazioni. Questa guida descrive come aggiungere e configurare diversi tipi di operazioni a un'API in Gestione API.
 
--   [Come aggiungere operazioni a un'API][]
+-   [Come aggiungere operazioni a un'API][Come aggiungere operazioni a un'API]
 
 È anche possibile importare un'API e le relative operazioni in un unico passaggio, in formato WADL o Swagger.
 
--   [Come importare la definizione di un'API con le operazioni][]
+-   [Come importare la definizione di un'API con le operazioni][Come importare la definizione di un'API con le operazioni]
 
 ## <a name="add-product"> </a>Come creare e pubblicare un prodotto
 
 In Gestione API un prodotto contiene una o più API, oltre a una quota di utilizzo e le condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. Questi argomenti forniscono le istruzioni per creare un prodotto, aggiungere un'API e pubblicarla per gli sviluppatori.
 
--   [Come aggiungere e pubblicare un prodotto][]
--   [Come creare e configurare le impostazioni avanzate del prodotto][]
+-   [Come aggiungere e pubblicare un prodotto][Come aggiungere e pubblicare un prodotto]
+-   [Come creare e configurare le impostazioni avanzate del prodotto][Come creare e configurare le impostazioni avanzate del prodotto]
 
   [Come creare le API]: ../api-management-howto-create-apis
   [Come aggiungere operazioni a un'API]: ../api-management-howto-add-operations

@@ -1,6 +1,6 @@
 <properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Come monitorare le entità di messaggistica del bus di servizio
 
@@ -28,7 +28,7 @@ Per qualsiasi coda è possibile visualizzare i grafici relativi a:
 
 **Quick Glance** nel dashboard riflette la dimensione attuale della coda come **Queue Length**. Vengono inoltre visualizzate altra proprietà della coda o dell'argomento. Queste informazioni vengono aggiornate ogni 10 secondi.
 
-![][]
+![][0]
 
 ## Come monitorare l'attività degli argomenti del bus di servizio
 
@@ -45,5 +45,5 @@ Un dashboard dell'argomento è simile a un dashboard della coda, ad eccezione de
 ![][1]
 
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [0]: ./media/service-bus-monitor-message-entities/QueueDashboard.png
   [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

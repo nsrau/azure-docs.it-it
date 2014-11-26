@@ -42,13 +42,13 @@ Tali comandi aggiungono le librerie e i riferimenti al progetto corrente di Visu
 Preparazione dell'esercitazione
 -------------------------------
 
-Prima di continuare, è necessario disporre di una [sottoscrizione di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/) e di un [account di archiviazione di Azure](http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/). È inoltre necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Prima di continuare, è necessario disporre di una [sottoscrizione di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/) e di un [account di archiviazione di Azure](http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/). È inoltre necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni su come ottenere queste informazioni, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Come gestire gli account di archiviazione](/it-it/manage/services/storage/how-to-manage-a-storage-account/).
 
 È inoltre necessario scaricare il file Actors.txt utilizzato in questa esercitazione. Per scaricare tale file nell'ambiente di sviluppo, eseguire la procedura seguente:
 
 1.  Creare una cartella C:\\Tutorials nel computer locale.
 
-2.  Scaricare [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003) e salvare il file nella cartella C:\\Tutorials.
+2.  Scaricare [Actors.txt](http://www.microsoft.com/it-it/download/details.aspx?id=37003) e salvare il file nella cartella C:\\Tutorials.
 
 Creazione dell'applicazione
 ---------------------------
@@ -154,7 +154,7 @@ In questa sezione verrà illustrato come caricare file nel cluster Hadoop a live
          Console.WriteLine("\nPress any key to continue.");
          Console.ReadKey();
 
-10. Aggiornare le costanti nell'applicazione. Il servizio Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. Durante il processo di provisioning di HDInsight, un BLOB viene designato come file system predefinito. È possibile utilizzare il contenitore di file system predefinito o un contenitore in un archivio BLOB diverso. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+10. Aggiornare le costanti nell'applicazione. Il servizio Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. Durante il processo di provisioning di HDInsight, un BLOB viene designato come file system predefinito. È possibile utilizzare il contenitore di file system predefinito o un contenitore in un archivio BLOB diverso. Per ulteriori informazioni, vedere [Utilizzo dell'archivio BLOB di Azure con HDInsight](/it-it/manage/services/hdinsight/howto-blob-store/).
 
     Se si sceglie di utilizzare il contenitore di file system predefinito, sarà possibile trovare il nome dell'account di archiviazione, la chiave di archiviazione e il nome del contenitore nel file di configurazione *c:\\apps\\dist\\hadoop-1.1.0-SNAPSHOT\\conf\>core-site.xml* tramite la comunicazione remota con il cluster. È possibile trovare il contenitore utilizzato come file system predefinito tramite una ricerca di *fs.default.name*. Per trovare il nome dell'account di archiviazione e la chiave dell'account, cercare *fs.azure.account.key*.
 
@@ -180,8 +180,8 @@ Passaggi successivi
 
 È stato illustrato come creare un'applicazione .NET utilizzando Hadoop .NET SDK. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Utilizzo di Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Utilizzo di MapReduce con HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Utilizzo di Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Introduzione all'utilizzo di Azure HDInsight](/it-it/manage/services/hdinsight/get-started-hdinsight/)
+-   [Utilizzo di Pig con HDInsight](/it-it/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Utilizzo di MapReduce con HDInsight](/it-it/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Utilizzo di Hive con HDInsight](/it-it/manage/services/hdinsight/using-hive-with-hdinsight/)
 

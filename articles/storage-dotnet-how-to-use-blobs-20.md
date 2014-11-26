@@ -269,7 +269,7 @@ Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone dell
     Block blob of length 399751: https://<a ccountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<a ccountname>.blob.core.windows.net/photos/photo1.jpg
 
- Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][].
+ Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span  class="short-header">Scaricare BLOB</span>Procedura: Scaricare BLOB
 
@@ -353,9 +353,9 @@ Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone dell
 *  Per ulteriori opzioni di archiviazione dei dati in Azure, consultare
   altre guide alle funzionalità.
   *  Per archiviare dati strutturati, utilizzare [Archiviazione
-    tabelle](/en-us/develop/net/how-to-guides/table-services/).
+    tabelle](/it-it/develop/net/how-to-guides/table-services/).
   *  Per archiviare dati relazionali, utilizzare [Database
-    SQL](/en-us/develop/net/how-to-guides/sql-database/).
+    SQL](/it-it/develop/net/how-to-guides/sql-database/).
   
 
 

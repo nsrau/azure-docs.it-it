@@ -1,6 +1,6 @@
 Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale.
 
-1.  Se non lo si è già fatto, installare adesso l'[Mobile Services SDK per iOS][].
+1.  Se non lo si è già fatto, installare adesso l'[Mobile Services SDK per iOS][Mobile Services SDK per iOS].
 
 2.  Nella struttura del progetto in Xcode aprire i file TodoService.m e TodoService.h nella cartella Quickstart e aggiungere l'istruzione import seguente
 

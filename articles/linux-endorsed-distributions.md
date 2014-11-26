@@ -38,7 +38,7 @@ SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un
 Versioni supportate
 -------------------
 
-Nella tabella seguente vengono mostrate le diverse versioni delle distribuzioni, i driver di Linux Integration Services (LIS) e le versioni di Azure Linux Agent di cui è stato eseguito il test per il funzionamento su Azure. I driver LIS sono disponibili all'indirizzo <http://www.microsoft.com/en-us/download/details.aspx?id=34603>. Le versioni di Linux Agent sono disponibili all'indirizzo <https://github.com/windowsazure/walinuxagent>.
+Nella tabella seguente vengono mostrate le diverse versioni delle distribuzioni, i driver di Linux Integration Services (LIS) e le versioni di Azure Linux Agent di cui è stato eseguito il test per il funzionamento su Azure. I driver LIS sono disponibili all'indirizzo <http://www.microsoft.com/it-it/download/details.aspx?id=34603>. Le versioni di Linux Agent sono disponibili all'indirizzo <https://github.com/windowsazure/walinuxagent>.
 
 Questa tabella include anche un collegamento alla patch di compatibilità per il kernel necessaria per assicurare il funzionamento ottimale di alcune versioni di distribuzione in Azure.
 

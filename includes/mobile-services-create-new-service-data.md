@@ -1,19 +1,19 @@
 A questo punto verrà creato un nuovo servizio mobile per sostituire l'elenco in memoria per l'archivio dati. Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Nella parte inferiore del pannello di navigazione fare clic su **+NEW**.
 
-    ![plus-new][]
+    ![plus-new][plus-new]
 
 3.  Espandere **Compute** e **Mobile Service**, quindi fare clic su **Create**.
 
-    ![mobile-create][]
+    ![mobile-create][mobile-create]
 
     Verrà visualizzata la finestra di dialogo **New Mobile Service**.
 
 4.  Nella pagina **Create mobile service** selezionare **Create a free 20 MB SQL Database**, quindi immettere un nome di sottodominio per il nuovo servizio mobile nella casella di testo **URL** e attendere la verifica del nome. Quando la verifica del nome viene completata, fare clic sulla freccia destra per passare alla pagina successiva.
 
-    ![mobile-create-page1][]
+    ![mobile-create-page1][mobile-create-page1]
 
     Verrà visualizzata la pagina **Specify database settings**.
 
@@ -23,7 +23,7 @@ A questo punto verrà creato un nuovo servizio mobile per sostituire l'elenco in
 
 5.  In **Name** digitare il nome del nuovo database, quindi immettere il **Login name**, che corrisponde al nome di accesso dell'amministratore per il nuovo server di database SQL. Immettere e confermare la password, quindi fare clic sul segno di spunta per completare il processo.
 
-    ![mobile-create-page2][]
+    ![mobile-create-page2][mobile-create-page2]
 
     <div class="dev-callout"> 
 <b>Nota</b> 

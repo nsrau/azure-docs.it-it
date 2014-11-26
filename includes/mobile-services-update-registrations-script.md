@@ -1,6 +1,6 @@
 1.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **Registrations**.
 
-    ![][]
+    ![][0]
 
 2.  In **Registrations** fare clic sulla scheda **Script** e selezionare **Insert**.
 
@@ -26,5 +26,5 @@
 
 Verrà registrato un nuovo script insert, che archivia le informazioni di registrazione nella nuova tabella.
 
-  []: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
+  [0]: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
   [1]: ./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png

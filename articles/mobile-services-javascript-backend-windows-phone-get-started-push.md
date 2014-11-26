@@ -164,7 +164,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
   [Aggiornamento degli script del server per l'invio di notifiche push]: #update-scripts
   [Inserimento di dati per la ricezione di notifiche push]: #test

@@ -1,4 +1,4 @@
-1.  Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure][].
+1.  Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Fare clic sulla registrazione dell'applicazione integrata.
 

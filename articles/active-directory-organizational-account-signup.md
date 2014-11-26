@@ -26,7 +26,6 @@ Poiché si tratta della directory cloud dell'organizzazione, sono i clienti stes
 
 Se l'organizzazione usa già Active Directory in locale, è possibile usare le funzionalità di integrazione di directory di Azure AD, ad esempio la sincronizzazione della directory e Single Sign-On, per estendere ulteriormente l'ambito d'uso delle identità locali esistenti nel cloud, ottenendo un ambiente migliore per gli amministratori e gli utenti finali. [Altre informazioni][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [Altre informazioni]: http://windows.microsoft.com/it-it/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/it-it/library/jj573650
   [2]: http://technet.microsoft.com/it-it/library/hh967619

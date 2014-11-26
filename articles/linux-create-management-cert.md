@@ -59,7 +59,7 @@ In questo modo si otterrà un file con estensione pfx file che può essere conve
 
 	openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem
 
-In Windows è possibile decodificare ed estrarre il file PFX utilizzando PowerShell o un decodificatore base 64 gratuito di Windows quale [http://www.fourmilab.ch/webtools/base64/base64.zip]() eseguendo il comando
+In Windows è possibile decodificare ed estrarre il file PFX utilizzando PowerShell o un decodificatore base 64 gratuito di Windows quale [http://www.fourmilab.ch/webtools/base64/base64.zip](http://www.fourmilab.ch/webtools/base64/base64.zip) eseguendo il comando
 
     base64 -d key.txt ->key.pfx
 

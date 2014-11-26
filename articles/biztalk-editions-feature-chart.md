@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Servizi BizTalk: Tabella delle edizioni
 
@@ -234,7 +234,6 @@ Per eseguire il provisioning di Servizi BizTalk di Azure nel portale di gestione
 -   [Servizi BizTalk: nome e chiave dell'autorità emittente][Servizi BizTalk: nome e chiave dell'autorità emittente]
 -   [Come iniziare a usare l'SDK di Servizi BizTalk di Azure][Come iniziare a usare l'SDK di Servizi BizTalk di Azure]
 
-  [Dettagli prezzi servizi BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [Servizi BizTalk: Backup e ripristino]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [download]: http://www.microsoft.com/download/details.aspx?id=39087
   [Servizi BizTalk: Provisioning tramite il portale di gestione di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280

@@ -1,4 +1,4 @@
-1.  Nel [portale di gestione di Azure][] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina di panoramica.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina di panoramica.
 
     ![][ ]
 
@@ -6,7 +6,7 @@
 
     ![][1]
 
-3.  Se necessario, scaricare e installare [Visual Studio Professional 2013][] o una versione successiva.
+3.  Se necessario, scaricare e installare [Visual Studio Professional 2013][Visual Studio Professional 2013] o una versione successiva.
 
 4.  Fare clic su **Download** in **Download and publish your service to the cloud**.
 
@@ -18,7 +18,7 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [ ]: ./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png

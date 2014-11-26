@@ -1,6 +1,6 @@
 <properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga" />
 
 # Analisi della varianza dei clienti con Machine Learning di Microsoft Azure
 
@@ -24,7 +24,7 @@ Un processo comune di risoluzione dei problemi legati alla varianza dei clienti 
 2.  Un modello di intervento permette di valutare il modo in cui il livello di intervento può influire sulle probabilità di varianza e su indicatori di marketing come il Customer Lifetime Value (CLV).
 3.  Questa analisi contribuisce a un'analisi qualitativa che viene poi inserita in una campagna di marketing proattiva che ha come obiettivo i segmenti di clientela a cui recapitare l'offerta ottimizzata.
 
-![][]
+![][0]
 
 Questo approccio proattivo rappresenta il modo migliore per gestire la varianza, ma porta con sé una certa complessità: è necessario sviluppare un archetipo multimodello e tracciare dipendenze tra i modelli. L'interazione tra modelli può essere incapsulata come illustrato nel diagramma seguente:
 
@@ -215,7 +215,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 *Figura 12. Snapshot d una presentazione sul prototipo di varianza*
 
-  []: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+  [0]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
   [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
   [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
   [3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png

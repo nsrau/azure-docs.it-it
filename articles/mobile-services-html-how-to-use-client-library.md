@@ -582,7 +582,7 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 -   [Autorizzazione di utenti con script][Autorizzazione di utenti con script]
     Informazioni sul valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato, che verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [guida introduttiva JavaScript per Windows Store]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started
   [guida introduttiva HTML]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-html
@@ -606,7 +606,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
   [Procedura: Personalizzare le intestazioni di richieste]: #customizing
   [Procedura: Utilizzare la condivisione di risorse tra origini]: #hostnames
   [Passaggi successivi]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Introduzione ai dati in JavaScript per Windows Store]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-js
   [Introduzione ai dati in HTML/JavaScript]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-html/
   [riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502

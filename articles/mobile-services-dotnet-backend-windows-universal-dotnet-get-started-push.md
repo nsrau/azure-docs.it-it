@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notification using a .NET backend mobile service" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
 
 # Introduzione alle notifiche push in Servizi mobili
 
@@ -92,7 +92,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
     Informazioni su come utilizzare Servizi mobili dalle app C# per Windows.
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introduzione alle notifiche push in Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
   [questa versione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [Registrazione dell'app per le notifiche push]: #register
@@ -101,11 +100,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   [Esecuzione del test delle notifiche push nell'app]: #test
   [account di Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [MobileServiceClient]: http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [Invio di notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users

@@ -2,23 +2,23 @@
 
 # Ricerca di Azure: flusso di lavoro per la distribuzione
 
-[WACOM.INCLUDE [Questo articolo usa il portale di anteprima di Azure][]]
+[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 Questo articolo contiene una guida di orientamento e alcune procedure consigliate per la creazione e la manutenzione del servizio di ricerca con i relativi indici.
 
-Si suppone che sia già stato effettuato il provisioning del servizio. Per iniziare, vedere [Configurare il servizio di ricerca nel portale di anteprima di Azure][].
+Si suppone che sia già stato effettuato il provisioning del servizio. Per iniziare, vedere [Configurare il servizio di ricerca nel portale di anteprima di Azure][Configurare il servizio di ricerca nel portale di anteprima di Azure].
 
--   [Passaggio 1: Creare l'indice][]
--   [Passaggio 2: Aggiungere i documenti][]
--   [Passaggio 3: Eseguire una query su un indice][]
--   [Passaggio 4: Aggiornare o eliminare gli indici e i documenti][]
--   [Considerazioni sulla progettazione delle risorse di archiviazione][]
+-   [Passaggio 1: Creare l'indice][Passaggio 1: Creare l'indice]
+-   [Passaggio 2: Aggiungere i documenti][Passaggio 2: Aggiungere i documenti]
+-   [Passaggio 3: Eseguire una query su un indice][Passaggio 3: Eseguire una query su un indice]
+-   [Passaggio 4: Aggiornare o eliminare gli indici e i documenti][Passaggio 4: Aggiornare o eliminare gli indici e i documenti]
+-   [Considerazioni sulla progettazione delle risorse di archiviazione][Considerazioni sulla progettazione delle risorse di archiviazione]
 
 ## Passaggio 1: Creare l'indice
 
 Le query (almeno le query non di sistema) sono mirate a un indice di ricerca contenente dati e attributi di ricerca. In questo passaggio verrà definito lo schema dell'indice in formato JSON ed eseguita una richiesta PUT HTTPS per creare quest'indice nel servizio.
 
-Gli indici sono generalmente codificati nel proprio ambiente di sviluppo locale. Non sono disponibili strumenti o editor incorporati per la definizione dell'indice. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure][] su MSDN.
+Gli indici sono generalmente codificati nel proprio ambiente di sviluppo locale. Non sono disponibili strumenti o editor incorporati per la definizione dell'indice. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure)][Creare l'indice API di Ricerca di Azure] su MSDN.
 
 ## Passaggio 2: Aggiungere i documenti
 
@@ -36,8 +36,8 @@ Con un carico pesante non è raro riscontrare alcuni errori di caricamento. Qual
 
 Dopo aver indicizzato i documenti è possibile eseguire le query di ricerca. Si può interrogare un indice per volta, usando OData o una semplice sintassi di query:
 
--   [Sintassi dell'espressione OData per la Ricerca di Azure][]
--   [Semplice sintassi di query nella Ricerca di Azure][]
+-   [Sintassi dell'espressione OData per la Ricerca di Azure][Sintassi dell'espressione OData per la Ricerca di Azure]
+-   [Semplice sintassi di query nella Ricerca di Azure][Semplice sintassi di query nella Ricerca di Azure]
 
 ## Passaggio 4: Aggiornare o eliminare gli indici e i documenti
 
@@ -51,20 +51,19 @@ Molte applicazioni di ricerca usano vari formati di archiviazione per diverse es
 
 Non tutti i campi di un documento sono disponibili per la ricerca. Ad esempio, se l'applicazione è un catalogo online per musica o video, è consigliabile archiviare i file binari in BLOB o in altre risorse di archiviazione. Gli stessi file binari non sono disponibili per la ricerca, quindi non è necessario salvarli in modo permanente nell'archiviazione della Ricerca di Azure. È opportuno archiviare file immagine, video e audio in altri servizi o percorsi, con un campo nel documento che contenga l'URL al percorso del file.
 
-Per altre informazioni sulla creazione di indici o documenti, vedere [API REST del servizio di ricerca di Azure][].
+Per altre informazioni sulla creazione di indici o documenti, vedere [API REST del servizio di ricerca di Azure][API REST del servizio di ricerca di Azure].
 
 <!--Anchors--> 
 <!--Image references--> 
 <!--Link references-->
 
-  [Questo articolo usa il portale di anteprima di Azure]: ../includes/preview-portal-note.md
   [Configurare il servizio di ricerca nel portale di anteprima di Azure]: ../search-configure/
   [Passaggio 1: Creare l'indice]: #sub-1
   [Passaggio 2: Aggiungere i documenti]: #sub-2
   [Passaggio 3: Eseguire una query su un indice]: #sub-3
   [Passaggio 4: Aggiornare o eliminare gli indici e i documenti]: #sub-4
   [Considerazioni sulla progettazione delle risorse di archiviazione]: #sub-5
-  [Creare l'indice (API di Ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798941.aspx
-  [Sintassi dell'espressione OData per la Ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798921.aspx
-  [Semplice sintassi di query nella Ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798920.aspx
-  [API REST del servizio di ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Creare l'indice API di Ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798941.aspx
+  [Sintassi dell'espressione OData per la Ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798921.aspx
+  [Semplice sintassi di query nella Ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798920.aspx
+  [API REST del servizio di ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798935.aspx

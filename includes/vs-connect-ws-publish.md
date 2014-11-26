@@ -10,6 +10,6 @@
 
 
 
-Per altre informazioni, vedere [Come connettersi ad Azure da Visual Studio][].
+Per altre informazioni, vedere [Come connettersi ad Azure da Visual Studio][Come connettersi ad Azure da Visual Studio].
 
   [Come connettersi ad Azure da Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=324796

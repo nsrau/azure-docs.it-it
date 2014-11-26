@@ -1,6 +1,6 @@
 <properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Come usare Cache Redis di Azure
 
@@ -300,7 +300,7 @@ visitare i collegamenti seguenti per altre informazioni su come eseguire attivit
   [Aggiungere e recuperare oggetti dalla cache]: #add-object
   [Specificare la scadenza di un oggetto nella cache]: #specify-expiration
   [Archiviare lo stato della sessione ASP.NET nella cache]: #store-session
-  [Dettagli prezzi del servizio Cache]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [Dettagli prezzi del servizio Cache]: http://www.windowsazure.com/it-it/pricing/details/cache/
   [panoramica di Cache Redis di Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
   [Configurare la cache]: #enable-caching
   [New cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
@@ -317,7 +317,7 @@ visitare i collegamenti seguenti per altre informazioni su come eseguire attivit
   [Modello di configurazione di StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
   [Cache properties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
   [Manage keys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-  [Utilizzo degli oggetti .NET nella cache]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
+  [Utilizzo degli oggetti .NET nella cache]: http://msdn.microsoft.com/it-it/library/dn690521.aspx#Objects
   [Redis Cache Session State NuGet Package]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
   [Provider di stato della sessione per Cache Redis di Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
   [Redis]: http://redis.io/documentation

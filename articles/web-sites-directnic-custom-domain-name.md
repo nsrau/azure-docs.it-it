@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with Directnic" pageTitle="Configure a Directnic domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, Directnic" description="Learn how to configure an Azure website to use a domain name registered with Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configurazione di un nome di dominio personalizzato per un sito Web di Azure (Directnic)
 
@@ -8,13 +8,13 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/web-sites-directnic-custom-domain-name/" title="Websites" class="current">Sito Web</a> | <a href="/it-it/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Sito Web mediante Gestione traffico</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][intro]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
 In questo articolo vengono fornite istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato da [DirectNic.com][DirectNic.com] con Siti Web di Azure.
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Contenuto dell'articolo:
 
@@ -25,11 +25,11 @@ Contenuto dell'articolo:
 
 ## <a name="understanding-records"></a>Informazioni sui record DNS
 
-[WACOM.INCLUDE [understandingdns][understandingdns]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurare siti Web per la modalità di base, condivisa o standard
 
-[WACOM.INCLUDE [modes][modes]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -49,7 +49,7 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 4.  Aggiungere i record DNS compilando i campi **Type**, **Name** e **Data**. Al termine, fare clic sul pulsante **Add Record**.
 
-    ![][]
+    ![][0]
 
     -   Quando si aggiunge un record CNAME, è necessario impostare il campo **Name** sul sottodominio che si desidera usare, ad esempio **www**. È necessario impostare il campo **Dati** sul nome di dominio **.azurewebsites.net** del sito Web di Azure, ad esempio **contoso.azurwebsites.net**.
 
@@ -67,30 +67,13 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 ## <a name="enabledomain"></a>Abilitare il nome del dominio nel sito Web
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [Dominio personalizzato]: /it-it/documentation/articles/web-sites-custom-domain-name "Custom Domain"
-  [GoDaddy]: /it-it/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /it-it/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /it-it/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /it-it/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /it-it/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /it-it/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /it-it/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /it-it/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Sito Web]: /it-it/documentation/articles/web-sites-directnic-custom-domain-name/ "Websites"
-  [Sito Web mediante Gestione traffico]: /it-it/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/ "Website using Traffic Manager"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [DirectNic.com]: https://directnic.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Informazioni sui record DNS]: #understanding-records
   [Configurazione dei siti Web per la modalità di base, condivisa o standard]: #bkmk_configsharedmode
   [Aggiunta di un record DNS per il dominio personalizzato]: #bkmk_configurecname
   [Abilitazione del dominio nel sito Web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Menu dei servizi di Directnic]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png
   [Riquadro dei servizi]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png
-  []: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS.png
-  [1]: ../includes/custom-dns-web-site-enable-on-web-site.md
+  [0]: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS.png

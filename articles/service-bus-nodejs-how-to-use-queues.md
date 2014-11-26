@@ -177,7 +177,6 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Procedura: Inviare messaggi a una coda]: #send-messages
   [Procedura: Ricevere messaggi da una coda]: #receive-messages
   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/develop/nodejs/tutorials/web-site-with-webmatrix/

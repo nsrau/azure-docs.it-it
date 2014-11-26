@@ -564,9 +564,9 @@ tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attiv
 *  Per ulteriori opzioni di archiviazione dei dati in Azure, consultare
   altre guide alle funzionalità.
   *  Per archiviare dati non strutturati, utilizzare [Archiviazione
-    BLOB](/en-us/develop/net/how-to-guides/blob-storage/).
+    BLOB](/it-it/develop/net/how-to-guides/blob-storage/).
   *  Per archiviare dati relazionali, utilizzare [Database
-    SQL](/en-us/develop/net/how-to-guides/sql-database/).
+    SQL](/it-it/develop/net/how-to-guides/sql-database/).
   
 
 

@@ -82,19 +82,12 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-<!-- ## <a name="next-steps"> </a>Next steps
+<!-- ## <a name="next-steps"> </a>Next steps 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.   -->
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
- -->
 
-<!-- Anchors. -->
-
-<!-- URLs. -->
 
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
   [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
   [Aggiunta dell'autenticazione all'app]: #add-authentication
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md

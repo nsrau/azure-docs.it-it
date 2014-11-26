@@ -1,6 +1,6 @@
 <properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Creare un semplice esperimento in Azure Machine Learning Studio
 
@@ -14,15 +14,15 @@ I cinque passaggi di base per creare un esperimento in ML Studio consentono di c
 
 -   Creare il modello
 
-    -   [Passaggio 1: Ottenere i dati][]
-    -   [Passaggio 2: Pre-elaborare i dati][]
-    -   [Passaggio 3: Definire le funzionalità][]
+    -   [Passaggio 1: Ottenere i dati][Passaggio 1: Ottenere i dati]
+    -   [Passaggio 2: Pre-elaborare i dati][Passaggio 2: Pre-elaborare i dati]
+    -   [Passaggio 3: Definire le funzionalità][Passaggio 3: Definire le funzionalità]
 -   Eseguire il training del modello
 
-    -   [Passaggio 4: Scegliere e applicare un algoritmo di apprendimento][]
+    -   [Passaggio 4: Scegliere e applicare un algoritmo di apprendimento][Passaggio 4: Scegliere e applicare un algoritmo di apprendimento]
 -   Assegnare un punteggio e testare il modello
 
-    -   [Passaggio 5: Effettuare previsioni basate su nuovi dati][]
+    -   [Passaggio 5: Effettuare previsioni basate su nuovi dati][Passaggio 5: Effettuare previsioni basate su nuovi dati]
 
 In questo esempio verranno esaminate tutte le fasi della creazione di un modello di regressione usando dati di esempio relativi alle automobili. L'obiettivo è prevedere il prezzo di un'automobile usando diverse variabili, come la marca e le specifiche tecniche.
 
@@ -34,15 +34,15 @@ In ML Studio sono disponibili numerosi set di dati di esempio ed è possibile im
 
 2.  A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare "automobile" nella casella di ricerca nella parte superiore della tavolozza per individuare il set di dati **Automobile price data (Raw)**.
 
-    ![Palette search][]
+    ![Palette search][Palette search]
 
 3.  Trascinare il set di dati nell'area di disegno dell'esperimento.
 
-    ![Dataset][]
+    ![Dataset][Dataset]
 
 Per visualizzare l'aspetto dei dati, fare doppio clic sulla porta di output nella parte inferiore del set di dati automobile e selezionare **Visualizza**. Le variabili del set di dati vengono visualizzate sotto forma di colonne e ogni istanza di un'automobile viene visualizzata sotto forma di riga. La colonna 26 all'estrema destra "price" corrisponde alla variabile di destinazione per la quale si proverà a effettuare la previsione.
 
-![Dataset visualization][]
+![Dataset visualization][Dataset visualization]
 
 Chiudere la finestra di visualizzazione facendo clic sulla "**x**" nell'angolo superiore destro.
 
@@ -62,23 +62,23 @@ Innanzitutto verrà rimossa la colonna "normalized-losses" e quindi tutte le rig
     -   Nella riga successiva selezionare **Escludi** e **nomi colonne**, quindi fare clic all'interno della casella di testo. Viene visualizzato un elenco di colonne. Selezionare "normalized-losses" per aggiungerlo alla casella di testo.
     -   Fare clic sul pulsante del segno di spunta **OK** per chiudere il selettore di colonne.
 
-    ![Select columns][]
+    ![Select columns][Select columns]
 
     Il riquadro delle proprietà per **Colonne progetto** indica che verranno esaminate tutte le colonne del set di dati ad eccezione di "normalized-losses".
 
-    ![Project Columns properties][]
+    ![Project Columns properties][Project Columns properties]
 
     > **Suggerimento**: per aggiungere un commento a un modulo, fare doppio clic sul modulo e immettere il testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso fare doppio clic sul modulo **Colonne progetto** e immettere il commento "Exclude normalized-losses".
 
 3.  Trascinare il modulo **Strumento di pulitura valori mancanti** nell'area di disegno dell'esperimento e connetterlo al modulo **Colonne progetto**. Nel riquadro delle proprietà selezionare **Rimuovi intera riga** in **Per valori mancanti** per pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e immettere il commento "Remove missing value rows".
 
-    ![Missing Values Scrubber properties][]
+    ![Missing Values Scrubber properties][Missing Values Scrubber properties]
 
 4.  Eseguire l'esperimento facendo clic su **ESEGUI** sotto l'area di disegno dell'esperimento.
 
 Al termine dell'esperimento, tutti i moduli saranno contraddistinti da un segno di spunta verde per indicarne il corretto completamento. Si noti anche lo stato "Esecuzione terminata" nell'angolo in alto a destra.
 
-![First experiment run][]
+![First experiment run][First experiment run]
 
 L'unica operazione eseguita finora per l'esperimento è stata la pulizia dei dati. Per visualizzare il set di dati pulito, fare doppio clic sulla porta di output del modulo **Strumento di pulitura valori mancanti** e selezionare **Visualizza**. Si noti che la colonna "normalized-losses" non è più inclusa e che non sono presenti valori mancanti.
 
@@ -124,7 +124,7 @@ Volendo prevedere il prezzo di un'automobile, che può essere un valore qualsias
 
 4.  Individuare e trascinare il modulo **Esegui training modello** nell'esperimento. Fare clic su **Avvia selettore colonne** e selezionare la colonna *price*. Questo è il valore che si intende prevedere con il modello.
 
-    ![Select "price" column][]
+    ![Select "price" column][Select "price" column]
 
 5.  Connettere la porta di input di sinistra all'output del modulo **Regressione lineare** e la porta di input di destra all'output dei dati di training (porta sinistra) del modulo **Suddivisione**.
 
@@ -132,7 +132,7 @@ Volendo prevedere il prezzo di un'automobile, che può essere un valore qualsias
 
 Il risultato è un modello di regressione basato su training che può essere usato per assegnare un punteggio a nuovi campioni ai fini delle previsioni.
 
-![Applying the learning algorithm][]
+![Applying the learning algorithm][Applying the learning algorithm]
 
 ### Passaggio 5: Effettuare previsioni basate su nuovi dati
 
@@ -140,7 +140,7 @@ Dopo aver eseguito il training del modello è possibile usarlo per calcolare il 
 
 1.  Individuare e trascinare il modulo **Calcola punteggio modello** nell'area di disegno dell'esperimento e connettere la porta di input di sinistra all'output del modulo **Esegui training modello** e la porta di input di destra all'output dei dati di test (porta destra) del modulo **Suddivisione**.
 
-    ![Score Model module][]
+    ![Score Model module][Score Model module]
 
 2.  Eseguire l'esperimento e visualizzare l'output del modulo **Calcola punteggio modello** (fare doppio clic sulla porta di output e selezionare **Visualizza**). L'output mostrerà i valori previsti per il prezzo unitamente a quelli noti inclusi nei dati di test.
 
@@ -156,11 +156,11 @@ Dopo aver eseguito il training del modello è possibile usarlo per calcolare il 
 
     Per ogni statistica di errore, un valore inferiore indica che le previsioni si avvicinano maggiormente ai valori effettivi. Per **Coefficiente di determinazione** le previsioni saranno migliori se il valore si avvicina a uno (1,0).
 
-    ![Evaluation results][]
+    ![Evaluation results][Evaluation results]
 
 L'esperimento finale dovrebbe risultare simile al seguente:
 
-![Complete experiment][]
+![Complete experiment][Complete experiment]
 
 ### Passaggi successivi
 
@@ -170,7 +170,7 @@ A questo punto, dopo aver configurato l'esperimento, è possibile ripeterlo e pr
 
 Una volta ottenuto il modello desiderato, è possibile pubblicarlo come servizio Web da usare per prevedere i prezzi delle automobili sulla base di dati nuovi. Per altri dettagli, vedere l'argomento della Guida di ML Studio sulla **pubblicazione di esperimenti**.
 
-Per informazioni più complete e dettagliate sulla creazione, il training, l'assegnazione di un punteggio e la pubblicazione di un modello predittivo, vedere [Procedura dettagliata: Sviluppare una soluzione predittiva con Azure Machine Learning][].
+Per informazioni più complete e dettagliate sulla creazione, il training, l'assegnazione di un punteggio e la pubblicazione di un modello predittivo, vedere [Procedura dettagliata: Sviluppare una soluzione predittiva con Azure Machine Learning][Procedura dettagliata: Sviluppare una soluzione predittiva con Azure Machine Learning].
 
 <!-- Images -->
 

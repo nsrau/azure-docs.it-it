@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Servizi BizTalk: Schede Dashboard, Monitoraggio, Scala, Configura e Connessione ibrida
 
@@ -351,12 +351,7 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
   [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
 
 
-  [area risorse]: http://azure.microsoft.com/it-it/documentation/services/biztalk-services/
-  [configurazione di componenti per la messaggistica EDI sul portale di Servizi BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [Gestione dello spazio dei nomi ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [Metriche disponibili]: #Metrics
-  [crea il servizio BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [Servizi BizTalk: tabella degli stati del servizio]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Select Add Metrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
   [CPU Usage metric is grayed out]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [CPU Usage metric is enabled]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
@@ -364,7 +359,6 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
   [Servizi BizTalk: backup e ripristino]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [Connessioni ibride: connettere un sito Web di Azure a una risorsa locale]: http://go.microsoft.com/fwlink/p/?LinkId=397538
   [Servizi mobili di Azure e connessioni ibride]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
-  [1]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Servizi BizTalk: limitazione]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Servizi BizTalk: nome e chiave dell'autorità emittente]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [Come iniziare a usare l'SDK di Servizi BizTalk di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302335

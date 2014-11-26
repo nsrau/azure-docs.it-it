@@ -11,7 +11,7 @@ In caso contrario, passare alla pagina relativa alla [creazione di un account di
 
 ## <span id="enable"></span></a>Abilitare l'anteprima delle funzionalità di Azure
 
-1.  Passare al sito [][][http://www.windowsazure.com/it-it/][http://www.windowsazure.com/it-it/]</a> ed effettuare l'accesso con l'account Azure.
+1.  Passare al sito [http://www.windowsazure.com/it-it/][http://www.windowsazure.com/it-it/] ed effettuare l'accesso con l'account Azure.
 2.  Fare clic su **Anteprima funzionalità** per visualizzare le anteprime disponibili.
     ![Apertura della scheda relativa all'anteprima delle funzionalità][Apertura della scheda relativa all'anteprima delle funzionalità]
 3.  Scorrere verso il basso fino alla funzionalità che si desidera abilitare, quindi fare clic su **Prova**.
@@ -19,10 +19,9 @@ In caso contrario, passare alla pagina relativa alla [creazione di un account di
 4.  Selezionare la sottoscrizione desiderata, quindi fare clic sul segno di spunta.
     ![Selezione di una sottoscrizione][Selezione di una sottoscrizione]
 
-  [http://www.windowsazure.com/it-it/]: http://www.windowsazure.com
+  [http://www.windowsazure.com/it-it/]: http://www.windowsazure.com/it-it/
   [Benefici di Azure per gli abbonati MSDN]: /it-it/pricing/member-offers/msdn-benefits-details/
   [creazione di un account di valutazione gratuito]: /it-it/pricing/free-trial/
-  []: https://account.windowsazure.com/
   [Apertura della scheda relativa all'anteprima delle funzionalità]: ./media/create-an-azure-account/antares-iaas-preview-01.png
   [Selezione di un'anteprima della funzionalità]: ./media/create-an-azure-account/antares-iaas-preview-05.png
   [Selezione di una sottoscrizione]: ./media/create-an-azure-account/antares-iaas-preview-06.png

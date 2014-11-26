@@ -1,20 +1,22 @@
-<properties urlDisplayName="How to scale" pageTitle="Come scalare un servizio cloud - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Come scalare un'applicazione" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # Come scalare un'applicazione
 
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+
 Nella pagina Scale del portale di gestione di Azure è possibile scalare manualmente l'applicazione o impostare parametri per la scalabilità automatica. È possibile scalare le applicazioni che eseguono ruoli Web, ruoli di lavoro o macchine virtuali. Per scalare un'applicazione che esegue istanze di ruoli Web o ruoli di lavoro, vengono aggiunte o rimosse istanze dei ruoli per supportare il carico di lavoro.
 
-Quando si scala un'applicazione che esegue macchine virtuali, non vengono create o eliminate macchine, ma vengono attivate o disattivate macchine da un set di disponibilità di macchine create in precedenza. È possibile specificare la scalabilità in base a una percentuale media di utilizzo della CPU o al numero di messaggi in una coda.
+Quando si scala un'applicazione che esegue macchine virtuali, non vengono create o eliminate macchine ma vengono attivate o disattivate macchine da un set di disponibilità di macchine create in precedenza. È possibile specificare la scalabilità in base a una percentuale media di utilizzo della CPU o al numero di messaggi in una coda.
 
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:
 
--   Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le usa. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali].
--   La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo o le macchine virtuali più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità usate per scalare un'applicazione devono avere le stesse dimensioni. Per altre informazioni sull'utilizzo di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][Dimensioni delle macchine virtuali e dei servizi cloud per Azure].
--   È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come usare il servizio di archiviazione di accodamento][Come usare il servizio di archiviazione di accodamento].
--   È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud][Procedura: Collegare una risorsa a un servizio cloud].
--   Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo o macchine virtuali. Per altre informazioni, vedere [Contratti di servizio][Contratti di servizio].
+-   Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le utilizza. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per ulteriori informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali].
+-   La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo o le macchine virtuali più ampie utilizzano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità utilizzate per scalare un'applicazione devono avere le stesse dimensioni. Per ulteriori informazioni sull'utilizzo di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][Dimensioni delle macchine virtuali e dei servizi cloud per Azure].
+-   È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per ulteriori informazioni, vedere [Come utilizzare il servizio di archiviazione di accodamento][Come utilizzare il servizio di archiviazione di accodamento].
+-   È possibile scalare le risorse collegate al servizio cloud. Per ulteriori informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud][Procedura: Collegare una risorsa a un servizio cloud].
+-   Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo o macchine virtuali. Per ulteriori informazioni, vedere [Contratti di servizio][Contratti di servizio].
 
 È possibile eseguire le seguenti azioni di scalabilità per un servizio cloud:
 
@@ -29,18 +31,18 @@ Nella pagina Scale è possibile aumentare o diminuire manualmente il numero dell
 
 1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
 
-2.  Fare clic su **Scale**. La scalabilità automatica è disattivata per impostazione predefinita per tutti i ruoli, ovvero è possibile modificare manualmente il numero di istanze usate dall'applicazione.
+2.  Fare clic su **Scale**. La scalabilità automatica è disattivata per impostazione predefinita per tutti i ruoli, ovvero è possibile modificare manualmente il numero di istanze utilizzate dall'applicazione.
 
-    ![Scale page][Scale page]
+    ![Pagina Scale][Pagina Scale]
 
-3.  In ogni ruolo nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze da usare. Per aggiungere un'istanza del ruolo, trascinare la barra verso destra. Per rimuovere un'istanza, trascinare la barra verso sinistra.
+3.  In ogni ruolo nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze da utilizzare. Per aggiungere un'istanza del ruolo, trascinare la barra verso destra. Per rimuovere un'istanza, trascinare la barra verso sinistra.
 
     ![Scalabilità del ruolo][Scalabilità del ruolo]
 
-    È possibile aumentare il numero di istanze usate solo se è disponibile il numero di core appropriato per supportare le istanze. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    È possibile aumentare il numero di istanze utilizzate solo se è disponibile il numero di core appropriato per supportare le istanze. I colori del dispositivo di scorrimento rappresentano i core utilizzati e disponibili nella sottoscrizione:
 
-    -   Il blu rappresenta i core usati dal ruolo selezionato
-    -   Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione
+    -   Il blu rappresenta i core utilizzati dal ruolo selezionato
+    -   Il grigio scuro rappresenta i core utilizzati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione
     -   Il grigio chiaro rappresenta i core disponibili per l'utilizzo per la scalabilità
     -   Il rosa rappresenta una modifica apportata che non è stata salvata
 
@@ -48,7 +50,7 @@ Nella pagina Scale è possibile aumentare o diminuire manualmente il numero dell
 
 ## <span id="autoscale"></span></a>Scalare automaticamente un'applicazione che esegue ruoli Web, ruoli di lavoro o macchine virtuali
 
-Nella pagina Scale è possibile configurare il servizio cloud in modo da aumentare o ridurre automaticamente il numero di istanze o macchine virtuali usate dall'applicazione. La scalabilità può essere configurata in base ai parametri seguenti:
+Nella pagina Scale è possibile configurare il servizio cloud in modo da aumentare o ridurre automaticamente il numero di istanze o macchine virtuali utilizzate dall'applicazione. La scalabilità può essere configurata in base ai parametri seguenti:
 
 -   [Utilizzo medio della CPU][Utilizzo medio della CPU]: se la percentuale media di utilizzo della CPU sale o scende oltre le soglie specificate, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
 -   [Messaggi in coda][Messaggi in coda]: se il numero di messaggi in una coda sale o scende oltre una soglia specificata, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
@@ -61,16 +63,16 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
     ![Scalabilità automatica attivata][Scalabilità automatica attivata]
 
-4.  Per ogni ruolo o set di disponibilità è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere usate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
+4.  Per ogni ruolo o set di disponibilità è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere utilizzate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
 
     **Nota:** Il valore **Instance** nella pagina Scale rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
 
     ![Intervallo istanza][Intervallo istanza]
 
-    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core utilizzati e disponibili nella sottoscrizione:
 
-    -   Il blu rappresenta il numero massimo di core che il ruolo può usare.
-    -   Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro.
+    -   Il blu rappresenta il numero massimo di core che il ruolo può utilizzare.
+    -   Il grigio scuro rappresenta i core utilizzati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core utilizzati dal ruolo, il colore diventa blu scuro.
     -   Il grigio chiaro rappresenta i core disponibili per l'utilizzo per la scalabilità.
     -   Il rosa rappresenta una modifica apportata che non è stata salvata.
 
@@ -86,7 +88,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
     ![Tempo di attività][Tempo di attività]
 
-    Nel calcolo della percentuale media di utilizzo della CPU vengono incluse tutte le istanze e la media si basa sull'utilizzo nell'ora precedente. A seconda del numero di istanze usate dall'applicazione, l'azione di ridimensionamento può richiedere più tempo rispetto al tempo di attesa specificato, se quest'ultimo è impostato su un valore molto basso. Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
+    Nel calcolo della percentuale media di utilizzo della CPU vengono incluse tutte le istanze e la media si basa sull'utilizzo nell'ora precedente. A seconda del numero di istanze utilizzate dall'applicazione, l'azione di ridimensionamento può richiedere più tempo rispetto al tempo di attesa specificato, se quest'ultimo è impostato su un valore molto basso. Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
 
 8.  È inoltre possibile specificare il numero di istanze da eliminare o disattivare ogni volta che viene ridotto il numero di istanze dell'applicazione. Per aumentare il numero di istanze eliminate o disattivate quando viene ridotto il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
@@ -108,20 +110,20 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
     ![Scalabilità coda][Scalabilità coda]
 
-4.  Per ogni ruolo o set di disponibilità nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere usate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
+4.  Per ogni ruolo o set di disponibilità nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze che possono essere utilizzate. Per impostare il numero massimo di istanze utilizzabili, trascinare verso destra la barra di destra. Per impostare il numero minimo di istanze utilizzabili, trascinare verso sinistra la barra di sinistra.
 
     ![Intervallo coda][Intervallo coda]
 
     **Nota:** Il valore **Instance** nella pagina Scale rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
 
-    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core utilizzati e disponibili nella sottoscrizione:
 
-    -   Il blu rappresenta il numero massimo di core che il ruolo può usare.
-    -   Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro.
+    -   Il blu rappresenta il numero massimo di core che il ruolo può utilizzare.
+    -   Il grigio scuro rappresenta i core utilizzati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core utilizzati dal ruolo, il colore diventa blu scuro.
     -   Il grigio chiaro rappresenta i core disponibili per l'utilizzo per la scalabilità.
     -   Il rosa rappresenta una modifica apportata che non è stata salvata.
 
-5.  Selezionare l'account di archiviazione associato alla coda che si desidera usare.
+5.  Selezionare l'account di archiviazione associato alla coda che si desidera utilizzare.
 
     ![Nome della risorsa di archiviazione][Nome della risorsa di archiviazione]
 
@@ -143,7 +145,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
     Il tempo minimo tra le azioni di ridimensionamento è pari a cinque minuti. Le azioni di ridimensionamento non possono avere luogo se è in corso la transizione di una delle istanze.
 
-10. È inoltre possibile specificare il numero di istanze da eliminare o non usare ogni volta che viene ridotto il numero di istanze dell'applicazione. Per specificare l'incremento di scalabilità viene usato un dispositivo di scorrimento. Per aumentare il numero di istanze eliminate o inutilizzate quando viene ridotto il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
+10. È inoltre possibile specificare il numero di istanze da eliminare o non utilizzare ogni volta che viene ridotto il numero di istanze dell'applicazione. Per specificare l'incremento di scalabilità viene utilizzato un dispositivo di scorrimento. Per aumentare il numero di istanze eliminate o inutilizzate quando viene ridotto il numero di istanze dell'applicazione, trascinare la barra verso destra. Per ridurre il numero, trascinare la barra verso sinistra.
 
     ![Riduzione del numero di istanze basato su CPU][Riduzione del numero di istanze basato su CPU]
 
@@ -155,11 +157,11 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 ## <span id="scalelink"></span></a>Scalare risorse collegate
 
-Quando si scala un ruolo, spesso risulta utile scalare anche il database usato dall'applicazione. Se si collega il database al servizio cloud, nella pagina Scale viene modificata l'edizione del database SQL e viene ridimensionato il database.
+Quando si scala un ruolo, spesso risulta utile scalare anche il database utilizzato dall'applicazione. Se si collega il database al servizio cloud, nella pagina Scale viene modificata l'edizione del database SQL e viene ridimensionato il database.
 
 1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
 2.  Fare clic su **Scale**.
-3.  Nella sezione Linked Resources selezionare l'edizione da usare per il database.
+3.  Nella sezione Linked Resources selezionare l'edizione da utilizzare per il database.
 
     ![Linked Resources][Linked Resources]
 
@@ -174,7 +176,7 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 
 -   **Day and night**: questa opzione consente di specificare la scalabilità per determinati orari del giorno e della notte.
 
-**Nota:** Le pianificazioni non sono attualmente disponibili per le applicazioni che usano Macchine virtuali.
+**Nota:** Le pianificazioni non sono attualmente disponibili per le applicazioni che utilizzano Macchine virtuali.
 
 1.  Nel [portale di gestione][portale di gestione] fare clic su **Cloud Services** e quindi sul nome del servizio cloud per aprire il dashboard.
 2.  Fare clic su **Scale**.
@@ -188,11 +190,11 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 
 6.  Fare clic sul segno di spunta nella parte inferiore della pagina per salvare le pianificazioni.
 
-7.  Dopo il salvataggio, le pianificazioni verranno visualizzate nell'elenco. È possibile selezionare la pianificazione oraria da usare, quindi modificare le impostazioni di scalabilità. Le impostazioni di scalabilità verranno applicate solo durante la pianificazione selezionata. Per modificare le pianificazioni, fare clic su **set up schedule times**.
+7.  Dopo il salvataggio, le pianificazioni verranno visualizzate nell'elenco. È possibile selezionare la pianificazione oraria da utilizzare, quindi modificare le impostazioni di scalabilità. Le impostazioni di scalabilità verranno applicate solo durante la pianificazione selezionata. Per modificare le pianificazioni, fare clic su **set up schedule times**.
 
   [Gestione della disponibilità delle macchine virtuali]: http://www.windowsazure.com/it-it/manage/windows/common-tasks/manage-vm-availability/
   [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://msdn.microsoft.com/it-it/library/dn197896.aspx
-  [Come usare il servizio di archiviazione di accodamento]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/queue-service
+  [Come utilizzare il servizio di archiviazione di accodamento]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/queue-service
   [Procedura: Collegare una risorsa a un servizio cloud]: http://www.windowsazure.com/it-it/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources
   [Contratti di servizio]: https://www.windowsazure.com/it-it/support/legal/sla/
   [Scalare manualmente un'applicazione che esegue ruoli Web o ruoli di lavoro]: #manualscale
@@ -200,7 +202,7 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
   [Scalare risorse collegate]: #scalelink
   [Pianificare la scalabilità dell'applicazione]: #schedule
   [portale di gestione]: https://manage.windowsazure.com/
-  [Scale page]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png
+  [Pagina Scale]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png
   [Scalabilità del ruolo]: ./media/cloud-services-how-to-scale/CloudServices_SliderRole.png
   [Utilizzo medio della CPU]: #averagecpu
   [Messaggi in coda]: #queuemessages

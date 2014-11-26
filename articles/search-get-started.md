@@ -367,7 +367,9 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 
 -   [Cloud Cover episodio 152: Generare un indice in Ricerca di Azure][Cloud Cover episodio 152: Generare un indice in Ricerca di Azure]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [scenari e le funzionalità di Ricerca di Azure]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [Iniziare con il servizio gratuito]: #sub-1

@@ -111,7 +111,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [versione di app Windows universale]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [Registrazione dell'app con Servizi notifica Push Windows e configurazione di Servizi mobili]: #register
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
@@ -121,11 +120,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [Introduzione alle notifiche push in Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/enable-toast.png
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Invio di notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
   [Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/

@@ -117,9 +117,7 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
   [Inserimento di dati per la ricezione di notifiche]: #test
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-js/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [Utilizzo degli script del server in Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkID=287178
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/getting-started-windows-dotnet/

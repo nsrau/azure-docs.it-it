@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to manage" pageTitle="Come gestire gli account di archiviazione | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Informazioni su come gestire gli account di archiviazione in Azure usando il portale di gestione." metaCanonical="" services="storage" documentationCenter="" title="Come gestire gli account di archiviazione" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -26,13 +26,13 @@
 
 ## <span id="regeneratestoragekeys"></span></a>Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione
 
-Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono usate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
+Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-Nel [portale di gestione][portale di gestione] usare **Manage Keys** nel dashboard o la pagina **Storage** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione usate per accedere ai servizi BLOB, tabelle e di accodamento.
+Nel [portale di gestione][portale di gestione] utilizzare **Manage Keys** nel dashboard o la pagina **Storage** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione utilizzate per accedere ai servizi BLOB, tabelle e di accodamento.
 
 ### Copia di una chiave di accesso alle risorse di archiviazione
 
-È possibile usare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da usare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da usare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione][Configurazione delle stringhe di connessione].
+È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da utilizzare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione][Configurazione delle stringhe di connessione].
 
 1.  Nel [portale di gestione][portale di gestione] fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
@@ -58,7 +58,7 @@ Nel [portale di gestione][portale di gestione] usare **Manage Keys** nel dashboa
 
 **Servizi multimediali** - Se dall'account di archiviazione dipendono servizi multimediali, è necessario risincronizzare le chiavi di accesso con il servizio multimediale dopo aver rigenerato le chiavi.
 
-**Applicazioni** - Se si dispone di applicazioni Web o servizi cloud che usano l'account di archiviazione, si perderanno le connessioni se si rigenerano le chiavi, a meno che non si registrino le chiavi. Di seguito è riportato il processo:
+**Applicazioni** - Se si dispone di applicazioni Web o servizi cloud che utilizzano l'account di archiviazione, si perderanno le connessioni se si rigenerano le chiavi, a meno che non si registrino le chiavi. Di seguito è riportato il processo:
 
 1.  Aggiornare le stringhe di connessione nel codice dell'applicazione in modo che facciano riferimento alla chiave di accesso secondaria dell'account di archiviazione.
 
@@ -70,7 +70,7 @@ Nel [portale di gestione][portale di gestione] usare **Manage Keys** nel dashboa
 
 ## <span id="deletestorageaccount"></span></a>Procedura: Eliminare un account di archiviazione
 
-Per rimuovere un account di archiviazione non più in uso, usare **Delete** nel dashboard o nella pagina **Configure**. **Delete** elimina l'intero account di archiviazione, inclusi tutti i BLOB, le tabelle e le code nell'account.
+Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete** nel dashboard o nella pagina **Configure**. **Delete** elimina l'intero account di archiviazione, inclusi tutti i BLOB, le tabelle e le code nell'account.
 
 <div class="dev-callout">
     <b>Avviso</b>

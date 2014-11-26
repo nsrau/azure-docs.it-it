@@ -1,6 +1,6 @@
 Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
-1.  Accedere al [portale di gestione][].
+1.  Accedere al [portale di gestione][portale di gestione].
 
 2.  Nella parte inferiore del pannello di navigazione fare clic su **+NEW**.
 
@@ -33,7 +33,7 @@ Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
 A questo punto è stato creato un nuovo servizio mobile che può essere utilizzato dalle app per dispositivi mobili.
 
-<!-- URLs. -->
+
 
   [portale di gestione]: https://manage.windowsazure.com/
    

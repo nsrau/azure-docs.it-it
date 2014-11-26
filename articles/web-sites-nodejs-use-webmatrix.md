@@ -1,6 +1,6 @@
 <properties linkid="web-site-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle="Node.js website with WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Creare e distribuire un sito Web Node.js in Azure con WebMatrix
 
@@ -12,7 +12,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ![Sito Web node di Azure][Sito Web node di Azure]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Accesso ad Azure
 
@@ -92,8 +92,6 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 
   [WebMatrix per Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
   [Sito Web node di Azure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  [Versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E
   [Aggiunta di un account]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-add-account.png
   [Accesso ad Azure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
   [Nuovo sito dalla raccolta modelli]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png

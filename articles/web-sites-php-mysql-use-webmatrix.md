@@ -179,7 +179,6 @@ Si è appreso come creare e distribuire un sito Web da WebMatrix in Azure. Per a
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Sito Web PHP di Azure]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Scaricare]: http://go.microsoft.com/fwlink/?LinkId=252506
   [portale di gestione]: https://manage.windowsazure.com
   [Creazione di un nuovo sito Web di Azure]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg

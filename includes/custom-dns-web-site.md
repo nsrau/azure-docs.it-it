@@ -44,7 +44,7 @@ L'impostazione di un nome di dominio personalizzato in un sito Web è disponibil
 1.  Accedere al [portale di gestione dal browser][portale di gestione dal browser].
 2.  Nella scheda **Siti Web** fare clic sul nome del sito Web desiderato.
 
-    ![][]
+    ![][0]
 
 3.  Fare clic sulla scheda **SCALA**.
 
@@ -299,7 +299,6 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 
 
 
-  [http://\<mysite]: http://<mysite
   [Controllo del traffico dei siti Web di Azure con Traffic Manager di Azure]: /it-it/documentation/articles/web-sites-traffic-manager/
   [Configurazione di un nome di dominio personalizzato in Azure]: /it-it/develop/net/common-tasks/custom-dns/
   [Dettagli dei prezzi di Siti Web]: /it-it/pricing/details/web-sites/
@@ -312,7 +311,7 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
   [IETF sull'implementazione e le specifiche dei nomi di dominio]: http://tools.ietf.org/html/rfc1035
   [Dettagli prezzi]: /it-it/pricing/details/
   [portale di gestione dal browser]: http://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-1.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
   [Creare un profilo di Gestione traffico mediante Creazione rapida]: http://msdn.microsoft.com/it-it/library/windowsazure/dn339012.aspx

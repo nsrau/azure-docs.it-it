@@ -24,7 +24,7 @@ I principali vantaggi di un record A rispetto a un record CNAM sono i seguenti:
 
 Un record CNAME consente di eseguire il mapping di un nome DNS *specifico*, ad esempio **mail.contoso.com** o **www.contoso.com**, a un altro nome di dominio (canonico). Nel caso dei siti Web di Azure, il nome di dominio canonico è il nome di dominio **\<nomesito\>.azurewebsites.net** del proprio sito Web. Dopo la creazione, il record CNAME crea a sua volta un alias per il nome di dominio **\<nomesito\>.azurewebsites.net** La voce CNAME viene automaticamente risolta nell'indirizzo IP del nome di dominio **\<nomesito\>.azurewebsites.net**, quindi se l'indirizzo IP del sito Web cambia non sarà necessaria alcuna azione.
 
-> [WACOM.NOTE] Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si utilizza un record CNAME, ad esempio **www.contoso.com**, e non dei nomi radice come **contoso.com**. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la [voce di Wikipedia sui record CNAME][] oppure il documento di IETF relativo a [implementazione e specifiche dei nomi di dominio][].
+> [WACOM.NOTE] Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si utilizza un record CNAME, ad esempio **www.contoso.com**, e non dei nomi radice come **contoso.com**. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la [voce di Wikipedia sui record CNAME][voce di Wikipedia sui record CNAME] oppure il documento di IETF relativo a [implementazione e specifiche dei nomi di dominio][implementazione e specifiche dei nomi di dominio].
 
 ### Specifiche DNS per i siti Web di Azure
 
@@ -38,13 +38,13 @@ Questo record CNAME viene usato per verificare che si è proprietari del dominio
 
 Per individuare l'indirizzo IP, oltre al nome **awverify** e ai nomi **.azurewebsites.net** per il sito Web, eseguire le operazioni seguenti:
 
-1.  Accedere al [portale di gestione di Azure][] dal browser.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure] dal browser.
 
 2.  Nella scheda **Siti Web** fare clic sul nome del sito, selezionare **Dashboard** e quindi scegliere **Gestisci domini** nella parte inferiore della pagina.
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il sito Web usato è gratuito. Dal momento che con un sito Web gratuito non è possibile usare nomi di dominio personalizzati è necessario eseguire l'aggiornamento alla modalità condivisa, di base o standard. Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web][].
+    > [WACOM.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il sito Web usato è gratuito. Dal momento che con un sito Web gratuito non è possibile usare nomi di dominio personalizzati è necessario eseguire l'aggiornamento alla modalità condivisa, di base o standard. Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web][Come applicare la scalabilità ai siti Web].
 
 3.  Nella finestra di dialogo **MANAGE CUSTOM DOMAINS** sarà possibile visualizzare le informazioni su **awverify**, il nome di dominio **.azurewebsites.net** attualmente assegnato e l'indirizzo IP virtuale. Salvare queste informazioni perché verranno usate durante la creazione dei record DNS.
 
@@ -53,6 +53,6 @@ Per individuare l'indirizzo IP, oltre al nome **awverify** e ai nomi **.azureweb
   [voce di Wikipedia sui record CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [implementazione e specifiche dei nomi di dominio]: http://tools.ietf.org/html/rfc1035
   [portale di gestione di Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [Come applicare la scalabilità ai siti Web]: http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

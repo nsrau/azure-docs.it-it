@@ -88,7 +88,6 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [versione di app Windows universale]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-push
   [Registrazione dell'app con Servizi notifica Push Windows e configurazione di Servizi mobili]: #register
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
@@ -97,11 +96,7 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
   [Inserimento di dati per la ricezione di notifiche push]: #test
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/enable-toast.png
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Invio di notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
   [Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/

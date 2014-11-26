@@ -10,10 +10,9 @@ Questo argomento descrive come abilitare l'app per iOS per le notifiche push usa
 
 A questo punto è possibile usare questo certificato .p12 per abilitare servizi per l'autenticazione con il Servizio di notifica Push di Apple e l'invio di notifiche push per conto dell'app.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Abilitare le notifiche push per Apple]: ../includes/enable-apple-push-notifications.md

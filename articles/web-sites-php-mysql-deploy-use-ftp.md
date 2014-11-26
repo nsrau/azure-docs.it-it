@@ -245,7 +245,6 @@ Dopo aver caricato i file `index.php` e `createtable.php`, passare a **http://[n
   [PHP]: http://www.php.net/manual/en/install.php
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Sito Web PHP di Azure]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/running_app_2.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Creazione di un nuovo sito Web di Azure]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website.jpg
   [Creazione personalizzata di un nuovo sito Web]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/custom_create.png

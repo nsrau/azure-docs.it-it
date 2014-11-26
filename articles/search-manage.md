@@ -2,7 +2,7 @@
 
 # Gestire il servizio di ricerca in Microsoft Azure
 
-[WACOM.INCLUDE [Questo articolo usa il portale di anteprima di Azure][]]
+[WACOM.INCLUDE [Questo articolo usa il portale di anteprima di Azure](../includes/preview-portal-note.md)]
 
 Il servizio di ricerca di Azure è un servizio basato sul cloud nonché un'API basata su HTTP che è possibile usare in applicazioni di ricerca personalizzate. Il servizio di ricerca fornisce il motore per l'analisi del testo tramite ricerca full-text, funzionalità avanzate di ricerca, archiviazione e una sintassi dei comandi di query.
 
@@ -12,17 +12,17 @@ Come accennato, è necessario usare il portale di anteprima per le attività amm
 
 <!--TOC-->
 
--   [Aggiungere un servizio di ricerca alla sottoscrizione][]
--   [Attività amministrative][]
--   [URL del servizio][]
--   [Gestire le chiavi API][]
--   [Monitorare l'utilizzo delle risorse][]
--   [Aumentare o ridurre la quantità di risorse][]
--   [Avviare o arrestare il servizio][]
+-   [Aggiungere un servizio di ricerca alla sottoscrizione][Aggiungere un servizio di ricerca alla sottoscrizione]
+-   [Attività amministrative][Attività amministrative]
+-   [URL del servizio][URL del servizio]
+-   [Gestire le chiavi API][Gestire le chiavi API]
+-   [Monitorare l'utilizzo delle risorse][Monitorare l'utilizzo delle risorse]
+-   [Aumentare o ridurre la quantità di risorse][Aumentare o ridurre la quantità di risorse]
+-   [Avviare o arrestare il servizio][Avviare o arrestare il servizio]
 
 ## Aggiungere un servizio di ricerca alla sottoscrizione
 
-Come amministratore si ha la facoltà di aggiungere un servizio di ricerca alla sottoscrizione di Azure usando il [portale di anteprima di Azure][]. Solo gli amministratori possono aggiungere funzionalità a una sottoscrizione. Quando si configura il servizio, sono disponibili due livelli di prezzo tra cui scegliere.
+Come amministratore si ha la facoltà di aggiungere un servizio di ricerca alla sottoscrizione di Azure usando il [portale di anteprima di Azure][portale di anteprima di Azure]. Solo gli amministratori possono aggiungere funzionalità a una sottoscrizione. Quando si configura il servizio, sono disponibili due livelli di prezzo tra cui scegliere.
 
 Per gli abbonati esistenti è disponibile un servizio condiviso senza costi aggiuntivi, consigliato per scopi di apprendimento, test dei modelli di prova e piccoli progetti di sviluppo. Il servizio condiviso è limitato a 50 MB di spazio di archiviazione, tre indici e un numero massimo 10.000 documenti, anche qualora lo spazio di archiviazione usato da questi ultimi sia inferiore ai 50 MB consentiti. Non vi è garanzia alcuna rispetto alle prestazioni del servizio condiviso, pertanto, se si prevede di sviluppare un'applicazione di ricerca di produzione, è consigliabile valutare l'acquisto del servizio di ricerca standard.
 
@@ -30,10 +30,10 @@ Il servizio di ricerca standard è fatturabile perché fornisce accesso a risors
 
 Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigliabile consultare le informazioni disponibili seguendo i collegamenti seguenti:
 
--   [Limitazioni e vincoli][]
--   [Dettagli prezzi][]
+-   [Limitazioni e vincoli][Limitazioni e vincoli]
+-   [Dettagli prezzi][Dettagli prezzi]
 
-Quando si è pronti per l'iscrizione, vedere [Configurare il servizio di ricerca nel portale di anteprima di Azure][].
+Quando si è pronti per l'iscrizione, vedere [Configurare il servizio di ricerca nel portale di anteprima di Azure][Configurare il servizio di ricerca nel portale di anteprima di Azure].
 
 ## Attività amministrative
 
@@ -54,16 +54,16 @@ Gli sviluppatori che devono creare applicazioni di ricerca dovranno conoscere l'
 
 Per ottenere l'URL del servizio dal Dashboard servizi:
 
-1.  Accedere al [portale di anteprima di Azure][].
+1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure].
 2.  Fare clic su **Sfoglia** | **Tutto** | **Servizi di ricerca**.
 3.  Fare clic sul nome del servizio di ricerca per aprire il dashboard.
 4.  Fare clic su **PROPRIETÀ** per aprire una pagina delle proprietà con effetto scorrimento. L'URL del servizio è visualizzato nella parte superiore della pagina. È possibile bloccare questa pagina per accedervi facilmente in seguito.
 
-    ![][]
+    ![][0]
 
 Gli sviluppatori potrebbero richiedere anche la versione dell'API. Un requisito per la codifica di API del servizio di ricerca di Azure è la specifica della versione dell'API nella richiesta. Tale requisito esiste per consentire agli sviluppatori di continuare a usare una versione precedente e quindi passare a una versione successiva al momento opportuno.
 
-La versione dell'API non è visualizzata nelle pagine del portale, pertanto è un'informazione che l'utente non può fornire. Per informazioni sulle versioni API attuali e precedenti, vedere [API REST del servizio di ricerca di Azure][].
+La versione dell'API non è visualizzata nelle pagine del portale, pertanto è un'informazione che l'utente non può fornire. Per informazioni sulle versioni API attuali e precedenti, vedere [API REST del servizio di ricerca di Azure][API REST del servizio di ricerca di Azure].
 
 <!---->
 
@@ -92,10 +92,10 @@ In questa anteprima pubblica, il monitoraggio delle risorse è limitato alle inf
 
 Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli][].
+Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli][Limitazioni e vincoli].
 
--   [Ottieni statistiche indice][]
--   [Conteggio documenti][]
+-   [Ottieni statistiche indice][Ottieni statistiche indice]
+-   [Conteggio documenti][Conteggio documenti]
 
 > [WACOM.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
 
@@ -135,7 +135,7 @@ A differenza della rimozione di repliche, che non richiede operazioni aggiuntive
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
 
-Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice][]) per verificare quanta archiviazione è stata effettivamente usata.
+Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice][Ottieni statistiche indice]) per verificare quanta archiviazione è stata effettivamente usata.
 
 <!---->
 
@@ -151,7 +151,6 @@ L'arresto o l'avvio del servizio non determinano la sospensione della fatturazio
 <!--Image references--> 
 <!--Link references-->
 
-  [Questo articolo usa il portale di anteprima di Azure]: ../includes/preview-portal-note.md
   [Aggiungere un servizio di ricerca alla sottoscrizione]: #sub-1
   [Attività amministrative]: #sub-2
   [URL del servizio]: #sub-3
@@ -160,13 +159,13 @@ L'arresto o l'avvio del servizio non determinano la sospensione della fatturazio
   [Aumentare o ridurre la quantità di risorse]: #sub-6
   [Avviare o arrestare il servizio]: #sub-7
   [portale di anteprima di Azure]: https://portal.azure.com
-  [Limitazioni e vincoli]: http://msdn.microsoft.com/en-us/library/dn798934.aspx
+  [Limitazioni e vincoli]: http://msdn.microsoft.com/it-it/library/dn798934.aspx
   [Dettagli prezzi]: http://go.microsoft.com/fwlink/p/?LinkdID=509792
   [Configurare il servizio di ricerca nel portale di anteprima di Azure]: ../search-configure/
-  []: ./media/search-manage/Azure-Search-Manage-1-URL.png
+  [0]: ./media/search-manage/Azure-Search-Manage-1-URL.png
   [API REST del servizio di ricerca di Azure]: http://go.microsoft.com/fwlink/p/?LinkdID=509922
   [1]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
-  [Ottieni statistiche indice]: http://msdn.microsoft.com/en-us/library/dn798942.aspx
-  [Conteggio documenti]: http://msdn.microsoft.com/en-us/library/dn798924.aspx
+  [Ottieni statistiche indice]: http://msdn.microsoft.com/it-it/library/dn798942.aspx
+  [Conteggio documenti]: http://msdn.microsoft.com/it-it/library/dn798924.aspx
   [2]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
   [3]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png

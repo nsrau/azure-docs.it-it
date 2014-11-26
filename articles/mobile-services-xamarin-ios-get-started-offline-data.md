@@ -198,9 +198,9 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 -   [Come usare il componente client Xamarin per Servizi mobili di Azure][Come usare il componente client Xamarin per Servizi mobili di Azure]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/

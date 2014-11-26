@@ -247,7 +247,7 @@ L'esercitazione è stata completata.
 
 In questo semplice esempio un utente riceve una notifica push con i dati appena inseriti. Il token di dispositivo utilizzato da GCM viene fornito al servizio mobile dal client nella richiesta. Nell'esercitazione successiva, [Notifiche push per utenti di app][Notifiche push per utenti di app], sarà possibile creare una tabella Devices distinta in cui archiviare i token di dispositivo e sarà possibile inviare una notifica push a tutti i canali archiviati quando si verifica un inserimento.
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
   [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Abilitazione di Google Cloud Messaging]: #register
@@ -257,11 +257,9 @@ In questo semplice esempio un utente riceve una notifica push con i dati appena 
   [Inserimento di dati per la ricezione di notifiche]: #test
   [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-android
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Add Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [configurazione di Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png

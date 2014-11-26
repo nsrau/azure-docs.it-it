@@ -90,7 +90,7 @@ Eseguire la procedura seguente per abilitare il repository Git per il sito Web t
 
 7.  Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso, che verranno usate per accedere al repository di Azure e per effettuare il push delle modifiche dal repository Git locale.
 
-    ![][]
+    ![][0]
 
 8.  Dopo una breve attesa, dovrebbe essere visualizzato un messaggio indicante che il repository è pronto.
 
@@ -323,7 +323,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
   [portale di Azure]: http://manage.windowsazure.com
   [Immagine di un sito Web selezionato]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [git-instructions]: ./media/publishing-with-git/git-instructions.png
   [Pagina Web contenente 'Hello Git!']: ./media/publishing-with-git/git-hello-git.png
   [Pagina Web contenente 'Yay!']: ./media/publishing-with-git/git-yay.png

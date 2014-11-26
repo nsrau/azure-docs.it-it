@@ -180,7 +180,6 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
   [Inviare notifiche dal back-end]: #send
   [Mobile Services SDK per iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
   [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png

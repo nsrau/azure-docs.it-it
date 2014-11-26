@@ -16,6 +16,6 @@ Un record CNAME consente di eseguire il mapping di un nome DNS *specifico*, ad e
 
 Quando il traffico raggiunge Gestione traffico, quest'ultimo lo indirizza al sito Web usando il metodo di bilanciamento del carico per il quale è stato configurato. Il processo è completamente trasparente ai visitatori del sito Web, che vedranno unicamente il nome di dominio personalizzato nei propri browser.
 
-> [WACOM.NOTE] Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si utilizza un record CNAME, ad esempio **www.contoso.com**, e non dei nomi radice come **contoso.com**. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, [la voce di Wikipedia sui record CNAME][] oppure il documento di IETF relativo a implementazione e specifiche dei nomi di dominio.
+> [WACOM.NOTE] Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si utilizza un record CNAME, ad esempio **www.contoso.com**, e non dei nomi radice come **contoso.com**. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, [la voce di Wikipedia sui record CNAME][la voce di Wikipedia sui record CNAME] oppure il documento di IETF relativo a implementazione e specifiche dei nomi di dominio.
 
   [la voce di Wikipedia sui record CNAME]: http://en.wikipedia.org/wiki/CNAME_record

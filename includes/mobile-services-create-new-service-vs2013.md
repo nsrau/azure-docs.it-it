@@ -2,21 +2,21 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 
 1.  In Visual Studio 2013 aprire Esplora soluzioni, fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi** e quindi fare clic su **Servizio connesso**.
 
-    ![aggiunta di un servizio connesso][]
+    ![aggiunta di un servizio connesso][aggiunta di un servizio connesso]
 
 2.  Nella finestra di dialogo Gestione servizi fare clic su **Crea servizio**, quindi selezionare **\<Importa\>** da **Sottoscrizione** nella finestra di dialogo Crea servizio mobile.
 
-    ![creazione di un nuovo servizio mobile da VS 2013][]
+    ![creazione di un nuovo servizio mobile da VS 2013][creazione di un nuovo servizio mobile da VS 2013]
 
 3.  In Import Azure Subscriptions fare clic su **Download subscription file**, accedere al proprio account Azure (se richiesto) e fare clic su **Save** quando nel browser viene richiesto se salvare il file.
 
-    ![download del file di sottoscrizione in VS][]
+    ![download del file di sottoscrizione in VS][download del file di sottoscrizione in VS]
 
     <div class="dev-callout"><strong>Nota</strong> <p>La finestra di accesso viene visualizzata nel browser e potrebbe trovarsi dietro la finestra di Visual Studio. Prendere nota del percorso in cui &egrave; stato salvato il file .publishsettings scaricato. Se il progetto &egrave; gi&agrave; connesso alla sottoscrizione di Azure, &egrave; possibile ignorare questo passaggio.</p></div>
 
 4.  Fare clic su **Sfoglia**, passare al percorso in cui è stato salvato il file .publishsettings, selezionare il file, quindi fare clic su **Apri** e infine su **Importa**.
 
-    ![importazione della sottoscrizione in VS][]
+    ![importazione della sottoscrizione in VS][importazione della sottoscrizione in VS]
 
     In Visual Studio verranno importati i dati necessari per connettersi alla sottoscrizione di Azure. Se la sottoscrizione include già uno o più servizi mobili esistenti, verranno visualizzati i relativi nomi.
 
@@ -28,7 +28,7 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 
 6.  In **Database** selezionare **\<Crea un database SQL gratuito\>**, specificare i valori per **Nome utente server**, **Password server** e **Conferma password server**, quindi fare clic su **Crea**.
 
-    ![creazione di un servizio da VS 2013 parte 2][]
+    ![creazione di un servizio da VS 2013 parte 2][creazione di un servizio da VS 2013 parte 2]
 
     > [WACOM.NOTE]
     > Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. È possibile disporre di un'unica istanza di database gratuita. Se si dispone già di un database nella stessa area del nuovo servizio mobile, è possibile scegliere il database esistente. In questo caso, assicurarsi di specificare le credenziali di accesso corrette. Se si specificano credenziali di accesso non corrette, il servizio mobile viene creato in uno stato non integro.

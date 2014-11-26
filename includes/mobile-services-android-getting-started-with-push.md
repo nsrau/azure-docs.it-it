@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  Scaricare e decomprimere [Mobile Services Android SDK][], aprire la cartella **notifications**, copiare il file **notifications-1.0.1.jar** nella cartella *libs* del progetto Eclipse, quindi aggiornare la cartella *libs*.
+4.  Scaricare e decomprimere [Mobile Services Android SDK][Mobile Services Android SDK], aprire la cartella **notifications**, copiare il file **notifications-1.0.1.jar** nella cartella *libs* del progetto Eclipse, quindi aggiornare la cartella *libs*.
 
     <div class="dev-callout"><b>Nota</b>
 <p>&Egrave; possibile che i numeri presenti alla fine del nome del file cambino nelle versioni successive di SDK.</p>
@@ -113,7 +113,7 @@
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
-<!-- URLs. -->
+
 
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
    

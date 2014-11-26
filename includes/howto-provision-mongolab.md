@@ -2,26 +2,26 @@
 
 1.  Accedere al portale di gestione di Azure.
 2.  Fare clic su **Nuovo**.  
-    ![New][]
+    ![New][New]
 3.  Selezionare **Negozio**.  
-    ![Store][]
+    ![Store][Store]
 4.  Selezionare MongoLab. Il database è disponibile nella categoria **Servizi app** e in **Tutti**.  
-    ![MongoLab][]
+    ![MongoLab][MongoLab]
 5.  Fare clic su **Avanti**.  
-    ![Next][]
+    ![Next][Next]
      Sarà visualizzata la voce del negozio relativa a MongoLab.  
-    ![NewMongoLab][]
+    ![NewMongoLab][NewMongoLab]
 6.  Selezionare l'opzione **Subscription** desiderata.
 7.  In **Name** digitare un nome per il database. Il nome può contenere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. MongoLab richiede inoltre che tale nome sia univoco, pertanto potrebbe essere richiesto all'utente di inviare di nuovo la richiesta qualora il nome sia accettato.
 8.  Selezionare la posizione desiderata in **Region**.
 9.  Fare clic su **Avanti**.  
-    ![Next][]
+    ![Next][Next]
 10. Verificare le informazioni relative all'acquisto presso il negozio, quindi fare clic su **Acquisto** per confermare.  
     ![Next][1]
 11. Il pulsante della barra degli strumenti indica lo stato del provisioning.  
-    ![ProgressButton][]  
+    ![ProgressButton][ProgressButton]  
     Al termine del provisioning sarà visualizzato un messaggio di operazione riuscita.  
-    ![SuccessMessage][]
+    ![SuccessMessage][SuccessMessage]
 
 Congratulazioni. È stato eseguito il provisioning di un database MongoDB nella posizione di Azure selezionata. Sarà ora possibile accedere all'interfaccia di gestione e al supporto 24 ore su 24, 7 giorni su 7.
 

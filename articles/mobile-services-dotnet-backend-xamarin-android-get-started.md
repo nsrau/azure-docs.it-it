@@ -91,9 +91,9 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 * [Introduzione alle notifiche push][Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
 [versione per back-end JavaScript]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started
 [Guida introduttiva: aggiunta di un servizio mobile (back-end .NET)]: http://msdn.microsoft.com/it-it/library/windows/apps/dn629482.aspx

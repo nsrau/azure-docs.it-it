@@ -76,7 +76,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 Per altre informazioni su cosa può fare Capptain per la propria app, visitare <http://www.capptain.com>
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [Capptain]: http://www.capptain.com
   [Inizializzare Capptain SDK]: #initialize

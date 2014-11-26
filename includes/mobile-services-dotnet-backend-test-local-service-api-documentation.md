@@ -18,7 +18,7 @@
 
 4.  Fare clic sul collegamento **GET tables/TodoItem**.
 
-    ![][]
+    ![][0]
 
     Viene visualizzata la pagina della risposta GET per l'API.
 
@@ -33,7 +33,7 @@
   [avvio del progetto di servizio mobile a livello locale]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png
   [verifica del servizio mobile nella barra delle applicazioni]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png
   [pagina di avvio del servizio mobile]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png
-  []: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png
   [Come modificare un modello di dati in un servizio mobile back-end .NET]: ./it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png

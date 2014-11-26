@@ -195,7 +195,6 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Come ricevere messaggi da una sottoscrizione]: #how-to-receive-messages-from-a-subscription
   [Come gestire arresti anomali e messaggi illeggibili dell'applicazione]: #how-to-handle-application-crashes-and-unreadable-messages
   [Come eliminare argomenti e sottoscrizioni]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Creazione di un'applicazione Ruby in Azure]: /it-it/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [portale di gestione di Azure]: https://manage.windowsazure.com

@@ -129,7 +129,6 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 
 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [versione di app Windows universale]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
   [Download del progetto dell'app di Windows Store]: #download-app
   [Creazione del servizio mobile]: #create-service
@@ -140,10 +139,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012
   [app GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [Schema dinamico]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx
-  [mobile-services-windows-javascript-update-data-app]: ../includes/mobile-services-windows-javascript-update-data-app.md
   [portale di gestione]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [Utilizzo di script per la convalida e la modifica di dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/

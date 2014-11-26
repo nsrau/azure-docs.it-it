@@ -10,7 +10,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetSt
 
 4.  Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-    ![][]
+    ![][0]
 
     Si noti che viene mostrato il testo salvato.
 
@@ -21,5 +21,5 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetSt
 6.  Repeat steps 3 and 4 to verify that the sample behaves the same way.
 
   [app GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

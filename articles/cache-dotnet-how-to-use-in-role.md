@@ -399,7 +399,9 @@ di Cache nel ruolo, visitare i collegamenti seguenti per informazioni sulle atti
 -   Consultare gli esempi: [Esempi di Cache nel ruolo][Esempi di Cache nel ruolo]
 -   Guardare la sessione su Cache nel ruolo in TechEd 2013 che illustra [come ottenere le massime prestazioni accelerando le applicazioni di Servizi cloud con Cache di Azure][come ottenere le massime prestazioni accelerando le applicazioni di Servizi cloud con Cache di Azure]
 
-<!-- INTRA-TOPIC LINKS --> <!-- IMAGES --> <!-- LINKS -->
+<!-- INTRA-TOPIC LINKS -->
+<!-- IMAGES -->
+<!-- LINKS -->
 
   [Passaggi successivi]: #next-steps
   [Informazioni su Cache nel ruolo]: #what-is

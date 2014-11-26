@@ -193,7 +193,7 @@ L'esercitazione sulle nozioni di base dell'utilizzo delle notifiche push è term
 -   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
     Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
 
-<!-- anchors --> <!-- Images. --> <!-- URLs. -->
+<!-- anchors -->  
 
   [esercitazione sulle notifiche push precedente]: /it-it/develop/mobile/tutorials/get-started-with-push-wp8
   [Creazione della tabella Channel]: #create-table

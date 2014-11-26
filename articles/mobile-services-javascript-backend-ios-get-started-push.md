@@ -187,8 +187,8 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
 -   [Riferimento per gli script server di Servizi mobili][Riferimento per gli script server di Servizi mobili]
     Altre informazioni su come implementare la logica di business nel servizio mobile.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs.   -->
 
   [Generazione della richiesta di firma del certificato]: #certificates
@@ -201,8 +201,6 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
   [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-ios-get-started
-  [Abilitare le notifiche push per Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

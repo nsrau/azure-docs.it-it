@@ -11,23 +11,23 @@ Questa guida illustra come eseguire diversi scenari comuni con il
 Servizio di archiviazione tabelle di Azure. Gli esempi sono scritti con
 l'API Python. Gli scenari presentati includono **creazione ed eliminazione di una
 tabella, inserimento ed esecuzione di query sulle entità in una tabella**. Per altre
-informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+informazioni sulle tabelle, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
-[Informazioni sul Servizio tabelle][]   
- [Concetti][]   
- [Creare un account di archiviazione di Azure][]   
- [Procedura: Creare una tabella][]   
- [Procedura: Aggiungere un'entità a una tabella][]   
- [Procedura: Aggiornare un'entità][]   
- [Procedura: Come modificare un gruppo di entità][]   
- [Procedura: Eseguire una query su un'entità][]   
- [Procedura: Eseguire query su un set di entità][]   
- [Procedura: Eseguire una query su un subset di proprietà di entità][]   
- [Procedura: Eliminare un'entità][]   
- [Procedura: Eliminare una tabella][]   
- [Passaggi successivi][]
+[Informazioni sul Servizio tabelle][Informazioni sul Servizio tabelle]   
+ [Concetti][Concetti]   
+ [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]   
+ [Procedura: Creare una tabella][Procedura: Creare una tabella]   
+ [Procedura: Aggiungere un'entità a una tabella][Procedura: Aggiungere un'entità a una tabella]   
+ [Procedura: Aggiornare un'entità][Procedura: Aggiornare un'entità]   
+ [Procedura: Come modificare un gruppo di entità][Procedura: Come modificare un gruppo di entità]   
+ [Procedura: Eseguire una query su un'entità][Procedura: Eseguire una query su un'entità]   
+ [Procedura: Eseguire query su un set di entità][Procedura: Eseguire query su un set di entità]   
+ [Procedura: Eseguire una query su un subset di proprietà di entità][Procedura: Eseguire una query su un subset di proprietà di entità]   
+ [Procedura: Eliminare un'entità][Procedura: Eliminare un'entità]   
+ [Procedura: Eliminare una tabella][Procedura: Eliminare una tabella]   
+ [Passaggi successivi][Passaggi successivi]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
@@ -166,8 +166,8 @@ Nell'esempio di codice seguente viene illustrato come eliminare una tabella da u
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, usare i collegamenti seguenti
 per informazioni su come eseguire attività di archiviazione più complesse.
 
--   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
--   [Blog del team di archiviazione di Azure][]
+-   Riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][Archiviazione e accesso ai dati in Azure]
+-   [Blog del team di archiviazione di Azure][Blog del team di archiviazione di Azure]
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio tabelle]: #what-is
@@ -176,11 +176,9 @@ per informazioni su come eseguire attività di archiviazione più complesse.
   [Procedura: Creare una tabella]: #create-table
   [Procedura: Aggiungere un'entità a una tabella]: #add-entity
   [Procedura: Aggiornare un'entità]: #update-entity
-  [Procedura: Modificare un gruppo di entità]: #change-entities
   [Procedura: Eseguire una query su un'entità]: #query-for-entity
   [Procedura: Eseguire query su un set di entità]: #query-set-entities
   [Procedura: Eseguire una query su un subset di proprietà di entità]: #query-entity-properties
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/

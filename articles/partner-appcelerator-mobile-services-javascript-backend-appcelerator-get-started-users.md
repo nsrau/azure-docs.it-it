@@ -96,13 +96,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
   [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
   [Aggiunta dell'autenticazione all'app]: #add-authentication
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md

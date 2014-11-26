@@ -275,7 +275,6 @@ collegamenti seguenti per ulteriori informazioni.
   [servizio di posta elettronica basato sul cloud]: http://sendgrid.com/solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [confronto tra SMTP e l'API Web]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Impostazioni dei filtri]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

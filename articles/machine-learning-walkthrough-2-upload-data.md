@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning][]:
+Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning][Sviluppare una soluzione predittiva con Azure Machine Learning]:
 
-1.  [Creare un'area di lavoro ML][]
+1.  [Creare un'area di lavoro ML][Creare un'area di lavoro ML]
 2.  **Caricare i dati esistenti**
-3.  [Creare un nuovo esperimento][]
-4.  [Addestrare e valutare i modelli][]
-5.  [Pubblicare il servizio Web][]
-6.  [Accedere al servizio Web][]
+3.  [Creare un nuovo esperimento][Creare un nuovo esperimento]
+4.  [Addestrare e valutare i modelli][Addestrare e valutare i modelli]
+5.  [Pubblicare il servizio Web][Pubblicare il servizio Web]
+6.  [Accedere al servizio Web][Accedere al servizio Web]
 
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in ML Studio
 6.  Come tipo di dati selezionare "File CSV generico senza intestazione (.nh.csv)"
 7.  Aggiungere un'eventuale descrizione
 8.  Fare clic su **OK**.
-    ![Upload the dataset][]
+    ![Upload the dataset][Upload the dataset]
 
 I dati vengono caricati in un modulo Set di dati che è possibile usare in un esperimento.
 

@@ -117,7 +117,6 @@ usare i collegamenti seguenti per altre informazioni su SendGrid.
   [Aggiunta di uno script per l'invio di posta elettronica]: #add-script
   [Inserimento di dati per la ricezione di posta elettronica]: #insert-data
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png

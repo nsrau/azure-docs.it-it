@@ -171,9 +171,9 @@ Questo argomento descrive come chiedere la registrazione per le notifiche push c
 
 Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti][Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet
   [0]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png

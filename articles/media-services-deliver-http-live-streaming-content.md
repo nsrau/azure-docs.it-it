@@ -82,6 +82,6 @@ Questo argomento conclude la serie dedicata all'utilizzo di Servizi multimediali
   [Introduzione a Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Creazione di applicazioni con Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Creazione di applicazioni con l'API REST di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/it-it/MediaServices/threads
   [Come monitorare un account di Servizi multimediali]: ../media-services-monitor-services-account/
   [Come gestire il contenuto in Servizi multimediali]: ../media-services-manage-content/

@@ -274,9 +274,9 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -286,8 +286,5 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
   [Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database]: #add-access-checking
   [Testare l'accesso client]: #test-client
   [archiviazione degli script del server]: /it-it/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

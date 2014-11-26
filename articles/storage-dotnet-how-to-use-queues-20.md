@@ -277,9 +277,9 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   *  [Informazioni di riferimento sulle API REST][8]
 *  Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure][9].
 *  Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-  *  Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/en-us/develop/net/how-to-guides/table-services/).
-  *  Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/en-us/develop/net/how-to-guides/blob-storage/).
-  *  Per archiviare dati relazionali, utilizzare [Database SQL](/en-us/develop/net/how-to-guides/sql-database/).
+  *  Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/it-it/develop/net/how-to-guides/table-services/).
+  *  Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/it-it/develop/net/how-to-guides/blob-storage/).
+  *  Per archiviare dati relazionali, utilizzare [Database SQL](/it-it/develop/net/how-to-guides/sql-database/).
 
 
 

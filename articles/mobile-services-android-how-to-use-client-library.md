@@ -816,7 +816,6 @@ I riferimenti Javadocs per l'API del client Android sono disponibili [][]<http:/
   [Personalizzare le intestazioni di richieste]: #headers
   [Personalizzare la serializzazione]: #serialization
   [Passaggi successivi]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Creare una tabella]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [Schema dinamico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

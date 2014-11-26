@@ -1,6 +1,6 @@
 1.  Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic sulla scheda **Push**, selezionare **Solo gli utenti autenticati** per **Autorizzazioni**, quindi fare clic su **Modifica script**.
 
@@ -45,5 +45,5 @@
 
 4.  Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**.
 
-  []: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png

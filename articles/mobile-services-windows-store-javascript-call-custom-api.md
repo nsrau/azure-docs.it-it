@@ -39,15 +39,13 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows St
 -   [Archiviazione degli script del server nel controllo del codice sorgente][Archiviazione degli script del server nel controllo del codice sorgente]
      Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
   [Definizione dell'API personalizzata]: #define-custom-api
   [Aggiornamento dell'app per la chiamata all'API personalizzata]: #update-app
   [Test dell'app]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-windows-store-javascript-call-custom-api]: ../includes/mobile-services-windows-store-javascript-call-custom-api.md
   [Definizione di un'API personalizzata che supporta le notifiche periodiche]: /it-it/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
   [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Archiviazione degli script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control

@@ -1,10 +1,10 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
-<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb"></tags>
+<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb" />
 
 # Creazione di un progetto di Visual Studio Online e configurazione della distribuzione continua in Azure
 
-[WACOM.INCLUDE [disclaimer][disclaimer]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Tramite il portale di gestione di Azure è possibile creare un progetto team in Visual Studio Online e configurare l'applicazione Web per la distribuzione continua in un sito Web.
 
@@ -57,7 +57,6 @@ Tramite il portale di gestione di Azure è possibile creare un progetto team in 
 3.  Nel pannello di compilazione fare clic sul primo elemento nella parte **Deployments** per aprire il sito Web associato.
 4.  Nel pannello del sito Web fare clic sul comando a livello di pannello **Browse** per esplorare il sito Web e verificare la distribuzione dell'applicazione Web.
 
-  [disclaimer]: ../includes/disclaimer.md
   [Come creare un progetto team]: #create_team_project
   [Come creare una nuova applicazione Web e aggiungerla al controllo della versione Git]: #create_web_app
   [Come configurare la distribuzione continua]: #continuous_deployment

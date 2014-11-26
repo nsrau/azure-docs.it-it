@@ -329,5 +329,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 4.  Nell'interfaccia utente dell'app per iOS fare clic su **Log in**. Fare clic su **Invia notifica push**.
 
   [Registrazione dal back-end dell'app]: http://msdn.microsoft.com/it-it/library/dn743807.aspx
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

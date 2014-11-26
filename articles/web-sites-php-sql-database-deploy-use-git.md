@@ -278,7 +278,6 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
   [Git]: http://git-scm.com/
   [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
   [Sito Web PHP di Azure]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Create New Azure Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Creazione personalizzata di un nuovo sito Web]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png

@@ -49,8 +49,6 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows St
   [Definizione dell'API personalizzata]: #define-custom-api
   [Aggiornamento dell'app per la chiamata all'API personalizzata]: #update-app
   [Test dell'app]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-windows-store-dotnet-call-custom-api]: ../includes/mobile-services-windows-store-dotnet-call-custom-api.md
   [Definizione di un'API personalizzata che supporta le notifiche periodiche]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
   [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Archiviazione degli script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control

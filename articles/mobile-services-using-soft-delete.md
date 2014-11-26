@@ -129,7 +129,7 @@ Il seguente processo pianificato di esempio elimina i record aggiornati prima di
 
 Per altre informazioni sui processi pianificati con Servizi mobili per il back-end JavaScript, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript][3].
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+<!-- Images --> 
 
   [tipo bit SQL]: http://msdn.microsoft.com/it-it/library/ms177603.aspx
   [operazione di query REST]: http://msdn.microsoft.com/it-it/library/azure/jj677199.aspx

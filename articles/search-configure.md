@@ -2,27 +2,27 @@
 
 # Configurare il servizio di ricerca nel portale di anteprima di Azure
 
-[WACOM.INCLUDE [Questo articolo usa il portale di anteprima di Azure][]]
+[WACOM.INCLUDE [Questo articolo usa il portale di anteprima di Azure](../includes/preview-portal-note.md)]
 
 Il servizio Ricerca di Microsoft Azure (anteprima pubblica) è disponibile nel nuovo portale di anteprima. In qualità di amministratore, è possibile aggiungere il servizio di ricerca a una sottoscrizione esistente senza costi aggiuntivi se si sceglie il servizio condiviso o a un prezzo scontato se si sceglie la soluzione con risorse dedicate. Questo articolo include le sezioni seguenti:
 
 <!--Table of contents -->
 
--   [Iniziare con il servizio gratuito][]
--   [Eseguire l'aggiornamento al servizio di ricerca standard][]
--   [Testare le operazioni del servizio][]
--   [Esplorare le pagine di configurazione del servizio di ricerca][]
--   [Provare il servizio][]
+-   [Iniziare con il servizio gratuito][Iniziare con il servizio gratuito]
+-   [Eseguire l'aggiornamento al servizio di ricerca standard][Eseguire l'aggiornamento al servizio di ricerca standard]
+-   [Testare le operazioni del servizio][Testare le operazioni del servizio]
+-   [Esplorare le pagine di configurazione del servizio di ricerca][Esplorare le pagine di configurazione del servizio di ricerca]
+-   [Provare il servizio][Provare il servizio]
 
 ## Iniziare con il servizio gratuito
 
 I sottoscrittori possono usufruire dell'accesso gratuito al servizio di ricerca che può essere usato ai fini dell'apprendimento, per testare modelli di prova o per progetti di ricerca sviluppo di piccole dimensioni. Per iscriversi alla versione gratuita, attenersi alla procedura seguente.
 
-1.  Accedere al [portale di anteprima di Azure][] con la sottoscrizione esistente. Si noti che questo URL reindirizzerà l'utente al portale di anteprima.
+1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure] con la sottoscrizione esistente. Si noti che questo URL reindirizzerà l'utente al portale di anteprima.
 
 2.  Fare clic su **New** nella parte inferiore della pagina.
 
-    ![][]
+    ![][0]
 
 3.  Fare clic su **Tutto** nella parte superiore della pagina.
 
@@ -74,7 +74,7 @@ In **CHIAVI** sono visualizzate le chiavi API per l'autenticazione.
 
 In **UTILIZZO** sono visualizzati il numero di documenti, le risorse disponibili e i limiti di archiviazione.
 
-Passare alla sezione [Testare le operazioni del servizio][] per le istruzioni su come connettersi al servizio usando questi valori.
+Passare alla sezione [Testare le operazioni del servizio][Testare le operazioni del servizio] per le istruzioni su come connettersi al servizio usando questi valori.
 
 ## Eseguire l'aggiornamento al servizio di ricerca standard
 
@@ -88,7 +88,7 @@ La configurazione di risorse dedicate può richiedere fino a 15 minuti o più.
 
 **Passaggio 1: Creare un nuovo servizio con il livello di prezzo impostato su Standard**
 
-1.  Accedere al [portale di anteprima di Azure][] con la sottoscrizione esistente.
+1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure] con la sottoscrizione esistente.
 
 2.  Fare clic su **New** nella parte inferiore della pagina.
 
@@ -116,13 +116,13 @@ La ricerca standard inizia con una replica e una partizione, ma può essere faci
 
 2.  Usare i dispositivi di scorrimento per aggiungere repliche, partizioni o entrambe.
 
-Le repliche e le partizioni aggiuntive vengono fatturate in unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse. Per informazioni sul prezzo per unità, vedere [Dettagli prezzi][].
+Le repliche e le partizioni aggiuntive vengono fatturate in unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse. Per informazioni sul prezzo per unità, vedere [Dettagli prezzi][Dettagli prezzi].
 
 ![][10]
 
 ## Testare le operazioni del servizio
 
-L'ultimo passaggio della configurazione del servizio di ricerca prevede la conferma che il servizio sia operativo e accessibile da un'applicazione client. Per questa procedura viene usato Fiddler, disponibile come [download gratuito da Telerik][] per il rilascio di richieste HTTP e risposte di visualizzazione. Fiddler consente di testare immediatamente l'API senza dover scrivere righe di codice.
+L'ultimo passaggio della configurazione del servizio di ricerca prevede la conferma che il servizio sia operativo e accessibile da un'applicazione client. Per questa procedura viene usato Fiddler, disponibile come [download gratuito da Telerik][download gratuito da Telerik] per il rilascio di richieste HTTP e risposte di visualizzazione. Fiddler consente di testare immediatamente l'API senza dover scrivere righe di codice.
 
 La procedura seguente funziona sia per la ricerca condivisa che per la ricerca standard. Nella procedura seguente verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
 
@@ -286,7 +286,7 @@ Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe 
 
 ![][14]
 
-La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)][] su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
+La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)][operazioni sull'indice di ricerca (API Ricerca di Azure)] su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
 
 **Prima della sostituzione degli spazi:**
 
@@ -327,7 +327,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 Per un ripasso su dove trovare le pagine di configurazione, eseguire la procedura seguente per passare al dashboard del servizio.
 
-1.  Accedere al [portale di anteprima di Azure][] con la sottoscrizione esistente.
+1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure] con la sottoscrizione esistente.
 2.  Fare clic su **Sfoglia** | **Tutto**.
 
     ![][17]
@@ -346,26 +346,25 @@ Per un ripasso su dove trovare le pagine di configurazione, eseguire la procedur
 
 Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per accedere a materiale aggiuntivo in cui viene descritto come creare e gestire applicazioni di ricerca basate su Ricerca di Azure.
 
-[Creare la prima soluzione di ricerca con Ricerca di Azure][]
+[Creare la prima soluzione di ricerca con Ricerca di Azure][Creare la prima soluzione di ricerca con Ricerca di Azure]
 
-[Gestire la soluzione di ricerca in Microsoft Azure][]
+[Gestire la soluzione di ricerca in Microsoft Azure][Gestire la soluzione di ricerca in Microsoft Azure]
 
-[Panoramica tecnica relativa a Ricerca di Azure][]
+[Panoramica tecnica relativa a Ricerca di Azure][Panoramica tecnica relativa a Ricerca di Azure]
 
-[API REST Ricerca di Azure][]
+[API REST Ricerca di Azure][API REST Ricerca di Azure]
 
 <!--Anchors--> 
 <!--Image references--> 
 <!--Link references-->
 
-  [Questo articolo usa il portale di anteprima di Azure]: ../includes/preview-portal-note.md
   [Iniziare con il servizio gratuito]: #sub-1
   [Eseguire l'aggiornamento al servizio di ricerca standard]: #sub-2
   [Testare le operazioni del servizio]: #sub-3
   [Esplorare le pagine di configurazione del servizio di ricerca]: #sub-4
   [Provare il servizio]: #next-steps
   [portale di anteprima di Azure]: https://portal.azure.com
-  []: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
+  [0]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
   [1]: ./media/search-configure/AzureSearch_Configure1_2_Everything.PNG
   [2]: ./media/search-configure/Azuresearch_Configure1_3_Gallery.PNG
   [3]: ./media/search-configure/AzureSearch_Configure1_4_GallerySeeAll.PNG
@@ -382,11 +381,11 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
   [12]: ./media/search-configure/AzureSearch_Configure1_12_POSTDocs.PNG
   [13]: ./media/search-configure/AzureSearch_Configure1_13_GETQuery.PNG
   [14]: ./media/search-configure/AzureSearch_Configure1_14_GETQueryResponse.PNG
-  [operazioni sull'indice di ricerca (API Ricerca di Azure)]: http://msdn.microsoft.com/en-us/library/dn798927.aspx
+  [operazioni sull'indice di ricerca (API Ricerca di Azure)]: http://msdn.microsoft.com/it-it/library/dn798927.aspx
   [15]: ./media/search-configure/AzureSearch_Configure1_15_Stats.PNG
   [16]: ./media/search-configure/AzureSearch_Configure1_16_StatsResponse.PNG
   [17]: ./media/search-configure/AzureSearch_Configure1_17_BrowseEverything.PNG
   [Creare la prima soluzione di ricerca con Ricerca di Azure]: ../search-create-first-solution/
   [Gestire la soluzione di ricerca in Microsoft Azure]: ../search-manage/
-  [Panoramica tecnica relativa a Ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798933.aspx
-  [API REST Ricerca di Azure]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Panoramica tecnica relativa a Ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798933.aspx
+  [API REST Ricerca di Azure]: http://msdn.microsoft.com/it-it/library/dn798935.aspx

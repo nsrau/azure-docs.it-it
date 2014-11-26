@@ -11,6 +11,6 @@
     <div class="dev-callout"><strong>Nota sulla sicurezza:</strong><br /> <p>scaricare il file di sottoscrizione in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione pu&ograve; modificare, creare ed eliminare i servizi di Azure.</p></div>
 
 
-    Per ulteriori informazioni, vedere [Come connettersi ad Azure da Visual Studio][].
+    Per ulteriori informazioni, vedere [Come connettersi ad Azure da Visual Studio][Come connettersi ad Azure da Visual Studio].
 
   [Come connettersi ad Azure da Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=324796

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
 
@@ -11,31 +11,31 @@
 
 In questo argomento viene descritto come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. In questa esercitazione si scaricherà un'app che supporta sia i dati offline che online, si integrerà il servizio mobile con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare e aggiornare il database durante l'esecuzione dell'app.
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati offline][]. Prima di iniziare questa esercitazione è necessario completare [Introduzione ai dati offline in Servizi mobili][Introduzione ai dati offline].
+Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati offline][Introduzione ai dati offline]. Prima di iniziare questa esercitazione è necessario completare [Introduzione ai dati offline in Servizi mobili][Introduzione ai dati offline].
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1.  [Download del progetto dell'app per Windows Phone][]
-2.  [Aggiunta di una colonna di scadenza per il database][]
+1.  [Download del progetto dell'app per Windows Phone][Download del progetto dell'app per Windows Phone]
+2.  [Aggiunta di una colonna di scadenza per il database][Aggiunta di una colonna di scadenza per il database]
 
-	-   [Aggiornamento del database per i servizi mobili back-end .NET][]
-	-   [Aggiornamento del database per i servizi mobili JavaScript][]
+	-   [Aggiornamento del database per i servizi mobili back-end .NET][Aggiornamento del database per i servizi mobili back-end .NET]
+	-   [Aggiornamento del database per i servizi mobili JavaScript][Aggiornamento del database per i servizi mobili JavaScript]
 
-1.  [Test dell'app in un servizio mobile][]
-2.  [Aggiornamento manuale dei dati nel back-end per creare un conflitto][]
+1.  [Test dell'app in un servizio mobile][Test dell'app in un servizio mobile]
+2.  [Aggiornamento manuale dei dati nel back-end per creare un conflitto][Aggiornamento manuale dei dati nel back-end per creare un conflitto]
 
-Per completare questa esercitazione, è necessario disporre di Visual Studio 2012 e di [Windows Phone 8 SDK][].
+Per completare questa esercitazione, è necessario disporre di Visual Studio 2012 e di [Windows Phone 8 SDK][Windows Phone 8 SDK].
 
 ## <a name="download-app"></a>Download del progetto di esempio
 
-Questa esercitazione è basata sull'[esempio di codice per la gestione dei conflitti][], che è un progetto Windows Phone 8 per Visual Studio 2012.
-L'interfaccia utente di questa app è simile a quella dell'app dell'esercitazione [Introduzione ai dati offline][], ma in questo caso è presente una nuova colonna di data per ciascun TodoItem.
+Questa esercitazione è basata sull'[esempio di codice per la gestione dei conflitti][esempio di codice per la gestione dei conflitti], che è un progetto Windows Phone 8 per Visual Studio 2012.
+L'interfaccia utente di questa app è simile a quella dell'app dell'esercitazione [Introduzione ai dati offline][Introduzione ai dati offline], ma in questo caso è presente una nuova colonna di data per ciascun TodoItem.
 
-![][]
+![][0]
 
-1.  Scaricare la versione Windows Phone dell'[esempio di codice per la gestione dei conflitti][].
+1.  Scaricare la versione Windows Phone dell'[esempio di codice per la gestione dei conflitti][esempio di codice per la gestione dei conflitti].
 
-2.  Installare [SQLite for Windows Phone 8][] se non è ancora installato.
+2.  Installare [SQLite for Windows Phone 8][SQLite for Windows Phone 8] se non è ancora installato.
 
 3.  In Visual Studio 2012 aprire il progetto scaricato. Aggiungere un riferimento a **SQLite for Windows Phone** in **Windows Phone** \> **Estensioni**.
 
@@ -73,7 +73,7 @@ Se si utilizza back-end .NET per il servizio mobile, attenersi alla procedura se
 
     Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che la funzione di inizializzazione `Seed()` sia la seguente per inizializzare la nuova colonna DueDate. Salvare il file WebApiConfig.cs.
 
-    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. Per altre informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati][].
+    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. Per altre informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati][Come utilizzare le Migrazioni Code First per aggiornare il modello di dati].
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
         new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
@@ -88,7 +88,7 @@ Se si utilizza back-end .NET per il servizio mobile, attenersi alla procedura se
 
 Per i servizi mobili back-end JavaScript verrà aggiunta una nuova tabella denominata **TodoWithDate**. Per aggiungere la tabella **TodoWithDate** per i servizi mobili back-end JavaScript, attenersi alla procedura seguente.
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Passare alla scheda **Data** del servizio mobile.
 
@@ -111,9 +111,9 @@ Ora verrà eseguito il test dell'app su Servizi mobili.
 
 4.  Come in precedenza, digitare un testo nella casella di testo e quindi fare clic sul pulsante **Salva** per salvare alcuni nuovi elementi todo. I dati verranno salvati nella tabella di sincronizzazione locale, ma non nel server.
 
-    ![][]
+    ![][0]
 
-5.  Per visualizzare lo stato corrente del database, accedere al [portale di gestione di Azure][], fare clic su **Servizi Mobili**, quindi scegliere il servizio mobile.
+5.  Per visualizzare lo stato corrente del database, accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Servizi Mobili**, quindi scegliere il servizio mobile.
 
 	-   Se si utilizza il back-end JavaScript per il servizio mobile, fare clic sulla scheda **Data**, quindi fare clic sulla tabella **TodoWithDate**. Fare clic su **Browse** per vedere che la tabella è ancora vuota poiché non è stato effettuato il push delle modifiche dall'app al server.
 	
@@ -192,12 +192,10 @@ L'operazione push corrente verrà interrotta, ma verranno mantenute tutte le mod
 
 Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServicePushFailedException` e la proprietà dell'eccezione `PushResult.Status` avrà il valore `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. --> 
+
 <!-- Images --> 
 <!-- URLs -->
 
-  [Windows Store C\#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
-  [Windows Phone]: /it-it/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
   [Introduzione ai dati offline]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Download del progetto dell'app per Windows Phone]: #download-app
   [Aggiunta di una colonna di scadenza per il database]: #add-column
@@ -207,7 +205,7 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
   [Aggiornamento manuale dei dati nel back-end per creare un conflitto]: #handle-conflict
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [esempio di codice per la gestione dei conflitti]: http://go.microsoft.com/fwlink/?LinkId=398257
-  []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
   [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [portale di gestione di Azure]: https://manage.windowsazure.com/

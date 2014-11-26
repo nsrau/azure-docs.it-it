@@ -434,7 +434,7 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 -   Autorizzazione di utenti con script ([Xamarin.iOS][16]/[Xamarin.Android][17])
     Informazioni sul valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato, che verrà usato per filtrare i dati restituiti da Servizi mobili.
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [Xamarin]: /it-it/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /it-it/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -461,7 +461,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
   [Procedura: Utilizzare dati non tipizzati]: #untyped
   [Procedura: Progettare unit test]: #unit-testing
   [Passaggi successivi]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Creare una tabella]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Schema dinamico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx

@@ -1,6 +1,6 @@
 <properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Creare un'applicazione line-of-business in Siti Web di Azure
 
@@ -169,7 +169,6 @@ Azure consente di ospitare applicazioni per Intranet sicure nel cloud. Azure Act
   [Utilizzo del bus di servizio per l'integrazione con le risorse locali]: #servicebusrelay
   [Monitoraggio dell'applicazione]: #monitor
   [presenza Web globale]: http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/
-  [campagne di marketing digitali]: http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [servizio Azure Active Directory]: /it-it/documentation/services/active-directory/
   [Utilizzo di Azure Active Directory]: /it-it/manage/windows/fundamentals/identity/#ad
   [Esecuzione di Windows Server Active Directory nelle macchine virtuali]: /it-it/manage/windows/fundamentals/identity/#adinvm
@@ -207,13 +206,3 @@ Azure consente di ospitare applicazioni per Intranet sicure nel cloud. Azure Act
   [BusinessApplicationsDiagRetention]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diag_Retention.png
   [Procedura: Configurare i log di diagnostica e download per un sito Web]: /it-it/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
   [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: http://www.windowsazure.com/it-it/manage/services/web-sites/choose-web-app-service
-  [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]: http://www.windowsazure.com/it-it/develop/net/tutorials/get-started/
-  [Distribuzione di un'applicazione ASP.NET MVC sicura in Azure]: http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/
-  [Informazioni sulle opzioni di identità di Azure]: http://www.windowsazure.com/it-it/manage/windows/fundamentals/identity/
-  [Azure Active Directory]: http://www.windowsazure.com/it-it/documentation/services/active-directory/
-  [1]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-relay/
-  [Come monitorare i siti Web]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/
-  [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [2]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  [3]: http://www.windowsazure.com/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/

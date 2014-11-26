@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande,tdykstra"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande,tdykstra" />
 
 # Configurazione e distribuzione dell'applicazione Azure Email Service - 2 di 5
 
-Questa è la seconda di una serie di cinque esercitazioni in cui viene illustrato come compilare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][].
+Questa è la seconda di una serie di cinque esercitazioni in cui viene illustrato come compilare e distribuire l'applicazione di esempio Azure Email Service. Per informazioni sull'applicazione e sulla serie di esercitazioni, vedere la [prima esercitazione della serie][prima esercitazione della serie].
 
 In questa esercitazione si apprenderà come:
 
@@ -17,23 +17,23 @@ In questa esercitazione si apprenderà come:
 
 ### Sezioni dell'esercitazione
 
--   [Configurare l'ambiente di sviluppo][]
--   [Scaricare ed eseguire la soluzione completata][]
--   [Visualizzare le risorse di archiviazione per sviluppatori in Visual Studio][]
--   [Creare un account di archiviazione di Azure][]
--   [Creare un servizio cloud][]
--   [Configurare l'applicazione per il servizio Archiviazione di Azure][]
--   [Configurare l'applicazione per l'uso di SendGrid][]
--   [Distribuire l'applicazione in Azure][]
--   [Innalzare di livello l'applicazione dall'ambiente di gestione temporanea all'ambiente di produzione][]
--   [Configurare e visualizzare i dati traccia][]
--   [Aggiungere un'altra istanza del ruolo di lavoro per gestire un carico maggiore][]
+-   [Configurare l'ambiente di sviluppo][Configurare l'ambiente di sviluppo]
+-   [Scaricare ed eseguire la soluzione completata][Scaricare ed eseguire la soluzione completata]
+-   [Visualizzare le risorse di archiviazione per sviluppatori in Visual Studio][Visualizzare le risorse di archiviazione per sviluppatori in Visual Studio]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Creare un servizio cloud][Creare un servizio cloud]
+-   [Configurare l'applicazione per il servizio Archiviazione di Azure][Configurare l'applicazione per il servizio Archiviazione di Azure]
+-   [Configurare l'applicazione per l'uso di SendGrid][Configurare l'applicazione per l'uso di SendGrid]
+-   [Distribuire l'applicazione in Azure][Distribuire l'applicazione in Azure]
+-   [Innalzare di livello l'applicazione dall'ambiente di gestione temporanea all'ambiente di produzione][Innalzare di livello l'applicazione dall'ambiente di gestione temporanea all'ambiente di produzione]
+-   [Configurare e visualizzare i dati traccia][Configurare e visualizzare i dati traccia]
+-   [Aggiungere un'altra istanza del ruolo di lavoro per gestire un carico maggiore][Aggiungere un'altra istanza del ruolo di lavoro per gestire un carico maggiore]
 
-[WACOM.INCLUDE [install-sdk-2013-only][]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <a name="downloadcnfg"></a><span class="short-header">Scaricare ed eseguire</span>Scaricare ed eseguire la soluzione completata
 
-1.  Scaricare e decomprimere la [soluzione completata][].
+1.  Scaricare e decomprimere la [soluzione completata][soluzione completata].
 
 2.  Avviare Visual Studio.
 
@@ -53,7 +53,7 @@ In questa esercitazione si apprenderà come:
 
     Le schermate mostrano lo stile della pagina Web dei modelli di progetto di Visual Studio 2012, ma il contenuto è uguale a quello per Visual Studio 2013.
 
-    ![Eseguire l'app.][]
+    ![Eseguire l'app.][Eseguire l'app.]
 
 8.  Fare clic su **Create New**.
 
@@ -63,19 +63,19 @@ In questa esercitazione si apprenderà come:
 
 10. Creare ancora un paio di voci della lista di distribuzione.
 
-    ![Pagina di indice della lista di distribuzione][]
+    ![Pagina di indice della lista di distribuzione][Pagina di indice della lista di distribuzione]
 
 11. Fare clic su **Subscribers**, quindi aggiungere alcuni sottoscrittori. Impostare **Verified** su `true`.
 
-    ![Pagina di indice dei sottoscrittori][]
+    ![Pagina di indice dei sottoscrittori][Pagina di indice dei sottoscrittori]
 
 12. Per preparare l'aggiunta di messaggi, creare un file con estensione *txt* che contiene il corpo di un messaggio di posta elettronica da inviare. Creare quindi un file con estensione *htm* contenente lo stesso testo e codice HTML, ad esempio per formattare una delle parole del messaggio in grassetto o in corsivo. Tali file verranno utilizzati nel passaggio successivo.
 
 13. Fare clic su **Messages**, quindi aggiungere alcuni messaggi. Selezionare i file creati nel passaggio precedente. Non modificare la data pianificata, il cui valore predefinito è impostato tra una settimana. L'applicazione non è in grado di inviare messaggio finché non viene configurato SendGrid.
 
-    ![Pagina di creazione del messaggio][]
+    ![Pagina di creazione del messaggio][Pagina di creazione del messaggio]
 
-    ![Pagina di indice dei messaggi][]
+    ![Pagina di indice dei messaggi][Pagina di indice dei messaggi]
 
     I dati immessi e visualizzati sono gestiti dall'emulatore di archiviazione di Azure. Per emulare il funzionamento del servizio Archiviazione di Azure nel cloud, viene usato un database LocalDB di SQL Server Express. L'applicazione usa l'emulatore di archiviazione perché corrisponde a quanto configurato per l'uso nel progetto al momento del download. Questa impostazione è archiviata nei file con estensione *cscfg* nel progetto **AzureEmailService**. Il file *ServiceConfiguration.Local.cscfg* determina quello che verrà utilizzato quando l'applicazione viene eseguita in locale in Visual Studio, mentre *ServiceConfiguration.Cloud.cscfg* determina quello che verrà utilizzato quando l'applicazione viene distribuita nel cloud. Più avanti verrà spiegato come configurare l'applicazione per l'uso di un account di archiviazione di Azure.
 
@@ -93,29 +93,29 @@ Il browser **Archiviazione di Azure** in **Esplora server** offre un modo pratic
 
 3.  Espandere **Tables** per visualizzare le tabelle create nei passaggi precedenti.
 
-    ![Esplora server][]
+    ![Esplora server][Esplora server]
 
 4.  Fare doppio clic sulla tabella **MailingList**.
 
-    ![Esplora archivi in Visual Studio][]
+    ![Esplora archivi in Visual Studio][Esplora archivi in Visual Studio]
 
     Si noti il modo in cui nella finestra vengono mostrati i diversi schemi nella tabella. Alle entità `MailingList` sono assegnate le proprietà `Description` e `FromEmailAddress` mentre alle entità `Subscriber` sono assegnate le proprietà `Verified` e `SubscriberGUID` (quest'ultima non visualizzata perché la larghezza dell'immagine non è sufficiente). La tabella include le colonne per tutte le proprietà. Se una data riga si riferisce a un'entità che non include una certa proprietà, la cella è vuota.
 
-Per lavorare con le risorse di archiviazione di Azure, è disponibile anche lo strumento [Esplora archivi Azure][].
+Per lavorare con le risorse di archiviazione di Azure, è disponibile anche lo strumento [Esplora archivi Azure][Esplora archivi Azure].
 
 ## <a name="createWASA"></a>Creare un account di archiviazione di Azure
 
 Quando si esegue l'applicazione di esempio in Visual Studio, è possibile accedere a tabelle, code e BLOB nell'emulatore di archiviazione di Azure oppure in un account di archiviazione di Azure nel cloud. In questa sezione dell'esercitazione si creerà l'account di archiviazione di Azure che verrà configurato per l'uso in Visual Studio più avanti.
 
-1.  Accedere al [portale di gestione di Azure][] dal browser.
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure] dal browser.
 
-2.  Nel [portale di gestione di Azure][] fare clic su **Storage** e quindi su **New**.
+2.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Storage** e quindi su **New**.
 
-![Nuovo archivio][]
+![Nuovo archivio][Nuovo archivio]
 
 1.  Fare clic su **Quick Create**.
 
-![Quick Create][]
+![Quick Create][Quick Create]
 
 1.  Nella casella di immissione dell'URL immettere un prefisso URL.
 
@@ -125,21 +125,21 @@ Quando si esegue l'applicazione di esempio in Visual Studio, è possibile accede
 
 3.  Impostare la casella di riepilogo **Replication** su **Locally redundant**.
 
-    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in una posizione geografica secondaria per consentire il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere l'articolo su [come gestire gli account di archiviazione][].
+    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in una posizione geografica secondaria per consentire il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere l'articolo su [come gestire gli account di archiviazione][come gestire gli account di archiviazione].
 
 4.  Fare clic su **Create Storage Account**.
 
     La figura seguente illustra la creazione di un account di archiviazione con l'URL `aestest3.core.windows.net`.
 
-    ![Creazione dell'account di archiviazione con prefisso URL][]
+    ![Creazione dell'account di archiviazione con prefisso URL][Creazione dell'account di archiviazione con prefisso URL]
 
     Il completamento di questa operazione può richiedere alcuni minuti. Durante l'attesa è possibile ripetere la procedura e creare un account di archiviazione di produzione. È spesso comodo disporre di un account di archiviazione di prova da utilizzare per lo sviluppo in locale, di un altro account di archiviazione di prova per il testing in Azure e di un account di archiviazione di produzione.
 
 5.  Fare clic sull'account di prova creato nel passaggio precedente, quindi fare clic sull'icona **Manage Access Keys**.
 
-    ![Manage Keys][]
+    ![Manage Keys][Manage Keys]
 
-    ![Keys GUID][]
+    ![Keys GUID][Keys GUID]
 
     Quando si seleziona l'account di archiviazione, in Visual Studio le stringhe di connessione verranno configurate automaticamente con una di queste chiavi. È anche possibile aggiornare le stringhe di connessione manualmente.
 
@@ -147,9 +147,9 @@ Quando si esegue l'applicazione di esempio in Visual Studio, è possibile accede
 
 ## <a name="createcloudsvc"></a><span class="short-header">Creare un servizio cloud</span>Creare un servizio cloud
 
-1.  Nel [portale di gestione di Azure][] fare clic su **Servizi cloud** e quindi sull'icona **Nuovo**.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic su **Servizi cloud** e quindi sull'icona **Nuovo**.
 
-    ![Creazione rapida di un cloud][]
+    ![Creazione rapida di un cloud][Creazione rapida di un cloud]
 
 2.  Fare clic su **Quick Create**.
 
@@ -161,7 +161,7 @@ Quando si esegue l'applicazione di esempio in Visual Studio, è possibile accede
 
     È consigliabile creare il servizio cloud nella stessa area in cui è stato creato l'account di archiviazione. Quando il servizio cloud e l'account di archiviazione si trovano in data center diversi (aree diverse), la latenza aumenterà e verrà addebitato il costo relativo alla larghezza di banda esterna al data center. La larghezza di banda nell'ambito di un data center è gratuita.
 
-    I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure][].
+    I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure][Come creare un gruppo di affinità in Azure].
 
 5.  Fare clic su **Create Cloud Service**.
 
@@ -175,7 +175,7 @@ Verrà ora spiegato come configurare l'applicazione per l'utilizzo di un account
 
 1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **MvcWebRole** nella sezione **Ruoli** del progetto **AzureEmailService**, quindi scegliere **Proprietà**.
 
-    ![Pulsante destro del mouse su Proprietà][]
+    ![Pulsante destro del mouse su Proprietà][Pulsante destro del mouse su Proprietà]
 
 2.  Nella finestra **MvcWebRole [Ruolo]** fare clic sulla scheda **Impostazioni**.
 
@@ -207,7 +207,7 @@ Verrà ora spiegato come configurare l'applicazione per l'utilizzo di un account
 
     Si noti che negli elementi `Role` per i due ruoli di lavoro le stringhe di connessione sono identiche.
 
-    È possibile modificare questi file direttamente anziché nella finestra **[Ruolo]** di Visual Studio. Per altre informazioni sui file di configurazione, vedere [Configurazione di un progetto Azure.][]
+    È possibile modificare questi file direttamente anziché nella finestra **[Ruolo]** di Visual Studio. Per altre informazioni sui file di configurazione, vedere [Configurazione di un progetto Azure.][Configurazione di un progetto Azure.]
 
 ### Testare l'applicazione configurata per l'uso dell'account di archiviazione
 
@@ -225,13 +225,13 @@ Per ridurre i tempi di avvio del progetto e utilizzare un minor numero di risors
 
 1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto cloud **AzureEmailService** e scegliere **Proprietà**.
 
-    ![Selezione delle proprietà del progetto cloud][]
+    ![Selezione delle proprietà del progetto cloud][Selezione delle proprietà del progetto cloud]
 
 2.  Selezionare la scheda **Sviluppo**.
 
 3.  Impostare **Start Azure storage emulator** su **False**.
 
-    ![Disabilitazione dell'avvio automatico dell'emulatore di archiviazione][]
+    ![Disabilitazione dell'avvio automatico dell'emulatore di archiviazione][Disabilitazione dell'avvio automatico dell'emulatore di archiviazione]
 
     **Nota**: impostare questa opzione su false solo l'emulatore di archiviazione non viene usato.
 
@@ -239,7 +239,7 @@ Per ridurre i tempi di avvio del progetto e utilizzare un minor numero di risors
 
 4.  Nella barra delle applicazioni di Windows fare clic con il pulsante destro del mouse sull'icona dell'emulatore di calcolo e scegliere **Shutdown Storage Emulator**.
 
-    ![ASE][]
+    ![ASE][ASE]
 
 ## <a name="sendGrid"></a><span class="short-header">SendGrid</span>Configurazione dell'applicazione per l'utilizzo di SendGrid
 
@@ -249,7 +249,7 @@ Per inviare i messaggi di posta elettronica, nell'applicazione di esempio viene 
 
 ### Creare un account SendGrid
 
-1.  Attenersi alle istruzioni in [Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure][] per iscriversi e ottenere un account gratuito.
+1.  Attenersi alle istruzioni in [Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure][Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure] per iscriversi e ottenere un account gratuito.
 
 ### Aggiornare le credenziali di SendGrid nelle proprietà dei ruoli di lavoro
 
@@ -259,7 +259,7 @@ Nella procedura seguente è illustrato un modo alternativo per impostare le prop
 
 1.  Modificare il file *ServiceConfiguration.Cloud.cscfg* nel progetto `AzureEmailService` e immettere i valori di nome utente e password di SendGrid ottenuti nel passaggio seguente nell'elemento `WorkerRoleB` che include queste impostazioni. Nel codice seguente è illustrato l'elemento WorkerRoleB.
 
-    ![SendGridSettings][]
+    ![SendGridSettings][SendGridSettings]
 
 2.  È presente anche un'impostazione AzureMailServiceURL. Impostare questo valore sull'URL selezionato durante la creazione del servizio cloud di Azure, ad esempio: "<http://aescloud.cloudapp.net>".
 
@@ -277,7 +277,7 @@ Quando si effettua la distribuzione nell'ambiente di gestione temporanea, l'appl
 
 1.  Aprire il file *Web.Release.config* disponibile nella cartella radice del progetto `MvcWebRole` e sostituire il valore 127.0.0.1 dell'attributo **ipAddress** con il proprio indirizzo IP. Per visualizzare il file **Web.Release.config** in **Esplora soluzioni** è necessario espandere il file *Web.config*.
 
-    Per trovare l'indirizzo IP, cercare "Trova IP" con [Bing][] o con un altro motore di ricerca.
+    Per trovare l'indirizzo IP, cercare "Trova IP" con [Bing][Bing] o con un altro motore di ricerca.
 
     Dopo la pubblicazione dell'applicazione, vengono applicate le trasformazioni specificate nel file *Web.release.config* e gli elementi della restrizione IP vengono aggiornati nel file *web.config* distribuito nel cloud. È possibile visualizzare il file *web.config* trasformato nella cartella *AzureEmailService\\MvcWebRole\\obj\\Release\\TransformWebConfig\\transformed* dopo la creazione del pacchetto.
 
@@ -301,11 +301,11 @@ Per questo test si utilizzeranno per il cloud le stesse credenziali utilizzate p
 
 2.  Fare clic con il pulsante destro del mouse sul progetto cloud **AzureEmailService** e scegliere **Pubblica**.
 
-    ![Pacchetto][]
+    ![Pacchetto][Pacchetto]
 
     Verrà visualizzata la finestra di dialogo **Publish Azure Application**.
 
-    ![Pacchetto cloud][]
+    ![Pacchetto cloud][Pacchetto cloud]
 
 3.  Se in precedenza è stato utilizzato il metodo automatico per importare le credenziali dell'account di archiviazione, la sottoscrizione di Azure è inclusa nell'elenco a discesa ed è possibile selezionarla facendo clic su **Next**. In caso contrario, fare clic su **Sign in to download credentials** e attenersi alle istruzioni in [Configurazione dell'applicazione per il servizio Archiviazione di Azure][Configurare l'applicazione per il servizio Archiviazione di Azure] per scaricare e importare le impostazioni di pubblicazione.
 
@@ -313,11 +313,11 @@ Per questo test si utilizzeranno per il cloud le stesse credenziali utilizzate p
 
 5.  Nell'elenco a discesa **Environment** cambiare **Production** in **Staging**.
 
-    ![Dashboard][]
+    ![Dashboard][Dashboard]
 
 6.  Non modificare le impostazioni predefinite **Release** per **Build configuration** e **Cloud** per **Service configuration**.
 
-    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. La scheda **Advanced** include alcune impostazioni utili per lo sviluppo e il testing. Per altre informazioni su questa scheda, vedere [Procedura guidata Pubblica l'applicazione Azure][].
+    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. La scheda **Advanced** include alcune impostazioni utili per lo sviluppo e il testing. Per altre informazioni su questa scheda, vedere [Procedura guidata Pubblica l'applicazione Azure][Procedura guidata Pubblica l'applicazione Azure].
 
 7.  Fare clic su **Avanti**.
 
@@ -327,7 +327,7 @@ Per questo test si utilizzeranno per il cloud le stesse credenziali utilizzate p
 
 9.  Verificare le impostazioni, quindi fare clic su **Publish**.
 
-    ![pub][]
+    ![pub][pub]
 
 	La finestra **Log attività di Azure** verrà aperta in Visual Studio.
 
@@ -346,7 +346,7 @@ Per questo test si utilizzeranno per il cloud le stesse credenziali utilizzate p
 
 3.  Immettere alcuni dati nelle pagine Web **Mailing List**, **Subscriber** e **Message** per testare l'applicazione.
 
-    **Nota**: al termine del testing eliminare l'applicazione per evitare di pagare per risorse non utilizzate. Se si utilizza un [account di valutazione gratuita di Azure][], l'utilizzo dei tre ruoli distribuiti comporterà l'esaurimento del limite mensile in due settimane. Per eliminare una distribuzione utilizzando il portale di gestione di Azure, selezionare il servizio cloud e fare clic su **ELIMINA** nella parte inferiore della pagina, quindi selezionare la distribuzione di produzione o di gestione temporanea.
+    **Nota**: al termine del testing eliminare l'applicazione per evitare di pagare per risorse non utilizzate. Se si utilizza un [account di valutazione gratuita di Azure][account di valutazione gratuita di Azure], l'utilizzo dei tre ruoli distribuiti comporterà l'esaurimento del limite mensile in due settimane. Per eliminare una distribuzione utilizzando il portale di gestione di Azure, selezionare il servizio cloud e fare clic su **ELIMINA** nella parte inferiore della pagina, quindi selezionare la distribuzione di produzione o di gestione temporanea.
 
     ![pub][8]
 
@@ -358,7 +358,7 @@ Per questo test si utilizzeranno per il cloud le stesse credenziali utilizzate p
 
 ## <a name="swap"></a>Innalzare di livello l'applicazione dall'ambiente di gestione temporanea all'ambiente di produzione
 
-1.  Nel [portale di gestione di Azure][] fare clic sull'icona **Servizi cloud** nel riquadro sinistro, quindi selezionare il servizio cloud e fare clic sulla scheda **Dashboard**.
+1.  Nel [portale di gestione di Azure][portale di gestione di Azure] fare clic sull'icona **Servizi cloud** nel riquadro sinistro, quindi selezionare il servizio cloud e fare clic sulla scheda **Dashboard**.
 
 2.  Fare clic su **Swap**.
 
@@ -401,31 +401,31 @@ La traccia costituisce uno strumento insostituibile per il debug di un'applicazi
 
     In questo codice, l'elemento `DiagnosticMonitor` è configurato in modo da consentire l'archiviazione di un massimo di 500 MB di dati traccia (dopo tale limite i dati meno recenti verranno sovrascritti) e da archiviare tutti i messaggi di traccia (LogLevel.Verbose). L'elemento `ScheduledTransferPeriod` indica che i dati traccia vengono trasferiti nell'archivio a intervalli di un minuto. È necessario impostare `ScheduledTransferPeriod` in modo da salvare i dati traccia.
 
-    Il metodo `ConfigureDiagnostics` in ogni ruolo di lavoro e Web consente di configurare il listener di traccia in modo da registrare i dati quando si chiama l'API di traccia. Per altre informazioni, vedere l'articolo relativo all'[utilizzo della traccia nelle applicazioni cloud di Windows Azure][]
+    Il metodo `ConfigureDiagnostics` in ogni ruolo di lavoro e Web consente di configurare il listener di traccia in modo da registrare i dati quando si chiama l'API di traccia. Per altre informazioni, vedere l'articolo relativo all'[utilizzo della traccia nelle applicazioni cloud di Windows Azure][utilizzo della traccia nelle applicazioni cloud di Windows Azure]
 
-2.  In **Esplora server** fare doppio clic su **WADLogsTable** (espandere **Azure** / **Archiviazione** / **nome account di archiviazione** / **Tabelle**) per l'account di archiviazione aggiunto in precedenza. È possibile immettere un [filtro Servizi dati WCF][] per limitare il numero di entità visualizzate. Nell'immagine seguente vengono visualizzati solo i messaggi di avviso e di errore.
+2.  In **Esplora server** fare doppio clic su **WADLogsTable** (espandere **Azure** / **Archiviazione** / **nome account di archiviazione** / **Tabelle**) per l'account di archiviazione aggiunto in precedenza. È possibile immettere un [filtro Servizi dati WCF][filtro Servizi dati WCF] per limitare il numero di entità visualizzate. Nell'immagine seguente vengono visualizzati solo i messaggi di avviso e di errore.
 
     ![Dashboard][12]
 
 ## <a name="addRole"></a>Aggiungere un'altra istanza del ruolo di lavoro per gestire un carico maggiore
 
-Per la scalabilità delle risorse di calcolo nei ruoli di Azure sono disponibili due approcci, ovvero mediante la specifica delle [dimensioni delle macchine virtuali][] e/o mediante la specifica del numero di istanze di macchine virtuali in esecuzione.
+Per la scalabilità delle risorse di calcolo nei ruoli di Azure sono disponibili due approcci, ovvero mediante la specifica delle [dimensioni delle macchine virtuali][dimensioni delle macchine virtuali] e/o mediante la specifica del numero di istanze di macchine virtuali in esecuzione.
 
-La dimensione della macchia virtuale viene specificata nell'attributo `vmsize` dell'elemento `WebRole` o `WorkerRole` del file *ServiceDefinition.csdef*. L'impostazione predefinita è `Small`, che consente di disporre di un solo core e di 1,75 GB di RAM. Per applicazioni multithread che utilizzano una grande quantità di memoria, spazio su disco e larghezza di banda, è possibile aumentare la dimensione della macchina virtuale per migliorare le prestazioni. Ad esempio con una macchina virtuale `ExtraLarge` è possibile disporre di 8 core CPU e 14 GB di RAM. L'aumento di memoria, core CPU, spazio su disco e larghezza di banda su un unico computer è noto come *scalabilità verticale*. Candidati ideali per la scalabilità verticale sono le applicazioni Web ASP.NET che utilizzano [metodi asincroni][]. Per una descrizione delle risorse disponibili con le diverse dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali][dimensioni delle macchine virtuali].
+La dimensione della macchia virtuale viene specificata nell'attributo `vmsize` dell'elemento `WebRole` o `WorkerRole` del file *ServiceDefinition.csdef*. L'impostazione predefinita è `Small`, che consente di disporre di un solo core e di 1,75 GB di RAM. Per applicazioni multithread che utilizzano una grande quantità di memoria, spazio su disco e larghezza di banda, è possibile aumentare la dimensione della macchina virtuale per migliorare le prestazioni. Ad esempio con una macchina virtuale `ExtraLarge` è possibile disporre di 8 core CPU e 14 GB di RAM. L'aumento di memoria, core CPU, spazio su disco e larghezza di banda su un unico computer è noto come *scalabilità verticale*. Candidati ideali per la scalabilità verticale sono le applicazioni Web ASP.NET che utilizzano [metodi asincroni][metodi asincroni]. Per una descrizione delle risorse disponibili con le diverse dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali][dimensioni delle macchine virtuali].
 
 Il ruolo di lavoro B in questa applicazione costituisce il componente limite in caso di carico elevato dal momento che esegue l'invio dei messaggi di posta elettronica. Il ruolo di lavoro A si limita a creare i messaggi della coda, attività che non richiede un uso intensivo delle risorse. Dal momento che il ruolo di lavoro B non è multithread e non dispone di un footprint di memoria esteso, non costituisce un candidato ottimale per la scalabilità verticale. Per il ruolo di lavoro B è possibile applicare una scalabilità lineare, ovvero in grado di raddoppiare le prestazioni quando si raddoppiano le istanze, aumentando il numero delle istanze. L'aumento del numero di istanze di calcolo è noto come *scalabilità orizzontale*. Dal momento che la scalabilità orizzontale implica un costo per ciascuna istanza, è consigliabile utilizzarla solo quando richiesto dall'applicazione.
 
-È possibile applicare la scalabilità orizzontale a un ruolo Web o di lavoro aggiornando l'impostazione nell'interfaccia utente di Visual Studio oppure modificando direttamente i file *ServiceConfiguration.\*.cscfg*. Il numero delle istanze viene specificato nella scheda **Configurazione** della finestra **Proprietà** del ruolo e nell'elemento `Instances` dei file con estensione *cscfg*. Quando si aggiorna l'impostazione, è necessario distribuire il file di configurazione aggiornato per rendere effettiva la modifica. In alternativa, per gli incrementi di carico transitori, è possibile cambiare manualmente il numero di istanze del ruolo o configurare Azure in modo che modifichi manualmente il numero delle istanze in base ai criteri specificati. Per altre informazioni sulla scalabilità automatica, vedere l'[ultima esercitazione di questa serie][].
+È possibile applicare la scalabilità orizzontale a un ruolo Web o di lavoro aggiornando l'impostazione nell'interfaccia utente di Visual Studio oppure modificando direttamente i file *ServiceConfiguration.\*.cscfg*. Il numero delle istanze viene specificato nella scheda **Configurazione** della finestra **Proprietà** del ruolo e nell'elemento `Instances` dei file con estensione *cscfg*. Quando si aggiorna l'impostazione, è necessario distribuire il file di configurazione aggiornato per rendere effettiva la modifica. In alternativa, per gli incrementi di carico transitori, è possibile cambiare manualmente il numero di istanze del ruolo o configurare Azure in modo che modifichi manualmente il numero delle istanze in base ai criteri specificati. Per altre informazioni sulla scalabilità automatica, vedere l'[ultima esercitazione di questa serie][ultima esercitazione di questa serie].
 
 In questa sezione dell'esercitazione si applicherà la scalabilità orizzontale al ruolo di lavoro B utilizzando il portale di gestione, ma verrà prima illustrato come farlo in Visual Studio.
 
 Per effettuare questa operazione in Visual Studio, è necessario fare clic con il pulsante destro del mouse sul ruolo in **Ruoli** nel progetto cloud e scegliere **Proprietà**.
 
-![Pulsante destro del mouse su Proprietà][]
+![Pulsante destro del mouse su Proprietà][Pulsante destro del mouse su Proprietà]
 
 Scegliere quindi la scheda **Configurazione** sulla sinistra e selezionare **Cloud** nell'elenco a discesa **Configurazione**.
 
-![Conteggio istanze][]
+![Conteggio istanze][Conteggio istanze]
 
 Si noti che in questa scheda è anche possibile configurare le dimensioni delle macchine virtuali.
 
@@ -435,23 +435,23 @@ Nella procedura seguente viene spiegato come applicare la scalabilità orizzonta
 
 2.  Aumentare il numero di istanze per il ruolo di lavoro B, quindi fare clic su **Save**.
 
-    ![Aumento del numero di istanze][]
+    ![Aumento del numero di istanze][Aumento del numero di istanze]
 
     Il provisioning delle nuove macchine virtuali può richiedere alcuni minuti.
 
 3.  Selezionare la scheda **Istanze** per visualizzare le singole istanze del ruolo nell'applicazione.
 
-    ![Visualizzazione delle istanze][]
+    ![Visualizzazione delle istanze][Visualizzazione delle istanze]
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come configurare, distribuire e scalare l'applicazione completata. Nelle esercitazioni seguenti verrà illustrato come creare l'applicazione da zero. Nell'[esercitazione successiva][] verrà creato il ruolo Web.
+In questa esercitazione si è appreso come configurare, distribuire e scalare l'applicazione completata. Nelle esercitazioni seguenti verrà illustrato come creare l'applicazione da zero. Nell'[esercitazione successiva][esercitazione successiva] verrà creato il ruolo Web.
 
 Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di Archiviazione di Azure, vedere l'[ultima esercitazione di questa serie][13].
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/" class="site-arrowboxcta download-cta">Esercitazione 3</a></div>
+<div><a href="/it-it/develop/net/tutorials/multi-tier-web-site/3-web-role/" class="site-arrowboxcta download-cta">Esercitazione 3</a></div>
 
-  [prima esercitazione della serie]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [prima esercitazione della serie]: /it-it/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Configurare l'ambiente di sviluppo]: #setupdevenv
   [Scaricare ed eseguire la soluzione completata]: #downloadcnfg
   [Creare un account di archiviazione di Azure]: #createWASA
@@ -462,7 +462,6 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di 
   [Innalzare di livello l'applicazione dall'ambiente di gestione temporanea all'ambiente di produzione]: #swap
   [Configurare e visualizzare i dati traccia]: #trace
   [Aggiungere un'altra istanza del ruolo di lavoro per gestire un carico maggiore]: #addRole
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [soluzione completata]: http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [Eseguire l'app.]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png
@@ -476,21 +475,21 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di 
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Nuovo archivio]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png
   [Quick Create]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png
-  [come gestire gli account di archiviazione]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+  [come gestire gli account di archiviazione]: /it-it/manage/services/storage/how-to-manage-a-storage-account/
   [Creazione dell'account di archiviazione con prefisso URL]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png
   [Manage Keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png
   [Keys GUID]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG
   [Creazione rapida di un cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png
-  [Come creare un gruppo di affinità in Azure]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
+  [Come creare un gruppo di affinità in Azure]: http://msdn.microsoft.com/it-it/library/jj156209.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png
   [Pulsante destro del mouse su Proprietà]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png
   [3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png
   [4]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png
-  [Configurazione di un progetto Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [Configurazione di un progetto Azure.]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405486.aspx
   [Selezione delle proprietà del progetto cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png
   [Disabilitazione dell'avvio automatico dell'emulatore di archiviazione]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png
   [ASE]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png
-  [Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
+  [Come inviare messaggi di posta elettronica utilizzando SendGrid con Azure]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
   [SendGridSettings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-sg.png
   [Bing]: http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP"
   [Pacchetto]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png
@@ -501,19 +500,19 @@ Per collegamenti a risorse aggiuntive per l'utilizzo di tabelle, code e BLOB di 
   [5]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png
   [6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png
   [7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png
-  [account di valutazione gratuita di Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"
+  [account di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/ "free-trial account"
   [8]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png
   [9]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png
   [10]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png
   [11]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png
   [utilizzo della traccia nelle applicazioni cloud di Windows Azure]: http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure"
-  [filtro Servizi dati WCF]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter"
+  [filtro Servizi dati WCF]: http://msdn.microsoft.com/it-it/library/windowsazure/ff683669.aspx "WCF filter"
   [12]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png
-  [dimensioni delle macchine virtuali]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes"
+  [dimensioni delle macchine virtuali]: http://msdn.microsoft.com/it-it/library/windowsazure/ee814754.aspx "VM sizes"
   [metodi asincroni]: http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"
-  [ultima esercitazione di questa serie]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+  [ultima esercitazione di questa serie]: /it-it/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [Conteggio istanze]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png
   [Aumento del numero di istanze]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png
   [Visualizzazione delle istanze]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png
-  [esercitazione successiva]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [13]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [esercitazione successiva]: /it-it/develop/net/tutorials/multi-tier-web-site/3-web-role/
+  [13]: /it-it/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

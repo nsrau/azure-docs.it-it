@@ -1,6 +1,6 @@
 <properties linkid="websites-digital-marketing" urlDisplayName="Resources" pageTitle="Create a Digital Marketing Campaign on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Creare una campagna marketing digitale in Siti Web di Azure
 
@@ -161,7 +161,6 @@ Siti Web di Azure costituisce una soluzione ideale per il contenuto Web riutiliz
   [Integrazione con altri servizi]: #integrate
   [Monitoraggio della campagna]: #monitor
   [presenza Web globale]: http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/
-  [applicazioni business]: http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview
   [esaminare le informazioni disponibili]: /it-it/manage/services/web-sites/global-web-presence-solution-overview/
   [DigitalMarketingDeploy1]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy1.png
   [DigitalMarketingDeploy2]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy2.png
@@ -181,7 +180,6 @@ Siti Web di Azure costituisce una soluzione ideale per il contenuto Web riutiliz
   [indicazioni per la determinazione dei prezzi per i siti Web]: https://www.windowsazure.com/it-it/pricing/details/web-sites/
   [DigitalMarketingAutoScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_AutoScale.png
   [Come aggiungere risorse a un sito Web]: /it-it/manage/services/web-sites/how-to-scale-websites/
-  [Come applicare la scalabilità a un servizio cloud]: http://www.windowsazure.com/it-it/manage/services/cloud-services/how-to-scale-a-cloud-service/
   [Introduzione a concetti e scenari di Servizi multimediali di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223282.aspx
   [Servizio cache di Azure (anteprima)]: http://msdn.microsoft.com/it-it/library/windowsazure/dn386094.aspx
   [DigitalMarketingMonitor]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Monitor.png
@@ -189,10 +187,3 @@ Siti Web di Azure costituisce una soluzione ideale per il contenuto Web riutiliz
   [DigitalMarketingUsageOverview]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_UsageOverview.png
   [Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure]: /it-it/develop/net/how-to-guides/new-relic/
   [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: http://www.windowsazure.com/it-it/manage/services/web-sites/choose-web-app-service
-  [Come creare e distribuire un sito Web]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-create-websites/
-  [Come distribuire un sito Web di Azure]: http://azure.microsoft.com/it-it/documentation/articles/web-sites-deploy/
-  [1]: http://www.windowsazure.com/it-it/develop/net/common-tasks/publishing-with-git/
-  [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Windows Azure]: http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/
-  [Come scalare siti Web]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-scale-websites/
-  [2]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/

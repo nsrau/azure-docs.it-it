@@ -6,7 +6,7 @@ Le nuove API Twitter v1.1 richiedono l'autenticazione dell'app prima dell'access
 
 2.  Passare al sito Web per [sviluppatori di Twitter][sviluppatori di Twitter], effettuare l'accesso con le credenziali dell'account Twitter, passare a **My Applications** e selezionare l'app Twitter.
 
-    ![][]
+    ![][0]
 
 3.  Nella scheda **Details** dell'app prendere nota dei valori seguenti:
 
@@ -32,11 +32,11 @@ Le nuove API Twitter v1.1 richiedono l'autenticazione dell'app prima dell'access
 
     Il token di accesso di Twitter verrà archiviato nelle impostazioni dell'app. Analogamente alle credenziali utente nella scheda **Identity**, anche le credenziali di accesso vengono archiviate crittografate nelle impostazioni dell'app ed è possibile accedervi negli script per server senza impostarle come hardcoded nel file di script. Per altre informazioni, vedere [Impostazioni app][Impostazioni app].
 
-<!-- URLs. -->
+
 
   [Registrazione delle app per l'accesso a Twitter con Servizi mobili]: /it-it/documentation/articles/mobile-services-how-to-register-twitter-authentication/
   [sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
+  [0]: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
   [1]: ./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png

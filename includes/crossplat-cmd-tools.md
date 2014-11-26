@@ -1,15 +1,15 @@
 # Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux
 
-In questa guida viene descritto come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux per creare e gestire servizi in Azure. Gli scenari presentati includono **installazione degli strumenti**, **importazione delle impostazioni di pubblicazione**, **creazione e gestione di Siti Web di Azure** e **creazione e gestione di Macchine virtuali di Azure**. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][].
+In questa guida viene descritto come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux per creare e gestire servizi in Azure. Gli scenari presentati includono **installazione degli strumenti**, **importazione delle impostazioni di pubblicazione**, **creazione e gestione di Siti Web di Azure** e **creazione e gestione di Macchine virtuali di Azure**. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][Strumento da riga di comando di Azure per Mac e Linux].
 
 ## Sommario
 
--   [Che cosa sono gli strumenti da riga di comando di Azure per Mac e Linux][]
--   [Come installare gli strumenti da riga di comando di Azure per Mac e Linux][]
--   [Come creare un account Azure][]
--   [Come scaricare e importare impostazioni di pubblicazione][]
--   [Come creare e gestire un sito Web di Azure][]
--   [Come creare e gestire una macchina virtuale di Azure][]
+-   [Che cosa sono gli strumenti da riga di comando di Azure per Mac e Linux][Che cosa sono gli strumenti da riga di comando di Azure per Mac e Linux]
+-   [Come installare gli strumenti da riga di comando di Azure per Mac e Linux][Come installare gli strumenti da riga di comando di Azure per Mac e Linux]
+-   [Come creare un account Azure][Come creare un account Azure]
+-   [Come scaricare e importare impostazioni di pubblicazione][Come scaricare e importare impostazioni di pubblicazione]
+-   [Come creare e gestire un sito Web di Azure][Come creare e gestire un sito Web di Azure]
+-   [Come creare e gestire una macchina virtuale di Azure][Come creare e gestire una macchina virtuale di Azure]
 
 ## <span id="Overview"></span></a>Che cosa sono gli strumenti da riga di comando di Azure per Mac e Linux
 
@@ -27,9 +27,9 @@ Per un elenco completo dei comandi supportati, digitare `azure -help` nella riga
 
 Nell'elenco seguente vengono fornite informazioni per l'installazione degli strumenti da riga di comando in base al sistema operativo in uso.
 
--   **Mac**: scaricare il [programma di installazione di Azure SDK][]. Aprire il file .pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
+-   **Mac**: scaricare il [programma di installazione di Azure SDK][programma di installazione di Azure SDK]. Aprire il file .pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
 
--   **Linux**: installare la versione più recente di [Node.js][] (vedere [Install Node.js via Package Manager][]), quindi eseguire il comando seguente:
+-   **Linux**: installare la versione più recente di [Node.js][Node.js] (vedere [Install Node.js via Package Manager][Install Node.js via Package Manager]), quindi eseguire il comando seguente:
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@ Nell'elenco seguente vengono fornite informazioni per l'installazione degli stru
 
         sudo npm install azure-cli -g
 
--   **Windows**: eseguire il file .msi di Windows Installer, disponibile qui: [Strumenti da riga di comando di Azure][].
+-   **Windows**: eseguire il file .msi di Windows Installer, disponibile qui: [Strumenti da riga di comando di Azure][Strumenti da riga di comando di Azure].
 
 Per controllare l'installazione, digitare `azure` al prompt dei comandi. Se l'installazione è stata completata correttamente, verrà visualizzato un elenco di tutti i comandi di `azure` disponibili.
 
@@ -47,7 +47,7 @@ Per utilizzare gli strumenti da riga di comando di Azure per Mac e Linux, è nec
 
 Aprire un Web browser e passare a [][]<http://www.windowsazure.com></a> quindi fare clic su **Versione di valutazione gratuita** in alto a destra.
 
-![Sito Web di Azure][]
+![Sito Web di Azure][Sito Web di Azure]
 
 Seguire le istruzioni per la creazione di un account.
 
@@ -176,7 +176,7 @@ Una macchina virtuale di Azure viene creata da un'immagine della macchina virtua
 
 È possibile eseguire il provisioning di una macchina virtuale e avviarla da una delle immagini disponibili mediante il comando `vm create`. Nell'esempio seguente viene illustrato come creare una macchina virtuale Linux (denominata `myVM`) da un'immagine nella raccolta immagini (CentOS 6.2). Il nome utente e la password dell'utente ROOT per la macchina virtuale sono rispettivamente `myusername` e `Mypassw0rd`. Si noti che il parametro `--location` specifica il data center in cui viene creata la macchina virtuale. Se si omette il parametro `--location`, verrà richiesto di scegliere un percorso.
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-it-it-30GB.vhd myusername --location "West US"
 
 È possibile passare il flag `--ssh` (Linux) o `--rdp` (Windows) a `vm create` per abilitare le connessioni remote alla macchina virtuale appena creata.
 

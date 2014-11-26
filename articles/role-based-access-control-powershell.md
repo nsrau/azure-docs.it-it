@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Gestione del controllo degli accessi in base al ruolo con Windows PowerShell
 
@@ -144,8 +144,6 @@ Per ulteriori informazioni sulla gestione del controllo degli accessi in base al
 -   [Configurazione del controllo degli accessi in base al ruolo utilizzando XPLAT CLI][Configurazione del controllo degli accessi in base al ruolo utilizzando XPLAT CLI]
 -   [Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo][Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo]
 
-  [Windows PowerShell]: /it-it/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [Interfaccia della riga di comando multipiattaforma]: /it-it/documentation/articles/xplat-cli-rbac.md "Interfaccia della riga di comando multipiattaforma"
   [Windows Management Framework 3.0]: http://www.microsoft.com/it-it/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=40855
   [Come installare e configurare Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/

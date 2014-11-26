@@ -57,6 +57,4 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
   [Windows Phone SDK 8.0]: http://www.microsoft.com/it-it/download/details.aspx?id=35471
   [Account di archiviazione di Azure]: /it-it/documentation/articles/storage-create-storage-account/
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

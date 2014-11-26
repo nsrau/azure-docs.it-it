@@ -1,6 +1,6 @@
 Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale.
 
-1.  Se non si dispone di [Mobile Services Android SDK][], scaricarlo adesso ed espandere i file compressi.
+1.  Se non si dispone di [Mobile Services Android SDK][Mobile Services Android SDK], scaricarlo adesso ed espandere i file compressi.
 
 2.  Copiare i file `.jar` dalla cartella `mobileservices` dell'SDK nella cartella `libs` del progetto GetStartedWithData.
 
@@ -124,7 +124,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
     Verrà interrogato il servizio mobile e verranno restituiti gli oggetti non contrassegnati come completati. Gli elementi verranno aggiunti all'adattatore per l'associazione.
 
-<!-- URLs. -->
+
 
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
    

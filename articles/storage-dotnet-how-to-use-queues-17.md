@@ -3,7 +3,7 @@
 Come utilizzare il servizio di archiviazione di accodamento
 ===========================================================
 
-[versione 1.7](/en-us/develop/net/how-to-guides/queue-service-v17/ "versione 1.7") [versione 2.0](/en-us/develop/net/how-to-guides/queue-service/ "versione 2.0")
+[versione 1.7](/it-it/develop/net/how-to-guides/queue-service-v17/ "versione 1.7") [versione 2.0](/it-it/develop/net/how-to-guides/queue-service/ "versione 2.0")
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Negli esempi, scritti in C\#, viene utilizzata l'API .NET. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, fare riferimento alla sezione [Passaggi successivi](#next-steps).
 
@@ -269,7 +269,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
     -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/it-it/library/windowsazure/dd179355)
 -   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx).
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/en-us/develop/net/how-to-guides/table-services/).
-    -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/en-us/develop/net/how-to-guides/blob-storage/).
-    -   Per archiviare dati relazionali, utilizzare [Database SQL](/en-us/develop/net/how-to-guides/sql-database/).
+    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/it-it/develop/net/how-to-guides/table-services/).
+    -   Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](/it-it/develop/net/how-to-guides/blob-storage/).
+    -   Per archiviare dati relazionali, utilizzare [Database SQL](/it-it/develop/net/how-to-guides/sql-database/).
 

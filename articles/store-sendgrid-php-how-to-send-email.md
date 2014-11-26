@@ -1,6 +1,6 @@
 <properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Come usare il servizio di posta elettronica SendGrid da PHP
 
@@ -37,7 +37,7 @@ Per altre informazioni, visitare il sito [][]<http://sendgrid.com></a>.
 
 ## <a name="bkmk_CreateSendGrid"> </a>Creare un account SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Utilizzo di SendGrid dall'applicazione PHP
 
@@ -453,6 +453,5 @@ collegamenti seguenti per ulteriori informazioni.
   [servizio di posta elettronica basato sul cloud]: http://sendgrid.com/solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [1]: http://swiftmailer.org/download
   [funzione curl]: http://php.net/curl

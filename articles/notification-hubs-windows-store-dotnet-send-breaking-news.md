@@ -201,8 +201,8 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
 
     Altre informazioni su come eseguire il push di notifiche a utenti autenticati specifici. Si tratta di un'ottima soluzione per inviare le notifiche solo a utenti specifici.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+
+ 
 <!-- URLs.-->
 
   [Windows Phone]: /it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
@@ -213,7 +213,6 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
   [Invio di notifiche dal back-end]: #send
   [Esecuzione dell'app e generazione di notifiche]: #test-app
   [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

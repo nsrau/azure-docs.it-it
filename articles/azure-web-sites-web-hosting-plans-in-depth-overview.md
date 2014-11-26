@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron="" Tardif="" and="" Yochay="" Kiryaty" />
 </br>
 
 # Informazioni dettagliate sui piani di hosting Web di Siti Web di Azure
@@ -19,7 +19,7 @@ Un sito Web può essere associato a un solo piano di hosting Web. Un piano di ho
 In un gruppo di risorse possono essere presenti più piani di hosting Web e ogni piano di hosting Web dispone di un set di funzionalità e caratteristiche specifiche che possono essere usate dai siti Web ad esso associati. L'immagine seguente illustra questa relazione:
 </br>
 </br>
-![Resource Groups and Web Hosting Plans][]
+![Resource Groups and Web Hosting Plans][Resource Groups and Web Hosting Plans]
 </br>
 </br>
 La possibilità di avere più piani di hosting Web in un unico gruppo di risorse consente di allocare siti diversi a risorse diverse, in particolare le macchine virtuali in cui vengono eseguiti i siti Web. Questa possibilità consente ad esempio di separare le risorse dei siti di sviluppo e test e di quelli di produzione, per allocare un piano di hosting Web e il relativo set di risorse dedicate per i siti di produzione e un secondo piano di hosting Web per i siti di sviluppo e test.
@@ -33,7 +33,7 @@ Grazie alla disponibilità di più piani di hosting Web in un singolo gruppo di 
 Durante la creazione di un nuovo sito Web, valutare la possibilità di creare un nuovo gruppo di risorse quando il sito Web che si sta per creare rappresenta una nuova applicazione Web. In questo caso, creare un nuovo gruppo di risorse, un piano di hosting Web associato e i siti Web è la scelta ideale. Quando si crea un nuovo sito Web di questo tipo nel nuovo portale di anteprima di Azure tramite la raccolta o la nuova opzione Sito Web + SQL, per impostazione predefinita il portale crea un nuovo gruppo di risorse e un piano di hosting Web per il nuovo sito. Se necessario, è tuttavia possibile sovrascrivere queste impostazioni predefinite.
 </br>
 </br>
-![Creating a new Web Hosting Plan][]
+![Creating a new Web Hosting Plan][Creating a new Web Hosting Plan]
 </br>
 </br>
 Sarà sempre possibile aggiungere un nuovo sito Web o qualsiasi altra risorsa a un gruppo di risorse esistente. Quando si crea un nuovo sito Web dal contesto di un gruppo di risorse esistente, la Creazione guidata Nuovo sito Web sceglie per impostazione predefinita la risorsa e il piano di hosting Web esistente. Anche in questo caso, se necessario, è possibile modificare queste impostazioni predefinite. Quando si aggiunge un nuovo sito Web a un gruppo di risorse esistente, è possibile scegliere di aggiungere il sito a un piano di hosting esistente (opzione predefinita nel nuovo portale di anteprima di Azure) oppure è possibile creare un nuovo piano di hosting Web a cui aggiungere il sito.
@@ -51,13 +51,13 @@ Se si vuole creare un nuovo sito Web in un'area geografica diversa in cui non so
 Se in Siti Web di Azure sono già presenti siti Web esistenti, si sarà notato che tutti i siti Web vengono ora visualizzati nel portale di anteprima di Azure. Per visualizzare tutti i siti Web in un elenco semplice, fare clic sul pulsante **sfoglia** nel riquadro di spostamento sinistro e selezionare **Siti Web**:
 </br>
 </br>
-![See all your website as a flat list][]
+![See all your website as a flat list][See all your website as a flat list]
 </br>
 </br>
 Per visualizzare tutti i gruppi di risorse creati automaticamente, fare clic sul pulsante **sfoglia** nel riquadro di spostamento sinistro e selezionare **Gruppi di risorse**:
 </br>
 </br>
-![See all the resource groups that have been created][]
+![See all the resource groups that have been created][See all the resource groups that have been created]
 </br>
 </br>
 Sarà anche possibile notare che è presente un gruppo di risorse predefinito generato automaticamente in ogni area geografica in cui sono in esecuzione i siti Web. Il nome del gruppo di risorse generato automaticamente per i siti Web è *Web-Predefinito-<location name>* dove il nome della località rappresenta un'area geografica di Azure, ad esempio *Web-Predefinito-StatiUnitiOccidentali*. In ogni gruppo di risorse sono presenti tutti i siti esistenti per l'area geografica del gruppo. Ogni sito che è stato creato in passato o che verrà creato in futuro nel Portale di Azure completo o nel portale di anteprima di Azure sarà disponibile in entrambi i portali.
@@ -84,18 +84,18 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     Per eseguire questa operazione nell'interfaccia utente del nuovo **Portale di anteprima di Azure**, fare clic su **NUOVO** e selezionare **Sito Web**. Verrà aperto il pannello di creazione del sito Web. L'immagine seguente mostra l'icona **NUOVO** nella parte inferiore sinistra e la seconda immagine illustra il pannello di creazione **Sito Web**, il pannello **Piano di hosting Web** e il pannello **Livello di prezzo**:
     </br>
     </br>
-    ![Create a new website][]
+    ![Create a new website][Create a new website]
     </br>
     </br>
-    ![Website, Web Hosting Plan and pricing tier blades][]
+    ![Website, Web Hosting Plan and pricing tier blades][Website, Web Hosting Plan and pricing tier blades]
     </br>
     </br>
-    Per questo esempio è stato scelto di creare un nuovo sito Web denominato **contosomarketing** e di posizionarlo nel nuovo piano di hosting Web denominato **contoso**. Il livello di prezzo selezionato per questo piano di hosting Web è **Standard piccolo**. Per altre informazioni sui livelli di prezzo del piano di hosting Web e sulle relative funzionalità e opzioni di prezzo e scalabilità incluse in ognuno di essi, vedere le [informazioni specifiche relative ai piani di hosting Web per Siti Web di Azure][].
+    Per questo esempio è stato scelto di creare un nuovo sito Web denominato **contosomarketing** e di posizionarlo nel nuovo piano di hosting Web denominato **contoso**. Il livello di prezzo selezionato per questo piano di hosting Web è **Standard piccolo**. Per altre informazioni sui livelli di prezzo del piano di hosting Web e sulle relative funzionalità e opzioni di prezzo e scalabilità incluse in ognuno di essi, vedere le [informazioni specifiche relative ai piani di hosting Web per Siti Web di Azure][informazioni specifiche relative ai piani di hosting Web per Siti Web di Azure].
     </br>
     Si noti inoltre che è possibile creare un piano di hosting Web anche nel portale di Azure esistente. Questa opzione è disponibile nella procedura guidata **creazione rapida** quando si seleziona **Crea nuovo piano di hosting Web** nel menu a discesa **PIANO DI HOSTING WEB**:
     </br>
     </br>
-    ![Create new web hosting plan in the existing portal][]
+    ![Create new web hosting plan in the existing portal][Create new web hosting plan in the existing portal]
     </br>
     </br>
     Per questo esempio verrà creato un nuovo sito denominato **northwind** e si sceglierà di creare un nuovo piano di hosting Web. Il risultato di questa operazione sarà un nuovo piano di hosting Web denominato **default0** che conterrà il sito Web **northwind**. Tutti i piani di hosting Web creati tramite questa esperienza seguono questa convenzione di denominazione e non è possibile rinominarli dopo che sono stati creati. Inoltre, i piani di hosting Web creati tramite questo processo verranno creati nel livello di prezzo **Gratuito**.
@@ -111,13 +111,13 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     Nel pannello di creazione del sito Web selezionare quindi il piano di hosting:
     </br>
     </br>
-    ![Select a hosting plan][]
+    ![Select a hosting plan][Select a hosting plan]
     </br>
     </br>
     È anche possibile creare un sito in un piano di hosting Web specifico tramite il portale di Azure esistente. È possibile eseguire questa operazione durante la procedura guidata **creazione rapida**. Dopo avere digitato l'URL del sito Web, usare l'elenco a discesa **PIANO DI HOSTING WEB** per selezionare un piano a cui aggiungere il sito:
     </br>
     </br>
-    ![Select a hosting plan in the existing portal][]
+    ![Select a hosting plan in the existing portal][Select a hosting plan in the existing portal]
     </br>
     </br>
     **Domanda**: Come è possibile spostare un sito in un piano di hosting Web diverso?
@@ -127,7 +127,7 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     Per spostare il sito in un altro piano, passare al pannello Sito Web del sito che si vuole spostare. Fare quindi clic su **Piano di hosting Web**:
     </br>
     </br>
-    ![Choose a new or existing web hosting plan][]
+    ![Choose a new or existing web hosting plan][Choose a new or existing web hosting plan]
     </br>
     </br>
     Verrà aperto il pannello Piano di hosting Web. A questo punto, è possibile selezionare un piano di hosting Web esistente o crearne uno nuovo. I piani in località geografiche o gruppi di risorse diverse sono visualizzati in grigio e non possono essere selezionati.
@@ -142,13 +142,13 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     L'immagine seguente mostra il pannello **Piano di hosting Web** e il pannello **Livello di prezzo**. Se si fa clic sulla parte **Livello di prezzo** nel pannello **Piano di hosting Web**, il pannello **Livello di prezzo** si espande ed è possibile modificare il livello di prezzo per il piano:
     </br>
     </br>
-    ![The Web Hosting Plan blade and the Pricing Tier][]
+    ![The Web Hosting Plan blade and the Pricing Tier][The Web Hosting Plan blade and the Pricing Tier]
     </br>
     </br>
     In alternativa, è possibile ridimensionare il piano aumentando il numero delle istanze incluse nel piano di hosting Web. L'immagine seguente mostra il pannello **Piano di hosting Web** e il pannello **Scalabilità**. Se si fa clic sull'area Scalabilità nel pannello **Piano di hosting Web**, questo si espande e consente di modificare il numero di istanze del piano:
     </br>
     </br>
-    ![Changing the instance count of a hosting plan][]
+    ![Changing the instance count of a hosting plan][Changing the instance count of a hosting plan]
     </br>
     </br>
     Poiché il piano di hosting Web nell'immagine precedente è configurato per l'uso del livello di prezzo **Standard**, l'opzione **Scalabilità automatica** è abilitata.
@@ -156,7 +156,7 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     Per eseguire questa operazione nel portale di Azure completo, passare alla scheda **Scalabilità**, come mostrato di seguito:
     </br>
     </br>
-    ![Changing the instance count of a hosting plan in the existing portal][]
+    ![Changing the instance count of a hosting plan in the existing portal][Changing the instance count of a hosting plan in the existing portal]
     </br>
     </br>
     **Domanda**: Come è possibile eliminare un piano di hosting Web?
@@ -164,7 +164,7 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     **Risposta**: Per eliminare un piano di hosting Web è prima necessario eliminare tutti i siti Web ad esso associati. Dopo avere eliminato tutti i siti Web in un piano di hosting Web, è possibile eliminare il piano dal pannello Piano di hosting Web:
     </br>
     </br>
-    ![Deleting a web hosting plan][]
+    ![Deleting a web hosting plan][Deleting a web hosting plan]
     </br>
     </br>
     Nel portale di Azure completo con l'eliminazione dell'ultimo sito Web in un piano di hosting Web viene eliminato automaticamente il piano associato.
@@ -174,13 +174,13 @@ Poiché ogni sito Web deve essere associato a un piano di hosting Web, sono disp
     **Risposta**: È possibile monitorare i piani di hosting Web nelle parti Monitoraggio del pannello Piano di hosting Web:
     </br>
     </br>
-    ![Monitoring a web hosting plan][]
+    ![Monitoring a web hosting plan][Monitoring a web hosting plan]
     </br>
     </br>
     Per personalizzare i controlli di monitoraggio, fare clic con il pulsante destro del mouse sul controllo e scegliere **modifica query**:
     </br>
     </br>
-    ![Editing the monitoring controls][]
+    ![Editing the monitoring controls][Editing the monitoring controls]
     </br>
     </br>
     Le metriche esposte sono:

@@ -31,5 +31,5 @@ Di seguito sono illustrati i concetti e le funzionalità più importanti di Serv
 -   **Script del server:** codice della logica di business personalizzato in un servizio mobile back-end JavaScript. Il codice è registrato in un'operazione su tabella (lettura, inserimento, aggiornamento, eliminazione), in un'API personalizzata o in un processo pianificato.
 -   **Tabella:** i dati utente vengono archiviati in tabelle nei database SQL. È possibile creare queste tabelle nel portale di gestione.
 
-<!-- Images. -->
+
 

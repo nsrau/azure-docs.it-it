@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Modello di risorse e concetti relativi a DocumentDB
 
@@ -8,7 +8,7 @@ DocumentDB offre un modello di programmazione RESTful su HTTP semplice e aperto.
 
 > [AZURE.NOTE] DocumentDB offre anche un protocollo TCP a efficienza elevata, con un modello di comunicazione di tipo RESTful disponibile tramite l'SDK del client .NET.
 
-![][]
+![][0]
 **Modello di risorse gerarchico in un account di database**
 
 I clienti di DocumentDB eseguono prima di tutto il provisioning di un **account di database** di DocumentDB usando la sottoscrizione di Azure. Un account di database può essere costituito da un insieme di **database**, ognuno dei quali include più **raccolte**. Ogni raccolta include a sua volta **stored procedure, trigger, funzioni UDF, documenti** e **allegati** correlati. Un database include anche **utenti** associati, ognuno dei quali ha un insieme di **autorizzazioni** per accedere alle diverse raccolte, stored procedure, trigger, funzioni UDF, documenti o allegati disponibili. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
@@ -109,7 +109,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 </tbody>
 </table>
 
-Si noti che, oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di gestione di Azure, è anche possibile creare e gestire account di database di DocumentDB a livello di codice tramite le [API REST di Azure DocumentDB][], oltre che tramite gli SDK dei client.
+Si noti che, oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di gestione di Azure, è anche possibile creare e gestire account di database di DocumentDB a livello di codice tramite le [API REST di Azure DocumentDB][API REST di Azure DocumentDB], oltre che tramite gli SDK dei client.
 
  
 
@@ -125,7 +125,7 @@ Un database può includere una quantità praticamente illimitata di archiviazion
 
 Un database di DocumentDB è anche un contenitore di utenti. Un utente, a sua volta, è uno spazio dei nomi logico per un insieme di autorizzazioni, che fornisce in modo dettagliato autorizzazioni/accesso a raccolte, documenti e allegati.
 
-Analogamente ad altre risorse nel modello di risorse di DocumentDB, i database possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le [API REST di Azure DocumentDB][] oppure uno degli SDK dei client. DocumentDB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database. Anche se DocumentDB recupera in background le risorse di archiviazione e la velocità effettiva con provisioning come parte del database eliminato, le risorse di archiviazione e la velocità effettiva con provisioning per il database eliminato saranno disponibili immediatamente per l'uso.
+Analogamente ad altre risorse nel modello di risorse di DocumentDB, i database possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le [API REST di Azure DocumentDB][API REST di Azure DocumentDB] oppure uno degli SDK dei client. DocumentDB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database. Anche se DocumentDB recupera in background le risorse di archiviazione e la velocità effettiva con provisioning come parte del database eliminato, le risorse di archiviazione e la velocità effettiva con provisioning per il database eliminato saranno disponibili immediatamente per l'uso.
 
 # Raccolte
 
@@ -157,7 +157,7 @@ I documenti in una raccolta possono avere schemi arbitrari ed è possibile esegu
 2.  Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join.
 3.  Funzioni UDF pure basate su JavaScript, costituite da (1) e (2).
 
-Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di DocumentDB compila ed esegue in modalità nativa le istruzioni di query SQL. È possibile eseguire query in una raccolta usando le [API REST di Azure DocumentDB][] oppure uno degli SDK dei client. In .NET SDK è disponibile un provider LINQ. In una versione futura saranno forniti i mapping nativi con caratteri di sottolineatura, che possono essere usati dagli SDK JavaScript lato client e dalle stored procedure e dai trigger lato server.
+Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di DocumentDB compila ed esegue in modalità nativa le istruzioni di query SQL. È possibile eseguire query in una raccolta usando le [API REST di Azure DocumentDB][API REST di Azure DocumentDB] oppure uno degli SDK dei client. In .NET SDK è disponibile un provider LINQ. In una versione futura saranno forniti i mapping nativi con caratteri di sottolineatura, che possono essere usati dagli SDK JavaScript lato client e dalle stored procedure e dai trigger lato server.
 
 ## Transazioni in più documenti
 
@@ -219,7 +219,7 @@ Si noti che, poiché il database comprende in modo nativo JSON e JavaScript, non
 
 Le stored procedure e i trigger interagiscono con una raccolta e con i documenti in una raccolta tramite un modello a oggetti ben definito, che espone il contesto corrente della raccolta.
 
-Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate con facilità tramite le [API REST di Azure DocumentDB][] o qualsiasi SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa. Anche se DocumentDB recupera in background le risorse di archiviazione e la velocità effettiva con provisioning come parte della raccolta eliminata, le risorse di archiviazione e la velocità effettiva con provisioning per la raccolta eliminata saranno disponibili immediatamente per l'uso.
+Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate con facilità tramite le [API REST di Azure DocumentDB][API REST di Azure DocumentDB] o qualsiasi SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa. Anche se DocumentDB recupera in background le risorse di archiviazione e la velocità effettiva con provisioning come parte della raccolta eliminata, le risorse di archiviazione e la velocità effettiva con provisioning per la raccolta eliminata saranno disponibili immediatamente per l'uso.
 
  
 
@@ -420,9 +420,9 @@ L'unico modo per ottenere una chiave di risorsa consiste nella creazione di una 
 
 Analogamente a tutte le altre risorse, le autorizzazioni in DocumentDB possono essere create, sostituite, eliminate, lette o enumerate con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di un'autorizzazione.
 
-  []: ./media/documentdb-resources/resources1.png
+  [0]: ./media/documentdb-resources/resources1.png
   [1]: ./media/documentdb-resources/resources2.png
-  []: http://portal.azure.com/
+  [0]: http://portal.azure.com/
   [API REST di Azure DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402413
   [2]: ./media/documentdb-resources/resources3.png
   [3]: ./media/documentdb-resources/resources4.png

@@ -107,9 +107,9 @@ Questo argomento descrive come richiedere la registrazione per le notifiche push
 
 Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti][Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/

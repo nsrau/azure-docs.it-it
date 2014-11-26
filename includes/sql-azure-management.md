@@ -225,7 +225,6 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
   [Passaggio 5: Monitorare il database SQL usando viste a gestione dinamica]: #Step5
   [Microsoft SQL Server 2012 Express]: http://www.microsoft.com/it-it/download/details.aspx?id=29062
   [portale di gestione di Azure]: http://manage.windowsazure.com/
-  [\*accountaccesso\*@\*NomeServer\*]: mailto:*login*@*yourServerName*
   [Riferimento a Transact-SQL (database SQL)]: http://msdn.microsoft.com/it-it/library/bb510741(v=sql.120).aspx
   [CREATE DATABASE (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336274.aspx
   [ALTER DATABASE (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ff394109.aspx

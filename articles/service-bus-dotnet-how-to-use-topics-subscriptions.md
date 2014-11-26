@@ -394,8 +394,6 @@ utilizzare i collegamenti seguenti per ulteriori informazioni.
     di Service Bus - .NET].
 
   [Passaggi successivi]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/it-it/library/microsoft.servicebus.messaging.sqlfilter.aspx

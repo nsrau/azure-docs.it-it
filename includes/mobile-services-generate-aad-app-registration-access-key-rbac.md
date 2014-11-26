@@ -1,4 +1,4 @@
-1.  Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure][].
+1.  Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Fare clic sulla registrazione dell'applicazione integrata.
 
@@ -6,13 +6,13 @@
 4.  Selezionare la durata di **1 anno** per una nuova chiave. Fare quindi clic su **Salva**. Il valore della nuova chiave sarà visualizzato nel portale.
 5.  Copiare i valori per **ID client** e **Chiave** mostrati dopo il salvataggio. Si noti che il valore della chiave sarà mostrato una sola volta dopo il salvataggio.
 
-    ![][]
+    ![][0]
 
 6.  Scorrere verso il basso fino alla fine della pagina di configurazione dell'applicazione integrata e abilitare l'autorizzazione **Lettura dati directory** per l'applicazione, quindi fare clic su **Salva**.
 
     ![][1]
 
-7.  Nel [portale di gestione di Azure][] tornare al servizio mobile e fare clic sulla scheda **Configura**. Scorrere verso il basso fino alla sezione **Impostazioni app**, quindi aggiungere le impostazioni seguenti per l'app e fare clic su **Salva**.
+7.  Nel [portale di gestione di Azure][portale di gestione di Azure] tornare al servizio mobile e fare clic sulla scheda **Configura**. Scorrere verso il basso fino alla sezione **Impostazioni app**, quindi aggiungere le impostazioni seguenti per l'app e fare clic su **Salva**.
 
     | Nome dell'impostazione dell'app | Descrizione                                                                |
     |---------------------------------|----------------------------------------------------------------------------|
@@ -24,6 +24,6 @@
     ![][2]
 
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png
+  [0]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png
   [1]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/app-perms.png
   [2]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/aad-app-settings.png

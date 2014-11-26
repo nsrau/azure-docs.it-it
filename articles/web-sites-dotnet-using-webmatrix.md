@@ -145,7 +145,6 @@ Si è appreso come creare e distribuire un sito Web da WebMatrix in Azure. Per a
 
 -   [Sito Web di WebMatrix][Sito Web di WebMatrix]
 
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Aggiunta di un account]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-add-account.png
   [Accesso ad Azure]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-sign-in.png
   [Nuovo sito dalla raccolta modelli]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-site-from-template.png

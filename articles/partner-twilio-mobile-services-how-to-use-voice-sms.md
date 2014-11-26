@@ -202,7 +202,7 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
         });
     };
 
-[WACOM.INCLUDE [twilioadditional_services_and_next_steps][twilio_additional_services_and_next_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [offerta speciale]: http://ahoy.twilio.com/azure
   [prezzi di Twilio]: http://www.twilio.com/pricing
@@ -225,4 +225,4 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Procedura: Fornire risposte TwiML dal proprio sito Web]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md
+

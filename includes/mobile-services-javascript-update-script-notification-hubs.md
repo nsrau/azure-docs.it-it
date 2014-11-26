@@ -2,7 +2,7 @@
 
 1.  Fare clic su **TodoItem**, quindi su **Script** e selezionare **Insert**.
 
-    ![][]
+    ![][0]
 
 2.  Sostituire la funzione insert con il codice seguente, quindi fare clic su **Save**:
 
@@ -31,4 +31,4 @@
 
     Questo script insert invia una notifica push (con il testo dell'elemento inserito) a tutte le app di Windows Store registrate dopo la corretta esecuzione dell'inserimento.
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

@@ -13,6 +13,5 @@ Si è appreso come creare e distribuire un sito Web dalla raccolta. Per altre in
 -   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git][Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git] - Come creare un sito Web PHP da zero e distribuirlo in un sito Web di Azure utilizzando Git
 -   [Altre esercitazioni su PHP][Altre esercitazioni su PHP] - Come creare ulteriori tipi di applicazioni utilizzando PHP e Azure
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git]: /it-it/develop/php/tutorials/website-w-mysql-and-git/
   [Altre esercitazioni su PHP]: /it-it/develop/php/tutorials/

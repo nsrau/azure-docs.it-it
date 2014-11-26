@@ -335,7 +335,6 @@ utilizzare i collegamenti seguenti per ulteriori informazioni.
 -   Esempi relativi al bus di servizio: scaricarli dagli [esempi per Azure][esempi per Azure].
 
   [Passaggi successivi]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [Concetti relativi all'inoltro]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

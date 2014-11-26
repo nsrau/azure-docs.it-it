@@ -4,7 +4,7 @@
 
 2.  Nella finestra di Esplora soluzioni espandere il progetto di servizio todolist e quindi **Contollers**. Aprire il file TodoItemController.cs, che fa parte del progetto di servizio mobile.
 
-    ![][]
+    ![][0]
 
 3.  Sostituire il metodo `PostTodoItem` con il metodo seguente per verificare che la stringa di testo non sia più lunga di 10 caratteri. Per gli elementi con un testo composto da più di 10 caratteri, il metodo restituisce un messaggio di richiesta errata con codice di stato HTTP 400 e un messaggio descrittivo incluso nel contenuto.
 
@@ -31,10 +31,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Attività iniziali]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  []: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
+  [0]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
   [1]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png
   [2]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png

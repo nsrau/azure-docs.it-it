@@ -132,7 +132,6 @@ Dopo la copia dei file, eseguire il comando **git status** per visualizzare i fi
 
 È ora possibile passare alla directory DjangoApplication e utilizzare manage.py nel modo consueto per iniziare ad aggiungere nuove applicazioni al progetto di Django.
 
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [0]: http://www.windowsazure.com/it-it/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
   [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png

@@ -54,16 +54,9 @@ Per associare il dominio personalizzato a un sito Web di Azure, è necessario ag
 
 ## <a name="enabledomain"></a>Abilitare il sito Web di Gestione traffico
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Informazioni sui record DNS]: #understanding-records
   [Configurazione dei siti Web per la modalità standard]: #bkmk_configsharedmode
   [Aggiunta di un record DNS per il dominio personalizzato]: #bkmk_configurecname
   [Abilitazione di Gestione traffico per il proprio sito Web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
-  [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

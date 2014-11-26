@@ -33,7 +33,6 @@ Il set di esercitazioni relative alle nozioni di base dell'utilizzo dei dati in 
 
 
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
   [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library

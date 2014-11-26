@@ -328,8 +328,6 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #HandleCrashes
   [Procedura: Eliminare argomenti e sottoscrizioni]: #DeleteTopicsAndSubscriptions
   [Passaggi successivi]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [OpenSSL]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [SqlFilter.SqlExpression Property]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

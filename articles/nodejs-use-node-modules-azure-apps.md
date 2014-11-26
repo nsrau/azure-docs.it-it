@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilizzo di moduli Node.js con le applicazioni Azure
 
@@ -69,7 +69,6 @@ Quando l'applicazione è pronta per la produzione, è possibile bloccare i requi
 
 Dopo avere appreso a usare i moduli Node.js con Azure, per altre informazioni vedere gli articoli che illustrano come [specificare la versione di Node.js][specificare la versione di Node.js], [compilare e distribuire un sito Web Node.js][compilare e distribuire un sito Web Node.js] e [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][Come usare gli strumenti da riga di comando di Azure per Mac e Linux].
 
-  [attività di avvio di Azure per l'esecuzione dell'installazione di npm per evitare la distribuzione dei moduli Node]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [npm-install]: https://npmjs.org/doc/install.html
   [specificare la versione di Node.js]: /it-it/documentation/articles/nodejs-specify-node-version-azure-apps/
   [compilare e distribuire un sito Web Node.js]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/

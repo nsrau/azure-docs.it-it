@@ -1,10 +1,10 @@
-<properties urlDisplayName="" pageTitle="Creare e usare una firma di accesso condiviso con il servizio BLOB | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Informazioni sulla generazione e sull'uso di firme di accesso condiviso con il servizio BLOB." metaCanonical="" services="storage" documentationCenter="" title="Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
-# Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB
+# Firme di accesso condiviso, parte 2: creazione e utilizzo di una firma di accesso condiviso con il servizio BLOB
 
-Nella [parte 1][parte 1] di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per usarle. Nella parte 2 verrà spiegato come generare e quindi usare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
+Nella [parte 1][parte 1] di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. Nella parte 2 verrà spiegato come generare e quindi utilizzare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
 
 -   Generazione di una firma di accesso condiviso per un contenitore
 -   Generazione di una firma di accesso condiviso per un BLOB
@@ -13,13 +13,13 @@ Nella [parte 1][parte 1] di questa esercitazione è stata fornita una descrizion
 
 # Informazioni sull'esercitazione
 
-In questa esercitazione verrà illustrata in dettaglio la procedura di creazione delle firme di accesso condiviso per contenitori e BLOB e verranno create due applicazioni console. La prima applicazione console genera firme di accesso condiviso per un contenitore e per un BLOB. Tale applicazione conosce le chiavi dell'account di archiviazione. La seconda applicazione console, che fungerà da applicazione client, accede alle risorse di contenitore e BLOB usando le firme di accesso condiviso create con la prima applicazione. Tale applicazione usa le firme di accesso condiviso solo per autenticare l'accesso alle risorse di contenitore e BLOB, pertanto non conosce le chiavi dell'account.
+In questa esercitazione verrà illustrata in dettaglio la procedura di creazione delle firme di accesso condiviso per contenitori e BLOB e verranno create due applicazioni console. La prima applicazione console genera firme di accesso condiviso per un contenitore e per un BLOB. Tale applicazione conosce le chiavi dell'account di archiviazione. La seconda applicazione console, che fungerà da applicazione client, accede alle risorse di contenitore e BLOB utilizzando le firme di accesso condiviso create con la prima applicazione. Tale applicazione utilizza le firme di accesso condiviso solo per autenticare l'accesso alle risorse di contenitore e BLOB, pertanto non conosce le chiavi dell'account.
 
 # Parte 1: creazione di un'applicazione console per generare firme di accesso condiviso
 
 In primo luogo verificare che la libreria client di archiviazione di Azure per .NET sia installata. È possibile installare il [pacchetto NuGet][pacchetto NuGet] contenente gli assembly più aggiornati per la libreria client. Questa è la procedura consigliata per essere certi di disporre delle correzioni più recenti. È inoltre possibile scaricare la libreria client inclusa nella versione più recente di [Azure SDK per .NET][Azure SDK per .NET].
 
-In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **GenerateSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, usando uno dei seguenti approcci:
+In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **GenerateSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, utilizzando uno dei seguenti approcci:
 
 -   Se si desidera installare il pacchetto NuGet, installare prima l'[estensione Gestione pacchetti NuGet per Visual Studio][estensione Gestione pacchetti NuGet per Visual Studio]. In Visual Studio selezionare **Progetto | Manage NuGet Packages**, cercare online **Archiviazione di Azure** e attenersi alle istruzioni per l'installazione.
 -   In alternativa, individuare gli assembly nell'installazione di Azure SDK e aggiungervi i riferimenti.
@@ -91,7 +91,7 @@ Aggiungere le righe seguenti alla fine del metodo **Main()**, prima della chiama
 
 Compilare ed eseguire nell'output l'URI della firma di accesso condiviso per il nuovo contenitore. L'URI sarà simile al seguente:
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
 
 Dopo avere eseguito il codice, la firma di accesso condiviso creata per il contenitore rimarrà valida per le quattro ore successive. La firma concede l'autorizzazione per elencare i BLOB e scrivere un nuovo BLOB nel contenitore.
 
@@ -139,7 +139,7 @@ Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, 
 
 Compilare ed eseguire nell'output l'URI della firma di accesso condiviso per il nuovo BLOB. L'URI sarà simile al seguente:
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
 
 ## Generazione dei criteri di accesso archiviati per il contenitore
 
@@ -176,7 +176,7 @@ Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, 
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-## Generazione dell'URI di una firma di accesso condiviso per un contenitore che usa criteri di accesso
+## Generazione dell'URI di una firma di accesso condiviso per un contenitore che utilizza criteri di accesso
 
 Verrà quindi creata un'altra firma di accesso condiviso per il contenitore creato in precedenza, ma questa volta la firma verrà associata ai criteri di accesso creati nell'esempio precedente.
 
@@ -198,7 +198,7 @@ Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, 
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-## Generazione dell'URI di una firma di accesso condiviso per un BLOB che usa criteri di accesso
+## Generazione dell'URI di una firma di accesso condiviso per un BLOB che utilizza criteri di accesso
 
 Verrà infine aggiunto un metodo simile per creare un altro BLOB e generare una firma di accesso condiviso associata a criteri di accesso.
 
@@ -233,7 +233,7 @@ Alla fine del metodo **Main()**, prima della chiamata a **Console.ReadLine()**, 
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per scrivere gli URI delle firme di accesso condiviso nella finestra della console, quindi copiarli e incollarli in un file di testo per usarli nella seconda parte dell'esercitazione.
+L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per scrivere gli URI delle firme di accesso condiviso nella finestra della console, quindi copiarli e incollarli in un file di testo per utilizzarli nella seconda parte dell'esercitazione.
 
     static void Main(string[] args)
     {
@@ -271,15 +271,15 @@ L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per
         Console.ReadLine();
     }
 
-Quando si esegue l'applicazione console GenerateSharedAccessSignatures, l'output della finestra della console sarà simile a quello seguente. Queste sono le firme di accesso condiviso che verranno usate nella parte 2 dell'esercitazione.
+Quando si esegue l'applicazione console GenerateSharedAccessSignatures, l'output della finestra della console sarà simile a quello seguente. Queste sono le firme di accesso condiviso che verranno utilizzate nella parte 2 dell'esercitazione.
 
 ![sas-console-output-1][sas-console-output-1]
 
 # Parte 2: creazione di un'applicazione console per testare le firme di accesso condiviso
 
-Per testare le firme di accesso condiviso create negli esempi precedenti, verrà creata una seconda applicazione console che usa le firme per eseguire operazioni sul contenitore e su un BLOB.
+Per testare le firme di accesso condiviso create negli esempi precedenti, verrà creata una seconda applicazione console che utilizza le firme per eseguire operazioni sul contenitore e su un BLOB.
 
-Si noti che, se sono passate più di quattro ore da quando è stata completata la prima parte dell'esercitazione, le firme generate con scadenza impostata su quattro ore non saranno più valide. Analogamente le firme associate ai criteri di accesso archiviati scadono dopo 10 ore. Se sono scaduti uno o entrambi questi intervalli, è necessario eseguire il codice nella prima applicazione console per generare nuove firme di accesso condiviso da usare nella seconda parte dell'esercitazione.
+Si noti che, se sono passate più di quattro ore da quando è stata completata la prima parte dell'esercitazione, le firme generate con scadenza impostata su quattro ore non saranno più valide. Analogamente le firme associate ai criteri di accesso archiviati scadono dopo 10 ore. Se sono scaduti uno o entrambi questi intervalli, è necessario eseguire il codice nella prima applicazione console per generare nuove firme di accesso condiviso da utilizzare nella seconda parte dell'esercitazione.
 
 In Visual Studio creare una nuova applicazione console Windows e assegnare ad essa il nome **ConsumeSharedAccessSignatures**. Aggiungere i riferimenti a **Microsoft.WindowsAzure.Configuration.dll** e **Microsoft.WindowsAzure.Storage.dll**, come è già stato fatto in precedenza.
 
@@ -301,7 +301,7 @@ Nel corpo del metodo **Main()** aggiungere le seguenti costanti e aggiornarne i 
 
 ## Aggiunta di un metodo per testare le operazioni su contenitore con una firma di accesso condiviso
 
-Verrà ora aggiunto un metodo per testare alcune operazioni rappresentative sul contenitore usando una firma di accesso condiviso. Si noti che la firma di accesso condiviso viene usata per restituire un riferimento al contenitore, autenticando l'accesso al contenitore sulla base della sola firma.
+Verrà ora aggiunto un metodo per testare alcune operazioni rappresentative sul contenitore utilizzando una firma di accesso condiviso. Si noti che la firma di accesso condiviso viene utilizzata per restituire un riferimento al contenitore, autenticando l'accesso al contenitore sulla base della sola firma.
 
 Aggiungere il metodo seguente a Program.cs:
 
@@ -413,7 +413,7 @@ Aggiornare il metodo **Main()** in modo che chiami **UseContainerSAS()** con ent
 
 ## Aggiunta di un metodo per testare le operazioni su BLOB con una firma di accesso condiviso
 
-Verrà infine aggiunto un metodo per testare alcune operazioni rappresentative sul BLOB usando una firma di accesso condiviso. In questo caso verrà usato il costruttore **CloudBlockBlob(String)**, passandolo nella firma di accesso condiviso, per restituire un riferimento al BLOB. Non è richiesto un altro tipo di autenticazione; è basato esclusivamente sulla firma.
+Verrà infine aggiunto un metodo per testare alcune operazioni rappresentative sul BLOB utilizzando una firma di accesso condiviso. In questo caso verrà utilizzato il costruttore **CloudBlockBlob(String)**, passandolo nella firma di accesso condiviso, per restituire un riferimento al BLOB. Non è richiesto un altro tipo di autenticazione; è basato esclusivamente sulla firma.
 
 Aggiungere il metodo seguente a Program.cs:
 
@@ -521,11 +521,10 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 [Introduzione alla firma di accesso condiviso per tabelle e code][Introduzione alla firma di accesso condiviso per tabelle e code]
 
   [parte 1]: ../storage-dotnet-shared-access-signature-part-1/
-  [pacchetto NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package"
+  [pacchetto NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "pacchetto NuGet"
   [Azure SDK per .NET]: http://www.windowsazure.com/it-it/downloads/
   [estensione Gestione pacchetti NuGet per Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Gestire l'accesso alle risorse di archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee393343.aspx
-  [Delega dell'accesso con una firma di accesso condiviso (API REST)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee395415.aspx
   [Introduzione alla firma di accesso condiviso per tabelle e code]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

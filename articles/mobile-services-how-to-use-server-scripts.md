@@ -872,7 +872,7 @@ Si noti che la stringa `%j` viene usata come segnaposto per un oggetto JSON e ch
 
 Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare le chiamate a console.log() che non sono necessarie per l'utilizzo in produzione.
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [Introduzione]: #intro
   [Operazioni su tabella]: #table-scripts

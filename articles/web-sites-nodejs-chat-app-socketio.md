@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Creare un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure
 
@@ -276,7 +276,6 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 
   []: http://socket.io/
   [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/app-using-socketio/
-  [repository GitHub Socket.IO]: https://github.com/Automattic/socket.io
   [versione archiviata ZIP o GZ]: https://github.com/Automattic/socket.io/releases
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E
   [portale di gestione di Azure]: https://manage.windowsazure.com

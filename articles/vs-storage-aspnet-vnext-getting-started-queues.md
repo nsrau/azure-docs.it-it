@@ -1,6 +1,6 @@
 <properties title="Introduzione all'Archiviazione di Azure" pageTitle="Introduzione all'Archiviazione di Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -44,5 +44,4 @@ Per altre informazioni, vedere [ASP.NET vNext][ASP.NET vNext].
   [BLOB]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/
   [Tabelle]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-tables/
   [Come utilizzare l'archiviazione di accodamento da .NET]: http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET"
-  [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md
   [ASP.NET vNext]: http://www.asp.net/vnext

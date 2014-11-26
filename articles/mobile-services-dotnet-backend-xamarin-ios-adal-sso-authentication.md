@@ -122,8 +122,8 @@ Per completare questa esercitazione, è necessario disporre di:
 
 ![][0]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
   [Registrare il servizio mobile in Azure Active Directory]: #register-mobile-service-aad
@@ -135,9 +135,6 @@ Per completare questa esercitazione, è necessario disporre di:
   [Xamarin Studio]: http://xamarin.com/download
   [Introduzione ai dati]: /it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [Xamarin per Active Directory Authentication Library per iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [registrazione in Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png

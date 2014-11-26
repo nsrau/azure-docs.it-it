@@ -296,7 +296,6 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
   [Test dell'app]: #run-app
   [collegamento]: http://go.microsoft.com/fwlink/?LinkId=389797
   [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
@@ -305,7 +304,6 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
   [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
   [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
   [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [Add Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
   [interfaccia REST]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx
   [Back-end .NET]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

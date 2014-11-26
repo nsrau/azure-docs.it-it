@@ -20,5 +20,4 @@ Dopo avere registrato il pacchetto di app, specificare un valore **true** per *u
 
   [Guida introduttiva: Aggiunta di notifiche push per un servizio mobile]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [Autenticazione dell'app di Windows Store per l'accesso Single Sign-On di Live Connect]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

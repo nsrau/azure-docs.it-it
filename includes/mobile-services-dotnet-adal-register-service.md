@@ -2,9 +2,9 @@
 
 In questa sezione verrà registrato il servizio mobile in Azure Active Directory e verranno configurate le autorizzazioni per consentire la rappresentazione Single Sign-On.
 
-1.  Registrare l'applicazione per l'uso di Azure Active Directory attenendosi alla procedura descritta nell'argomento [Come eseguire la registrazione ad Azure Active Directory][].
+1.  Registrare l'applicazione per l'uso di Azure Active Directory attenendosi alla procedura descritta nell'argomento [Come eseguire la registrazione ad Azure Active Directory][Come eseguire la registrazione ad Azure Active Directory].
 
-2.  Nel [portale di gestione di Azure][] tornare all'estensione Active Directory e fare clic sulla directory attiva.
+2.  Nel [portale di gestione di Azure][portale di gestione di Azure] tornare all'estensione Active Directory e fare clic sulla directory attiva.
 
 3.  Fare clic sulla scheda **Applicazioni** e quindi sull'applicazione creata.
 
@@ -41,7 +41,7 @@ In questa sezione verrà registrato il servizio mobile in Azure Active Directory
 
 2.  Nel portale di gestione di Azure fare di nuovo clic su **Gestisci manifesto** per l'applicazione e quindi su **Carica manifesto**. Passare al percorso del manifesto dell'applicazione appena aggiornato e caricare il manifesto.
 
-<!-- URLs. -->
+
 
   [Come eseguire la registrazione ad Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [portale di gestione di Azure]: https://manage.windowsazure.com/

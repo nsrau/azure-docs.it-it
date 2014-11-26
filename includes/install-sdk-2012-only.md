@@ -4,7 +4,7 @@ Per iniziare, installare Azure SDK per .NET per configurare l'ambiente di svilup
 
 1.  Per installare l'SDK, fare clic sul collegamento seguente. Per questa esercitazione è necessario disporre di Visual Studio 2012. Se non è presente, verrà installato Visual Studio Express per il Web insieme all'SDK.
 
-    -   [Azure SDK per Visual Studio 2012][]
+    -   [Azure SDK per Visual Studio 2012][Azure SDK per Visual Studio 2012]
 
     **Nota:** in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
 
@@ -12,7 +12,7 @@ Per iniziare, installare Azure SDK per .NET per configurare l'ambiente di svilup
 
 3.  Nell'Installazione guidata piattaforma Web fare clic su **Installa** e procedere con l'installazione.
 
-    ![Installazione guidata piattaforma Web - Azure SDK per .NET][]
+    ![Installazione guidata piattaforma Web - Azure SDK per .NET][Installazione guidata piattaforma Web - Azure SDK per .NET]
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
 

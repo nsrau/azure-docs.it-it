@@ -183,5 +183,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Procedura: Ricevere messaggi da una coda]: #bkmk_HowToReceiveMsgs
   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #bkmk_HowToHandleAppCrashes
   [Passaggi successivi]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

@@ -122,7 +122,9 @@ Con il codice seguente è possibile eseguire il seeding nella sola colonna UserI
 
 Questo codice chiama il metodo [AddOrUpdate][AddOrUpdate] con estensione helper per aggiungere dati di seeding alla nuova colonna UserId. Con [AddOrUpdate][AddOrUpdate] non vengono create righe duplicate.
 
-<!-- Anchors --> <!-- Images --> <!-- URLs -->
+<!-- Anchors -->
+<!-- Images -->
+<!-- URLs -->
 
   [DbContext]: http://msdn.microsoft.com/it-it/library/system.data.entity.dbcontext(v=vs.113).aspx
   [portale di gestione di Azure]: https://manage.windowsazure.com/

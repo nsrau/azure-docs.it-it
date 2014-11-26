@@ -19,6 +19,7 @@ Per informazioni su come gestire gli utenti, vedere il collegamento.
 ## Come distribuire i servizi Web di produzione
 Per informazioni su come distribuire i servizi Web di produzione, vedere il collegamento.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [0]: ./media/machine-learning-manage-workspace/mw1.png

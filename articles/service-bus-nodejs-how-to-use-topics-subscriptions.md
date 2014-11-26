@@ -315,7 +315,6 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #handle-crashes
   [Procedura: Eliminare argomenti e sottoscrizioni]: #delete
   [1]: #next-steps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sito Web con WebMatrix]: /it-it/develop/nodejs/tutorials/web-site-with-webmatrix/

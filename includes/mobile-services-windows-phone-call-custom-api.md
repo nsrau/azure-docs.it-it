@@ -60,8 +60,8 @@
 
 4.  Toccare il pulsante **Complete All**.
 
-    ![][]
+    ![][0]
 
     Viene visualizzata una finestra di messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata viene eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-  []: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png
+  [0]: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png

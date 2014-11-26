@@ -807,5 +807,5 @@ Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'amministrazione di database SQL, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di amministrazione più complesse.
 
 -   Vedere [Database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/gg619386) in MSDN
--   Vedere la pagina relativa al [database SQL in TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
+-   Vedere la pagina relativa al [database SQL in TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-it-it.aspx)
 

@@ -710,9 +710,9 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 -   [Aggiungere notifiche push][Aggiungere notifiche push], ad esempio quando viene aggiunto un nuovo giocatore o viene aggiornato un punteggio.
 -   [Introduzione all'autenticazione][Introduzione all'autenticazione]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [API Web ASP.NET]: http://asp.net/web-api
   [Panoramica]: #overview

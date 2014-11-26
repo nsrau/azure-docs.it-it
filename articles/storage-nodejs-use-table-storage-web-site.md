@@ -1,16 +1,16 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Sito Web Node.js con il servizio di archiviazione tabelle | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Esercitazione che illustra come usare il servizio tabelle di Azure per archiviare i dati da un'applicazione Node ospitata in un sito Web di Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Applicazione Web Node.js con il servizio tabelle di Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Applicazione Web Node.js con il servizio tabelle di Azure
 
-In questa esercitazione viene illustrato come usare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [Node][Node] ospitata in Azure. In questa esercitazione si presuppone che l'utente abbia già usato l'applicazione Node e [Git][Git].
+In questa esercitazione viene illustrato come utilizzare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [Node][Node] ospitata in Azure. In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git][Git].
 
 Si apprenderà come:
 
--   Usare npm (Node Package Manager) per installare i moduli di Node
+-   Utilizzare npm (Node Package Manager) per installare i moduli di Node
 
--   Usare il servizio tabelle di Azure
+-   Utilizzare il servizio tabelle di Azure
 
 -   Usare lo strumento da riga di comando di Azure per Mac e Linux per creare un sito Web di Azure
 
@@ -22,7 +22,7 @@ I file di progetto per questa esercitazione verranno archiviati in una directory
 
 > [WACOM.NOTE] In questa esercitazione si fa riferimento alla cartella **tasklist**. Il percorso completo della cartella è omesso, in quanto la semantica dei percorsi varia da un sistema operativo all'altro. È consigliabile creare la cartella in un percorso di facile accesso nel file system locale, ad esempio **~/node/tasklist** o **c:\\node\\tasklist**.
 
-> [WACOM.NOTE] Molte delle procedure illustrate di seguito prevedono l'uso della riga di comando. Per tali procedure, usare la riga di comando per il sistema operativo in uso, ad esempio **cmd.exe** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione Terminale.
+> [WACOM.NOTE] Molte delle procedure illustrate di seguito prevedono l'utilizzo della riga di comando. Per tali procedure, utilizzare la riga di comando per il sistema operativo in uso, ad esempio **cmd.exe** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione Terminale.
 
 ## Prerequisiti
 
@@ -40,13 +40,13 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
 ## Creare un account di archiviazione
 
-Procedere come descritto di seguito per creare un account di archiviazione. Tale account verrà usato in istruzioni successive nella presente esercitazione.
+Procedere come descritto di seguito per creare un account di archiviazione. Tale account verrà utilizzato in istruzioni successive nella presente esercitazione.
 
 1.  Aprire il Web browser e passare al [portale di Azure][portale di Azure]. Se richiesto, accedere con le informazioni della sottoscrizione di Azure.
 
 2.  Nella parte inferiore della pagina del portale, fare clic su **+ NEW**, quindi selezionare **Storage Account**.
 
-    ![+new][+new]
+    ![+nuovo][+nuovo]
 
     ![storage account][storage account]
 
@@ -62,7 +62,7 @@ Procedere come descritto di seguito per creare un account di archiviazione. Tale
 
 ## Installazione dei moduli e generazione dello scaffolding
 
-In questa sezione verrà creata una nuova applicazione Node e verrà usato npm per aggiungere pacchetti di modulo. Per l'applicazione tasklist verranno usati i moduli [Express][Express] e [Azure][Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
+In questa sezione verrà creata una nuova applicazione Node e verrà utilizzato npm per aggiungere pacchetti di modulo. Per l'applicazione tasklist verranno utilizzati i moduli [Express][Express] e [Azure][Azure]. Il modulo Express fornisce un modello di framework View Controller per Node, mentre i moduli Azure forniscono la connettività al servizio tabelle.
 
 ### Installare Express e generare lo scaffolding
 
@@ -72,7 +72,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 
         npm install express-generator@4.2.0 -g
 
-    > [WACOM.NOTE] Durante l'uso del parametro '-g' in alcuni sistemi operativi, è possibile che vengano restituiti l'errore **Error: EPERM, chmod '/usr/local/bin/express'** con la richiesta di provare ad eseguire l'account come amministratore. In questo caso, usare il comando **sudo** per eseguire npm a un livello di privilegi più elevato.
+    > [WACOM.NOTE] Durante l'utilizzo del parametro '-g' in alcuni sistemi operativi, è possibile che vengano restituiti l'errore **Error: EPERM, chmod '/usr/local/bin/express'** con la richiesta di provare ad eseguire l'account come amministratore. In questo caso, utilizzare il comando **sudo** per eseguire npm a un livello di privilegi più elevato.
 
     L'output di questo comando dovrebbe apparire simile al seguente:
 
@@ -80,9 +80,9 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
 
-    > [WACOM.NOTE] Se si usa il parametro '-g' durante l'installazione del modulo Express, questo viene installato a livello globale, affinché sia possibile accedere al comando **express** per generare lo scaffolding del sito Web senza dover generare informazioni aggiuntive sul percorso.\*\*
+    > [WACOM.NOTE] Se si utilizza il parametro '-g' durante l'installazione del modulo Express, questo viene installato a livello globale, affinché sia possibile accedere al comando **express** per generare lo scaffolding del sito Web senza dover generare informazioni aggiuntive sul percorso.\*\*
 
-3.  Per creare lo scaffolding che verrà usato per questa applicazione, usare il comando **express**:
+3.  Per creare lo scaffolding che verrà utilizzato per questa applicazione, utilizzare il comando **express**:
 
         express
 
@@ -194,7 +194,7 @@ Il file **package.json** è uno di quelli creati dal comando **express**. Questo
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (forever-agent@0.5.2, aws-sign@0.3.0, json-stringify-safe@5.0.0, tunnel-agent@0.3.0, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, form-data@0.1.4, hawk@1.0.0, http-signature@0.10.0)
 
-## Uso del servizio tabelle in un'applicazione Node
+## Utilizzo del servizio tabelle in un'applicazione Node
 
 In questa sezione si estenderà l'applicazione di base creata dal comando **express** aggiungendo un file **task.js** contenente il modello per le attività. Si modificherà inoltre il file **app.js** esistente e si creerà un nuovo file **tasklist.js** che utilizzi il modello.
 
@@ -282,7 +282,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 1.  Nella directory **tasklist/routes** creare un nuovo file denominato **tasklist.js** e aprirlo in un editor di testo.
 
-2.  Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, usati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
+2.  Aggiungere il seguente codice al file **tasklist.js**. Ciò consente il caricamento dei moduli di Azure e di quelli asincroni, utilizzati da **tasklist.js**. Viene inoltre definita la funzione **TaskList**, che viene passata come un'istanza dell'oggetto **Task** definito in precedenza:
 
         var azure = require('azure-storage');
         var async = require('async');
@@ -343,7 +343,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 1.  Nella directory **tasklist** aprire il file **app.js** in un editor di testo. Questo file è stato creato in precedenza eseguendo il comando **express**.
 
-2.  Aggiungere quanto riportato di seguito all'inizio del file per caricare il modulo di Azure, impostare il nome della tabella, partitionKey, e impostare le credenziali di archiviazione usate da questo esempio:
+2.  Aggiungere quanto riportato di seguito all'inizio del file per caricare il modulo di Azure, impostare il nome della tabella, partitionKey, e impostare le credenziali di archiviazione utilizzate da questo esempio:
 
         var azure = require('azure-storage');
         var nconf = require('nconf');
@@ -421,7 +421,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 ### Modificare il layout globale
 
-Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
+Il file **layout.jade** della directory **views** viene utilizzato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap][Twitter Bootstrap], un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
 1.  Scaricare ed estrarre i file per [Twitter Bootstrap][1]. Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 
@@ -443,7 +443,7 @@ Il file **layout.jade** della directory **views** viene usato come modello globa
 
 ### Creare il file di configurazione
 
-Il file **config.json** contiene la stringa di connessione usata per la connessione al database SQL e viene letto dall'applicazione in fase di esecuzione. Per creare questo file, eseguire la procedura seguente:
+Il file **config.json** contiene la stringa di connessione utilizzata per la connessione al database SQL e viene letto dall'applicazione in fase di esecuzione. Per creare questo file, eseguire la procedura seguente:
 
 1.  Nella directory **tasklist** creare un nuovo file denominato **config.json** e aprirlo in un editor di testo.
 
@@ -466,15 +466,15 @@ Per eseguire il test dell'applicazione nel computer locale, eseguire la procedur
 
 1.  Dalla riga di comando passare alla directory **tasklist**.
 
-2.  Usare il comando seguente per avviare l'applicazione in locale:
+2.  Utilizzare il comando seguente per avviare l'applicazione in locale:
 
         npm start
 
-3.  Aprire un Web browser e passare a http://127.0.0.1:3000. La pagina Web visualizzata dovrebbe essere simile alla seguente:
+3.  Aprire il Web browser e passare all'indirizzo <http://127.0.0.1:3000>. Verrà visualizzata una pagina Web simile alla seguente:
 
     ![Pagina Web con un elenco di attività vuoto][Pagina Web con un elenco di attività vuoto]
 
-4.  Usare i campi **Item Name** e **Item Category** per l'immissione delle informazioni, quindi fare clic su **Add item**.
+4.  Utilizzare i campi **Item Name** e **Item Category** per l'immissione delle informazioni, quindi fare clic su **Add item**.
 
 5.  La pagina verrà aggiornata e l'elemento verrà visualizzato nella tabella dell'elenco attività.
 
@@ -550,9 +550,9 @@ Prima di usare gli strumenti da riga di comando con Azure, è necessario scarica
 
     Verrà richiesto di specificare il nome del sito Web e il data center in cui si troverà il sito. Fornire un nome univoco e selezionare un data center geograficamente vicino alla propria posizione.
 
-    Il parametro `--git` creerà un archivio Git per il sito Web in Azure. Verrà inoltre inizializzato un archivio Git nella directory corrente, se non ne esiste già uno. Creerà anche un [repository Git remoto][repository Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
+    Il parametro `--git` creerà un archivio Git per il sito Web in Azure. Verrà inoltre inizializzato un archivio Git nella directory corrente, se non ne esiste già uno. Creerà anche un [archivio Git remoto][archivio Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
 
-    > [WACOM.NOTE] Se questo comando viene eseguito da una directory che contiene già un repository Git, la directory non verrà reinizializzata.
+    > [WACOM.NOTE] Se questo comando viene eseguito da una directory che contiene già un archivio Git, la directory non verrà reinizializzata.
 
     > [WACOM.NOTE] Se il parametro `--git` viene omesso ma la directory contiene un archivio Git, l'archivio 'azure' verrà comunque creato.
 
@@ -577,12 +577,12 @@ Prima di usare gli strumenti da riga di comando con Azure, è necessario scarica
 
 1.  Nella finestra del terminale passare alla directory **tasklist** se non è già stato fatto.
 
-2.  Usare i comandi seguenti per aggiungere e quindi confermare i file nel repository Git locale:
+2.  Usare i comandi seguenti per aggiungere e quindi confermare i file nell'archivio Git locale:
 
         git add .
         git commit -m "adding files"
 
-3.  Durante il push delle ultime modifiche apportate a repository Git nel sito Web di Azure, è necessario specificare che il ramo di destinazione è **master** perché viene usato per il contenuto del sito Web.
+3.  Durante il push delle ultime modifiche apportate all'archivio Git nel sito Web di Azure, è necessario specificare che il ramo di destinazione è **master** perché viene usato per il contenuto del sito Web.
 
         git push azure master
 
@@ -636,15 +636,16 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 ## Risorse aggiuntive
 
-[Strumento da riga di comando di Azure per Mac e Linux] [Creare e distribuire un'applicazione Node.js in Siti Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Pubblicazione in Siti Web di Azure con Git][Pubblicazione in Siti Web di Azure con Git]: /it-it/documentation/articles/web-sites-publish-source-control/
+[Strumento da riga di comando di Azure per Mac e Linux] 
+
+[Creare e distribuire un'applicazione Node.js in Siti Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Pubblicazione in Siti Web di Azure con Git]: /it-it/documentation/articles/web-sites-publish-source-control/
 [Centro per sviluppatori di Azure]: /it-it/develop/nodejs/
 
   [Node]: http://nodejs.org
   [Git]: http://git-scm.com
   [Pagina Web con un elenco di attività vuoto]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [portale di Azure]: http://windowsazure.com
-  [+new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [storage account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [quick create]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [chiavi di accesso]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -654,12 +655,12 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
   [1]: http://getbootstrap.com/
   [Immagine del nuovo elemento nell'elenco delle attività]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Strumento da riga di comando di Azure per Mac e Linux]: /it-it/documentation/articles/xplat-cli/
   [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]: /it-it/documentation/articles/xplat-cli/
   [Pagina di download]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
-  [repository Git remoto]: http://git-scm.com/docs/git-remote
+  [archivio Git remoto]: http://git-scm.com/docs/git-remote
   [Apertura del dashboard del sito Web]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [Collegamento Configura]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [Salvataggio impostazioni app]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [applicazione Web Node.js con MongoDB]: /it-it/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Pubblicazione in Siti Web di Azure con Git]: /it-it/documentation/articles/web-sites-publish-source-control/

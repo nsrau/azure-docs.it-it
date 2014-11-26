@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Automazione dei servizi mobili con gli strumenti da riga di comando
 
 In questo argomento viene illustrato come utilizzare gli strumenti da riga di comando di Azure per automatizzare la creazione e la gestione di Servizi mobili di Azure e viene descritto come installare e iniziare a utilizzare gli strumenti da riga di comando per eseguire le attività di Servizi mobili seguenti:
 
--   [Creazione di un nuovo servizio mobile][]
--   [Creazione di una nuova tabella][]
--   [Registrazione di uno script in un'operazione su tabella][]
--   [Visualizzazione di un elenco di tabelle][]
--   [Eliminazione di una tabella esistente][]
--   [Visualizzazione di un elenco di servizi mobili][]
--   [Eliminazione di un servizio mobile esistente][]
+-   [Creazione di un nuovo servizio mobile][Creazione di un nuovo servizio mobile]
+-   [Creazione di una nuova tabella][Creazione di una nuova tabella]
+-   [Registrazione di uno script in un'operazione su tabella][Registrazione di uno script in un'operazione su tabella]
+-   [Visualizzazione di un elenco di tabelle][Visualizzazione di un elenco di tabelle]
+-   [Eliminazione di una tabella esistente][Eliminazione di una tabella esistente]
+-   [Visualizzazione di un elenco di servizi mobili][Visualizzazione di un elenco di servizi mobili]
+-   [Eliminazione di un servizio mobile esistente][Eliminazione di un servizio mobile esistente]
 
 Se combinati in un unico script o file batch, questi singoli comandi consentono di automatizzare i processi di creazione, verifica ed eliminazione di un servizio mobile.
 
 Per utilizzare gli strumenti da riga di comando di Azure per gestire Servizi mobili, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Servizi mobili di Azure.
 
--   Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+-   Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
 
--   Se si dispone di un account, ma è necessario abilitare l'anteprima di Servizi mobili di Azure, vedere la pagina relativa all'[abilitazione dell'anteprima delle funzionalità di Azure][].
+-   Se si dispone di un account, ma è necessario abilitare l'anteprima di Servizi mobili di Azure, vedere la pagina relativa all'[abilitazione dell'anteprima delle funzionalità di Azure][abilitazione dell'anteprima delle funzionalità di Azure].
 
-In questo argomento vengono illustrate alcune attività di amministrazione comuni supportate dagli strumenti da riga di comando di Azure. Per ulteriori informazioni, vedere la [documentazione degli strumenti da riga di comando di Azure][].
+In questo argomento vengono illustrate alcune attività di amministrazione comuni supportate dagli strumenti da riga di comando di Azure. Per ulteriori informazioni, vedere la [documentazione degli strumenti da riga di comando di Azure][documentazione degli strumenti da riga di comando di Azure].
 
 <!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic.   + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
@@ -30,11 +30,11 @@ In questo argomento vengono illustrate alcune attività di amministrazione comun
 
 Nell'elenco seguente vengono fornite informazioni per l'installazione degli strumenti da riga di comando in base al sistema operativo in uso.
 
--   **Windows**: scaricare il [programma di installazione degli strumenti da riga di comando di Azure][]. Aprire il file .msi scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
+-   **Windows**: scaricare il [programma di installazione degli strumenti da riga di comando di Azure][programma di installazione degli strumenti da riga di comando di Azure]. Aprire il file .msi scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
 
--   **Mac**: scaricare il [programma di installazione di Azure SDK][]. Aprire il file .pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
+-   **Mac**: scaricare il [programma di installazione di Azure SDK][programma di installazione di Azure SDK]. Aprire il file .pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
 
--   **Linux**: installare la versione più recente di [Node.js][] (vedere [Install Node.js via Package Manager][]), quindi eseguire il comando seguente:
+-   **Linux**: installare la versione più recente di [Node.js][Node.js] (vedere [Install Node.js via Package Manager][Install Node.js via Package Manager]), quindi eseguire il comando seguente:
 
         npm install azure-cli -g
 
@@ -62,7 +62,7 @@ Per visualizzare un elenco di opzioni per i comandi `account`, usare l'opzione `
 
         azure account -help
 
-Dopo l'importazione delle impostazioni di pubblicazione, è opportuno eliminare il file `.publishsettings` per motivi di sicurezza. Per ulteriori informazioni, vedere [Come installare gli strumenti da riga di comando di Azure per Mac e Linux][]. A questo punto è possibile iniziare a creare e gestire Servizi mobili di Azure dalla riga di comando o in file batch.
+Dopo l'importazione delle impostazioni di pubblicazione, è opportuno eliminare il file `.publishsettings` per motivi di sicurezza. Per ulteriori informazioni, vedere [Come installare gli strumenti da riga di comando di Azure per Mac e Linux][Come installare gli strumenti da riga di comando di Azure per Mac e Linux]. A questo punto è possibile iniziare a creare e gestire Servizi mobili di Azure dalla riga di comando o in file batch.
 
 ## <a name="create-service"></a><span class="short-header">Creazione del servizio</span>Come creare un servizio mobile
 
@@ -106,7 +106,7 @@ Usare il comando seguente per creare una nuova tabella con autorizzazione `read`
 
         azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-Nella tabella seguente è illustrato il valore dell'autorizzazione dello script rispetto al valore dell'autorizzazione nel [portale di gestione di Azure][].
+Nella tabella seguente è illustrato il valore dell'autorizzazione dello script rispetto al valore dell'autorizzazione nel [portale di gestione di Azure][portale di gestione di Azure].
 
 | Valore script               | Valore portale di gestione          |
 |-----------------------------|-------------------------------------|
@@ -149,9 +149,9 @@ La dichiarazione di funzione nel file di script deve corrispondere all'operazion
             ...
         } 
 
-Per ulteriori informazioni sulla registrazione di script, vedere la pagina relativa al [riferimento agli script del server di Servizi mobili][].
+Per ulteriori informazioni sulla registrazione di script, vedere la pagina relativa al [riferimento agli script del server di Servizi mobili][riferimento agli script del server di Servizi mobili].
 
-<!--<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>  When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to   ## <a name="nextsteps"> </a>Next Steps Next steps here.... --> <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!--<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>  When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to   ## <a name="nextsteps"> </a>Next Steps Next steps here.... -->  
 
   [Creazione di un nuovo servizio mobile]: #create-service
   [Creazione di una nuova tabella]: #create-table

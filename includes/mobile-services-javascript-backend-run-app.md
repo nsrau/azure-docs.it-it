@@ -14,11 +14,11 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 5.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
 
-    ![][]
+    ![][0]
 
     In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

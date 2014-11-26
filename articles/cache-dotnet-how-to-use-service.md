@@ -461,7 +461,9 @@ cache gestita, visitare i collegamenti seguenti per altre informazioni su come e
 -   Informazioni sulla migrazione al Servizio cache gestita: [Migrazione al Servizio cache gestita][Migrazione al Servizio cache gestita]
 -   Consultare gli esempi: [Esempi del Servizio cache gestita][Esempi del Servizio cache gestita]
 
-<!-- INTRA-TOPIC LINKS --> <!-- IMAGES --> <!-- LINKS -->
+<!-- INTRA-TOPIC LINKS -->
+<!-- IMAGES -->
+<!-- LINKS -->
 
   [Passaggi successivi]: #next-steps
   [Informazioni sul Servizio cache gestita di Azure]: #what-is

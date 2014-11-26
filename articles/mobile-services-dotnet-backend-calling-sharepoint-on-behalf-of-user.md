@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # Accedere a SharePoint per conto dell'utente
 
@@ -36,7 +36,7 @@ Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni
 
 1.  Nella sezione **Active Directory** del [portale di gestione di Azure][portale di gestione di Azure] selezionare il tenant usato. Passare all'applicazione Web creata per il servizio mobile.
 
-    ![][]
+    ![][0]
 
 2.  Nella scheda **Configura** scorrere nella pagina fino alla sezione delle autorizzazioni per altre applicazioni. Selezionare **Office 365 SharePoint Online** e concedere l'autorizzazione delegata per **modificare o eliminare i file degli utenti**. Fare quindi clic su **Salva**.
 
@@ -72,7 +72,7 @@ Per poter accedere a SharePoint, è necessario uno speciale token di accesso la 
 
 1.  Aprire il progetto back-end di Servizi mobili in Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1.  Nel progetto back-end di Servizi mobili creare una nuova classe denominata SharePointUploadContext. Aggiungere alla classe il codice seguente:
 
@@ -185,11 +185,10 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 
     ![][4]
 
-<!-- Images. -->
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [video di esercitazione]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services
+
+
+
   [Configurare l'applicazione per l'accesso delegato a SharePoint]: #configure-permissionss
   [Aggiungere le informazioni di SharePoint al servizio mobile]: #store-credentials
   [Ottenere un token di accesso e chiamare l'API di SharePoint]: #obtain-token
@@ -198,9 +197,8 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
   [SharePoint Online]: http://office.microsoft.com/it-it/sharepoint/
   [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [portale di gestione di Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
+  [0]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
   [1]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-sharepoint-permissions.png
   [2]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-manage-secret-key.png
   [3]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/mobile-services-app-settings-sharepoint.png
-  [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
   [4]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/sharepoint-document-created.png

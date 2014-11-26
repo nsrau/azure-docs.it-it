@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introduzione a Gestione API di Azure
 
@@ -8,32 +8,32 @@ Questa guida illustra le procedure per iniziare subito a usare Gestione API ed e
 
 ## Contenuto dell'argomento
 
--   [Creare un'istanza di Gestione API][]
--   [Creare un'API][]
--   [Aggiungere un'operazione][]
--   [Aggiungere la nuova API a un prodotto][]
--   [Sottoscrivere il prodotto che contiene l'API][]
--   [Chiamare un'operazione dal portale per sviluppatori][]
--   [Visualizzare l'analisi][]
--   [Passaggi successivi][]
+-   [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API]
+-   [Creare un'API][Creare un'API]
+-   [Aggiungere un'operazione][Aggiungere un'operazione]
+-   [Aggiungere la nuova API a un prodotto][Aggiungere la nuova API a un prodotto]
+-   [Sottoscrivere il prodotto che contiene l'API][Sottoscrivere il prodotto che contiene l'API]
+-   [Chiamare un'operazione dal portale per sviluppatori][Chiamare un'operazione dal portale per sviluppatori]
+-   [Visualizzare l'analisi][Visualizzare l'analisi]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="create-service-instance"> </a>Creare un'istanza di Gestione API
 
-> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
 
-Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di gestione][] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
+Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di gestione][portale di gestione] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
 
-![API Management new instance][]
+![API Management new instance][API Management new instance]
 
 Per **URL** specificare un nome univoco di sottodominio da usare per l'URL del servizio.
 
 Specificare i valori desiderati di **Livello di prezzo**, **Sottoscrizione** e **Area** per l'istanza del servizio. Per questa esercitazione si possono usare tutti i livelli di prezzo. Una volta effettuate le selezioni, fare clic sul pulsante Avanti.
 
-![New API Management service][]
+![New API Management service][New API Management service]
 
 Immettere **Contoso Ltd.** in **Nome organizzazione** e specificare l'indirizzo di posta elettronica nel campo Indirizzo di posta elettronica dell'amministratore.
 
-> Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Configurare le notifiche][].
+> Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Configurare le notifiche][Configurare le notifiche].
 
 Selezionare la casella di controllo per creare l'istanza del servizio.
 
@@ -53,13 +53,13 @@ In questa esercitazione viene usato il servizio Web <http://echoapi.cloudapp.net
 
 Le API vengono create e configurate dalla console di Gestione API, accessibile tramite il portale di gestione di Azure. Per passare alla console di Gestione API, fare clic su **Console di gestione** nel portale di Azure per il servizio Gestione API.
 
-![New API Management console][]
+![New API Management console][New API Management console]
 
 Per creare l'**API My Echo**, fare clic su **API** nel menu **Gestione API** sulla sinistra, quindi scegliere **Aggiungi API**.
 
-![Create API][]
+![Create API][Create API]
 
-![Add new API][]
+![Add new API][Add new API]
 
 Per configurare la nuova API, vengono usati i tre campi seguenti.
 
@@ -69,11 +69,11 @@ Per configurare la nuova API, vengono usati i tre campi seguenti.
 
 Fare clic su **Salva** per creare l'API. Una volta creata la nuova API, la pagina di riepilogo dell'API viene visualizzata nel portale di gestione.
 
-![API summary][]
+![API summary][API summary]
 
 La sezione API comprende quattro schede. Nella scheda **Riepilogo** sono visualizzate le informazioni e le metriche di base sull'API. La scheda **Impostazioni** consente di visualizzare e modificare la configurazione di un'API, incluse le credenziali di autenticazione per il servizio back-end. La scheda **Operazioni** consente di gestire le operazioni dell'API e viene usata nel passaggio successivo di questa esercitazione; la scheda **Problemi** può invece essere usata per visualizzare i problemi segnalati dagli sviluppatori che usano le API.
 
-> Nell'API Echo di esempio non viene usata l'autenticazione, ma per altre informazioni sulla configurazione dell'autenticazione, vedere [Configurare le impostazioni dell'API][].
+> Nell'API Echo di esempio non viene usata l'autenticazione, ma per altre informazioni sulla configurazione dell'autenticazione, vedere [Configurare le impostazioni dell'API][Configurare le impostazioni dell'API].
 
 Dopo aver creato un'API e avere configurato le impostazioni, il passaggio successivo consiste nell'aggiungere le operazioni all'API. Le definizioni delle operazioni vengono usate per convalidare le richieste in arrivo e generare automaticamente la documentazione.
 
@@ -81,11 +81,11 @@ Dopo aver creato un'API e avere configurato le impostazioni, il passaggio succes
 
 Fare clic su **Operazioni** per visualizzare il riquadro operazioni per l'API. Il riquadro non contiene operazioni dal momento che non ne sono ancora state aggiunte.
 
-![Operations][]
+![Operations][Operations]
 
 Fare clic su **aggiungi operazione** per aggiungere una nuova operazione. Verrà visualizzata la finestra **Nuova operazione** in cui la scheda **Firma** è visualizzata per impostazione predefinita.
 
-![Operation signature][]
+![Operation signature][Operation signature]
 
 In questo esempio verrà specificata un'operazione GET per il servizio Echo. Immettere i valori seguenti nei campi della scheda **Firma**.
 
@@ -114,13 +114,13 @@ Per il secondo parametro di query immettere i valori seguenti.
 
 Fare clic su **Aggiungi** nella sezione Risposte, iniziare a digitare **200** nella casella di testo e quindi selezionare **200 OK** nell'elenco a discesa.
 
-![Add response][]
+![Add response][Add response]
 
 Dopo aver selezionato **200 OK**, all'operazione verrà aggiunto un nuovo codice di risposta e verrà visualizzata la finestra della risposta. Digitare **Returned in all cases.** nella casella di testo **Descrizione**.
 
 ![Add response][3]
 
-> Per configurare le risposte in più rappresentazioni, viene usato **Aggiungi rappresentazione**. Per altre informazioni, vedere [Risposte][].
+> Per configurare le risposte in più rappresentazioni, viene usato **Aggiungi rappresentazione**. Per altre informazioni, vedere [Risposte][Risposte].
 
 Fare clic su **Salva** per aggiungere la nuova operazione configurata all'API.
 
@@ -130,7 +130,7 @@ Prima di effettuare chiamate API gli sviluppatori devono effettuare la sottoscri
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizzare e configurare i prodotti disponibili in questa istanza dell'API.
 
-![Products][]
+![Products][Products]
 
 Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio:
 
@@ -139,7 +139,7 @@ Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti d
 
 In questa esercitazione verrà usato il prodotto **Starter**. Fare clic su **Starter** per visualizzare le impostazioni, incluse le API associate al prodotto.
 
-![Add API][]
+![Add API][Add API]
 
 Fare clic su **Aggiungi API al prodotto**.
 
@@ -147,11 +147,11 @@ Fare clic su **Aggiungi API al prodotto**.
 
 Selezionare la casella **API My Echo** e fare clic su **Salva**.
 
-![API added][]
+![API added][API added]
 
 A questo punto, l'**API My Echo** è associata a un prodotto e gli sviluppatori possono effettuare la sottoscrizione per iniziare a usare l'API.
 
-> In questo passaggio dell'esercitazione viene usato il prodotto Starter, che viene fornito preconfigurato e pronto per l'uso. Per una guida dettagliata sulla creazione e la pubblicazione di un nuovo prodotto, vedere [Come creare e pubblicare un prodotto][].
+> In questo passaggio dell'esercitazione viene usato il prodotto Starter, che viene fornito preconfigurato e pronto per l'uso. Per una guida dettagliata sulla creazione e la pubblicazione di un nuovo prodotto, vedere [Come creare e pubblicare un prodotto][Come creare e pubblicare un prodotto].
 
 ## <a name="subscribe"> </a>Sottoscrivere il prodotto che contiene l'API
 
@@ -159,13 +159,13 @@ Per effettuare chiamate a un'API, gli sviluppatori devono prima sottoscrivere un
 
 Fare clic su **Sviluppatori** nel menu **Gestione API** sulla sinistra per visualizzare e configurare gli sviluppatori in questa istanza del servizio.
 
-![Developers][]
+![Developers][Developers]
 
 Fare clic sul nome dello sviluppatore per configurare le impostazioni per l'utente, incluse le sottoscrizioni.
 
-> In questo esempio verrà effettuata la sottoscrizione di uno sviluppatore il cui nome è Clayton Gragg. Se non sono stati creati account sviluppatore, è possibile sottoscrivere l'account amministratore. Per informazioni sulla creazione di account sviluppatore, vedere [Come gestire gli account sviluppatore in Gestione API di Azure][].
+> In questo esempio verrà effettuata la sottoscrizione di uno sviluppatore il cui nome è Clayton Gragg. Se non sono stati creati account sviluppatore, è possibile sottoscrivere l'account amministratore. Per informazioni sulla creazione di account sviluppatore, vedere [Come gestire gli account sviluppatore in Gestione API di Azure][Come gestire gli account sviluppatore in Gestione API di Azure].
 
-![Add subscription][]
+![Add subscription][Add subscription]
 
 Fare clic su **Aggiungi sottoscrizione**.
 
@@ -173,7 +173,7 @@ Fare clic su **Aggiungi sottoscrizione**.
 
 Selezionare la casella **Starter** e fare clic su **Sottoscrivi**.
 
-![Subscription added][]
+![Subscription added][Subscription added]
 
 Una volta effettuata la sottoscrizione dell'account sviluppatore, è possibile chiamare le API del prodotto.
 
@@ -181,7 +181,7 @@ Una volta effettuata la sottoscrizione dell'account sviluppatore, è possibile c
 
 È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questo passaggio dell'esercitazione verrà chiamato il metodo Get aggiunto all'**API My Echo**. Fare clic su **Portale per sviluppatori** nel menu in alto a destra del portale di gestione.
 
-![Developer portal][]
+![Developer portal][Developer portal]
 
 Fare clic su **API** nel menu superiore e quindi su **API My Echo** per visualizzare le operazioni disponibili.
 
@@ -191,39 +191,39 @@ Notare che vengono visualizzati la descrizione e i parametri aggiunti durante la
 
 Fare clic su **GET su risorsa** e quindi su **Apri console**.
 
-![Operation console][]
+![Operation console][Operation console]
 
 Immettere alcuni valori per i parametri, specificare la chiave sviluppatore e fare clic su **GET HTTP**.
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
-![Response][]
+![Response][Response]
 
 ## <a name="view-analytics"> </a>Visualizzare l'analisi
 
 Per visualizzare l'analisi per l'**API My Echo**, tornare al portale di amministrazione selezionando **Gestisci** nel menu utente in alto a destra nel portale per sviluppatori.
 
-![Manage][]
+![Manage][Manage]
 
 La visualizzazione predefinita del portale di amministrazione è il dashboard, che offre una panoramica dell'istanza di Gestione API.
 
-![Dashboard][]
+![Dashboard][Dashboard]
 
 Passare il puntatore del mouse sul grafico dell'API My Echo per visualizzare le metriche specifiche relative all'utilizzo dell'API in un dato periodo di tempo.
 
 > Se il grafico non contiene linee, tornare al portale per sviluppatori ed effettuare alcune chiamate all'API, attendere qualche secondo e quindi tornare al dashboard.
 
-![Analytics][]
+![Analytics][Analytics]
 
 Fare clic su **Visualizza dettagli** per visualizzare la pagina di riepilogo per l'API, inclusa una versione più estesa delle metriche visualizzate.
 
-![Summary][]
+![Summary][Summary]
 
 Per report e metriche dettagliate fare clic su **Analisi** nel menu **Gestione API** sulla sinistra.
 
-![Overview][]
+![Overview][Overview]
 
 La sezione **Analisi** include le quattro schede seguenti.
 
@@ -234,7 +234,7 @@ La sezione **Analisi** include le quattro schede seguenti.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
+-   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][Introduzione alla configurazione API avanzata].
 
   [Creare un'istanza di Gestione API]: #create-service-instance
   [Creare un'API]: #create-api
@@ -244,7 +244,7 @@ La sezione **Analisi** include le quattro schede seguenti.
   [Chiamare un'operazione dal portale per sviluppatori]: #call-operation
   [Visualizzare l'analisi]: #view-analytics
   [Passaggi successivi]: #next-steps
-  [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [portale di gestione]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png

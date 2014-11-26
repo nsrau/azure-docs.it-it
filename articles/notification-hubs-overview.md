@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Hub di notifica di Azure
 
@@ -29,7 +29,7 @@ A livello generale, tuttavia, i sistemi di notifica tramite piattaforma seguono 
 3.  Per inviare una notifica push, il back-end dell'app contatta il PNS usando l'handle per individuare una specifica istanza di app client.
 4.  Il PNS inoltra quindi la notifica al dispositivo specificato dall'handle.
 
-![][]
+![][0]
 
 ## <span class="short-header">Problematiche associate alle notifiche push</span>Problematiche associate alle notifiche push
 
@@ -71,7 +71,7 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
 -   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
 -   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Uso di Hub di notifica da parte dei clienti]: http://azure.microsoft.com/it-it/services/notification-hubs
   [Esercitazioni e guide sull'HUB di notifica]: http://azure.microsoft.com/it-it/documentation/services/notification-hubs

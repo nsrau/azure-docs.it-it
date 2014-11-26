@@ -127,7 +127,6 @@ Per un confronto tra le code del bus di servizio di Azure discusse in questo art
   [Come inviare messaggi a una coda]: #how-to-send-messages-to-a-queue
   [Come ricevere messaggi da una coda]: #how-to-receive-messages-from-a-queue
   [Come gestire arresti anomali e messaggi illeggibili dell'applicazione]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Creazione di un'applicazione Ruby in Azure]: /it-it/develop/ruby/tutorials/web-app-with-linux-vm/
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

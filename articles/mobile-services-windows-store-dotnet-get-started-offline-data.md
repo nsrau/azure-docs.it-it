@@ -258,7 +258,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 -   [Gestione dei conflitti con il supporto offline per Servizi mobili][Gestione dei conflitti con il supporto offline per Servizi mobili]
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+<!-- Images --> 
 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/

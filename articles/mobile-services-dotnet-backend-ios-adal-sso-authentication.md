@@ -105,7 +105,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
    ![][0]
 
-<!-- Anchors. --> 
+
 
 [Windows Store C#]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows Store C#"
 [iOS]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"

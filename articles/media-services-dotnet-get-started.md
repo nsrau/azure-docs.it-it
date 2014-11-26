@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Media Services" pageTitle="Introduzione a Servizi multimediali - Azure" metaKeywords="Azure media services" description="Introduzione all'uso di Servizi multimediali con Azure." metaCanonical="" services="media-services" documentationCenter="" title="Introduzione a Servizi multimediali" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # <a name="getting-started"></a>Introduzione a Servizi multimediali
 
-In questa esercitazione viene illustrato come iniziare a sviluppare tramite Servizi multimediali di Azure. Vengono illustrati il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione, si sarà in grado di riprodurre un file multimediale di esempio caricato, codificato e scaricato oppure di selezionare l'asset codificato e riprodurlo nel server.
+In questa esercitazione viene illustrato come iniziare a sviluppare tramite Servizi multimediali di Azure. Vengono illustrati il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione utilizzati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione, si sarà in grado di riprodurre un file multimediale di esempio caricato, codificato e scaricato oppure di selezionare l'asset codificato e riprodurlo nel server.
 
 Per un progetto C# creato in Visual Studio contenente il codice di questa esercitazione, fare clic qui: [Download][Download].
 
@@ -20,13 +20,12 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, sono necessari i prerequisiti illustrati di seguito.
 
 -   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Per informazioni dettagliate, vedere [Come creare un account di Servizi multimediali][Come creare un account di Servizi multimediali].
--   Sistemi operativi: Windows 7, Windows 2008 R2, Windows 8 o versioni successive.
+-   Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
 -   .NET Framework 4.5 o .NET Framework 4.
--   Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
--   Installare le librerie di **Azure SDK per .NET**, **Azure Media Services SDK per .NET** e **WCF Data Services 5.0 per OData V3** e aggiungere riferimenti al progetto usando il pacchetto [NuGet windowsazure.mediaservice][NuGet windowsazure.mediaservice]. Nella sezione riportata di seguito viene illustrato come installare e aggiungere questi riferimenti.
+-   Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+-   Installare le librerie di **Azure SDK per .NET**, **Azure Media Services SDK per .NET** e **WCF Data Services 5.0 per OData V3** e aggiungere riferimenti al progetto utilizzando il pacchetto [NuGet windowsazure.mediaservice][NuGet windowsazure.mediaservice]. Nella sezione riportata di seguito viene illustrato come installare e aggiungere questi riferimenti.
 
-> [WACOM.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][versione di valutazione gratuita di Azure].
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 ## <span id="Step1"></span></a>Configurazione del progetto
 
@@ -34,11 +33,11 @@ Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, s
 
 2.  Aggiungere un riferimento all'assembly System.Configuration.
 
-    Per aggiungere riferimenti usando la finestra di dialogo **Gestione riferimenti**, eseguire le operazioni seguenti. Fare clic con il pulsante destro del mouse su **Riferimenti** in **Esplora soluzioni**, quindi scegliere **Aggiungi riferimento**. Nella finestra di dialogo **Gestione riferimenti** selezionare gli assembly appropriati, in questo caso System.Configuration.
+    Per aggiungere riferimenti utilizzando la finestra di dialogo **Gestione riferimenti**, eseguire le operazioni seguenti. Fare clic con il pulsante destro del mouse su **Riferimenti** in **Esplora soluzioni**, quindi scegliere **Aggiungi riferimento**. Nella finestra di dialogo **Gestione riferimenti** selezionare gli assembly appropriati, in questo caso System.Configuration.
 
-3.  Se non si è ancora eseguita questa operazione, aggiungere i riferimenti alle librerie di **Azure SDK per .NET** (Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK per .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) e **WCF Data Services 5.0 per OData V3** (Microsoft.Data.OData.dll) usando il pacchetto [NuGet windowsazure.mediaservices][NuGet windowsazure.mediaservice].
+3.  Se non si è ancora eseguita questa operazione, aggiungere i riferimenti alle librerie di **Azure SDK per .NET** (Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK per .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) e **WCF Data Services 5.0 per OData V3** (Microsoft.Data.OData.dll) utilizzando il pacchetto [NuGet windowsazure.mediaservices][NuGet windowsazure.mediaservice].
 
-    Per aggiungere riferimenti usando il pacchetto NuGet, eseguire le operazioni seguenti. Nel menu principale di Visual Studio scegliere STRUMENTI -\> Gestione pacchetti libreria -\> Console di Gestione pacchetti. Nella finestra della console digitare *Install-Package [nome pacchetto]* e premere INVIO. In questo caso usare comando seguente: *Install-Package windowsazure.mediaservices*.)
+    Per aggiungere riferimenti utilizzando il pacchetto NuGet, eseguire le operazioni seguenti. Scegliere STRUMENTI -\> Gestione pacchetti libreria -\> Console di Gestione pacchetti dal menu principale di Visual Studio. Nella finestra della console digitare *Install-Package [nome pacchetto]* e premere INVIO. In questo caso utilizzare comando seguente: *Install-Package windowsazure.mediaservices*.)
 
 4.  Aggiungere una sezione *appSettings* al file **app.config** e impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure. Il nome e la chiave sono stati forniti durante il processo di configurazione dell'account di Servizi multimediali. Aggiungere tali valori all'attributo value per ciascuna impostazione nel file app.config del progetto Visual Studio.
 
@@ -68,7 +67,7 @@ Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, s
         using Microsoft.WindowsAzure;
         using Microsoft.WindowsAzure.MediaServices.Client;
 
-7.  Aggiungere le variabili di percorso a livello di classe riportate di seguito. Il percorso \*\*\_supportFiles\*\* deve puntare alla cartella creata in un passaggio precedente.
+7.  Aggiungere le variabili di percorso a livello di classe riportate di seguito. Il percorso **_supportFiles** deve puntare alla cartella creata in un passaggio precedente.
 
         // Base support files path.  Update this field to point to the base path  
         // for the local support files folder that you create. 
@@ -88,7 +87,7 @@ Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, s
         private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
         private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
 
-9.  Aggiungere la variabile a livello di classe riportata di seguito usata come riferimento statico al contesto del server.
+9.  Aggiungere la variabile a livello di classe riportata di seguito utilizzata come riferimento statico al contesto del server.
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -97,7 +96,7 @@ Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, s
 
 L'oggetto contesto di Servizi multimediali contiene tutti gli oggetti e le raccolte fondamentali per la programmazione basata su Servizi multimediali. Il contesto include riferimenti a raccolte importanti, tra cui processi, asset, file, criteri di accesso, localizzatori e altri oggetti. Il contesto del server deve essere recuperato per la maggior parte delle attività di programmazione di Servizi multimediali.
 
-Nel file Program.cs aggiungere il codice seguente come primo elemento del metodo **Main**. Questo codice usa i valori del nome e della chiave dell'account di Servizi multimediali presenti nel file app.config per creare un'istanza del contesto del server. L'istanza viene assegnata alla variabile \*\*\_context\*\* creata a livello di classe.
+Nel file Program.cs aggiungere il codice seguente come primo elemento del metodo **Main**. Questo codice utilizza i valori del nome e della chiave dell'account di Servizi multimediali presenti nel file app.config per creare un'istanza del contesto del server. L'istanza viene assegnata alla variabile **_context** creata a livello di classe.
 
     // Get the service context.
     _context = new CloudMediaContext(_accountName, _accountKey);
@@ -107,18 +106,17 @@ Nel file Program.cs aggiungere il codice seguente come primo elemento del metodo
 Il codice contenuto in questa sezione consente di effettuare le seguenti operazioni:
 
 1.  Creare un asset vuoto
+
      Quando si crea un asset, è possibile specificare tre diverse opzioni per la crittografia.
 
     -   **AssetCreationOptions.None**: non applica alcuna crittografia. Impostare questa opzione se si desidera creare un asset non crittografato.
     -   **AssetCreationOptions.CommonEncryptionProtected**: consente di creare file CENC (Common Encryption Protected). Un esempio è un set di file già crittografati con PlayReady.
     -   **AssetCreationOptions.StorageEncrypted**: applica la crittografia di archiviazione. Crittografa un file di input non crittografato prima che venga caricato nei servizi di archiviazione di Azure.
 
-        <div class="dev-callout">
-
-        **Nota**
-        Si noti che Servizi multimediali offre una crittografia di archiviazione su disco, non in rete come Digital Rights Management (DRM).
-
-        </div>
+        <div class="dev-callout"> 
+<strong>Nota</strong> 
+<p>Si noti che Servizi multimediali offre una crittografia di archiviazione su disco, non in rete come Digital Rights Management (DRM).</p> 
+</div>
 
 2.  Creare un'istanza di AssetFile da associare all'asset.
 3.  Creare un'istanza di AccessPolicy che definisce le autorizzazioni e la durata dell'accesso all'asset.
@@ -164,20 +162,19 @@ Aggiungere alla classe i metodi riportati di seguito.
         return asset;
     }
 
-Aggiungere una chiamata al metodo dopo la riga \*\*\_context = new CloudMediaContext(\_accountName, \_accountKey);\*\* del metodo Main.
+Aggiungere una chiamata al metodo dopo la riga **_context = new CloudMediaContext(\_accountName, \_accountKey);** del metodo Main.
 
     IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 
 ## <span id="Step4"></span></a>Codifica di un asset nel server e download di un asset di output
 
-In Servizi multimediali è possibile creare processi che eseguono diversi tipi di elaborazione sui contenuti multimediali: codifica, crittografia, conversioni di formato e così via. Un processo di Servizi multimediali contiene sempre una o più attività che specificano i dettagli dell'elaborazione da eseguire. In questa sezione verrà creata un'attività di codifica di base e verrà eseguito un processo che effettua tale attività mediante Azure Media Encoder. L'attività usa una stringa di set di impostazioni per specificare il tipo di codifica da eseguire. Per verificare i valori di codifica disponibili nel set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][Stringhe di set di impostazioni di attività per Azure Media Encoder]. Servizi multimediali supporta gli stessi formati di input e di output dei file multimediali di Microsoft Expression Encoder. Per un elenco dei formati supportati, vedere l'articolo relativo ai [tipi di file supportati per Servizi multimediali][tipi di file supportati per Servizi multimediali].
+In Servizi multimediali è possibile creare processi che eseguono diversi tipi di elaborazione sui contenuti multimediali: codifica, crittografia, conversioni di formato e così via. Un processo di Servizi multimediali contiene sempre una o più attività che specificano i dettagli dell'elaborazione da eseguire. In questa sezione verrà creata un'attività di codifica di base e verrà eseguito un processo che effettua tale attività mediante Azure Media Encoder. L'attività utilizza una stringa di set di impostazioni per specificare il tipo di codifica da eseguire. Per verificare i valori di codifica disponibili nel set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][Stringhe di set di impostazioni di attività per Azure Media Encoder]. Servizi multimediali supporta gli stessi formati di input e di output dei file multimediali di Microsoft Expression Encoder. Per un elenco dei formati supportati, vedere l'articolo relativo ai [tipi di file supportati per Servizi multimediali][tipi di file supportati per Servizi multimediali].
 
 1.  Aggiungere alla classe la definizione del metodo **CreateEncodingJob** riportata di seguito. Questo metodo mostra come eseguire numerose attività obbligatorie per un processo di codifica.
-
     -   Dichiarare un nuovo processo.
     -   Dichiarare un processore multimediale per la gestione del processo. Un processore multimediale è un componente che gestisce processi di codifica, crittografia, conversione di formato e altri processi di elaborazione correlati. Sono disponibili vari tipi di processori multimediali ed è possibile scorrerli tutti tramite \_context.MediaProcessors. Il metodo GetLatestMediaProcessorByName, illustrato più avanti in questa procedura dettagliata, restituisce il processore Azure Media Encoder.
-    -   Dichiarare una nuova attività. Ogni processo contiene una o più attività. È necessario passare un nome descrittivo, un'istanza del processore multimediale, una stringa di configurazione dell'attività e le opzioni di creazione dell'attività. La stringa di configurazione specifica le impostazioni di codifica. In questo esempio viene usata l'impostazione **H264 Broadband 720p**. Questo set di impostazioni genera un singolo file MP4. Per altre informazioni su questo e altri set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][1].
-    -   Aggiungere all'attività un asset di input. In questo esempio come asset di input viene usato l'asset creato nella sezione precedente.
+    -   Dichiarare una nuova attività. Ogni processo contiene una o più attività. È necessario passare un nome descrittivo, un'istanza del processore multimediale, una stringa di configurazione dell'attività e le opzioni di creazione dell'attività. La stringa di configurazione specifica le impostazioni di codifica. In questo esempio viene utilizzata l'impostazione **H264 Broadband 720p**. Questo set di impostazioni genera un singolo file MP4. Per ulteriori informazioni su questo e altri set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder][1].
+    -   Aggiungere all'attività un asset di input. In questo esempio come asset di input viene utilizzato l'asset creato nella sezione precedente.
     -   Aggiungere all'attività un asset di output. Per un asset di output è necessario specificare un nome descrittivo, un valore booleano per indicare se l'output deve essere salvato nel server al termine del processo o meno e un valore **AssetCreationOptions.None** per indicare che l'output non deve essere crittografato per l'archiviazione e il trasporto.
     -   Inviare il processo.
          L'invio è l'ultimo passaggio necessario per un processo di codifica.
@@ -291,15 +288,15 @@ In Servizi multimediali è possibile creare processi che eseguono diversi tipi d
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  Aggiungere alla classe i metodi helper riportati di seguito. Questi metodi sono necessari per il supporto del metodo **CreateEncodingJob**. Di seguito è riportato un riepilogo dei metodi helper.
-    -   Il metodo **GetLatestMediaProcessorByName** restituisce un processore multimediale appropriato per la gestione di un'attività di codifica, crittografia o un'altra attività di elaborazione correlata. Per creare un processore multimediale è necessario usare il nome di stringa appropriato del processore da creare. Le stringhe che è possibile passare al metodo per il parametro mediaProcessor sono le seguenti: **Azure Media Encoder**, **Windows Azure Media Packager**, **Windows Azure Media Encryptor**, **Storage Decryption**.
+    -   Il metodo **GetLatestMediaProcessorByName** restituisce un processore multimediale appropriato per la gestione di un'attività di codifica, crittografia o un'altra attività di elaborazione correlata. Per creare un processore multimediale è necessario utilizzare il nome di stringa appropriato del processore da creare. Le stringhe che è possibile passare al metodo per il parametro mediaProcessor sono le seguenti: **Azure Media Encoder**, **Azure Media Packager**, **Azure Media Encryptor**, **Storage Decryption**.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Windows Azure Media Packager
-                //   Windows Azure Media Encryptor
+                //   Azure Media Packager
+                //   Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -507,7 +504,7 @@ In Servizi multimediali è possibile creare processi che eseguono diversi tipi d
                 Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
             }
 
-    -   I metodi helper GetJob e GetAsset recuperano tramite query e restituiscono un riferimento a un oggetto processo e un oggetto asset con gli ID specificati. È possibile usare un tipo simile di query LINQ per restituire riferimenti ad altri oggetti Servizi multimediali nel server.
+    -   I metodi helper GetJob e GetAsset recuperano tramite query e restituiscono un riferimento a un oggetto processo e un oggetto asset con gli ID specificati. È possibile utilizzare un tipo simile di query LINQ per restituire riferimenti ad altri oggetti Servizi multimediali nel server.
 
             static IJob GetJob(string jobId)
             {
@@ -612,17 +609,19 @@ Eseguire il programma premendo F5. Nella console verrà visualizzato un output s
 
 5.  Il file multimediale con estensione mp4 e il file \_metadata.xml vengono scaricati nella cartella outputFiles.
 
-> [WACOM.NOTE]
-> Nel modello a oggetti di Servizi multimediali un asset è un oggetto raccolta di contenuto di Servizi multimediali che rappresenta uno o più file. Il percorso localizzatore fornisce un URL BLOB di Azure corrispondente al percorso di base dell'asset nei servizi di archiviazione di Azure. Per accedere a file specifici all'interno dell'asset, aggiungere un nome di file al percorso localizzatore di base.
+<div class="dev-callout"> 
+<strong>Nota</strong> 
+<p>Nel modello a oggetti di Servizi multimediali un asset &egrave; un oggetto raccolta di contenuto di Servizi multimediali che rappresenta uno o pi&ugrave; file. Il percorso localizzatore fornisce un URL BLOB di Azure corrispondente al percorso di base dell'asset nei servizi di archiviazione di Azure. Per accedere a file specifici all'interno dell'asset, aggiungere un nome di file al percorso localizzatore di base.</p> 
+</div>
 
 ## Passaggi successivi
 
 In questa procedura dettagliata è stata illustrata una sequenza di attività di programmazione per la compilazione di un'applicazione Servizi multimediali semplice. Sono state illustrate le attività di programmazione fondamentali di Servizi multimediali, tra cui il recupero del contesto del server, la creazione e la codifica di asset nonché il download di asset presenti nel server o il relativo accesso. Per i passaggi successivi e attività di sviluppo più avanzate, vedere:
 
--   [Come usare Servizi multimediali][Come usare Servizi multimediali]
+-   [Come utilizzare Servizi multimediali][Come utilizzare Servizi multimediali]
 -   [Creazione di applicazioni con l'API REST di Servizi multimediali][Creazione di applicazioni con l'API REST di Servizi multimediali]
 
-<!-- Anchors. -->
+
 
   [Download]: http://go.microsoft.com/fwlink/?linkid=253275
   [Configurazione del progetto]: #Step1
@@ -631,9 +630,8 @@ In questa procedura dettagliata è stata illustrata una sequenza di attività di
   [Codifica di un asset e download di un asset di output]: #Step4
   [Come creare un account di Servizi multimediali]: http://go.microsoft.com/fwlink/?LinkId=256662
   [NuGet windowsazure.mediaservice]: http://nuget.org/packages/windowsazure.mediaservices
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx
   [tipi di file supportati per Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Come usare Servizi multimediali]: http://azure.microsoft.com/it-it/develop/media-services/resources/
+  [Come utilizzare Servizi multimediali]: http://www.windowsazure.com/it-it/develop/net/how-to-guides/media-services/
   [Creazione di applicazioni con l'API REST di Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/hh973618.aspx

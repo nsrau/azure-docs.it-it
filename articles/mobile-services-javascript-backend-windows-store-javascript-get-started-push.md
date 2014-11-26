@@ -84,7 +84,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [versione di app Windows universale]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
   [Registrazione dell'app con Servizi notifica Push Windows e configurazione di Servizi mobili]: #register
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
@@ -92,10 +91,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   [Inserimento di dati per la ricezione di notifiche push]: #test
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Invio di notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users
   [Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/

@@ -1,12 +1,12 @@
-<properties urlDisplayName="Jenkins Continuous Integration" pageTitle="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins | Microsoft Azure" metaKeywords="" description="Questa esercitazione illustra come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati da una soluzione di Integrazione continuata Jenkins." metaCanonical="" services="storage" documentationCenter="Java" title="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
-# Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins
+# Utilizzo di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins
 
 *Autore: [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
-Nell'articolo seguente viene descritto come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Jenkins (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (usando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
+Nell'articolo riportato di seguito viene descritto come utilizzare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Jenkins (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
 In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Jenkins reso disponibile da Microsoft Open Technologies, Inc.
 
@@ -15,18 +15,18 @@ In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per 
 -   [Informazioni generali su Jenkins][Informazioni generali su Jenkins]
 -   [Vantaggi dell'utilizzo del servizio BLOB][Vantaggi dell'utilizzo del servizio BLOB]
 -   [Prerequisiti][Prerequisiti]
--   [Uso del servizio BLOB con l'Integrazione continuata Jenkins][Uso del servizio BLOB con l'Integrazione continuata Jenkins]
+-   [Utilizzo del servizio BLOB con l'Integrazione continuata Jenkins][Utilizzo del servizio BLOB con l'Integrazione continuata Jenkins]
 -   [Installazione del plug-in di Archiviazione di Azure][Installazione del plug-in di Archiviazione di Azure]
--   [Configurazione del plug-in di Archiviazione di Azure per usare l'account di archiviazione][Configurazione del plug-in di Archiviazione di Azure per usare l'account di archiviazione]
+-   [Configurazione del plug-in di Archiviazione di Azure per utilizzare l'account di archiviazione][Configurazione del plug-in di Archiviazione di Azure per utilizzare l'account di archiviazione]
 -   [Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione][Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione]
 -   [Come creare un passaggio di compilazione per il download di elementi dall'archivio BLOB di Azure][Come creare un passaggio di compilazione per il download di elementi dall'archivio BLOB di Azure]
--   [Componenti usati dal servizio BLOB][Componenti usati dal servizio BLOB]
+-   [Componenti utilizzati dal servizio BLOB][Componenti utilizzati dal servizio BLOB]
 
 ## <a name="overview"></a><span class="short header">Informazioni generali</span>Informazioni generali su Jenkins
 
-Jenkins abilita l'integrazione continuata di un progetto software consentendo agli sviluppatori di integrare facilmente le modifiche apportate al codice e produrre compilazioni automaticamente e di frequente, aumentando così la produttività degli sviluppatori. Alle compilazioni è applicato il controllo delle versioni ed è possibile caricare gli elementi di compilazione in diversi archivi. In questo argomento viene illustrato come usare l'archivio BLOB di Azure come archivio per gli elementi di compilazione. Verrà inoltre descritto come scaricare le dipendenze dall'archivio BLOB di Azure.
+Jenkins abilita l'integrazione continuata di un progetto software consentendo agli sviluppatori di integrare facilmente le modifiche apportate al codice e produrre compilazioni automaticamente e di frequente, aumentando così la produttività degli sviluppatori. Alle compilazioni è applicato il controllo delle versioni ed è possibile caricare gli elementi di compilazione in diversi archivi. In questo argomento viene illustrato come utilizzare l'archivio BLOB di Azure come archivio per gli elementi di compilazione. Verrà inoltre descritto come scaricare le dipendenze dall'archivio BLOB di Azure.
 
-Per altre informazioni su Jenkins, vedere [Meet Jenkins][Meet Jenkins].
+Per ulteriori informazioni su Jenkins, vedere [Meet Jenkins][Meet Jenkins].
 
 ## <a name="benefits"></a><span class="short header">Vantaggi</span>Vantaggi dell'utilizzo del servizio BLOB
 
@@ -39,7 +39,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
 
 ## <a name="prerequisites"></a><span class="short header">Prerequisiti</span>Prerequisiti
 
-Per usare il servizio BLOB con la soluzione di Integrazione continuata Jenkins è necessario quanto segue:
+Per utilizzare il servizio BLOB con la soluzione di Integrazione continuata Jenkins è necessario quanto segue:
 
 -   Una soluzione di Integrazione continuata Jenkins.
 
@@ -50,19 +50,19 @@ Per usare il servizio BLOB con la soluzione di Integrazione continuata Jenkins �
 
         `java -jar jenkins.war`
 
-    3.  Nel browser aprire `http://localhost:8080/`. Verrà visualizzato il dashboard di Jenkins, che verrà usato per installare e configurare il plug-in di Archiviazione di Azure.
+    3.  Nel browser aprire `http://localhost:8080/`. Verrà visualizzato il dashboard di Jenkins, che verrà utilizzato per installare e configurare il plug-in di Archiviazione di Azure.
 
         Sebbene sia necessario configurare una tipica soluzione di Integrazione continuata Jenkins per eseguirla come servizio, ai fini di questa esercitazione sarà sufficiente eseguire il file WAR di Jenkins nella riga di comando.
 
 -   Un account Azure. È possibile effettuare l'iscrizione a un account Azure all'indirizzo <http://www.windowsazure.com>.
 
--   Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione, è possibile crearne uno attenendosi ai passaggi illustrati in [Come creare un account di archiviazione][Come creare un account di archiviazione].
+-   Un account di Archiviazione di Azure. Se non si dispone di un account di archiviazione, è possibile crearne uno attenendosi ai passaggi illustrati in [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
--   La conoscenza della soluzione di Integrazione continuata Jenkins è consigliata ma non richiesta, poiché nel contenuto seguente verrà usato un esempio semplice per illustrare i passaggi da seguire nell'utilizzo del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Jenkins.
+-   La conoscenza della soluzione di Integrazione continuata Jenkins è consigliata ma non richiesta, poiché nel contenuto seguente verrà utilizzato un esempio semplice per illustrare i passaggi da seguire nell'utilizzo del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Jenkins.
 
-## <a name="howtouse"></a><span class="short header">Uso di un servizio BLOB</span>Uso del servizio BLOB con l'Integrazione continuata Jenkins
+## <a name="howtouse"></a><span class="short header">Utilizzo di un servizio BLOB</span>Utilizzo del servizio BLOB con l'Integrazione continuata Jenkins
 
-Per usare il servizio BLOB con Jenkins, è necessario installare il plug-in di Archiviazione di Azure, configurare il plug-in per usare l'account di archiviazione e creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione. Questi passaggi vengono descritti nelle sezioni seguenti.
+Per utilizzare il servizio BLOB con Jenkins, è necessario installare il plug-in di Archiviazione di Azure, configurare il plug-in per utilizzare l'account di archiviazione e creare un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione. Questi passaggi vengono descritti nelle sezioni seguenti.
 
 ## <a name="howtoinstall"></a><span class="short header">Installazione</span>Installazione del plug-in di Archiviazione di Azure
 
@@ -78,10 +78,9 @@ Per usare il servizio BLOB con Jenkins, è necessario installare il plug-in di A
 1.  Nel dashboard di Jenkins fare clic su **Manage Jenkins**.
 2.  Nella pagina **Manage Jenkins** fare clic su **Configure System**.
 3.  Nella sezione **Microsoft Azure Storage Account Configuration**:
-
     1.  Immettere il nome dell'account di archiviazione che è possibile ottenere dal portale di Azure, all'indirizzo <https://manage.windowsazure.com>.
     2.  Immettere la chiave dell'account di archiviazione che è possibile ottenere dal portale di Azure.
-    3.  Se si usa il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si usa un servizio Cloud di Azure diverso, usare l'endpoint specificato nel portale di gestione di Azure per l'account di archiviazione.
+    3.  Se si utilizza il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si utilizza un servizio Cloud di Azure diverso, utilizzare l'endpoint specificato nel portale di gestione di Azure per l'account di archiviazione.
     4.  Fare clic su **Validate storage credentials** per convalidare l'account di archiviazione.
     5.  [Facoltativo] Se si dispone di account di archiviazione aggiuntivi che si desidera rendere disponibili all'Integrazione continuata Jenkins, fare clic su **Add more Storage Accounts**.
     6.  Per salvare le impostazioni, fare clic su **Save**.
@@ -93,7 +92,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 1.  Nel dashboard di Jenkins fare clic su **New Item**.
 2.  Denominare il processo **MyJob**, fare clic su **Build a free-style software project** e quindi fare clic su **OK**.
 3.  Nella sezione **Build** della configurazione del processo fare clic su **Add build step** e scegliere **Execute Windows batch command**.
-4.  Nella sezione **Command** usare i comandi seguenti:
+4.  Nella sezione **Command** utilizzare i comandi seguenti:
 
         md text
         cd text
@@ -102,35 +101,34 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
         time /t >> date.txt
 
 5.  Nella sezione **Post-build Actions** della configurazione del processo fare clic su **Add post-build action** e scegliere **Upload artifacts to Azure Blob storage**.
-6.  In **Storage Account Name** scegliere l'account di archiviazione da usare.
-7.  In **Container Name** specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile usare variabili di ambiente, pertanto in questo esempio immettere **${JOB\_NAME}** come nome del contenitore.
+6.  In **Storage Account Name** scegliere l'account di archiviazione da utilizzare.
+7.  In **Container Name** specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile utilizzare variabili di ambiente, pertanto in questo esempio immettere **${JOB\_NAME}** come nome del contenitore.
 
     **Suggerimento**
 
     Sotto la sezione **Command** in cui è stato immesso uno script per **Execute Windows batch command** è presente un collegamento alle variabili di ambiente riconosciute da Jenkins. Fare clic sul collegamento per ottenere dettagli sui nomi e le descrizioni delle variabili di ambiente. Si noti che le variabili di ambiente che contengono caratteri speciali come la variabile di ambiente **BUILD\_URL** non sono ammesse come nome di contenitore o come percorso virtuale comune.
 
-8.  Ai fini di questo esempio, fare clic su **Make new container public by default**. Se si intende usare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso. Questa operazione non rientra nell'ambito di questo argomento. Per altre informazioni sulle firme di accesso condiviso, vedere [Creare e usare una firma di accesso condiviso][Creare e usare una firma di accesso condiviso].
+8.  Ai fini di questo esempio, fare clic su **Make new container public by default**. Se si intende utilizzare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso. Questa operazione non rientra nell'ambito di questo argomento. Per ulteriori informazioni sulle firme di accesso condiviso, vedere [Creare e utilizzare una firma di accesso condiviso][Creare e utilizzare una firma di accesso condiviso].
 9.  [Facoltativo] Fare clic su **Clean container before uploading** se si vuole cancellare i contenuti dal contenitore prima di caricare gli elementi di compilazione (lasciare questa casella deselezionata se non si vuole pulire i contenuti del contenitore).
 10. In **List of Artifacts to upload** immettere \*\*text/\*.txt\*\*.
 11. In **Common virtual path for uploaded artifacts**, ai fini di questa esercitazione, immettere **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Per salvare le impostazioni, fare clic su **Save**.
 13. Nel dashboard di Jenkins fare clic su **Build Now** per eseguire **MyJob**. Esaminare l'output di console per ottenere informazioni sullo stato. I messaggi di stato per il servizio di archiviazione di Azure verranno inclusi nell'output della console quando l'operazione post-compilazione avvierà il caricamento degli elementi di compilazione.
 14. Dopo avere completato il processo, è possibile esaminare gli elementi di compilazione aprendo il BLOB pubblico.
-
     1.  Accedere al portale di gestione di Azure, all'indirizzo <https://manage.windowsazure.com>.
     2.  Fare clic su **Storage**.
-    3.  Fare clic sul nome dell'account di archiviazione usato per Jenkins.
+    3.  Fare clic sul nome dell'account di archiviazione utilizzato per Jenkins.
     4.  Fare clic su **Containers**.
     5.  Fare clic sul contenitore denominato **myjob**, ossia la versione in lettere minuscole del nome processo assegnato al momento della creazione del processo Jenkins. In Archiviazione di Azure i nomi di contenitori e i nomi di BLOB sono riportati in lettere minuscole (e si applica la distinzione maiuscole/minuscole). Nell'elenco di BLOB per il contenitore denominato **myjob** dovrebbero essere visualizzati **hello.txt** e **date.txt**. Copiare l'URL di uno di questi elementi e aprirlo nel browser. Verrà visualizzato il file di testo caricato come elemento di compilazione.
 
-È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Jenkins crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archivio BLOB di Azure, in **List of Artifacts to upload** digitare quanto segue: **build/\*.jar;build/\*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, in **List of Artifacts to upload** digitare quanto segue: **build/\*.jar::binaries;build/\*.txt::notices**.
+È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Jenkins crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archivio BLOB di Azure, in **List of Artifacts to upload** digitare quanto segue: **build/\*.jar;build/\*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, in **List of Artifacts to upload** digitare quanto segue: **build/\*.<jar::binaries;build/>\*.txt::notices**.
 
 ## <a name="howtocreatebuildstep"></a><span class="short header">Come creare un passaggio di compilazione</span>Come creare un passaggio di compilazione per il download di elementi dall'archivio BLOB di Azure
 
 La procedura seguente illustra come configurare un passaggio di compilazione per il download di elementi dall'archivio BLOB di Azure. Questa operazione è utile per includere elementi nella compilazione, ad esempio file JAR conservati nell'archivio BLOB di Azure.
 
 1.  Nella sezione **Build** della configurazione del processo fare clic su **Add build step** e scegliere **Download from Azure Blob storage**.
-2.  In **Storage Account Name** scegliere l'account di archiviazione da usare.
+2.  In **Storage Account Name** scegliere l'account di archiviazione da utilizzare.
 3.  In **Container name** specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
 4.  In **Blob name** specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, digitando **project\*** si specificano tutti i BLOB i cui nomi iniziano per **project**.
 5.  [Facoltativo] In **Download path** specificare il percorso nel computer Jenkins in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.
@@ -139,20 +137,20 @@ Per scaricare elementi aggiuntivi dall'archivio BLOB di Azure, è possibile crea
 
 Dopo avere eseguito una build, è possibile verificare l'output della cronologia di compilazione della console o accedere al percorso di download per verificare che siano stati scaricati i BLOB previsti.
 
-## <a name="components"></a><span class="short header">Componenti del servizio BLOB</span>Componenti usati dal servizio BLOB
+## <a name="components"></a><span class="short header">Componenti del servizio BLOB</span>Componenti utilizzati dal servizio BLOB
 
 Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
 -   **Account di archiviazione**: l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Questo è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
 -   **Contenitore**: un contenitore è il raggruppamento di un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
--   **BLOB**: file di qualsiasi tipo o dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono usati BLOB in blocchi. I BLOB dell'altro tipo, di pagine, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando vi sono intervalli di byte all'interno del file soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine][Informazioni sui Blob in blocchi e sui Blob di pagine].
--   **Formato dell'URL**: I BLOB sono indirizzabili usando il formato di URL seguente:
+-   **BLOB**: file di qualsiasi tipo o dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB dell'altro tipo, di pagine, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando vi sono intervalli di byte all'interno del file soggetti a modifiche frequenti. Per ulteriori informazioni sui BLOB, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine][Informazioni sui Blob in blocchi e sui Blob di pagine].
+-   **Formato dell'URL**: I BLOB sono indirizzabili utilizzando il formato di URL seguente:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel portale di gestione di Azure per determinare l'endpoint dell'URL.
+    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si utilizza un servizio Cloud Azure diverso, utilizzare l'endpoint specificato nel portale di gestione di Azure per determinare l'endpoint dell'URL.
 
-    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore usato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato usato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
+    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore utilizzato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato utilizzato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
 
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
@@ -160,13 +158,13 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Informazioni generali su Jenkins]: #overview
   [Vantaggi dell'utilizzo del servizio BLOB]: #benefits
   [Prerequisiti]: #prerequisites
-  [Uso del servizio BLOB con l'Integrazione continuata Jenkins]: #howtouse
+  [Utilizzo del servizio BLOB con l'Integrazione continuata Jenkins]: #howtouse
   [Installazione del plug-in di Archiviazione di Azure]: #howtoinstall
-  [Configurazione del plug-in di Archiviazione di Azure per usare l'account di archiviazione]: #howtoconfigure
+  [Configurazione del plug-in di Archiviazione di Azure per utilizzare l'account di archiviazione]: #howtoconfigure
   [Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione]: #howtocreatepostbuild
   [Come creare un passaggio di compilazione per il download di elementi dall'archivio BLOB di Azure]: #howtocreatebuildstep
-  [Componenti usati dal servizio BLOB]: #components
+  [Componenti utilizzati dal servizio BLOB]: #components
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Creare e usare una firma di accesso condiviso]: http://go.microsoft.com/fwlink/?LinkId=279889
+  [Creare e utilizzare una firma di accesso condiviso]: http://go.microsoft.com/fwlink/?LinkId=279889
   [Informazioni sui Blob in blocchi e sui Blob di pagine]: http://msdn.microsoft.com/it-it/library/windowsazure/ee691964.aspx

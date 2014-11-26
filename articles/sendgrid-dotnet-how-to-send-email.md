@@ -268,7 +268,6 @@ collegamenti seguenti per ulteriori informazioni.
   [Procedura: Utilizzare servizi aggiuntivi forniti da SendGrid]: #useservices
   [servizio di posta elettronica basato sul cloud]: http://sendgrid.com/solutions
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [pacchetto NuGet di SendGrid]: https://www.nuget.org/packages/Sendgrid
   [Pacchetto NuGet di SendGrid]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp

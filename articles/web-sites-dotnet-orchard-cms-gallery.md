@@ -73,7 +73,6 @@ In Azure verranno avviate le operazioni di creazione e distribuzione. Durante la
   [Orchard]: http://www.orchardproject.net/
   [scaricare moduli e temi aggiuntivi]: http://gallery.orchardproject.net/
   [Blog Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Creazione di un nuovo sito]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [Creazione da raccolta]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Orchard nell'elenco]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

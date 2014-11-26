@@ -1,6 +1,6 @@
 <properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 # <a name="_Toc395783175">Creare un'applicazione Node.js con DocumentDB</a>
 
@@ -24,30 +24,30 @@ applicazione di gestione delle attività basata su Web che consente di creare, r
 completare le attività. Le attività verranno archiviate come documenti JSON in Azure
 DocumentDB.
 
-![Alt text][]
+![Alt text][Alt text]
 
 ## <a name="_Toc395783176">Prerequisiti</a>
 
 Prima di seguire le istruzioni di questo articolo, verificare
 che siano installati i seguenti elementi:
 
-[Node.js][] v0.10.29 o versione successiva
+[Node.js][Node.js] v0.10.29 o versione successiva
 
-[Git][]
+[Git][Git]
 
-[Visual Studio 2013][] update 3
+[Visual Studio 2013][Visual Studio 2013] update 3
 
-[Strumenti Node.js per Visual Studio][]
+[Strumenti Node.js per Visual Studio][Strumenti Node.js per Visual Studio]
 
 **Nota:** Sebbene in questa esercitazione si usi Visual Studio per la compilazione, il debug e la distribuzione del progetto
 Node.js, è possibile usare un qualsiasi editor di propria scelta
 ed eseguire Node.js direttamente su qualsiasi piattaforma nel modo in cui si eseguirebbe normalmente
-un progetto Node.js. Sarà quindi possibile usare gli strumenti dell'[interfaccia della riga di comando di Azure][] per
+un progetto Node.js. Sarà quindi possibile usare gli strumenti dell'[interfaccia della riga di comando di Azure][interfaccia della riga di comando di Azure] per
 distribuire l'applicazione in Siti Web di Azure
 
 # <a name="_Toc395637761">Creare un account di database di DocumentDB</a>
 
-Per eseguire il provisioning di un account di database di DocumentDB in Azure, aprire il [portale di gestione di Azure][]
+Per eseguire il provisioning di un account di database di DocumentDB in Azure, aprire il [portale di gestione di Azure][portale di gestione di Azure]
  e fare clic nel riquadro Raccolta di Azure nella home page oppure scegliere "+" nell'angolo inferiore sinistro dello schermo.
 
 ![Alt text][1]
@@ -498,14 +498,14 @@ in esecuzione in Azure.
 Congratulazioni. Si è creata la prima applicazione Web Express Node.js
 usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
-Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download [qui][].
+Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download [qui][qui].
 
 </h1>
 
   [Alt text]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/it-it/vstudio/cc136611.aspx
   [Strumenti Node.js per Visual Studio]: https://nodejstools.codeplex.com/
   [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/
   [portale di gestione di Azure]: http://portal.azure.com

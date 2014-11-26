@@ -158,9 +158,9 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 
 Per altre informazioni sull'utilizzo del modelli, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET][Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET], [Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili][Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili], nonché l'articolo sulle [linee guida su Hub di notifica][linee guida su Hub di notifica]. In [Procedure di Hub di notifica per Windows Store][Procedure di Hub di notifica per Windows Store] è disponibile un riferimento al linguaggio di espressione dei modelli.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Utilizzo di Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet
   [Concetti relativi ai modelli]: #concepts
@@ -169,6 +169,5 @@ Per altre informazioni sull'utilizzo del modelli, vedere [Utilizzo di Hub di not
   [Invio di notifiche dal back-end]: #send
   [linee guida su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
   [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/it-it/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Utilizzo di Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /it-it/manage/services/notification-hubs/notify-users-aspnet
   [Utilizzo di Hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /it-it/manage/services/notification-hubs/notify-users

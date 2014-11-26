@@ -239,9 +239,9 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -251,12 +251,9 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
   [Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database]: #add-access-checking
   [Testare l'accesso client]: #test-client
   [archiviazione degli script del server]: /it-it/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registrazione delle app per l'utilizzo delle credenziali di accesso di un account Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [Codici di errore di Graph di AD di Microsoft Azure]: http://msdn.microsoft.com/it-it/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/it-it/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

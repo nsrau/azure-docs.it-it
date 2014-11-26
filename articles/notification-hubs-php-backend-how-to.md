@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-php-back-end-how-to" urlDisplayName="How to use Notification Hubs with PHP" pageTitle="How to use Notification Hubs with PHP" metaKeywords="" description="Learn how to use Azure Notification Hubs from a PHP back-end." metaCanonical="" services="mobile-services,notification-hubs,push,php" documentationCenter="" title="How to use Notification Hubs with PHP" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Come usare Hub di notifica da Java/PHP
 
@@ -248,8 +248,6 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 -   Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell'[esercitazione per l'invio di notizie]
 -   Visualizzare altre informazioni sull'invio di notifiche push a singoli utenti nell'[esercitazione sull'invio di notifiche agli utenti]
 
-  [Java]: /it-it/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /it-it/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [API REST degli hub di notifica]: http://msdn.microsoft.com/it-it/library/dn223264.aspx
   [esercitazione introduttiva]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/
   [SDK di Hub di notifica per .NET]: http://msdn.microsoft.com/it-it/library/jj933431.aspx

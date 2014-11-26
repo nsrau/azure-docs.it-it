@@ -225,7 +225,6 @@ Dopo avere completato la serie di esercitazioni relative ai dati, è possibile p
 
 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-html
   [Download del progetto dell'app HTML]: #download-app
   [Creazione del servizio mobile]: #create-service
@@ -234,7 +233,6 @@ Dopo avere completato la serie di esercitazioni relative ai dati, è possibile p
   [Test dell'app in Servizi mobili]: #test-app
   [app GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

@@ -339,7 +339,7 @@ Passaggi successivi
 
 In questo semplice esempio un utente riceve una notifica push con i dati appena inseriti. Il token di dispositivo utilizzato da APNS viene fornito al servizio mobile dal client nella richiesta. Nell'esercitazione successiva, [Notifiche push per utenti di app](/it-it/develop/mobile/tutorials/push-notifications-to-users-ios), sarà possibile creare una tabella Devices distinta in cui archiviare i token di dispositivo e sarà possibile inviare una notifica push a tutti i canali archiviati quando si verifica un inserimento.
 
-<!-- Anchors. -->
+
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -349,7 +349,7 @@ In questo semplice esempio un utente riceve una notifica push con i dati appena 
 [Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
-<!-- Images. -->
+
 
 
 

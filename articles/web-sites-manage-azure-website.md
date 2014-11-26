@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # Gestione di un sito Web Azure
 
@@ -78,7 +78,7 @@ Se si utilizza Visual Studio Online, è possibile configurare la distribuzione c
 -   [Utilizzo di Controllo della versione di Team Foundation (TFVC)][Utilizzo di Controllo della versione di Team Foundation (TFVC)]
 -   [Utilizzo di Git][Utilizzo di Git]
 
-<!-- Anchors. -->
+
 
   [Prima della distribuzione del sito alla produzione]: #before-you-deploy-your-site-to-production
   [Durante l'esecuzione del sito Web]: #while-your-website-is-running

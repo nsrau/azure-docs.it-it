@@ -18,7 +18,7 @@ Per altre informazioni, vedere [Macchine virtuali][Macchine virtuali].
 
 Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gestione per la creazione di una macchina virtuale. Questa opzione offre un maggior numero di scelte di configurazione rispetto all'opzione **Creazione rapida**. Ad esempio, se si vuole aggiungere una macchina virtuale a una rete virtuale, sarà necessario usare l'opzione **Da raccolta**.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>Come accedere alla macchina virtuale dopo averla creata
 
@@ -125,7 +125,6 @@ Per ulteriori informazioni sulla configurazione di macchine virtuali Windows in 
   [Come accedere alla macchina virtuale dopo averla creata]: #logon
   [Come collegare un disco dati alla nuova macchina virtuale]: #attachdisk
   [Macchine virtuali]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Select MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/selectvm.png
   [Connessione a MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png

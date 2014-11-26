@@ -101,11 +101,9 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [versione per backend .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFit-it%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-phone-get-started/mobile-portal-quickstart-wp8.png
   [2]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-steps-wp8.png
   [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Utilizzo di Inoltro del bus di servizio per creare applicazioni ibride cloud/locali .NET
 
@@ -19,7 +19,7 @@ Si apprenderà come:
 -   Usare Inoltro del bus di servizio di Microsoft Azure per condividere dati tra
     un'applicazione Azure e un servizio Web ospitato altrove.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### VANTAGGI DERIVANTI DALL'UTILIZZO DI INOLTRO DEL BUS DI SERVIZIO CON LE SOLUZIONI IBRIDE
 
@@ -51,7 +51,7 @@ per proteggere tali servizi da accessi non autorizzati.
 In questa esercitazione si creerà un sito Web ASP.NET MVC 4 che
 consentirà di visualizzare un elenco di prodotti nella pagina dell'inventario dei prodotti.
 
-![][]
+![][0]
 
 Ai fini dell'esercitazione si presuppone che le informazioni sui prodotti siano già disponibili in un
 sistema locale esistente e che per accedere a tale sistema venga usato
@@ -729,8 +729,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 -   [Procedure relative al bus di servizio][Procedure relative al bus di servizio]
 -   [Come utilizzare le code del bus di servizio][Come utilizzare le code del bus di servizio]
 
-  [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
@@ -742,7 +741,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [qui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [qui]: http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [uso del pacchetto NuGet del bus di servizio]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -759,8 +758,8 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Modelli di esecuzione di Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Modelli di esecuzione di Azure]: http://www.windowsazure.com/it-it/develop/net/fundamentals/compute/
+  [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure]: http://www.windowsazure.com/it-it/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -773,6 +772,6 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Bus di servizio di Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Bus di servizio di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee732537.aspx
   [Procedure relative al bus di servizio]: /it-it/documentation/services/service-bus/
-  [Come utilizzare le code del bus di servizio]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [Come utilizzare le code del bus di servizio]: /it-it/develop/net/how-to-guides/service-bus-queues/

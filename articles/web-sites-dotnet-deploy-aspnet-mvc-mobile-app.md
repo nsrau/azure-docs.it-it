@@ -715,10 +715,11 @@ applicazioni Web per dispositivi mobili. Sono state illustrate le seguenti opera
 -   [Procedure consigliate per applicazioni Web W3C per dispositivi mobili][Procedure consigliate per applicazioni Web W3C per dispositivi mobili]
 -   [Candidate recommendation W3C per query sui supporti][Candidate recommendation W3C per query sui supporti]
 
-<!-- Internal Links --> <!-- External Links --> <!-- Images -->
+<!-- Internal Links -->
+<!-- External Links -->
+<!-- Images -->
 
   [Microsoft Visual Studio Express 2013 per il Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [progetto iniziale]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Azure SDK per Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409

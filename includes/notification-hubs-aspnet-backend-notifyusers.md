@@ -50,7 +50,7 @@ Il primo passaggio consiste nel creare un progetto di API Web ASP.NET. Si tratta
 
         using Microsoft.ServiceBus.Notifications;
 
-12. Nel metodo `Notifications()` sostituire i due segnaposto nella riga di codice seguente con la stringa di connessione (con accesso completo) all'hub di notifica e il nome dell'hub. È possibile ottenere questi valori nel [portale di gestione di Azure][]:
+12. Nel metodo `Notifications()` sostituire i due segnaposto nella riga di codice seguente con la stringa di connessione (con accesso completo) all'hub di notifica e il nome dell'hub. È possibile ottenere questi valori nel [portale di gestione di Azure][portale di gestione di Azure]:
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 

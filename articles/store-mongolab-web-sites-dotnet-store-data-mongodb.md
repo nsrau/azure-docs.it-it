@@ -449,7 +449,6 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
   [Pulsante per le informazioni di connessione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-connectioninfo.png
   [Schermata delle informazioni di connessione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab_connectioninfo.png
   [Stringhe di connessione del sito Web]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-websiteconnectionstring.png
-  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [Nuovo progetto]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-newproject.png
   [ProjectFramework]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-dotNet-Framework4-mongolab.png
   [Modello di progetto]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-projecttemplate.png
@@ -459,8 +458,5 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
   [Creazione del sito]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-newwebsite.png
   [Dashboard del sito Web]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-websitedashboard.png
   [Download del profilo pubblico]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-website-downloadpublishprofile.png
-  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
-  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
   [Pubblicazione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-vspublish.png
   [Mongo di Azure]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-sampleapp.png
-  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

@@ -16,7 +16,7 @@ in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui
 sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato
 da un solo consumer.
 
-![Concetti relativi alle code][]
+![Concetti relativi alle code][Concetti relativi alle code]
 
 Le code del bus di servizio sono una tecnologia di carattere generale che può
 essere usata in numerosi scenari:
@@ -43,13 +43,13 @@ di ambito per fare riferimento alle risorse del bus di servizio all'interno dell
 
 Per creare uno spazio dei nomi servizio:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
     **Service Bus**.
 
 3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
-    ![][]
+    ![][0]
 
 4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi.
     Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
@@ -98,7 +98,7 @@ spazio dei nomi. È possibile ottenerle dal portale di gestione oppure da Esplor
 
 ### Per ottenere le credenziali di gestione da Esplora server
 
-Per ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][] nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
+Per ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][qui] nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
 Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
@@ -106,11 +106,11 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [Concetti relativi alle code]: ./media/howto-service-bus-queues/sb-queues-08.png
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-queues/sb-queues-03.png
+  [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png
   [2]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-queues/sb-queues-13.png
   [4]: ./media/howto-service-bus-queues/sb-queues-09.png
   [5]: ./media/howto-service-bus-queues/sb-queues-06.png
-  [qui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [qui]: http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx
   [6]: ./media/howto-service-bus-queues/VSProperties.png

@@ -1,6 +1,6 @@
 1.  Assicurarsi di arrestare il servizio mobile se è in esecuzione in IIS Express. Fare clic con il pulsante destro del mouse sull'icona IIS Express sulla barra delle applicazioni e scegliere **stop** per il servizio mobile
 
-    ![][]
+    ![][0]
 
 2.  In una finestra del prompt dei comandi eseguire il comando **ipconfig** per cercare un indirizzo IP locale valido per la workstation.
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] Al termine del test del servizio in locale, eliminare la regola di Windows Firewall creata.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [aggiunta di una nuova regola porta in Windows Firewall]: http://go.microsoft.com/fwlink/?LinkId=392240

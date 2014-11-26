@@ -37,16 +37,16 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 È ora possibile utilizzare un account di accesso Google per l'autenticazione nell'app fornendo i valori dell'ID e del segreto client a Servizi mobili.
 
-<!-- Anchors. -->
 
-<!-- Images. -->
+
+
 [1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-developers.png
 [2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
 [3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
 [4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
 [5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
 
-<!-- URLs. -->
+
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/

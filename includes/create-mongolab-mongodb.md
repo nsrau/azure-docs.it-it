@@ -1,10 +1,10 @@
 # Come creare un database MongoDB in Azure
 
-In questo articolo viene illustrato come usare [MongoLab][] per creare un database MongoDB da Azure Store. [MongoLab][] è un fornitore di database MongoDB distribuiti come servizio, che consentono di eseguire e gestire database MongoDB in data center di Azure e di connettersi a tali database da qualsiasi applicazione.
+In questo articolo viene illustrato come usare [MongoLab][MongoLab] per creare un database MongoDB da Azure Store. [MongoLab][MongoLab] è un fornitore di database MongoDB distribuiti come servizio, che consentono di eseguire e gestire database MongoDB in data center di Azure e di connettersi a tali database da qualsiasi applicazione.
 
-Per creare un database MongoDB da [Azure Store][], eseguire le operazioni seguenti:
+Per creare un database MongoDB da [Azure Store][Azure Store], eseguire le operazioni seguenti:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Fare clic su **+NEW** nella parte inferiore della pagina, quindi selezionare **STORE**.
 
 	![Selezione del componente aggiuntivo nel negozio](./media/create-mongolab-mongodb/select-store.png)
@@ -30,5 +30,5 @@ Per creare un database MongoDB da [Azure Store][], eseguire le operazioni seguen
 	![Informazioni di connessione per MongoLab](./media/create-mongolab-mongodb/mongolab-conn-info.png) 
 
   [MongoLab]: https://mongolab.com/home
-  [Azure Store]: /en-us/store/overview/
+  [Azure Store]: /it-it/store/overview/
   [portale di gestione di Azure]: http://windows.azure.com/

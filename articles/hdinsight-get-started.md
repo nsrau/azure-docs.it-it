@@ -1,16 +1,20 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Introduzione all'uso di Hadoop in HDInsight | Azure" metaKeywords="" description="Introduzione all'uso di Hadoop in HDInsight: una soluzione Big Data. Informazioni sul provisioning di cluster, sull'esecuzione di processi Hive e sull'output dei dati in Excel per l'analisi." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduzione all'uso di Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="nitinme" />
 
-# Introduzione all'uso di Hadoop in HDInsight
+# Introduzione all'utilizzo di Hadoop 2.4 in HDInsight
 
-<!--div class="dev-center-tutorial-selector sublanding"> <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a> <a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a> <!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a> </div-->
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../hdinsight-get-started" title="Introduzione all'utilizzo di Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
+<a href="../hdinsight-get-started-30" title="Introduzione all'utilizzo di Hadoop 2.2 in HDInsight">Hadoop 2.2</a>
+<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
+</div>
 
 HDInsight rende Apache Hadoop, un framework software MapReduce, disponibile in un ambiente di Azure più semplice, scalabile ed efficiente a livello di costi. HDInsight offre inoltre un approccio economicamente vantaggioso alla gestione e all'archiviazione di dati tramite l'archivio BLOB di Azure.
 
 > [WACOM.NOTE] Se non si è esperti di Hadoop e Big Data, è consigliabile ottenere maggiori informazioni sui termini [Apache Hadoop][Apache Hadoop], [MapReduce][MapReduce], [HDFS][HDFS] e [Hive][Hive]. Per informazioni sull'abilitazione di Hadoop in Azure tramite HDInsight, vedere [Introduzione a Hadoop in HDInsight][Introduzione a Hadoop in HDInsight].
 
-In concomitanza con la fase GA (General Availability) di Azure HDInsight, Microsoft offre anche HDInsight Emulator per Azure, noto in precedenza come *Microsoft HDInsight Developer Preview*. L'emulatore è stato progettato per scenari relativi allo sviluppo e supporta solo distribuzioni a nodo singolo. Per informazioni sull'uso di HDInsight Emulator, vedere [Introduzione a HDInsight Emulator][Introduzione a HDInsight Emulator].
+In concomitanza con la fase GA (General Availability) di Azure HDInsight, Microsoft offre anche HDInsight Emulator per Azure, noto in precedenza come *Microsoft HDInsight Developer Preview*. L'emulatore è stato progettato per scenari relativi allo sviluppo e supporta solo distribuzioni a nodo singolo. Per informazioni sull'utilizzo di HDInsight Emulator, vedere [Introduzione all'utilizzo di HDInsight Emulator][Introduzione all'utilizzo di HDInsight Emulator].
 
 > [WACOM.NOTE] Per istruzioni sul provisioning di un cluster HBase, vedere [Provisioning di cluster HBase in HDInsight][Provisioning di cluster HBase in HDInsight]. Per informazioni utili per scegliere tra Hadoop e HBase, vedere l'articolo che illustra le [differenze tra Hadoop e HBase][differenze tra Hadoop e HBase].
 
@@ -39,13 +43,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ## Contenuto dell'esercitazione:
 
--   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Creare un account di Archiviazione di Azure][Creare un account di Archiviazione di Azure]
 -   [Provisioning di un cluster HDInsight][Provisioning di un cluster HDInsight]
--   [Eseguire gli esempi dal portale][Eseguire gli esempi dal portale]
 -   [Eseguire un processo Hive][Eseguire un processo Hive]
+-   [Connettersi agli strumenti di Microsoft Business Intelligence][Connettersi agli strumenti di Microsoft Business Intelligence]
 -   [Passaggi successivi][Passaggi successivi]
 
-## <a name="storage"></a>Creare un account di archiviazione di Azure
+## <a name="storage"></a>Creare un account di Archiviazione di Azure
 
 HDInsight usa l'archivio BLOB di Azure per l'archiviazione dei dati. Questa risorsa è denominata *WASB* o *Archiviazione BLOB di Azure*. WASB è l'implementazione Microsoft di HDFS sull'archivio BLOB di Azure. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight].
 
@@ -68,16 +72,14 @@ Per semplificare questa esercitazione, verranno usati solo il contenitore BLOB p
 
 4.  Attendere che il valore di **STATUS** per il nuovo account di archiviazione venga modificato in **Online**.
 5.  Selezionare il nuovo account di archiviazione dall'elenco, quindi fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore della pagina.
-6.  Prendere nota dei valori di **NOME ACCOUNT DI ARCHIVIAZIONE** e **CHIAVE DI ACCESSO PRIMARIA** o **CHIAVE DI ACCESSO SECONDARIA**. È possibile usare indifferentemente una delle due chiavi. Sarà necessario usarli più avanti nell'esercitazione.
+6.  Prendere nota dei valori di **NOME ACCOUNT DI ARCHIVIAZIONE** e **CHIAVE DI ACCESSO PRIMARIA** o **CHIAVE DI ACCESSO SECONDARIA**. È possibile usare indifferentemente una delle due chiavi. Sarà necessario utilizzarli più avanti nell'esercitazione.
 
 Per altre informazioni, vedere
 [Come creare un account di archiviazione][Come creare un account di archiviazione] e [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight].
 
 ## <a name="provision"></a>Provisioning di un cluster HDInsight
 
-Quando si esegue il provisioning di un cluster HDInsight, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. In questa sezione si esegue il provisioning di un cluster HDInsight versione 3,1, basato su Hadoop versione 2,4. È anche possibile creare cluster Hadoop per altre versioni usando il portale di Azure, i cmdlet di HDInsight PowerShell oppure usando .NET SDK per HDInsight. Per istruzioni, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][Provisioning di cluster HDInsight con opzioni personalizzate]. Per informazioni sulle diverse versioni di HDInsight e i relativi contratti di servizio, vedere la pagina relativa al [controllo delle versioni del componente HDInsight][controllo delle versioni del componente HDInsight].
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+Quando si esegue il provisioning di un cluster HDInsight, si esegue il provisioning delle risorse di calcolo di Azure che includono Hadoop e le applicazioni correlate. In questa sezione si esegue il provisioning di un cluster HDInsight versione 3.1, basato su Hadoop versione 2.4. Per eseguire il provisioning di un cluster HDInsight con Hadoop versione 2.2, fare clic sulla scheda relativa alla versione specifica all'inizio di questo articolo. È anche possibile creare cluster Hadoop per altre versioni usando i cmdlet di HDInsight PowerShell oppure usando .NET SDK per HDInsight. Per istruzioni, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][Provisioning di cluster HDInsight con opzioni personalizzate]. Per informazioni sulle diverse versioni di HDInsight e i relativi contratti di servizio, vedere la pagina relativa al [controllo delle versioni del componente HDInsight][controllo delle versioni del componente HDInsight].
 
 **Per eseguire il provisioning di un cluster HDInsight**
 
@@ -93,13 +95,13 @@ Quando si esegue il provisioning di un cluster HDInsight, si esegue il provision
 
 4.  Immettere o selezionare i valori seguenti:
 
-    | Nome                     | Valore                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Nome del cluster         | Nome del cluster                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-    | Dimensione del cluster   | Numero di nodi di dati che si vuole distribuire. Il valore predefinito è 4, ma nell'elenco a discesa è disponibile anche l'opzione relativa ai nodi di dati 1 o 2. Quando si usa l'opzione **Creazione personalizzata** è possibile specificare un numero qualsiasi di nodi del cluster. Sono disponibili i dettagli sui prezzi relativi alle tariffe di fatturazione per le diverse dimensioni di cluster. Fare clic sul simbolo **?** immediatamente sopra la casella a discesa, quindi selezionare il collegamento disponibile nel popup. |
-    | Password                 | Password per l'account *admin*. Il nome "admin" per l'utente cluster viene specificato quando non si usa l'opzione **Creazione personalizzata**. Si noti che NON si tratta dell'account Administrator di Windows per le VM in cui è eseguito il provisioning dei cluster. È possibile modificare questo valore solo se si usa la procedura guidata **Creazione personalizzata**.                                                                                                                                                             |
-    | Account di archiviazione | Selezionare l'account di archiviazione creato dalla casella a discesa.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-                                 Dopo la selezione, non sarà possibile modificare l'account di archiviazione. In caso di rimozione dell'account di archiviazione, il cluster non sarà più disponibile per l'uso. Il cluster HDInsight è posizionato nello stesso data center dell'account di archiviazione.                                                                                                                                                                                                                                                                   |
+    | Nome            | Valore                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+    |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Cluster Name    | Nome del cluster                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+    | Cluster Size    | Numero di nodi di dati che si desidera distribuire. Il valore predefinito è 4, ma nell'elenco a discesa è disponibile anche l'opzione relativa ai nodi di dati 1 o 2. Quando si utilizza l'opzione **Custom Create** è possibile specificare un numero qualsiasi di nodi di dati. Sono disponibili i dettagli sui prezzi relativi alle tariffe di fatturazione per le diverse dimensioni di cluster. Fare clic sul simbolo **?** immediatamente sopra la casella a discesa, quindi selezionare il collegamento disponibile nel popup. |
+    | Password        | Password per l'account *admin*. Il nome "admin" per l'utente cluster è specificato quando non si usa l'opzione Creazione personalizzata. Si noti che NON si tratta dell'account Administrator di Windows per le VM in cui è eseguito il provisioning dei cluster. È possibile modificare questo valore solo se si usa la procedura guidata **Creazione personalizzata**.                                                                                                                                                              |
+    | Storage Account | Selezionare l'account di archiviazione creato dalla casella a discesa.                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                        Dopo la selezione, non sarà possibile modificare l'account di archiviazione. In caso di rimozione dell'account di archiviazione, il cluster non sarà più disponibile per l'utilizzo. Il cluster HDInsight è posizionato nello stesso data center dell'account di archiviazione.                                                                                                                                                                                                                                                       |
 
     Annotare il nome del cluster. Sarà necessario usarlo più avanti nell'esercitazione.
 
@@ -107,18 +109,7 @@ Quando si esegue il provisioning di un cluster HDInsight, si esegue il provision
 
     > [WACOM.NOTE] La procedura precedente permette di creare cluster con HDInsight versione 3.1. Per creare altre versioni di cluster, usare il metodo di creazione personalizzata dal portale di gestione oppure Azure PowerShell. Per informazioni sulle differenze tra ogni versione di cluster, vedere [Novità delle versioni cluster incluse in HDInsight][Novità delle versioni cluster incluse in HDInsight] Per informazioni sull'uso dell'opzione **CREAZIONE PERSONALIZZATA**, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][Provisioning di cluster HDInsight con opzioni personalizzate].
 
-## <a name="sample"></a>Eseguire gli esempi dal portale
-
-Un cluster HDInsight il cui provisioning è stato eseguito correttamente fornisce una Console query per l'esecuzione di esempi direttamente dal portale. Gli esempi possono essere usati per apprendere come lavorare con HDInsight seguendo le procedure dettagliare di alcuni scenari di base. Gli esempi forniscono tutti i componenti necessari, come i dati per l'analisi e le query da eseguire sui dati.
-
-**Per eseguire l'esempio**, dal portale di gestione di Azure fare clic sul nome del cluster sul quale eseguire l'esempio, quindi fare clic su **Console query** nella parte inferiore della pagina. Nella pagina Web che viene aperta, fare clic sulla scheda **Guida introduttiva**, quindi, sotto la categoria **Esempi**, fare clic sull'esempio da eseguire. Seguire le istruzioni nella pagina Web per completare l'esempio. Per saperne di più sulla funzione di ognuno degli esempi, fare clic sui collegamenti sottostanti.
-
-| Esempio                          | Funzione                                                                                                                                                                                                                                                                                                |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Analisi di dati del sensore][Analisi di dati del sensore]  | Uso di HDInsight per l'elaborazione dei dati cronologici prodotti dai sistemi HVAC (Heating, Ventilating and Air Conditioning, ossia riscaldamento, ventilazione e condizionamento dell'aria) per identificare sistemi che non sono in grado di mantenere in modo affidabile una temperatura impostata. |
-| [Analisi del log del sito Web][Analisi del log del sito Web] | Uso di HDInsight per analizzare i log dei siti Web e ottenere informazioni dettagliate sulla frequenza delle visite di siti Web esterni nell'arco di un giorno nonché per visualizzare un riepilogo degli errori relativi ai siti Web incontrati dagli utenti.                                          |
-
-## <a name="hivequery"></a>Eseguire una query HIVE dal portale
+## <a name="sample"></a>Eseguire un processo Hive
 
 Dopo il provisioning di un cluster HDInsight, verrà eseguito un processo Hive per eseguire query in una tabella Hive di esempio, *hivesampletable*, inclusa nei cluster HDInsight. La tabella contiene dati relativi a produttori di dispositivi mobili, piattaforme e modelli. Verranno eseguite query in questa tabella per recuperare i dati per i dispositivi mobili di un produttore specifico.
 
@@ -126,8 +117,8 @@ Dopo il provisioning di un cluster HDInsight, verrà eseguito un processo Hive p
 
 1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 2.  Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco di cluster creati, incluso il cluster creato nella sezione precedente.
-3.  Fare clic sul nome del cluster in cui si vuole eseguire il processo Hive, quindi fare clic su **CONSOLE QUERY** nella parte inferiore della pagina.
-4.  Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante il provisioning del cluster. L'aspetto del dashboard è simile al seguente:
+3.  Fare clic sul nome del cluster in cui si vuole eseguire il processo Hive, quindi fare clic su **GESTIONE DEL CLUSTER** nella parte inferiore della pagina.
+4.  Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante il provisioning del cluster. Il dashboard ha un aspetto analogo al seguente:
 
     ![hdi.dashboard][hdi.dashboard]
 
@@ -163,11 +154,11 @@ Dopo il provisioning di un cluster HDInsight, verrà eseguito un processo Hive p
 
 1.  Nel dashboard del cluster fare clic su **Browser file** nella parte superiore della pagina.
 2.  Fare clic sul nome dell'account di archiviazione, quindi sul nome del contenitore (che corrisponde al nome del cluster) e infine su **utente**.
-3.  Fare clic su **admin** e quindi sul GUID la cui modifica più recente è stata eseguita poco dopo l'ora di avvio del processo annotata in precedenza. Annotare il valore relativo al GUID. Sarà necessario nella sezione successiva.
+3.  Fare clic su admin e quindi sul numero di GUID la cui modifica più recente è stata eseguita poco dopo l'ora di avvio del processo annotata in precedenza. Annotare il valore relativo al GUID. Sarà necessario nella sezione successiva.
 
     ![hdi.dashboard.query.browse.output][hdi.dashboard.query.browse.output]
 
-### <a name="powerquery"></a>Connettersi agli strumenti di business intelligence Microsoft
+## <a name="powerquery"></a>Connettersi agli strumenti di business intelligence Microsoft
 
 È possibile usare il componente aggiuntivo Power Query per Microsoft Excel per importare l'output del processo da HDInsight in Excel, dove si possono usare gli strumenti di business intelligence (BI) Microsoft per un'analisi più approfondita dei risultati.
 
@@ -188,7 +179,7 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 4.  Immettere la **Chiave account** per l'account di archiviazione BLOB di Azure, quindi fare clic su **Salva**.
 5.  Nel riquadro Strumento di navigazione a destra fare doppio clic sul nome del contenitore di archiviazione BLOB. Per impostazione predefinita, il nome del contenitore è uguale al nome del cluster.
 
-6.  Individuare **stdout** nella colonna **Nome**. Assicurarsi che il GUID nella colonna del **Percorso cartella** corrispondente sia uguale al GUID annotato in precedenza. Una corretta corrispondenza indica che i dati di output corrispondono al processo inviato. Fare clic su **Binario** a sinistra di **stdout**.
+6.  Individuare **stdout** nella colonna **Nome**. Assicurarsi che il GUID nella colonna Percorso cartella corrispondente sia uguale al GUID annotato in precedenza. Fare clic su **Binario** a sinistra di **stdout**.
 
     ![HDI.GettingStarted.PowerQuery.ImportData2][HDI.GettingStarted.PowerQuery.ImportData2]
 
@@ -196,13 +187,13 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 
 ## <a name="nextsteps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come eseguire il provisioning di un cluster con HDInsight, eseguire un processo MapReduce su tale cluster e importare i risultati in Excel per un'ulteriore elaborazione e per la visualizzazione grafica mediante gli strumenti di Business Intelligence. Per altre informazioni, vedere gli articoli seguenti:
+In questa esercitazione si è appreso come eseguire il provisioning di un cluster con HDInsight, eseguire un processo MapReduce su tale cluster e importare i risultati in Excel per un'ulteriore elaborazione e per la visualizzazione grafica mediante gli strumenti di Business Intelligence. Per ulteriori informazioni, vedere gli articoli seguenti:
 
--   [Introduzione all'uso di HDInsight Emulator][Introduzione a HDInsight Emulator]
--   [Uso dell'archiviazione BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight]
+-   [Introduzione all'utilizzo di HDInsight Emulator][Introduzione all'utilizzo di HDInsight Emulator]
+-   [Usare l'archivio BLOB di Azure con HDInsight][Usare l'archivio BLOB di Azure con HDInsight]
 -   [Amministrazione di HDInsight tramite PowerShell][Amministrazione di HDInsight tramite PowerShell]
 -   [Caricare i dati in HDInsight][Caricare i dati in HDInsight]
--   [Uso di MapReduce con HDInsight][Uso di MapReduce con HDInsight]
+-   [Usare MapReduce con HDInsight][Usare MapReduce con HDInsight]
 -   [Usare Hive con HDInsight][Usare Hive con HDInsight]
 -   [Usare Pig con HDInsight][Usare Pig con HDInsight]
 -   [Usare Oozie con HDInsight][Usare Oozie con HDInsight]
@@ -213,18 +204,18 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [MapReduce]: http://go.microsoft.com/fwlink/?LinkId=510086
   [HDFS]: http://go.microsoft.com/fwlink/?LinkId=510087
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
-  [Introduzione a Hadoop in HDInsight]: ../hdinsight-hadoop-introduction/
-  [Introduzione a HDInsight Emulator]: ../hdinsight-get-started-emulator/
+  [Introduzione a Hadoop in HDInsight]: ../hdinsight-introduction/
+  [Introduzione all'utilizzo di HDInsight Emulator]: ../hdinsight-get-started-emulator/
   [Provisioning di cluster HBase in HDInsight]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-get-started/
   [differenze tra Hadoop e HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [Opzioni di acquisto]: http://azure.microsoft.com/it-it/pricing/purchase-options/
   [Offerte per i membri]: http://azure.microsoft.com/it-it/pricing/member-offers/
   [Versione di valutazione gratuita]: http://azure.microsoft.com/it-it/pricing/free-trial/
-  [Creare un account di archiviazione di Azure]: #storage
+  [Creare un account di Archiviazione di Azure]: #storage
   [Provisioning di un cluster HDInsight]: #provision
-  [Eseguire gli esempi dal portale]: #sample
-  [Eseguire un processo Hive]: #hivequery
+  [Eseguire un processo Hive]: #sample
+  [Connettersi agli strumenti di Microsoft Business Intelligence]: #powerquery
   [Passaggi successivi]: #nextsteps
   [Usare l'archivio BLOB di Azure con HDInsight]: ../hdinsight-use-blob-storage/
   [Provisioning di cluster HDInsight con opzioni personalizzate]: ../hdinsight-provision-clusters/
@@ -235,8 +226,6 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [Novità delle versioni cluster incluse in HDInsight]: ../hdinsight-component-versioning/
-  [Analisi di dati del sensore]: ../hdinsight-hive-analyze-sensor-data/
-  [Analisi del log del sito Web]: ../hdinsight-hive-analyze-website-log/
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
@@ -247,7 +236,7 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [Amministrazione di HDInsight tramite PowerShell]: ../hdinsight-administer-use-powershell/
   [Caricare i dati in HDInsight]: ../hdinsight-upload-data/
-  [Uso di MapReduce con HDInsight]: ../hdinsight-use-mapreduce
+  [Usare MapReduce con HDInsight]: ../hdinsight-use-mapreduce
   [Usare Hive con HDInsight]: ../hdinsight-use-hive/
   [Usare Pig con HDInsight]: ../hdinsight-use-pig/
   [Usare Oozie con HDInsight]: ../hdinsight-use-oozie/

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Recapito continuo con Visual Studio Online in Azure" metaKeywords="" description="Informazioni sulla configurazione dei progetti team di Visual Studio Online per poter compilare ed eseguire automaticamente la distribuzione nei siti Web o nei servizi cloud di Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Recapito continuo in Azure tramite Visual Studio Online e Git" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Recapito continuo in Azure tramite Visual Studio Online e Git
 
@@ -8,15 +8,9 @@
 
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com][www.visualstudio.com]. Installare Azure SDK da [questa pagina][questa pagina].
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>Per completare l'esercitazione, &egrave; necessario un account di Visual Studio Online:</h5>
-<p>&Egrave; possibile <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">aprire un account di Visual Studio Online gratuitamente</a>.</p>
-</div>
-
 Per configurare un servizio cloud in modo da compilare e distribuire automaticamente in Azure mediante Visual Studio Online, eseguire la procedura seguente:
 
--   [Passaggio 1: Creare un repository Git.][Passaggio 1: Creare un repository Git.]
+-   [Passaggio 1: Registrazione per Visual Studio Online e creazione di un repository Git.][Passaggio 1: Registrazione per Visual Studio Online e creazione di un repository Git.]
 
 -   [Passaggio 2: Creazione e push di un progetto nel repository Git.][Passaggio 2: Creazione e push di un progetto nel repository Git.]
 
@@ -30,7 +24,7 @@ Per configurare un servizio cloud in modo da compilare e distribuire automaticam
 
 -   [Passaggio 7: Distribuzione da un branch di lavoro][Passaggio 7: Distribuzione da un branch di lavoro]
 
-## <a name="step1"></a><span class="short-header">Passaggio 1: Creare un repository Git.</span>Passaggio 1: Creare un repository Git
+## <a name="step1"></a><span class="short-header">Passaggio 1: Registrazione per Visual Studio Online e creazione di un repository Git.</span>Passaggio 1: Registrazione per Visual Studio Online e creazione di un repository Git
 
 1.  Se non si ha ancora un account di Visual Studio Online, seguire le istruzioni riportate [qui][qui]. Quando si crea il progetto team, scegliere Git come sistema di controllo del codice sorgente. Seguire le istruzioni per collegare Visual Studio al progetto team.
 
@@ -61,7 +55,7 @@ Per configurare un servizio cloud in modo da compilare e distribuire automaticam
 
 ## <a name="step3"> </a><span class="short-header">Connessione del progetto ad Azure.</span>Passaggio3: Connessione del progetto ad Azure
 
-1.  Ora si dispone di un repository Git in Visual Studio Online contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure][portale di Azure] selezionare il servizio cloud o il sito Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **Sito Web**, quindi **Creazione rapida**.<br.>
+1.  Ora si dispone di un repository Git in Visual Studio Online contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure][portale di Azure], selezionare il servizio cloud o il sito Web oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **Sito Web**, quindi **Creazione rapida**.<br.>
     ![][4]
 
 2.  Scegliere il collegamento **Imposta pubblicazione con Visual Studio Online**. Per i siti Web scegliere il collegamento **Imposta distribuzione dal controllo del codice sorgente**.
@@ -109,10 +103,13 @@ Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio
 
 10. Quando la compilazione è in corso, osservare la definizione di compilazione creata quando la procedura guidata è stata usata per eseguire il collegamento ad Azure. Aprire il menu di scelta rapida per la definizione di compilazione e scegliere **Modifica definizione di compilazione**.
     ![][16]
+
     Nella scheda **Trigger** si vedrà che, per impostazione predefinita, la definizione della compilazione è impostata su compilazione per ogni archiviazione. Per un servizio cloud, Visual Studio Online compila e distribuisce automaticamente il branch master nell'ambiente di gestione temporanea. È comunque necessario eseguire un'operazione manuale per distribuire il branch master nel sito attivo. Per un sito Web che non include un ambiente di gestione temporanea, il branch master viene distribuito direttamente nel sito attivo.
     ![][17]
+
     Nella scheda **Processo** è possibile vedere che l'ambiente di distribuzione è impostato sul nome del servizio cloud o del sito Web.
     ![][18]
+
     Specificare i valori per le proprietà se si vuole usare valori diversi da quelli predefiniti. Le proprietà per la pubblicazione in Azure si trovano nella sezione Distribuzione e potrebbe anche essere necessario impostare i parametri MSBuild. Ad esempio, in un progetto di servizio cloud, per specificare una configurazione del servizio diversa da "Cloud", impostare i parametri MSbuild su /p:TargetProfile=*ProfiloPersonale* dove *ProfiloPersonale* corrisponde a un file di configurazione del servizio con un nome simile a ServiceConfiguration.*ProfiloPersonale*.cscfg.
     La tabella seguente illustra le proprietà disponibili nella sezione Distribuzione:
 
@@ -120,76 +117,76 @@ Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio
 
     <tr>
     <td>
-    **Proprietà**
+    <b>Proprietà</b>
 
     </td>
     <td>
-    **Valore predefinito**
+    <b>Valore predefinito</b>
 
     </td>
     </tr>
     </p>
-    > <tr>
-    > <td>
-    > Consenti certificati non attendibili
-    >
-    > </td>
-    > <td>
-    > Se è false, i certificati SSL devono essere firmati da un'autorità radice.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Consenti aggiornamento
-    >
-    > </td>
-    > <td>
-    > Consente l'aggiornamento di una distribuzione esistente anziché crearne una nuova. Conserva l'indirizzo IP.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Non eliminare
-    >
-    > </td>
-    > <td>
-    > Se è true, una distribuzione non correlata esistente non viene sovrascritta (l'aggiornamento è consentito).
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Percorso impostazioni di distribuzione
-    >
-    > </td>
-    > <td>
-    > Percorso del file con estensione pubxml di un sito Web, relativo alla cartella radice del repository. Viene ignorato per i servizi cloud.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Ambiente di distribuzione SharePoint
-    >
-    > </td>
-    > <td>
-    > Analoga al nome del servizio
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Ambiente di distribuzione Windows Azure
-    >
-    > </td>
-    > <td>
-    > Nome del sito Web o del servizio cloud
-    >
-    > </td>
-    > </tr>
-    > </table>
+     <tr>
+     <td>
+     Consenti certificati non attendibili
+    
+     </td>
+     <td>
+     Se è false, i certificati SSL devono essere firmati da un'autorità radice.
+    
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Consenti aggiornamento
+    
+     </td>
+     <td>
+     Consente l'aggiornamento di una distribuzione esistente anziché crearne una nuova. Conserva l'indirizzo IP.
+    
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Non eliminare
+    
+     </td>
+     <td>
+     Se è true, una distribuzione non correlata esistente non viene sovrascritta (l'aggiornamento è consentito).
+    
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Percorso impostazioni di distribuzione
+    
+     </td>
+     <td>
+     Percorso del file con estensione pubxml di un sito Web, relativo alla cartella radice del repository. Viene ignorato per i servizi cloud.
+    
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Ambiente di distribuzione SharePoint
+    
+     </td>
+     <td>
+     Analoga al nome del servizio
+    
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Ambiente di distribuzione Windows Azure
+    
+     </td>
+     <td>
+     Nome del sito Web o del servizio cloud
+    
+     </td>
+     </tr>
+     </table>
 
 11. A questo punto la compilazione sarà stata completata correttamente.
     ![][19]
@@ -197,8 +194,9 @@ Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio
 12. Facendo doppio clic sul nome della compilazione, in Visual Studio verrà visualizzato un **Riepilogo compilazione** che include eventuali risultati del test restituiti dai progetti unit test associati.
     ![][20]
 
-13. Nel [portale di Azure][portale di Azure] è possibile visualizzare la distribuzione associata nella scheda Deployments quando si seleziona l'ambiente di gestione temporanea.
-    ![][21]
+13. Nel [
+    portale di Azure
+    ][portale di Azure] è possibile visualizzare la distribuzione associata nella scheda Deployments quando si seleziona l'ambiente di gestione temporanea.![][21]
 
 14. Passare all'URL del proprio sito. Per un sito Web, scegliere semplicemente il pulsante **Sfoglia** nel portale. Per un servizio cloud, scegliere l'URL nella sezione **Riepilogo rapido** della pagina **Dashboard** in cui è visualizzato l'ambiente di gestione temporanea. Le distribuzioni derivanti dall'integrazione continua per i servizi cloud vengono pubblicate nell'ambiente di gestione temporanea per impostazione predefinita. È possibile modificare questa impostazione configurando la proprietà Ambiente del servizio cloud alternativo su Produzione. Ecco dove si trova l'URL del sito nella pagina del dashboard del servizio cloud:
     ![][22]
@@ -254,11 +252,10 @@ Per altre informazioni, vedere [Visual Studio Online][Visual Studio Online]. Per
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [questa pagina]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [Passaggio 1: Creare un repository Git.]: #step1
+  [Passaggio 1: Registrazione per Visual Studio Online e creazione di un repository Git.]: #step1
   [Passaggio 2: Creazione e push di un progetto nel repository Git.]: #step2
   [Passaggio 3: Connessione del progetto ad Azure.]: #step3
   [Passaggio 4: Modifiche e attivazione di una ricompilazione e una ridistribuzione.]: #step4
-  [Passaggio 5: Ridistribuzione di una compilazione precedente (facoltativa)]: #step5
   [Passaggio 6: Modifica della distribuzione di produzione]: #step6
   [Passaggio 7: Distribuzione da un branch di lavoro]: #step7
   [qui]: http://go.microsoft.com/fwlink/?LinkId=397665

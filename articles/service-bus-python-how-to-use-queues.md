@@ -97,6 +97,5 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Procedura: Inviare messaggi a una coda]: #send-messages
   [Procedura: Ricevere messaggi da una coda]: #receive-messages
   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [guida all'installazione di Python]: ../python-how-to-install/
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx

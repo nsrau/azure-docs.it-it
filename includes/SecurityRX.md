@@ -274,7 +274,7 @@ WIF viene usato in tutti i casi e supporta il metodo IPrincipal.IsInRole("MyRole
 
 **Azure AD Access Control**. In questa implementazione viene usato il motore di regole di trasformazione delle attestazioni di Azure AD Access Control. Con le regole di questo motore, è possibile trasformare qualsiasi attestazione in ingresso in un'attestazione di tipo ruolo, in modo che quando il token rileva l'applicazione o un servizio, WIF possa analizzare l'attestazione di tipo ruolo per garantire la corretta esecuzione della chiamata al metodo IsInRole.
 
-![][]
+![][0]
 
 **WIF ClaimsAuthenticationManager**. In questa implementazione usare ClaimsAuthenticationManager come punto di estendibilità di WIF. Con questo approccio è possibile trasformare qualsiasi attestazione arbitraria in ingresso in un'attestazione di tipo ruolo nell'applicazione. La complessità della trasformazione è limitata solo dal codice scritto.
 
@@ -539,10 +539,6 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
   [foglio informativo: sull'infrastruttura di sicurezza delle applicazioni Web]: http://msdn.microsoft.com/it-it/library/ff649461.aspx
   [indice di linee guida per la sicurezza delle applicazioni]: http://msdn.microsoft.com/it-it/library/ff650760.aspx
   [Minacce, vulnerabilità e attacchi]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
-  [Esempi di Windows Identity Foundation 4.5]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
-  [Strumenti di Windows Identity Foundation 4.5 per Visual Studio 11 Beta]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
-  [Runtime di Windows Identity Foundation (.NET 3.5/4.0)]: http://www.microsoft.com/it-it/download/details.aspx?id=17331
-  [Esempi di Windows Identity Foundation 3.5/4.0 e modelli di Visual Studio 2008/2010]: http://www.microsoft.com/it-it/download/details.aspx?displaylang=en&id=4451
   [Servizio di controllo di accesso 2.0]: http://msdn.microsoft.com/library/gg429786.aspx
   [Scenari e soluzioni supportati da ACS]: http://msdn.microsoft.com/it-it/library/gg185920.aspx
   [Procedure di ACS]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185939.aspx
@@ -556,22 +552,10 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
   [Nuova funzionalità di archiviazione: firme di accesso condiviso]: http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures
   [Come usare facilmente le firme di accesso condiviso]: http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days
   [Azure AD Access Control]: ./media/SecurityRX/03_WindowsAzureADAccesscontrol.gif
-  [Procedura: Creare mediante ACS la prima applicazione ASP.NET in grado di riconoscere attestazioni]: http://msdn.microsoft.com/it-it/library/gg429779.aspx
-  [Procedura: Ospitare pagine di accesso nell'applicazione Web ASP.NET]: http://msdn.microsoft.com/it-it/library/gg185926.aspx
   [Procedura: Implementare mediante WIF e ACS l'autorizzazione delle attestazioni in un'applicazione ASP.NET in grado di riconoscere attestazioni]: http://msdn.microsoft.com/it-it/library/gg185907.aspx
   [Procedura: Implementare mediante WIF e ACS il controllo di accesso basato sui ruoli (RBAC) in un'applicazione ASP.NET in grado di riconoscere attestazioni]: http://msdn.microsoft.com/it-it/library/gg185914.aspx
-  [Procedura: Configurare i criteri di attendibilità tra ACS e le applicazioni Web ASP.NET usando certificati X.509]: http://msdn.microsoft.com/it-it/library/gg185947.aspx
-  [Esempio di codice: Web Form ASP.NET semplice]: http://msdn.microsoft.com/it-it/library/gg185938.aspx
   [Servizio WCF (SOAP)]: ./media/SecurityRX/04_WCF(SOAP)Service.gif
-  [Procedura: Aggiungere identità del servizio con un certificato X.509, una password o una chiave simmetrica]: http://msdn.microsoft.com/it-it/library/gg185924.aspx
-  [Procedura: Eseguire l'autenticazione con un certificato client per l'accesso a un servizio WCF protetto da ACS]: http://msdn.microsoft.com/it-it/library/hh289316.aspx
-  [Procedura: Eseguire l'autenticazione con un nome utente e una password per l'accesso a un servizio WCF protetto da ACS]: http://msdn.microsoft.com/it-it/library/gg185954.aspx
-  [Esempio di codice: autenticazione del certificato per WCF]: http://msdn.microsoft.com/it-it/library/gg185952.aspx
-  [Esempio di codice: autenticazione del nome utente per WCF]: http://msdn.microsoft.com/it-it/library/gg185927.aspx
   [Servizio WCF (SOAP) con AD]: ./media/SecurityRX/05_AzureADAccessControl.gif
-  [Procedura: Configurare ADFS 2.0 come provider di identità]: http://msdn.microsoft.com/it-it/library/gg185961.aspx
-  [Procedura: Usare il servizio di gestione per configurare ADFS 2.0 come provider di identità enterprise]: http://msdn.microsoft.com/it-it/library/gg185905.aspx
-  [Esempio di codice: autenticazione federata WCF con ADFS 2.0]: http://msdn.microsoft.com/it-it/library/hh127796.aspx
   [Servizio REST]: ./media/SecurityRX/06_RESTService.gif
   [Procedura: Configurare i criteri di attendibilità tra ACS e il servizio WCF usando chiavi simmetriche]: http://msdn.microsoft.com/it-it/library/gg185958.aspx
   [Procedura: Eseguire l'autenticazione a un servizio WCF REST distribuito in Azure tramite ACS]: http://msdn.microsoft.com/it-it/library/hh289317.aspx
@@ -583,7 +567,7 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
   [Procedura: Configurare Yahoo! come provider di identità]: http://msdn.microsoft.com/it-it/library/gg185977.aspx
   [Applicazione Web ASP.NET]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif
   [App Web ASP.NET per delega del servizio WCF REST con token SWT condiviso]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-  []: ./media/SecurityRX/09_RBAC.gif
+  [0]: ./media/SecurityRX/09_RBAC.gif
   [1]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
   [2]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
   [3]: ./media/SecurityRX/12_CustomRoleManager.gif
@@ -619,7 +603,6 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
   [Introduzione ad Azure Marketplace per le applicazioni]: https://datamarket.azure.com/
   [Considerazione sulla progettazione WIF]: http://msdn.microsoft.com/it-it/library/ee517298.aspx
   [Sicurezza di Windows Identity Foundation (WIF) per applicazioni Web ASP.NET - Minacce e contromisure]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
-  [Windows Identity Foundation (WIF): individuato un valore Request.Form potenzialmente pericoloso proveniente dal client.]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
   [Linee guida per la sicurezza di ACS]: http://msdn.microsoft.com/it-it/library/gg185962.aspx
   [Linee guida per la gestione di certificati e chiavi]: http://msdn.microsoft.com/it-it/library/hh204521.aspx
   [13]: http://go.microsoft.com/fwlink/?LinkId=214555

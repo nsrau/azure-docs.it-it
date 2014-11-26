@@ -177,7 +177,6 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 
 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [Download del progetto dell'app per Windows Phone 8]: #download-app
   [Creazione del servizio mobile]: #create-service
   [Aggiunta di una tabella dati per l'archiviazione]: #add-table
@@ -188,8 +187,6 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
   [app GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [versione dell'app di Windows Phone Store]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [portale di gestione]: https://manage.windowsazure.com/

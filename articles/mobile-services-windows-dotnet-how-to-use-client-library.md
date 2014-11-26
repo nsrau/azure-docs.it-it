@@ -691,7 +691,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
   [Personalizzare le intestazioni di richieste]: #headers
   [Personalizzare la serializzazione]: #serialization
   [Passaggi successivi]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Creare una tabella]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Schema dinamico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx

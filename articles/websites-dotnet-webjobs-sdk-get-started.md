@@ -880,13 +880,11 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
   [Passaggi successivi]: #next-steps
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Web Form]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-  [free-trial-note]: ../includes/free-trial-note.md
   [I]: /it-it/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [Tabella di inserzioni]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Architettura di Contoso Ads]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
   [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: /it-it/documentation/articles/choose-web-site-cloud-service-vm/
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [come gestire gli account di archiviazione]: /it-it/documentation/articles/storage-manage-storage-account/
   [Nuovo account di archiviazione]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png

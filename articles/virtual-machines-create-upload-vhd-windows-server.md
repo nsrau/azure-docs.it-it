@@ -1,8 +1,8 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="Creare e caricare un disco rigido virtuale con Windows Server in Azure" metaKeywords="Azure VHD, uploading VHD" description="Informazioni su come creare e caricare un disco rigido virtuale in Azure che contiene il sistema operativo Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creare e caricare un disco rigido virtuale con Windows Server in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
-# Creare e caricare un disco rigido virtuale con Windows Server in Azure
+# Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
 
 Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Hard Disk) con un sistema operativo in modo da poterlo usare come immagine in base alla quale creare macchine virtuali. Per altre informazioni su dischi e immagini in Microsoft Azure, vedere l'argomento relativo alla [gestione di dischi e immagini in Azure][gestione di dischi e immagini in Azure].
 
@@ -12,13 +12,13 @@ Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Ha
 
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-**Una sottoscrizione Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni, vedere [Creare un account Azure][Creare un account Azure].
+**Una sottoscrizione Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni, vedere [Creazione di un account Azure][Creazione di un account Azure].
 
 **Microsoft Azure PowerShell**: se il modulo Microsoft Azure PowerShell è installato. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure][download di Microsoft Azure]. In [questo articolo][questo articolo] è disponibile un'esercitazione relativa all'installazione e alla configurazione di PowerShell con una sottoscrizione Azure.
 
 -   Il cmdlet [Add-AzureVHD][Add-AzureVHD], incluso nel modulo Microsoft Azure PowerShell. Questo cmdlet verrà usato per caricare il VHD.
 
-**Un sistema operativo Windows supportato archiviato in un file VHD**: l'utente deve avere installato un sistema operativo Windows Server supportato in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file VHD. Per creare il file VHD e installare il sistema operativo, è possibile usare soluzioni di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale][Installare il ruolo Hyper-V e configurare una macchina virtuale].
+**Un sistema operativo Windows supportato archiviato in un file VHD**: l'utente deve avere installato un sistema operativo Windows Server supportato in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file VHD. Per creare il file VHD e installare il sistema operativo, è possibile utilizzare soluzioni di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale][Installare il ruolo Hyper-V e configurare una macchina virtuale].
 
 **Importante**: il formato VHDX non è supportato in Microsoft Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il [cmdlet Convert-VHD][cmdlet Convert-VHD]. È possibile trovare un'esercitazione relativa alla procedura di conversione in [questo articolo][1].
 
@@ -135,7 +135,7 @@ Questa attività include i passaggi seguenti:
 
 ## <span id="prepimage"></span> </a>Passaggio 1: Preparare l'immagine da caricare
 
-Prima di poter caricare l'immagine in Azure, è necessario generalizzarla tramite il comando Sysprep. Per altre informazioni sull'utilizzo di Sysprep, vedere [Introduzione all'utilizzo di SysPrep][Introduzione all'utilizzo di SysPrep].
+Prima di poter caricare l'immagine in Azure, è necessario generalizzarla tramite il comando Sysprep. Per ulteriori informazioni sull'utilizzo di Sysprep, vedere [Introduzione all'utilizzo di SysPrep][Introduzione all'utilizzo di SysPrep].
 
 Nella macchina virtuale appena creata, completare la procedura seguente:
 
@@ -157,19 +157,19 @@ Nella macchina virtuale appena creata, completare la procedura seguente:
 
 ## <span id="createstorage"></span> </a>Passaggio 2: Creare un account di archiviazione in Azure
 
-L'account di archiviazione rappresenta il livello più elevato dello spazio dei nomi per l'accesso ai servizi di archiviazione di Azure ed è associato alla sottoscrizione di Azure. È necessario disporre di un account di archiviazione di Azure per caricare un file VHD in Azure che può essere usato per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile usare il portale di gestione di Azure.
+L'account di archiviazione rappresenta il livello più elevato dello spazio dei nomi per l'accesso ai servizi di archiviazione di Azure ed è associato alla sottoscrizione di Azure. È necessario disporre di un account di archiviazione di Azure per caricare un file VHD in Azure che può essere utilizzato per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile utilizzare il portale di gestione di Azure.
 
 1.  Accedere al portale di gestione di Azure.
 
-2.  Sulla barra dei comandi fare clic su **New**.
+2.  Sulla barra dei comandi fare clic su **Nuovo**.
 
-3.  Fare clic su **Storage Account** e quindi su **Quick Create**.
+3.  Fare clic su **Account di archiviazione** e quindi su **Creazione rapida**.
 
     ![Creazione rapida di un account di archiviazione][Creazione rapida di un account di archiviazione]
 
 4.  Compilare i campi come indicato di seguito:
 
--   In **URL** digitare un nome di sottodominio da usare nell'URL per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
+-   In **URL** digitare un nome di sottodominio da utilizzare nell'URL per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
 
 -   Selezionare la **posizione o il gruppo di affinità** per l'account di archiviazione. Specificando un gruppo di affinità è possibile posizionare i servizi cloud nello stesso data center delle risorse di archiviazione.
 
@@ -177,7 +177,7 @@ L'account di archiviazione rappresenta il livello più elevato dello spazio dei 
 
     ![Immissione dei dettagli dell'account di archiviazione][Immissione dei dettagli dell'account di archiviazione]
 
-1.  Fare clic su **Create Storage Account**.
+1.  Fare clic su **Crea account di archiviazione**.
 
     L'account verrà visualizzato in **Account di archiviazione**.
 
@@ -296,7 +296,7 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 
   [gestione di dischi e immagini in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/jj672979.aspx
   [Come creare una macchina virtuale personalizzata]: http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-windows-tutorial/
-  [Creare un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
+  [Creazione di un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
   [download di Microsoft Azure]: http://www.windowsazure.com/it-it/downloads/
   [questo articolo]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/
   [Add-AzureVHD]: http://msdn.microsoft.com/it-it/library/windowsazure/dn205185.aspx

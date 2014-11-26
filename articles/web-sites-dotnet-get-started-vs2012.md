@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Introduzione a Siti Web di Azure e ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/it-it/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>Nota</strong><p>&Egrave; disponibile una <a href="/en-us/develop/net/tutorials/get-started/">versione pi&ugrave; recente di questa esercitazione</a>. &Egrave; comunque possibile seguire questa versione se si desidera utilizzare Visual Studio 2012, tenendo presente che non offre tutte le ultime funzionalit&agrave; di Azure SDK.</p></div>
+<div class="dev-callout"><strong>Nota</strong><p>&Egrave; disponibile una <a href="/it-it/develop/net/tutorials/get-started/">versione pi&ugrave; recente di questa esercitazione</a>. &Egrave; comunque possibile seguire questa versione se si desidera utilizzare Visual Studio 2012, tenendo presente che non offre tutte le ultime funzionalit&agrave; di Azure SDK.</p></div>
 
 In questa esercitazione viene illustrato come distribuire un'applicazione Web ASP.NET in un sito Web di Azure usando la procedura guidata Pubblica sito Web in Visual Studio 2012 o Visual Studio Express 2012 per il Web. Se si preferisce, è possibile seguire l'esercitazione utilizzando Visual Studio 2010 o Visual Web Developer Express 2010.
 
@@ -23,7 +23,7 @@ Nella figura seguente è illustrata l'applicazione completata:
 
 ![Esempio di sito Web][Esempio di sito Web]
 
-<div class="dev-callout"><p><strong>Nota</strong> Per completare l'esercitazione &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>.</p></div>
+<div class="dev-callout"><p><strong>Nota</strong> Per completare l'esercitazione &egrave; necessario un account Azure. Se non si dispone di un account, &egrave; possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>.</p></div>
 
 ### Sezioni dell'esercitazione
 
@@ -33,7 +33,7 @@ Nella figura seguente è illustrata l'applicazione completata:
 4.  [Distribuire l'applicazione in Azure][Distribuire l'applicazione in Azure]
 5.  [Passaggi successivi][Passaggi successivi]
 
-[WACOM.INCLUDE [install-sdk-2012-only][install-sdk-2012-only]]
+[WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
 ## <a name="setupwindowsazure"></a><span class="short-header">Creare il sito</span>Creare un sito Web
 
@@ -209,18 +209,12 @@ Nella maggior parte dei siti Web di produzione si usa un database e vengono appl
 
 In alcuni scenari è consigliabile eseguire l'applicazione in un servizio cloud di Azure anziché in un sito Web di Azure. Per altre informazioni, vedere [Modelli di esecuzione di Azure][Modelli di esecuzione di Azure] e [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure][Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]. Per una serie di esercitazioni in cui viene spiegato come creare un'applicazione Web ASP.NET multilivello e distribuirla in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure][Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure].
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
-  [versione più recente di questa esercitazione]: /en-us/develop/net/tutorials/get-started/
   [Esempio di sito Web]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
-  [attivare i benefici della sottoscrizione MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [iscriversi per ottenere una versione di valutazione gratuita]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
   [Configurare l'ambiente di sviluppo]: #setupdevenv
   [Creare un sito Web in Azure]: #setupwindowsazure
   [Creare un'applicazione ASP.NET MVC 4]: #createmvc4app
   [Distribuire l'applicazione in Azure]: #deploytowindowsazure
   [Passaggi successivi]: #nextsteps
-  [install-sdk-2012-only]: ../includes/install-sdk-2012-only.md
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [Nuovo sito Web]: ./media/web-sites-dotnet-get-started-vs2012/WebSiteNew.png
   [Quick create]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png
@@ -247,12 +241,12 @@ In alcuni scenari è consigliabile eseguire l'applicazione in un servizio cloud 
   [Siti Web di Azure in Esplora server]: ./media/web-sites-dotnet-get-started-vs2012/ServerExplorerWSSettings.png
   [Configurazione di siti Web in Visual Studio]: ./media/web-sites-dotnet-get-started-vs2012/WSConfigurationInVS.png
   [Scheda Dashboard del portale di gestione]: ./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png
-  [Come gestire i siti Web]: /en-us/manage/services/web-sites/how-to-manage-websites/
+  [Come gestire i siti Web]: /it-it/manage/services/web-sites/how-to-manage-websites/
   [Scheda Scale del portale di gestione]: ./media/web-sites-dotnet-get-started-vs2012/MPScale.png
-  [Come scalare un sito Web]: /en-us/manage/services/web-sites/how-to-scale-websites/
+  [Come scalare un sito Web]: /it-it/manage/services/web-sites/how-to-scale-websites/
   [Log in Visual Studio]: ./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png
-  [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Modelli di esecuzione di Azure]: /en-us/develop/net/fundamentals/compute/
+  [Risoluzione dei problemi di Siti Web di Azure in Visual Studio]: /it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]: /it-it/develop/net/tutorials/web-site-with-sql-database/
+  [Modelli di esecuzione di Azure]: /it-it/develop/net/fundamentals/compute/
   [Confronto tra siti Web, servizi cloud e macchine virtuali di Azure]: http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/
-  [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [Applicazione .NET multilivello con tabelle, code e BLOB di Archiviazione di Azure]: /it-it/develop/net/tutorials/multi-tier-web-site/1-overview/

@@ -6,7 +6,7 @@ i componenti di un'applicazione distribuita non comunicano direttamente
 l'uno con l'altro ma scambiano messaggi tramite un argomento, che
 funge da intermediario.
 
-![Concetti relativi agli argomenti][]
+![Concetti relativi agli argomenti][Concetti relativi agli argomenti]
 
 Diversamente dalle code del bus di servizio, in cui ogni messaggio viene
 elaborato da un unico consumer, gli argomenti e le sottoscrizioni offrono una forma di comunicazione **uno a molti**
@@ -34,13 +34,13 @@ dell'applicazione.
 
 Per creare uno spazio dei nomi servizio:
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
     **Service Bus**.
 
 3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
-    ![][]
+    ![][0]
 
 4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi.
     Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
@@ -70,7 +70,7 @@ le credenziali di gestione per lo spazio dei nomi. È possibile ottenerle dal po
 
 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per
     visualizzare l'elenco degli spazi dei nomi disponibili:
-    ![][]
+    ![][0]
 
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:
     ![][3]
@@ -82,7 +82,7 @@ le credenziali di gestione per lo spazio dei nomi. È possibile ottenerle dal po
 
 ### Per ottenere le credenziali di gestione da Esplora server
 
-Per ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][] nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
+Per ottenere le informazioni di connessione tramite Visual Studio anziché dal portale di gestione, attenersi alla procedura descritta [qui][qui] nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Service Bus** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio.
 
 Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
@@ -90,10 +90,10 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [Concetti relativi agli argomenti]: ./media/howto-service-bus-topics/sb-topics-01.png
   [portale di gestione di Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [qui]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [qui]: http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

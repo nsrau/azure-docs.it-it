@@ -294,7 +294,6 @@ Per altre informazioni sull'utilizzo di Azure SDK for Ruby per l'accesso ai serv
   [Pagina predefinita Rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [Pagina con elenco di post]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [qui]: /it-it/documentation/articles/virtual-machines-linux-tutorial
-  [pagina di download corrispondente]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Elenco di macchine virtuali]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [Pagina di endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png

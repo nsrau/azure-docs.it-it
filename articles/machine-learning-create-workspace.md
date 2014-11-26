@@ -1,6 +1,6 @@
 <properties title="Create an Azure Machine Learning workspace" pageTitle="Create a Machine Learning workspace | Azure" description="Create a workspace for Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Creare un'area di lavoro di Azure Machine Learning
 

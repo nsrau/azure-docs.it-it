@@ -271,7 +271,7 @@ esse.
 Come accennato in precedenza, il file di definizione del servizio (CSDEF) è un file XML
 in cui sono descritti i diversi ruoli che costituiscono l'applicazione
 completa. Lo schema completo per il file XML è disponibile qui:
-[[http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx]][].
+[http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx][http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx].
 Il file CSDEF contiene un elemento WebRole o WorkerRole per ogni ruolo che si desidera
 usare nell'applicazione. Se si distribuisce un ruolo come ruolo Web (mediante
 l'elemento WebRole), il codice verrà eseguito su un'istanza del ruolo
@@ -506,7 +506,7 @@ CSCFG:
     imposta l'attributo osVersion sul valore
     "WA-GUEST-OS-2.8\_201109-01", in tutte le istanze del ruolo si verificherà
     quanto descritto nella pagina Web all'indirizzo:
-    [][5][http://msdn.microsoft.com/it-it/library/hh560567.aspx][5]</a>. Per altre
+    [http://msdn.microsoft.com/it-it/library/hh560567.aspx][5]. Per altre
     informazioni sulle versioni del sistema operativo guest OS, vedere [Gestire gli aggiornamenti al sistema operativo guest Azure][Gestire gli aggiornamenti al sistema operativo guest Azure].
 
 -   **Istanze**. Il valore di questo elemento indica il numero di istanze del

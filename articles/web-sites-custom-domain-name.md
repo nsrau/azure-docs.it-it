@@ -102,21 +102,17 @@ I visitatori che accedono al sito dell'utente non vedono il sottodominio awverif
 
 ## Abilitazione del nome di dominio sul sito Web
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-<!-- Anchors. --> <!-- Images -->
+<!-- Images -->
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [sottodominio contoso.azurewebsites.net]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Panoramica]: #overview
   [Tipi di record DNS]: #dns-record-types
   [Individuazione dell'indirizzo IP virtuale]: #find-the-virtual-ip-address
   [Creazione dei record DNS]: #create-the-dns-records
   [Abilitazione del nome di dominio sul sito Web]: #enable-the-domain-name-on-your-website
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [come scalare i siti Web]: http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/
   [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

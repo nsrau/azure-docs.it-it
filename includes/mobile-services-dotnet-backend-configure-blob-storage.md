@@ -25,13 +25,13 @@ La classe TodoItem definisce l'oggetto dati ed è necessario aggiungere a questa
 
     Queste proprietà consentono di generare la firma di accesso condiviso e di archiviare le informazioni sulle immagini. Si noti che la convenzione per l'utilizzo di maiuscole e minuscole di queste proprietà corrisponde alla versione back-end di JavaScript.
 
-    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati][].
+    > [WACOM.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati][Come utilizzare le Migrazioni Code First per aggiornare il modello di dati].
 
 ## <a name="update-scripts"></a>Aggiornamento del controller TodoItem per generare una firma di accesso condiviso
 
 L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostTodoItem** generi una firma di accesso condiviso quando viene inserito un nuovo elemento Todo. Inoltre:
 
-1.  Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione][].
+1.  Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
 
 2.  Nel portale di gestione fare clic su **Storage**, sull'account di archiviazione e quindi su **Manage Keys**.
 
@@ -48,7 +48,7 @@ L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostT
 
     ![][3]
 
-    La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per altre informazioni, vedere [Impostazioni app][].
+    La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per altre informazioni, vedere [Impostazioni app][Impostazioni app].
 
 5.  In Esplora soluzioni di Visual Studio aprire il file Web.config relativo al progetto di servizio mobile e aggiungere le nuove app settings seguenti, sostituendo i segnaposto con il nome dell'account di archiviazione e la chiave di accesso appena specificati nel portale:
 
@@ -123,7 +123,7 @@ L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostT
 
     Il nuovo POST ora genera una nuova firma di accesso condiviso per l'elemento inserito, valida per 5 minuti, quindi assegna il valore della firma generata alla proprietà `sasQueryString` dell'elemento restituito. La proprietà `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-    > [WACOM.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il [metodo generateSharedAccessSignature][] con un nome risorse BLOB vuoto, ad esempio:
+    > [WACOM.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il [metodo generateSharedAccessSignature][metodo generateSharedAccessSignature] con un nome risorse BLOB vuoto, ad esempio:
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -131,13 +131,13 @@ L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostT
 
 In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funzionalità di caricamento delle immagini mediante la firma di accesso condiviso generata per l'inserimento.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+ 
 
    
   [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
-  [Come creare un account di archiviazione]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [Come creare un account di archiviazione]: /it-it/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [3]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
-  [Impostazioni app]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
   [metodo generateSharedAccessSignature]: http://go.microsoft.com/fwlink/?LinkId=390455

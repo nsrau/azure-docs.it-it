@@ -39,16 +39,16 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 È ora possibile utilizzare un account di accesso Twitter per l'autenticazione nell'app fornendo i valori di chiave e segreto consumer a Servizi mobili.
 
-<!-- Anchors. -->
 
-<!-- Images. -->
+
+
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
 [3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
 [4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
 [5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
-<!-- URLs. -->
+
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/

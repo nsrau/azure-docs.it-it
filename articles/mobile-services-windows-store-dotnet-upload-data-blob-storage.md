@@ -76,8 +76,6 @@ Ulteriori informazioni su come utilizzare Servizi mobili con .NET.
   [Account di archiviazione di Azure]: /it-it/manage/services/storage/how-to-create-a-storage-account
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
   [Invio di posta elettronica da Servizi mobili con SendGrid]: /it-it/develop/mobile/tutorials/send-email-with-sendgrid/
   [Pianificazione di processi back-end in Servizi mobili]: /it-it/documentation/articles/mobile-services-schedule-recurring-tasks
   [Riferimento per gli script server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293

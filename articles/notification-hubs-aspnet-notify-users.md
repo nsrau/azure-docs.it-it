@@ -3,7 +3,7 @@
 Utilizzo di Hub di notifica per inviare notifiche agli utenti
 =============================================================
 
-[Servizi mobili](/en-us/manage/services/notification-hubs/notify-users "Servizi mobili")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[Servizi mobili](/it-it/manage/services/notification-hubs/notify-users "Servizi mobili")[ASP.NET](/it-it/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 In questa esercitazione viene illustrato come utilizzare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche, viene utilizzato un back-end di API Web ASP.NET. Questa esercitazione si basa sull'hub di notifica creato nell'esercitazione precedente **Introduzione ad Hub di notifica**. Il codice di registrazione della notifica viene spostato dal client al servizio back-end. In tal modo la registrazione verrà completata solo dopo la corretta autenticazione del client da parte del servizio e le credenziali dell'hub di notifica non verranno distribuite con l'app client. Il servizio controlla inoltre i tag richiesti durante la registrazione.
 
@@ -17,11 +17,11 @@ Prerequisiti
 ------------
 
 -   Visual Studio 2012. Per creare l'applicazione ASP.NET e l'app di Windows Store, è inoltre possibile utilizzare rispettivamente Visual Studio Express 2012 per il Web e Visual Studio Express 2012 per Windows 8.
--   Questa esercitazione si basa sull'app e sull'hub di notifica creati in **Introduzione ad Hub di notifica**. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione **Introduzione ad Hub di notifica** ([Windows Store C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android)).
+-   Questa esercitazione si basa sull'app e sull'hub di notifica creati in **Introduzione ad Hub di notifica**. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione **Introduzione ad Hub di notifica** ([Windows Store C\#](/it-it/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/it-it/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/it-it/manage/services/notification-hubs/get-started-notification-hubs-android)).
 
 **Nota**
 
-Il progetto di API Web ASP.NET creato in questa esercitazione viene eseguito nel computer locale. È inoltre possibile pubblicare progetti di API Web ASP.NET in Azure. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un servizio REST per cellulari con l'API Web ASP.NET e Database SQL](/en-us/develop/net/tutorials/rest-service-using-web-api/).
+Il progetto di API Web ASP.NET creato in questa esercitazione viene eseguito nel computer locale. È inoltre possibile pubblicare progetti di API Web ASP.NET in Azure. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un servizio REST per cellulari con l'API Web ASP.NET e Database SQL](/it-it/develop/net/tutorials/rest-service-using-web-api/).
 
 Creazione dell'app ASP.NETCreazione di un'applicazione ASP.NET con autenticazione
 ---------------------------------------------------------------------------------
@@ -294,8 +294,8 @@ Con l'app creata al completamento dell'esercitazione **Introduzione ad Hub di no
 
 2.  Attenersi alla procedura riportata in una delle versioni seguenti della pagina relativa all'**utilizzo di API Web ASP.NET per registrare l'utente corrente per le notifiche push**, a seconda della piattaforma client in uso:
 
-    -   [Versione per Windows Store C\#](/en-us/manage/services/notification-hubs/register-users-aspnet-dotnet)
-    -   [Versione per iOS](/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
+    -   [Versione per Windows Store C\#](/it-it/manage/services/notification-hubs/register-users-aspnet-dotnet)
+    -   [Versione per iOS](/it-it/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
 
 3.  Eseguire l'app aggiornata, accedere al servizio con la stessa stringa per nome utente e password, quindi verificare che venga visualizzato l'ID di registrazione assegnato alla notifica.
 
@@ -303,7 +303,7 @@ Con l'app creata al completamento dell'esercitazione **Introduzione ad Hub di no
 
     **Nota**
 
-    Se per una piattaforma per la quale è richiesto l'invio di una notifica non è disponibile nessuna registrazione, verrà generato un errore che, in questo caso, può essere ignorato. Per informazioni su come utilizzare i modelli per evitare questa situazione, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet).
+    Se per una piattaforma per la quale è richiesto l'invio di una notifica non è disponibile nessuna registrazione, verrà generato un errore che, in questo caso, può essere ignorato. Per informazioni su come utilizzare i modelli per evitare questa situazione, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse](/it-it/manage/services/notification-hubs/notify-users-xplat-aspnet).
 
 4.  (Facoltativo) Distribuire l'app client in un secondo dispositivo, quindi eseguirla e inserire testo.
 
@@ -314,10 +314,10 @@ Passaggi successivi
 
 Dopo avere completato questa esercitazione, provare a eseguire quelle seguenti:
 
--   **Utilizzo di Hub di notifica per inviare le ultime notizie ([Windows Store C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
+-   **Utilizzo di Hub di notifica per inviare le ultime notizie ([Windows Store C\#](/it-it/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/it-it/manage/services/notification-hubs/breaking-news-dotnet))**
     In questa esercitazione specifica della piattaforma viene illustrato come utilizzare tag per consentire agli utenti di sottoscrivere i tipi di notifiche a cui sono interessati.
 
--   **[Utilizzo di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)**
+-   **[Utilizzo di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse](/it-it/manage/services/notification-hubs/notify-users-xplat-aspnet)**
     Questa esercitazione costituisce un'estensione di quella **Utilizzo di Hub di notifica per inviare notifiche agli utenti** e include informazioni relative all'utilizzo di modelli specifici delle piattaforme per la registrazione per le notifiche. In questo modo sarà possibile inviare notifiche da un unico metodo nel codice lato server.
 
 Per ulteriori informazioni su Hub di notifica, vedere [Hub di notifica di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj927170.aspx).

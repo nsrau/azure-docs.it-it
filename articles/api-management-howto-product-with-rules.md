@@ -1,6 +1,6 @@
 <properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure
 
@@ -10,13 +10,13 @@ In questa esercitazione verrà creato e pubblicato un prodotto Free Trial che co
 
 ## Contenuto dell'argomento
 
--   [Creare un prodotto][]
--   [Aggiungere un'API al prodotto][]
--   [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][]
--   [Pubblicare il prodotto][]
--   [Sottoscrivere un account per sviluppatore al prodotto][]
--   [Chiamare un'operazione e testare il limite di frequenza][]
--   [Passaggi successivi][]
+-   [Creare un prodotto][Creare un prodotto]
+-   [Aggiungere un'API al prodotto][Aggiungere un'API al prodotto]
+-   [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][Configurare i criteri relativi a limiti di frequenza e quota delle chiamate]
+-   [Pubblicare il prodotto][Pubblicare il prodotto]
+-   [Sottoscrivere un account per sviluppatore al prodotto][Sottoscrivere un account per sviluppatore al prodotto]
+-   [Chiamare un'operazione e testare il limite di frequenza][Chiamare un'operazione e testare il limite di frequenza]
+-   [Passaggi successivi][Passaggi successivi]
 
 ## <a name="create-product"> </a>Creare un prodotto
 
@@ -24,17 +24,17 @@ In questo passaggio si creerà un prodotto Free Trial che non richiede l'approva
 
 Per iniziare, fare clic su **Console di gestione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale amministrativo di Gestione API.
 
-> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizzare la pagina **Prodotti**.
 
-![Add product][]
+![Add product][Add product]
 
 Fare clic su **aggiungi prodotto** per visualizzare la finestra popup **Aggiungi nuovo prodotto**.
 
-![Add new product][]
+![Add new product][Add new product]
 
 Digitare **Free Trial** nella casella di testo **Titolo**.
 
@@ -44,13 +44,13 @@ Se si preferisce che i tentativi di sottoscrizione al prodotto vengano esaminati
 
 Dopo aver immesso tutti i valori, fare clic su **Salva** per creare il prodotto.
 
-![Product added][]
+![Product added][Product added]
 
 Per impostazione predefinita, i nuovi prodotti sono visibili agli utenti nel gruppo **Amministratori**. Verrà ora aggiunto il gruppo **Sviluppatori**. Fare clic su **Free Trial** e selezionare la scheda **Visibilità**.
 
-> In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. Per altre informazioni, vedere [Come creare e usare i gruppi in Gestione API di Azure][].
+> In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. Per altre informazioni, vedere [Come creare e usare i gruppi in Gestione API di Azure][Come creare e usare i gruppi in Gestione API di Azure].
 
-![Add developers group][]
+![Add developers group][Add developers group]
 
 Selezionare il gruppo **Sviluppatori** e fare clic su **Salva**.
 
@@ -58,37 +58,37 @@ Selezionare il gruppo **Sviluppatori** e fare clic su **Salva**.
 
 In questo passaggio dell'esercitazione si aggiungerà l'API My Echo al nuovo prodotto Free Trial.
 
-> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
+> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra e scegliere **Free Trial** per configurare il prodotto.
 
-![Configure product][]
+![Configure product][Configure product]
 
 Fare clic su **Aggiungi API al prodotto**.
 
-![Add API to product][]
+![Add API to product][Add API to product]
 
 Selezionare la casella accanto a **API Echo** e fare clic su **Salva**.
 
-![Add Echo API][]
+![Add Echo API][Add Echo API]
 
 ## <a name="policies"> </a>Configurare i criteri relativi a limiti di frequenza e quota delle chiamate
 
 I limiti di frequenza e le quote vengono configurate nell'editor dei criteri. Fare clic su **Criteri** sotto il menu **Gestione API** sulla sinistra e selezionare **Free Trial** nell'elenco a discesa **Prodotto in Ambito criteri**.
 
-![Product policy][]
+![Product policy][Product policy]
 
 Fare clic su **Aggiungi criteri** per importare il modello dei criteri e iniziare a creare i criteri relativi a limiti di frequenza e quota.
 
-![Add policy][]
+![Add policy][Add policy]
 
 Per inserire criteri, posizionare il cursore nella sezione **inbound** o **outbound** del modello dei criteri. I criteri relativi a limiti di frequenza e quota sono criteri in ingresso, di conseguenza posizionare il cursore nell'elemento in ingresso.
 
-![Policy editor][]
+![Policy editor][Policy editor]
 
 I due criteri che verranno aggiunti in questa esercitazione sono **Limit call rate** e **Set usage quota**.
 
-![Policy statements][]
+![Policy statements][Policy statements]
 
 Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare clic sulla freccia accanto a **Limit call rate** per inserire il modello dei criteri.
 
@@ -153,17 +153,17 @@ Un volta completata la configurazione, i criteri dovrebbero essere simili a quel
 
 Dopo avere configurato i criteri desiderati, fare clic su **Salva**.
 
-![Save policy][]
+![Save policy][Save policy]
 
 ## <a name="publish-product"> </a>Pubblicare il prodotto
 
 A questo punto dopo aver aggiunto le API e aver configurato i criteri, il prodotto è pronto per essere usato dagli sviluppatori. Prima di poter essere usato, però il prodotto deve essere pubblicato. Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra e scegliere **Free Trial** per configurare il prodotto.
 
-![Configure product][]
+![Configure product][Configure product]
 
 Fare clic su **Pubblica**, quindi su **Sì, pubblica** per confermare.
 
-![Publish product][]
+![Publish product][Publish product]
 
 ## <a name="subscribe-account"> </a>Sottoscrivere un account per sviluppatore al prodotto
 
@@ -173,11 +173,11 @@ Una volta pubblicato, il prodotto è disponibile per essere sottoscritto e usato
 
 Fare clic su **Sviluppatori** nel menu **Gestione API** sulla sinistra e fare clic sul nome dell'account per sviluppatori. In questo esempio verrà usato l'account per sviluppatori **Clayton Gragg**.
 
-![Configure developer][]
+![Configure developer][Configure developer]
 
 Fare clic su **Aggiungi sottoscrizione**.
 
-![Add subscription][]
+![Add subscription][Add subscription]
 
 Selezionare la casella accanto a **Free Trial** e fare clic su **Sottoscrivi**.
 
@@ -187,7 +187,7 @@ Selezionare la casella accanto a **Free Trial** e fare clic su **Sottoscrivi**.
 
 A questo punto, dopo aver configurato e pubblicato il prodotto Free Trial, è possibile chiamare alcune operazioni e testare i criteri relativi ai limiti di frequenza. Passare al portale per sviluppatori facendo clic su **Portale per sviluppatori** nel menu in alto a destra.
 
-![Developer portal][]
+![Developer portal][Developer portal]
 
 Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
@@ -197,17 +197,17 @@ Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
 Selezionare l'operazione **GET su risorsa** e fare clic su **Apri console**.
 
-![Open console][]
+![Open console][Open console]
 
 Mantenere i valori predefiniti dei parametri e selezionare la chiave della sottoscrizione per il prodotto **Free Trial**.
 
-![Subscription key][]
+![Subscription key][Subscription key]
 
 > Se si hanno più sottoscrizioni, assicurarsi di selezionare la chiave per **Free Trial**, altrimenti i criteri configurati nei passaggi precedente non avranno effetto.
 
 Fare clic su **GET HTTP** e visualizzare la risposta. Notare che il valore di **Stato della risposta** è **200 OK**.
 
-![Operation results][]
+![Operation results][Operation results]
 
 Fare clic su **GET HTTP** a una frequenza maggiore di quella dei criteri relativi ai limiti di frequenza pari a 10 chiamate al minuto. Una volta superati i criteri dei limiti di frequenza, viene restituito lo stato di risposta **429 Troppe richieste**.
 
@@ -219,7 +219,7 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamati al minut
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
+-   Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][Introduzione alla configurazione API avanzata].
 
   [Creare un prodotto]: #create-product
   [Aggiungere un'API al prodotto]: #add-api

@@ -36,7 +36,7 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per iOS, per 
 -   [Archiviazione degli script del server nel controllo del codice sorgente][Archiviazione degli script del server nel controllo del codice sorgente]
      Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
 
-<!-- Anchors. --> <!-- URLs. -->
+
 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-ios-get-started/
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-ios-get-started-data/
@@ -45,7 +45,5 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per iOS, per 
   [Test dell'app]: #test-app
   [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
   [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Archiviazione degli script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control

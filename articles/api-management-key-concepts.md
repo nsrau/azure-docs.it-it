@@ -1,6 +1,6 @@
 <properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Concetti chiave di Gestione API
 
@@ -12,18 +12,18 @@ In questo argomento viene fornita una panoramica sui concetti chiave di Gestione
 
 ## Contenuto dell'argomento
 
--   [API e operazioni][]
--   [Prodotti][]
--   [Gruppi][]
--   [Sviluppatori][]
--   [Criteri][]
--   [Portale per sviluppatori][]
+-   [API e operazioni][API e operazioni]
+-   [Prodotti][Prodotti]
+-   [Gruppi][Gruppi]
+-   [Sviluppatori][Sviluppatori]
+-   [Criteri][Criteri]
+-   [Portale per sviluppatori][Portale per sviluppatori]
 
 ## <a name="apis"> </a>API e operazioni
 
 Le API costituiscono la base di un'istanza del servizio Gestione API. Ogni API rappresenta un set di operazioni disponibile per gli sviluppatori. Ogni API contiene un riferimento al servizio back-end che implementa l'API e le relative operazioni sono mappate alle operazioni implementate dal servizio back-end. Le operazioni in Gestione API sono altamente configurabili e offrono il controllo sul mapping degli URL, sui parametri di query e percorsi, sul contenuto della richiesta e della risposta e sulla memorizzazione nella cache della risposta delle operazioni. È anche possibile implementare i criteri relativi a restrizioni IP, quote e limitazione di frequenza al livello dell'API o della singola operazione.
 
-Per altre informazioni, vedere [Come creare le API][] e [Come aggiungere operazioni a un'API][].
+Per altre informazioni, vedere [Come creare le API][Come creare le API] e [Come aggiungere operazioni a un'API][Come aggiungere operazioni a un'API].
 
 ## <a name="products"> </a> Prodotti
 
@@ -31,7 +31,7 @@ I prodotti rappresentano il modo in cui le API sono presentate agli sviluppatori
 
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono.
 
-Per altre informazioni, vedere [Come creare e pubblicare un prodotto][].
+Per altre informazioni, vedere [Come creare e pubblicare un prodotto][Come creare e pubblicare un prodotto].
 
 ## <a name="groups"> </a> Gruppi
 
@@ -43,21 +43,21 @@ I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. In
 
 Oltre ai gruppi predefiniti, gli amministratori possono creare gruppi personalizzati. I gruppi personalizzati hanno gli stessi privilegi del gruppo sviluppatori predefinito e possono essere usati per gestire più gruppi di sviluppatori. Ad esempio, è possibile creare un gruppo personalizzato per gli sviluppatori che useranno le API da un prodotto e un altro gruppo che useranno le API da un prodotto diverso.
 
-Per altre informazioni, vedere [Come creare e usare i gruppi][].
+Per altre informazioni, vedere [Come creare e usare i gruppi][Come creare e usare i gruppi].
 
 ## <a name="developers"> </a> Sviluppatori
 
-Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [Portale per sviluppatori][]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
+Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [Portale per sviluppatori][Portale per sviluppatori]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
 
 Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene concessa loro la chiave primaria e secondaria per il prodotto. Questa chiave viene usata per effettuare le chiamate alle API del prodotto.
 
-Per altre informazioni, vedere [Come creare o invitare gli sviluppatori][] e [Come associare i gruppi agli sviluppatori][].
+Per altre informazioni, vedere [Come creare o invitare gli sviluppatori][Come creare o invitare gli sviluppatori] e [Come associare i gruppi agli sviluppatori][Come associare i gruppi agli sviluppatori].
 
 ## <a name="policies"> </a> Criteri
 
 I criteri sono una potente funzionalità di Gestione API che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore, ma sono disponibili numerosi altri criteri.
 
-Per un elenco completo dei criteri di Gestione API, vedere [Riferimenti per i criteri][]. Per altre informazioni sull'utilizzo e la configurazione dei criteri, vedere [Criteri di Gestione API][]. Per un'esercitazione sulla creazione di un prodotto con criteri per la limitazione della frequenza e per le quote, vedere [Come creare e configurare impostazioni di prodotto avanzate][].
+Per un elenco completo dei criteri di Gestione API, vedere [Riferimenti per i criteri][Riferimenti per i criteri]. Per altre informazioni sull'utilizzo e la configurazione dei criteri, vedere [Criteri di Gestione API][Criteri di Gestione API]. Per un'esercitazione sulla creazione di un prodotto con criteri per la limitazione della frequenza e per le quote, vedere [Come creare e configurare impostazioni di prodotto avanzate][Come creare e configurare impostazioni di prodotto avanzate].
 
 ## <a name="developer-portal"> </a> Portale per sviluppatori
 

@@ -439,7 +439,7 @@ Si è quindi appreso cosa succede quando si verifica un conflitto. Si è aggiunt
 
 Nel corso della procedura, si è aggiunta la classe helper **QSUIAlertViewWithBlock** per visualizzare un avviso agli utenti, quindi si è completato il lavoro aggiungendo codice a **QSTodoListViewController** per chiedere all'utente di riconciliare il conflitto in uno di tre modi.
 
-<!-- URLs. -->
+
 
   [Introduzione ai dati offline]: /it-it/documentation/articles/mobile-services-ios-get-started-offline-data/
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28

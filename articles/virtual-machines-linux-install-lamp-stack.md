@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install LAMP stack" pageTitle="Installare lo stack LAMP in una macchina virtuale Linux" metaKeywords="" description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. &Egrave; possibile eseguire l'installazione in Ubuntu o CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Installazione dello stack LAMP in una macchina virtuale Linux in Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
@@ -98,7 +98,9 @@ Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP
 
 Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su Ubuntu.
 
--   <https://help.ubuntu.com/community/ApacheMySQLPHP>
--   <http://fedorasolved.org/server-solutions/lamp-stack>
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
   [configurazione degli endpoint]: http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack

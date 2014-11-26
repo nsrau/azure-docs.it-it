@@ -175,7 +175,8 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di una pagina 
 
 È anche possibile rivedere l'[API REST Ricerca di Azure][documentazione relativa alle API REST di Ricerca di Azure] su MSDN.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Prerequisiti]: #sub-1
   [Creare un indice di Ricerca di Azure]: #sub-2

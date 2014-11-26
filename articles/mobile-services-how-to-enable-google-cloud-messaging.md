@@ -10,10 +10,9 @@ Questo argomento descrive come abilitare un'app per Android per le notifiche pus
 
 A questo punto è possibile usare questo valore della chiave API per abilitare servizi per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [portale di gestione di Azure]: https://manage.windowsazure.com/
   [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md

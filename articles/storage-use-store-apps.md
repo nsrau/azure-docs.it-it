@@ -72,6 +72,6 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
   [strumenti dei Servizi dati WCF per le app di Windows Store]: http://www.microsoft.com/it-it/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [parola chiave async]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [parola chiave async]: http://msdn.microsoft.com/it-it/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [gestione dei pacchetti NuGet mediante la finestra di dialogo]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

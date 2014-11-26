@@ -280,7 +280,6 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
   [Test locale del processo pianificato]: #run-job-locally
   [Pubblicazione del servizio e registrazione del processo]: #register-job
   [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Come utilizzare le Migrazioni Code First per aggiornare il modello di dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

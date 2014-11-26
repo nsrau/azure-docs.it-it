@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP website with MySQL and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git
 
@@ -185,7 +185,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
         </body>
         </html>
 
-A questo punto è possibile passare a **<http://localhost/registration/index.php>** per testare l'applicazione.
+A questo punto è possibile passare a **http://localhost/registration/index.php** per testare l'applicazione.
 
 ## Pubblicare l'applicazione
 
@@ -210,7 +210,7 @@ Dopo aver testato l'applicazione in locale, è possibile pubblicarla nel sito We
 
     ![Push iniziale in Azure tramite Git][Push iniziale in Azure tramite Git]
 
-3.  Passare a **[http://[nome sito].azurewebsites.net/index.php][]** per iniziare a usare l'applicazione. Queste informazioni verranno archiviate nel dashboard dell'account:
+3.  Passare a **http://[nome sito].azurewebsites.net/index.php** per iniziare a usare l'applicazione. Queste informazioni verranno archiviate nel dashboard dell'account:
 
     ![Sito Web PHP di Azure][Sito Web PHP di Azure]
 
@@ -231,7 +231,7 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 
     ![Push delle modifiche del sito apportate in Azure tramite Git][Push delle modifiche del sito apportate in Azure tramite Git]
 
-3.  Passare a **[http://[nome sito].azurewebsites.net/index.php][]** per visualizzare l'applicazione e le eventuali modifiche apportate:
+3.  Passare a **http://[nome sito].azurewebsites.net/index.php** per visualizzare l'applicazione e le eventuali modifiche apportate:
 
     ![Sito Web PHP di Azure][Sito Web PHP di Azure]
 
@@ -242,7 +242,6 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
   [PHP]: http://www.php.net/manual/en/install.php
   [Git]: http://git-scm.com/
   [Sito Web PHP di Azure]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-  [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923
   [Azure SDK per PHP]: http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Creazione di un nuovo sito Web di Azure]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg
@@ -256,6 +255,5 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
   [Recupero di informazioni sulla connessione al database]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
   [estensione PDO per MySQL]: http://www.php.net/manual/en/ref.pdo-mysql.php
   [Push iniziale in Azure tramite Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-  [http://[nome sito].azurewebsites.net/index.php]: http://[site
   [Push delle modifiche del sito apportate in Azure tramite Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
   [Elenco di distribuzioni di siti Web]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png

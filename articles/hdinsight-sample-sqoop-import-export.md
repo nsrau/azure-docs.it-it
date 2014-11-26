@@ -17,7 +17,7 @@ In Azure HDInsight, Sqoop viene distribuito dalla shell dei comandi di Hadoop ne
 
 -   Utilizzare Azure PowerShell per eseguire un programma MapReduce su Azure HDInsight che analizza i dati contenuti in un file.
 
-**Prerequisiti**: È necessario disporre di un account Azure e che il servizio HDInsight sia stato abilitato per la sottoscrizione. È necessario che Azure PowerShell e gli strumenti Powershell per Azure HDInsight siano stati installati e configurati per l'utilizzo con l'account. Per istruzioni specifiche, vedere [Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+**Prerequisiti**: È necessario disporre di un account Azure e che il servizio HDInsight sia stato abilitato per la sottoscrizione. È necessario che Azure PowerShell e gli strumenti Powershell per Azure HDInsight siano stati installati e configurati per l'utilizzo con l'account. Per istruzioni specifiche, vedere [Introduzione all'utilizzo di Azure HDInsight](/it-it/manage/services/hdinsight/get-started-hdinsight/)
 
 Quando si configura il firewall su database SQL, sarà inoltre necessario l'indirizzo IP rivolto all'esterno per la posizione corrente. Per ottenerlo, passare al sito [WhatIsMyIP](http://www.whatismyip.com/) e prendere nota dell'indirizzo in uso. Più avanti nella procedura sarà inoltre necessario l'indirizzo IP rivolto all'esterno per il nodo head del cluster Hadoop. È possibile ottenere tale indirizzo IP visitando il sito indicato in precedenza.
 
@@ -122,12 +122,12 @@ Passaggi successivi
 
 Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzioni per l'utilizzo di Pig, Hive e processi MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
--   [Esempio: Calcolo del Pi greco](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [Esempio: Conteggio parole](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [Esempio: streaming C\#](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
--   [Esempio: GraySort da 10 GB](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [Esercitazione: Utilizzo di Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Esercitazione: Utilizzo di Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Esercitazione: Utilizzo di MapReduce](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Documentazione di Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [Esempio: Calcolo del Pi greco](/it-it/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
+-   [Esempio: Conteggio parole](/it-it/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
+-   [Esempio: streaming C\#](/it-it/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
+-   [Esempio: GraySort da 10 GB](/it-it/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
+-   [Esercitazione: Utilizzo di Pig](/it-it/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Esercitazione: Utilizzo di Hive](/it-it/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Esercitazione: Utilizzo di MapReduce](/it-it/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Documentazione di Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx)
 

@@ -13,13 +13,13 @@ Agli utenti che vogliono accedere ai file in una condivisione da un'applicazione
 
 ##Sommario
 
--   [Che cos'è l'archiviazione file?][]
--   [Concetti relativi all'archiviazione file][]
--   [Creare un account di archiviazione di Azure][]
--   [Usare PowerShell per creare una condivisione file][]
--	[Montare la condivisione da una macchina virtuale di Azure][]
--   [Creare un'applicazione locale per accedere all'archiviazione file][]
--   [Passaggi successivi][]
+-   [Che cos'è l'archiviazione file?][Che cos'è l'archiviazione file?]
+-   [Concetti relativi all'archiviazione file][Concetti relativi all'archiviazione file]
+-   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
+-   [Usare PowerShell per creare una condivisione file][Usare PowerShell per creare una condivisione file]
+-	[Montare la condivisione da una macchina virtuale di Azure][Montare la condivisione da una macchina virtuale di Azure]
+-   [Creare un'applicazione locale per accedere all'archiviazione file][Creare un'applicazione locale per accedere all'archiviazione file]
+-   [Passaggi successivi][Passaggi successivi]
 
 
 ##<a name="what-is-file-storage"></a><span class="short-header">Che cos'è l'archiviazione file di Azure?</span>Che cos'è l'archiviazione file di Azure?

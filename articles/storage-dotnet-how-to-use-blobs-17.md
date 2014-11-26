@@ -3,7 +3,7 @@
 Come utilizzare il servizio di archiviazione BLOB di Azure in .NET
 ==================================================================
 
-[versione 1.7](/en-us/develop/net/how-to-guides/blob-storage-v17/ "versione 1.7") [versione 2.0](/en-us/develop/net/how-to-guides/blob-storage/ "versione 2.0")
+[versione 1.7](/it-it/develop/net/how-to-guides/blob-storage-v17/ "versione 1.7") [versione 2.0](/it-it/develop/net/how-to-guides/blob-storage/ "versione 2.0")
 
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C\#, viene utilizzata l'API .NET. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#next-steps).
 
@@ -167,7 +167,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
             Console.WriteLine(blobItem.Uri);
         } 
 
-Il servizio BLOB include anche il concetto di directory all'interno di contenitori. È quindi possibile organizzare i BLOB in una struttura più simile a quella delle cartelle. È ad esempio possibile disporre del contenitore denominato 'photos', in cui sono stati caricati i BLOB 'rootphoto1', '2010/photo1', '2010/photo2' e '2011/photo1'. Questa situazione implica in genere la creazione delle directory '2010' e '2011' nel contenitore 'photos'. Quando si chiama **ListBlobs** sul contenitore 'photos', la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlob** che rappresentano le directory e i BLOB contenuti al primo livello. In questo caso oltre alle directory '2010' e '2011', verrà restituita anche la foto 'rootphoto1'. Facoltativamente, è possibile passare una nuova classe **BlobRequestOptions** con **UseFlatBlobListing** impostato su **true**. In questo modo verranno restituiti tutti i BLOB indipendentemente dalla directory. Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][].
+Il servizio BLOB include anche il concetto di directory all'interno di contenitori. È quindi possibile organizzare i BLOB in una struttura più simile a quella delle cartelle. È ad esempio possibile disporre del contenitore denominato 'photos', in cui sono stati caricati i BLOB 'rootphoto1', '2010/photo1', '2010/photo2' e '2011/photo1'. Questa situazione implica in genere la creazione delle directory '2010' e '2011' nel contenitore 'photos'. Quando si chiama **ListBlobs** sul contenitore 'photos', la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlob** che rappresentano le directory e i BLOB contenuti al primo livello. In questo caso oltre alle directory '2010' e '2011', verrà restituita anche la foto 'rootphoto1'. Facoltativamente, è possibile passare una nuova classe **BlobRequestOptions** con **UseFlatBlobListing** impostato su **true**. In questo modo verranno restituiti tutti i BLOB indipendentemente dalla directory. Per ulteriori informazioni, vedere [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 Scaricare BLOBProcedura: Scaricare BLOB
 ---------------------------------------
@@ -224,6 +224,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
     -   [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/it-it/library/windowsazure/dd179355)
 -   Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx).
 -   Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/en-us/develop/net/how-to-guides/table-services/).
-    -   Per archiviare dati relazionali, utilizzare [Database SQL](/en-us/develop/net/how-to-guides/sql-database/).
+    -   Per archiviare dati strutturati, utilizzare [Archiviazione tabelle](/it-it/develop/net/how-to-guides/table-services/).
+    -   Per archiviare dati relazionali, utilizzare [Database SQL](/it-it/develop/net/how-to-guides/sql-database/).
 

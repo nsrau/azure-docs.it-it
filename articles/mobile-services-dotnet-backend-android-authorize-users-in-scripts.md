@@ -46,15 +46,15 @@ L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è termi
 * [Riferimento per i concetti e le procedure di Android per Servizi mobili]
   <br/>Altre informazioni su come usare Servizi mobili con Android.
 
-<!-- Anchors. -->
+
 [Registrare script del server]: #register-scripts
 [Passaggi successivi]:#next-steps
 
-<!-- Images. -->
+
 
 [3]: ./media/mobile-services-dotnet-backend-android-authorize-users-in-scripts/mobile-quickstart-startup-android.png
 
-<!-- URLs. -->
+
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users

@@ -280,9 +280,9 @@ Nell'applicazione client, sarà necessario sviluppare una schermata di accesso p
 
     ![][4]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introduzione agli utenti]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
   [Configurare la tabella degli account]: #table-setup
@@ -292,7 +292,6 @@ Nell'applicazione client, sarà necessario sviluppare una schermata di accesso p
   [Configurare il servizio mobile in modo che richieda l'autenticazione]: #require-authentication
   [Testare il flusso di accesso con il client di prova]: #test-login
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
   [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
   [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png

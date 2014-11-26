@@ -1,4 +1,4 @@
-1.  Passare al sito Web [Google Cloud Console][], eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **CREATE PROJECT**.
+1.  Passare al sito Web [Google Cloud Console][Google Cloud Console], eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **CREATE PROJECT**.
 
     ![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 

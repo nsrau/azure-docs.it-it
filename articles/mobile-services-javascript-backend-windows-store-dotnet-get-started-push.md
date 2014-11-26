@@ -106,7 +106,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [versione di app Windows universale]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Registrazione dell'app con Servizi notifica Push Windows e configurazione di Servizi mobili]: #register
   [Aggiornamento dell'app per la registrazione per le notifiche]: #update-app
@@ -115,10 +114,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
   [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [Introduzione alle notifiche push in Servizi mobili]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Invio di notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [Invio di notifiche di trasmissione ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Invio di notifiche basate su modello ad altri sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/

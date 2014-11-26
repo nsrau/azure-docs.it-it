@@ -45,7 +45,7 @@ Grazie al protocollo AMQP 1.0 è ora possibile usare le funzionalità di accodam
 
 Nel diagramma seguente è illustrata una distribuzione di esempio, in cui i client Java in esecuzione su Linux, scritti usando l'API JMS (Java Message Service) standard, e i client .NET in esecuzione su Windows si scambiano messaggi tramite il bus di servizio usando il protocollo AMQP 1.0.
 
-![][]
+![][0]
 
 **Figura 1: scenario di distribuzione di esempio, in cui per la messaggistica tra diverse piattaforme si usano il bus di servizio e il protocollo AMQP 1.0**
 
@@ -75,7 +75,7 @@ Per altre informazioni su come ottenere e usare queste librerie con Service Bus,
 -   [AMQP 1.0 per Service Bus - Guida per sviluppatori][AMQP 1.0 per Service Bus - Guida per sviluppatori]
 -   [Specifiche relative al protocollo OASIS Advanced Message Queuing Protocol (AMQP) Versione 1.0][Specifiche relative al protocollo OASIS Advanced Message Queuing Protocol (AMQP) Versione 1.0]
 
-  []: ./media/service-bus-amqp-overview/Example1.png
+  [0]: ./media/service-bus-amqp-overview/Example1.png
   [Come usare AMQP 1.0 con l'API .NET di Service Bus]: http://aka.ms/lym3vk
   [Come usare l'API JMS (Java Message Service) con Service Bus e AMQP 1.0]: http://aka.ms/ll1fm3
   [AMQP 1.0 per Service Bus - Guida per sviluppatori]: http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx

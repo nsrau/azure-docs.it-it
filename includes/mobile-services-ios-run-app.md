@@ -2,7 +2,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 1.  Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi aprire il file di progetto tramite Xcode.
 
-    ![][]
+    ![][0]
 
 2.  Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
 
@@ -17,5 +17,5 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

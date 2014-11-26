@@ -94,7 +94,8 @@ Per altre informazioni sulla funzionalità di scalabilità elastica, vedere:
 -   Channel 9: [Panoramica della scalabilità elastica][Panoramica della scalabilità elastica]
 -   Forum di discussione: [Forum sul database SQL di Azure][Forum sul database SQL di Azure]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [panoramica della scalabilità elastica]: http://go.microsoft.com/?linkid=9862592
   [mappa documento]: ./sql-database-elastic-scale-documentation-map.md
@@ -118,4 +119,4 @@ Per altre informazioni sulla funzionalità di scalabilità elastica, vedere:
   [Azure SQL Database Elastic Scale: Shard Elasticity]: http://go.microsoft.com/?linkid=9862617
   [Annuncio della scalabilità elastica]: http://go.microsoft.com/?linkid=9862608
   [Panoramica della scalabilità elastica]: http://go.microsoft.com/?linkid=9862609
-  [Forum sul database SQL di Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Forum sul database SQL di Azure]: http://social.msdn.microsoft.com/forums/azure/it-it/home?forum=ssdsgetstarted

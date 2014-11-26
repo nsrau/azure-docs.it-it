@@ -1,4 +1,4 @@
-Il servizio APNS utilizza i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APNS, vedere [Apple Push Notification Service][].
+Il servizio APNS utilizza i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APNS, vedere [Apple Push Notification Service][Apple Push Notification Service].
 
 ## Generazione della richiesta di firma del certificato
 
@@ -8,7 +8,7 @@ Il servizio APNS utilizza i certificati per autenticare il servizio mobile. Segu
 
 2.  Fare clic su **Accesso Portachiavi**, espandere **Assistente Certificato**, quindi fare clic su **Richiedi un certificato da una Autorità di Certificazione**.
 
-    ![][]
+    ![][0]
 
 3.  Fare clic su **Indirizzo e-mail utente**, selezionare un valore per **Nome comune**, assicurarsi che l'opzione **Salvata su disco** sia selezionata, quindi fare clic su **Continua**. Lasciare vuoto il campo **Indirizzo e-mail CA**, in quanto non è obbligatorio.
 
@@ -26,7 +26,7 @@ A questo punto registrare l'app con Apple, abilitare le notifiche push e caricar
 
 Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessario registrare l'applicazione con Apple ed eseguire un'ulteriore registrazione per abilitare le notifiche push.
 
-1.  Se l'app non è ancora stata registrata, accedere al [portale di provisioning iOS][] su Apple Developer Center, eseguire l'accesso con il proprio ID Apple, fare clic su **Identifiers**, quindi su **App IDs** e infine fare clic sul segno **+** per registrare una nuova app.
+1.  Se l'app non è ancora stata registrata, accedere al [portale di provisioning iOS][portale di provisioning iOS] su Apple Developer Center, eseguire l'accesso con il proprio ID Apple, fare clic su **Identifiers**, quindi su **App IDs** e infine fare clic sul segno **+** per registrare una nuova app.
 
     ![][3]
 
@@ -86,7 +86,7 @@ Questo certificato verrà utilizzato in un secondo momento per generare un file 
 
 ## Creazione di un profilo di provisioning per l'app
 
-1.  Nel [portale di provisioning iOS][] selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**
+1.  Nel [portale di provisioning iOS][portale di provisioning iOS] selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**
 
     ![][14]
 
@@ -123,7 +123,7 @@ Questo certificato verrà utilizzato in un secondo momento per generare un file 
 Per effetto di questa operazione, il progetto Xcode utilizzerà il nuovo profilo per la firma del codice. A questo punto, è necessario caricare il certificato in Azure.
 
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [0]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
   [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
   [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
   [portale di provisioning iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456

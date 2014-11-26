@@ -1,6 +1,6 @@
 <properties title="Manage DocumentDB capacity and performance" pageTitle="Manage DocumentDB capacity and performance | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Gestire la capacità e le prestazioni di DocumentDB
 
@@ -58,7 +58,7 @@ Come si può notare dalla tabella, le unità di richiesta usate dalle operazioni
 
 Per ottenere un numero preciso di unità di richiesta per l'applicazione, è possibile usare un calcolatore di unità di richiesta per calcolare le unità di richiesta usate per le diverse operazioni. È anche possibile esaminare l'intestazione di risposta x-ms-request-charge, che include il numero di unità di richiesta usate per una determinata richiesta.
 
-[Calcolatore di unità di richiesta][]
+[Calcolatore di unità di richiesta][Calcolatore di unità di richiesta]
 
 # Raccolte e velocità effettiva con provisioning
 
@@ -71,7 +71,7 @@ La scelta del livello di coerenza predefinita influisce sulla velocità effettiv
 -   I livelli sessione e futura per la coerenza offrono circa 2000 richieste di lettura di documenti e 500 inserimenti/sostituzioni/eliminazioni di documenti.
 -   I livelli avanzata e con obsolescenza associata per la coerenza offrono circa 1200 richieste di lettura di documenti e 500 inserimenti/sostituzioni/eliminazioni di documenti. La latenza degli inserimenti/sostituzioni/eliminazioni offerta dal livello con obsolescenza associata è significativamente inferiore rispetto a quella offerta dal livello avanzata.
 
-[Calcolatore di unità di richiesta][]
+[Calcolatore di unità di richiesta][Calcolatore di unità di richiesta]
 
 # Archiviazione documenti con provisioning e sovraccarico dell'indice
 
@@ -79,6 +79,6 @@ A ogni acquisto di unità di capacità viene eseguito il provisioning dell'accou
 
 Per impostazione predefinita, tutti i documenti sono indicizzati automaticamente da DocumentDB. Se, tuttavia, si vuole ottimizzare il sovraccarico dell'indice, è possibile scegliere di rimuovere determinati documenti dall'indicizzazione al momento dell'inserimento o della sostituzione di un documento. È possibile configurare una raccolta di DocumentDB in modo da escludere dall'indicizzazione tutti i documenti nella raccolta. È anche possibile configurare una raccolta DocumentDB in modo che indicizzi in modo selettivo solo determinate proprietà o alcuni percorsi con caratteri jolly dei documenti JSON. L'esclusione di proprietà o documenti migliora anche la velocità effettiva di scrittura, permettendo quindi di usare meno unità di richiesta.
 
-[Calcolatore di unità di richiesta][]
+[Calcolatore di unità di richiesta][Calcolatore di unità di richiesta]
 
   [Calcolatore di unità di richiesta]: http://go.microsoft.com/fwlink/?LinkID=510088

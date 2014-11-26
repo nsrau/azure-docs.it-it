@@ -119,4 +119,4 @@ Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per rich
   [forum con i commenti e suggerimenti degli utenti]: http://go.microsoft.com/fwlink/?LinkId=404231
   [forum dei commenti e suggerimenti degli utenti]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [http://azure.microsoft.com/it-it/support/options/]: http://azure.microsoft.com/it-it/support/options/
-  [forum di Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [forum di Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/it-it/home?forum=MachineLearning

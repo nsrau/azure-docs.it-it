@@ -132,5 +132,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
   [Come salvare un'immagine nell'account di archiviazione di Azure]: #saveazure
   [Passaggi successivi]: #nextsteps
   []: http://www.blitline.com
-  [blitline-signup]: ../includes/blitline-signup.md
   [qui]: http://www.blitline.com/docs/azure_storage

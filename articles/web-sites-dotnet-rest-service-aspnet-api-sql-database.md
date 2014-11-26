@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Servizio REST utilizzando l'API Web ASP.NET e Database SQL
 
@@ -37,7 +37,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-get-started/ -->
- [WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+ [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## <a name="bkmk_setupwindowsazure"></a>Configurazione dell'ambiente Azure
 
@@ -810,7 +810,9 @@ Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick And
 
 Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti relativi all'interesse in merito a un'ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza.
 
-<!-- bookmarks --> <!-- links --> <!-- images-->
+<!-- bookmarks -->
+<!-- links -->
+<!-- images-->
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
   [versione precedente di questa esercitazione]: /it-it/develop/net/tutorials/get-started-vs2012/
@@ -824,7 +826,6 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
   [Aggiunta di un'interfaccia dell'API Web RESTful]: #bkmk_addwebapi
   [Aggiunta della protezione XSRF]: #xsrf
   [Pubblicazione dell'aggiornamento dell'applicazione in Azure e nel database SQL]: #bkmk_deploydatabaseupdate
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Collegamento Create with Database nel portale di gestione]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG
   [Passaggio Nuovo sito Web della procedura guidata Nuovo sito Web - Crea con database]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png

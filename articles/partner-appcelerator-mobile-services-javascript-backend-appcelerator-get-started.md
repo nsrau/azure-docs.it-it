@@ -94,12 +94,10 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 -   [Introduzione alle notifiche push][Introduzione alle notifiche push]
     Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
+
   [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [applicazione Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
   
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png

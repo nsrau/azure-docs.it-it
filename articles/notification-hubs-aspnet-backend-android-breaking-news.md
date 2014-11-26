@@ -292,8 +292,8 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
 
     Altre informazioni su come eseguire il push di notifiche a utenti autenticati specifici. Si tratta di un'ottima soluzione per inviare le notifiche solo a utenti specifici.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs.-->
 
   [linee guida per gli hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
@@ -303,6 +303,5 @@ In questa esercitazione si è appreso a trasmettere le ultime novità in base al
   [Esecuzione dell'app e generazione di notifiche]: #test-app
   [Introduzione ad Hub di notifica]: /it-it/documentation/articles/notification-hubs-android-get-started/
    
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [Utilizzo di Hub di notifica per la trasmissione di notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users

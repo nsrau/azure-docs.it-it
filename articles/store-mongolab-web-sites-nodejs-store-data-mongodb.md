@@ -446,13 +446,11 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
   [Gestire il database]: #manage
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
   [1]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
   [Pulsante per le informazioni di connessione]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
   [Schermata delle informazioni di connessione]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
   [Stringhe di connessione del sito Web]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
   [Centro per sviluppatori Azure]: /it-it/develop/nodejs/
@@ -463,7 +461,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
   [Dashboard del sito Web]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
   [Git remote]: http://git-scm.com/docs/git-remote
   [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
-  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
   [Pagina Web con un elenco di attività vuoto]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
-  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

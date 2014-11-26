@@ -333,9 +333,9 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 -   [Introduzione alle notifiche push]
     <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Aggiornamento dell'applicazione per consentire gli aggiornamenti]: #uiupdate
   [Abilitazione del rilevamento dei conflitti nell'applicazione]: #enableOC
@@ -351,7 +351,7 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
   [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-dotnet
 
-<!-- Images. -->
+
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
 [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
 [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 

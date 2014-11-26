@@ -49,7 +49,7 @@ Quando si fa clic sul piano verrà avviato un pannello che consente di gestire i
 
 Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure][versione di valutazione gratuita di Microsoft Azure].
 
-<!-- Images. -->
+
 
   [fare clic qui]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Altre informazioni sulla gestione dei piani di hosting Web]: http://go.microsoft.com/fwlink/?LinkID=394411

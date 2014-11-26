@@ -194,7 +194,8 @@ L'operazione push corrente verrà interrotta, ma verranno mantenute tutte le mod
 
 Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServicePushFailedException` e la proprietà dell'eccezione `PushResult.Status` avrà il valore `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs -->
+<!-- Images -->
+<!-- URLs -->
 
   [Introduzione ai dati offline]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Download del progetto dell'app di Windows Store]: #download-app

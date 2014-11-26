@@ -137,5 +137,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4.  Nell'interfaccia utente dell'app per iOS fare clic su **Log in**. Fare clic su **Send push**. La notifica sicura verrà visualizzata nel Notification Center.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   

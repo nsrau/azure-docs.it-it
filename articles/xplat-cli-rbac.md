@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="mohisri" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando multipiattaforma
 
@@ -124,8 +124,6 @@ Per ulteriori informazioni sulla gestione del controllo degli accessi in base al
 -   [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure][Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: per informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
 -   [Blog di Azure][Blog di Azure]: informazioni sulle nuove funzionalità di Azure.
 
-  [Windows PowerShell]: /it-it/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [Interfaccia della riga di comando multipiattaforma]: /it-it/documentation/articles/xplat-cli-rbac.md "Interfaccia della riga di comando multipiattaforma"
   [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/
   [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/
   [Connessione alle sottoscrizioni]: #connect

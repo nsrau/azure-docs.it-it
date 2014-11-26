@@ -67,8 +67,8 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Aggiornamento del servizio per richiedere l'autenticazione per la registrazione]: #register
@@ -76,6 +76,3 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
   [Test dell'app]: #test
   [versione per Windows Store di questo argomento]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

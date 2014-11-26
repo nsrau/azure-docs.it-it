@@ -1,18 +1,18 @@
 <properties linkid="web-sites-hybrid-connection" title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # Connettere un sito Web di Azure a una risorsa locale mediante connessioni ibride
 
 È possibile connettere un sito Web in Microsoft Azure a qualsiasi risorsa locale che utilizza una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra un sito Web di Azure e un database di SQL Server locale.
 
-> [WACOM.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure][]. Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride][].
+> [WACOM.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure][portale di anteprima di Azure]. Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride][Connessioni ibride].
 
 ## Prerequisiti
 
--   Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure][].
+-   Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure][Versione di valutazione gratuita di Azure].
 
--   Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. È consigliabile usare un'istanza predefinita di on SQL Server, perché usa la porta statica 1433. Per informazioni sull'installazione e la configurazione di SQL Server Express per l'uso con le connessioni ibride, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride][].
+-   Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. È consigliabile usare un'istanza predefinita di on SQL Server, perché usa la porta statica 1433. Per informazioni sull'installazione e la configurazione di SQL Server Express per l'uso con le connessioni ibride, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride][Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride].
 
 -   Il computer in cui si installa l'agente Hybrid Connection Manager locale descritto più avanti in questo articolo:
 
@@ -23,37 +23,37 @@
 
 ## Contenuto dell'articolo
 
-[Creare un sito Web nel portale di anteprima di Azure][]
+[Creare un sito Web nel portale di anteprima di Azure][Creare un sito Web nel portale di anteprima di Azure]
 
-[Creare una connessione ibrida e un servizio BizTalk][]
+[Creare una connessione ibrida e un servizio BizTalk][Creare una connessione ibrida e un servizio BizTalk]
 
-[Installare l'istanza locale di Hybrid Connection Manager per completare la connessione][]
+[Installare l'istanza locale di Hybrid Connection Manager per completare la connessione][Installare l'istanza locale di Hybrid Connection Manager per completare la connessione]
 
-[Passaggi successivi][]
+[Passaggi successivi][Passaggi successivi]
 
 ## Creare un sito Web nel portale di anteprima di Azure
 
-> [WACOM.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk][] e proseguire da quel punto.
+> [WACOM.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk][Creare una connessione ibrida e un servizio BizTalk] e proseguire da quel punto.
 
-1.  Nell'angolo inferiore sinistro del [portale di anteprima di Azure][] fare clic su **Nuovo** e quindi scegliere **Sito Web**.
+1.  Nell'angolo inferiore sinistro del [portale di anteprima di Azure][portale di anteprima di Azure] fare clic su **Nuovo** e quindi scegliere **Sito Web**.
 
-    ![New button][]
+    ![New button][New button]
 
-    ![New website][]
+    ![New website][New website]
 
 2.  Nel pannello **Sito Web** specificare un nome per il sito Web e quindi fare clic su **Crea**.
 
-    ![Website name][]
+    ![Website name][Website name]
 
 3.  Dopo alcuni momenti il sito Web viene creato e viene visualizzato il relativo pannello. Il pannello è un dashboard scorrevole verticalmente che consente di gestire il sito.
 
-    ![Website running][]
+    ![Website running][Website running]
 
 4.  Per verificare se il sito è online, è possibile fare clic sull'icona **Sfoglia** per visualizzare la pagina predefinita.
 
-    ![Click browse to see your website][]
+    ![Click browse to see your website][Click browse to see your website]
 
-    ![Default website page][]
+    ![Default website page][Default website page]
 
 Verrà quindi creata una connessione ibrida e un servizio BizTalk per il sito Web.
 
@@ -63,15 +63,15 @@ Verrà quindi creata una connessione ibrida e un servizio BizTalk per il sito We
 
 1.  Nel portale di anteprima scorrere verso il basso il pannello per trovare il sito Web e scegliere **Connessioni ibride**.
 
-    ![Hybrid connections][]
+    ![Hybrid connections][Hybrid connections]
 
 2.  Nel pannello Connessioni ibride fare clic su **Aggiungi**.
 
-    ![Add a hybrid connnection][]
+    ![Add a hybrid connnection][Add a hybrid connnection]
 
 3.  Viene visualizzato il pannello **Aggiungi una connessione ibrida**. Poiché si tratta della prima connessione ibrida, l'opzione **Nuova connessione ibrida** è preselezionata e viene visualizzato il pannello **Crea connessione ibrida**.
 
-    ![Create a hybrid connection][]
+    ![Create a hybrid connection][Create a hybrid connection]
 
     Nel **pannello Crea connessione ibrida**:
 
@@ -82,21 +82,21 @@ Verrà quindi creata una connessione ibrida e un servizio BizTalk per il sito We
 
 4.  Viene visualizzato il pannello **Crea servizio BizTalk**. Immettere un nome per il servizio BizTalk, quindi fare clic su **OK**.
 
-    ![Create BizTalk service][]
+    ![Create BizTalk service][Create BizTalk service]
 
     Il pannello **Crea servizio BizTalk** si chiude e viene visualizzato di nuovo il pannello **Crea connessione ibrida**.
 
 5.  Nel pannello Crea connessione ibrida fare clic su **OK**.
 
-    ![Click OK][]
+    ![Click OK][Click OK]
 
 6.  Al termine del processo l'area Notifiche nel portale informa che la connessione è stata creata correttamente.
 
-    ![Success notification][]
+    ![Success notification][Success notification]
 
 7.  Nel pannello del sito Web l'icona **Connessioni ibride** ora mostra che è stata creata una connessione ibrida.
 
-    ![One hybrid connection created][]
+    ![One hybrid connection created][One hybrid connection created]
 
 A questo punto è stata completata una parte importante dell'infrastruttura della connessione ibrida cloud. Nel passaggio successivo verrà creato un elemento locale corrispondente.
 
@@ -106,43 +106,43 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 
 1.  Nel pannello del sito Web fare clic sull'icona Connessioni ibride.
 
-    ![Hybrid connections icon][]
+    ![Hybrid connections icon][Hybrid connections icon]
 
 2.  Nel pannello **Connessioni ibride** la colonna **Stato** relativa all'endpoint aggiunto di recente visualizza **Non connesso**. Fare clic sulla connessione per configurarla.
 
-    ![Not connected][]
+    ![Not connected][Not connected]
 
     Viene visualizzato il pannello Connessione ibrida.
 
-    ![NotConnectedBlade][]
+    ![NotConnectedBlade][NotConnectedBlade]
 
 3.  Nel pannello fare clic su **Impostazione listener**.
 
-    ![Click Listener Setup][]
+    ![Click Listener Setup][Click Listener Setup]
 
 4.  Viene visualizzato il pannello **Proprietà connessioni ibride**. In **Hybrid Connection Manager locale** scegliere **Fare clic qui per eseguire l'installazione**.
 
-    ![Click here to install][]
+    ![Click here to install][Click here to install]
 
 5.  Nella finestra di dialogo Esecuzione applicazione - Avviso di sicurezza, scegliere **Esegui** per continuare.
 
-    ![Scegliere Esegui per continuare][]
+    ![Scegliere Esegui per continuare][Scegliere Esegui per continuare]
 
 6.  Nella finestra di dialogo **Controllo account utente** scegliere **Sì**.
 
-    ![Choose Yes][]
+    ![Choose Yes][Choose Yes]
 
 7.  Hybrid Connection Manager viene scaricato e installato.
 
-    ![Installazione][]
+    ![Installazione][Installazione]
 
 8.  Al termine dell'installazione fare clic su **Chiudi**.
 
-    ![Clic su Chiudi][]
+    ![Clic su Chiudi][Clic su Chiudi]
 
     Nel pannello **Connessioni ibride** la colonna **Stato** ora visualizza **Connesso**.
 
-    ![Connected Status][]
+    ![Connected Status][Connected Status]
 
 Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile creata un'applicazione Web che la usa.
 
@@ -150,29 +150,29 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 
 ## Passaggi successivi
 
--   Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride][].
+-   Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride][Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride].
 
--   Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride][].
+-   Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride][Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride].
 
 ### Risorse aggiuntive
 
 [Panoramica delle connessioni ibride][Connessioni ibride]
 
-[Josh Twist presenta le connessioni ibride (video Channel 9)][]
+[Josh Twist presenta le connessioni ibride (video Channel 9)][Josh Twist presenta le connessioni ibride (video Channel 9)]
 
-[Sito web delle connessioni ibride][]
+[Sito web delle connessioni ibride][Sito web delle connessioni ibride]
 
-[Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida][]
+[Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida][Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida]
 
-[Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)][]
+[Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)][Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)]
 
-[Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)][]
+[Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)][Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)]
 
 <!-- IMAGES -->
 
   [portale di anteprima di Azure]: https://portal.azure.com
   [Connessioni ibride]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Versione di valutazione gratuita di Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Versione di valutazione gratuita di Azure]: http://azure.microsoft.com/it-it/pricing/free-trial/
   [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride]: http://go.microsoft.com/fwlink/?LinkID=397979
   [Creare un sito Web nel portale di anteprima di Azure]: #CreateSite
   [Creare una connessione ibrida e un servizio BizTalk]: #CreateHC
@@ -203,7 +203,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
   [Connected Status]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
   [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride]: http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Josh Twist presenta le connessioni ibride (video Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
-  [Sito web delle connessioni ibride]: http://azure.microsoft.com/en-us/services/biztalk-services/
+  [Sito web delle connessioni ibride]: http://azure.microsoft.com/it-it/services/biztalk-services/
   [Servizi BizTalk: Schede Dashboard, Monitor, Scala, Configura e Connessione ibrida]: http://azure.microsoft.com/it-it/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
   [Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections

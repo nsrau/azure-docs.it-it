@@ -674,7 +674,8 @@ Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick And
 
 Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. È inoltre possibile richiedere nuovi argomenti e votare gli argomenti esistenti alla pagina [Show Me How With Code][Show Me How With Code].
 
-<!-- bookmarks --> <!-- images-->
+<!-- bookmarks -->
+<!-- images-->
 
   [esercitazione precedente]: /it-it/develop/net/tutorials/web-site-with-sql-database-vs2012/
   [OAuth]: http://oauth.net/ "http://oauth.net/"
@@ -691,7 +692,6 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
   [Utilizzo dell'API di appartenenza]: #mbrDB
   [Distribuire l'app in Azure]: #bkmk_deploytowindowsazure11
   [Passaggi successivi]: #nextsteps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Visual Studio 2013 Update 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [portale di gestione di Azure]: https://manage.windowsazure.com
   [Pulsante New nel portale di gestione]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png

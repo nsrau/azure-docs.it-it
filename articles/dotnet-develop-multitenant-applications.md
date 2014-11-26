@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -108,16 +108,4 @@ Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l
 
 <!--links-->
 
-  [Calcolo]: /it-it/develop/net/compute/
-  [Servizi dati]: /it-it/develop/net/data/
-  [Servizi app]: /it-it/develop/net/app-services/
-  [Riferimento]: /it-it/develop/net/reference/
-  [Indicazioni]: /it-it/develop/net/guidance/
-  [Architettura]: /it-it/develop/net/architecture/
-  [Esempi]: /it-it/develop/net/samples/
-  [Esercitazioni basate su scenari]: /it-it/develop/net/end-to-end-Apps/
-  [Forum]: /it-it/support/forums/
-  [Panoramica dell'architettura dell'applicazione]: /it-it/develop/net/architecture/#overviews
-  [Modello dell'applicazione: Test di carico]: /it-it/develop/net/architecture/load-testing-pattern/
-  [Modelli di progettazione]: /it-it/develop/net/architecture/#designpatterns
   [Hosting di un'applicazione multi-tenant in Azure]: http://msdn.microsoft.com/it-it/library/hh534480.aspx

@@ -442,9 +442,9 @@ L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme i
 
 Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mobili][oggetto push di Servizi mobili] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert.
 
-<!-- Images. -->
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
+
 
   [Generazione della richiesta di firma del certificato]: #certificates
   [Registrazione dell'app e abilitazione delle notifiche push]: #register
@@ -456,9 +456,7 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
   [Aggiornamento degli script per l'invio di notifiche push]: #update-scripts
   [Inserimento di dati per la ricezione di notifiche]: #test
   [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [Abilitare le notifiche push per Apple]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [installazione degli strumenti di sviluppo Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
   [0]: http://developer.android.com/sdk/ndk/index.html
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
@@ -466,7 +464,6 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
   [uso di moduli Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
   [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
   [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png

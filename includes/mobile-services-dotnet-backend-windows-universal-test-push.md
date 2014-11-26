@@ -8,7 +8,7 @@
 
 3.  Eseguire nuovamente l'app di Windows Store, digitare del testo in **Inserisci TodoItem** e fare clic su **Salva**.
 
-    ![][]
+    ![][0]
 
     Si noti che, al termine dell'inserimento, sia l'app di Windows Store che quella di Windows Phone ricevono una notifica push da WNS.
 
@@ -18,6 +18,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
   [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png

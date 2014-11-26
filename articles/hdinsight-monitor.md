@@ -40,10 +40,10 @@ Nel riquadro viene visualizzato il numero di processi che sono stati eseguiti. L
 Vedere anche
 ------------
 
--   [Procedura: Amministrare HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [Procedura: Distribuire un cluster di HDInsight a livello di codice](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
--   [Procedura: Eseguire processi remoti nel cluster di HDInsight a livello di codice](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
--   [Esercitazione: Introduzione all'utilizzo di Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-   [Procedura: Amministrare HDInsight](/it-it/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [Procedura: Distribuire un cluster di HDInsight a livello di codice](/it-it/manage/services/hdinsight/howto-deploy-cluster/)
+-   [Procedura: Eseguire processi remoti nel cluster di HDInsight a livello di codice](/it-it/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+-   [Esercitazione: Introduzione all'utilizzo di Azure HDInsight](/it-it/manage/services/hdinsight/get-started-hdinsight/)
 
 
 [hdi-monitor-cluster-tile]: ./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG

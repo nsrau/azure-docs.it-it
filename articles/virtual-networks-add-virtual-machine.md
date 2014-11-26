@@ -26,14 +26,14 @@ In questa esercitazione si apprenderà come:
 
 * Avere completato una delle esercitazioni seguenti:
   
-  * [Creazione di una rete virtuale in Azure](/en-us/manage/services/networking/create-a-virtual-network/)
+  * [Creazione di una rete virtuale in Azure](/it-it/manage/services/networking/create-a-virtual-network/)
     
     -OPPURE-
-  * [Creazione di una rete virtuale per la connettività cross-premise](/en-us/manage/services/networking/cross-premises-connectivity/)
+  * [Creazione di una rete virtuale per la connettività cross-premise](/it-it/manage/services/networking/cross-premises-connectivity/)
 
 * Account Windows Live con almeno una sottoscrizione valida attiva.
 
-* Nomi degli elementi seguenti recuperati dalle esercitazioni [Creazione di una rete virtuale in Azure](/en-us/manage/services/networking/create-a-virtual-network/) o [Creazione di una rete virtuale per la connettività cross-premise](/en-us/manage/services/networking/cross-premises-connectivity/):
+* Nomi degli elementi seguenti recuperati dalle esercitazioni [Creazione di una rete virtuale in Azure](/it-it/manage/services/networking/create-a-virtual-network/) o [Creazione di una rete virtuale per la connettività cross-premise](/it-it/manage/services/networking/cross-premises-connectivity/):
   
   * Gruppo di affinità assegnato alla rete virtuale.
   
@@ -134,7 +134,7 @@ In questa esercitazione si apprenderà come:
     ![AllTab](./media/virtual-networks-add-virtual-machine/VNTut3_12_AllTab.png)
 
 ## Passaggi successivi
-Per installare un controller di dominio aggiuntivo per il dominio Active Directory locale nella macchina virtuale appena creata, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](/en-us/manage/services/networking/replica-domain-controller/).
+Per installare un controller di dominio aggiuntivo per il dominio Active Directory locale nella macchina virtuale appena creata, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](/it-it/manage/services/networking/replica-domain-controller/).
 
 ## Vedere anche
 

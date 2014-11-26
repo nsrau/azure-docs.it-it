@@ -396,9 +396,9 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 
     A tutti i metodi è stato aggiunto il supporto asincrono.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+ 
 
-  [forum di MSDN sui Servizi multimediali di Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [forum di MSDN sui Servizi multimediali di Azure]: http://social.msdn.microsoft.com/forums/azure/it-it/home?forum=MediaServices
   [Problemi noti correnti]: #issues
   [Cronologia delle versioni dell'API REST]: #rest_version_history
   [Versione di ottobre 2014]: #october_changes_14

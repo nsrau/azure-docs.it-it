@@ -114,7 +114,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
   [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
   [2]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
   [Visual Studio 2013 Express per Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

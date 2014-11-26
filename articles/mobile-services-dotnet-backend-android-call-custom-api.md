@@ -44,7 +44,5 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
   [Definizione dell'API personalizzata]: #define-custom-api
   [Aggiornamento dell'app per la chiamata all'API personalizzata]: #update-app
   [Test dell'app]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-android-call-custom-api]: ../includes/mobile-services-android-call-custom-api.md
   [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Archiviazione degli script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control

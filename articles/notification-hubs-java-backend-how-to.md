@@ -358,8 +358,6 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 -   Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell'[esercitazione per l'invio di notizie]
 -   Visualizzare altre informazioni sull'invio di notifiche push a singoli utenti nell'[esercitazione sull'invio di notifiche agli utenti]
 
-  [Java]: /it-it/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /it-it/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [API REST degli hub di notifica]: http://msdn.microsoft.com/it-it/library/dn223264.aspx
   [esercitazione introduttiva]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/
   [SDK di Hub di notifica per .NET]: http://msdn.microsoft.com/it-it/library/jj933431.aspx

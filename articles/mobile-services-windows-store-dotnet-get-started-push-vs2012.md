@@ -183,10 +183,7 @@ Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
   [Aggiornamento degli script per l'invio di notifiche push]: #update-scripts
   [Inserimento di dati per la ricezione di notifiche]: #test
   [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push2.png

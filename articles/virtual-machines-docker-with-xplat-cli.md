@@ -100,7 +100,9 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 
 È ora possibile passare alla [guida dell'utente di Docker][guida dell'utente di Docker] e usare la VM Docker. Per creare una VM abilitata per Docker incorporata nel nuovo portale, vedere l'articolo su [come usare l'estensione della VM Docker con il portale][come usare l'estensione della VM Docker con il portale].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [contenitori Linux]: http://en.wikipedia.org/wiki/LXC
