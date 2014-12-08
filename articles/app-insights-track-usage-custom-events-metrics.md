@@ -1,39 +1,36 @@
-<properties title="Track usage with custom events and metrics" pageTitle="Track usage with custom events and metrics" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills"  />
+﻿<properties title="Track usage with custom events and metrics" pageTitle="Monitoraggio dell'utilizzo" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
-
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+ 
 # Tenere traccia dell'utilizzo con eventi e metriche personalizzati
 
 ### Presto disponibile
 
 L'SDK di Application Insights consente di inserire righe di codice nell'applicazione per monitorare le attività degli utenti in modo tale da poter ottimizzare l'app in base alle specifiche esigenze.
 
-Questa funzionalità è in fase di trasferimento nel nuovo portale di Application Insights in Microsoft Azure. Se si vuole, è possibile [vedere come funziona nel vecchio portale][vedere come funziona nel vecchio portale].
+Questa funzionalità è in fase di trasferimento nel nuovo portale Application Insights in Microsoft Azure. Se si vuole, è possibile [vedere come funziona nel vecchio portale](http://msdn.microsoft.com/library/dn481100.aspx).
 
-Tuttavia, al momento è possibile [acquisire e cercare log eventi di diagnostica generati con Trace, NLog o Log4Net][acquisire e cercare log eventi di diagnostica generati con Trace, NLog o Log4Net].
+Tuttavia, al momento è possibile [acquisire e cercare log eventi di diagnostica generati con Trace, NLog o Log4Net][diagnostica]. .
 
 
+## Application Insights - Altre informazioni
 
-## Application Insights
-
-* [Application Insights][Application Insights]
-* [Aggiungere Application Insights al progetto][Aggiungere Application Insights al progetto]
-* [Monitorare un server Web attivo][Monitorare un server Web attivo]
-* [Esaminare le metriche in Application Insights][Esaminare le metriche in Application Insights]
-* [Ricerche nei log di diagnostica][acquisire e cercare log eventi di diagnostica generati con Trace, NLog o Log4Net]
-* [Verifica della disponibilità mediante test Web][Verifica della disponibilità mediante test Web]
-* [Verifica dell'utilizzo con eventi e metriche][Verifica dell'utilizzo con eventi e metriche]
-* [Domande e risposte e risoluzione dei problemi][Domande e risposte e risoluzione dei problemi]
-
+* [Application Insights - Altre informazioni][start]
+* [Monitorare le prestazioni di un server Web attivo][redfield]
+* [Monitoraggio delle prestazioni delle applicazioni Web][prestazioni]
+* [Ricerca nei registri di diagnostica][diagnostica]
+* [Monitoraggio della disponibilità con test Web][disponibilità]
+* [Monitoraggio dell'utilizzo][utilizzo]
+* [Domande e risposte e risoluzione dei problemi][qna]
 
 <!--Link references-->
 
-  [vedere come funziona nel vecchio portale]: http://msdn.microsoft.com/library/dn481100.aspx
-  [acquisire e cercare log eventi di diagnostica generati con Trace, NLog o Log4Net]: ../app-insights-search-diagnostic-logs/
-  [Application Insights]: ../app-insights-get-started/
-  [Aggiungere Application Insights al progetto]: ../app-insights-monitor-application-health-performance/
-  [Monitorare un server Web attivo]: ../app-insights-monitor-performance-live-website-now/
-  [Esaminare le metriche in Application Insights]: ../app-insights-explore-metrics/
-  [Verifica della disponibilità mediante test Web]: ../app-insights-monitor-web-app-availability/
-  [Verifica dell'utilizzo con eventi e metriche]: ../app-insights-track-usage-custom-events-metrics/
-  [Domande e risposte e risoluzione dei problemi]: ../app-insights-troubleshoot-faq/
+
+[start]: ../app-insights-start-monitoring-app-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[prestazioni]: ../app-insights-web-monitor-performance/
+[diagnostica]: ../app-insights-search-diagnostic-logs/ 
+[disponibilità]: ../app-insights-monitor-web-app-availability/
+[utilizzo]: ../app-insights-web-track-usage/
+[qna]: ../app-insights-troubleshoot-faq/
+

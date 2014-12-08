@@ -1,36 +1,33 @@
-<properties title="How to use end user analytics" pageTitle="How to use end user analytics" description="Learn about end user analytics in Azure." authors="awills" manager="kamrani" />
+﻿<properties title="How to use end user analytics in Azure" pageTitle="Come usare l'analisi dell'utente finale" description="End user analytics for Microsoft Azure websites." authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
 
-# Analisi di siti Web
+# Analisi per i siti Web di Microsoft Azure
 
-Ci si può domandare quanti utenti abbiano visitato un sito. E quale sia il tempo di caricamento medio delle pagine o quale browser venga utilizzato. Mediante l'inserimento di poche righe di script nelle pagine di un sito Web è possibile raccogliere dati sull'utilizzo del sito da parte dei clienti.
+Ci si può domandare quanti utenti abbiano visitato un sito.  E quale sia il tempo di caricamento medio delle pagine o quale browser venga usato.  Mediante l'inserimento di poche righe di script nelle pagine di un sito Web è possibile raccogliere dati sull'utilizzo del sito da parte dei clienti. 
 
-![Analisi dell'utente finale][Analisi dell'utente finale]
+*È possibile eseguire questa operazione anche per i siti Web non di Azure: [Monitorare l'utilizzo di applicazioni Web con Application Insights](../app-insights-web-track-usage/).*
+
+![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 
 ## Come configurare l'analisi dell'utente finale
 
-1.  Fare clic sulla parte **End user analytics** nel pannello **Web site**.
-2.  Nel pannello **Configuration**, selezionare e copiare l'intero script di strumentazione.  
-    ![Configuration][Configuration]
-3.  Incollare lo script in tutte le pagine Web poco prima della chiusura del
-    tag. È consigliabile inserire lo script in tutte le pagine del sito Web. Se si usa ASP.NET, è possibile inserire lo script nella pagina master dell'applicazione.
-4.  Distribuire e usare l'applicazione Web. Le analisi sull'utilizzo del sito verranno visualizzate dopo circa 5-10 minuti.
+1. Fare clic sulla parte del pannello **Sito Web** con il testo **Analisi dell'utente finale**
+2. Nel pannello **Configurazione** selezionare e copiare l'intero script di strumentazione.  
+    ![Configuration](./media/insights-usage-analytics/Insights_CopyCode.png)
+3. Incollare lo script in tutte le pagine Web poco prima della chiusura del tag </head>. È consigliabile inserire lo script in tutte le pagine del sito Web. Se si usa ASP.NET, è possibile inserire lo script nella pagina master dell'applicazione.
+4. Distribuire e usare l'applicazione Web. Le analisi sull'utilizzo del sito verranno visualizzate dopo circa 5-10 minuti.
 
 ## Esame dei dati
 
 La parte Browsers session consente di effettuare analisi relative ai diversi browser e alle loro diverse versioni.
 
-![Browser][Browser]
+![Browsers](./media/insights-usage-analytics/Insights_Browsers.png)
 
 Nella parte Analytics vengono visualizzate:
 
--   Una suddivisione dei diversi tipi di dispositivi, compresi Desktop e dispositivi mobili.
--   Le 5 pagine più visitate e grafici relativi al tempo di caricamento delle pagine nell'ultima settimana. Sono disponibili anche il numero di sessioni e visualizzazioni.  
-    ![Top Pages][Top Pages]
--   Vengono visualizzate anche le pagine più lente nella settimana precedente, per consentire di porre rimedio e soddisfare gli obiettivi aziendali.
+- Una suddivisione dei diversi tipi di dispositivi, compresi Desktop e dispositivi mobili.
+- Le 5 pagine più visitate e grafici relativi al tempo di caricamento delle pagine nell'ultima settimana.  È disponibile anche il numero di sessioni e di visualizzazioni.  
+    ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
+- Vengono visualizzate anche le pagine più lente nella settimana precedente, per consentire di porre rimedio e soddisfare gli obiettivi aziendali.
 
-  [Analisi dell'utente finale]: ./media/insights-usage-analytics/Insights_ConfiguredExperience.png
-  [Configuration]: ./media/insights-usage-analytics/Insights_CopyCode.png
-  [Browser]: ./media/insights-usage-analytics/Insights_Browsers.png
-  [Top Pages]: ./media/insights-usage-analytics/Insights_TopPages.png
