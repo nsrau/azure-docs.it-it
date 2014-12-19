@@ -89,11 +89,9 @@ Per gestire i Servizi di Azure è necessario scaricare e usare la gemma di Azure
         7 gems installed
 
     <div class="dev-callout">
-
-    **Nota**
-    Se viene visualizzato un errore relativo alle autorizzazioni, usare in alternativa `sudo gem install azure`.
-
-    </div>
+	<b>Nota</b>
+	<p>Se viene visualizzato un errore relativo alle autorizzazioni, usare in alternativa `sudo gem install azure`.</p>
+	</div>
 
 ### Richiedere la gemma
 

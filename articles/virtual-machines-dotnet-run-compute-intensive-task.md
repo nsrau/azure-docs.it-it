@@ -69,10 +69,8 @@ Per creare uno spazio dei nomi servizio:
 
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di usare la stessa area in cui è ospitata la macchina virtuale.
     <div class="dev-callout">
-
-    **Importante**
-    Selezionare la **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
-
+    <strong>Importante</strong>
+    <p>Selezionare la <b>stessa area</b> che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.</p>
     </div>
 
 6.  Se si dispone di più sottoscrizioni di Azure per l'account con cui è stato eseguito l'accesso, selezionare la sottoscrizione da utilizzare per lo spazio dei nomi. Se si dispone di una sola sottoscrizione per l'account con cui è stato eseguito l'accesso, l'elenco a discesa contenente le sottoscrizioni non verrà visualizzato.
@@ -89,11 +87,11 @@ spazio dei nomi, è necessario ottenere le credenziali di gestione per lo
 spazio dei nomi.
 
 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service bus**
-    per visualizzare l'elenco degli spazi dei nomi disponibili.
+    per visualizzare l'elenco degli spazi dei nomi disponibili.   
     ![Schermata degli spazi dei nomi disponibili][Schermata degli spazi dei nomi disponibili]
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.   
     ![Schermata relativa all'elenco degli spazi dei nomi][Schermata relativa all'elenco degli spazi dei nomi]
-3.  Fare clic su **Chiave di accesso**.
+3.  Fare clic su **Chiave di accesso**.   
     ![Pulsante chiave di accesso][Pulsante chiave di accesso]
 4.  Nella finestra di dialogo individuare le voci **Default Issuer** e **Default Key**. Prendere nota di questi valori, in quanto dovranno essere utilizzati per eseguire operazioni con lo spazio dei nomi.
 
@@ -107,22 +105,24 @@ spazio dei nomi.
 6.  Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 7.  Compilare l'applicazione. Verrà creato **TSPSolver.exe** nella cartella **bin** del progetto ( **bin\\release** o **bin\\debug**, a seconda che la destinazione sia una build di rilascio o di debug). Questo eseguibile e Microsoft.ServiceBus.dll verranno copiati nella macchina virtuale in seguito.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
+<p/>
 
-    using Microsoft.ServiceBus;
-    using Microsoft.ServiceBus.Messaging;
-
-    namespace TSPSolver
-    {
-        class Program
-        {
-            // Value specifying how often to provide an update to the console.
-            private static long loopCheck = 100000000;
-            private static long nTimes = 0, nLoops = 0;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.IO;
+	
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Messaging;
+	
+	namespace TSPSolver
+	{
+	    class Program
+	    {
+	        // Value specifying how often to provide an update to the console.
+	        private static long loopCheck = 100000000;
+	        private static long nTimes = 0, nLoops = 0;
 
             private static double[,] distances;
             private static String[] cityNames;
@@ -335,20 +335,22 @@ spazio dei nomi.
 5.  Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 6.  Compilare l'applicazione. Verrà creato **TSPClient.exe** nella cartella **bin** del progetto (**bin\\release** o **bin\\debug**, a seconda che la destinazione sia una build di rilascio o di debug). È possibile eseguire questo codice dal computer di sviluppo oppure copiare questo eseguibile e Microsoft.ServiceBus.dll in un computer sul quale verrà eseguita l'applicazione client (non è necessario che vena eseguita sulla macchina virtuale)
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
+<p/>
 
-    using Microsoft.ServiceBus;
-    using Microsoft.ServiceBus.Messaging;
-    using System.Threading; // For Thread.Sleep
-
-    namespace TSPClient
-    {
-        class Program
-        {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.IO;
+	
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Messaging;
+	using System.Threading; // For Thread.Sleep
+	
+	namespace TSPClient
+	{
+	    class Program
+	    {
 
             static void Main(string[] args)
             {

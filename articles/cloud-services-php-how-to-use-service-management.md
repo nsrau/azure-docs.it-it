@@ -569,3 +569,4 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
   [tabelle]: ../storage-php-how-to-use-table-storage/
   [code]: ../storage-php-how-to-use-queues/
   [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
+[Schema di configurazione dei servizi di Azure (con estensione cscfg)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx

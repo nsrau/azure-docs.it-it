@@ -1,24 +1,21 @@
-1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
+﻿
+1. Accedere al [Portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
-    ![][0]
+	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
-2.  Fare clic sulla scheda **Data** e quindi su **Create**.
+2. Dare clic sulla scheda **Dati** e quindi su **Crea**.
 
-    ![][1]
+	![](./media/mobile-services-create-new-push-table/mobile-create-table.png)
 
-    Verrà visualizzata la finestra di dialogo **Create new table**.
+	Verrà visualizzata la finestra di dialogo **Crea nuova tabella**.
 
-3.  Mantenere l'impostazione predefinita di **Anybody with the application key** per tutte le autorizzazioni, digitare *Registrations* in **Table name**, quindi fare clic sul segno di spunta.
+3. Mantenere l'impostazione predefinita di **Chiunque con la chiave applicazione** per tutte le autorizzazioni, digitare _Registrations_ in **Nome tabella**, quindi fare clic sul segno di spunta.
 
-    ![][2]
+	![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 
-Verrà creata la tabella **Registrations**, in cui sono archiviati gli URI di canale utilizzati per l'invio di notifiche push.
+  Verrà creata la tabella **Registrations**, in cui sono archiviati gli URI di canale usati per l'invio di notifiche push.
 
 In seguito, sarà necessario modificare l'app per abilitare le notifiche push.
 
 <!-- URLs -->
-
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
-  [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
-  [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png
+[Portale di gestione di Azure]: https://manage.windowsazure.com/

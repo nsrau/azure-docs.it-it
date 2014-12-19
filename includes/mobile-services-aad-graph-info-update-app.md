@@ -1,8 +1,13 @@
-1.  In Visual Studio aprire il file MainPage.xaml.cs e aggiungere l'istruzione `using` seguente all'inizio del file.
+﻿
 
+Le istruzioni seguenti si applicano all'aggiornamento di un'applicazione client di Windows Store, ma è possibile testare questo su una delle altre piattaforme supportate da servizi mobili di Azure. 
+
+
+1. In Visual Studio aprire il file MainPage.xaml.cs e aggiungere l'istruzione 'using' seguente all'inizio del file.
+ 
         using System.Net.Http;
 
-2.  Nel file MainPage.xaml.cs aggiungere la definizione di classe seguente allo spazio dei nomi per serializzare le informazioni dell'utente.
+2. Nel file MainPage.xaml.cs aggiungere la definizione di classe seguente allo spazio dei nomi per serializzare le informazioni dell'utente.
 
         public class UserInfo
         {
@@ -13,7 +18,8 @@
             public String postalCode { get; set; }
         }
 
-3.  Nel file MainPage.xaml.cs aggiornare il metodo `AuthenticateAsync` affinché chiami l'API personalizzata per restituire le informazioni aggiuntive sull'utente da Azure Active Directory.
+
+3. Nel file MainPage.xaml.cs aggiornare il metodo 'AuthenticateAsync' affinché chiami l'API personalizzata per restituire le informazioni aggiuntive sull'utente da Azure Active Directory. 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -34,13 +40,12 @@
                 {
                     message = "You must log in. Login Required";
                 }
-
+                
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
         }
 
-4.  Salvare le modifiche e compilare il servizio per verificare che non vi siano errori di sintassi.
 
-
+4. Salvare le modifiche e compilare il servizio per verificare che non vi siano errori di sintassi.  

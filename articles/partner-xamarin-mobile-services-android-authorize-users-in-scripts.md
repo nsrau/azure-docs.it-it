@@ -1,91 +1,98 @@
-<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-android" urlDisplayName="Authorize Users in Scripts (Xamarin.Android)" pageTitle="Authorize users in scripts (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.Android scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.Android)" pageTitle="Autorizzare gli utenti negli script (Xamarin.Android) - Servizi mobili di Azure" metaKeywords="autorizzazione dell'utente in Azure, autorizzazione di script Xamarin.Android, autorizzare servizi mobili" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 
-# Utilizzo di script per l'autorizzazione di utenti in Servizi mobili
+# Usare gli script per autorizzare gli utenti in Servizi mobili
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    <a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-In questo argomento viene illustrato come utilizzare gli script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Xamarin.Android. In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
+Questo argomento illustra come usare gli script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Xamarin.Android.  In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione][Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione][Introduzione all'autenticazione].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
 
-## <a name="register-scripts"></a>Registrazione di script
-
+## <a name="register-scripts"></a>Registrare gli script
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
 
-1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
+1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app. 
 
-    ![][0]
+   	![][0]
 
-2.  Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
+2. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
-    ![][1]
+   	![][1]
 
-3.  Fare clic su **Script** e quindi selezionare l'operazione **Insert**.
+3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
 
-    ![][2]
+   	![][2]
 
-4.  Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Save**.
+4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
           item.userId = user.userId;    
           request.execute();
         }
 
-    Questo script aggiunge un valore userId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem.
+    Questo script aggiunge un valore userId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
 
     <div class="dev-callout"><b>Nota</b>
-<p>&Egrave; necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando &egrave; abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>userId</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico &egrave; abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.</p>
-</div>
+	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>userId</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.</p>
+    </div>
 
-5.  Ripetere i passaggi 3 e 4 per sostituire l'operazione **Read** esistente con la funzione seguente:
+
+5. Ripetere i passaggi 3 e 4 per sostituire l'operazione **Read** esistente con la funzione seguente:
 
         function read(query, user, request) {
            query.where({ userId: user.userId });    
            request.execute();
         }
 
-    Questo script consente di filtrare gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
+   	Questo script consente di filtrare gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
 
-## Test dell'app
+## Testare l'app
 
-1.  In Xamarin Studio o Visual Studio aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione][Introduzione all'autenticazione].
+1. In Xamarin Studio o Visual Studio aprire il progetto modificato dopo avere completato l'esercitazione [Introduzione all'autenticazione].
 
-2.  Fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto.
+2. Fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
-    Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
-3.  Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
+3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-    Testo e userId verranno inseriti nella tabella TodoItem nel servizio mobile. Poiché il nuovo elemento contiene il valore userId corretto, viene restituito dal servizio mobile e i dati vengono visualizzati nella seconda colonna.
+   	Testo e userId verranno inseriti nella tabella TodoItem nel servizio mobile. Poiché il nuovo elemento contiene il valore userId corretto, viene restituito dal servizio mobile e i dati vengono visualizzati nella seconda colonna.
 
-4.  Tornare alla tabella **todoitem** nel [portale di gestione][portale di gestione di Azure], quindi fare clic su **Browse** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
+5. Tornare alla tabella **todoitem** nel [portale di gestione][Azure Management Portal], quindi fare clic su **Browse** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
 
-5.  (Facoltativo) Se si dispone di altri account di accesso, per verificare che gli utenti possano visualizzare solo i propri dati, chiudere l'app ed eseguirla di nuovo. Quando viene visualizzata la finestra di dialogo per l'immissione delle credenziali di accesso, immettere un account di accesso diverso e verificare che i dati immessi nell'account precedente non siano visualizzati.
+6. (Facoltativo) Se si dispone di altri account di accesso, per verificare che gli utenti possano visualizzare solo i propri dati, chiudere l'app ed eseguirla di nuovo. Quando viene visualizzata la finestra di dialogo per l'immissione delle credenziali di accesso, immettere un account di accesso diverso e verificare che i dati immessi nell'account precedente non siano visualizzati.
 
 ## Passaggi successivi
 
-L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è terminata. Per ulteriori informazioni, vedere anche i seguenti argomenti su Servizi mobili:
+L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
--   [Introduzione ai dati][Introduzione ai dati]
-    Ulteriori informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
+* [Introduzione ai dati]
+  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
--   [Introduzione alle notifiche push][Introduzione alle notifiche push]
-    Informazioni sull'invio di una notifica push di base all'app.
+* [Introduzione alle notifiche push] 
+  <br/>Informazioni sull'invio di una notifica push di base all'app.
 
--   [Riferimento per gli script del server di Servizi mobili][Riferimento per gli script del server di Servizi mobili]
-    Ulteriori informazioni sulla registrazione e l'utilizzo di script del server.
+* [Riferimento per gli script del server di Servizi mobili]
+  <br/>Altre informazioni sulla registrazione e l'uso di script del server.
+
+<!-- Anchors. -->
+[Registrare gli script del server]: #register-scripts
+[Passaggi successivi]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
+[1]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
+[2]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
 
 
+<!-- URLs. -->
+[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Dashboard App personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-android
+[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android
 
-  [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [0]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
-  [1]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
-  [2]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
-  [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
-  [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android
-  [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Portale di gestione di Azure]: https://manage.windowsazure.com/

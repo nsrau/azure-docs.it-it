@@ -1,162 +1,141 @@
-<properties linkid="mobile-services-dotnet-backend-how-to-troubleshoot" urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="yavorg" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Risolvere i problemi del back-end .NET di Servizi mobili - Servizi mobili di Azure" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
 # Risolvere i problemi del back-end .NET di Servizi mobili
 
-Lo sviluppo con Servizi mobili è di solito facile e senza problemi, ma talvolta qualcosa può andare storto. Questa esercitazione illustra alcune tecniche che consentono di risolvere i problemi comuni che possono presentarsi con il back-end .NET di Servizi mobili.
+Lo sviluppo con Servizi mobili è di solito facile e senza problemi, ma talvolta qualcosa può andare storto. Questa esercitazione illustra alcune tecniche che consentono di risolvere i problemi comuni che possono presentarsi con il back-end .NET di Servizi mobili. 
 
-1.  [Debug HTTP][Debug HTTP]
-2.  [Debug del runtime][Debug del runtime]
-3.  [Analisi dei log di diagnostica][Analisi dei log di diagnostica]
-4.  [Debug della risoluzione dell'assembly cloud][Debug della risoluzione dell'assembly cloud]
-5.  [Risoluzione dei problemi relativi alle migrazioni di Entity Framework][Risoluzione dei problemi relativi alle migrazioni di Entity Framework]
+1. [Debug HTTP](#HttpDebugging)
+2. [Debug del runtime](#RuntimeDebugging)
+3. [Analisi dei log di diagnostica](#Logs)
+4. [Debug della risoluzione dell'assembly cloud](#AssemblyResolution)
+5. [Risoluzione dei problemi relativi alle migrazioni di Entity Framework](#EFMigrations)
 
 <a name="HttpDebugging"></a>
-
 ## Debug HTTP
 
-Quando si sviluppano app con Servizi mobili, di solito si sfrutta l'SDK del client di Servizi mobili per la piattaforma in uso (Windows Store, iOS, Android, ecc.). A volte, però, è utile scendere fino al livello HTTP e osservare le chiamate non elaborate durante la loro esecuzione in rete. Questo approccio è particolarmente utile durante il debug dei problemi di connettività e serializzazione. Con il back-end .NET di Servizi mobili è possibile usare questo approccio in combinazione con il debug locale e remoto di Visual Studio (di cui si discuterà più ampiamente nella sezione successiva) per farsi un'idea globale del percorso effettuato da una chiamata HTTP prima di richiamare il codice di servizio.
+Quando si sviluppano app con Servizi mobili, di solito si usa l'SDK del client di Servizi mobili per la piattaforma in uso, ad esempio Windows Store, iOS, Android e così via. A volte, però, è utile scendere fino al livello HTTP e osservare le chiamate non elaborate durante la loro esecuzione in rete. Questo approccio è particolarmente utile durante il debug dei problemi di connettività e serializzazione. Con il back-end .NET di Servizi mobili è possibile usare questo approccio in combinazione con il debug locale e remoto di Visual Studio (di cui si discuterà più ampiamente nella sezione successiva) per avere un'idea globale del percorso effettuato da una chiamata HTTP prima di richiamare il codice del servizio.  
 
-È possibile usare qualsiasi debugger HTTP per inviare e ispezionare il traffico HTTP. [Fiddler][Fiddler] è un popolare strumento comunemente usato dagli sviluppatori a tale scopo. Per facilitare l'operato degli sviluppatori, Servizi mobili aggrega un debugger HTTP basato su Web (chiamato anche "client di prova") direttamente al servizio mobile, riducendo la necessità di strumenti esterni. Quando il servizio mobile è ospitato in locale, sarà disponibile a un URI simile a [http://hostlocale:59233](http://hostlocale:59233), mentre quando è ospitato nel cloud, l'URI sarà nel formato [][1]<http://todo-list.azure-mobile.net></a>. I passaggi seguenti funzionano in maniera analoga, indipendentemente dalla posizione in cui è ospitato il servizio:
+È possibile usare qualsiasi debugger HTTP per inviare e ispezionare il traffico HTTP. [Fiddler](http://www.telerik.com/fiddler) è un popolare strumento comunemente usato dagli sviluppatori a tale scopo. Per facilitare l'operato degli sviluppatori, Servizi mobili aggrega un debugger HTTP basato su Web (chiamato anche "client di prova") direttamente al servizio mobile, riducendo la necessità di strumenti esterni. Quando il servizio mobile è ospitato in locale, sarà disponibile a un URI simile a [http://hostlocale:59233](http://localhost:59233), mentre quando è ospitato nel cloud, l'URI sarà nel formato [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). I passaggi seguenti funzionano in maniera analoga, indipendentemente dalla posizione in cui è ospitato il servizio:
 
-1.  Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versioni successive. Se non è disponibile alcun progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Windows Azure**.
-2.  Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**.
+1. Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versione successiva. Se non è disponibile un progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Microsoft Azure**.
+2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**. 
 
-    > [WACOM.NOTE]
+    >[WACOM.NOTE] 
     > Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel **portale di gestione di Azure** passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
     >
-    > ![Prompt di autenticazione per accedere alla pagina della guida][Prompt di autenticazione per accedere alla pagina della guida]
+    > ![Authentication prompt to access help page][HelpPageAuth]
 
-3.  La pagina visualizzata (definita "pagina della guida") contiene un elenco di tutte le API HTTP rese disponibili dal servizio mobile. Selezionare una delle API (se si è iniziato a usare il modello di progetto di Servizi mobili in Visual Studio, vedere **GET tables/TodoItem**).
+3. La pagina visualizzata (definita "pagina della guida") contiene un elenco di tutte le API HTTP rese disponibili dal servizio mobile. Selezionare una delle API (se si è iniziato a usare il modello di progetto di Servizi mobili in Visual Studio, vedere **GET tables/TodoItem**).
 
-    ![Pagina della guida][Pagina della guida]
+    ![Help page][HelpPage]
 
-4.  La pagina risultante contiene tutta la documentazione e gli esempi JSON della richiesta, oltre alla risposta prevista dall'API. Selezionare il pulsante **prova**.
+4. La  pagina risultante contiene tutta la documentazione e gli esempi JSON della richiesta e della risposta previsti dall'API. Selezionare il pulsante **Prova**.
 
-    ![Pagina di prova per un'API][Pagina di prova per un'API]
+    ![Test page for an API][HelpPageApi]
 
-5.  Questo è il "client di prova", che consente di inviare una richiesta HTTP per provare l'API. Selezionare **Invia**.
+5. Questo è il "client di prova", che consente di inviare una richiesta HTTP per provare l'API. Selezionare **Invia**.
 
-    ![Client di prova][Client di prova]
+    ![Test client][TestClient]
 
-6.  Verrà visualizzata la risposta HTTP proveniente dal servizio mobile direttamente nella finestra del browser.
+6. Verrà visualizzata la risposta HTTP proveniente dal servizio mobile direttamente nella finestra del browser. 
 
-    ![Client di prova con risposta HTTP][Client di prova con risposta HTTP]
+    ![Test client with HTTP response][TestClientResponse]
 
 Ora è possibile esplorare le diverse API HTTP esposte dal servizio mobile con la comodità del proprio Web browser.
 
 <a name="RuntimeDebugging"></a>
-
 ## Debug del runtime
 
-Una delle principali funzionalità del back-end .NET è la capacità di eseguire il debug del codice di servizio a livello locale, ma anche di eseguire il debug del codice eseguito dinamicamente nell'ambiente cloud. Attenersi alla procedura descritta di seguito:
+Una delle principali funzionalità del back-end .NET è la capacità di eseguire il debug del codice del servizio in locale, ma anche di eseguire il debug del codice eseguito dinamicamente nell'ambiente cloud. Attenersi alla procedura seguente:
 
-1.  Aprire il progetto del servizio mobile di cui eseguire il debug in **Visual Studio 2013 Update 2** o versione successiva.
-2.  Configurare il caricamento del simbolo. Passare al menu **Debug** e selezionare **Opzioni e impostazioni**. Assicurarsi che l'opzione **Abilita Just My Code** sia deselezionata e che l'opzione **Abilita il supporto del server di origine** sia selezionata.
+1. Aprire il progetto del servizio mobile di cui eseguire il debug in **Visual Studio 2013 Update 2** o versione successiva.
+2. configurare il caricamento dei simboli. Passare al menu **Debug** e selezionare **Opzioni e impostazioni**. Assicurarsi che **Abilita Just My Code** sia deselezionata e che l'opzione **Abilita il supporto del server di origine** sia selezionata.
 
-    ![Configurare il caricamento del simbolo][Configurare il caricamento del simbolo]
+    ![Configure symbol loading][SymbolLoading]
 
-3.  Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server (SymbolSource)[<http://symbolsource.org>] usando l'URI [][2]<http://srv.symbolsource.org/pdb/Public></a>. I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
+3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server (SymbolSource)[http://symbolsource.org] usando l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
+ 
+    ![Configure symbol server][SymbolServer]
 
-    ![Configurare il server dei simboli][Configurare il server dei simboli]
+4. Impostare un punto di interruzione nel frammento di codice di cui si vuole eseguire il debug. Impostare ad esempio un punti di interruzione nel metodo **GetAllTodoItems()** di **TodoItemController** incluso nel modello di progetto di Servizi mobili in Visual Studio.
+5. Eseguire il debug del servizio in locale premendo **F5**. Il primo carico potrebbe essere lento in quanto Visual Studio scarica i simboli relativi al back-end .NET di Servizi mobili.
+6. Come descritto nella sezione precedente relativa al debug HTTP, usare il client di prova per inviare una richiesta HTTP al metodo in cui è stato impostato il punto di interruzione. Ad esempio, è possibile inviare una richiesta al metodo **GetAllTodoItems()** selezionando **GET tables/TodoItem** nella pagina della guida, quindi selezionando **Prova** e quindi **Invia**.
+7. Visual Studio dovrebbe interrompersi in corrispondenza del punto di interruzione impostato e nella finestra **Stack di chiamate** in Visual Studio dovrebbe essere disponibile uno stack di chiamate completo con il codice sorgente.
 
-4.  Impostare un punto di interruzione nel frammento di codice di cui si vuole eseguire il debug. Ad esempio, impostare un punto di interruzione nel metodo **GetAllTodoItems()** di **TodoItemController** presente nel modello di progetto di Servizi mobili in Visual Studio.
-5.  Eseguire il debug del servizio in locale premendo **F5**. Il primo carico potrebbe essere lento in quanto Visual Studio scarica i simboli relativi al back-end .NET di Servizi mobili.
-6.  Come descritto nella sezione precedente relativa al debug HTTP, usare il cliente di prova per inviare una richiesta HTTP al metodo in cui è stato impostato il punto di interruzione. Ad esempio, è possibile inviare una richiesta al metodo **GetAllTodoItems()** selezionando **GET tables/TodoItem** nella pagina della guida, quindi selezionando **prova** e quindi **invia**.
-7.  Visual Studio dovrebbe interrompersi in corrispondenza del punto di interruzione impostato e nella finestra **Stack di chiamate** in Visual Studio dovrebbe essere disponibile un'analisi dello stack completa con il codice sorgente.
+    ![Hitting a breakpoint][Breakpoint]
 
-    ![Raggiungimento di un punto di interruzione][Raggiungimento di un punto di interruzione]
+8. È ora possibile pubblicare il servizio in Azure, in modo che sia possibile eseguire il debug proprio come in precedenza. Per pubblicare il progetto, fare clic su di esso con il pulsante destro del mouse in **Esplora soluzioni,** e scegliere **Pubblica**.
+9. Nella scheda **Impostazioni** della procedura guidata di pubblicazione selezionare la configurazione **Debug**. Ciò garantisce la pubblicazione dei simboli di debug pertinenti insieme al codice.
 
-8.  È ora possibile pubblicare il servizio in Azure, in modo che sia possibile eseguire il debug proprio come in precedenza. Pubblicare il progetto facendo clic con il pulsante destro del mouse su di esso in **Esplora soluzioni**, quindi scegliere **Pubblica**.
-9.  Nella scheda **Impostazioni della** procedura guidata di pubblicazione, selezionare la configurazione **Debug**. Ciò garantisce che i simboli di debug pertinenti siano pubblicati assieme al codice.
-
-    ![Debug di pubblicazione][Debug di pubblicazione]
+    ![Publish debug][PublishDebug]
 
 10. Dopo aver pubblicato correttamente il servizio, aprire **Esplora server** ed espandere i nodi **Microsoft Azure** e **Servizi mobili**. Se necessario, eseguire l'accesso.
 11. Fare clic con il pulsante destro del mouse sul servizio mobile appena pubblicato e selezionare **Collega debugger**.
 
-    ![Collegamento del debugger][Collegamento del debugger]
+    ![Attach debugger][AttachDebugger]
 
-12. Proprio come già fatto al passaggio 6, inviare una richiesta HTTP per richiamare il metodo in cui è stato impostato il punto di interruzione. Stavolta, però, usare la pagina della guida e il client di prova per il servizio mobile ospitato su Azure.
+12. Proprio come già fatto al passaggio 6, inviare una richiesta HTTP per richiamare il metodo in cui è stato impostato il punto di interruzione. Questa volta usare la pagina della guida e il client di prova per il servizio mobile ospitato in Azure.
 13. Visual Studio si interromperà nel punto di interruzione.
 
 È ora possibile accedere alla potenza completa del debugger di Visual Studio quando si sviluppa codice in locale e rispetto al servizio mobile dinamico in Azure.
 
 <a name="Logs"></a>
-
 ## Analisi dei log di diagnostica
 
-Quando gestisce le richieste inviate dai clienti, il servizio mobile genera una serie di utili informazioni diagnostiche, acquisendo anche eventuali eccezioni riscontrate. Oltre a questo, è possibile instrumentare il codice del controller con log aggiuntivi sfruttando la proprietà [**Log**][**Log**] disponibile nella proprietà [**Services**][**Services**] di ogni [**TableController**][**TableController**].
+Quando gestisce le richieste inviate dai client, il servizio mobile genera una serie di utili informazioni diagnostiche, acquisendo anche eventuali eccezioni riscontrate. Oltre a questo, è possibile instrumentare il codice del controller con log aggiuntivi sfruttando la proprietà [**Log**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx) disponibile nella proprietà [**Services**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx) di ogni [**TableController**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx).
 
 Quando si esegue il debug in locale, i log saranno visualizzati nella finestra di **output** in Visual Studio.
 
-![Log nella finestra di output in Visual Studio][Log nella finestra di output in Visual Studio]
+![Logs in Visual Studio Output window][LogsOutputWindow]
 
-Dopo aver pubblicato il servizio in Azure, i log relativi all'istanza di servizio in esecuzione nel cloud saranno disponibili facendo clic con il pulsante destro del mouse sul servizio mobile nella finestra **Esplora server** di Visual Studio, quindi selezionando **Visualizza log**.
+Dopo aver pubblicato il servizio in Azure, i log relativi all'istanza del servizio in esecuzione nel cloud saranno disponibili facendo clic con il pulsante destro del mouse sul servizio mobile nella finestra **Esplora server** di Visual Studio e quindi selezionando **Visualizza log**.
 
-![Log in Esplora server di Visual Studio][Log in Esplora server di Visual Studio]
+![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-Gli stessi log sono disponibili anche sul **portale di gestione di Azure**, nella scheda **Log** relativa al proprio servizio mobile.
+Gli stessi log sono disponibili anche nel **portale di gestione di Azure** nella scheda **Log** relativa al proprio servizio mobile.
 
-![Log nel portale di gestione di Azure][Log nel portale di gestione di Azure]
+![Logs in Azure Management Portal][LogsPortal]
 
 <a name="AssemblyResolution"></a>
-
 ## Debug della risoluzione dell'assembly cloud
 
-Quando viene pubblicato su Azure, il servizio mobile viene caricato dall'ambiente host di Servizi mobili, che garantisce aggiornamenti e patch uniformi della pipeline HTTP che ospita il codice del controller. Ciò include tutti gli assembly a cui fanno riferimento i [pacchetti NuGet del back-end .NET][pacchetti NuGet del back-end .NET]: il team aggiorna costantemente il servizio in modo da usare le versioni più recenti di questi assembly.
+Quando viene pubblicato in Azure, il servizio mobile viene caricato dall'ambiente di hosting di Servizi mobili, che garantisce aggiornamenti e patch uniformi della pipeline HTTP che ospita il codice del controller. Ciò include tutti gli assembly a cui fanno riferimento i [pacchetti NuGet del back-end .NET](http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22): il team aggiorna costantemente il servizio in modo da usare le versioni più recenti di questi assembly. 
 
-Talvolta è possibile introdurre conflitti di controllo delle versioni facendo riferimento a *diverse versioni principali* di assembly obbligatori (sono consentite diverse versioni *minori*). Ciò accade di frequente quando NuGet richiede di eseguire l'aggiornamento alla versione più recente di uno dei pacchetti usati dal back-end .NET di Servizi mobili.
+Talvolta è possibile introdurre conflitti di controllo delle versioni facendo riferimento a *diverse versioni principali* di assembly obbligatori (sono consentite diverse versioni *minori*). Ciò accade di frequente quando NuGet richiede di eseguire l'aggiornamento alla versione più recente di uno dei pacchetti usati dal back-end .NET di Servizi mobili. 
 
-    > [WACOM.NOTE] Mobile Services is currently compatible only with ASP.NET 5.1; ASP.NET 5.2 is not presently supported. Upgrading your ASP.NET NuGet packages to 5.2.* may result in an error after deployment.
+>[WACOM.NOTE] Servizi mobili è attualmente compatibile solo con ASP.NET 5.1, mentre 5.2 ASP.NET non è attualmente supportato. L'aggiornamento dei pacchetti NuGet ASP.NET alla versione 5.2. * può generare un errore dopo la distribuzione.
 
 Se si effettua l'aggiornamento di uno qualsiasi di questi pacchetti, quando si pubblica il servizio aggiornato su Azure verrà visualizzata una pagina di avviso che indica il conflitto:
 
-![Pagina della guida indicante il conflitto di caricamento dell'assembly][Pagina della guida indicante il conflitto di caricamento dell'assembly]
+![Help page indicating assembly loading conflict][HelpConflict]
 
 Verrà anche registrato nei log di servizio un messaggio di eccezione simile al seguente:
 
-    Found conflicts between different versions of the same dependent assembly 'Microsoft.ServiceBus': 2.2.0.0, 2.3.0.0. Please change your project to use version '2.2.0.0' which is the one currently supported by the hosting environment.
+    Sono stati rilevati conflitti tra diverse versioni dello stesso assembly dipendente "Microsoft. ServiceBus": 2.2.0.0, 2.3.0.0. Modificare il progetto in modo da usare la versione "2.2.0.0", che attualmente è quella supportata dall'ambiente di hosting.
 
 Questo problema è facilmente risolvibile: basta ripristinare una versione supportata dell'assembly obbligatorio e ripubblicare il servizio.
 
 <a name="EFMigrations"></a>
-
 ## Risoluzione dei problemi relativi alle migrazioni di Entity Framework
 
-Quando si usa il back-end .NET di Servizi mobili con un database SQL, Entity Framework (EF) viene usato come tecnologia di accesso ai dati che consente di eseguire query sul database e mantenere oggetti al suo interno. Uno degli aspetti importanti che EF gestisce per conto dello sviluppatore è il modo in cui le colonne del database (noto anche come *schema*) cambiano in base alle classi del modello specificate nella modifica del codice. Questo processo è noto come [Migrazioni Code First][Migrazioni Code First].
+Quando si usa il back-end .NET di Servizi mobili con un database SQL, Entity Framework (EF) viene usato come tecnologia di accesso ai dati che consente di eseguire query sul database e mantenere oggetti al suo interno. Uno degli aspetti importanti che EF gestisce per conto dello sviluppatore è il modo in cui le colonne del database (noto anche come *schema*) cambiano in base alle classi del modello specificate nella modifica del codice. Questo processo è noto come [Migrazioni Code First](http://msdn.microsoft.com/it-it/data/jj591621).
 
-Le migrazioni possono essere complesse e richiedere di mantenere lo stato del database sincronizzato con il modello EF per ottenere un esito positivo. Per istruzioni su come gestire le migrazioni con il servizio mobile e i possibili errori che possono verificarsi, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET][Come modificare un modello di dati in un servizio mobile back-end .NET].
+Le migrazioni possono essere complesse e richiedere di mantenere lo stato del database sincronizzato con il modello EF per avere esito positivo. Per istruzioni su come gestire le migrazioni con il servizio mobile e i possibili errori che possono verificarsi, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
 
 <!-- IMAGES -->
 
-  [Debug HTTP]: #HttpDebugging
-  [Debug del runtime]: #RuntimeDebugging
-  [Analisi dei log di diagnostica]: #Logs
-  [Debug della risoluzione dell'assembly cloud]: #AssemblyResolution
-  [Risoluzione dei problemi relativi alle migrazioni di Entity Framework]: #EFMigrations
-  [Fiddler]: http://www.telerik.com/fiddler
-  []: http://localhost:59233
-  [1]: http://todo-list.azure-mobile.net
-  [Prompt di autenticazione per accedere alla pagina della guida]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/6.png
-  [Pagina della guida]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/7.png
-  [Pagina di prova per un'API]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/8.png
-  [Client di prova]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/9.png
-  [Client di prova con risposta HTTP]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/10.png
-  [Configurare il caricamento del simbolo]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/1.png
-  [2]: http://srv.symbolsource.org/pdb/Public
-  [Configurare il server dei simboli]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/2.png
-  [Raggiungimento di un punto di interruzione]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/3.png
-  [Debug di pubblicazione]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/4.png
-  [Collegamento del debugger]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/5.png
-  [**Log**]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx
-  [**Services**]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx
-  [**TableController**]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx
-  [Log nella finestra di output in Visual Studio]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/11.png
-  [Log in Esplora server di Visual Studio]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
-  [Log nel portale di gestione di Azure]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
-  [pacchetti NuGet del back-end .NET]: http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22
-  [Pagina della guida indicante il conflitto di caricamento dell'assembly]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-  [Migrazioni Code First]: http://msdn.microsoft.com/it-it/data/jj591621
-  [Come modificare un modello di dati in un servizio mobile back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
+[HelpPageAuth]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/6.png
+[HelpPage]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/7.png
+[HelpPageApi]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/8.png
+[TestClient]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/9.png
+[TestClientResponse]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/10.png
+[SymbolLoading]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/1.png
+[SymbolServer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/2.png
+[Breakpoint]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/3.png
+[PublishDebug]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/4.png
+[AttachDebugger]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/5.png
+[LogsOutputWindow]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/11.png
+[LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
+[LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
+[HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png

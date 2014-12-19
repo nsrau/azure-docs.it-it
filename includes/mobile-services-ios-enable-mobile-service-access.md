@@ -1,64 +1,61 @@
+﻿
 Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale.
 
-1.  Se non lo si è già fatto, installare adesso l'[Mobile Services SDK per iOS][Mobile Services SDK per iOS].
+1.  Se non lo si è già fatto, installare adesso [Mobile Services SDK per iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533). Una volta installato, copiare la directory WindowsAzureMobileServices.framework sovrascrivendo la directory WindowsAzureMobileServices.framework inclusa nel progetto scaricato. In questo modo si sarà certi di usare l'SDK di Servizi mobili di Azure più recente.
 
-2.  Nella struttura del progetto in Xcode aprire i file TodoService.m e TodoService.h nella cartella Quickstart e aggiungere l'istruzione import seguente
+2. Nel file TodoService.h individuare la riga di codice commentata seguente:
 
-        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>  
+        // TODO - create an MSClient proeprty
 
-3.  Nel file ToDoService.h individuare la riga di codice commentata seguente:
-
-        // Create an MSClient property comment in the #interface declaration for the TodoService. 
-
-    Dopo questo commento, aggiungere la riga di codice seguente:
+   	Dopo questo commento, aggiungere la riga di codice seguente:
 
         @property (nonatomic, strong)   MSClient *client;
 
-    Verrà creata una proprietà che rappresenta il client Servizi mobili che si connette al servizio
+   	Verrà creata una proprietà che rappresenta il client Servizi mobili che si connette al servizio
 
-4.  Nel file TodoService.m individuare la riga di codice commentata seguente:
+3. Nel file TodoService.m individuare la riga di codice commentata seguente:
 
-        // Create an MSTable property for your items. 
+        // TODO - create an MSTable property for your items
 
-    Dopo questo commento, aggiungere la riga di codice seguente all'interno della dichiarazione @interface:
+   	Dopo questo commento, aggiungere la riga di codice seguente all'interno della dichiarazione @interface:
 
         @property (nonatomic, strong)   MSTable *table;
 
-    Verrà creata una rappresentazione della proprietà per la tabella di Servizi mobili.
+   	Verrà creata una rappresentazione della proprietà per la tabella di Servizi mobili.
 
-5.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+4. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-6.  Fare clic sulla scheda **Dashboard** e prendere nota del valore di **Site URL**, quindi fare clic su **Manage keys** e prendere nota del valore di **Application key**.
+5. Fare clic sulla scheda **Dashboard** e prendere nota dell'**URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
 
-    ![][ ]
+   	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
 
-    Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
+  	Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
 
-7.  In Xcode, aprire il file TodoService.m e individuare la riga di codice commentata seguente:
+6. In Xcode, aprire il file TodoService.m e individuare la riga di codice commentata seguente:
 
         // Initialize the Mobile Service client with your URL and key.
 
     Dopo questo commento, aggiungere la riga di codice seguente:
 
-        self.client = [MSClient clientWithApplicationURLString:@"APPURL" withApplicationKey:@"APPKEY"];
+        self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
 
     Verrà creata un'istanza del client di Servizi mobili.
 
-8.  Nel codice sostituire **APPURL** e **APPKEY** con l'URL del servizio mobile e la chiave dell'applicazione del servizio mobile acquisiti nel passaggio 6.
+7. Nel codice sostituire **APPURL** e **APPKEY** con l'URL del servizio mobile e la chiave dell'applicazione del servizio mobile acquisiti nel passaggio 6.
 
-9.  Individuare la riga di codice commentata seguente:
+8. Individuare la riga di codice commentata seguente:
 
         // Create an MSTable instance to allow us to work with the TodoItem table.
 
     Dopo questo commento, aggiungere la riga di codice seguente:
 
-        self.table = [self.client getTable:@"TodoItem"];
+        self.table = [self.client tableWithName:@"TodoItem"];
 
     Verrà creata un'istanza della tabella TodoItem.
 
-10. Individuare la riga di codice commentata seguente:
+9. Individuare la riga di codice commentata seguente:
 
-        // Create a predicate that finds items where complete is false comment in the refreshDataOnSuccess method. 
+ 	    // Create a predicate that finds items where complete is false
 
     Dopo questo commento, aggiungere la riga di codice seguente:
 
@@ -66,20 +63,19 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
     Verrà creata una query che restituisce tutte le attività non ancora completate.
 
-11. Individuare la riga di codice commentata seguente:
-
-        // Query the TodoItem table and update the items property with the results from the service.
-
-    Sostituire il commento e la chiamata al blocco **completion** successiva con il codice seguente:
+10. Individuare la riga di codice commentata seguente:
 
         // Query the TodoItem table and update the items property with the results from the service
-        [self.table readWhere:predicate completion:^(NSArray *items, NSInteger totalCount, NSError *error)
-        {
-           self.items = [items mutableCopy];
-           completion();
-        }]; 
 
-12. Individuare il metodo **addItem** e aggiungere al corpo del metodo il codice seguente:
+   	Sostituire il commento e la chiamata al blocco **completion** successiva con il codice seguente:
+
+        [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
+		{
+		   self.items = [results mutableCopy];
+           completion();
+        }];
+
+11. Individuare il metodo **addItem** e sostituire il corpo del metodo con il codice seguente:
 
         // Insert the item into the TodoItem table and add to the items array on completion
         [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -92,12 +88,15 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
     Il codice invia una richiesta insert al servizio mobile.
 
-13. Individuare il metodo **completeItem** e aggiungere al corpo del metodo il codice seguente:
+12. Individuare il metodo **completeItem** e trovare la riga di codice commentata seguente:
+
+        // Update the item in the TodoItem table and remove from the items array on completion
+
+    Sostituire il corpo del metodo da quel punto alla fine del metodo, con il codice seguente:
 
         // Update the item in the TodoItem table and remove from the items array on completion
         [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
 
-            // TODO
             // Get a fresh index in case the list has changed
             NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
 
@@ -105,11 +104,30 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
             // Let the caller know that we have finished
             completion(index);
-        }]; 
+	    }];
 
-    Il codice rimuove gli elementi TodoItems dopo che sono stati contrassegnati come completati.
+   	Il codice rimuove gli elementi TodoItems dopo che sono stati contrassegnati come completati.
 
-Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
+13. In TodoListController.m, trovare il metodo **onAdd** e sovrascriverlo con il codice seguente:
 
-  [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  [ ]: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png
+      - (IBAction)onAdd:(id)sender
+      {
+          if (itemText.text.length  == 0)
+          {
+              return;
+          }
+
+          NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO };
+          UITableView *view = self.tableView;
+          [self.todoService addItem:item completion:^(NSUInteger index)
+          {
+              NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+              [view insertRowsAtIndexPaths:@[ indexPath ]
+                          withRowAnimation:UITableViewRowAnimationTop];
+          }];
+
+          itemText.text = @"";
+      }
+
+
+Una volta aggiornata l'app per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.

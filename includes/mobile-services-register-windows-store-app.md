@@ -1,76 +1,70 @@
-1.  Se l'app non è ancora stata registrata, passare alla pagina relativa all'[invio di app][invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **App name**.
+﻿
+1. Se l'app non è ancora stata registrata, passare alla pagina relativa all'[invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
-    ![][0]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2.  Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
+2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
 
-    ![][1]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png)
 
-    Verrà creata una nuova registrazione a Windows Store per l'app.
+   	Verrà creata una nuova registrazione a Windows Store per l'app.
 
-3.  In Visual Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
+3. In Visual Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili].
 
-4.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**.
+4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**. 
 
-    ![][2]
+  	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-    Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
+   	Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
 
-5.  Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft.
+5. Nella procedura guidata fare clic su **Accedi**, quindi accedere con il proprio account Microsoft.
 
-6.  Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
+6.  Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti**, quindi su **Associa**.
 
-    ![][3]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png)
 
-    Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
+   	Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.    
 
-7.  Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
+7. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**. 
 
-    ![][4]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8.  Nella pagina Servizi fare clic su **Sito di servizi Live** in **Servizi mobili di Azure**.
+8. Nella pagina Servizi fare clic su **Sito di servizi Live** in **Servizi mobili di Azure**.
 
-    ![][5]
+	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9.  In **Impostazioni app** prendere nota dei valori specificati nei campi **ID client**, **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**.
+9. In **Impostazioni app** prendere nota dei valori specificati nei campi **ID client**, **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)**. 
 
-    ![][6]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    > [WACOM.NOTE]Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri né distribuirli con l'app.
+    >[WACOM.NOTE]Il segreto client e il SID di pacchetto sono credenziali di sicurezza importanti. Non condividere questi valori con altri né distribuirli con l'app.
 
-10. (Facoltativo) Fare clic su **Impostazioni API**, abilitare **Enhanced redirection security**, specificare un valore di `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **URL di reindirizzamento**, quindi fare clic su **Salva**.
+10. (Facoltativo) Fare clic su **Impostazioni API**, abilitare **Enhanced redirection security**, specificare un valore `https://<servizio_mobile>.azure-mobile.net/login/microsoftaccount` in **URL di reindirizzamento**, quindi fare clic su **Salva**.
 
-    ![][7]
+	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
 
-    Ciò consente di abilitare l'autenticazione dell'account Microsoft per l'app.
+	Ciò consente di abilitare l'autenticazione dell'account Microsoft per l'app.
 
-11. Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
+11. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
-    ![][8]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png)
 
-12. Fare clic sulla scheda **Push**, immettere i valori di **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)** ottenuti da WNS al passaggio 4, quindi fare clic su **Salva**.
+12. Fare clic sulla scheda **Push**, immettere i valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)** ottenuti da WNS al passaggio 4, quindi fare clic su **Salva**.
 
-    ![][9]
+   	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
 
-13. Fare clic sulla scheda **Identità**. Si noti che i valori di **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)** risultano già impostati dal passaggio precedente. Immettere il valore di **ID client** di cui si è preso nota in precedenza, quindi fare clic su **Salva**.
+13. Fare clic sulla scheda **Identità**. Si noti che i valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)** risultano già impostati dal passaggio precedente. Immettere il valore di **ID client** di cui si è preso nota in precedenza, quindi fare clic su **Salva**.
 
-    ![][10]
+   	![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
+ 
+È ora possibile usare un account Microsoft per l'autenticazione nell'app.  
 
-È ora possibile usare un account Microsoft per l'autenticazione nell'app.
+<!-- Anchors. -->
 
+<!-- Images. -->
  
 
-  [invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
-  [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
-  [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
-  [2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png
-  [3]: ./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png
-  [4]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png
-  [5]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png
-  [6]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png
-  [7]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [8]: ./media/mobile-services-register-windows-store-app/mobile-services-selection.png
-  [9]: ./media/mobile-services-register-windows-store-app/mobile-push-tab.png
-  [10]: ./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png
+<!-- URLs. -->
+[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
+[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Portale di gestione di Azure]: https://manage.windowsazure.com/

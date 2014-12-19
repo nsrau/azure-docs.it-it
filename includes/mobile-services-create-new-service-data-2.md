@@ -1,43 +1,60 @@
-Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessario creare una nuova tabella nell'istanza di database SQL associata.
+﻿Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessario creare una nuova tabella nell'istanza di database SQL associata.
 
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-2.  Fare clic sulla scheda **Data** e quindi su **+Create**.
+2. Fare clic sulla scheda **Dati** e quindi su **+Crea**.
+	
+   	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
 
-    ![mobile-data-tab-empty][mobile-data-tab-empty]
+   	Verrà visualizzata la finestra di dialogo **Crea nuova tabella**.
 
-    Verrà visualizzata la finestra di dialogo **Create new table**.
+3. In **Nome tabella** digitare _TodoItem_, quindi fare clic sul segno di spunta.
 
-3.  In **Table name** digitare *TodoItem*, quindi fare clic sul segno di spunta.
+ 	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
 
-    ![mobile-create-todoitem-table][mobile-create-todoitem-table]
+  Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le autorizzazioni predefinite impostate. Questo significa che chiunque disponga della chiave dell'applicazione, che viene distribuita con l'app, potrà accedere alla tabella e modificare i dati. 
 
-Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le autorizzazioni predefinite impostate. Questo significa che chiunque disponga della chiave dell'applicazione, che viene distribuita con l'app, potrà accedere alla tabella e modificare i dati.
+> [WACOM.NOTE] 
+> Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili usano lo stesso database.
 
-> [WACOM.NOTE]
-> Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili utilizzano lo stesso database.
+4. Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
-1.  Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
+5. Fare clic sulla scheda **Colonne**. Verificare che siano state create automaticamente le colonne predefinite seguenti: 
+	
+	<table border="1" cellpadding="10">
+ 	<tr>
+ 	<th>Nome colonna</th>
+ 	<th>Tipo</th>
+ 	<th>Indice</th>
+ 	</tr>
+ 	<tr>
+ 	<td>id</td>
+ 	<td>stringa</td>
+ 	<td>Indicizzata</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__createdAt</td>
+ 	<td>data</td>
+ 	<td>Indicizzata</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__updatedAt</td>
+ 	<td>data</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr>
+ 	<tr>
+ 	<td>__version</td>
+ 	<td>timestamp (MSSQL)</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr> 	
+ 	</table> 	
+		
 
-2.  Fare clic sulla scheda **Columns**. Verificare che siano state create automaticamente le colonne predefinite seguenti:
+  	Questo è il requisito minimo per le tabelle in Servizi mobili. 
 
-    | Nome colonna  | Tipo              | Indice                             |
-    |---------------|-------------------|------------------------------------|
-    | id            | stringa           | Indicizzata                        |
-    | \_\_createdAt | data              | Indicizzata                        |
-    | \_\_updatedAt | data              | <font color="transparent">-</font> |
-    | \_\_version   | timestamp (MSSQL) | <font color="transparent">-</font> |
-
-    Questo è il requisito minimo per le tabelle in Servizi mobili.
-
-    <div class="dev-callout">
-
-    **Nota**
-    Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.
-
+    <div class="dev-callout"><b>Nota</b>
+	<p>Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.</p>
     </div>
 
-È ora possibile utilizzare il nuovo servizio mobile come archivio dati per l'app.
+È ora possibile usare il nuovo servizio mobile come archivio dati per l'app.
 
-  [mobile-data-tab-empty]: ./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png
-  [mobile-create-todoitem-table]: ./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png

@@ -1,30 +1,31 @@
-1.  In Esplora soluzioni di Visual Studio espandere la cartella App\_Start e aprire il file di progetto WebApiConfig.cs.
+﻿
+1. In Esplora soluzioni di Visual Studio espandere la cartella App_Start e aprire il file di progetto WebApiConfig.cs.
 
-2.  Aggiungere la riga di codice seguente al metodo Register dopo la definizione **ConfigOptions**:
+2. Aggiungere la riga di codice seguente al metodo Register dopo la definizione **ConfigOptions**:
 
         options.PushAuthorization = 
             Microsoft.WindowsAzure.Mobile.Service.Security.AuthorizationLevel.User;
+ 
+	In questo modo l'autenticazione utente viene applicata prima della registrazione delle notifiche push. 
 
-    In questo modo l'autenticazione utente viene applicata prima della registrazione delle notifiche push.
+2.  Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi**, quindi fare clic su **Classe**.
 
-3.  Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi**, quindi fare clic su **Classe**.
+3. Assegnare il nome `PushRegistrationHandler` alla nuova classe vuota e quindi fare clic su **Aggiungi**.
 
-4.  Assegnare il nome `PushRegistrationHandler` alla nuova classe vuota e quindi fare clic su **Aggiungi**.
+4. Nella parte superiore della tabella codici aggiungere le istruzioni **using** seguenti:
 
-5.  Nella parte superiore della tabella codici aggiungere l'istruzione **using** seguente:
+		using System.Threading.Tasks; 
+		using System.Web.Http; 
+		using System.Web.Http.Controllers; 
+		using Microsoft.WindowsAzure.Mobile.Service; 
+		using Microsoft.WindowsAzure.Mobile.Service.Notifications; 
+		using Microsoft.WindowsAzure.Mobile.Service.Security; 
 
-        using System.Threading.Tasks; 
-        using System.Web.Http; 
-        using System.Web.Http.Controllers; 
-        using Microsoft.WindowsAzure.Mobile.Service; 
-        using Microsoft.WindowsAzure.Mobile.Service.Notifications; 
-        using Microsoft.WindowsAzure.Mobile.Service.Security; 
-
-6.  Sostituire la classe **PushRegistrationHandler** esistente con il codice seguente:
-
-        public class PushRegistrationHandler : INotificationHandler
-        {
-            public Task Register(ApiServices services, HttpRequestContext context,
+5. Sostituire la classe **PushRegistrationHandler** esistente con il codice seguente:
+ 
+	    public class PushRegistrationHandler : INotificationHandler
+	    {
+	        public Task Register(ApiServices services, HttpRequestContext context,
             NotificationRegistration registration)
         {
             try
@@ -67,27 +68,26 @@
             }
             return true;
         }
-
+	
         public Task Unregister(ApiServices services, HttpRequestContext context, 
             string deviceId)
         {
             // This is where you can hook into registration deletion.
             return Task.FromResult(true);
         }
-
     }
 
-    Il metodo **Register** viene chiamato durante la registrazione. In questo modo è possibile aggiungere alla registrazione un tag corrispondente all'ID dell'utente connesso. I tag specificati vengono convalidati per impedire che un utente si registri con l'ID di un altro utente. Le notifiche inviate saranno ricevute dall'utente su questo e su qualsiasi altro dispositivo registrato dall'utente stesso.
+	Il metodo **Register** viene chiamato durante la registrazione. In questo modo è possibile aggiungere alla registrazione un tag corrispondente all'ID dell'utente connesso. I tag specificati vengono convalidati per impedire che un utente si registri con l'ID di un altro utente. Le notifiche inviate saranno ricevute dall'utente su questo e su qualsiasi altro dispositivo registrato dall'utente stesso. 
 
-7.  Espandere la cartella Controllers, aprire il file di progetto TodoItemController.cs, individuare il metodo **PostTodoItem** e sostituire la riga di codice che chiama **SendAsync** con il codice seguente:
+6. Espandere la cartella Controllers, aprire il file di progetto TodoItemController.cs, individuare il metodo **PostTodoItem** e sostituire la riga di codice che chiama **SendAsync** con il codice seguente:
 
         // Get the logged-in user.
-        var currentUser = this.User as ServiceUser;
-
-        // Use a tag to only send the notification to the logged-in user.
+		var currentUser = this.User as ServiceUser;
+		
+		// Use a tag to only send the notification to the logged-in user.
         var result = await Services.Push.SendAsync(message, currentUser.Id);
 
-8.  Ripubblicare il progetto di servizio mobile.
+7. Ripubblicare il progetto di servizio mobile.
 
 A questo punto il servizio usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni di app di Windows Store create dall'utente connesso.
 

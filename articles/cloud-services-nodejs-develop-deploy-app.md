@@ -36,7 +36,7 @@ Per creare un nuovo progetto di Servizio cloud di Azure oltre allo scaffolding d
 
 2.  Creare una nuova directory **node** nell'unità C e passare ala directory c:\\node:
 
-    ![Prompt dei comandi che visualizza i comandi 'mkdir c:\\node' e 'cd node'.][Prompt dei comandi che visualizza i comandi 'mkdir c:\\node' e 'cd node'.]
+    ![Prompt dei comandi che visualizza i comandi 'mkdir c:\\node' e 'cd node'.][mkdir]
 
 3.  Immettere il cmdlet seguente per creare una nuova soluzione:
 
@@ -194,13 +194,13 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
     ![Stato del comando Remove-AzureService][Stato del comando Remove-AzureService]
 
     <div class="dev-callout">
-<strong>Nota</strong>
-<p>L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio &egrave; stato pubblicato e lo spazio di archiviazione utilizzato continuer&agrave; a essere addebitato. Per altre informazioni
-sull'eliminazione di un account di archiviazione, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh531562.aspx">Come eliminare un account di archiviazione da una sottoscrizione Azure</a>.</p>
-</div>
+    <strong>Nota</strong>
+    <p>L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio &egrave; stato pubblicato e lo spazio di archiviazione utilizzato continuer&agrave; a essere addebitato. Per altre informazioni
+    sull'eliminazione di un account di archiviazione, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh531562.aspx">Come eliminare un account di archiviazione da una sottoscrizione Azure</a>.</p>
+    </div>
 
   [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure]: http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/
-  [Finestra del browser in cui è visualizzata la pagina hello world. L'URL indica che la pagina è ospitata su Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
+  [Finestra del browser in cui è visualizzata la pagina hello world. L'URL indica che la pagina è ospitata su Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Icona di Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [Risultato del comando New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/jj155995.aspx
@@ -212,3 +212,4 @@ sull'eliminazione di un account di archiviazione, vedere <a href="http://msdn.mi
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stato del comando Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Stato del comando Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+  [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

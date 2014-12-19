@@ -1,31 +1,39 @@
-<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Step 6: Access the Machine Learning web service | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Passaggio 6: Accedere al servizio Web di Machine Learning | Azure" description="Step 6: Access an active Azure Machine Learning API web service" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
-
-Questo è l'ultimo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning][Sviluppare una soluzione predittiva con Azure Machine Learning]:
-
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 
-1.	[Creare un'area di lavoro ML][Creare un'area di lavoro ML]
-2.	[Caricare i dati esistenti][Caricare i dati esistenti]
-3.	[Creare un nuovo esperimento][Creare un nuovo esperimento]
-4.	[Addestrare e valutare i modelli][Addestrare e valutare i modelli]
-5.	[Pubblicare il servizio Web][Pubblicare il servizio Web]
-6.  **Accedere al servizio Web**
+Questo è l'ultimo passaggio della procedura dettagliata, [Sviluppare una soluzione predittiva con Azure Machine Learning][sviluppare]:
+
+[sviluppare]: ../machine-learning-walkthrough-develop-predictive-solution/
+
+
+1.	[Creare un'area di lavoro ML][create-workspace]
+2.	[Caricare i dati esistenti][upload-data]
+3.	[Creare un nuovo esperimento][create-new]
+4.	[Eseguire il training e valutare i modelli][train-models]
+5.	[Pubblicare il servizio Web][pubblicare]
+6.	**Accedere al servizio Web**
+
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
 ----------
 
 # Passaggio 6: Accedere al servizio Web di Azure Machine Learning
 
-Per l'uso come servizio Web, gli utenti devono essere in grado di inviare dati al servizio e ricevere risultati. Il servizio Web è un servizio Web di Azure che può ricevere e restituire dati in due modi:
+Per l'uso come servizio Web, gli utenti devono essere in grado di inviare dati al servizio e ricevere risultati. Il servizio Web è un servizio Web di Azure che può ricevere e restituire dati in due modi:  
 
--	**Richiesta/risposta** - L'utente invia un singolo set di dati di credito al servizio usando un protocollo HTTP e il servizio risponde con un singolo set di risultati.
--	**Esecuzione batch** - L'utente invia al servizio l'URL di un BLOB di Azure che contiene una o più righe di dati di credito. Il servizio archivia i risultati in un altro BLOB e restituisce l'URL di tale contenitore.
+-	**Richiesta/risposta**: l'utente invia un singolo set di dati di credito al servizio usando un protocollo HTTP e il servizio risponde con un singolo set di risultati.
+-	**Esecuzione batch**: l'utente invia al servizio l'URL di un BLOB di Azure che contiene una o più righe di dati di credito. Il servizio archivia i risultati in un altro BLOB e restituisce l'URL di tale contenitore.  
 
-Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a informazioni utili agli sviluppatori per scrivere codice per l'accesso al servizio. Fare clic sul collegamento alla **pagina della guida dell'API** nella riga **RICHIESTA/RISPOSTA** e verrà visualizzata una pagina contenente codice di esempio per l'uso del protocollo di richiesta/risposta del servizio. Analogamente, il collegamento nella riga **ESECUZIONE BATCH** offre accesso a codice di esempio per l'esecuzione di una richiesta batch al servizi.
+Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a informazioni utili agli sviluppatori per scrivere codice per l'accesso al servizio. Fare clic sul collegamento alla **pagina della guida dell'API** nella riga **RICHIESTA/RISPOSTA**. Verrà visualizzata una pagina contenente codice di esempio per l'uso del protocollo di richiesta/risposta del servizio. Analogamente, il collegamento nella riga **ESECUZIONE BATCH** fornisce l'accesso a codice di esempio per l'esecuzione di una richiesta batch al servizi.  
 
-La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C#e Python. Ad esempio, ecco il codice R che è possibile usare per accedere al servizio Web pubblicato (nel codice di esempio dell'utente verrà visualizzato il reale URL del servizio):
+La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C# e Python. Ad esempio, ecco il codice R che è possibile usare per accedere al servizio Web pubblicato (nel codice di esempio dell'utente verrà visualizzato il reale URL del servizio):  
 
 	library("RCurl")
 	library("RJSONIO")
@@ -71,10 +79,3 @@ La pagina della guida dell'API contiene esempi per i linguaggi di programmazione
 	result = h$value()
 
 
-
-  [Sviluppare una soluzione predittiva con Azure Machine Learning]: ../machine-learning-walkthrough-develop-predictive-solution/
-  [Creare un'area di lavoro ML]: ../machine-learning-walkthrough-1-create-ml-workspace/
-  [Caricare i dati esistenti]: ../machine-learning-walkthrough-2-upload-data/
-  [Creare un nuovo esperimento]: ../machine-learning-walkthrough-3-create-new-experiment/
-  [Addestrare e valutare i modelli]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-  [Pubblicare il servizio Web]: ../machine-learning-walkthrough-5-publish-web-service/
