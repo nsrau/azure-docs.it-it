@@ -6,7 +6,6 @@ L'ultimo passaggio facoltativo di questa esercitazione consiste nel controllare 
 
 2.  Nel portale di gestione eseguire una query per visualizzare le modifiche apportate dall'app di Windows Store. La query da utilizzare sarà simile alla seguente, ma anziché `todolist` conterrà il nome del database.
 
-    </p>
         SELECT * FROM [todolist].[todoitems]
 
     ![query al database SQL per ricerca elementi memorizzati][query al database SQL per ricerca elementi memorizzati]

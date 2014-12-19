@@ -1,3 +1,4 @@
+
 1.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto del servizio e selezionare **Avvia nuova istanza** dal menu di scelta rapida **Debug**.
 
     ![avvio del progetto di servizio mobile a livello locale][avvio del progetto di servizio mobile a livello locale]
@@ -14,7 +15,7 @@
 
     Viene visualizzata la pagina di documentazione sull'API, che può essere utilizzata per effettuare il test del servizio mobile.
 
-    > [WACOM.NOTE]Durante l'esecuzione a livello locale, l'autenticazione non è necessaria per accedere a questa pagina. Durante l'esecuzione in Azure, per accedere a questa pagina è necessario immettere la chiave di applicazione come password (senza nome utente).
+    >[WACOM.NOTE]Durante l'esecuzione a livello locale, l'autenticazione non è necessaria per accedere a questa pagina. Durante l'esecuzione in Azure, per accedere a questa pagina è necessario immettere la chiave di applicazione come password (senza nome utente).
 
 4.  Fare clic sul collegamento **GET tables/TodoItem**.
 

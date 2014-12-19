@@ -1,4 +1,6 @@
-Dopo avere testato l'app rispetto al servizio mobile locale, la fase finale dell'esercitazione consiste nel pubblicare il servizio mobile in Azure e nell'eseguire l'app rispetto al servizio attivo.
+
+
+opo avere testato l'app rispetto al servizio mobile locale, la fase finale dell'esercitazione consiste nel pubblicare il servizio mobile in Azure e nell'eseguire l'app rispetto al servizio attivo.
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto relativo al servizio mobile, quindi scegliere **Pubblica**. Nella finestra di dialogo **Pubblica sito Web** fare clic su **Servizi mobili di Azure**.
 

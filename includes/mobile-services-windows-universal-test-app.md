@@ -1,3 +1,4 @@
+
 1.  Premere F5 per ricompilare il progetto e avviare l'app di Windows Store.
 
 2.  Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.

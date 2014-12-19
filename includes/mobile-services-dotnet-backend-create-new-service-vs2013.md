@@ -1,3 +1,5 @@
+
+
 La procedura seguente consente di creare un nuovo servizio mobile in Azure e di aggiungere codice al progetto per connettere la propria app a questo nuovo servizio. Visual Studio 2013 si connette ad Azure per conto dell'utente al fine di creare il nuovo servizio mobile utilizzando le credenziali fornite dall'utente. Quando si crea un nuovo servizio mobile, è necessario specificare un database SQL di Azure utilizzato per archiviare i dati dell'app.
 
 1.  In Visual Studio 2013 aprire Esplora soluzioni, fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, quindi selezionare **Aggiungi** e **Servizio connesso...**.

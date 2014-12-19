@@ -1,3 +1,4 @@
+
 1.  Nel file MainPage.xaml.cs aggiungere o rimuovere i simboli di commento dalle istruzioni using seguenti:
 
         using Microsoft.WindowsAzure.MobileServices;
@@ -30,6 +31,7 @@
 4.  Nel metodo **InsertTodoItem** rimuovere la riga di codice per l'impostazione della proprietà **TodoItem.Id**, aggiungere il modificatore **async** al metodo e rimuovere i simboli di commento dalla riga di codice seguente:
 
         await todoTable.InsertAsync(todoItem);
+
 
     Questo codice consente di inserire un nuovo elemento nella tabella.
 
