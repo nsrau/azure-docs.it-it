@@ -1,96 +1,80 @@
-<properties title="Learn how to configure an Azure website to use a domain name registered with Network Solutions" pageTitle="Configure a Network Solutions domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Network Solutions" pageTitle="Configurare un nome di dominio Network Solutions per un sito Web di Azure" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
-# Configurazione di un nome di dominio personalizzato per un sito Web di Azure (Network Solutions)
+#Configurazione di un nome di dominio personalizzato per un sito Web di Azure (Network Solutions)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Dominio personalizzato</a><a href="/it-it/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/it-it/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/it-it/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/it-it/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/it-it/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/it-it/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/it-it/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/it-it/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-
-<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Websites" class="current">Sito Web</a> | <a href="/it-it/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Sito Web mediante Gestione traffico</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Websites" class="current">Sito Web</a> | <a href="/it-it/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Sito Web che usa Gestione traffico</a></div>
 
 [WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato da [Network Solutions][1] con Siti Web di Azure.
+Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio personalizzato acquistato da [Network Solutions](https://www.networksolutions.com) con Siti Web di Azure.
 
 [WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Contenuto dell'articolo:
 
--   [Informazioni sui record DNS][Informazioni sui record DNS]
--   [Configurazione dei siti Web per la modalità di base, condivisa o standard][Configurazione dei siti Web per la modalità di base, condivisa o standard]
--   [Aggiunta di un record DNS per il dominio personalizzato][Aggiunta di un record DNS per il dominio personalizzato]
--   [Abilitazione del dominio nel sito Web][Abilitazione del dominio nel sito Web]
+-   [Informazioni sui record DNS](#understanding-records)
+-   [Configurare siti Web per la modalità di base, condivisa o standard](#bkmk_configsharedmode)
+-   [Aggiungere un record DNS per il dominio personalizzato](#bkmk_configurecname)
+-   [Abilitare il dominio nel sito Web](#enabledomain)
 
-## <a name="understanding-records"></a>Informazioni sui record DNS
+<h2><a name="understanding-records"></a>Informazioni sui record DNS</h2>
 
 [WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
-## <a name="bkmk_configsharedmode"></a>Configurare siti Web per la modalità di base, condivisa o standard
+<h2><a name="bkmk_configsharedmode"></a>Configurare siti Web per la modalità di base, condivisa o standard</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-<a name="bkmk_configurecname"></a>
+<a name="bkmk_configurecname"></a><h2>Aggiungere un record DNS per il dominio personalizzato</h2>
 
-## Aggiunta di un record DNS per il dominio personalizzato
-
-</p>
 Per associare il dominio personalizzato a un sito Web di Azure, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti da Network Solutions. Per individuare e usare gli strumenti DNS per networksolutions.com, attenersi alla procedura seguente.
 
-1.  Accedere al proprio account presso networksolutions.com, quindi selezionare **My Account** nell'angolo superiore destro.
+1. Accedere al proprio account presso networksolutions.com, quindi selezionare **My Account** nell'angolo superiore destro.
 
-2.  Dalla scheda **My Products and Services**, selezionare **Edit DNS**.
+3. Dalla scheda **My Products and Services**, selezionare **Edit DNS**.
 
-    ![Modifica della pagina DNS][Modifica della pagina DNS]
+	![edit dns page](./media/web-sites-custom-domain-name/ns-editdns.png)
 
-3.  Nella sezione **Manage <yourdomainname>** della pagina **Domain Names** selezionare **Edit Advanced DNS Records**.
+2. Nella sezione **Manage <nomedominio>** della pagina **Domain Names** selezionare **Edit Advanced DNS Records**.
 
-    ![Pagina Domain Names con l'opzione Edit Advanced DNS Records evidenziata][Pagina Domain Names con l'opzione Edit Advanced DNS Records evidenziata]
+	![domain names page with edit advanced dns records highlighted](./media/web-sites-custom-domain-name/ns-editadvanced.png)
 
-4.  La pagina **Update Advanced DNS** contiene una sezione per ogni tipo di record, con un pulsante **Edit** sotto ogni sezione.
+4. La pagina **Update Advanced DNS** contiene una sezione per ogni tipo di record, con un pulsante **Edit** sotto ogni sezione.
+	
+	* Per record A, usare la sezione I**IP Address (A Records)**.
+	* Per record CNAME, usare la sezione **Host Alias (CNAME Records)**.
 
-    -   Per record A, usare la sezione **IP Address (A Records)**.
-    -   Per record CNAME, usare la sezione **Host Alias (CNAME Records)**.
+	![update advanced dns page](./media/web-sites-custom-domain-name/ns-updateadvanced.png)
 
-    ![Pagina Update Advanced DNS][Pagina Update Advanced DNS]
+5. Quando si fa clic sul pulsante **Edit**, verrà visualizzato un modulo da usare per modificare i record esistenti o per aggiungerne di nuovi. 
 
-5.  Quando si fa clic sul pulsante **Edit**, verrà visualizzato un modulo da usare per modificare i record esistenti o per aggiungerne di nuovi.
+	> [WACOM.NOTE] Prima di aggiungere nuove voci, notare che Network Solutions ha già creato alcuni record DNS predefiniti per elementi come il dominio radice ('@') e un record jolly ('*') per i sottodomini. Se il record che si desidera usare è già presente, modificarlo anziché crearne uno nuovo.
 
-    > [WACOM.NOTE] Prima di aggiungere nuove voci, notare che Network Solutions ha già creato alcuni record DNS predefiniti per elementi come il dominio radice (<'@'>) e un record jolly ('\*') per i sottodomini. Se il record che si desidera usare è già presente, modificarlo anziché crearne uno nuovo.
+	* Quando si aggiunge un record CNAME, è necessario impostare il campo **Hostname** sul sottodominio che si vuole usare, ad esempio **www**. È necessario selezionare il pulsante di opzione accanto al campo **Other host**, quindi impostare il campo **Other host** sul nome di dominio del proprio sito Web seguito da **.azurewebsites.net**, ad esempio **contoso.azurwebsites.net**. Lasciare **Refers to Host Name** impostato su **Select**, poiché questo campo non è richiesto per la creazione di un record CNAME da usare con Siti Web di Azure.
+	
+		![cname form](./media/web-sites-custom-domain-name/ns-cname.png)
 
-    -   Quando si aggiunge un record CNAME, è necessario impostare il campo **Alias** sul sottodominio che si desidera usare, ad esempio **www**. È necessario selezionare il pulsante di opzione accanto al campo **Other host**, quindi impostare il campo **Other host** sul nome di dominio del proprio sito Web seguito da **.azurewebsites.net**, ad esempio **contoso.azurwebsites.net**. Lasciare **Refers to Host Name** impostato su **Select**, poiché questo campo non è richiesto per la creazione di un record CNAME da usare con Siti Web di Azure.
+		> [WACOM.NOTE] Se si usa un record A, è inoltre necessario aggiungere un record CNAME con una delle seguenti configurazioni:
+		> 
+		> * Valore **Alias** impostato su **www** con valore **Other host** impostato su **&lt;nomesitoWeb&gt;.azurewebsites.net**.
+		> 
+		OPPURE
+		> 
+		> * Valore **Alias** impostato su **awverify.www** con valore **Other host** impostato su **awverify.&lt;nomesitoWeb&gt;.azurewebsites.net**.
+		> 
+		Questo nome di record CNAME viene usato da Azure per convalidare la proprietà del dominio descritto dal record A.
 
-        ![Modulo CNAME][Modulo CNAME]
+	* Quando si aggiunge un record A, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Numeric IP** sull'indirizzo IP del sito Web di Azure.
 
-        > [WACOM.NOTE] Se si usa un record A, è inoltre necessario aggiungere un record CNAME con una delle seguenti configurazioni:
-        >
-        > -   Campo **Alias** impostato su **www** con campo **Other host** impostato su **\<nomesitoWeb\>.azurewebsites.net**.
-        >
-        > OPPURE
-        >
-        > -   Campo **Alias** impostato su **awverify.ww** con campo **Other host** impostato su **awverify.\<nomesitoWeb\>.azurewebsites.net**.
-        >
-        > Questo nome di record CNAME viene usato da Azure per convalidare la proprietà del dominio descritto dal record A.
+		![a record form](./media/web-sites-custom-domain-name/ns-arecord.png)
 
-    -   Quando si aggiunge un record A, è necessario impostare il campo **Host** su <**@*>\* (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su \* (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Numeric IP** sull'indirizzo IP del sito Web di Azure.
+5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Continue** per rivedere le modifiche. Selezionare **Save changes only** per salvare le modifiche.
 
-        ![Modulo record A][Modulo record A]
+<h2><a name="enabledomain"></a>Abilitare il nome del dominio nel sito Web</h2>
 
-6.  Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Continue** per rivedere le modifiche. Selezionare **Save changes only** per salvare le modifiche.
-
-## <a name="enabledomain"></a>Abilitare il nome del dominio nel sito Web
-
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
-
-  [Network Solutions]: /it-it/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [1]: https://www.networksolutions.com
-  [Informazioni sui record DNS]: #understanding-records
-  [Configurazione dei siti Web per la modalità di base, condivisa o standard]: #bkmk_configsharedmode
-  [Aggiunta di un record DNS per il dominio personalizzato]: #bkmk_configurecname
-  [Abilitazione del dominio nel sito Web]: #enabledomain
-  [Modifica della pagina DNS]: ./media/web-sites-custom-domain-name/ns-editdns.png
-  [Pagina Domain Names con l'opzione Edit Advanced DNS Records evidenziata]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
-  [Pagina Update Advanced DNS]: ./media/web-sites-custom-domain-name/ns-updateadvanced.png
-  [Modulo CNAME]: ./media/web-sites-custom-domain-name/ns-cname.png
-  [Modulo record A]: ./media/web-sites-custom-domain-name/ns-arecord.png
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]

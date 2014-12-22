@@ -1,40 +1,41 @@
-<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Creare un sito Web che usa MongoDB in MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="eric@mongolab.com" />
 
-# Creazione di un'applicazione C# ASP.NET in Azure con MongoDB mediante il componente aggiuntivo MongoLab
 
-*Autore: Eric Sedor, MongoLab*
+
+# Creare un'applicazione C# ASP.NET in Azure con MongoDB mediante il componente aggiuntivo MongoLab
+
+<p><em>Autore: Eric Sedor, MongoLab</em></p>
 
 Salve, benvenuti nel database MongoDB distribuito come servizio. In questa esercitazione si apprenderà come:
 
-1.  [Eseguire il provisioning del database][Eseguire il provisioning del database] - Il componente aggiuntivo [MongoLab][MongoLab] di Azure Store fornisce un database MongoDB ospitato nel cloud di Azure e gestito dalla piattaforma database cloud di MongoLab.
-2.  [Creare l'app][Creare l'app] - Sarà una semplice applicazione C# ASP.NET MVC per prendere note.
-3.  [Distribuire l'app][Distribuire l'app] - Collegando alcuni hook di configurazione, il push del codice diventerà davvero semplice.
-4.  [Gestire il database][Gestire il database] - Verrà infine illustrato il portale di gestione del database basato sul Web di MongoLab, in cui è possibile cercare, visualizzare e modificare i dati con facilità.
+1. [Eseguire il provisioning del database][provision] - Il componente aggiuntivo [MongoLab](http://mongolab.com) di Azure Store fornisce un database MongoDB ospitato nel cloud di Azure e gestito dalla piattaforma database cloud di MongoLab.
+1. [Creare l'app][create] Sarà una semplice applicazione C# ASP.NET MVC per prendere note.
+1. [Distribuire l'app][deploy] - Collegando alcuni hook di configurazione, il push del codice diventerà davvero semplice.
+1. [Gestire il database][manage] - Verrà infine illustrato il portale di gestione del database basato sul Web di MongoLab, in cui è possibile cercare, visualizzare e modificare i dati con facilità.
 
-In qualsiasi momento, nel corso di questa esercitazione, sarà possibile inviare un messaggio di posta elettronica a [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] per eventuali domande.
+In qualsiasi momento nel corso di questa esercitazione, sarà possibile inviare un messaggio di posta elettronica con eventuali domande a [support@mongolab.com](mailto:support@mongolab.com).
 
 ## Avvio rapido
-
-Se si dispone già di un'applicazione Azure e di un sito Web che si desidera usare o si conosce già Azure Store, fare riferimento a questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Provisioning del database][Eseguire il provisioning del database] più avanti.
-
-1.  Aprire Azure Store.
-    ![Store][Store]
-2.  Acquistare il componente aggiuntivo MongoLab.
-    ![MongoLab][1]
-3.  Fare clic su MongoLab nell'elenco dei componenti aggiuntivi e fare clic sul pulsante **Connection Info**.
-    ![Pulsante per le informazioni di connessione][Pulsante per le informazioni di connessione]
-4.  Copiare MONGOLAB\_URI negli Appunti.
-    ![Schermata delle informazioni di connessione][Schermata delle informazioni di connessione]
-    **Questo URI contiene il nome utente e la password per il database. Trattare queste informazioni come dati sensibili e non condividerle.**
-5.  Aggiungere il valore all'elenco Connection Strings nel menu Configuration dell'applicazione Web di Azure.
-    ![Stringhe di connessione del sito Web][Stringhe di connessione del sito Web]
-6.  In **Name** digitare MONGOLAB\_URI.
-7.  In **Value** incollare la stringa di connessione ottenuta nella sezione precedente.
-8.  Selezionare **Custom** nell'elenco a discesa Type (anziché la voce predefinita **SQLAzure**).
-9.  In Visual Studio installare il driver Mongo C# selezionando **Strumenti \> Gestione pacchetti libreria \> Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**.
-10. Configurare un hook nel codice per ottenere l'URI di connessione MongoLab da una variabile di ambiente:
+Se si dispone già di un'applicazione Azure e di un sito Web che si desidera usare o si conosce già Azure Store, fare riferimento a questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Eseguire il provisioning del database][provision] più avanti.
+ 
+1. Aprire Azure Store.  
+![Store][button-store]
+1. Acquistare il componente aggiuntivo MongoLab.  
+![MongoLab][entry-mongolab]
+1. Fare clic sul componente aggiuntivo MongoLab nell'elenco Componenti aggiuntivi e fare clic su **Informazioni di connessione**.  
+![ConnectionInfoButton][button-connectioninfo]  
+1. Copiare MONGOLAB_URI negli Appunti.  
+![ConnectionInfoScreen][screen-connectioninfo]  
+**Questo URI contiene il nome utente e la password per il database.  Trattare queste informazioni come dati sensibili e non condividerle.**
+1. Aggiungere il valore all'elenco Stringhe di connessione nel menu Configurazione dell'applicazione Web di Azure:  
+![WebSiteConnectionStrings][focus-website-connectinfo]
+1. In **Nome** immettere MONGOLAB\_URI.
+1. In **Valore** incollare la stringa di connessione ottenuta nella sezione precedente.
+1. Selezionare **Personalizzato** nell'elenco a discesa Tipo (anziché la voce predefinita **SQLAzure**).
+1. In Visual Studio installare il driver Mongo C# selezionando **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**.
+1. Configurare un hook nel codice per ottenere l'URI di connessione MongoLab da una variabile di ambiente:
 
         using MongoDB.Driver;  
         ...
@@ -42,49 +43,45 @@ Se si dispone già di un'applicazione Azure e di un sito Web che si desidera usa
         ...
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
-
-    Nota: Azure aggiunge il prefisso **CUSTOMCONNSTR\_** alla stringa di connessione dichiarata in origine. Per questo motivo il codice fa riferimento a **CUSTOMCONNSTR\_MONGOLAB\_URI.** anziché a **MONGOLAB\_URI**.
+Nota: Azure aggiunge il prefisso **CUSTOMCONNSTR\_** alla stringa di connessione dichiarata in origine. Per questo motivo il codice fa riferimento **CUSTOMCONNSTR\_MONGOLAB\_URI** anziché a **MONGOLAB\_URI**.
 
 Si passerà ora all'esercitazione completa.
 
-## <a name="provision"></a>Provisioning del database
+<h2><a name="provision"></a>Provisioning del database</h2>
 
 [WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
-## <a name="create"></a>Creazione dell'app
+<h2><a name="create"></a>Creazione dell'app</h2>
 
 In questa sezione verrà trattata la creazione di un progetto C# ASP.NET di Visual Studio e illustrato l'utilizzo del driver C# MongoDB per creare una semplice app per prendere appunti. L'obiettivo è poter visitare il sito Web, scrivere una nota e visualizzare tutte le note lasciate in precedenza.
 
 L'attività di sviluppo verrà eseguita in Visual Studio Express 2012 per il Web.
 
 ### Creare il progetto
+Per iniziare, verrà usato un modello di Visual Studio per questa app di esempio. Assicurarsi di usare .NET Framework 4.0.
 
-Per iniziare, verrà utilizzato un modello di Visual Studio per questa app di esempio. Assicurarsi di utilizzare .NET Framework 4.0.
+1. Selezionare **File > nuovo progetto**. Viene visualizzata la finestra di dialogo Nuovo progetto:    
+![NewProject][dialog-mongolab-csharp-newproject]
+1. Selezionare **Installati > Modelli > Visual C# > Web**.
+1. Selezionare **.NET Framework 4** dal menu a discesa Versione .NET (*nota: al momento Framework 4.5 non è usabile*).
 
-1.  Selezionare **File \> nuovo progetto**. Viene visualizzata la finestra di dialogo Nuovo progetto.
-    ![Nuovo progetto][Nuovo progetto]
-2.  Selezionare **Installati \> Modelli \> Visual C# \> Web**.
-3.  Selezionare .**.NET Framework 4** dal menu a discesa Versione .NET (*note: Al momento Framework 4.5 non è utilizzabile*).
-
-    ![ProjectFramework][ProjectFramework]
-
-4.  Scegliere **Applicazione Web ASP.NET MVC 4**.
-5.  Digitare *mongoNotes* come **Nome progetto**. Se si sceglie un nome diverso, sarà necessario modificare il codice fornito in tutto il presente tutorial.
-6.  Fare clic su **OK**. Viene visualizzata la finestra di dialogo Modello di progetto.
-    ![Modello di progetto][Modello di progetto]
-7.  Selezionare **Applicazione Internet** e fare clic su **OK**. Il progetto viene compilato.
-8.  Scegliere **Strumenti \> Gestione pacchetti libreria \> Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**.
-    ![Console di gestione dei pacchetti][Console di gestione dei pacchetti]
-    Il driver MongoDB C# è integrato nel progetto e la riga seguente viene aggiunta automaticamente al file *packages.config*:
+    ![ProjectFramework][dotNet-framework-four]
+1. Scegliere **Applicazione Web ASP.NET MVC 4**.  
+1. Digitare _mongoNotes_ come **Nome progetto**. Se si sceglie un nome diverso, sarà necessario modificare il codice fornito in tutto il presente tutorial.
+1. Fare clic su **OK**. Viene visualizzata la finestra di dialogo del modello di progetto:  
+![ProjectTemplate][dialog-mongolab-csharp-projecttemplate]
+1. Selezionare **Applicazione Internet** e fare clic su **OK**. Il progetto viene compilato.
+1. Scegliere **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti**. Nella console di gestione dei pacchetti, digitare **Install-Package mongocsharpdriver** e premere **INVIO**.  
+![PMConsole][focus-mongolab-csharp-pmconsole] 
+Il driver MongoDB C# è integrato con il progetto e la riga seguente viene aggiunta automaticamente al file _packages.config_:
 
         < package id="mongocsharpdriver" version="1.8" targetFramework="net40" / >
 
 ### Aggiungere un modello di nota
-
 In primo luogo, stabilire un modello per le note, semplicemente con una data e un contenuto di testo.
 
-1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli** e scegliere **Aggiungi \> Classe**. Denominare la nuova classe *Note.cs*.
-2.  Sostituire il codice generato automaticamente per questa classe con il seguente:
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli** e scegliere **Aggiungi > Classe**. Assegnare alla nuova classe il nome *Note.cs*.
+1. Sostituire il codice generato automaticamente per questa classe con il seguente:  
 
         using System;
         using System.Collections.Generic;
@@ -93,7 +90,7 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
         using MongoDB.Bson.Serialization.Attributes;
         using MongoDB.Bson.Serialization.IdGenerators;
         using MongoDB.Bson;
-
+                
         namespace mongoNotes.Models
         {
             public class Note
@@ -102,15 +99,15 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                 {
                     Date = DateTime.UtcNow;
                 }
-
+                
                 private DateTime date;
-
+        
                 [BsonId(IdGenerator = typeof(CombGuidGenerator))]
                 public Guid Id { get; set; }
-
+        
                 [BsonElement("Note")]
                 public string Text { get; set; }
-
+        
                 [BsonElement("Date")]
                 public DateTime Date {
                     get { return date.ToLocalTime(); }
@@ -120,12 +117,11 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
         }
 
 ### Aggiungere un livello di accesso ai dati
-
 È importante stabilire un mezzo di accesso a MongoDB per recuperare e salvare le note. Il livello di accesso ai dati farà uso del modello di nota e verrà integrato in HomeController più avanti.
 
-1.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **mongoNotes** e selezionare **Aggiungi \> Nuova cartella**. Denominare la cartella **DAL**.
-2.  Fare clic con il pulsante destro del mouse su **DAL** in Esplora soluzioni e selezionare **Aggiungi \> Classe**. Denominare la nuova classe *Dal.cs*.
-3.  Sostituire il codice generato automaticamente per questa classe con il seguente:
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **mongoNotes** e selezionare **Aggiungi > Nuova cartella**. Assegnare alla cartella il nome **DAL**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **DAL** e scegliere **Aggiungi > Classe**. Assegnare a questa nuova classe il nome *Dal.cs*.
+1. Sostituire il codice generato automaticamente per questa classe con il seguente:  
 
         using System;
         using System.Collections.Generic;
@@ -141,18 +137,18 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
             {
                 private MongoServer mongoServer = null;
                 private bool disposed = false;
-
+        
                 private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
                 MongoUrl url = new MongoUrl(connectionString);
-
+        
                 private string dbName = "myMongoApp";
                 private string collectionName = "Notes";
-
+        
                 // Default constructor.        
                 public Dal()
                 {
                 }
-
+           
                 public List<Note> GetAllNotes()
                 {
                     try
@@ -165,7 +161,7 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                         return new List<Note>();
                     }
                 }
-
+        
                 // Creates a Note and inserts it into the collection in MongoDB.
                 public void CreateNote(Note note)
                 {
@@ -179,7 +175,7 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                         string msg = ex.Message;
                     }
                 }
-
+        
                 private MongoCollection<Note> GetNotesCollection()
                 {
                     MongoClient client = new MongoClient(url);
@@ -188,7 +184,7 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                     MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
                     return noteCollection;
                 }
-
+        
                 private MongoCollection<Note> getNotesCollectionForEdit()
                 {
                     MongoClient client = new MongoClient(url);
@@ -197,15 +193,15 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                     MongoCollection<Note> notesCollection = database.GetCollection<Note>(collectionName);
                     return notesCollection;
                 }
-
+        
                 # region IDisposable
-
+        
                 public void Dispose()
                 {
                     this.Dispose(true);
                     GC.SuppressFinalize(this);
                 }
-
+        
                 protected virtual void Dispose(bool disposing)
                 {
                     if (!this.disposed)
@@ -218,49 +214,44 @@ In primo luogo, stabilire un modello per le note, semplicemente con una data e u
                             }
                         }
                     }
-
+        
                     this.disposed = true;
                 }
-
+        
                 # endregion
             }
         }
-
-4.  Notare il frammento seguente nel codice qui sopra:
-
+1. Notare il frammento seguente nel codice qui sopra:  
+            
         private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
         private string dbName = "myMongoApp";  
-
-    Qui si accedere a una variabile di ambiente che è possibile configurare in seguito. Se un'istanza locale di mongo è in esecuzione a scopo di sviluppo, potrebbe essere necessario impostare temporaneamente questo valore su "localhost".
-
-Impostare anche il nome del database. In particolare, impostare il valore **dbName** sul nome immesso quando si è eseguito il provisioning del componente aggiuntivo MongoLab.
-
-1.  Esaminare infine il codice seguente in **GetNotesCollection()**:
+Qui si accedere a una variabile di ambiente che è possibile configurare in seguito. Se un'istanza locale di mongo è in esecuzione a scopo di sviluppo, potrebbe essere necessario impostare temporaneamente questo valore su "localhost".  
+  
+  Impostare anche il nome del database. In particolare, impostare il valore **dbName** sul nome immesso quando si è eseguito il provisioning del componente aggiuntivo MongoLab.
+1. Esaminare infine il codice seguente in **GetNotesCollection():**  
 
         MongoClient client = new MongoClient(url);
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-
-    Non vi sono modifiche da apportare qui. È sufficiente sapere che questo è il metodo tramite cui si ottiene un oggetto MongoCollection per l'esecuzione di inserimenti, aggiornamenti e query, come illustrato di seguito per **GetAllNotes()**:
+  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
 
         collection.FindAll().ToList<Note>();
 
-Per ulteriori informazioni sull'utilizzo del driver C# MongoDB, vedere la [guida introduttiva al driver CSharp][guida introduttiva al driver CSharp] sul sito mongodb.org.
+Per altre informazioni sull'utilizzo del driver C# MongoDB, vedere la [guida introduttiva al driver CSharp](http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "CSharp Driver Quickstart") sul sito mongodb.org.
 
 ### Aggiungere una visualizzazione di creazione
-
 A questo punto è necessario aggiungere una visualizzazione per la creazione di una nuova nota.
 
-1.  Fare clic con il pulsante destro del mouse sulla voce **Visualizzazioni \> Home** in Esplora soluzioni, quindi selezionare **Aggiungi \> Visualizzazione**. Denominare la nuova visualizzazione **Create** e fare clic su **Aggiungi**.
-2.  Sostituire il codice generato automaticamente per questa visualizzazione (**Create.cshtml**) con il seguente:
+1. Fare clic con il pulsante destro del mouse sulla voce **Visualizzazioni > Home** in Esplora soluzioni, quindi selezionare **Aggiungi > Visualizzazione**. Assegnare alla nuova visualizzazione il nome **Create** e fare clic su **Aggiungi**.
+1. Sostituire il codice generato automaticamente per questa visualizzazione (**Create.cshtml**) con il seguente:  
 
         @model mongoNotes.Models.Note
-
+        
         <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
+        
         @using (Html.BeginForm("Create", "Home")) {
             @Html.ValidationSummary(true)
             <fieldset>
@@ -279,17 +270,16 @@ A questo punto è necessario aggiungere una visualizzazione per la creazione di 
         }
 
 ### Modificare index.cshtml
-
 A questo punto, aggiungere un semplice layout per la visualizzazione e la creazione delle note nel sito Web.
 
-1.  In **Visualizzazioni \> Home** aprire **Index.cshtml** e sostituirne il contenuto con quello seguente:
+1. In **Visualizzazioni > Home** aprire **Index.cshtml** e sostituirne il contenuto con quello seguente:  
 
         @model IEnumerable<mongoNotes.Models.Note>
-
+        
         @{
             ViewBag.Title = "Notes";
         }
-
+        
         <h2>My Notes</h2>
 
         <table border="1">
@@ -297,7 +287,7 @@ A questo punto, aggiungere un semplice layout per la visualizzazione e la creazi
                 <th>Date</th>
                 <th>Note Text</th>      
             </tr>
-
+        
         @foreach (var item in Model) {
             <tr>
                 <td>
@@ -308,15 +298,14 @@ A questo punto, aggiungere un semplice layout per la visualizzazione e la creazi
                 </td>       
             </tr>
         }
-
+        
         </table>
         <div>  @Html.Partial("Create", new mongoNotes.Models.Note())</div>
 
 ### Modificare HomeController.cs
-
 Infine, HomeController deve essere messo in grado di creare un'istanza per il livello di accesso ai dati e di applicarla alle visualizzazioni.
 
-1.  In Esplora soluzioni aprire **HomeController.cs** da **Controller** e sostituirne il contenuto con quello riportato di seguito:
+1. In Esplora soluzioni aprire **HomeController.cs** in **Controller** e sostituirne il contenuto con quello riportato di seguito:  
 
         using System;
         using System.Collections.Generic;
@@ -325,7 +314,7 @@ Infine, HomeController deve essere messo in grado di creare un'istanza per il li
         using System.Web.Mvc;
         using mongoNotes.Models;
         using System.Configuration;
-
+        
         namespace mongoNotes.Controllers
         {
             public class HomeController : Controller, IDisposable
@@ -334,23 +323,23 @@ Infine, HomeController deve essere messo in grado di creare un'istanza per il li
                 private bool disposed = false;
                 //
                 // GET: /Task/
-
+        
                 public ActionResult Index()
                 {
                     return View(dal.GetAllNotes());
                 }
-
+        
                 //
                 // GET: /Task/Create
-
+        
                 public ActionResult Create()
                 {
                     return View();
                 }
-
+        
                 //
                 // POST: /Task/Create
-
+        
                 [HttpPost]
                 public ActionResult Create(Note note)
                 {
@@ -364,20 +353,20 @@ Infine, HomeController deve essere messo in grado di creare un'istanza per il li
                         return View();
                     }
                 }
-
+        
                 public ActionResult About()
                 {
                     return View();
                 }
-
+        
                 # region IDisposable
-
+        
                 new protected void Dispose()
                 {
                     this.Dispose(true);
                     GC.SuppressFinalize(this);
                 }
-
+        
                 new protected virtual void Dispose(bool disposing)
                 {
                     if (!this.disposed)
@@ -387,33 +376,33 @@ Infine, HomeController deve essere messo in grado di creare un'istanza per il li
                             this.dal.Dispose();
                         }
                     }
-
+        
                     this.disposed = true;
                 }
-
+        
                 # endregion
-
+        
             }
         }
+    
+    
+<h2><a name="deploy"></a>Distribuzione dell'app</h2>
 
-## <a name="deploy"></a>Distribuzione dell'app
-
-Ora che l'applicazione è stata sviluppata, è il momento di creare un sito Web di Azure per ospitarla, configurare tale sito e distribuire il codice. L'argomento principale di questa sezione è l'utilizzo della stringa di connessione MongoDB (URI). Si configurerà una variabile di ambiente nel sito Web con questo URI per mantenere l'URI separato dal codice. È consigliabile considerare l'URI come un'informazione riservata in quanto contiene le credenziali per connettersi al database.
+Ora che l'applicazione è stata sviluppata, è il momento di creare un sito Web di Azure per ospitarla, configurare tale sito e distribuire il codice. L'argomento principale di questa sezione è l'utilizzo della stringa di connessione MongoDB (URI). Si configurerà una variabile di ambiente nel sito Web con questo URI per mantenere l'URI separato dal codice.  È consigliabile considerare l'URI come un'informazione riservata in quanto contiene le credenziali per connettersi al database.
 
 ### Creare un nuovo sito Web e ottenere il file di impostazioni di pubblicazione
-
 La creazione di un sito web in Azure è molto semplice, in particolare grazie al fatto che Azure genera automaticamente un profilo di pubblicazione per Visual Studio.
 
-1.  Nel portale di Azure fare clic su **Nuovo**.
-    ![Nuovo][Nuovo]
-2.  Selezionare **Calcolo \> Sito Web \> Creazione rapida**.
-    ![Creazione del sito][Creazione del sito]
-3.  Immettere un prefisso URL. Scegliere il nome desiderato ma tenere presente che deve essere univoco. "mongoNotes" non sarà probabilmente disponibile.
-4.  Fare clic su **Crea sito Web**.
-5.  Al termine della creazione del sito Web, fare clic sul nome del sito nell'elenco. Verrà visualizzato il dashboard del sito Web.
-    ![Dashboard del sito Web][Dashboard del sito Web]
-6.  Fare clic su **Scarica profilo di pubblicazione** in **riepilogo rapido**, quindi salvare il file .PublishSettings in una directory di propria scelta.
-    ![Download del profilo pubblico][Download del profilo pubblico]
+1. Nel portale di Azure fare clic su **Nuovo**.  
+![New][button-new]
+1. Selezionare **Calcolo > Sito Web > Creazione rapida**.  
+![CreateSite][screen-mongolab-newwebsite]
+1. Immettere un prefisso URL. Scegliere il nome desiderato ma tenere presente che deve essere univoco. "mongoNotes" non sarà probabilmente disponibile.
+1. Fare clic su **Crea sito Web**.
+1. Al termine della creazione del sito Web, fare clic sul nome del sito nell'elenco. Verrà visualizzato il dashboard del sito Web.  
+![WebSiteDashboard][screen-mongolab-websitedashboard]
+1. Fare clic su **Scarica profilo di pubblicazione** in **riepilogo rapido**, quindi salvare il file .PublishSettings in una directory di propria scelta.  
+![DownloadPublishProfile][button-website-downloadpublishprofile]
 
 ### Ottenere la stringa di connessione MongoLab
 
@@ -424,39 +413,37 @@ La creazione di un sito web in Azure è molto semplice, in particolare grazie al
 [WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### Pubblicare il sito Web
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **mongoNotes** in Esplora soluzioni, quindi selezionare **Pubblica**. Viene visualizzata la relativa finestra di dialogo:  
+![Publish][dialog-mongolab-vspublish]
+1. Fare clic su **Importa** e selezionare il file .PublishSettings dalla directory di download scelta in precedenza. Il file popola automaticamente i valori nella finestra di dialogo Pubblica.
+1. Fare clic su **Convalida connessione** per eseguire il test del file.
+1. Dopo l'esito positivo della convalida, fare clic su **Pubblica**. Dopo il completamento della pubblicazione, viene aperta una nuova scheda del browser e viene visualizzato il sito Web.
+1. Immettere testo per la nota, fare clic su **Crea** e osservare i risultati.  
+![HelloMongoAzure][screen-mongolab-sampleapp]
 
-1.  In Visual Studio fare clic con il pulsante destro del mouse sul progetto **mongoNotes** in Esplora soluzioni, quindi selezionare **Pubblica**. Viene visualizzata la relativa finestra di dialogo.
-    ![Pubblicazione][Pubblicazione]
-2.  Fare clic su **Importa** e selezionare il file .PublishSettings dalla directory di download scelta in precedenza. Il file popola automaticamente i valori nella finestra di dialogo Pubblica.
-3.  Fare clic su **Convalida connessione** per eseguire il test del file.
-4.  Dopo l'esito positivo della convalida, fare clic su **Pubblica**. Dopo il completamento della pubblicazione, viene aperta una nuova scheda del browser e viene visualizzato il sito Web.
-5.  Immettere un testo per la nota, fare clic su **Crea** e osservare i risultati.
-    ![Mongo di Azure][Mongo di Azure]
-
-## <a name="manage"></a>Gestione del database
+<h2><a name="manage"></a>Gestione del database</h2>
 
 [WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
-Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] per eventuali domande o problemi relativi al database o per assistenza su MongoDB o sul driver C#. È ora possibile utilizzare l'applicazione.
+A questo punto verrà avviata un'applicazione C# ASP.NET supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [support@mongolab.com](mailto:support@mongolab.com) per eventuali domande o problemi sul database o per assistenza con MongoDB o con il driver C#. È ora possibile usare l'applicazione.
 
-  [Eseguire il provisioning del database]: #provision
-  [MongoLab]: http://mongolab.com
-  [Creare l'app]: #create
-  [Distribuire l'app]: #deploy
-  [Gestire il database]: #manage
-  [Store]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-store.png
-  [1]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/entry-mongolab.png
-  [Pulsante per le informazioni di connessione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-connectioninfo.png
-  [Schermata delle informazioni di connessione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab_connectioninfo.png
-  [Stringhe di connessione del sito Web]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-websiteconnectionstring.png
-  [Nuovo progetto]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-newproject.png
-  [ProjectFramework]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-dotNet-Framework4-mongolab.png
-  [Modello di progetto]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-projecttemplate.png
-  [Console di gestione dei pacchetti]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-csharp-pmconsole.png
-  [guida introduttiva al driver CSharp]: http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "guida introduttiva al driver CSharp"
-  [Nuovo]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-new.png
-  [Creazione del sito]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-newwebsite.png
-  [Dashboard del sito Web]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-websitedashboard.png
-  [Download del profilo pubblico]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-website-downloadpublishprofile.png
-  [Pubblicazione]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-vspublish.png
-  [Mongo di Azure]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-sampleapp.png
+[screen-mongolab-sampleapp]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-sampleapp.png
+[dialog-mongolab-vspublish]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-vspublish.png
+[button-website-downloadpublishprofile]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-website-downloadpublishprofile.png
+[screen-mongolab-websitedashboard]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-websitedashboard.png
+[screen-mongolab-newwebsite]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-newwebsite.png
+[button-new]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-new.png
+[dialog-mongolab-csharp-newproject]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-newproject.png
+[dialog-mongolab-csharp-projecttemplate]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-projecttemplate.png
+[focus-mongolab-csharp-pmconsole]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-csharp-pmconsole.png
+[button-store]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-store.png
+[entry-mongolab]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/entry-mongolab.png 
+[button-connectioninfo]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-connectioninfo.png
+[screen-connectioninfo]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab_connectioninfo.png
+[dotNet-framework-four]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-dotNet-Framework4-mongolab.png
+[focus-website-connectinfo]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-websiteconnectionstring.png
+[provision]: #provision
+[create]: #create
+[deploy]: #deploy
+[manage]: #manage
+

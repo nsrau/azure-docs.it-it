@@ -16,13 +16,13 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 
 1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). Nella parte inferiore dello schermo fare clic su **Nuovo**, quindi scegliere **Servizi dati** -> **Database SQL** -> **Creazione personalizzata**. Compilare il nome del database e creare un nuovo utente e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 
-2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Microsoft Azure. Passare al [portale di gestione di Azure](https://manage.windowsazure.com), quindi, nel riquadro sinistro, fare clic su **Database SQL**. Fare clic su **Server** nella barra multifunzione nella parte superiore dello schermo e selezionare il server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'impostazione **Servizi di Microsoft Azure** sia impostata su **Sì**.
+2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Microsoft Azure. Passare al [portale di gestione di Azure](https://manage.windowsazure.com), quindi, nel riquadro sinistro, fare clic su **Database SQL**. Fare clic su **Server** nella barra multifunzione nella parte superiore dello schermo e selezionare il server. Fare quindi clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'impostazione **Servizi di Microsoft Azure** sia impostata su **Sì**.
 
     ![Allowed services][1]
 
 3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). In basso a sinistra fare clic su **Nuovo**, scegliere **Servizi dati**, **Archiviazione**, quindi **Creazione rapida**. 
 
-4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). In basso a sinistra fare clic su **Nuovo**, scegliere **Calcolo**, **Servizio cloud** quindi **Creazione rapida**. 
+4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com). In basso a sinistra fare clic su **Nuovo**, scegliere **Calcolo**, **Servizio cloud**, quindi **Creazione rapida**. 
 
 
 ## Configurare il servizio di divisione e unione 
@@ -42,14 +42,14 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 
         "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccessKey" 
     
-Per determinare la chiave di accesso, passare al [portale di gestione di Azure](https://manage.windowsazure.com), fare clic sulla scheda **Archiviazione** a sinistra, selezionare il nome corrispondente al proprio account di archiviazione, quindi fare clic su **Gestisci chiavi di accesso** in basso. Fare clic sul pulsante con il simbolo della **copia** a fianco di **Chiave di accesso primaria**.
+Per determinare la chiave di accesso, passare al [portale di gestione di Azure](https://manage.windowsazure.com), fare clic sulla scheda **Archiviazione** a sinistra, selezionare il nome corrispondente al proprio account di archiviazione, quindi fare clic su **Gestisci chiavi di accesso** in basso. Fare clic sul pulsante con il simbolo della **copia** accanto a **Chiave di accesso primaria**.
 
 ![manage access keys][2]
 
 6.    Immettere il nome dell'account di archiviazione e una delle chiavi di accesso fornite nei segnaposto della stringa di connessione al servizio di archiviazione. Questa stringa di connessione viene usata in entrambe le sezioni Role **SplitMergeWeb** e **SplitMergeWorker** dell'impostazione **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Potenzialmente è possibile usare account di archiviazione diversi per ruoli diversi. 
 
 ### Configurazione della sicurezza 
-Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo relativo alle [configurazioni della sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md).
+Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo relativo alle [configurazioni della sicurezza per la scalabilità elastica].(./sql-database-elastic-scale-configure-security.md).
 
 Ai fini di una semplice distribuzione di prova utile per il completamento di questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente la macchina/account che li esegue alla comunicazione con il servizio.
 
@@ -74,15 +74,15 @@ Eseguire il comando seguente dalla stessa finestra in cui è stato eseguito make
 
 ### Importare il certificato client nell'archivio personale
 1. In Esplora risorse fare doppio clic su **MyCert.pfx**.
-2. Nell'**importazione guidata certificati** selezionare **Utente corrente**, quindi fare clic su **Avanti**.
+2. Nell'**Importazione guidata certificati** selezionare **Utente corrente** e fare clic su **Avanti**.
 3. Confermare il percorso del file e fare clic su **Avanti**.
 4. Digitare la password, lasciare selezionata l'opzione **Includi tutte le proprietà estese** e fare clic su **Avanti**.
-5. Lasciare selezionata l'opzione **Selezionare automaticamente l'archivio certificati[...]** e fare clic su **Avanti**.
+5. Lasciare selezionata l'opzione **Seleziona automaticamente l'archivio certificati[...]** e fare clic su **Avanti**.
 6. Fare clic su **Fine**, quindi su **OK**.
 
 ### Caricare il file PFX nel servizio cloud
 
-Passare al [portale di gestione di Azure](https://manage.windowsazure.com).
+Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 
 1. Selezionare **Servizi cloud**.
 2. Selezionare il servizio cloud creato precedentemente per il servizio di divisione e unione.
@@ -103,15 +103,15 @@ Incollare l'identificazione personale del certificato copiata sopra nell'attribu
 Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, server e client. Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione della sicurezza](./sql-database-elastic-scale-configure-security.md).
 
 ### Distribuzione del servizio di divisione e unione
-1. Passare al [Portale di gestione di Azure](https://manage.windowsazure.com).
+1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic sulla scheda **Servizi cloud** a sinistra, quindi selezionare il servizio cloud creato precedentemente. 
 3. Fare clic su **Dashboard**. 
 4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica una nuova distribuzione di gestione temporanea**.
 
     ![Staging][3]
 
-5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per entrambi 'Pacchetto' e 'Configurazione', fare clic su 'Da locale', scegliere il file **SplitMergeService.cspkg** e il proprio file .cscfg, configurato in precedenza.
-6. Assicurarsi che la casella di controllo etichettata **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
+5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per 'Pacchetto' e per 'Configurazione' fare clic su 'Da locale', scegliere il file **SplitMergeService.cspkg** e il proprio file con estensione cscfg configurato in precedenza.
+6. Assicurarsi che la casella di controllo con l'etichetta **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Fare clic sul pulsante con il segno di spunta in basso a destra per avviare la distribuzione. Per il completamento dell'operazione sarà necessario attendere alcuni minuti.
 
 ![Upload][4]
@@ -131,7 +131,7 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 * Assicurarsi che il nome del server non inizi con **https://**.
 * Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Microsoft Azure. Per eseguire questa operazione, aprire https://manage.windowsazure.com, fare clic su "Database SQL" a sinistra, fare clic su "Server" in alto, quindi selezionare il proprio server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'impostazione **Servizi di Microsoft Azure** sia impostata su "Sì". (vedere la sezione Prerequisiti all'inizio di questo articolo).
 
-* Esaminare i log di diagnostica dell'istanza del servizio di divisione e unione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su **Visualizza**, quindi su **Esplora server**. Fare clic sull'icona di **Microsoft Azure** per connettersi alla sottoscrizione di Azure. Passare a Microsoft Azure -> Archiviazione -> <account_di_archiviazione> -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx) 
+* Esaminare i log di diagnostica dell'istanza del servizio di divisione e unione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su **Visualizza**, quindi su **Esplora server**. Fare clic sull'icona di **Microsoft Azure** per connettersi alla sottoscrizione di Azure. Passare a Microsoft Azure -> Archiviazione -> <account_di_archiviazione> -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx) 
 
     ![][5]
 
@@ -148,11 +148,11 @@ Determinare l'endpoint Web del servizio di divisione e unione. È possibile trov
 
 I file di script inclusi sono i seguenti:
 
-1. **SetupSampleSplitMergeEnvironment.ps1** - imposta un livello di dati di test per divisione e unione (per una descrizione dettagliata vedere la tabella sottostante)
-2. **ExecuteSampleSplitMerge.ps1** - esegue le operazioni di test sul livello di dati di test (per una descrizione dettagliata vedere la tabella sottostante)
-3. **GetMappings.ps1** - script di esempio di livello principale che visualizza lo stato corrente dei mapping di partizione.
-4. **ShardManagement.psm1** - script helper che include l'API ShardManagement
-5. **SqlDatabaseHelpers.psm1** - script helper per creare e gestire database SQL
+1. **SetupSampleSplitMergeEnvironment.ps1**: imposta un livello di dati di test per divisione e unione (per una descrizione dettagliata vedere la tabella sottostante).
+2. **ExecuteSampleSplitMerge.ps1**: esegue le operazioni di test sul livello di dati di test (per una descrizione dettagliata vedere la tabella sottostante).
+3. **GetMappings.ps1**: script di esempio di livello principale che visualizza lo stato corrente dei mapping di partizione.
+4. **ShardManagement.psm1**: script helper che include l'API ShardManagement.
+5. **SqlDatabaseHelpers.psm1**: script helper per creare e gestire database SQL.
 
 <table style="width:100%">
   <tr>
@@ -161,13 +161,13 @@ I file di script inclusi sono i seguenti:
   </tr>
   <tr>
     <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1.    Crea un database di gestione per i mapping della partizione</td>
+    <td>1.    Crea un database di gestione delle mappe partizioni.</td>
   </tr>
   <tr>
-    <td>2.    Crea 2 database di partizionamento. 
+    <td>2.    Crea 2 database partizioni. 
   </tr>
   <tr>
-    <td>3.    Crea un mapping di partizione per tali database (elimina eventuali mapping di partizione esistenti sui database). </td>
+    <td>3.    Crea una mappa partizioni per tali database (elimina eventuali mappe partizioni esistenti per i database). </td>
   </tr>
   <tr>
     <td>4.    Crea una tabella di esempio di piccole dimensioni in entrambe le partizioni e popola la tabella in una delle partizioni.</td>
@@ -203,7 +203,7 @@ I file di script inclusi sono i seguenti:
 1.    Aprire una nuova finestra di PowerShell e passare alla directory in cui si è scaricato il pacchetto di divisione e unione, quindi passare alla directory "powershell".
 2.    Creare un server di database SQL di Microsoft Azure (o sceglierne uno esistente) che conterrà il gestore dei mapping della partizione e le partizioni stesse. 
 
-Nota: Lo script SetupSampleSplitMergeEnvironment.ps1 crea tutti questi database sullo stesso server per impostazione predefinita, a scopo di semplificazione. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
+    Nota: Lo script SetupSampleSplitMergeEnvironment.ps1 crea tutti questi database sullo stesso server per impostazione predefinita, a scopo di semplificazione. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
 
     Per spostare dati e aggiornare il mapping della partizione, sarà necessario un account di accesso di autenticazione SQL con accesso in lettura/scrittura ai database per il servizio di divisione e unione. Poiché il servizio di divisione e unione viene eseguito nel cloud, non supporta attualmente l'autenticazione integrata.
 
@@ -238,7 +238,7 @@ Nota: Lo script SetupSampleSplitMergeEnvironment.ps1 crea tutti questi database 
             -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net' `
             -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
 
-     Se viene visualizzato il seguente errore, è probabile che di tratti di un problema con il certificato dell'endpoint Web. Provare a connettersi all'endpoint con un Web browser e controllare se è presente un errore di certificato.
+    Se viene visualizzato il seguente errore, è probabile che di tratti di un problema con il certificato dell'endpoint Web. Provare a connettersi all'endpoint con un Web browser e controllare se è presente un errore di certificato.
 
         Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
 
@@ -286,11 +286,11 @@ Il servizio di divisione e unione può spostare i dati in tabelle partizionate e
 
 Per eseguire un'operazione di divisione e unione, è necessario dichiarare le tabelle partizionate e le tabelle di riferimento che si vogliono spostare. Questa operazione viene eseguita con l'API **SchemaInfo**. Questa API si trova nello spazio dei nomi **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
-1.    Per ogni tabella partizionata, creare un oggetto **ShardedTableInfo** che descrive il nome dello schema della tabella padre (facoltativo, il valore predefinito è "dbo"), il nome della tabella e il nome della colonna della tabella che contiene la chiave di partizionamento orizzontale.
-2.    Per ogni tabella di riferimento, creare un oggetto **ReferenceTableInfo** che descrive il nome della tabella padre dello schema (facoltativo, valore predefinito è "dbo") e il nome della tabella.
+1.    Per ogni tabella partizionata, creare un oggetto **ShardedTableInfo** che descrive il nome dello schema padre della tabella (facoltativo, il valore predefinito è "dbo"), il nome della tabella e il nome della colonna nella tabella che contiene la chiave di partizionamento orizzontale.
+2.    Per ogni tabella di riferimento creare un oggetto **ReferenceTableInfo** che descrive il nome dello schema padre della tabella (facoltativo, il valore predefinito è "dbo") e il nome della tabella.
 3.    Aggiungere gli oggetti TableInfo precedenti a un nuovo oggetto **SchemaInfo**.
 4.    Ottenere un riferimento all'oggetto **ShardMapManager**, quindi chiamare **GetSchemaInfoCollection**.
-5.    Aggiungere **SchemaInfo** a **SchemaInfoCollection**, fornendo il nome della mappa di partizionamento.
+5.    Aggiungere **SchemaInfo** a **SchemaInfoCollection**, fornendo il nome della mappa partizioni.
 
 È possibile consultare un esempio nello script SetupSampleSplitMergeEnvironment.ps1.
 

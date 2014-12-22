@@ -1,20 +1,20 @@
-## <span id="AdditionalServices"></span></a><span class="short-header">Utilizzare servizi Twilio aggiuntivi</span>Procedura: Utilizzare servizi Twilio aggiuntivi
+﻿<h2><a id="AdditionalServices"></a>Procedura: Usare servizi Twilio aggiuntivi</h2>
+Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile usare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio] [twilio_api_documentation]
 
-Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][documentazione sull'API Twilio].
+<h2><a id="NextSteps"></a>Passaggi successivi</h2>
+Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti seguenti per altre informazioni:
 
-## <span id="NextSteps"></span></a><span class="short-header">Passaggi successivi</span>Passaggi successivi
+* [Linee guida sulla sicurezza di Twilio] [twilio_security_guidelines]
+* [Procedure e codice di esempio su Twilio] [twilio_howtos]
+* [Esercitazioni con guide rapide su Twilio][twilio_quickstarts] 
+* [Twilio su GitHub] [twilio_on_github]
+* [Contattare il supporto di Twilio] [twilio_support]
 
-Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
+[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_security_guidelines]: http://www.twilio.com/docs/security
+[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_on_github]: https://github.com/twilio
+[twilio_support]: http://www.twilio.com/help/contact
+[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
--   [Linee guida sulla sicurezza di Twilio][Linee guida sulla sicurezza di Twilio]
--   [Procedure e codice di esempio su Twilio][Procedure e codice di esempio su Twilio]
--   [Esercitazioni con guide rapide su Twilio][Esercitazioni con guide rapide su Twilio]
--   [Twilio su GitHub][Twilio su GitHub]
--   [Contattare il supporto di Twilio][Contattare il supporto di Twilio]
 
-  [documentazione sull'API Twilio]: http://www.twilio.com/api
-  [Linee guida sulla sicurezza di Twilio]: http://www.twilio.com/docs/security
-  [Procedure e codice di esempio su Twilio]: http://www.twilio.com/docs/howto
-  [Esercitazioni con guide rapide su Twilio]: http://www.twilio.com/docs/quickstart
-  [Twilio su GitHub]: https://github.com/twilio
-  [Contattare il supporto di Twilio]: http://www.twilio.com/help/contact
