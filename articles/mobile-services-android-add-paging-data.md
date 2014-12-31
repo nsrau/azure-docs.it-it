@@ -4,7 +4,7 @@
 
 # Usare il paging per ridefinire le query di Servizi mobili
 
-€
+[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 Questo argomento illustra come usare il paging per gestire la quantità di dati restituiti all'app per Android da Servizi mobili di Azure. In questa esercitazione si useranno i metodi di query**top** e **skip** nel client per richiedere "pagine" di dati specifiche.
 
