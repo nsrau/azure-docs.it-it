@@ -1,4 +1,4 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glossario di Scalabilità elastica di Azure" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glossario di Scalabilità elastica di Azure" description="Spiegazione dei termini usati per la funzionalità Scalabilità elastica del database SQL di Azure" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -11,15 +11,17 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 
 **Routing dipendente dai dati**: la funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento orizzontale. Confrontare con **Query su più partizioni**.
 
-**Mappa globale partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettivi partizioni all'interno di un **set di partizioni**. La mappa globale partizioni è archiviata nel **Gestore mappe partizioni**. Confrontare con la **mappa locale partizioni**.
+**Mappa globale partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettivi partizioni all'interno di un **set di partizioni**. La mappa di partizione globale è archiviata nel **gestore mappe di partizione**. Confrontare con la **mappa locale partizioni**.
 
 **Mappa partizioni di tipo elenco**: una mappa partizioni in cui le chiavi di partizionamento orizzontale vengono mappate singolarmente. Confrontare con la **mappa partizioni di tipo intervallo**.   
 
-**Mappa locale partizioni**: archiviata in una partizione, la mappa locale partizioni contiene i mapping per gli shardlet che risiedono nella partizione.
+**Mappa di partizione locale**: archiviata in una partizione, la mappa locale partizioni contiene i mapping per gli shardlet che risiedono nella partizione.
+
 
 **Query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
 
 **Mappa partizioni di tipo intervallo**: una mappa partizioni in cui la strategia di distribuzione delle partizioni è basata su più intervalli di valori contigui. 
+
 
 **Tabelle di riferimento**: tabelle che non vengono partizionate, ma vengono replicate tra le partizioni. 
 
@@ -38,6 +40,8 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 **Mappa partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettive partizioni.
 
 **Gestore mappe partizioni**: un archivio di dati e oggetti di gestione che contiene le mappe partizioni, i percorsi delle partizioni e i mapping per uno o più set di partizioni.
+
+![Mappings][2]
 
 
 ##Verbi
@@ -58,3 +62,8 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
+[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
+
+
+
+<!--HONumber=35_1-->

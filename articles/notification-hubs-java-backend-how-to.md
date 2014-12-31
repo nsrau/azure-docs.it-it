@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Come usare Hub di notifica con Java"metaKeywords =" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Come usare Hub di notifica con Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
 # Come usare Hub di notifica da Java/PHP
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/it-it/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/it-it/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/it-it/library/dn223264.aspx) di MSDN.
+Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica di MSDN](http://msdn.microsoft.com/it-it/library/dn223264.aspx).
 
 In questo argomento viene illustrato come:
 
@@ -15,7 +15,7 @@ In questo argomento viene illustrato come:
 * Completare l'[esercitazione introduttiva](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/) per la piattaforma mobile preferita, implementando la parte del backend in Java.
 
 ##<a name="client-interface"></a>Interfaccia del client
-L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/it-it/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e messi a disposizione dalla community in Internet.
+L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/it-it/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito oppure messi a disposizione dalla community in Internet.
 
 Tutto il codice disponibile è incluso nell'[esempio di wrapper REST Java].
 
@@ -90,7 +90,7 @@ Questa è la classe principale che implementa il client, il cui costruttore anal
 
 
 ### Creare il token di sicurezza
-I dettagli della creazione del token di sicurezza sono disponibili in [questa pagina](http://msdn.microsoft.com/it-it/library/dn495627.aspx).
+I dettagli della creazione del token di sicurezza sono disponibili [in questa pagina](http://msdn.microsoft.com/it-it/library/dn495627.aspx).
 È necessario aggiungere il metodo seguente alla classe **NotificationHub** per creare il token sulla base dell'URI della richiesta corrente e delle credenziali estratte dalla stringa di connessione.
 
 	private String generateSasToken(URI uri) {
@@ -302,7 +302,7 @@ I metodi sopra indicati inviano una richiesta POST HTTP all'endpoint /messages d
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Java.
 
 Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'[esercitazione introduttiva]:
-	NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
+	NotificationHub hub = new NotificationHub("{stringa di connessione}", "{nome hub}");
 
 Aggiungere quindi il codice di invio a seconda della piattaforma mobile di destinazione.
 
@@ -354,3 +354,5 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 
 [Esempio di wrapper REST Java]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 [Esercitazione introduttiva]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
-﻿<properties urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="Come usare AMQP 1.0 con l'API del bus di servizio Java - Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors="seethm"  solutions="" documentationCenter="Java" writer="sethm" manager="timlt" editor="mattshel" />
+﻿<properties urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="Come usare AMQP 1.0 con l'API del bus di servizio Java - Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0" authors="sethm"  solutions="" documentationCenter="Java" writer="sethm" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="seethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="11/12/2014" ms.author="sethm" />
 
 
 # Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
@@ -17,7 +17,7 @@ In questa guida dettagliata viene illustrato come usare le funzionalità di mess
 
 # Attività iniziali per il bus di servizio
 
-In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere la guida dettagliata dal titolo "[Come usare le code del bus di servizio](https://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/).
+In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere la guida dettagliata dal titolo "[Come usare le code del bus di servizio](https://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/)".
 
 ## Download della libreria client JMS basata su AMQP 1.0
 
@@ -115,7 +115,7 @@ Per definire un oggetto **ConnectionFactory** denominato "SBCF", la stringa di c
 La voce usata per definire una destinazione nel provider JNDI basato sul file delle proprietà Qpid è nel formato seguente:
 
 	queue.[jndi_name] = [physical_name]
-oppure
+or
 
 	topic.[jndi_name] = [physical_name]
 
@@ -330,9 +330,9 @@ Per verificare la messaggistica da .NET a JMS, eseguire la procedura seguente:
 
 Quando si usa JMS su AMQP 1.0 con il bus di servizio esistono le seguenti restrizioni:
 
-* È consentito solo un oggetto **MessageProducer** o **MessageConsumer** per **Sessione**. Per creare più oggetti **MessageProducers** o **MessageConsumers** in un'applicazione, creare una **Sessione** dedicata per ognuno di essi.
+* È consentito solo un oggetto **MessageProducer** o **MessageConsumer** per **Sessione**. Per creare più oggetti **MessageProducer** o **MessageConsumer** in un'applicazione, creare una **Sessione** dedicata per ognuno di essi.
 * Le sottoscrizioni a un argomento volatile non sono attualmente supportate.
-Gli oggetti * **MessageSelectors** non sono supportati.
+* Gli oggetti **MessageSelector** non sono supportati.
 * Le destinazioni temporanee, ad esempio **TemporaryQueue** o **TemporaryTopic**, non sono attualmente supportate, così come le API **QueueRequestor** e **TopicRequestor** da cui vengono usate.
 * Le sessioni transazionali non sono supportate e le transazioni distribuite non sono supportate.
 
@@ -348,3 +348,5 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare AMQP 1.0 con l'API .NET del bus di servizio](http://aka.ms/lym3vk)
 * [AMQP 1.0 per bus di servizio - Guida per sviluppatori](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx)
 * [Come usare le code del bus di servizio](http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/)
+
+<!--HONumber=35_1-->

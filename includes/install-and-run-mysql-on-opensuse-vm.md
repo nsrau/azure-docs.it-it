@@ -1,86 +1,86 @@
-1.  Per l'escalation dei privilegi, eseguire:
+﻿
+1. Per l'escalation dei privilegi, eseguire:
 
-        sudo -s
+		sudo -s
+	
+	Immettere la password.
 
-    Immettere la password.
+2. Eseguire il comando seguente per installare MySQL Community Server Edition:
 
-2.  Eseguire il comando seguente per installare MySQL Community Server Edition:
+		# zypper install mysql-community-server
 
-        # zypper install mysql-community-server
+	Attendere fino al termine del download e dell'installazione di MySQL.
+3. Per fare in modo che MySQL venga avviato all'avvio del sistema, eseguire il comando seguente:
 
-    Attendere fino al termine del download e dell'installazione di MySQL.
+		# insserv mysql
+4. Ora è possibile avviare manualmente il daemon MySQL (mysqld) usando il comando seguente:
 
-3.  Per fare in modo che MySQL venga avviato all'avvio del sistema, eseguire il comando seguente:
+		# rcmysql start
 
-        # insserv mysql
+	Per controllare lo stato del daemon MySQL, eseguire:
 
-4.  Ora è possibile avviare manualmente il daemon MySQL (mysqld) usando il comando seguente:
+		# rcmysql status
 
-        # rcmysql start
+	Per arrestare il daemon MySQL, eseguire:
 
-    Per controllare lo stato del daemon MySQL, eseguire:
+		# rcmysql stop
 
-        # rcmysql status
+5. Avviso Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita.  È consigliabile eseguire **mysql\_secure\_installation**, uno script per la protezione di MySQL. Durante l'esecuzione di **mysql\_secure\_installation**, verrà richiesto di modificare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice. Digitare il comando seguente per eseguire lo script:
 
-    Per arrestare il daemon MySQL, eseguire:
+		$ mysql_secure_installation
 
-        # rcmysql stop
+6. Al termine dell'esecuzione, sarà possibile eseguire l'accesso a MySQL:
 
-5.  Avviso Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. È consigliabile eseguire **mysql\_secure\_installation**, uno script per la protezione di MySQL. Durante l'esecuzione di **mysql\_secure\_installation**, verrà richiesto di modificare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice. Digitare il comando seguente per eseguire lo script:
+		$ mysql -u root -p
 
-        $ mysql_secure_installation
+	Immettere la password radice di MySQL (modificata nel passaggio precedente). Verrà visualizzato un prompt in cui è possibile digitare istruzioni SQL per l'interazione con il database.
 
-6.  Al termine dell'esecuzione, sarà possibile eseguire l'accesso a MySQL:
+7. Per creare un nuovo utente MySQL, al prompt di **mysql>** eseguire il comando seguente:
 
-        $ mysql -u root -p
+		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-    Immettere la password radice di MySQL (modificata nel passaggio precedente). Verrà visualizzato un prompt in cui è possibile digitare istruzioni SQL per l'interazione con il database.
+	Si osservi che il punto e virgola (;) alla fine delle righe è essenziale per la conclusione dei comandi.
 
-7.  Per creare un nuovo utente MySQL, alla richiesta di **mysql\>** eseguire il comando seguente:
+8. Per creare un database e concedere le apposite autorizzazioni utente `mysqluser`, digitare i comandi seguenti:
 
-        mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
+		mysql> CREATE DATABASE testdatabase;
+		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-    Si osservi che il punto e virgola (;) alla fine delle righe è essenziale per la conclusione dei comandi.
+	Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database.  I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
 
-8.  Per creare un database e concedere le apposite autorizzazioni utente `mysqluser`, digitare i comandi seguenti:
+9. Per eseguire l'accesso da un altro computer, eseguire il comando seguente:
 
-        mysql> CREATE DATABASE testdatabase;
-        mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
+		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-    Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
-
-9.  Per eseguire l'accesso da un altro computer, eseguire il comando seguente:
-
-        mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
-
-    dove `ip-address` è l'indirizzo IP del computer dal quale verrà effettuata la connessione a MySQL.
-
+	dove `ip-address` è l'indirizzo IP del computer da cui verrà effettuata la connessione a MySQL.
+	
 10. Per uscire dall'utilità di amministrazione database MySQL, eseguire il comando seguente:
 
-        quit
+		quit
 
-11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][portale di gestione di Azure]. Nel portale di Azure fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
+11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][AzurePreviewPortal]. Nel portale di Azure fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
 
-    ![Endpoint][Endpoint]
+	![Endpoints][Immagine7]
 
-12. Fare clic su **Aggiungi endpoint** nella parte inferiore della pagina.
-    ![Endpoints][Endpoints]
+12. Fare clic su **Aggiungi** nella parte inferiore della pagina.
+	![Endpoints][Immagine8]
 
-13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **Public** e **Private** impostate su "3306". Questo consentirà di accedere a MySQL in modalità remota.
-    ![Endpoints][1]
+13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "3306". In questo modo sarà possibile accedere a MySQL in remoto.
+	![Endpoints][Immagine9]
 
 14. Per eseguire la connessione remota a MySQL in esecuzione nella macchina virtuale OpenSUSE Azure, nel computer locale eseguire il comando seguente:
 
-        mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
+		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-    Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario usare il comando seguente:
+	Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario usare il comando seguente:
 
-        mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
+		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. In questa esercitazione è stato illustrato come configurare MySQL, creare un database e un nuovo utente. Per altre informazioni su MySQL, vedere la [Documentazione di MySQL][Documentazione di MySQL].
+15. In questa esercitazione è stato illustrato come configurare MySQL, creare un database e un nuovo utente.  Per altre informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].	
 
-  [portale di gestione di Azure]: http://manage.windowsazure.com
-  [Endpoint]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png
-  [Endpoints]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint2.png
-  [1]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-  [Documentazione di MySQL]: http://dev.mysql.com/doc/
+[MySQLDocs]: http://dev.mysql.com/doc/
+[AzurePreviewPortal]: http://manage.windowsazure.com
+
+[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+
+<!--HONumber=35_1-->

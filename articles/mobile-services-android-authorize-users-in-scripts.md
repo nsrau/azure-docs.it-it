@@ -6,9 +6,11 @@
 
 [WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-Questo argomento illustra come usare gli script del server per autorizzare gli utenti autenticati per l'accesso ai dati in Servizi mobili di Azure da un'app per Android.  In questa esercitazione gli script verranno registrati con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
+Questo argomento descrive come usare gli script del server per autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app per Android.  In questa esercitazione verranno registrati gli script con Servizi mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
+##Prerequisiti
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
 ## <a name="register-scripts"></a>Registrare gli script
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
@@ -21,7 +23,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -54,13 +56,13 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 2. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
-   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
 3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
    	Testo e userId verranno inseriti nella tabella TodoItem nel servizio mobile. Poiché il nuovo elemento contiene il valore userId corretto, viene restituito dal servizio mobile e i dati vengono visualizzati nella seconda colonna.
 
-5. Tornare alla tabella **todoitem** nel [portale di gestione][portale di gestione di Azure], fare clic su **Sfoglia** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
+5. Tornare alla tabella **todoitem** nel [portale di gestione][Azure Management Portal], quindi fare clic su **Sfoglia** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
 
 6. (Facoltativo) Se si dispone di altri account di accesso, per verificare che gli utenti possano visualizzare solo i propri dati, chiudere l'app ed eseguirla di nuovo. Quando viene visualizzata la finestra di dialogo per l'immissione delle credenziali di accesso, immettere un account di accesso diverso e verificare che i dati immessi nell'account precedente non siano visualizzati.
 
@@ -71,10 +73,10 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 * [Introduzione ai dati]
   <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -88,7 +90,7 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Dashboard App personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-android
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-android
@@ -96,3 +98,5 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Introduzione alle notifiche push (Appcelerator) | Mobile Developer Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione alle notifiche push (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # Introduzione alle notifiche push in Servizi mobili (push legacy)
 <div class="dev-center-tutorial-selector sublanding">
@@ -14,15 +14,15 @@
 	<a href="/it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
-Questo argomento illustra come usare Servizi mobili di Microsoft Azure per inviare notifiche push ad app per iOS e Android sviluppate con Appcelerator Titanium Studio. In questa esercitazione si useranno il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) e Google Cloud Messaging per aggiungere notifiche push al progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento descrive come usare Servizi mobili di Microsoft Azure per inviare notifiche push ad app per iOS e Android sviluppate con Appcelerator Titanium Studio. In questa esercitazione si useranno il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) e Google Cloud Messaging per aggiungere notifiche push al progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
->[WACOM.NOTE] Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. In questo argomento sono supportati servizi mobili esistenti che non sono stati ancora aggiornati per l'uso dell'integrazione di Hub di notifica. Quando si crea un nuovo servizio mobile, questa funzionalità integrata è abilitata automaticamente. È consigliabile aggiornare il servizio per l'uso di Hub di notifica quando possibile. **A breve verrà resa disponibile un'esercitazione per il push di Hub di notifica con Appcelerator.**
+>[WACOM.NOTE] Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. In questo argomento sono supportati servizi mobili esistenti che non sono stati ancora aggiornati per l'uso dell'integrazione di Hub di notifica. Quando si crea un nuovo servizi mobile, questa funzionalità integrata è abilitata automaticamente. È consigliabile aggiornare il servizio per l'uso di Hub di notifica quando possibile. **A breve verrà resa disponibile un'esercitazione per il push di Hub di notifica con Appcelerator.**
 
 1.	[Generare la richiesta di firma del certificato]
 2.	[Registrare l'app e abilitare le notifiche push]
 3.	[Creare un profilo di provisioning per l'app]
 4.	[Abilitare Google Cloud Messaging]
-5.  [Creazione del modulo GCM per Titanium]
+5.  [Creare il modulo GCM per Titanium]
 6.	[Configurare Servizi mobili]
 7.	[Aggiungere notifiche push all'app]
 8.	[Aggiornare gli script per l'invio di notifiche push]
@@ -38,22 +38,22 @@ Per completare questa esercitazione, è necessario disporre di:
 
 > [WACOM.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure contenute in [Introduzione a Servizi mobili].
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [Abilitare le notifiche push Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Abilitare Google Cloud Messaging
 
->[WACOM.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[WACOM.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, andare alla pagina all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[WACOM.INCLUDE [Abilitare GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##  <a name="gcm-module"></a>Creazione del modulo GCM per Titanium
 
 ### Preparazione di Appcelerator Titanium Studio per la creazione di moduli
 
-Se si intende creare moduli per Android, è necessario installare il supporto Java all'interno di Appcelerator Titanium Studio. Se questa operazione non è stata ancora completata, per una breve procedura, vedere l'argomento relativo all'[installazione degli strumenti di sviluppo Java] di Appcelerator.
+Se si intende creare moduli per Android, è necessario installare il supporto Java all'interno di Appcelerator Titanium Studio. Se questa operazione non è stata ancora completata, per una breve procedura, vedere l'argomento relativo all'[installazione degli strumenti di sviluppo Java di Appcelerator].
 
 È necessario installare Android NDK. Scaricare il file ZIP appropriato da [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) ed estrarlo in una directory del disco. Prendere nota di tale directory. 
 
@@ -213,7 +213,7 @@ Scegliere **Deploy > Package - Android Module**. Non è possibile compilare il m
 
 È quindi possibile scegliere di distribuire il modulo per tutti i progetti o per un progetto specifico. Per questa procedura vengono usate le regole di installazione indicate nell'articolo sull'[uso di moduli Titanium], ma per riepilogare:
 
-- Per tutti i progetti: il file module .zip viene rilasciato nella radice del percorso di installazione di Titanium SDK. 
+- Per tutti i progetti: il file zip del modulo viene rilasciato nella radice del percorso di installazione di Titanium SDK. 
 
 - Per un progetto specifico: il file module .zip viene rilasciato nella radice del progetto. 
 
@@ -248,16 +248,16 @@ Il servizio mobile è ora configurato per funzionare con APNS e GCM.
     <table><tr>
     <td>OSX
     </td>
-    <td>/Library/Application Support/Titanium o ~/Library/Application Support/Titanium
+    <td>/Library/Application Support/Titanium or  ~/Library/Application Support/Titanium
     </td>
     </tr>
     <td>Windows 7
     </td>
-    <td>C:\Utenti\nomeutente\AppData\Roaming (o C:\ProgramData\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
+    <td>C:\Users\username\AppData\Roaming (or C:\ProgramData\Titanium on Titanium Studio 1.0.1 and earlier)
     </td>
     </tr><td>Windows XP
     </td>
-    <td>C:\Documents and Settings\nomeutente\Application Data (o C:\Documents and Settings\All Users\Application Data\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
+    <td>C:\Documents and Settings\username\Application Data (or C:\Documents and Settings\All Users\Application Data\Titanium on Titanium Studio 1.0.1 and earlier)
     </td>
     </tr><td>Linux
     </td>
@@ -387,7 +387,7 @@ Il servizio mobile è ora configurato per funzionare con APNS e GCM.
 L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme iOS e Android.
 
 
-## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
+## <a name="update-scripts"></a>Aggiornare gli script insert registrati nel portale di gestione
 
 1.	Nel portale di gestione fare clic sulla scheda Dati e quindi sulla tabella TodoItem.
 
@@ -455,8 +455,8 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
 [Generare la richiesta di firma del certificato]: #certificates
 [Registrare l'app e abilitare le notifiche push]: #register
 [Creare un profilo di provisioning per l'app]: #profile
-[Abilitare Google Cloud Messaging]: #register-gcm
-[Creazione del modulo GCM per Titanium]: #gcm-module
+[Abilitare Google Cloud Messaging] #register-gcm
+[Creare il modulo GCM per Titanium]: #gcm-module
 [Configurare Servizi mobili]: #configure
 [Aggiungere notifiche push all'app]: #add-push
 [Aggiornare gli script per l'invio di notifiche push]: #update-scripts
@@ -464,7 +464,9 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[Utilizzo di moduli Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Uso di moduli Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
 [Portale di gestione di Microsoft Azure]: https://manage.windowsazure.com/
 [Oggetto push di servizi mobili]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Installazione degli strumenti di sviluppo Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
+
+<!--HONumber=35_1-->

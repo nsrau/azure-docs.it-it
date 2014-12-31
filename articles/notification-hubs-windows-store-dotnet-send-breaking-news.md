@@ -2,24 +2,24 @@
 
 <properties pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 
-# Usare Hub di notifica per inviare le ultime notizie
+# Utilizzo di Hub di notifica per inviare le ultime notizie
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" class="current">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/it-it/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
 		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Questo argomento illustra come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app di Windows Store o Windows Phone 8.1 (non Silverlight). Se si sviluppano app di Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](/it-it/documentation/articles/notification-hubs-ios-send-breaking-news). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via.
+Questo argomento descrive come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app di Windows Store o Windows Phone 8.1 (non Silverlight). Se si sviluppano app di Windows Phone 8.1 Silverlight, fare riferimento alla versione [Windows Phone](/it-it/documentation/articles/notification-hubs-ios-send-breaking-news). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via. 
 
-È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per altre informazioni sui tag, vedere l'articolo relativo alle [linee guida per gli hub di notifica]. 
+È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per altre informazioni sui tag, vedere le [informazioni aggiuntive su Hub di notifica]. 
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare questo scenario:
 
-1. [Aggiunta della selezione delle categorie all'app]
-2. [Registrazione per le notifiche]
+1. [Aggiungere la selezione delle categorie all'app]
+2. [Registrarsi per le notifiche]
 3. [Inviare notifiche dal back-end]
-4. [Esecuzione dell'app e generazione di notifiche]
+4. [Eseguire l'app e generare notifiche]
 
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
@@ -51,7 +51,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
 
-2. Nel progetto creare una nuova classe denominata **Notifications**,aggiungere il modificatore **public** alla definizione della classe e quindi aggiungere le istruzioni **using** al nuovo file di codice:
+2. Nel progetto creare una nuova classe denominata **Notifications**, aggiungere il modificatore **public** alla definizione della classe e quindi aggiungere le istruzioni **using** al nuovo file di codice:
 
 		using Windows.Networking.PushNotifications;
 		using Microsoft.WindowsAzure.Messaging;
@@ -137,7 +137,7 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 
 	Verranno restituite le categorie definite nella classe.
 
-1. Oprire il file App.xaml.cs e aggiungere il modificatore **async** al metodo **OnLaunched**.
+1. Aprire il file App.xaml.cs e aggiungere il modificatore **async** al metodo **OnLaunched**.
 
 2. Nel metodo **OnLaunched** individuare e sostituire la chiamata esistente al metodo **InitNotificationsAsync** con la riga di codice seguente:
 
@@ -196,16 +196,16 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 	Altre informazioni su come espandere l'app relativa alle ultime novità per abilitare l'invio di notifiche localizzate. 
 
-+ [Usare Hub di notifica per inviare notifiche agli utenti]
++ [Usare hub di notifica per inviare notifiche agli utenti]
 
 	Informazioni su come eseguire il push di notifiche a utenti autenticati specifici. Si tratta di un'ottima soluzione per inviare le notifiche solo a determinati utenti.
 
 
 <!-- Anchors. -->
-[Aggiunta della selezione delle categorie all'app]: #adding-categories
-[Registrazione per le notifiche]: #register
+[Aggiungere la selezione delle categorie all'app]: #adding-categories
+[Registrarsi per le notifiche]: #register
 [Inviare notifiche dal back-end]: #send
-[Esecuzione dell'app e generazione di notifiche]: #test-app
+[Eseguire l'app e generare notifiche]: #test-app
 [Passaggi successivi]: #next-steps
 
 <!-- Images. -->
@@ -219,18 +219,20 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 <!-- URLs.-->
 [get-started]: /it-it/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
-[Usare Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users
+[Usare hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users
 [Servizio mobile]: /it-it/develop/mobile/tutorials/get-started/
-[Linee guida su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
+[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/it-it/library/jj927172.aspx
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
 
 
 
 
+
+<!--HONumber=35_1-->

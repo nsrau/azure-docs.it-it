@@ -1,0 +1,3 @@
+﻿I dati sono tratti da articoli di Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) su ognuna delle società incluse nell'indice S&P 500, archiviati come dati XML.<p>Prima del caricamento in Azure ML Studio, il set di dati è stato elaborato come segue:<ul><li>Estrazione del contenuto di testo per ogni specifica società</li><li>Rimozione della formattazione wiki</li><li>Rimozione dei caratteri non alfanumerici</li><li>Conversione di tutto il testo in minuscolo</li><li>Aggiunta delle categorie di società note</li></ul><p>Tenere presente che per alcune società non sono stati trovati articoli, dunque il numero dei record è inferiore a 500.
+
+<!--HONumber=35_1-->

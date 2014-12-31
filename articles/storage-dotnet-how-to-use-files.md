@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="File Service" pageTitle="Come usare l'archiviazione file di Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="File Service" pageTitle="Come usare l'archiviazione file di Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
 # Come usare l'archiviazione file di Azure
 
@@ -13,16 +13,16 @@ Agli utenti che vogliono accedere ai file in una condivisione da un'applicazione
 
 ##Sommario
 
--   [Che cos'è l'archiviazione file?][Che cos'è l'archiviazione file?]
--   [Concetti relativi all'archiviazione file][Concetti relativi all'archiviazione file]
--   [Creare un account di archiviazione di Azure][Creare un account di archiviazione di Azure]
--   [Usare PowerShell per creare una condivisione file][Usare PowerShell per creare una condivisione file]
--	[Montare la condivisione da una macchina virtuale di Azure][Montare la condivisione da una macchina virtuale di Azure]
--   [Creare un'applicazione locale per accedere all'archiviazione file][Creare un'applicazione locale per accedere all'archiviazione file]
--   [Passaggi successivi][Passaggi successivi]
+-   [Che cos'è l'archiviazione file?][]
+-   [Concetti relativi all'archiviazione file][]
+-   [Creare un account di archiviazione di Azure][]
+-   [Usare PowerShell per creare una condivisione file][]
+-	[Montare la condivisione da una macchina virtuale di Azure][]
+-   [Creare un'applicazione locale per accedere all'archiviazione file][]
+-   [Passaggi successivi][]
 
 
-##<a name="what-is-file-storage"></a><span class="short-header">Che cos'è l'archiviazione file di Azure?</span>Che cos'è l'archiviazione file di Azure?
+##<a name="what-is-file-storage"></a>Che cos'è l'archiviazione file di Azure?
 
 L'archiviazione file offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB 2.1 standard. Le macchine virtuali e i servizi cloud di Microsoft Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API dell'archiviazione file.
 
@@ -37,47 +37,39 @@ Di seguito sono riportati gli usi più comuni per il servizio di archiviazione f
 - Archiviazione di dati di diagnostica, ad esempio log, metriche e dump di arresto anomalo del sistema, in un percorso condiviso 
 - Archiviazione di strumenti e utilità necessari per lo sviluppo o la gestione di macchine virtuali o servizi cloud di Azure
 
-##<a name="file-storage-concepts"></a><span class="short-header">Concetti relativi all'archiviazione file</span>Concetti relativi all'archiviazione file
+##<a name="file-storage-concepts"></a>Concetti relativi all'archiviazione file
 
 L'archiviazione file contiene i seguenti componenti:
 
 ![files-concepts][files-concepts]
 
 
--   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente
-    con un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/dn249410.aspx).
+-   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/dn249410.aspx).
 
--   **Condivisione:** Una condivisione di archiviazione file è una condivisione file SMB 2.1 di Azure. 
-    Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un
-    numero illimitato di condivisioni e in una condivisione è possibile archiviare un numero illimitato
-    di file, fino al raggiungimento dei limiti di capacità dell'account di archiviazione.
+-   **Condivisione:** una condivisione di archiviazione file è una condivisione file SMB 2.1 di Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
 
--   **Directory:** una gerarchia di directory facoltativa. 
+-   **Directory:** una gerarchia di directory facoltativa.
 
 -	**File:** un file nella condivisione. Le dimensioni massime di un file possono estendersi fino a 1 TB.
 
--   **Formato dell'URL:** è possibile fare riferimento ai file usando il formato di URL
-    seguente:   
-    https://`<storage
-    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
+-   **Formato URL:** i file sono indirizzabili con il seguente formato di URL: https://`<account di archiviazione>`.file.core.windows.net/`<condivisione>`/`<directory/directory>`/`<file>`  
     
-    L'URL di esempio seguente può essere usato per indirizzare uno dei file nel
-    diagramma precedente:  
+    L'URL di esempio seguente può essere usato per indirizzare uno dei file nel diagramma precedente:  
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 
 
 Per dettagli su come denominare condivisioni, directory e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](http://msdn.microsoft.com/it-it/library/azure/dn167011.aspx).
 
-##<a name="create-account"></a><span class="short-header">Creare un account di archiviazione di Azure</span>Creare un account di archiviazione di Azure
+##<a name="create-account"></a>Creare un account di archiviazione di Azure
 
-L'archiviazione file di Azure è attualmente in anteprima. Per richiedere l'accesso all'anteprima, andare alla [pagina di anteprima di Microsoft Azure](/it-it/services/preview/) e richiedere l'accesso ai **file di Azure**. Dopo l'approvazione della richiesta viene inviato un avviso che indica che è possibile accedere all'anteprima dell'archiviazione file. È quindi possibile creare un account di archiviazione per l'accesso all'archiviazione file.
+L'archiviazione file di Azure è attualmente in anteprima. Per richiedere l'accesso all'anteprima, andare alla [pagina di anteprima di Microsoft Azure](/it-it/services/preview/)e richiedere l'accesso ai **file di Azure**. Dopo l'approvazione della richiesta viene inviato un avviso che indica che è possibile accedere all'anteprima dell'archiviazione file. È quindi possibile creare un account di archiviazione per l'accesso all'archiviazione file.
 
 > [WACOM.NOTE] L'archiviazione file è attualmente disponibile solo per i nuovi account di archiviazione. Dopo aver ottenuto l'accesso all'archiviazione file per la sottoscrizione, creare un nuovo account di archiviazione da usare con questa guida.
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-##<a name="use-cmdlets"></a><span class="short-header">Usare PowerShell per creare una condivisione file</span>Usare PowerShell per creare una condivisione file
+##<a name="use-cmdlets"></a>Usare PowerShell per creare una condivisione file
 
 ###Installare i cmdlet di PowerShell per l'archiviazione di Azure
 
@@ -96,7 +88,7 @@ A questo punto, creare il contesto dell'account di archiviazione. Il contesto in
     
 ###Creare una nuova condivisione file
 
-Creare quindi la nuova condivisione, denominata `sampleshare` in questo esempio:
+Creare quindi la nuova condivisione, denominata `sampleshare`:
 
     # create a new share
     $s = New-AzureStorageShare sampleshare -Context $ctx
@@ -124,11 +116,11 @@ Per visualizzare un file nella directory, è possibile elencare i file della dir
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path sampledir
 
-##<a name="mount-share"></a><span class="short-header">Montare la condivisione da una macchina virtuale di Azure</span>Montare la condivisione da una macchina virtuale di Azure
+##<a name="mount-share"></a>Montare la condivisione da una macchina virtuale di Azure
 
 Per mostrare come montare una condivisione file di Azure viene creata una macchina virtuale di Azure e viene eseguito l'accesso remoto per montare la condivisione. 
 
-1. Prima di tutto creare una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale che esegue Windows Server](/it-it/documentation/articles/virtual-machines-windows-tutorial/).
+1. Prima di tutto creare una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale che esegue Windows Server](/it-it/documentation/articles/virtual-machines-windows-tutorial/)
 2. Quindi, accedere in remoto alla macchina virtuale seguendo le istruzioni in [Come accedere a una macchina virtuale che esegue Windows Server](/it-it/documentation/articles/virtual-machines-log-on-windows-server/).
 3. Aprire una finestra di PowerShell nella macchina virtuale. 
 
@@ -138,11 +130,11 @@ Prima di eseguire il montaggio nella condivisione file, mantenere le credenziali
 
 	cmdkey /add:<storage-account>.file.core.windows.net /user:<storage-account> /pass:<account-key>
 
-Windows esegue la riconnessione alla condivisione file quando la macchina virtuale viene riavviata. È possibile verificare che la condivisione sia stata riconnessa eseguendo il comando `net use` da una finestra di PowerShell.
+Windows esegue la riconnessione alla condivisione file quando la macchina virtuale viene riavviata. È possibile verificare che la condivisione sia stata riconnessa eseguendo il comando`net use` da una finestra di PowerShell.
 
 ###Montare la condivisione file usando le credenziali mantenute
 
-Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile eseguire il comando `net use` per montare la condivisione file usando la seguente sintassi. Sostituire `<storage-account>` con il nome dell'account di archiviazione e `<share-name>` con il nome della condivisione di archiviazione file.
+Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile eseguire il comando `net use` per montare la condivisione file usando la seguente sintassi. Sostituire `<storage-account>` con il nome dell'account di archiviazione e `<share-name>` con il nome della condivisione di archiviazione file:
 
 	net use z: \\<storage-account>.file.core.windows.net\<share-name>
 
@@ -150,11 +142,11 @@ Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile 
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/it-it/library/gg145019(v=vs.110).aspx) in .NET Framework. 
+A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/it-it/library/gg145019(v=vs.110).aspx in .NET Framework. 
 
 La condivisione file può essere montata anche da un ruolo in esecuzione in un servizio cloud di Azure eseguendo l'accesso remoto al ruolo.
 
-##<a name="create-console-app"></a><span class="short-header">Creare un'applicazione locale per l'uso dell'archiviazione file</span>Creare un'applicazione locale per l'uso dell'archiviazione file
+##<a name="create-console-app"></a>Creare un'applicazione locale per usare l'archiviazione file
 
 È possibile montare una condivisione di archiviazione file da una macchina virtuale o da un servizio cloud in esecuzione in Azure, come mostrato precedentemente. Tuttavia, non è possibile montare una condivisione di archiviazione file da un'applicazione locale. Per accedere ai file della condivisione da un'applicazione locale è necessario usare l'API di archiviazione file. Questo esempio dimostra come usare una condivisione file mediante la [libreria client di archiviazione .NET di Azure](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
 
@@ -193,14 +185,14 @@ Aprire il file program.cs da Esplora soluzioni e aggiungere le seguenti dichiara
 	using Microsoft.WindowsAzure.Storage.File;
 
 ###Recuperare la stringa di connessione a livello di codice
-È possibile recuperare le credenziali salvate nel file app.config usando la classe `Microsoft.WindowsAzure.CloudConfigurationManager` oppure la classe `System.Configuration.ConfigurationManager `. Nell'esempio seguente viene illustrato come recuperare le credenziali usando la classe `CloudConfigurationManager` e incapsularle con la classe `CloudStorageAccount`. Aggiungere il codice seguente al metodo `Main()` in program.cs:
+È possibile recuperare le credenziali salvate dal file app.config usando la classe `Microsoft.WindowsAzure.CloudConfigurationManager` o `System.Configuration.ConfigurationManager`. Nell'esempio seguente viene illustrato come recuperare le credenziali usando la classe `CloudConfigurationManager` e incapsularle con la classe `CloudStorageAccount`. Aggiungere il codice seguente al metodo `Main()` in program.cs:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ###Accedere alla condivisione di archiviazione file a livello di codice
 
-A questo punto aggiungere il seguente codice nel metodo `Main()`, dopo il codice mostrato in precedenza, per recuperare la stringa di connessione. Questo codice ottiene un riferimento al file creato in precedenza e genera i contenuti nella finestra della console.
+A questo punto aggiungere il seguente codice nel metodo `Main()` dopo il codice mostrato in precedenza, per recuperare la stringa di connessione. Questo codice ottiene un riferimento al file creato in precedenza e genera i contenuti nella finestra della console.
 
 	//Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
@@ -234,9 +226,9 @@ A questo punto aggiungere il seguente codice nel metodo `Main()`, dopo il codice
 
 Eseguire l'applicazione console per visualizzare l'output.
 
-## <a name="next-steps"></a><span  class="short-header">Passaggi successivi</span>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di file, usare i collegamenti seguenti
+A questo punto, dopo aver appreso le nozioni di base dell'archiviazione file, seguire questi collegamenti
 per informazioni più dettagliate.
 <ul>
 <li>Visualizzare la documentazione di riferimento del servizio file per informazioni complete sulle API disponibili:
@@ -254,10 +246,10 @@ per informazioni più dettagliate.
   </ul>
 </li><li>Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
   <ul>
-    <li>Per archiviare dati non strutturati, usare l'<a href="/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/">archiviazione BLOB</a>.</li>
+    <li>Per archiviare dati non strutturati, usare <a href="/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/">Archiviazione BLOB</a>.</li>
     <li>Per archiviare dati strutturati, usare <a href="/it-it/documentation/articles/storage-dotnet-how-to-use-tables/">Archiviazione tabelle</a>.</li>
     <li>Usare <a href="/it-it/documentation/articles/storage-dotnet-how-to-use-queues/">Archiviazione di accodamento</a> per archiviare i messaggi in modo affidabile.</li>
-    <li>Per archiviare dati relazionali, usare il <a href="/it-it/documentation/articles/sql-database-dotnet-how-to-use/">database SQL</a>.</li>
+    <li>Per archiviare dati relazionali, usare <a href="/it-it/documentation/articles/sql-database-dotnet-how-to-use/">Database SQL</a>.</li>
   </ul>
 </li>
 </ul>
@@ -272,3 +264,5 @@ per informazioni più dettagliate.
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
+
+<!--HONumber=35_1-->

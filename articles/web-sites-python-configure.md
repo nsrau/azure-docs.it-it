@@ -1,22 +1,22 @@
 ﻿<properties urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configurazione di Python con Siti Web di Azure" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="08/01/2014" ms.author="huvalo" />
 
 
 
 
 # Configurazione di Python con Siti Web di Azure #
 
-In questa esercitazione verranno descritte le opzioni per la creazione e la configurazione di un'applicazione Python di base conforme con l'interfaccia WSGI (Web Server Gateway Interface) in Siti Web di Azure. Iniziare a usare Siti Web di Azure è facile e sarà possibile scalare ed estendere l'applicazione Python ad altri servizi di Azure. La piattaforma Siti Web di Azure include Python (2.7.3 o 3.4.0, in base alla scelta dell'utente) e il gestore wfastcgi.py FastCGI generico per Python. È sufficiente configurare il proprio sito Web in modo da usare il gestore Python. 
+Questa esercitazione descrive le opzioni per la creazione e la configurazione di un'applicazione Python di base conforme con l'interfaccia WSGI (Web Server Gateway Interface) in Siti Web di Azure. Iniziare a usare Siti Web di Azure è facile e sarà possibile scalare ed estendere l'applicazione Python ad altri servizi di Azure. La piattaforma Siti Web di Azure include Python (2.7.3 o 3.4.0, in base alla scelta dell'utente) e il gestore wfastcgi.py FastCGI generico per Python. È sufficiente configurare il proprio sito Web in modo da usare il gestore Python. 
 
-> [WACOM.NOTE] Per selezionare la versione di Python da usare nel portale di Siti Web di Azure aprire la scheda Configura del sito Web e modificare l'impostazione **Versione Python**.
+> [WACOM.NOTE] Per selezionare la versione di Python da usare nel portale di Siti Web di Azure, aprire la scheda Configura del sito Web e modificare l'impostazione **Versione Python**.
 
 Per un esempio più complesso di configurazione del framework Django in Siti Web di Azure, vedere l'esercitazione seguente: 
 [http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django](http://www.windowsazure.com/it-it/develop/python/tutorials/web-sites-with-django).  
 
 ## Supporto WSGI
 
-WSGI è uno standard Python descritto da [PEP 3333](http://www.python.org/dev/peps/pep-3333/) che definisce un'interfaccia tra il server Web e Python e che consente di scrivere varie applicazioni e framework Web tramite Python.  Oggi i più comuni framework Web Python usano l'interfaccia WSGI.  Siti Web di Azure offre assistenza per qualsiasi framework; inoltre, gli utenti esperti possono persino creare il proprio framework a condizione che il gestore personalizzato si attenga alle linee guida delle specifiche WSGI.
+WSGI è uno standard Python descritto da [PEP 3333](http://www.python.org/dev/peps/pep-3333/) che definisce un'interfaccia tra il server Web e Python e che consente di scrivere varie applicazioni e framework Web tramite Python.  Oggi i più comuni framework Web Python usano l'interfaccia WSGI.  Siti Web di Azure offre supporto per qualsiasi framework. Inoltre, gli utenti esperti possono anche creare il proprio framework a condizione che il gestore personalizzato rispetti le linee guida delle specifiche WSGI.
 
 ## Creazione di un sito Web
 
@@ -28,7 +28,7 @@ In breve, se non si dispone di un sito Web esistente è possibile crearne uno da
 
 ## Pubblicazione Git
 
-Usare le schede AVVIO RAPIDO o DASHBOARD per il sito Web appena creato per configurare la pubblicazione Git.  In questa esercitazione viene USATO Git per creare, gestire e pubblicare il sito Web Python su Siti Web di Azure. 
+Usare la scheda AVVIO RAPIDO o DASHBOARD per il sito Web appena creato per configurare la pubblicazione Git.  In questa esercitazione viene USATO Git per creare, gestire e pubblicare il sito Web Python su Siti Web di Azure. 
 
 ![](./media/web-sites-python-configure/configure-python-git.png)
 
@@ -36,7 +36,7 @@ Dopo aver configurato la pubblicazione Git, verrà un repository Git verrà crea
 
 ## Contenuto del sito Web
 
-Come esempio verrà usata un'applicazione Python di base con un gestore WSGI di base che illustra la quantità minima di attività necessaria per sfruttare l'assistenza Python su Siti Web di Azure.  L'applicazione Python scheletro potrà quindi essere usata per avviare la creazione di una serie di soluzioni la cui complessità varia dall'esempio sotto riportato fino a un framework Web completo.  
+Come esempio verrà usata un'applicazione Python di base con un gestore WSGI di base che illustra la quantità minima di attività necessaria per sfruttare il supporto per Python in Siti Web di Azure.  L'applicazione Python scheletro potrà quindi essere usata per avviare la creazione di una serie di soluzioni la cui complessità varia dall'esempio sotto riportato fino a un framework Web completo.  
 
 Di seguito è riportato il codice per il gestore WSGI di base, simile a quello suggerito dalla specifica [PEP 3333](http://www.python.org/dev/peps/pep-3333/) come punto di partenza per un'applicazione conforme con WSGI. Il contenuto è stato salvato in un file denominato ConfigurePython.py e creato in una cartella ConfigurePython nella directory principale del sito Web:
 
@@ -46,10 +46,10 @@ Di seguito è riportato il codice per il gestore WSGI di base, simile a quello s
 	    start_response(status, response_headers)
 	    yield 'Hello from Azure Websites\n'
 
-Per *application* si intende un'applicazione Python chiamabile che fungerà da punto di ingresso chiamato da un server conforme con WSGI. Questo oggetto chiamabile accetta due argomenti posizionali: 
+Per *application* si intende un'applicazione Python chiamabile, che fungerà da punto di ingresso chiamato da un server conforme a WSGI. Questo oggetto chiamabile accetta due argomenti posizionali: 
 
 * *environ*: un dizionario con molte variabili di ambiente
-* *start_response*: un oggetto chiamabile fornito dal server Web per il trasferimento dell'intestazione dello stato e di risposta HTTP
+* *start_response*: un oggetto chiamabile fornito dal server Web per il trasferimento dell'intestazione di risposta e dello stato HTTP
 
 Questo gestore restituirà il testo normale "Hello from Azure Websites" per ogni richiesta effettuata.
 
@@ -59,15 +59,15 @@ Per la configurazione dell'applicazione Python con Siti Web di Azure sono dispon
 
 <h3 id="option1">Opzione 1: Portale</h3>
 
-1,1. Registrare il gestore FastCGI tramite la scheda CONFIGURE nel portale.
-Per questo esempio si userà il gestore FastCGI per Python incluso con Siti Web di Azure. A tale scopo, usare i percorsi seguenti per l'elaboratore di script e l'argomento gestore FastCGI:
+1,1. Registrare il gestore FastCGI tramite la scheda CONFIGURA nel portale.
+Per questo esempio si userà il gestore FastCGI per Python incluso in Siti Web di Azure. A tale scopo, usare i percorsi seguenti per l'elaboratore di script e l'argomento gestore FastCGI:
 
 * Percorso dell'elaboratore di script Python: D:\python27\python.exe
 * Percorso gestore FastCGI Python: D:\python27\scripts\wfastcgi.py
 
 ![](./media/web-sites-python-configure/configure-python-handler-mapping.png)
 
-1,2. Configurare le impostazioni applicazione nella stessa scheda CONFIGURE del portale.
+1,2. Configurare le impostazioni dell'app tramite la stessa scheda CONFIGURA del portale.
 Le impostazioni applicazione verranno convertite in variabili di ambiente. Questo meccanismo può essere usato per i valori di configurazione richiesti dall'applicazione Python. Per quest'applicazione di esempio di base sono stati configurati i seguenti dati:
 
 * PYTHONPATH informa Python della directory in cui eseguire la ricerca di moduli. Siti Web di Azure fornisce il percorso D:\home\site\wwwroot come zucchero sintattico che punta alla directory principale del sito Web. 
@@ -76,19 +76,19 @@ Le impostazioni applicazione verranno convertite in variabili di ambiente. Quest
 ![](./media/web-sites-python-configure/configure-python-app-settings.png)
 
 <h3 id="option2">Opzione 2: web.config</h3>
-La configurazione alternativa consiste nell'usare un file web.config file nella directory principale del sito Web per le azioni descritte di seguito. L'utilizzo dell'opzione web.config offre un miglior potenziale di portabilità per un'applicazione Web. Sono disponibili due approcci alle richieste di route all'applicazione Web: impostare un gestore che gestisca il percorso *, in modo da fornire a IIS l'istruzione di indirizzare ogni richiesta in arrivo attraverso Python, oppure impostare un percorso specifico che verrà gestito da Python e successivamente adoperare la riscrittura URL al fine di reindirizzare vari URL al percorso selezionato.  In effetti, per ottenere prestazioni migliori è consigliabile adottare il secondo approccio, ossia usare un file gestore vuoto nella directory principale del sito Web affinché funga da destinazione della richiesta (handler.fcgi nell'esempio fornito). Nello scenario precedente, tutte le richieste, incluse quelle di contenuti statici (ad esempio, file immagine e fogli di stile) dovranno passare attraverso Python, minando le ottimizzazioni fornite dal server Web per accedere ai file statici.  L'adozione del secondo approccio consente di gestire contenuti statici in maniera efficiente e di richiamare Python solo quando è necessario.
+La configurazione alternativa consiste nell'usare un file web.config file nella directory principale del sito Web per le azioni descritte di seguito. L'uso dell'opzione web.config offre un miglior potenziale di portabilità per un'applicazione Web. Sono disponibili due approcci per instradare le richieste all'applicazione Web: impostare un gestore che gestisca il percorso *, in modo da indicare a IIS di instradare ogni richiesta in arrivo attraverso Python, oppure impostare un percorso specifico che verrà gestito da Python e successivamente adoperare la riscrittura URL al fine di reindirizzare vari URL al percorso selezionato.  In effetti, per ottenere prestazioni migliori è consigliabile adottare il secondo approccio, ossia usare un file gestore vuoto nella directory principale del sito Web affinché funga da destinazione della richiesta (handler.fcgi nell'esempio fornito). Nello scenario precedente, tutte le richieste, incluse quelle di contenuti statici (ad esempio, file immagine e fogli di stile) dovranno passare attraverso Python, minando le ottimizzazioni fornite dal server Web per accedere ai file statici.  L'adozione del secondo approccio consente di gestire contenuti statici in maniera efficiente e di richiamare Python solo quando è necessario.
 
-2,1. Specificare la variabile PYTHONPATH. 
+2.1. Specificare la variabile PYTHONPATH. 
 > In tal modo, Python verrà informato sul percorso in cui cercare il codice dell'applicazione. In questa esercitazione il percorso D:\home\site\wwwroot viene usato anche come percorso assoluto al sito Web.
 
-2,2. Impostare la variabile WSGI\_HANDLER.
-> Siti Web di Azure usa questo valore per fornire a Python l'istruzione di chiamare il gestore WSGI.  Il valore di questa variabile è un'espressione Python che dovrebbe, alla sua esecuzione, restituire un oggetto chiamabile che rappresenti un gestore WSGI. 
+2.2. Impostare la variabile WSGI\_HANDLER.
+> Siti Web di Azure usa questo valore per indicare a Python di chiamare il gestore WSGI.  Il valore di questa variabile è un'espressione Python che dovrebbe, alla sua esecuzione, restituire un oggetto chiamabile che rappresenta un gestore WSGI. 
 
-2,3. Aggiungere un gestore per Python.
+2.3. Aggiungere un gestore per Python.
 > In tal modo, Siti Web di Azure saprà che Python deve gestire le richieste inviate al percorso handler.fcgi. È importante che la sintassi del gestore sia esattamente identica al contenuto del tag &lt;handlers&gt; nell'esempio seguente, a meno che non si fornisca il proprio gestore FastCGI o stack di sviluppo Python.
 
-2,4. Riscrivere gli URL come handler.fcgi.
-> Richiedere sempre handler.fcgi potrebbe non essere la scelta ottimale. Per selezionare il percorso dei file da assegnare al gestore Python è stata usata la Riscrittura URL, pertanto tutti gli URL vengono presi in carico dal gestore Python.
+2.4. Riscrivere gli URL come handler.fcgi.
+> Richiedere sempre handler.fcgi potrebbe non essere la scelta ottimale. Per selezionare il percorso dei file da assegnare al gestore Python è stata usata la riscrittura URL, pertanto tutti gli URL vengono presi in carico dal gestore Python.
 
 	<configuration>
   		<appSettings>
@@ -129,3 +129,5 @@ Passare al sito Web per testare la configurazione corretta. Per questo esempio, 
 
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
+
+<!--HONumber=35_1-->

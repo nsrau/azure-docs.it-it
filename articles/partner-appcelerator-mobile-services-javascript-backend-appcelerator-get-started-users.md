@@ -1,12 +1,12 @@
-﻿<properties pageTitle="Introduzione all'autenticazione (Appcelerator) | Mobile Developer Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione all'autenticazione (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # Introduzione all'autenticazione in Servizi mobili
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Microsoft Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+Questo argomento descrive come autenticare gli utenti in Servizi mobili di Microsoft Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
@@ -97,3 +97,5 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+
+<!--HONumber=35_1-->

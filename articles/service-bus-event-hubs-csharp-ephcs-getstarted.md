@@ -6,7 +6,7 @@
 
 [WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'Hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
+Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di elaborare milioni di eventi al secondo, che permette all'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'Hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione. Per altre informazioni sugli hub eventi, vedere [Guida per gli sviluppatori di Hub eventi di Azure]. 
 
 Per altre informazioni, vedere [Panoramica di Hub eventi].
 
@@ -16,17 +16,17 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio Express 2013 per Windows
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ## Creare un hub eventi
 
-1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al portale di gestione di [Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
-2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, **Hub eventi**, quindi **Creazione rapida**.
+2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub eventi** e infine **Creazione rapida**.
 
    	![][1]
 
-3. Digitare un nome per l'hub eventi selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
+3. Digitare un nome per l'hub eventi, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
 
    	![][2]
 
@@ -61,7 +61,7 @@ A questo punto è possibile eseguire le applicazioni.
 
    	![][21]
 
-2.	Eseguire il progetto **Sender**, premere **INVIO** nella finestra della console. Gli eventi verranno visualizzati nella finestra del ricevitore.
+2.	Eseguire il progetto **Sender** e premere **INVIO** nella finestra della console. Gli eventi verranno visualizzati nella finestra del ricevitore.
 
    	![][22]
 
@@ -80,3 +80,5 @@ A questo punto è possibile eseguire le applicazioni.
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn836025.aspx
+
+<!--HONumber=35_1-->

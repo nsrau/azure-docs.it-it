@@ -1,467 +1,413 @@
-<properties urlDisplayName="Media Services" pageTitle="Come usare Servizi multimediali (Java) - Guida alle funzionalit&agrave; di Azure" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Descrive come usare Servizi multimediali di Azure per eseguire attivit&agrave; comuni, tra cui codifica, crittografia e streaming delle risorse." metaCanonical="" services="media-services" documentationCenter="Java" title="Come usare Servizi multimediali" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Media Services" pageTitle="Come usare Servizi multimediali (Java) - Guida alle funzionalità di Azure" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm" />
 
-# Come usare Servizi multimediali
+#Come usare Servizi multimediali
 
-In questa guida viene illustrato come iniziare a programmare con Servizi multimediali di Azure in Java. Questa guida include una panoramica tecnica di Servizi multimediali, le procedure per la configurazione dell'account Azure per Servizi multimediali ed esempi di codice che illustrano come eseguire attività di programmazione comuni.
+In questa guida viene illustrato come iniziare a programmare con Servizi multimediali di Azure in Java. Questa guida include una panoramica tecnica di Servizi multimediali, le procedure per la configurazione dell'account Azure per Servizi multimediali ed esempi di codice che illustrano come eseguire attività di programmazione comuni. 
 
 ## Sommario
 
--   [Informazioni su Servizi multimediali][Informazioni su Servizi multimediali]
--   [Configurare un account Azure per Servizi multimediali][Configurare un account Azure per Servizi multimediali]
--   [Configurazioni per lo sviluppo con Servizi multimediali][Configurazioni per lo sviluppo con Servizi multimediali]
--   [Procedura: Usare Servizi multimediali con Java][Procedura: Usare Servizi multimediali con Java]
--   [Risorse aggiuntive][Risorse aggiuntive]
+-   [Informazioni su Servizi multimediali](#media_services)
+-   [Configurare un account Azure per Servizi multimediali](#setup-account)
+-   [Configurazioni per lo sviluppo con Servizi multimediali](#setup-dev)
+-   [Procedura: Usare Servizi multimediali con Java](#connect)
+-   [Risorse aggiuntive](#additional-resources)
 
-## <a name="what-are"></a><span class="short header">Informazioni su Servizi multimediali</span>Informazioni su Servizi multimediali
+ 
+##<a id="media_services"></a>Informazioni su Servizi multimediali
 
 Servizi multimediali di Azure costituisce una piattaforma multimediale estensibile che integra il meglio di Microsoft Media Platform e componenti multimediali di terze parti in Azure. Servizi multimediali offre una pipeline multimediale nel cloud che consente ai partner di settore di estendere o sostituire tecnologie di componenti. Fornitori di software indipendenti e provider di contenuti multimediali possono usare Servizi multimediali per creare soluzioni multimediali end-to-end. In questa panoramica vengono descritti gli scenari di sviluppo comuni e l'architettura generale per Servizi multimediali.
 
 Nel diagramma riportato di seguito viene illustrata l'architettura di Servizi multimediali di base.
 
-![Architettura di Servizi multimediali][Architettura di Servizi multimediali]
+![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
 
-### Supporto delle funzionalità di Servizi multimediali
+###Supporto delle funzionalità di Servizi multimediali
+Nella versione corrente di Servizi multimediali viene fornito il set di funzionalità seguenti per lo sviluppo di applicazioni multimediali nel cloud. 
 
-Nella versione corrente di Servizi multimediali viene fornito il set di funzionalità seguenti per lo sviluppo di applicazioni multimediali nel cloud.
+- **Inserimento**. Le operazioni di inserimento consentono di inserire gli asset nel sistema, ad esempio caricandoli e crittografandoli prima che vengano collocati nel servizio di archiviazione di Azure. Servizi multimediali offre l'integrazione con componenti partner per fornire soluzioni di caricamento rapide tramite protocollo UDP (User Diagram Protocol).
+- **Codifica**. Le operazioni di codifica consentono di codificare, trasformare e convertire asset multimediali. È possibile eseguire le attività di codifica nel cloud tramite il codificatore multimediale incluso in Servizi multimediali. Di seguito sono riportate le opzioni di codifica disponibili:
+   - Uso di Azure Media Encoder e di un'ampia gamma di codec e formati standard, inclusi quelli principali, come ad esempio IIS Smooth Streaming, MP4 e conversione in Apple HTTP Live Streaming.
+   - Conversione di intere librerie o singoli file con controllo completo su input e output.
+   - Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali][]).
+   - Conversioni tra formati supportati. Servizi multimediali consente di convertire file MP4 ISO (con estensione mp4) al formato di file Smooth Streaming (PIFF 1.3) ( con estensione ismv o isma). Consente inoltre di convertire il formato di file Smooth Streaming (PIFF) al formato Apple HTTP Live Streaming (con estensione msu8 o ts).
+- **Protezione**. Per proteggere il contenuto è necessario crittografare il contenuto Live Streaming o su richiesta per il trasporto, l'archiviazione e la distribuzione sicuri. Servizi multimediali fornisce una soluzione DRM indipendente dalla tecnologia per la protezione del contenuto.  Le tecnologie DRM attualmente supportate sono Microsoft PlayReady e MPEG Common Encryption. A breve sarà disponibile il supporto per altre tecnologie DRM. 
+- **Streaming**. Durante lo streaming il contenuto viene distribuito in diretta o su richiesta ai client oppure è possibile recuperare o scaricare file multimediali specifici dal cloud. Servizi multimediali fornisce una soluzione indipendente dal formato per i contenuti in streaming.  Servizi multimediali offre il supporto dell'origine di streaming per i formati Smooth Streaming, Apple HTTP Live Streaming ed MP4. A breve sarà disponibile il supporto per altri formati. È anche possibile distribuire contenuti in streaming mediante una rete CDN di Azure o una rete CDN di terze parti che offre la scalabilità per la distribuzione a milioni di utenti.   
 
--   **Inserimento**. Le operazioni di inserimento consentono di inserire gli asset nel sistema, ad esempio caricandoli e crittografandoli prima che vengano collocati nel servizio di archiviazione di Azure. Servizi multimediali offre l'integrazione con componenti partner per fornire soluzioni di caricamento rapide tramite protocollo UDP (User Diagram Protocol).
--   **Codifica**. Le operazioni di codifica consentono di codificare, trasformare e convertire asset multimediali. È possibile eseguire le attività di codifica nel cloud tramite il codificatore multimediale incluso in Servizi multimediali. Di seguito sono riportate le opzioni di codifica disponibili:
--   Uso di Azure Media Encoder e di un'ampia gamma di codec e formati standard, inclusi quelli principali, come ad esempio IIS Smooth Streaming, MP4 e conversione in Apple HTTP Live Streaming.
--   Conversione di intere librerie o singoli file con controllo completo su input e output.
--   Ampio set di tipi di file, formati e codec supportati (vedere [Tipi di file supportati per Servizi multimediali][Tipi di file supportati per Servizi multimediali]).
--   Conversioni tra formati supportati. Servizi multimediali consente di convertire file MP4 ISO (con estensione mp4) al formato di file Smooth Streaming (PIFF 1.3) ( con estensione ismv o isma). Consente inoltre di convertire il formato di file Smooth Streaming (PIFF) al formato Apple HTTP Live Streaming (con estensione msu8 o ts).
--   **Protezione**. Per proteggere il contenuto è necessario crittografare il contenuto Live Streaming o su richiesta per il trasporto, l'archiviazione e la distribuzione sicuri. Servizi multimediali fornisce una soluzione DRM indipendente dalla tecnologia per la protezione del contenuto. Le tecnologie DRM attualmente supportate sono Microsoft PlayReady e MPEG Common Encryption. A breve sarà disponibile il supporto per altre tecnologie DRM.
--   **Streaming**. Durante lo streaming il contenuto viene distribuito in diretta o su richiesta ai client oppure è possibile recuperare o scaricare file multimediali specifici dal cloud. Servizi multimediali fornisce una soluzione indipendente dal formato per i contenuti in streaming. Servizi multimediali offre il supporto dell'origine di streaming per i formati Smooth Streaming, Apple HTTP Live Streaming ed MP4. A breve sarà disponibile il supporto per altri formati. È inoltre possibile distribuire contenuti in streaming mediante una rete CDN di Azure o una rete CDN di terze parti che offre la scalabilità per la distribuzione a milioni di utenti.
-
-### Scenari di sviluppo di Servizi multimediali
-
-Servizi multimediali supporta numerosi scenari di sviluppo di contenuti multimediali comuni, come illustrato nella tabella seguente.
-
+###Scenari di sviluppo di Servizi multimediali
+Servizi multimediali supporta numerosi scenari di sviluppo di contenuti multimediali comuni, come illustrato nella tabella seguente. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-
-<thead>
-
-<tr>
-
-<th>
-Scenario
-
-</th>
-
-<th>
-Descrizione
-
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-Creazione di flussi di lavoro end-to-end
-
-</td>
-
-<td>
-Creare flussi di lavoro multimediali completi interamente nel cloud. Dal caricamento dei file multimediali alla distribuzione del contenuto, Servizi multimediali offre un'ampia gamma di componenti che possono essere combinati per gestire flussi di lavoro dell'applicazione specifici. Le funzionalità correnti includono caricamento, archiviazione, codifica, conversione di formati, protezione del contenuto e distribuzione di contenuti in streaming su richiesta.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-Creazione di flussi di lavoro ibridi
-
-</td>
-
-<td>
-È possibile integrare Servizi multimediali con strumenti e processi esistenti. Ad esempio, codificare il contenuto in sede e quindi caricarlo in Servizi multimediali per la transcodifica in più formati e la distribuzione tramite la rete CDN di Azure o una rete CDN di terze parti. È possibile chiamare Servizi multimediali individualmente tramite le API REST standard per l'integrazione con applicazioni e servizi esterni.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-Supporto cloud per lettori multimediali
-
-</td>
-
-<td>
-È possibile creare, gestire e distribuire contenuti multimediali su più dispositivi (iOS, Android e Windows) e piattaforme.
-
-</td>
-
-</tr>
-
-</tbody>
-
+  <thead>
+    <tr>
+       <th>Scenario</th>
+       <th>Descrizione</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>Creazione di flussi di lavoro end-to-end</td>
+        <td>Creare flussi di lavoro multimediali completi interamente nel cloud. Dal caricamento dei file multimediali alla distribuzione del contenuto, Servizi multimediali offre un'ampia gamma di componenti che possono essere combinati per gestire flussi di lavoro dell'applicazione specifici. Le funzionalità correnti includono caricamento, archiviazione, codifica, conversione di formati, protezione del contenuto e distribuzione di contenuti in streaming su richiesta.</td>
+    </tr>
+    <tr>
+        <td>Creazione di flussi di lavoro ibridi</td>
+        <td>È possibile integrare Servizi multimediali con strumenti e processi esistenti. Ad esempio, codificare il contenuto in sede e quindi caricarlo in Servizi multimediali per la transcodifica in più formati e la distribuzione tramite la rete CDN di Azure o una rete CDN di terze parti. È possibile chiamare Servizi multimediali individualmente tramite le API REST standard per l'integrazione con applicazioni e servizi esterni.</td>
+    </tr>
+    <tr>
+        <td>Supporto cloud per lettori multimediali</td>
+        <td>È possibile creare, gestire e distribuire contenuti multimediali su più dispositivi (iOS, Android e Windows) e piattaforme.</td>
+    </tr>
+  </tbody>
 </table>
-</p>
-### Sviluppo client di Servizi multimediali
 
-È possibile estendere la copertura della soluzione Servizi multimediali usando SDK e Player framework per creare applicazioni client multimediali. Questi client sono concepiti per gli sviluppatori che vogliono creare applicazioni Servizi multimediali che offrono un'esperienza utente accattivante su un'ampia gamma di dispositivi e piattaforme. A seconda dei dispositivi per i quali si intende compilare applicazioni client, sono disponibili varie opzioni di SDK e Player Framework di Microsoft e altri partner di terze parti.
+###Sviluppo client di Servizi multimediali
+È possibile estendere la copertura della soluzione Servizi multimediali usando SDK e Player framework per creare applicazioni client multimediali. Questi client sono concepiti per gli sviluppatori che vogliono creare applicazioni Servizi multimediali che offrono un'esperienza utente accattivante su un'ampia gamma di dispositivi e piattaforme. A seconda dei dispositivi per i quali si intende compilare applicazioni client, sono disponibili varie opzioni di SDK e Player Framework di Microsoft e altri partner di terze parti.  
 
-Di seguito è riportato un elenco di SDK e Player Framework client disponibili. Per maggiori informazioni su questi e altri SDK e Player Framework pianificati e le relative funzionalità supportate, vedere gli argomenti relativi allo [sviluppo di client per Servizi multimediali][sviluppo di client per Servizi multimediali].
+Di seguito è riportato un elenco di SDK e Player Framework client disponibili.  Per maggiori informazioni su questi e altri SDK e Player Framework pianificati e le relative funzionalità supportate, vedere gli argomenti relativi allo [sviluppo di client per Servizi multimediali]. 
 
-#### Supporto client Mac e PC
-
+####Supporto client Mac e PC  
 Per i PC e i Mac è possibile creare un'esperienza di streaming usando Microsoft Silverlight o Adobe Open Source Media Framework.
 
--   [Smooth Streaming Client per Silverlight][Smooth Streaming Client per Silverlight]
--   [Microsoft Media Platform: Player Framework per Silverlight][Microsoft Media Platform: Player Framework per Silverlight]
--   [Plug-in Smooth Streaming per OSMF 2.0][Plug-in Smooth Streaming per OSMF 2.0]. Per informazioni sull'uso di questo plug-in, vedere [Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework][Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework].
+-	[Smooth Streaming Client per Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework per Silverlight](http://smf.codeplex.com/documentation)
+-	[Plug-in Smooth Streaming per OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). Per informazioni sull'uso di questo plug-in, vedere [Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
 
-#### Applicazioni per Windows 8
-
+####Applicazioni per Windows 8
 Per Windows 8, è possibile creare app di Windows Store usando uno qualsiasi dei costrutti e dei linguaggi di sviluppo supportati come HTML, JavaScript, XAML, C# e C+.
 
--   [Smooth Streaming Client SDK per Windows 8][Smooth Streaming Client SDK per Windows 8]. Per altre informazioni su come creare un'app di Windows Store usando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming][Come creare un'applicazione Windows Store Smooth Streaming]. Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5][procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5].
+-	[Smooth Streaming Client SDK per Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Per altre informazioni su come creare un'app di Windows Store usando questo SDK, vedere [Come creare un'applicazione Windows Store Smooth Streaming](http://go.microsoft.com/fwlink/?LinkId=271647). Per informazioni su come creare un lettore Smooth Streaming in HTML5, vedere la [procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5](http://msdn.microsoft.com/it-it/library/jj573656.aspx).
 
--   [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8][Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8]
+-	[Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
-#### XBox
-
+####XBox
 Xbox supporta le applicazioni Xbox LIVE che possono usare contenuto Smooth Streaming. L'ADK (Application Development Kit) di Xbox LIVE include:
 
--   Smooth Streaming Client per Xbox LIVE ADK
--   Microsoft Media Platform: Player Framework per Xbox LIVE ADK
+-	Smooth Streaming Client per Xbox LIVE ADK
+-	Microsoft Media Platform: Player Framework per Xbox LIVE ADK
 
-#### Dispositivi incorporati o dedicati
-
+####Dispositivi incorporati o dedicati
 Dispositivi quali TV connessi, set-top box, lettori Blu-Ray, OTT TV box e dispositivi mobili che dispongono di un framework di sviluppo applicazioni personalizzato e di una pipeline multimediale personalizzata. Microsoft fornisce i kit per il porting seguenti che possono essere concessi in licenza e che consentono ai partner di eseguire il porting della riproduzione Smooth Streaming per la piattaforma.
 
--   [Microsoft Smooth Streaming Client Porting Kit][Microsoft Smooth Streaming Client Porting Kit]
--   [Microsoft PlayReady Device Porting Kit][Microsoft PlayReady Device Porting Kit]
+-	[Microsoft Smooth Streaming Client Porting Kit](http://www.microsoft.com/it-it/mediaplatform/sspk.aspx)
+-	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
-#### Windows Phone
+####Windows Phone
+Microsoft fornisce un SDK che può essere usato per creare applicazioni video premium per Windows Phone. 
 
-Microsoft fornisce un SDK che può essere usato per creare applicazioni video premium per Windows Phone.
+-	[Smooth Streaming Client per Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework per Silverlight](http://smf.codeplex.com/documentation)
 
--   [Smooth Streaming Client per Silverlight][Smooth Streaming Client per Silverlight]
--   [Microsoft Media Platform: Player Framework per Silverlight][Microsoft Media Platform: Player Framework per Silverlight]
+####Dispositivi iOS
+Per i dispositivi iOS, ad esempio iPhone, iPod e iPad, Microsoft fornisce un SDK che consente di creare applicazioni per queste piattaforme e distribuire contenuti video premium: Smooth Streaming SDK per dispositivi iOS con PlayReady.  L'SDK è disponibile solo per i titolari di una licenza. Per richiedere altre informazioni, [inviare un messaggio di posta elettronica a Microsoft](mailto:askdrm@microsoft.com). Per informazioni sullo sviluppo per iOS, visitare il [sito dedicato agli sviluppatori per iOS](https://developer.apple.com/devcenter/ios/index.action).
 
-#### Dispositivi iOS
+####Dispositivi Android
+Numerosi partner Microsoft forniscono SDK per la piattaforma Android che consentono di aggiungere la funzionalità di riproduzione dei contenuti Smooth Streaming nei dispositivi Android. Per informazioni dettagliate sui partner, [inviare un messaggio di posta elettronica a Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) .
 
-Per i dispositivi iOS, ad esempio iPhone, iPod e iPad, Microsoft fornisce un SDK che consente di creare applicazioni per queste piattaforme e distribuire contenuti video premium: Smooth Streaming SDK per dispositivi iOS con PlayReady. L'SDK è disponibile solo per i titolari di una licenza. Per richiedere altre informazioni, [inviare un messaggio di posta elettronica a Microsoft][inviare un messaggio di posta elettronica a Microsoft]. Per informazioni sullo sviluppo per iOS, visitare il [sito dedicato agli sviluppatori per iOS][sito dedicato agli sviluppatori per iOS].
 
-#### Dispositivi Android
+##<a id="setup-account"></a>Configurare un account Azure per Servizi multimediali
 
-Numerosi partner Microsoft forniscono SDK per la piattaforma Android che consentono di aggiungere la funzionalità di riproduzione dei contenuti Smooth Streaming nei dispositivi Android. Per informazioni dettagliate sui partner, [inviare un messaggio di posta elettronica a Microsoft][1].
+Per configurare l'account di Servizi multimediali, usare il portale di gestione di Azure. Vedere l'argomento [Come creare un account di Servizi multimediali][]. Dopo avere creato l'account nel portale di gestione, sarà possibile configurare il computer per lo sviluppo in Servizi multimediali. 
 
-## <a name="setup-account"></a><span class="short header">Configurare un account</span>Configurare un account Azure per Servizi multimediali
-
-Per configurare l'account di Servizi multimediali, usare il portale di gestione di Azure. Vedere l'argomento [Come creare un account di Servizi multimediali][Come creare un account di Servizi multimediali]. Dopo avere creato l'account nel portale di gestione, sarà possibile configurare il computer per lo sviluppo in Servizi multimediali.
-
-## <a name="setup-dev"> </a><span class="short header">Configurazioni per lo sviluppo con Servizi multimediali</span>
+##<a id="setup-dev"></a>Configurazioni per lo sviluppo con Servizi multimediali
 
 In questa sezione vengono illustrati i prerequisiti generali per lo sviluppo di applicazioni Servizi multimediali tramite Media Services SDK per Java.
 
-### Prerequisiti
+###Prerequisiti
 
--   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali][Come creare un account di Servizi multimediali].
--   Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure].
+-   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali][].
+-   Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][].
 
-## <a name="connect"> </a><span class="short header">Usare Servizi multimediali con Java</span>Procedura: Usare Servizi multimediali con Java
+##<a if="connect"></a>Procedura: Usare Servizi multimediali con Java
 
-Nel codice seguente viene illustrato come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e scaricare i file di output dell'asset trasformato.
+Il codice seguente illustra come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e scaricare i file di output dell'asset trasformato.
 
-Prima di usare il codice, sarà necessario configurare un account di Servizi multimediali. Per informazioni su come configurare un account, vedere [Come creare un account di Servizi multimediali][2].
+Prima di usare il codice, sarà necessario configurare un account di Servizi multimediali. Per informazioni su come configurare un account, vedere [Come creare un account di Servizi multimediali](http://www.windowsazure.com/it-it/manage/services/media-services/how-to-create-a-media-services-account/).
 
 Sostituire le variabili `clientId` e `clientSecret` con i valori personali. Questo codice si basa inoltre su un file archiviato in locale, `c:/media/MPEG4-H264.mp4`. Sarà necessario fornire un file personale da usare. Questo codice richiede anche una cartella di output, `c:/output`, ovvero la cartella in cui verranno scaricati i file di output.
 
-    import java.io.*;
-    import java.net.URI;
-    import java.net.URISyntaxException;
-    import java.security.NoSuchAlgorithmException;
-    import java.util.EnumSet;
-    import java.util.List;
-
-    import com.microsoft.windowsazure.services.blob.client.*;
-    import com.microsoft.windowsazure.services.core.Configuration;
-    import com.microsoft.windowsazure.services.core.ServiceException;
-    import com.microsoft.windowsazure.services.core.storage.StorageException;
-    import com.microsoft.windowsazure.services.media.*;
-    import com.microsoft.windowsazure.services.media.models.*;
-
-    public class HelloMediaServices 
-    {
-
-        private static MediaContract mediaService;
-        private static AssetInfo assetToEncode, encodedAsset;
-
-        public static void main(String[] args) 
-        {
-            try 
-            {
-
-                // Set up the MediaContract object to call into the media services.
-                Init();
-                
-                // Upload a local file to a media asset.
-                Upload();
-
-                // Transform the asset.
-                Transform();
-
-                // Retrieve the URL of the asset's transformed output.
-                Download();
-
-                // Delete all assets. 
-                // When you want to delete the assets that have been uploaded, 
-                // comment out the calls to Upload(), Transfer(), and Download(), 
-                // and uncomment the following call to Cleanup().
-                //Cleanup();
-
-                System.out.println("Application completed.");
-            }
-            catch (ServiceException se) 
-            {
-                System.out.println("ServiceException encountered.");
-                System.out.println(se.getMessage());
-            }
-            catch (Exception e) 
-            {
-                System.out.println("Exception encountered.");
-                System.out.println(e.getMessage());
-            }
-        }
-
-        // Initialize the server context to get programmatic access to the Media Services programming objects.
-        // The media services URI, OAuth URI and scope can be used exactly as shown.
-        // Substitute your media service account name and access key for the clientId and clientSecret variables.
-        // You can obtain your media service account name and access key from the Media Services section
-        // of the Azure Management portal, https://manage.windowsazure.com.
-        private static void Init() throws ServiceException 
-        {
-            String mediaServiceUri = "https://media.windows.net/API/";
-            String oAuthUri = "https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13";
-            String clientId = "your_client_id";  // Use your media service account name.
-            String clientSecret = "your_client_secret"; // Use your media service access key. 
-            String scope = "urn:WindowsAzureMediaServices";
-
-            // Specify the configuration values to use with the MediaContract object.
-            Configuration configuration = MediaConfiguration
-                    .configureWithOAuthAuthentication(mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
-
-            // Create the MediaContract object using the specified configuration.
-            mediaService = MediaService.create(configuration);
-            
-        }
-
-        // Upload a media file to your Media Services account.
-        // This code creates an asset, an access policy (using Write access) and a locator, 
-        // and uses those objects to upload a local file to the asset.
-        private static void Upload() throws ServiceException, FileNotFoundException, NoSuchAlgorithmException 
-        {
-            
-            WritableBlobContainerContract uploader;
-            
-            AccessPolicyInfo uploadAccessPolicy;
-            LocatorInfo uploadLocator = null;
-            
-            // Create an asset.
-            assetToEncode = mediaService.create(Asset.create().setName("myAsset").setAlternateId("altId"));
-            System.out.println("Created asset with id: " + assetToEncode.getId());
-
-            // Create an access policy that provides Write access for 15 minutes.
-            uploadAccessPolicy = mediaService.create(AccessPolicy.create("uploadAccessPolicy", 
-                                                                         15.0, 
-                                                                         EnumSet.of(AccessPolicyPermission.WRITE)));
-            System.out.println("Created upload access policy with id: "
-                    + uploadAccessPolicy.getId());
-
-            // Create a locator using the access policy and asset.
-            // This will provide the location information needed to add files to the asset.
-            uploadLocator = mediaService.create(Locator.create(uploadAccessPolicy.getId(),
-                    assetToEncode.getId(), LocatorType.SAS));
-            System.out.println("Created upload locator with id: " + uploadLocator.getId());
-
-            // Create the blob writer using the locator.
-            uploader = mediaService.createBlobWriter(uploadLocator);
-
-            // The name of the file as it will exist in your Media Services account.
-            String fileName = "MPEG4-H264.mp4";  
-
-            // The local file that will be uploaded to your Media Services account.
-            InputStream input = new FileInputStream(new File("c:/media/" + fileName));
-
-            // Upload the local file to the asset.
-            uploader.createBlockBlob(fileName, input);
-
-            // Inform Media Services about the uploaded files.
-            mediaService.action(AssetFile.createFileInfos(assetToEncode.getId()));
-            System.out.println("File uploaded.");
-            
-           
-            System.out.println("Deleting upload locator and access policy.");
-            mediaService.delete(Locator.delete(uploadLocator.getId()));
-            mediaService.delete(AccessPolicy.delete(uploadAccessPolicy.getId()));
-            
-        }
-
-        // Create a job that contains a task to transform the asset.
-        // In this example, the asset will be transformed using the Azure Media Encoder.
-        private static void Transform() throws ServiceException, InterruptedException 
-        {
-            // Use the Azure Media Encoder, by specifying it by name.
-            // Retrieve the list of media processors that match this name.      
-            ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                    .list(MediaProcessor.list()
-                    .set("$filter", "Name eq 'Azure Media Encoder'"));
-            
-            // Use the latest version of the media processor.
-            MediaProcessorInfo mediaProcessor = null;
-            for (MediaProcessorInfo info : mediaProcessors)
-            {
-                if (null == mediaProcessor || info.getVersion().compareTo(mediaProcessor.getVersion()) > 0)
-                {
-                    mediaProcessor = info;
-                }
-            }
-
-            System.out.println("Using processor: " + mediaProcessor.getName() +
-                    " " + mediaProcessor.getVersion());
-
-            // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
-            // Information on the various configurations can be found at
-            // http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx.
-            // This example uses only one task, but others could be added.
-            Task.CreateBatchOperation task = Task.create(
-                    mediaProcessor.getId(),
-                    "<taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>")
-                    .setConfiguration("H264 Broadband 720p").setName("MyTask");
-
-            // Create a job creator that specifies the asset, priority and task for the job. 
-            Job.Creator jobCreator = Job.create()
-                .setName("myJob")
-                .addInputMediaAsset(assetToEncode.getId())
-                .setPriority(2)
-                .addTaskCreator(task);
-
-            // Create the job within your Media Services account.
-            // Creating the job automatically schedules and runs it.
-            JobInfo jobInfo = mediaService.create(jobCreator);
-            String jobId = jobInfo.getId();
-            System.out.println("Created job with id: " + jobId);
-            // Check to see if the job has completed.
-            CheckJobStatus(jobId);
-            // Done with the job.
-
-            // Retrieve the output asset.
-            ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(jobInfo.getOutputAssetsLink()));
-            encodedAsset = outputAssets.get(0);
-        }
-
-        // Download the output assets of the transformed asset.
-        private static void Download() throws ServiceException, URISyntaxException, FileNotFoundException, StorageException, IOException 
-        {
-            
-            AccessPolicyInfo downloadAccessPolicy = null;
-
-            downloadAccessPolicy =
-                    mediaService.create(AccessPolicy.create("Download", 15.0, EnumSet.of(AccessPolicyPermission.READ)));
-            System.out.println("Created download access policy with id: "
-                    + downloadAccessPolicy.getId());
-            
-            LocatorInfo downloadLocator = null;
-            downloadLocator = mediaService.create(
-                    Locator.create(downloadAccessPolicy.getId(), encodedAsset.getId(), LocatorType.SAS));
-            System.out.println("Created download locator with id: " + downloadLocator.getId());        
-
-            System.out.println("Accessing the output files of the encoded asset.");
-            // Iterate through the files associated with the encoded asset.
-            for(AssetFileInfo assetFile: mediaService.list(AssetFile.list(encodedAsset.getAssetFilesLink())))
-            {
-                String fileName = assetFile.getName();
-                
-                System.out.print("Downloading file: " + fileName + ". ");
-                String locatorPath = downloadLocator.getPath();
-                int startOfSas = locatorPath.indexOf("?");
-
-                String blobPath = locatorPath + fileName;
-                if (startOfSas >= 0) 
-                {
-                    blobPath = locatorPath.substring(0, startOfSas) + "/" + fileName + locatorPath.substring(startOfSas);
-                }
-                URI baseuri = new URI(blobPath);
-                CloudBlobClient blobClient;
-                blobClient = new CloudBlobClient(baseuri);
-                
-                // Ensure that you have a c:\output folder, or modify the path specified in the following statement.
-                String localFileName = "c:/output/" + fileName;
-                
-                CloudBlockBlob sasBlob;
-                sasBlob = new CloudBlockBlob(baseuri, blobClient);
-                File fileTarget = new File(localFileName);
-                
-                sasBlob.download(new FileOutputStream(fileTarget));
-                System.out.println("Download complete.");
-                
-            }
-
-            System.out.println("Deleting download locator and access policy.");
-            mediaService.delete(Locator.delete(downloadLocator.getId()));
-            mediaService.delete(AccessPolicy.delete(downloadAccessPolicy.getId()));
-          
-        }
-        
-        // Remove all assets from your Media Services account.
-        // You could instead remove assets by name or ID, etc., but for 
-        // simplicity this example removes all of them.
-        private static void Cleanup() throws ServiceException 
-        {
-            // Retrieve a list of all assets.
-            List<AssetInfo> assets = mediaService.list(Asset.list());
-
-            // Iterate through the list, deleting each asset.
-            for (AssetInfo asset: assets)
-            {
-                System.out.println("Deleting asset named " + asset.getName() + " (" + asset.getId() + ")");
-                mediaService.delete(Asset.delete(asset.getId()));
-            }
-        }
-
-        // Helper function to check to on the status of the job.
-        private static void CheckJobStatus(String jobId) throws InterruptedException, ServiceException
-        {
-            int maxRetries = 12; // Number of times to retry. Small jobs often take 2 minutes.
-            JobState jobState = null;
-            while (maxRetries > 0) 
-            {
-                Thread.sleep(10000);  // Sleep for 10 seconds, or use another interval.
-                // Determine the job state.
-                jobState = mediaService.get(Job.get(jobId)).getState();
-                System.out.println("Job state is " + jobState);
-
-                if (jobState == JobState.Finished || 
-                    jobState == JobState.Canceled || 
-                    jobState == JobState.Error) 
-                {
-                    // The job is done.
-                    break;
-                }
-                // The job is not done. Sleep and loop if max retries 
-                // has not been reached.
-                maxRetries--;
-            }
-      
-        }
-
-    }
+	import java.io.*;
+	import java.net.URI;
+	import java.net.URISyntaxException;
+	import java.security.NoSuchAlgorithmException;
+	import java.util.EnumSet;
+	import java.util.List;
+	
+	import com.microsoft.windowsazure.services.blob.client.*;
+	import com.microsoft.windowsazure.services.core.Configuration;
+	import com.microsoft.windowsazure.services.core.ServiceException;
+	import com.microsoft.windowsazure.services.core.storage.StorageException;
+	import com.microsoft.windowsazure.services.media.*;
+	import com.microsoft.windowsazure.services.media.models.*;
+	
+	public class HelloMediaServices 
+	{
+	
+	    private static MediaContract mediaService;
+	    private static AssetInfo assetToEncode, encodedAsset;
+	
+	    public static void main(String[] args) 
+	    {
+	        try 
+	        {
+	
+	            // Set up the MediaContract object to call into the media services.
+	            Init();
+	            
+	            // Upload a local file to a media asset.
+	            Upload();
+	
+	            // Transform the asset.
+	            Transform();
+	
+	            // Retrieve the URL of the asset's transformed output.
+	            Download();
+	
+	            // Delete all assets. 
+	            // When you want to delete the assets that have been uploaded, 
+	            // comment out the calls to Upload(), Transfer(), and Download(), 
+	            // and uncomment the following call to Cleanup().
+	            //Cleanup();
+	
+	            System.out.println("Application completed.");
+	        }
+	        catch (ServiceException se) 
+	        {
+	            System.out.println("ServiceException encountered.");
+	            System.out.println(se.getMessage());
+	        }
+	        catch (Exception e) 
+	        {
+	            System.out.println("Exception encountered.");
+	            System.out.println(e.getMessage());
+	        }
+	    }
+	
+	    // Initialize the server context to get programmatic access to the Media Services programming objects.
+	    // The media services URI, OAuth URI and scope can be used exactly as shown.
+	    // Substitute your media service account name and access key for the clientId and clientSecret variables.
+	    // You can obtain your media service account name and access key from the Media Services section
+	    // of the Azure Management portal, https://manage.windowsazure.com.
+	    private static void Init() throws ServiceException 
+	    {
+	        String mediaServiceUri = "https://media.windows.net/API/";
+	        String oAuthUri = "https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13";
+	        String clientId = "your_client_id";  // Use your media service account name.
+	        String clientSecret = "your_client_secret"; // Use your media service access key. 
+	        String scope = "urn:WindowsAzureMediaServices";
+	
+	        // Specify the configuration values to use with the MediaContract object.
+	        Configuration configuration = MediaConfiguration
+	                .configureWithOAuthAuthentication(mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
+	
+	        // Create the MediaContract object using the specified configuration.
+	        mediaService = MediaService.create(configuration);
+	        
+	    }
+	
+	    // Upload a media file to your Media Services account.
+	    // This code creates an asset, an access policy (using Write access) and a locator, 
+	    // and uses those objects to upload a local file to the asset.
+	    private static void Upload() throws ServiceException, FileNotFoundException, NoSuchAlgorithmException 
+	    {
+	    	
+	    	WritableBlobContainerContract uploader;
+	    	
+	    	AccessPolicyInfo uploadAccessPolicy;
+	    	LocatorInfo uploadLocator = null;
+	    	
+	        // Create an asset.
+	    	assetToEncode = mediaService.create(Asset.create().setName("myAsset").setAlternateId("altId"));
+	        System.out.println("Created asset with id: " + assetToEncode.getId());
+	
+	        // Create an access policy that provides Write access for 15 minutes.
+	        uploadAccessPolicy = mediaService.create(AccessPolicy.create("uploadAccessPolicy", 
+	        		                                                     15.0, 
+	        		                                                     EnumSet.of(AccessPolicyPermission.WRITE)));
+	        System.out.println("Created upload access policy with id: "
+	                + uploadAccessPolicy.getId());
+	
+	        // Create a locator using the access policy and asset.
+	        // This will provide the location information needed to add files to the asset.
+	        uploadLocator = mediaService.create(Locator.create(uploadAccessPolicy.getId(),
+	        		assetToEncode.getId(), LocatorType.SAS));
+	        System.out.println("Created upload locator with id: " + uploadLocator.getId());
+	
+	        // Create the blob writer using the locator.
+	        uploader = mediaService.createBlobWriter(uploadLocator);
+	
+	        // The name of the file as it will exist in your Media Services account.
+	        String fileName = "MPEG4-H264.mp4";  
+	
+	        // The local file that will be uploaded to your Media Services account.
+	        InputStream input = new FileInputStream(new File("c:/media/" + fileName));
+	
+	        // Upload the local file to the asset.
+	        uploader.createBlockBlob(fileName, input);
+	
+	        // Inform Media Services about the uploaded files.
+	        mediaService.action(AssetFile.createFileInfos(assetToEncode.getId()));
+	        System.out.println("File uploaded.");
+	        
+	       
+	        System.out.println("Deleting upload locator and access policy.");
+	        mediaService.delete(Locator.delete(uploadLocator.getId()));
+	        mediaService.delete(AccessPolicy.delete(uploadAccessPolicy.getId()));
+	        
+	    }
+	
+	    // Create a job that contains a task to transform the asset.
+	    // In this example, the asset will be transformed using the Azure Media Encoder.
+	    private static void Transform() throws ServiceException, InterruptedException 
+	    {
+	        // Use the Azure Media Encoder, by specifying it by name.
+	        // Retrieve the list of media processors that match this name.   	
+	    	ListResult<MediaProcessorInfo> mediaProcessors = mediaService
+	    			.list(MediaProcessor.list()
+	    			.set("$filter", "Name eq 'Azure Media Encoder'"));
+	    	
+	    	// Use the latest version of the media processor.
+	    	MediaProcessorInfo mediaProcessor = null;
+	    	for (MediaProcessorInfo info : mediaProcessors)
+	    	{
+	    		if (null == mediaProcessor || info.getVersion().compareTo(mediaProcessor.getVersion()) > 0)
+	    		{
+	    			mediaProcessor = info;
+	    		}
+	    	}
+	
+	    	System.out.println("Using processor: " + mediaProcessor.getName() +
+	    			" " + mediaProcessor.getVersion());
+	
+	        // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
+	        // Information on the various configurations can be found at
+	        // http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx.
+	        // This example uses only one task, but others could be added.
+	        Task.CreateBatchOperation task = Task.create(
+	                mediaProcessor.getId(),
+	                "<taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>")
+	                .setConfiguration("H264 Broadband 720p").setName("MyTask");
+	
+	        // Create a job creator that specifies the asset, priority and task for the job. 
+	        Job.Creator jobCreator = Job.create()
+	            .setName("myJob")
+	            .addInputMediaAsset(assetToEncode.getId())
+	            .setPriority(2)
+	            .addTaskCreator(task);
+	
+	        // Create the job within your Media Services account.
+	        // Creating the job automatically schedules and runs it.
+	        JobInfo jobInfo = mediaService.create(jobCreator);
+	        String jobId = jobInfo.getId();
+	        System.out.println("Created job with id: " + jobId);
+	        // Check to see if the job has completed.
+	        CheckJobStatus(jobId);
+	        // Done with the job.
+	
+	        // Retrieve the output asset.
+	        ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(jobInfo.getOutputAssetsLink()));
+	        encodedAsset = outputAssets.get(0);
+	    }
+	
+	    // Download the output assets of the transformed asset.
+	    private static void Download() throws ServiceException, URISyntaxException, FileNotFoundException, StorageException, IOException 
+	    {
+	    	
+	    	AccessPolicyInfo downloadAccessPolicy = null;
+	
+	        downloadAccessPolicy =
+	                mediaService.create(AccessPolicy.create("Download", 15.0, EnumSet.of(AccessPolicyPermission.READ)));
+	        System.out.println("Created download access policy with id: "
+	                + downloadAccessPolicy.getId());
+	    	
+	    	LocatorInfo downloadLocator = null;
+	        downloadLocator = mediaService.create(
+	        		Locator.create(downloadAccessPolicy.getId(), encodedAsset.getId(), LocatorType.SAS));
+	        System.out.println("Created download locator with id: " + downloadLocator.getId());        
+	
+	        System.out.println("Accessing the output files of the encoded asset.");
+	        // Iterate through the files associated with the encoded asset.
+	        for(AssetFileInfo assetFile: mediaService.list(AssetFile.list(encodedAsset.getAssetFilesLink())))
+	        {
+	            String fileName = assetFile.getName();
+	            
+	            System.out.print("Downloading file: " + fileName + ". ");
+	            String locatorPath = downloadLocator.getPath();
+	            int startOfSas = locatorPath.indexOf("?");
+	
+	            String blobPath = locatorPath + fileName;
+	            if (startOfSas >= 0) 
+	            {
+	                blobPath = locatorPath.substring(0, startOfSas) + "/" + fileName + locatorPath.substring(startOfSas);
+	            }
+	            URI baseuri = new URI(blobPath);
+	            CloudBlobClient blobClient;
+	            blobClient = new CloudBlobClient(baseuri);
+	            
+	            // Ensure that you have a c:\output folder, or modify the path specified in the following statement.
+	            String localFileName = "c:/output/" + fileName;
+	            
+	            CloudBlockBlob sasBlob;
+	            sasBlob = new CloudBlockBlob(baseuri, blobClient);
+	            File fileTarget = new File(localFileName);
+	            
+	            sasBlob.download(new FileOutputStream(fileTarget));
+	            System.out.println("Download complete.");
+	            
+	        }
+	
+	        System.out.println("Deleting download locator and access policy.");
+	        mediaService.delete(Locator.delete(downloadLocator.getId()));
+	        mediaService.delete(AccessPolicy.delete(downloadAccessPolicy.getId()));
+	      
+	    }
+	    
+	    // Remove all assets from your Media Services account.
+	    // You could instead remove assets by name or ID, etc., but for 
+	    // simplicity this example removes all of them.
+	    private static void Cleanup() throws ServiceException 
+	    {
+	        // Retrieve a list of all assets.
+	        List<AssetInfo> assets = mediaService.list(Asset.list());
+	
+	        // Iterate through the list, deleting each asset.
+	        for (AssetInfo asset: assets)
+	        {
+	        	System.out.println("Deleting asset named " + asset.getName() + " (" + asset.getId() + ")");
+	            mediaService.delete(Asset.delete(asset.getId()));
+	        }
+	    }
+	
+	    // Helper function to check to on the status of the job.
+	    private static void CheckJobStatus(String jobId) throws InterruptedException, ServiceException
+	    {
+	        int maxRetries = 12; // Number of times to retry. Small jobs often take 2 minutes.
+	        JobState jobState = null;
+	        while (maxRetries > 0) 
+	        {
+	            Thread.sleep(10000);  // Sleep for 10 seconds, or use another interval.
+	            // Determine the job state.
+	            jobState = mediaService.get(Job.get(jobId)).getState();
+	            System.out.println("Job state is " + jobState);
+	
+	            if (jobState == JobState.Finished || 
+	                jobState == JobState.Canceled || 
+	                jobState == JobState.Error) 
+	            {
+	                // The job is done.
+	                break;
+	            }
+	            // The job is not done. Sleep and loop if max retries 
+	            // has not been reached.
+	            maxRetries--;
+	        }
+	  
+	    }
+	
+	}
 
 Gli asset creati vengono archiviati nel servizio di archiviazione di Azure. Tuttavia, usare solo le API di Servizi multimediali di Azure (non le API del servizio di archiviazione di Azure) per aggiungere, aggiornare o eliminare asset.
 
-### Determinare i processori di contenuti multimediali disponibili
+###Determinare i processori di contenuti multimediali disponibili
 
 Il codice precedente usa un processore di contenuti multimediali e vi accede tramite un nome di processore di contenuti multimediali specifico (se fosse presente più di una versione, verrebbe usata la versione più recente). Per determinare quali sono i processori di contenuti multimediali disponibili, è possibile usare il codice seguente.
 
@@ -473,7 +419,7 @@ Il codice precedente usa un processore di contenuti multimediali e vi accede tra
         System.out.println(mediaProcessor.getVersion());  
     }
 
-In alternativa, nel codice seguente viene illustrato come recuperare l'ID di un processore di contenuti multimediali in base al nome.
+In alternativa, il codice seguente illustra come recuperare l'ID di un processore di contenuti multimediali in base al nome.
 
     String mediaProcessorName = "Storage Decryption"; 
     EntityListOperation<MediaProcessorInfo> operation;
@@ -485,37 +431,21 @@ In alternativa, nel codice seguente viene illustrato come recuperare l'ID di un 
     System.out.println("Processor named " + mediaProcessorName + 
                        " has ID of " + processor.getId());
 
-### Annullare un processo
-
+###Annullare un processo
 Se occorre annullare un processo che è ancora in corso di elaborazione, usare il codice seguente che consente di annullare un processo in base all'ID processo.
 
     mediaService.action(Job.cancel(jobId));
 
-## <a name="additional-resources"></a><span class="short header">Risorse aggiuntive</span>Risorse aggiuntive
+##< id="additional-resources"></a>Risorse aggiuntive
 
-Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][librerie di Azure per la documentazione Java].
+Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][].
 
-  [Informazioni su Servizi multimediali]: #what-are
-  [Configurare un account Azure per Servizi multimediali]: #setup-account
-  [Configurazioni per lo sviluppo con Servizi multimediali]: #setup-dev
-  [Procedura: Usare Servizi multimediali con Java]: #connect
-  [Risorse aggiuntive]: #additional-resources
-  [Architettura di Servizi multimediali]: ./media/media-services-dotnet-how-to-use/wams-01.png
-  [sviluppo di client per Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223283.aspx
-  [Smooth Streaming Client per Silverlight]: http://www.iis.net/download/smoothclient
-  [Microsoft Media Platform: Player Framework per Silverlight]: http://smf.codeplex.com/documentation
-  [Plug-in Smooth Streaming per OSMF 2.0]: http://go.microsoft.com/fwlink/?LinkId=275022
-  [Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework]: http://go.microsoft.com/fwlink/?LinkId=275034
-  [Smooth Streaming Client SDK per Windows 8]: http://go.microsoft.com/fwlink/?LinkID=246146
-  [Come creare un'applicazione Windows Store Smooth Streaming]: http://go.microsoft.com/fwlink/?LinkId=271647
-  [procedura dettagliata relativa alla creazione del primo lettore Smooth Streaming in HTML5]: http://msdn.microsoft.com/it-it/library/jj573656.aspx
-  [Microsoft Media Platform: Player Framework per app di Windows Store per Windows 8]: http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home
-  [Microsoft Smooth Streaming Client Porting Kit]: http://www.microsoft.com/it-it/mediaplatform/sspk.aspx
-  [Microsoft PlayReady Device Porting Kit]: http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx
-  [inviare un messaggio di posta elettronica a Microsoft]: mailto:askdrm@microsoft.com
-  [sito dedicato agli sviluppatori per iOS]: https://developer.apple.com/devcenter/ios/index.action
-  [1]: mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices
+<!-- URLs. -->
+
   [Come creare un account di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=256662
   [Centro per sviluppatori Java in Azure]: http://www.windowsazure.com/it-it/develop/java/
-  [2]: http://www.windowsazure.com/it-it/manage/services/media-services/how-to-create-a-media-services-account/
-  [librerie di Azure per la documentazione Java]: http://dl.windowsazure.com/javadoc/
+  [Librerie di Azure per la documentazione Java]: http://dl.windowsazure.com/javadoc/
+  [Sviluppo client di Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223283.aspx
+
+
+<!--HONumber=35_1-->

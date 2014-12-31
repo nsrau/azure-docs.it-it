@@ -1,15 +1,15 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Servizio REST .NET usando l'API Web - Esercitazione su Azure" metaKeywords="sito Web esercitazioni su Azure, sito Web API ASP.NET, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="REST service using Web API" pageTitle="Servizio REST .NET usando l'API Web - Esercitazione su Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="06/06/2014" ms.author="riande" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
 
 
 
 # Servizio REST usando l'API Web ASP.NET e Database SQL 
 
-***Autori: [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra. Ultimo aggiornamento: marzo 2014.***
+***Autori: [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra.***
 
-In questa esercitazione viene illustrato come distribuire un'applicazione Web ASP.NET in un sito Web di Azure usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web. Se si preferisce usare Visual Studio 2012, vedere [la versione precedente di questa esercitazione](/it-it/develop/net/tutorials/get-started-vs2012/)
+In questa esercitazione viene illustrato come distribuire un'applicazione Web ASP.NET in un sito Web di Azure usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web. 
 
 È possibile aprire gratuitamente un account Azure e, se non si dispone già di Visual Studio 2013, con l'SDK verrà installato automaticamente Visual Studio Express 2013 per il Web. Sarà quindi possibile iniziare a sviluppare per Azure del tutto gratuitamente.
 
@@ -20,10 +20,10 @@ Si apprenderà come:
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto ASP.NET MVC 5 di Visual Studio sicuro e pubblicarlo in un sito Web di Azure.
 * Creare l'API Web ASP.NET per consentire chiamate all'API RESTful.
-* Usare un database SQL per l'archiviazione di dati in Azure.
+* Utilizzare un database SQL per l'archiviazione di dati in Azure.
 * Pubblicare aggiornamenti dell'applicazione in Azure.
 
-Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET MVC 5 che usa ADO.NET Entity Framework per l'accesso al database. Nella figura seguente è illustrata l'applicazione completata:
+Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET MVC 5 che utilizza ADO.NET Entity Framework per l'accesso al database. Nella figura seguente è illustrata l'applicazione completata:
 
 ![screenshot of web site][intro001]
 Contenuto dell'esercitazione:
@@ -42,7 +42,7 @@ Contenuto dell'esercitazione:
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-get-started/ -->
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2><a name="bkmk_setupwindowsazure"></a>Configurare l'ambiente Azure</h2>
+<h2><a name="bkmk_setupwindowsazure"></a>Configurazione dell'ambiente Azure</h2>
 
 Configurare l'ambiente Azure creando un sito Web di Azure e un database SQL.
 
@@ -62,7 +62,7 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 	Verrà aperta la procedura guidata **Nuovo sito Web - Creazione personalizzata**. 
 
-3. Nel passaggio **Nuovo sito Web** della procedura guidata immettere nella casella URL una stringa da usare come **URL** univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato sotto la casella di testo. Nell'illustrazione è visualizzato "contactmgr11", ma poiché è probabile che questo URL sia già in uso, sarà necessario sceglierne un altro.
+3. Nel passaggio **Nuovo sito Web** della procedura guidata immettere nella casella **URL** una stringa da usare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato sotto la casella di testo. Nell'illustrazione è visualizzato "contactmgr11", ma poiché è probabile che questo URL sia già in uso, sarà necessario sceglierne un altro.
 
 1. Nell'elenco a discesa **Area** scegliere l'area geografica più vicina.
 
@@ -86,7 +86,7 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 	![Database Settings step of New Website - Create with Database wizard][setup007]
 
-	 Nell'immagine seguente viene mostrato l'utilizzo di un database SQL Server e un accesso esistenti.
+	 Nell'immagine seguente viene mostrato l'uso di un database SQL Server e un accesso esistenti.
 	
 	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
@@ -94,7 +94,7 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 <!-- [Websites page of Management Portal, website created][setup009] -->
 
-<h2><a name="bkmk_createmvc4app"></a>Creare un'applicazione ASP.NET MVC 5</h2>
+<h2><a name="bkmk_createmvc4app"></a>Creazione di un'applicazione ASP.NET MVC 5</h2>
 
 Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il passaggio successivo consiste nel creare il progetto dell'applicazione Web di Visual Studio che verrà pubblicato in Azure.
 
@@ -174,7 +174,7 @@ La home page dell'applicazione verrà visualizzata nel browser predefinito.
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Distribuire l'applicazione in Azure</h2>
+<h2><a name="bkmk_deploytowindowsazure1"></a>Distribuzione dell'applicazione in Azure</h2>
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.
 
@@ -226,7 +226,7 @@ Non è necessario eseguire per il momento altre operazioni per creare l'applicaz
 	
 	![To Do List home page running in Azure][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>Aggiungere un database all'applicazione</h2>
+<h2><a name="bkmk_addadatabase"></a>Aggiunta di un database all'applicazione</h2>
 
 Si passerà quindi all'aggiornamento dell'applicazione MVC, in modo da aggiungere la possibilità di visualizzare e aggiornare i contatti e di archiviare i dati in un database. L'applicazione utilizzerà Entity Framework per creare il database e per leggere e aggiornare i dati nel database.
 
@@ -266,7 +266,7 @@ Creare innanzitutto un semplice modello di dati nel codice.
     		}
 		}
 
-La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
+La classe ]Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per ulteriori informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
 
 ### Creare pagine Web che consentono agli utenti dell'app di usare i contatti
 
@@ -560,7 +560,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 6. Aprire il file *App_Start\BundleConfig.cs*.
 
 
-7. Aggiungere il codice seguente per registrare il plug-in [KOKnockout](http://knockoutjs.com/index.html "KO").
+7. Aggiungere il codice seguente per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
@@ -571,7 +571,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-Con:
+To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -586,7 +586,7 @@ Con:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller**. 
 
-1. Nella finestra di dialogo **Add Scaffold** immettere **Web API 2 Controller with actions, using Entity Framework**, quindi fare clic su **Aggiungi**.
+1. Nella finestra di dialogo **Aggiungi scaffold** immettere **Controller Web API 2 con azioni che usano Entity Framework**, quindi fare clic su **Aggiungi**.
 
 	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
@@ -624,7 +624,7 @@ Con:
 
 	**Avviso di sicurezza**: a questo punto, l'applicazione non è sicura ed è vulnerabile agli attacchi di richiesta intersito falsa (Cross-Site Request Forgery, CSRF). Questa vulnerabilità verrà rimossa più avanti nell'esercitazione. Per altre informazioni, vedere l'articolo che descrive come [prevenire gli attacchi di richiesta intersito falsa (CSRF)][prevent-csrf-attacks].
 
-<h2><a name="xsrf"></a>Aggiungere la protezione XSRF</h2>
+<h2><a name="xsrf"></a>Aggiunta della protezione XSRF</h2>
 
 La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro applicazioni ospitate sul Web in base al quale un sito Web dannoso può influenzare l'interazione tra un browser client e un sito Web considerato attendibile da tale browser. Questi attacchi sono possibili in quanto i Web browser inviano automaticamente token di autenticazione con ogni richiesta a un sito Web. Un classico esempio è un cookie di autenticazione, ad esempio un ticket di autenticazione basata su form di ASP.NET. Tuttavia, i siti Web che usano un meccanismo di autenticazione persistente, ad esempio Autenticazione di Windows, autenticazione di base e così via, possono essere presi di mira da questi attacchi.
 
@@ -714,7 +714,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* per poter includere il codice per recuperare i token XSRF.
+1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -803,13 +803,13 @@ Se la voce immessa viene salvata e quindi visualizzata nella pagina di Contact M
 
 ![Index page with contacts][addwebapi004]
 
-L'applicazione è ora in esecuzione nel cloud e usa il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non dispone di un meccanismo per limitare l'accesso.
+L'applicazione è ora in esecuzione nel cloud e utilizza il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non dispone di un meccanismo per limitare l'accesso.
 
 <h2><a name="nextsteps"></a>Passaggi successivi</h2>
 
 Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe usato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
 
-Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'usare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per altre informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
+Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'usare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per ulteriori informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
  
 
 * [Introduzione a Entity Framework con MVC][EFCodeFirstMVCTutorial]
@@ -879,12 +879,14 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Aggiungere la protezione XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Aggiungere la protezione XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="Come distribuire un database SQL - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="jeffreyg" editor="" />
+﻿<properties urlDisplayName="How to deploy" pageTitle="Come distribuire un database SQL - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
 
 
 
@@ -13,7 +13,7 @@
 
 Il database di esempio School è convenientemente semplice. Tutti i relativi oggetti sono compatibili con il database SQL, eliminando la necessità di modificare o preparare un database per la migrazione. In qualità di nuovo amministratore, prima di iniziare a usare i propri database provare innanzitutto a distribuire un database semplice in modo da apprendere la procedura corretta. 
 
-**Nota:** per istruzioni dettagliate su come preparare un database locale per la migrazione in Azure, rivedere la guida alla migrazione dei database SQL. Si prenda inoltre in considerazione il download del Kit di formazione di Azure, che include un lab in cui è illustrato un approccio alternativo alla migrazione di un database locale.
+**Nota:** per istruzioni dettagliate su come preparare un database locale per la migrazione in Azure, rivedere la guida alla migrazione dei database SQL. Provare anche a scaricare il Kit di formazione di Azure, che include un lab in cui è illustrato un approccio alternativo alla migrazione di un database locale.
 
 ##Sommario##
 * [Procedura: Creare il database school su un server locale](#schooldb)
@@ -26,7 +26,7 @@ Gli script per la creazione di questo database sono reperibili nella [guida intr
 
 1. In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Nuovo database**, infine immettere *school*.
 
-2. Fare clic con il pulsante destro del mouse su school e quindi fare clic su **Nuova query**. 
+2. Fare clic con il pulsante destro del mouse su *school* e quindi fare clic su **Nuova query**. 
 
 3. Copiare e quindi eseguire lo script Create Schema dall'esercitazione. 
 
@@ -537,7 +537,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
 
 5. In Nome server immettere il nome del server composto da 10 caratteri, seguito da .database.windows.net.
 
-6. In Autenticazione, scegliere **Autenticazione di SQL Server**.
+6. In Autenticazione scegliere **Autenticazione di SQL Server**.
 
 7. Immettere il nome di accesso e la password dell'amministratore forniti durante la creazione del server logico del database SQL.
 
@@ -583,3 +583,5 @@ Quindi, copiare ed eseguire lo script Insert Data.
 
 [Introduzione all'amministrazione del database SQL]: /it-it/manage/services/sql-databases/getting-started-w-sql-databases/  
 
+
+<!--HONumber=35_1-->

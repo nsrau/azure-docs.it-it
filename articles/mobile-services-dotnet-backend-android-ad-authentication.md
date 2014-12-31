@@ -1,6 +1,6 @@
-<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Eseguire l'accesso e accedere alle risorse con Active Directory (Android) | Mobile Developer Center" metaKeywords="" description="Informazioni su come aggiungere l'autenticazione a un'app con Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Autenticare l'app con Active Directory" authors="wesmc,mahender" />
+﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Eseguire l'accesso e accedere alle risorse con Active Directory (Android) | Mobile Developer Center" metaKeywords="" description="Learn how to add authentication to an app using Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="01/01/1900" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
 
 # Autenticare l'app con Active Directory
 
@@ -11,8 +11,9 @@
 <a href="/it-it/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
 </div>
 
-Informazioni su come autenticare l'app e accedere alle risorse usando Active Directory con l'esercitazione di Chris Risner su come [accedere a risorse protette tramite Azure Active Directory con iOS e Android][accedere a risorse protette tramite Azure Active Directory con iOS e Android].
+Informazioni su come autenticare l'app e accedere alle risorse usando Active Directory con l'esercitazione di Chris Risner su come [accedere a risorse protette tramite Azure Active Directory con iOS e Android].
 
+<!-- URLs. -->
+[Accedere a risorse protette tramite Azure Active Directory con iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-
-  [accedere a risorse protette tramite Azure Active Directory con iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
+<!--HONumber=35_1-->

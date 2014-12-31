@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Sito Web PHP con MySQL e Git - Esercitazione su Azure" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Sito Web PHP con MySQL e Git - Esercitazione su Azure" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
 #Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git
 
-Questa esercitazione illustra come creare un sito Web di Azure PHP-MySQL e distribuirlo tramite Git. Verranno usati [PHP][install-php], lo strumento da riga di comando MySQL (parte di [MySQL][install-mysql]), un server Web e [Git][install-git] installato sul computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà di un sito Web PHP-MySQL in esecuzione in Azure.
+Questa esercitazione illustra come creare un sito Web di Azure PHP-MySQL e distribuirlo tramite Git. Si useranno [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), un server Web e [Git][install-git] installato nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà di un sito Web PHP-MySQL in esecuzione in Azure.
  
 Si apprenderà come:
 
@@ -15,92 +15,95 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 ![Azure PHP web site][running-app]
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure Free Trial</a>.</p> </div>
+> [WACOM.NOTE]
+> Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Versione di valutazione gratuita di Azure</a>.
+> 
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-##Set up the development environment
+##Configurare l'ambiente di sviluppo
 
-This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
+Questa esercitazione presuppone che nel computer siano installati [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), un server Web e [Git][install-git].
 
 > [WACOM.NOTE]
-> If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a>.
+> Se l'esercitazione viene eseguita in Windows, è possibile configurare il computer per PHP e configurare automaticamente IIS (il server Web incorporato in Windows) installando <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK per PHP</a>.
 
-##<a id="create-web-site-and-set-up-git"></a>Create an Azure website and set up Git publishing
+##<a id="create-web-site-and-set-up-git"></a>Creare un sito Web di Azure e configurare la pubblicazione Git
 
-Follow these steps to create an Azure website and a MySQL database:
+Per creare un sito Web di Azure e un database MySQL, attenersi alla procedura seguente:
 
-1. Login to the [Azure Management Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
+1. Accedere al [portale di gestione di Azure][management-portal].
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale.
 
 	![Create New Azure web site][new-website]
 
-3. Click **WebSite**, then **Custom Create**.
+3. Fare clic su **Sito Web** e quindi su **Creazione personalizzata**.
 
 	![Custom Create a new web site][custom-create]
 	
-	Enter a value for **URL**, select **Create a New MySQL Database** from the **Database** dropdown,  and select the data center for your website in the **Region** dropdown. Click the arrow at the bottom of the dialog.
+	Immettere un valore per **URL**, scegliere **Crea un nuovo database MySQL** nell'elenco a discesa **Database**, quindi selezionare il data center per il sito Web nell'elenco a discesa **Area**. Fare clic sulla freccia nella parte inferiore della finestra di dialogo.
 
 	![Fill in web site details][website-details]
 
-4. Enter a value for the **Name** of your database, select the data center for your database in the **Region** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+4. In **Nome** immettere un valore per il database, selezionare il data center per il database nell'elenco a discesa **Area**, quindi selezionare la casella che indica che si accettano le note legali. Fare clic sul segno di spunta nella parte inferiore della finestra di dialogo.
 
 	![Create new MySQL database][new-mysql-db]
 
-	When the website has been created you will see the text **Creation of Website "[SITENAME]" completed successfully**. Now, you can enable Git publishing.
+	In seguito alla creazione del sito Web verrà visualizzato il messaggio **La creazione del sito Web "[NOMESITO]" è stata completata**. A questo punto, è possibile abilitare la pubblicazione Git.
 
-6. Click the name of the website displayed in the list of websites to open the website's **QuickStart** dashboard.
+6. Fare clic sul nome del sito Web visualizzato nell'elenco dei siti Web per aprire il relativo dashboard **Avvio rapido**.
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-7. At the bottom of the **QuickStart** page, click **Set up Git publishing**. 
+7. Nella parte inferiore della pagina **Avvio rapido** fare clic su **Configura pubblicazione Git**. 
 
 	![Set up Git publishing][setup-git-publishing]
 
-8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+8. Per abilitare la pubblicazione Git, è necessario specificare un nome utente e una password. Prendere nota del nome utente e della password creati. Se è stato configurato un repository Git in precedenza, ignorare questo passaggio.
 
 	![Create publishing credentials][credentials]
 
-	It will take a few seconds to set up your repository.
+	La configurazione del repository richiederà alcuni secondi.
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
+9. Quando il repository è pronto, verranno visualizzate le istruzioni per effettuare il push dei file dell'applicazione nel repository. Prendere nota di queste istruzioni, che saranno necessarie in seguito.
 
 	![Git instructions][git-instructions]
 
-##Get remote MySQL connection information
+##Recupero di informazioni sulla connessione remota a MySQL
 
-To connect to the MySQL database that is running in Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
+Per connettersi al database MySQL in esecuzione in Siti Web di Azure, è necessario disporre delle informazioni di connessione. Per recuperare le informazioni sulla connessione a MySQL, attenersi alla procedura seguente:
 
-1. From your website's dashboard, click the **View connection strings** link on the right side of the page:
+1. Nel dashboard del sito Web fare clic sul collegamento **Visualizza stringhe di connessione** sul lato destro della pagina:
 
 	![Get database connection information][connection-string-info]
 	
-2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
+2. Prendere nota dei valori di `Database`, `Data Source`, `User Id` e `Password`.
 
-##Build and test your application locally
+##Creazione e test dell'applicazione in locale
 
-Now that you have created an Azure Website, you can develop your application locally, then deploy it after testing. 
+Dopo aver creato un sito Web di Azure, è possibile sviluppare l'applicazione in locale e quindi distribuirla dopo i test. 
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
+L'applicazione di registrazione è una semplice applicazione PHP che consente di registrarsi per un evento specificando il proprio nome e l'indirizzo di posta elettronica. Le informazioni sui registranti precedenti vengono visualizzate in una tabella. Le informazioni sulle registrazioni vengono archiviate in un database MySQL. L'applicazione è costituita da un unico file (copiare e incollare il codice disponibile di seguito):
 
-* **index.php**: Displays a form for registration and a table containing registrant information.
+* **index.php**: consente di visualizzare un modulo per la registrazione e una tabella contenente informazioni sui registranti.
 
-To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, the MySQL Command-Line Tool (part of MySQL), and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguente. Si noti che per questi passaggi si presuppone che nel computer locale siano già stati configurati PHP, lo strumento da riga di comando MySQL (che fa parte di MySQL) e un server Web e che sia stata abilitata l'[estensione PDO per MySQL][pdo-mysql].
 
-1. Connect to the remote MySQL server, using the value for `Data Source`, `User Id`, `Password`, and `Database` that you retrieved earlier:
+1. Connettersi al server MySQL remoto usando i valori di `Data Source`, `User Id`, `Password` e `Database` recuperati in precedenza:
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
-2. The MySQL command prompt will appear:
+2. Verrà visualizzato il prompt dei comandi MySQL:
 
 		mysql>
 
-3. Paste in the following `CREATE TABLE` command to create the `registration_tbl` table in your database:
+3. Incollare il comando `CREATE TABLE` seguente per creare la tabella `registration_tbl` nel database:
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. In your web server's root directory, create a folder called `registration` and create a file in it called `index.php`.
+4. Nella directory radice del server Web creare una cartella denominata `registration` e al suo interno creare un file denominato `index.php`.
 
-5. Open the **index.php** file in a text editor or IDE and add the following code, and complete the necessary changes marked with `//TODO:` comments.
+5. Aprire il file **index.php** in un editor di testo o in un IDE e aggiungere il codice seguente, quindi completare le necessarie modifiche contrassegnate con commenti `//TODO:`.
 
 
 		<html>
@@ -171,7 +174,7 @@ To build and run the application locally, follow the steps below. Note that thes
 			if(count($registrants) > 0) {
 				echo "<h2>People who are registered:</h2>";
 				echo "<table>";
-				echo "<tr><th>Nome</th>";
+				echo "<tr><th>Name</th>";
 				echo "<th>Email</th>";
 				echo "<th>Date</th></tr>";
 				foreach($registrants as $registrant) {
@@ -197,11 +200,11 @@ Dopo aver testato l'applicazione in locale, è possibile pubblicarla nel sito We
 > [WACOM.NOTE]
 > Questi passaggi sono uguali a quelli illustrati nel portale alla fine della precedente sezione Creare un sito Web di Azure e configurare la pubblicazione Git.
 
-1. (Facoltativo) Se l'URL dell'archivio remoto Git è stato dimenticato o smarrito, passare alla scheda Development nel portale.
+1. (Facoltativo) Se l'URL del repisitory remoto Git è stato dimenticato o smarrito, passare alla scheda Distribuzione nel portale.
 	
 	![Get Git URL][git-instructions]
 
-1. Aprire GitBash (o un terminale, se Git si trova in "PATH"), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
+1. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
 
 		git init
 		git add .
@@ -213,7 +216,7 @@ Dopo aver testato l'applicazione in locale, è possibile pubblicarla nel sito We
 
 	![Initial Push to Azure via Git][git-initial-push]
 
-2. Passare a **http://[nome sito].azurewebsites.net/index.php** per iniziare a usare l'applicazione. Queste informazioni verranno archiviate nel dashboard dell'account:
+2. Passare a **http://[nome sito].azurewebsites.net/index.php** per iniziare a usare l'applicazione (queste informazioni verranno archiviate nel dashboard dell'account):
 
 	![Azure PHP web site][running-app]
 
@@ -224,7 +227,7 @@ Dopo aver pubblicato l'applicazione, è possibile iniziare ad apportarvi modific
 Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura seguente:
 
 1. Apportare le modifiche all'applicazione in locale.
-2. Aprire GitBash (o un terminale, se Git si trova in "PATH"), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
+2. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -265,3 +268,5 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx
+
+<!--HONumber=35_1-->

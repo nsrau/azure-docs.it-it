@@ -1,22 +1,23 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Hub di notifica di Azure - Notifiche agli utenti" metaKeywords="notifiche push di Azure, hub di notifica Azure" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Hub di notifica di Azure - Notifiche agli utenti" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
 
 #Hub di notifica di Azure - Notifiche agli utenti
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/it-it/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
 		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/it-it/library/dn743807.aspx).
 
 > [AZURE.NOTE] Questa esercitazione presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
+> Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/)
 
 
 ## Creare e configurare l'hub di notifica
 
-Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/). Per altre risorse sul provisioning di dispositivi iOS, vedere la guida [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/). Per risorse aggiuntive sul provisioning di dispositivi iOS, vedere la guida [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -209,7 +210,7 @@ Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://az
 
 		@end
 
-> [AZURE.NOTE] Il frammento seguente non è uno schema di autenticazione sicuro; è consigliabile sostituire l'implementazione di **createAndSetAuthenticationHeaderWithUsername:AndPassword:** con il meccanismo di autenticazione specifico che genera un token di autenticazione che deve essere usato dalla classe client di registrazione, ad esempio OAuth o Active Directory.
+> [AZURE.NOTE] Il frammento seguente non è uno schema di autenticazione sicuro. È consigliabile sostituire l'implementazione di **createAndSetAuthenticationHeaderWithUsername:AndPassword:** con il meccanismo di autenticazione specifico che genera un token di autenticazione che deve essere usato dalla classe client di registrazione, ad esempio OAuth o Active Directory.
 
 9. Aggiungere quindi il codice seguente nella sezione di implementazione di ViewController.m:
 
@@ -318,3 +319,5 @@ Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://az
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
+
+<!--HONumber=35_1-->

@@ -1,6 +1,6 @@
 ﻿<properties urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Creare una presenza Web globale su Siti Web di Azure" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/it-it/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 
 
 
@@ -18,10 +18,10 @@ In questa guida vengono illustrati gli argomenti seguenti:
 - [Proteggere il sito Web con SSL](#ssl)
 - [Monitorare il sito](#monitor)
 
-<div class="dev-callout">
-<strong>Nota</strong>
-<p>In questa guida vengono illustrate alcune delle aree e delle attività più comuni relative allo sviluppo di un sito .COM pubblico. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su queste funzionalità, vedere le guide relative alle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a> e alle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">applicazioni aziendali</a>.</p>
-</div>
+> [WACOM.NOTE]
+> In questa guida vengono illustrate alcune delle aree e delle attività più comuni relative allo sviluppo di un sito .COM pubblico. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su queste funzionalità, vedere le guide relative <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview">alle campagne di marketing digitali</a> e <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">alle applicazioni aziendali</a>.
+> 
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##<a name="createwebsite"></a>Creare un sito Web di Azure
 È possibile creare un nuovo sito Web di Azure in molti modi differenti tramite il portale di gestione di Azure. Quando si fa clic sul pulsante **Nuovo** in basso nel portale, viene visualizzata la finestra di dialogo seguente:
@@ -46,13 +46,13 @@ Esistono molti modi per distribuire il proprio sito Web in Azure. Se è stato se
 - Pubblicare da Visual Studio.
 - Pubblicare da [WebMatrix][webmatrix].
 
-Ciascuna di queste opzioni è caratterizzata da vari punti di forza. La possibilità di pubblicare da un client FTP è una soluzione semplice e diretta per effettuare il push di nuovi file sul proprio sito. Essa garantisce inoltre che eventuali strumenti o processi di pubblicazione basati su FTP possano continuare a funzionare con Siti Web di Azure. Il controllo del codice sorgente offre il miglior tipo di controllo sulle versioni dei contenuti dei siti, perché consente di tracciare e pubblicare le modifiche nonché di eseguirne il rollback a versioni precedenti, qualora necessario. L'opzione di pubblicazione diretta da Visual Studio o da Web Matrix è una comodità per gli sviluppatori che usano uno dei due strumenti. Uno degli scenari più utili in relazione a questa funzionalità riguarda le fasi iniziali di un progetto o la creazione di un prototipo. In entrambi i casi, le frequenti operazioni di pubblicazione e test sono potenzialmente più convenienti se eseguite all'interno dell'ambiente di sviluppo. 
+Ciascuna di queste opzioni è caratterizzata da vari punti di forza. La possibilità di pubblicare da un client FTP è una soluzione semplice e diretta per effettuare il push di nuovi file sul proprio sito. Essa garantisce inoltre che eventuali strumenti o processi di pubblicazione basati su FTP possano continuare a funzionare con Siti Web di Azure. Il controllo del codice sorgente offre il miglior tipo di controllo sulle versioni dei contenuti dei siti, perché consente di tracciare e pubblicare le modifiche nonché di eseguirne il rollback a versioni precedenti, qualora necessario. L'opzione di pubblicazione diretta da Visual Studio o da Web Matrix è una comodità per gli sviluppatori che utilizzano uno dei due strumenti. Uno degli scenari più utili in relazione a questa funzionalità riguarda le fasi iniziali di un progetto o la creazione di un prototipo. In entrambi i casi, le frequenti operazioni di pubblicazione e test sono potenzialmente più convenienti se eseguite all'interno dell'ambiente di sviluppo. 
 
 Molte delle attività di distribuzione qui descritte richiedono l'uso di informazioni contenute nel portale di gestione di Azure. Nel sito Web selezionare la scheda **Dashboard** e quindi cercare la sezione **Riepilogo rapido**. Nella schermata riportata di seguito sono illustrate svariate opzioni.
 
 ![GlobalWebQuickGlance][GlobalWebQuickGlance]
 
-Alcuni strumenti di controllo codice sorgete e client FTP usano l'accesso con nome utente/password. Le credenziali di un nuovo sito Web non vengono create automaticamente. È tuttavia possibile eseguire facilmente questa operazione facendo clic su **Reimposta le credenziali di distribuzione**. Al termine, sarà possibile usare qualsiasi client FTP per la distribuzione del proprio sito Web tramite queste credenziali con l'opzione **Nome host FTP** sulla stessa pagina **Dashboard**.
+Alcuni strumenti di controllo codice sorgete e client FTP utilizzano l'accesso con nome utente/password. Le credenziali di un nuovo sito Web non vengono create automaticamente. È tuttavia possibile eseguire facilmente questa operazione facendo clic su **Reimposta le credenziali di distribuzione**. Al termine, sarà possibile usare qualsiasi client FTP per la distribuzione del proprio sito Web tramite queste credenziali con l'opzione **Nome host FTP** sulla stessa pagina **Dashboard**.
 
 ![GlobalWebFTPSettings][GlobalWebFTPSettings]
 
@@ -62,10 +62,8 @@ Si noti che il nome nella sezione Utente FTP/distribuzione è una combinazione d
 
 Se si pianifica di usare Visual Studio per creare e gestire il proprio sito, è possibile scegliere di pubblicare direttamente da Visual Studio. Uno dei metodi consiste nel fare clic sull'opzione **Scaricare il profilo di pubblicazione**. In tal modo sarà possibile salvare un file publishsettings che potrà quindi essere importato in Visual Studio per la pubblicazione sul Web. 
 
-<div class="dev-callout">
-<strong>Nota</strong>
-<p>È importante mantenere il file <i>publishsettings</i> al sicuro e fuori dal controllo del codice sorgente, in quanto contiene nomi utente e password per la distribuzione nonché per eventuali stringhe di connessione ai database collegati.</p>
-</div>
+> [WACOM.NOTE]
+> È importante mantenere il file <i>publishsettings</i> al sicuro e fuori dal controllo del codice sorgente, in quanto contiene nomi utente e password per la distribuzione nonché per eventuali stringhe di connessione ai database collegati.
 
 È inoltre possibile importare le informazioni di sottoscrizione direttamente in Visual Studio. Ad esempio, considerare un progetto ASP.NET locale in Visual Studio. Fare clic con il pulsante destro del mouse sul progetto Web e scegliere **Pubblica**. Il pulsante **Importa** nella finestra di dialogo **Pubblica sito Web** consente di importare un file contenente le impostazioni di sottoscrizione di Azure oppure il file publishsettings scaricato dal dashboard di Siti Web. Nella schermata riportata di seguito sono illustrate queste opzioni.
 
@@ -77,7 +75,7 @@ Un'ulteriore opzione per lo sviluppo e la distribuzione è WebMatrix nel portale
 
 ![GlobalWebWebMatrix][GlobalWebWebMatrix]
 
-Per altre informazioni su questa opzione, vedere Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix][aspnetgetstarted].
+Per altre informazioni su questa opzione, vedere [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix][aspnetgetstarted].
 
 Benché in questi passaggi siano indicate tutte le operazioni necessarie per la distribuzione del sito .COM, è consigliabile creare inoltre un piano di gestione del ciclo continuo di pubblicazione dei contenuti. Queste opzioni potrebbero variare dalla compilazione di una soluzione personalizzata alle periodiche ridistribuzioni di un sito che cambia in maniera non frequente fino a un sistema completo per la gestione dei contenuti (CMS). Se si sta creando un nuovo sito Web, si noterà che la galleria offre alcune opzioni per l'uso dei framework CMS esistenti, ad esempio [Drupal][drupal] o [Umbraco][umbraco].
 
@@ -175,7 +173,7 @@ La regola consente di inviare e-mail agli amministratori o ad altri individui qu
 
 ![GlobalWebMonitor4][GlobalWebMonitor4]
 
-Se si scopre che il sito necessita di ridimensionamento è possibile operare manualmente oppure tramite l'anteprima di Scalabilità automatica nella scheda **Scala**. In tale scheda sono disponibili opzioni sia di aumento (macchine dedicate più grandi) di riduzione (ulteriori istanze condivise o istanze dedicate delle stesse dimensioni). L'anteprima Autoscale supporta unicamente la scalabilità orizzontale. Per altri dettagli sul monitoraggio del sito Web vedere la sezione Scalabilità in base alla domanda da parte degli utenti dello scenario di [campagna marketing digitale][scenariodigitalmarketing]. Vedere anche [Come monitorare i siti Web][howtomonitor].
+Se si scopre che il sito necessita di ridimensionamento è possibile operare manualmente oppure tramite l'anteprima di Scalabilità automatica nella scheda **Scala**. In tale scheda sono disponibili opzioni sia di aumento (macchine dedicate più grandi) di riduzione (ulteriori istanze condivise o istanze dedicate delle stesse dimensioni). L'anteprima Autoscale supporta unicamente la scalabilità orizzontale. Per altri dettagli sul monitoraggio del sito Web vedere la sezione Scalabilità in base alla domanda da parte degli utenti dello scenario di [campagna marketing digitale][scenariodigitalmarketing]. Vedere inoltre [Come monitorare i siti Web][howtomonitor].
 
 ##<a name="summary"></a>Riepilogo
 Per creare il sito della propria organizzazione (.COM) le attività standard includono la scelta di un framework di sviluppo, la creazione del sito, la distribuzione, l'assegnazione del dominio personalizzato e il monitoraggio. Nei siti in cui è necessario proteggere i dati degli utenti è fortemente consigliato il protocollo SSL. In questo articolo sono state fornite informazioni generali sull'esecuzione di queste attività in Siti Web di Azure. Per altre informazioni, vedere gli articoli tecnici seguenti citati nel documento.
@@ -254,3 +252,5 @@ Per creare il sito della propria organizzazione (.COM) le attività standard inc
   
   
   
+
+<!--HONumber=35_1-->

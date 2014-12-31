@@ -1,12 +1,10 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili per app per Xamarin" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a Servizi mobili per app per Xamarin" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="craigd" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
-
-
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.
 
@@ -22,9 +20,9 @@ Di seguito è riportata una schermata dell'app completata:
 
 ![][0]
 
-Per completare questa esercitazione, è necessario disporre di XCode 4.5 e iOS 5.0 o versioni successive nonché di [Xamarin Studio] per OS X oppure del plug-in Xamarin Visual Studio per Visual Studio in Windows.
+Per completare questa esercitazione è necessario disporre di XCode e [Xamarin Studio] per OS X oppure del plug-in Xamarin Visual Studio per Visual Studio in Windows. L'esempio verrà eseguito su iOS 5.0 e versioni successive.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -46,13 +44,13 @@ In questa sezione si creerà una nuova app di Xamarin.iOS connessa al servizio m
 
   	![][7]
 
-3. Se necessario, scaricare e installare [Xcode] v4.4 o versione successiva e [Xamarin Studio].
+3. Se necessario, scaricare e installare Xcode v6.0 o versione successiva e [Xamarin Studio].
 
 4. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
 5. In **Scaricare ed eseguire l'app** fare clic su **Download**. 
 
-	Viene scaricato il progetto per l'applicazione di esempio _To do list_ collegato al servizio mobile e viene fatto riferimento al componente Servizi mobili di Azure per Xamarin.iOS. Salvare il file di progetto compresso nel computer locale e prendere nota dell'ubicazione in cui è stato salvato.
+	Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile e si farà riferimento al componente Servizi mobili di Azure per Xamarin.iOS. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 <h2>Eseguire la nuova app per Xamarin.iOS</h2>
 
@@ -64,7 +62,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	![][9]
 
-2. Premere il pulsante **Run** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
+2. Premere il pulsante **Run** per compilare il progetto e avviare l'applicazione nell'emulatore di iPhone, che corrisponde all'impostazione predefinita per questo progetto.
 
 3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (**+**).
 
@@ -97,7 +95,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 
@@ -128,3 +126,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portale di gestione]: https://manage.windowsazure.com/
+
+<!--HONumber=35_1-->

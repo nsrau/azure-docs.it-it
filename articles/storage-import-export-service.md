@@ -1,26 +1,27 @@
-<properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
+
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB
 
-È possibile usare il servizio di importazione/esportazione di Microsoft Azure per trasferire grandi quantità di dati di file nell'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è realizzabile. È inoltre possibile utilizzare il servizio Importazione/Esportazione per trasferire nelle installazioni locali, nel tempo previsto e in modo conveniente, grandi quantità di dati residenti nell'archiviazione BLOB.
+È possibile usare il servizio di importazione/esportazione di Microsoft Azure per trasferire grandi quantità di dati di file nell'archiviazione BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è realizzabile. È inoltre possibile usare il servizio Importazione/Esportazione per trasferire nelle installazioni locali, nel tempo previsto e in modo conveniente, grandi quantità di dati residenti nell'archiviazione BLOB.
 
 Per trasferire un set di grandi dimensioni di dati di file nell'archiviazione BLOB, è possibile inviare uno o più dischi rigidi contenenti tali dati a un data center di Azure, dove i dati verranno caricati nell'account di archiviazione. Analogamente, per esportare i dati dall'archiviazione BLOB, è possibile inviare dischi rigidi vuoti a un data center di Azure, dove i dati BLOB verranno copiati dall'account di archiviazione ai dischi rigidi e quindi restituiti all'utente. Prima di inviare un'unità contenente i dati, sarà opportuno crittografarli. I dati, dopo essere stati esportati dal servizio Importazione/Esportazione per l'invio all'utente, verranno crittografati anche prima della spedizione.
 
 È possibile creare e gestire i processi di importazione ed esportazione in due modi:
 
--   Utilizzando il portale di gestione di Azure.
--   Utilizzando un'interfaccia REST per il servizio.
+- Usando il portale di gestione di Azure.
+- Usando un'interfaccia REST per il servizio.
 
-In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come utilizzare il portale di gestione per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure][Riferimento dell'API REST del servizio di importazione/esportazione di Azure].
+In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come usare il portale di gestione per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
 
-## Panoramica del servizio Importazione/Esportazione
+## Panoramica del servizio Importazione/Esportazione ##
 
 Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un *processo*, che potrà essere un *processo di importazione* o un *processo di esportazione*:
 
--   Creare un processo di importazione quando si desidera trasferire i dati locali nei BLOB nell'account di archiviazione di Azure.
--   Creare un processo di esportazione quando si desidera trasferire su dischi rigidi spediti all'utente i dati attualmente archiviati come BLOB nell'account di archiviazione.
+- Creare un processo di importazione quando si desidera trasferire i dati locali nei BLOB nell'account di archiviazione di Azure.
+- Creare un processo di esportazione quando si desidera trasferire su dischi rigidi spediti all'utente i dati attualmente archiviati come BLOB nell'account di archiviazione.
 
 Quando si crea un processo, si notifica al servizio Importazione/Esportazione che si spedirà uno o più dischi rigidi a un data center di Azure. Per un processo di importazione, si spediranno dischi rigidi contenenti dati di file. Per un processo di esportazione, si spediranno dischi rigidi vuoti.
 
@@ -28,287 +29,284 @@ Per preparare l'unità per la spedizione per un processo di importazione, esegui
 
 <div class="dev-callout">
 <strong>Nota</strong>
-<p>I dati sull'unit&agrave; devono essere crittografati mediante Crittografia unit&agrave; BitLocker, che protegge i dati mentre sono in transito. Per un processo di esportazione, il servizio Importazione/Esportazione crittografer&agrave; i dati prima della spedizione all'utente.</p>
+<p>I dati sull'unità devono essere crittografati mediante Crittografia unità BitLocker, che protegge i dati mentre sono in transito. Per un processo di esportazione, il servizio Importazione/Esportazione crittograferà i dati prima della spedizione all'utente.</p>
 </div>
 
-Quando si crea un processo di importazione o un processo di esportazione, sarà inoltre necessario l'*ID unità*, che è il numero di serie assegnato dal produttore dell'unità a un disco rigido specifico. L'ID unità è visibile all'esterno dell'unità.
+Quando si crea un processo di importazione o un processo di esportazione, sarà inoltre necessario l'*ID unità*, che è il numero di serie assegnato dal produttore dell'unità a un disco rigido specifico. L'ID unità è visibile all'esterno dell'unità. 
 
-### Requisiti e ambito
+<h3>Requisiti e ambito</h3>
 
-1.  **Sottoscrizione ed account di archiviazione:** per utilizzare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere utilizzato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione][Come creare un account di archiviazione].
-2.  **Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 4 TB non sono supportati. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III.
-3.  **Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
-4.  **Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine.
-5.  **Numero di processi:** un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
-6.  **Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi utilizzati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
+1.	**Sottoscrizione ed account di archiviazione:** per usare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](../storage-create-storage-account/).
+2.	**Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 4 TB non sono supportati. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III.
+3.	**Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
+4.	**Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine. 
+5.	**Numero di processi:** un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
+6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 
-## Creazione di un processo di importazione nel portale di gestione
+## Creare un processo di importazione nel portale di gestione##
 
 Creare un processo di importazione per notificare al servizio Importazione/Esportazione che si spedirà al data center una o più unità contenenti dati da importare nell'account di archiviazione.
 
-### Preparare le unità
+<h3>Preparare le unità</h3>
 
-Prima di creare un processo di importazione, preparare le unità con lo strumento di importazione/esportazione di Microsoft Azure. Per ulteriori dettagli sull'uso dello strumento di importazione/esportazione di Microsoft Azure, vedere [Riferimento allo strumento di importazione/esportazione di Azure][Riferimento allo strumento di importazione/esportazione di Azure]. È possibile scaricare lo [strumento di importazione/esportazione di Microsoft Azure][strumento di importazione/esportazione di Microsoft Azure] come pacchetto autonomo.
+Prima di creare un processo di importazione, preparare le unità con lo strumento di importazione/esportazione di Microsoft Azure. Per altri dettagli sull'uso dello strumento di importazione/esportazione di Microsoft Azure, vedere [Riferimento allo strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkId=329032). È possibile scaricare lo [strumento di importazione/esportazione di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) come pacchetto autonomo.
+  
+Per preparare le unità, seguire questi tre passaggi: 
 
-Per preparare le unità, seguire questi tre passaggi:
+1.	Determinare i dati da importare e il numero di unità necessarie.
+2.	Identificare i BLOB di destinazione per i dati nel servizio BLOB di Azure.
+3.	Usare lo strumento di importazione/esportazione di Microsoft Azure per copiare i dati in uno o più dischi rigidi.
 
-1.  Determinare i dati da importare e il numero di unità necessarie.
-2.  Identificare i BLOB di destinazione per i dati nel servizio BLOB di Azure.
-3.  Usare lo strumento di importazione/esportazione di Microsoft Azure per copiare i dati in uno o più dischi rigidi.
+Lo strumento di importazione/esportazione di Microsoft Azure genera un file *journal dell'unità* per ogni unità preparata. Il file journal dell'unità viene archiviato nel computer locale, non nell'unità stessa. Il file journal verrà caricato quando si creerà il processo di importazione. Un file journal di unità include l'ID unità e la chiave BitLocker, nonché altre informazioni sull'unità.  
 
-Lo strumento di importazione/esportazione di Microsoft Azure genera un *file journal dell'unità* per ogni unità preparata. Il file journal dell'unità viene archiviato nel computer locale, non nell'unità stessa. Il file journal verrà caricato quando si creerà il processo di importazione. Un file journal di unità include l'ID unità e la chiave BitLocker, nonché altre informazioni sull'unità.
+<h3>Creare il processo di importazione</h3>
 
-### Creare il processo di importazione
+1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di gestione e visualizzare il 	dashboard.. In <strong>Riepilogo rapido</strong> fare clic su <strong>Crea processo di importazione</strong>. 
+ 
+2.	Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
+ 
+3.	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione <strong>Salva log dettagliato nel contenitore BLOB 'waimportexport'</strong>.
 
-1.  Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**.
+4.	Nel passaggio 3 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. È necessario caricare un file per ogni unità preparata.
 
-2.  Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
+	![Create import job - Step 3][import-job-03]
 
-3.  Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
+5.	Nel passaggio 4 immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. 	Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
 
-4.  Nel passaggio 3 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. È necessario caricare un file per ogni unità preparata.
+	Selezionare quindi l'area geografica del data center dall'elenco. L'area geografica del data center indica il data center e l'indirizzo per la spedizione del pacchetto. Per altre informazioni, vedere le domande frequenti più avanti.
 
-    ![Creare il processo di importazione - Passaggio 3][Creare il processo di importazione - Passaggio 3]
+6. 	Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Microsoft usa questo account per inviare le unità al cliente al completamento del processo di importazione.
 
-5.  Nel passaggio 4 immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà utilizzato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
+	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione. 
 
-    Selezionare quindi l'area geografica del data center dall'elenco. L'area geografica del data center indica il data center e l'indirizzo per la spedizione del pacchetto. Per ulteriori informazioni, vedere le domande frequenti più avanti.
+	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
 
-6.  Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Microsoft usa questo account per inviare le unità al cliente al completamento del processo di importazione.
+7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
-    Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
+	Se il processo si trova in stato di creazione, spedizione o trasferimento, è anche possibile aggiornare il numero di account del vettore nel passaggio 2 della procedura guidata. Quando il processo è in stato Packaging, non è possibile aggiornare il numero di account del vettore del processo. 
 
-    Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
-
-7.  Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **/Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
-
-    Se il processo si trova in stato di creazione, spedizione o trasferimento, è anche possibile aggiornare il numero di account del vettore nel passaggio 2 della procedura guidata. Quando il processo è in stato Packaging, non è possibile aggiornare il numero di account del vettore del processo.
-
-## Creazione di un processo di esportazione nel portale di gestione
+## Creare un processo di esportazione nel portale di gestione##
 
 Creare un processo di esportazione per notificare al servizio Importazione/Esportazione che si spedirà una o più unità vuote al data center, in modo che i dati possano essere esportati dall'account di archiviazione alle unità e le unità possano quindi essere spedite all'utente.
 
-1.  Per creare un processo di esportazione, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In **Quick Glance**, fare clic su **Crea un processo di esportazione** e continuare la procedura guidata.
+1. 	Per creare un processo di esportazione, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In <strong>Riepilogo rapido</strong>, fare clic su <strong>Crea un processo di esportazione</strong> e continuare la procedura guidata.
 
-2.  Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
+2. 	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione <strong>Salva log dettagliato nel contenitore BLOB 'waimportexport'</strong>.
 
-3.  Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati BLOB nell'account di archiviazione o specificare singoli BLOB o set di BLOB.
+3.	Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più 	unità vuote. È possibile scegliere di esportare tutti i dati BLOB nell'account di archiviazione o specificare singoli BLOB o set di BLOB.
 
-    ![Creare il processo di esportazione - Passaggio 3][Creare il processo di esportazione - Passaggio 3]
+	![Create export job - Step 3][export-job-03]
 
-    -   Per specificare un BLOB da esportare, utilizzare il selettore **Equal To** e specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
-    -   Per specificare tutti i BLOB che iniziano con un prefisso, utilizzare il selettore **Starts With** e specificare il prefisso, iniziando con una barra "/". Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB.
+	- Per specificare un BLOB da esportare, usare il selettore **Uguale a** e specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Usare *$root* per specificare il contenitore radice.
+	- Per specificare tutti i BLOB che iniziano con un prefisso, usare il selettore **Inizia con** e specificare il prefisso, iniziando con una barra "/". Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB.
 
-    Nella tabella vengono indicati esempi di percorsi BLOB validi:
+	Nella tabella vengono indicati esempi di percorsi BLOB validi:
 
-    <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-    <tbody>
-        <tr>
-            <td><strong>Selettore</strong></td>
-            <td><strong>Percorso BLOB</strong></td>
-            <td><strong>Descrizione</strong></td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/</td>
-            <td>Esporta tutti i BLOB nell'account di archiviazione</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/$root/</td>
-            <td>Esporta tutti i BLOB nel contenitore radice</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/book</td>
-            <td>Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso<strong>book</strong></td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/music/</td>
-            <td>Esporta tutti i BLOB nel contenitore <strong>music</strong></td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/music/love</td>
-            <td>Esporta nel contenitore <strong>music</strong> tutti i BLOB che iniziano con il prefisso <strong>love</strong></td>
-        </tr>
-        <tr>
-            <td>Equal To</td>
-            <td>$root/logo.bmp</td>
-            <td>Esporta il BLOB <strong>logo.bmp</strong> nel contenitore radice</td>
-        </tr>
-        <tr>
-            <td>Equal To</td>
-            <td>videos/story.mp4</td>
-            <td>Esporta il BLOB <strong>story.mp4</strong> nel contenitore <strong>videos</strong></td>
-        </tr>
-    </tbody>
-</table>
+	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tbody>
+			<tr>
+				<td><strong>Selettore</strong></td>
+				<td><strong>Percorso BLOB</strong></td>
+				<td><strong>Descrizione</strong></td>
+			</tr>
+			<tr>
+				<td>Starts With</td>
+				<td>/</td>
+				<td>Esporta tutti i BLOB nell'account di archiviazione</td>
+			</tr>
+			<tr>
+				<td>Starts With</td>
+				<td>/$root/</td>
+				<td>Esporta tutti i BLOB nel contenitore radice</td>
+			</tr>
+			<tr>
+				<td>Starts With</td>
+				<td>/book</td>
+				<td>Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso <strong>book</strong></td>
+			</tr>
+			<tr>
+				<td>Starts With</td>
+				<td>/music/</td>
+				<td>Esporta tutti i BLOB nel contenitore <strong>music</strong></td>
+			</tr>
+			<tr>
+				<td>Starts With</td>
+				<td>/music/love</td>
+				<td>Esporta nel contenitore <strong>music</strong> tutti i BLOB che iniziano con il prefisso <strong>love</strong></td>
+			</tr>
+			<tr>
+				<td>Equal To</td>
+				<td>$root/logo.bmp</td>
+				<td>Esporta il BLOB <strong>logo.bmp</strong> nel contenitore radice</td>
+			</tr>
+			<tr>
+				<td>Equal To</td>
+				<td>videos/story.mp4</td>
+				<td>Esporta il BLOB <strong>story.mp4</strong> nel contenitore <strong>videos</strong></td>
+			</tr>
+		</tbody>
+	</table>
 
-4.  Nel passaggio 4 immettere un nome descrittivo per il processo di esportazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi.
 
-    L'area del data center indicherà il data center a cui è necessario spedire il pacchetto. Per ulteriori informazioni, vedere le domande frequenti più avanti.
+4.	Nel passaggio 4 immettere un nome descrittivo per il processo di esportazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi.
 
-5.  Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Microsoft usa questo account per inviare le unità al cliente al completamento del processo di esportazione.
+	L'area del data center indicherà il data center a cui è necessario spedire il pacchetto. Per altre informazioni, vedere le domande frequenti più avanti.
 
-    Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
+5. 	Nel passaggio 5 selezionare il vettore di ritorno dall'elenco, quindi immettere il numero di account del vettore. Microsoft usa questo account per inviare le unità al cliente al completamento del processo di esportazione.
 
-    Se non si dispone ancora di un numero di spedizione, scegliere **Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto**, quindi completare il processo di esportazione.
+	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione. 
 
-6.  Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **/Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+	Se non si dispone ancora di un numero di spedizione, scegliere <strong>Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto</strong>, quindi completare il processo di esportazione.
 
-    Se il processo si trova in stato di creazione, spedizione o trasferimento, è anche possibile aggiornare il numero di account del vettore nel passaggio 2 della procedura guidata. Quando il processo è in stato Packaging, non è possibile aggiornare il numero di account del vettore del processo.
+6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
-## Traccia dello stato del processo nel portale di gestione
+	Se il processo si trova in stato di creazione, spedizione o trasferimento, è anche possibile aggiornare il numero di account del vettore nel passaggio 2 della procedura guidata. Quando il processo è in stato Packaging, non è possibile aggiornare il numero di account del vettore del processo. 
 
-È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale di gestione. Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Import/Export**. Nella pagina verrà visualizzato un elenco dei processi. È possibile filtrare l'elenco per stato processo, nome processo, tipo di processo o numero di spedizione.
+
+## Tenere traccia dello stato del processo nel portale di gestione##
+
+È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale di gestione. Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Importa/Esporta**. Nella pagina verrà visualizzato un elenco dei processi. È possibile filtrare l'elenco per stato processo, nome processo, tipo di processo o numero di spedizione.
 
 Nella tabella viene descritto il significato di ogni designazione dello stato del processo:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-    <tbody>
-        <tr>
-            <td><strong>Stato processo</strong></td>
-            <td><strong>Descrizione</strong></td>
-        </tr>
-        <tr>
-            <td>Creating</td>
-            <td>Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.</td>
-        </tr>
-        <tr>
-            <td>Spedizione</td>
-            <td>Il processo è stato creato e sono state specificate le informazioni per la spedizione.</td>
-        </tr>
-        <tr>
-            <td>Transferring</td>
-            <td>È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).</td>
-        </tr>
-        <tr>
-            <td>Packaging</td>
-            <td>Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.</td>
-        </tr>
-        <tr>
-            <td>Complete</td>
-            <td>Il disco rigido è stato spedito all'utente.</td>
-        </tr>
-    </tbody>
+	<tbody>
+		<tr>
+			<td><strong>Stato processo</strong></td>
+			<td><strong>Descrizione</strong></td>
+		</tr>
+		<tr>
+			<td>Creating</td>
+			<td>Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.</td>
+		</tr>
+		<tr>
+			<td>Spedizione</td>
+			<td>Il processo è stato creato e sono state specificate le informazioni per la spedizione.</td>
+		</tr>
+		<tr>
+			<td>Transferring</td>
+			<td>È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).</td>
+		</tr>
+		<tr>
+			<td>Packaging</td>
+			<td>Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.</td>
+		</tr>
+		<tr>
+			<td>Complete</td>
+			<td>Il disco rigido è stato spedito all'utente.</td>
+		</tr>
+	</tbody>
 </table>
 
-## Visualizzazione delle chiavi BitLocker per un processo di esportazione
+## Visualizzare le chiavi BitLocker per un processo di esportazione
 
-Per i processi di esportazione, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità, in modo che sia possibile decrittografare i dati esportati dopo aver ricevuto l'unità dal data center di Azure. Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Import/Export**. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante **View Keys**. Le chiavi BitLocker vengono visualizzate come illustrato:
+Per i processi di esportazione, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità, in modo che sia possibile decrittografare i dati esportati dopo aver ricevuto l'unità dal data center di Azure. Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Importa/Esporta**. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante **Visualizza chiavi**. Le chiavi BitLocker vengono visualizzate come illustrato:
 
-![Visualizzare le chiavi BitLocker per il processo di esportazione][Visualizzare le chiavi BitLocker per il processo di esportazione]
+![View BitLocker keys for export job][export-job-bitlocker-keys]
 
-## Domande frequenti
+## Domande frequenti ##
 
-### Generale
+<h3>Generale</h3>
 
 **Qual è il prezzo per il servizio Importazione/Esportazione?**
 
--   Per informazioni sui prezzi, vedere la [pagina dei prezzi][pagina dei prezzi].
+- Per informazioni sui prezzi, vedere la [pagina dei prezzi](http://go.microsoft.com/fwlink/?LinkId=329033).
 
 **Quanto tempo richiederà l'importazione o l'esportazione dei dati?**
 
--   Il tempo necessario per spedire i dischi più alcune ore per ogni TB di dati da copiare.
-
+- Il tempo necessario per spedire i dischi più alcune ore per ogni TB di dati da copiare.
+ 
 **Quali tipi di interfaccia sono supportati?**
 
--   Il servizio di importazione/esportazione supporta dischi rigidi interni SATA II/III da 3,5 pollici (HDD). È possibile utilizzare i convertitori seguenti per trasferire dati nei dispositivi USB in SATA prima della spedizione:
-
-    -   Anker 68UPSATAA-02BU
-    -   Anker 68UPSHHDS-BU
-    -   Startech SATADOCK22UE
+- Il servizio di importazione/esportazione supporta dischi rigidi interni SATA II/III da 3,5 pollici (HDD). È possibile usare i convertitori seguenti per trasferire dati nei dispositivi USB in SATA prima della spedizione:
+	- Anker 68UPSATAA-02BU
+	- Anker 68UPSHHDS-BU
+	- Startech SATADOCK22UE 
 
 > [WACOM.NOTE] Se si ha un convertitore non incluso nell'elenco precedente, prima di acquistare un convertitore supportato è possibile provare a eseguire lo strumento di importazione/esportazione di Microsoft Azure con il convertitore per preparare l'unità e vedere se funziona.
 
 **Che cosa si deve fare, se si desidera importare o esportare più di 10 unità?**
 
--   Un unico processo di importazione o esportazione può fare riferimento solo a 10 unità in un singolo processo del servizio di importazione/esportazione. Se si desidera spedire più di 10 unità, è possibile creare più processi.
+- Un unico processo di importazione o esportazione può fare riferimento solo a 10 unità in un singolo processo del servizio di importazione/esportazione. Se si desidera spedire più di 10 unità, è possibile creare più processi.
 
 **Cosa accade se si invia per errore un disco rigido non conforme ai requisiti supportati?**
 
--   Il data center di Azure restituirà all'utente l'unità non conforme ai requisiti supportati. Se solo alcune delle unità nel pacchetto soddisfano i requisiti per il supporto, tali unità verranno elaborate e le unità che non soddisfano i requisiti verranno restituite all'utente.
+- Il data center di Azure restituirà all'utente l'unità non conforme ai requisiti supportati. Se solo alcune delle unità nel pacchetto soddisfano i requisiti per il supporto, tali unità verranno elaborate e le unità che non soddisfano i requisiti verranno restituite all'utente.
 
-### Gestione dei processi di importazione/esportazione
+<h3>Gestione dei processi di importazione/esportazione</h3>
 
 **Che cosa accade ai processi di importazione ed esportazione se si elimina l'account di archiviazione di Azure?**
 
--   Quando si elimina l'account di archiviazione, insieme all'account vengono eliminati tutti i processi di importazione/esportazione di Azure.
+- Quando si elimina l'account di archiviazione, insieme all'account vengono eliminati tutti i processi di importazione/esportazione di Azure.  
 
 **È possibile annullare il processo?**
 
--   È possibile annullare un processo quando lo stato è Creating o Shipping.
+- È possibile annullare un processo quando lo stato è Creating o Shipping.
 
 **Per quanto tempo è possibile visualizzare lo stato dei processi completati nel portale di gestione?**
 
--   È possibile visualizzare lo stato per i processi completati fino a 90 giorni. Tutti i processi completi vengono eliminati dopo 90 giorni.
+- È possibile visualizzare lo stato per i processi completati fino a 90 giorni. Tutti i processi completi vengono eliminati dopo 90 giorni.
 
 **La crittografia Bitlocker è un requisito obbligatorio?**
 
--   Sì. Tutte le unità devono essere crittografate con una chiave BitLocker.
+- Sì. Tutte le unità devono essere crittografate con una chiave BitLocker.
 
 **Microsoft formatta le unità prima di restituirle?**
 
--   No. Tutte le unità devono essere preparate per BitLocker.
+- No. Tutte le unità devono essere preparate per BitLocker.
 
-### Spedizione
+<h3>Spedizione</h3>
 
 **Quali servizi di corriere sono supportati?**
 
--   Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express][Federal Express] (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
+- Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
 
--   Per le aree geografiche in Asia è supportato solo [DHL][DHL]. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
+- Per le aree geografiche in Asia è supportato solo [DHL](http://www.dhl-welcome.com/Tutorial/). Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
 
-    <div class="dev-callout">
-<strong>Importante</strong>
-	<p>&Egrave; necessario fornire il numero di spedizione per il servizio Importazione/Esportazione di Azure o il processo non potr&agrave; essere elaborato.</p>
-</div>
+	<div class="dev-callout">
+	<strong>Important</strong>
+	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	</div>
 
 **Esistono costi associati alla spedizione di ritorno?**
 
--   Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx][Federal Express] (per Stati Uniti ed Europa) o [DHL][DHL] (Asia), se non lo si ha già.
+- Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/) (per Stati Uniti ed Europa) o [DHL](http://www.dhl-welcome.com/Tutorial/) (Asia), se non lo si ha già.
 
--   La tariffa della spedizione di ritorno viene addebitata sull'account del vettore e dipende dal vettore stesso.
+- La tariffa della spedizione di ritorno viene addebitata sull'account del vettore e dipende dal vettore stesso.
 
 **Da dove e verso dove è possibile spedire i dati?**
 
--   Il servizio di importazione/esportazione supporta l'importazione e l'esportazione dei dati dagli account di archiviazione nelle seguenti aree geografiche:
+- Il servizio di importazione/esportazione supporta l'importazione e l'esportazione dei dati dagli account di archiviazione nelle seguenti aree geografiche:
+	- Stati Uniti orientali 
+	- Stati Uniti occidentali 
+	- Stati Uniti centro-settentrionali 
+	- Stati Uniti centro-meridionali 
+	- Europa settentrionale
+	- Europa occidentale
+	- East Asia
+	- Asia sudorientale
 
-    -   Stati Uniti orientali
-    -   Stati Uniti occidentali
-    -   North Central US
-    -   Stati Uniti centro-meridionali
-    -   Europa settentrionale
-    -   Europa occidentale
-    -   East Asia
-    -   Asia sudorientale
--   Viene fornito un indirizzo di spedizione nell'area geografica dell'account di archiviazione. Ad esempio, se il cliente vive negli Stati Uniti e l'account di archiviazione si trova nel data center Europa occidentale, viene fornito un indirizzo di spedizione europeo per l'invio delle unità.
+- Viene fornito un indirizzo di spedizione nell'area geografica dell'account di archiviazione. Ad esempio, se il cliente vive negli Stati Uniti e l'account di archiviazione si trova nel data center Europa occidentale, viene fornito un indirizzo di spedizione europeo per l'invio delle unità.
 
-    <div class="dev-callout">
-<strong>Importante</strong>
-	<p>&Egrave; possibile che i supporti fisici spediti debbano passare i confini internazionali. &Egrave; responsabilit&agrave; del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ci&ograve; assicura che la spedizione raggiunga Microsoft in modo tempestivo.</p>
-</div>
+	<div class="dev-callout">
+	<strong>Importante</strong>
+	<p>È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo.</p>
+	</div>
 
--   Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure][Condizioni per l’Utilizzo dei Servizi di Microsoft Azure].
+- Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l'Uso dei Servizi di Microsoft Azure](http://azure.microsoft.com/it-it/support/legal/services-terms/). 
 
 **È possibile acquistare da Microsoft unità per i processi di importazione/esportazione?**
 
--   No. Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
+- 	No. Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
 
 **Cosa va incluso nel pacchetto?**
 
--   Spedire solo i dischi rigidi. Non inserire oggetti come cavi di alimentazione o cavi USB.
+- Spedire solo i dischi rigidi. Non inserire oggetti come cavi di alimentazione o cavi USB.
 
-  [Riferimento dell'API REST del servizio di importazione/esportazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=329099
-  [Come creare un account di archiviazione]: ../storage-create-storage-account/
-  [Riferimento allo strumento di importazione/esportazione di Azure]: http://go.microsoft.com/fwlink/?LinkId=329032
-  [strumento di importazione/esportazione di Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409
-  [Creare il processo di importazione - Passaggio 3]: ./media/storage-import-export-service/import-job-03.png
-  [Creare il processo di esportazione - Passaggio 3]: ./media/storage-import-export-service/export-job-03.png
-  [Visualizzare le chiavi BitLocker per il processo di esportazione]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-  [pagina dei prezzi]: http://go.microsoft.com/fwlink/?LinkId=329033
-  [Federal Express]: http://www.fedex.com/us/oadr/
-  [DHL]: http://www.dhl-welcome.com/Tutorial/
-  [Condizioni per l’Utilizzo dei Servizi di Microsoft Azure]: http://azure.microsoft.com/it-it/support/legal/services-terms/
+
+
+[import-job-03]: ./media/storage-import-export-service/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
+
+<!--HONumber=35_1-->

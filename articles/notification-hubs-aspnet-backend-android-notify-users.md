@@ -1,17 +1,18 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Hub di notifica di Azure - Notifiche agli utenti" metaKeywords="notifiche push di Azure, hub di notifica Azure" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" manager="timlt" />
+﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Hub di notifica di Azure - Notifiche agli utenti" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" services="notification-hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
 #Hub di notifica di Azure - Notifiche agli utenti
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/it-it/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/it-it/library/dn743807.aspx). Questa esercitazione si basa sull'hub di notifica creato nell'esercitazione **Introduzione ad Hub di notifica**.
 
-> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](/it-it/documentation/articles/notification-hubs-android-get-started/).
+> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](/it-it/documentation/articles/notification-hubs-android-get-started/) 
+> Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -276,3 +277,5 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
+
+<!--HONumber=35_1-->

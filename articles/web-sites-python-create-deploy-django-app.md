@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Websites with Django" pageTitle="Siti Web di Python con Django - Esercitazione su Azure"metaKeywords ="Azure django, sito Web django" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Websites with Django" pageTitle="Siti Web Python con Django - Esercitazione su Azure" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="08/01/2014" ms.author="huvalo" />
 
 
 
@@ -11,13 +11,16 @@ Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python 
 
 In questa esercitazione viene illustrato come distribuire un'applicazione creata usando il framework Web Django.  Vengono illustrate le procedure dettagliate per la distribuzione dell'applicazione e di eventuali librerie necessarie, incluso Django.  Tali elementi verranno inseriti in un archivio Git, in modo da velocizzare e semplificare il push di aggiornamenti nel sito Web.  Il sito Web appena creato tramite Azure verrà infine configurato per l'esecuzione dell'applicazione Python.  
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. È possibile: <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="http://azure.microsoft.com/it-it/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
+> 
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 In questa esercitazione vengono usati Python 2.7 e Django 1.4.  È possibile scaricarli autonomamente oppure installarli in modo semplice e rapido tramite il collegamento di Windows Installer, disponibile all'indirizzo [http://www.windowsazure.com/it-it/develop/python/](http://www.windowsazure.com/it-it/develop/python/).  
 
 **Nota**: Python (2.7.3 o 3.4.0, a seconda della selezione effettuata) e il gestore wfastcgi sono attualmente preinstallati in Siti Web di Azure,  ma framework Web quali Django non sono inclusi.  Se lo si preferisce, è possibile usare comunque un altro interprete per Python.  È necessario includerlo semplicemente nell'archivio Git e configurare il sito Web in modo che usi tale interprete in sostituzione dell'interprete per Python 2.7 già installato.
 
-> [WACOM.NOTE]Per selezionare la versione di Python da usare nel portale di Siti Web di Azure aprire la scheda Configura del sito Web e modificare l'impostazione **Versione Python**.
+> [WACOM.NOTE] Per selezionare la versione di Python da usare nel portale di Siti Web di Azure, aprire la scheda Configura del sito Web e modificare l'impostazione **Versione Python**.
 
 Sarà inoltre necessario installare un'opzione di distribuzione per eseguire il push del sito in Azure. Sono disponibili svariati strumenti di distribuzione, ma in questa esercitazione verrà usato Git. È consigliabile usare [msysgit](http://code.google.com/p/msysgit/). 
 
@@ -27,7 +30,7 @@ Al termine dell'installazione di Python, Django e Git, sarà possibile eseguire 
 
 ## Creazione di un sito Web sul portale
 
-Il primo passaggio per la creazione di un'app consiste nella creazione del sito Web tramite il portale di gestione di Azure.  A tale scopo, sarà necessario accedere al portale e fare clic sul pulsante NEW nell'angolo inferiore sinistro. Verrà visualizzata una finestra. Fare clic su **Creazione rapida**, immettere un URL, quindi selezionare **Crea sito Web**.
+Il primo passaggio per la creazione di un'app consiste nella creazione del sito Web tramite il portale di gestione di Azure.  A tale scopo, sarà necessario accedere al portale e fare clic sul pulsante NUOVO nell'angolo inferiore sinistro. Verrà visualizzata una finestra. Fare clic su **Creazione rapida**, immettere un URL, quindi selezionare **Crea sito Web**.
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-003.png)
 
@@ -65,7 +68,7 @@ Tali comandi consentono di copiare tutte le librerie disponibili in site-package
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-008.png)
  
-Creare quindi l'applicazione Django iniziale,  eseguendo la stessa procedura usata per la creazione di altre applicazioni Django dalla riga di comando oppure usando [Python Tools per Visual Studio](http://pytools.codeplex.com/) per creare il progetto.  Entrambe le opzioni sono mostrate di seguito.
+Creare quindi l'applicazione Django iniziale,  eseguendo la stessa procedura usata per la creazione di qualsiasi altra applicazione Django dalla riga di comando oppure usando [Python Tools per Visual Studio](http://pytools.codeplex.com/) per creare il progetto.  Entrambe le opzioni sono mostrate di seguito.
 
 **Opzione 1:** 
 Per creare il nuovo progetto dalla riga di comando, eseguire il comando seguente. Il comando consente di creare l'applicazione Django nella cartella DjangoApplication:
@@ -75,7 +78,7 @@ Per creare il nuovo progetto dalla riga di comando, eseguire il comando seguente
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-010.png)
 
 **Opzione 2:**  
-È inoltre possibile creare il nuovo sito usando Python Tools per Visual Studio.  Avviare Visual Studio dopo avere installato Python Tools per Visual Studio, quindi selezionare **File**->**Nuovo progetto**.  In **Altri linguaggi**passare ai progetti Python e selezionare **Django Application**.  Immettere **DjangoApplication** come nome per il progetto, quindi verificare che l'opzione **Crea directory per soluzione** sia deselezionata, in modo da ottenere esattamente la stessa struttura di directory ottenuta creando l'applicazione Django dalla riga di comando. Questa opzione consente di configurare una soluzione e un file di progetto di Visual Studio che offrono debug di modelli e intellisense.
+È inoltre possibile creare il nuovo sito usando Python Tools per Visual Studio.  Avviare Visual Studio dopo avere installato Python Tools per Visual Studio, quindi selezionare **File**->**Nuovo progetto**.  In **Altri linguaggi**passare ai progetti Python e selezionare l'applicazione ****Django.  Immettere **DjangoApplication** come nome per il progetto, quindi verificare che l'opzione **Crea directory per soluzione** sia deselezionata, in modo da ottenere esattamente la stessa struttura di directory ottenuta creando l'applicazione Django dalla riga di comando. Questa opzione consente di configurare una soluzione e un file di progetto di Visual Studio che offrono debug di modelli e intellisense.
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-011.png)
 
@@ -96,9 +99,9 @@ Dopo l'esecuzione del push, il portale di Azure verrà aggiornato e verrà visua
 
 ## Configurazione del sito Web
 
-È ora necessario configurare il sito Web, in modo che sia informato in merito al progetto Django e usi il gestore wfastcgi.  A tale scopo, è possibile fare clic sulla scheda Configura nella parte superiore dello schermo, quindi scorrere verso il basso fino a visualizzare la parte inferiore della pagina, che include le sezioni **impostazioni app**e **mapping handler**.  
+È ora necessario configurare il sito Web, in modo che sia informato in merito al progetto Django e usi il gestore wfastcgi.  A tale scopo, è possibile fare clic sulla scheda Configura nella parte superiore dello schermo, quindi scorrere verso il basso fino a visualizzare la seconda metà della pagina, che include le sezioni **Impostazioni app**e **Mapping handler**.  
 
-Tutte le impostazioni definite in questa schermata si trasformeranno in variabili di ambiente durante la richiesta effettiva.  È quindi possibile usare tali impostazioni per configurare la variabile di ambiente DJANGO\_SETTINGS\_MODULE, oltre a PYTHONPATH e WSGI\_HANDLER.  Se l'applicazione include altri valori di configurazione, è possibile assegnarli in questa schermata e selezionarli dall'ambiente.  In alcuni casi può essere opportuno impostare un valore corrispondente a un percorso di un file del sito Web. Ad esempio, è possibile che si desideri eseguire tale operazione per PYTHONPATH.  Se viene eseguito come sito Web di Azure, il sito Web si troverà in **D:\home\site\wwwroot\**. Sarà quindi possibile usare tale valore in qualsiasi posizione che richieda un percorso completo per un file su disco.
+Tutte le impostazioni definite in questa schermata si trasformeranno in variabili di ambiente durante la richiesta effettiva.  È quindi possibile usare tali impostazioni per configurare la variabile di ambiente DJANGO\_SETTINGS\_MODULE, oltre a PYTHONPATH e WSGI\_HANDLER.  Se l'applicazione include altri valori di configurazione, è possibile assegnarli in questa schermata e selezionarli dall'ambiente.  In alcuni casi può essere opportuno impostare un valore corrispondente a un percorso di un file del sito Web. Ad esempio, è possibile eseguire tale operazione per PYTHONPATH.  Se viene eseguito come sito Web di Azure, il sito Web si troverà in **D:\home\site\wwwroot\**. Sarà quindi possibile usare tale valore in qualsiasi posizione quando è necessario un percorso completo per un file su disco.
 
 Per configurare un'applicazione Django è necessario creare tre variabili di ambiente.  La prima variabile è DJANGO\_SETTINGS\_MODULE, che specifica il nome del modulo dell'applicazione Django da usare per la configurazione.  La seconda variabile di ambiente è PYTHONPATH, che specifica il pacchetto in cui si trova il modulo di impostazioni. La terza variabile è WSGI\_HANDLER,  ovvero un nome modulo/pacchetto, seguito dall'attributo del modulo da usare, ad esempio, mypackage.mymodule.handler.  Aggiungere parentesi per indicare che l'attributo deve essere chiamato.  È pertanto necessario configurare tali variabili come segue:
                 
@@ -116,7 +119,7 @@ Per configurare un'applicazione Django è necessario creare tre variabili di amb
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-016.png)
 
-A questo punto è possibile fare clic sul pulsante **Salva** in basso.
+A questo punto, è possibile fare clic sul pulsante **Salva** in basso.
 
 Tornare infine al Dashboard. Passare a **URL SITO** sul lato sinistro. Fare clic sul collegamento e aprire il nuovo sito di Django, che avrà un aspetto analogo al seguente:
 
@@ -124,9 +127,9 @@ Tornare infine al Dashboard. Passare a **URL SITO** sul lato sinistro. Fare clic
 
 ## Passaggi successivi
 
-È possibile continuare lo sviluppo dell'applicazione Django usando gli strumenti già in uso. Se si usa [Python Tools per Visual Studio](http://pytools.codeplex.com/) per lo sviluppo, è probabile che si desideri installare [VisualGit](http://code.google.com/p/visualgit/) per ottenere l'integrazione del controllo del codice sorgente dall'interno di Visual Studio.  
+È possibile continuare lo sviluppo dell'applicazione Django usando gli strumenti già in uso. Se si usa [Python Tools per Visual Studio](http://pytools.codeplex.com/) per lo sviluppo, potrebbe essere utile installare [VisualGit](http://code.google.com/p/visualgit/) per ottenere l'integrazione del controllo del codice sorgente dall'interno di Visual Studio.  
 
-È possibile che l'applicazione includa altre dipendenze oltre a quelle relative a Python e Django.  Se Python è stato installato mediante il programma di installazione disponibile all'indirizzo [http://www.windowsazure.com/it-it/develop/python/](http://www.windowsazure.com/it-it/develop/python/), PIP sarà già stato installato e sarà possibile usarlo per aggiungere rapidamente nuove dipendenze.  Ad esempio, per installare il toolkit per linguaggi naturali e tutte le relative dipendenze, digitare:
+È possibile che l'applicazione includa altre dipendenze oltre a quelle relative a Python e Django.  Se Python è stato installato mediante il programma di installazione disponibile all'indirizzo [http://www.windowsazure.com/it-it/develop/python/](http://www.windowsazure.com/it-it/develop/python/), PIP sarà già installato e sarà possibile usarlo per aggiungere rapidamente nuove dipendenze.  Ad esempio, per installare il toolkit per linguaggi naturali e tutte le relative dipendenze, digitare:
 
 	pip install nltk
 
@@ -135,3 +138,5 @@ Sarà necessario aggiornare la directory site-packages copiando i file da C:\Pyt
 Dopo la copia dei file, eseguire il comando **git status** per visualizzare i file appena aggiunti, quindi **git add** seguito da **git commit** per eseguire il commit delle modifiche nel repository.  È infine possibile eseguire un comando **git push**, che consente di distribuire il sito Web aggiornato in Azure.
 
 È ora possibile passare alla directory DjangoApplication e usare manage.py nel modo consueto per iniziare ad aggiungere nuove applicazioni al progetto di Django.  
+
+<!--HONumber=35_1-->

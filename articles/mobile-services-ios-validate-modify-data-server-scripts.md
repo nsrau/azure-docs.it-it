@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Developer Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Developer Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -16,23 +16,23 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Aggiunta della convalida
 
-It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
+È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
    	![][0]
 
-2. Click the **Data** tab, then click the **TodoItem** table.
+2. Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
 
    	![][1]
 
-3. Click **Script**, then select the **Insert** operation.
+3. Fare clic su **Script** e quindi selezionare l'operazione **Insert**.
 
    	![][2]
 
-4. Replace the existing script with the following function, and then click **Save**.
+4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Save**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,27 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    Questo script verifica la lunghezza della proprietà **text** e invia una risposta di errore quando la lunghezza supera i 10 caratteri. In caso contrario, viene chiamato il metodo **execute** per completare l'operazione di inserimento.
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+	<b>Nota</b>
+	<p>&Egrave; possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Clear</strong> e quindi su <strong>Save</strong>.</p></div>
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Aggiornamento del client
 
-Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
+Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario aggiornare l'app .NET affinché sia in grado di gestire le risposte di errore dalla convalida.
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][Introduzione ai dati].
 
-2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
+2. Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**).
 
-   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+   	Si noti che l'app genera un errore non gestito a seguito della risposta 400 (Richiesta non valida) restituita dal servizio mobile.
 
-3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
+3. Nel file QSTodoService.m individuare la riga di codice seguente nel metodo **addItem**:
 
         [self logErrorIfNotNil:error];
 
-   	After this line of code, replace the remainder of the completion block with the following code:
+   	Dopo questa riga, sostituire la parte rimanente del blocco di completamento con il codice seguente:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,13 +93,13 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   	This logs the error to the output window and displays it to the user.
+   	L'errore verrà registrato nella finestra di output e visualizzato all'utente.
 
-4. Rebuild and start the app.
+4. Ricompilare e avviare l'app.
 
    	![][4]
 
-  	Notice that error is handled and the error messaged is displayed to the user.
+  	Si noti che l'errore viene gestito e che il messaggio di errore viene visualizzato all'utente.
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 

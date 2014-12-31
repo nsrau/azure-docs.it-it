@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Introduzione a servizi mobili di Azure per Appcelerator Titanium"metaKeywords ="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a servizi mobili di Azure per Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -92,7 +92,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 
@@ -115,3 +115,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [Introduzione all'autenticazione]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Introduzione alle notifiche push]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
+<!--HONumber=35_1-->

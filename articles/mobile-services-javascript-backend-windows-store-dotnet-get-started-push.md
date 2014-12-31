@@ -7,10 +7,10 @@
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows universale. 
+Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows universale. 
 In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push usando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere usato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere usato da altri servizi e applicazioni.
 
->[WACOM.NOTE]Questo argomento illustra come configurare manualmente le notifiche push usando Servizi mobili di Azure in un progetto di Windows Store. È possibile usare Visual Studio 2013 per aggiungere le stesse notifiche push in un progetto di app di Windows Store. Per altre informazioni, vedere la [versione di app di Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) di questa esercitazione. 
+>[WACOM.NOTE]Questo argomento descrive come configurare manualmente le notifiche push usando Servizi mobili di Azure in un progetto di Windows Store. È possibile usare Visual Studio 2013 per aggiungere le stesse notifiche push in un progetto di app di Windows Store. Per altre informazioni, vedere la [versione di app di Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) di questa esercitazione. 
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
@@ -38,7 +38,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
         using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
 
-2. Add the following method to **App** class: 
+2. Aggiungere il metodo seguente alla classe **App**: 
 	
         private async void InitNotificationsAsync()
         {
@@ -53,7 +53,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
     Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo per le notifiche push.
     
-4. All'inizio del gestore eventi **OnLaunched** aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**:
+4. All'inizio del gestore eventi **OnLaunched** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**:
 
         InitNotificationsAsync();
 
@@ -61,7 +61,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 5. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
   
-6. (Facoltativo) Se non si usa il progetto di guida introduttiva generato nel portale di gestione, aprire il file Package.appxmanifest e verificare che nella scheda **Interfaccia utente dell'applicazione** l'opzione **Popup supportati**sia impostata su **Sì**.
+6. (Facoltativo) Se non si usa il progetto di guida introduttiva generato nel portale di gestione, aprire il file Package.appxmanifest e verificare che nella scheda **Interfaccia utente dell'applicazione** l'opzione **Popup supportati** sia impostata su **Sì**.
 
    	![][2]
 
@@ -82,7 +82,7 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
 + [Inviare notifiche push agli utenti autenticati]
 	<br/>Informazioni su come usare i tag per inviare notifiche push da un servizio mobile a un solo utente autenticato.
 
-+ [Inviare notifiche ai sottoscrittori]
++ [Inviare notifiche di trasmissione ai sottoscrittori]
 	<br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
 
 + [Inviare notifiche basate su modelli ai sottoscrittori]
@@ -94,18 +94,18 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
   <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
 * [Introduzione all'autenticazione]
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante i servizi mobili.
+  <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante servizi mobili.
 
 * [Informazioni su Hub di notifica]
   <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
-* [Eseguire il debug delle applicazioni dell'Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Informazioni sulla risoluzione dei problemi e sul debug di soluzioni dell'Hub di notifica. 
+* [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni Hub di notifica. 
 
 * [Riferimento per i concetti e le procedure di .NET per Servizi mobili]
   <br/>Altre informazioni su come usare Servizi mobili con .NET.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni su come implementare la logica di business nel servizio mobile.
 
 <!-- Anchors. -->
@@ -117,19 +117,21 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 <!-- URLs. -->
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
 [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
 
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
 [Inviare notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
 
 [Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/
-[Inviare notifiche ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Inviare notifiche di trasmissione ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Inviare notifiche basate su modelli ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+
+<!--HONumber=35_1-->
