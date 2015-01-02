@@ -20,19 +20,19 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1. Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
+1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi fare clic sull'app.
 
    	![][0]
 
-2. Fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
+2. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Insert**.
+3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
-4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Save**.
+4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -46,15 +46,15 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
     <div class="dev-callout">
 	<b>Nota</b>
-	<p>&Egrave; possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Clear</strong> e quindi su <strong>Save</strong>.</p></div>
+	<p>È possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Cancella</strong> e quindi su <strong>Salva</strong>.</p></div>
 
 ## <a name="update-client-validation"></a>Aggiornamento del client
 
 Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario aggiornare l'app .NET affinché sia in grado di gestire le risposte di errore dalla convalida.
 
-1. In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati][Introduzione ai dati].
+1. In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati].
 
-2. Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**).
+2. Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**) icon.
 
    	Si noti che l'app genera un errore non gestito a seguito della risposta 400 (Richiesta non valida) restituita dal servizio mobile.
 
@@ -101,11 +101,11 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 
   	Si noti che l'errore viene gestito e che il messaggio di errore viene visualizzato all'utente.
 
-<!--## <a name="add-timestamp"></a>Add a timestamp
+## <a name="add-timestamp"></a>Aggiunta di un timestamp
 
-The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+Nelle attività precedenti si è proceduto alla convalida di un'operazione di inserimento che è accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti utilizzando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
 
-1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente e quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -116,27 +116,27 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
             }
         }
 
-    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.
+    Questa funzione estende lo script insert precedente aggiungendo una nuova proprietà timestamp **createdAt** all'oggetto prima che questo venga inserito dalla chiamata al metodo **request**.**execute**.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
+    <div class="dev-callout"><b>Nota</b>
+	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>createdAt</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. In Visual Studio premere **F5** per eseguire l'app, digitare un testo più breve di 10 caratteri in **Insert a TodoItem**, quindi fare clic su **Salva**.
 
-   	Notice that the new timestamp does not appear in the app UI.
+   	Si noti che il nuovo timestamp non viene visualizzato nell'interfaccia utente dell'app.
 
-3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+3. Tornare al portale di gestione e fare clic sulla scheda **Sfoglia** nella tabella **todoitem**.
 
-   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Verrà visualizzata una colonna **createdAt** che contiene un valore timestamp per il nuovo elemento inserito.
 
-Next, you need to update the iOS app to display this new column.
+È ora necessario aggiornare l'app iOS affinché visualizzi questa nuova colonna.
 
-## <a name="update-client-timestamp"></a>Update the client again
+## <a name="update-client-timestamp"></a>Aggiornare di nuovo il client
 
-The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+Il client del servizio mobile ignorerà i dati delle risposte che non è in grado di serializzare nelle proprietà del tipo definito. Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visualizzi questi nuovi dati.
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+1. In Visual Studio aprire il file MainPage.xaml.cs e sostituire la classe **TodoItem** esistente con la definizione seguente:
 
 	    public class TodoItem
 	    {
@@ -152,23 +152,23 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	        public DateTime? CreatedAt { get; set; }
 	    }
 
-    This new class definition includes the new timestamp property, as a nullable DateTime type.
+    Questa nuova definizione di classe include la nuova proprietà timestamp come tipo DateTime nullable.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    <div class="dev-callout"><b>Nota</b>
+	<p>L'attributo <strong>DataMemberAttribute</strong> comunica al client di eseguire il mapping della nuova proprietà <strong>CreatedAt</strong> dell'app alla colonna <strong>createdAt</strong> definita nella tabella TodoItem che presenta una convenzione per l'uso di maiuscole e minuscole diversa. Grazie a questo attributo, i nomi di proprietà sugli oggetti dell'app possono essere diversi dai nomi di colonna in database SQL. Senza questo attributo, viene generato un errore dovuto alle differenze di convenzione per l'uso di maiuscole e minuscole.</p>
     </div>
 
-5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+2. Aggiungere l'elemento XAML seguente sotto l'elemento **CheckBoxComplete** nel file MainPage.xaml:
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
    	La nuova proprietà **CreatedAt** verrà visualizzata in una casella di testo.
 
-6. Premere **F5** per eseguire l'app.
+3. Premere **F5** per eseguire l'app.
 
    Si noti che il timestamp è visualizzato solo per gli elementi inseriti dopo l'aggiornamento dello script insert.
 
-7. Sostituire il metodo **RefreshTodoItems** esistente con il codice seguente:
+4. Sostituire il metodo **RefreshTodoItems** con il codice seguente:
 
         private void RefreshTodoItems()
         {
@@ -184,11 +184,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    	Questo metodo aggiorna la query affinché filtri anche gli elementi che non dispongono di un valore timestamp.
 
-8. Premere **F5** per eseguire l'app.
+5. Premere **F5** per eseguire l'app.
 
    	Si noti che tutti gli elementi creati senza un valore timestamp non vengono più visualizzati nell'interfaccia utente.
 
-L'esercitazione relativa all'uso dei dati è stata completata.-->
+L'esercitazione relativa all'uso dei dati è stata completata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 

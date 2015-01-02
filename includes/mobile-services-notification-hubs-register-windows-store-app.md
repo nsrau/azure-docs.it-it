@@ -20,7 +20,7 @@
 
 5. Nella procedura guidata fare clic su **Accedi**, quindi accedere con il proprio account Microsoft.
 
-6.  Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti**, quindi su **Associa**.
+6. Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti**, quindi su **Associa**.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
