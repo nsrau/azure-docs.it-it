@@ -57,6 +57,6 @@
 	>[WACOM.NOTE]Le credenziali WNS per le notifiche push avanzate configurate nella scheda **Push** del portale vengono condivise con Hub di notifica per configurare l'hub di notifica per l'app.
 
 <!-- URLs. -->
-[Introduzione a Servizi mobili]w
+[Introduzione a Servizi mobili]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
 [Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
