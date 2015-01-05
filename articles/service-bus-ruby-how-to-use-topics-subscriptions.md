@@ -230,4 +230,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -   Informazioni di riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	Repository [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

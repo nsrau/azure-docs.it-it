@@ -199,4 +199,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

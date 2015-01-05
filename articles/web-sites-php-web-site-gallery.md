@@ -16,4 +16,4 @@ Si è appreso come creare e distribuire un sito Web dalla raccolta. Per altre in
 - [Altre esercitazioni su PHP](/it-it/develop/php/tutorials/) - Come creare ulteriori tipi di applicazioni tramite PHP e Azure
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

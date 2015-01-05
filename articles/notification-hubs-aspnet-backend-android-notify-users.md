@@ -278,4 +278,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

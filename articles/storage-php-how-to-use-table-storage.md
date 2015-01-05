@@ -481,4 +481,4 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
 [filters]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894038.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

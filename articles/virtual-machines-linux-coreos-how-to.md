@@ -206,4 +206,4 @@ Ora dovrebbe essere presente un cluster CoreOS a tre nodi in esecuzione in Azure
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

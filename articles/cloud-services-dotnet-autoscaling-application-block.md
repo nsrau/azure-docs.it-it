@@ -395,4 +395,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/it-it/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

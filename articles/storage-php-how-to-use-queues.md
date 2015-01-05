@@ -387,4 +387,4 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento
 [Portale di gestione di Azure]: http://manage.windowsazure.com/
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

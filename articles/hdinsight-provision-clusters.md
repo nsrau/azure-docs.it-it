@@ -645,4 +645,4 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 
   [89e2276a]: /it-it/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

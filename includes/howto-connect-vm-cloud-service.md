@@ -27,4 +27,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -122,4 +122,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 
 [Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -284,4 +284,4 @@ Vedere la sessione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

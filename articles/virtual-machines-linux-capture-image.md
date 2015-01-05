@@ -56,4 +56,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [Come collegare un disco dati a una macchina virtuale]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

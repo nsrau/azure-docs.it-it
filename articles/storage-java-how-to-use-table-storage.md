@@ -565,4 +565,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

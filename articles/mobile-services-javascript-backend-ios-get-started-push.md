@@ -240,4 +240,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Riferimento per i concetti e le procedure relativi a Servizi mobili con Objective-C]: /it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

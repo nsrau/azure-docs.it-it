@@ -270,4 +270,4 @@ Per | Opzione
 [storesendgrid]: http://azure.microsoft.com/it-it/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

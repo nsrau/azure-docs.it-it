@@ -221,4 +221,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Progetti Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

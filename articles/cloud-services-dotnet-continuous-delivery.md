@@ -588,4 +588,4 @@ Per abilitare il debug remoto con la distribuzione continua, vedere [queste istr
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -132,4 +132,4 @@ La **data di dichiarazione obsolescenza** è la data dopo la quale non è possib
 
 [zookeeper]: http://zookeeper.apache.org/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

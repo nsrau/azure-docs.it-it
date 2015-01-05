@@ -37,4 +37,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

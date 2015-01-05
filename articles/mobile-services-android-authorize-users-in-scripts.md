@@ -99,4 +99,4 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

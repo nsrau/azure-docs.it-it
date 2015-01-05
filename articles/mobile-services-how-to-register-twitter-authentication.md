@@ -56,4 +56,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

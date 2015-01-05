@@ -397,4 +397,4 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
   [Applicazione Web Node.js]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

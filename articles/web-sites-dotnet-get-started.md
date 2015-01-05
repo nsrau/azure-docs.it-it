@@ -303,4 +303,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	In Azure è possibile eseguire applicazioni Web in Siti Web come descritto in questa esercitazione oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Modelli di esecuzione di Azure](/it-it/develop/net/fundamentals/compute/) e [Confronto tra siti Web, servizi cloud e Macchine virtuali di Azure](/it-it/manage/services/web-sites/choose-web-app-service/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

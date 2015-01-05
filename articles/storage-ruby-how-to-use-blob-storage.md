@@ -148,4 +148,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 -   [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Repository [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -153,4 +153,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle,
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Visitare il blog del team del servizio Archiviazione di Azure].: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

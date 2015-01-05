@@ -75,4 +75,4 @@ In questo articolo e negli articoli su ciascuno degli esempi, è stato illustrat
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -159,4 +159,4 @@ Per l'API REST fare riferimento al documento relativo all'<a href="http://downlo
 [Collegamento 3 a un altro argomento della documentazione di azure.microsoft.com]: ../storage-whatis-account/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

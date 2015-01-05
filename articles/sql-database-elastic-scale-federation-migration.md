@@ -125,4 +125,4 @@ Restituisce lo stesso risultato di:
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

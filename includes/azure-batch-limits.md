@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> Il numero di core per account Batch può essere aumentato, ma il numero massimo non è specificato. Contattare il supporto clienti per ottenere informazioni sulle opzioni relative all'aumento.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

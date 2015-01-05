@@ -73,4 +73,4 @@ Per altre informazioni sulla distribuzione di asset, vedere:
 <h2>Passaggi successivi</h2>
 In questo argomento è stato illustrato il download di un asset da Archiviazione di Azure. Per informazioni su altri modi per distribuire asset, vedere la procedura relativa alla [distribuzione di contenuti in streaming](../media-services-deliver-streaming-content/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

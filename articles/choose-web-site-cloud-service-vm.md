@@ -357,4 +357,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [sqldatabase]: http://www.windowsazure.com/it-it/documentation/services/sql-database/
   [Archiviazione]: http://www.windowsazure.com/it-it/documentation/services/storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -8,4 +8,4 @@ Questo argomento non è più supportato. Non è più disponibile per il download
 
 È disponibile per le app per Windows Phone Store 8.1 il download di un progetto di guida introduttiva come parte di un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/) 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

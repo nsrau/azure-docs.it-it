@@ -347,4 +347,4 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

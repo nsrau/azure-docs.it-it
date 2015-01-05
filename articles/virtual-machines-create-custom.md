@@ -17,4 +17,4 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

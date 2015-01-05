@@ -212,4 +212,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Django]: https://www.djangoproject.com/
 [Database SQL]: /it-it/documentation/services/sql-database/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

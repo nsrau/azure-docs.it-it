@@ -157,4 +157,4 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

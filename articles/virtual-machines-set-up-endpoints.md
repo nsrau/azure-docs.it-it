@@ -72,4 +72,4 @@ Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un e
 
 6. Usare le righe nell'elenco per aggiungere, eliminare o modificare le regole per un elenco di controllo di accesso. Il valore di Remote Subnet corrisponde all'intervallo di indirizzi IP che è possibile consentire o negare come regola. Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere elencate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e ulteriori informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

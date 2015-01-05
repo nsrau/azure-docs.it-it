@@ -451,4 +451,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
 [where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

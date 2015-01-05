@@ -137,4 +137,4 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

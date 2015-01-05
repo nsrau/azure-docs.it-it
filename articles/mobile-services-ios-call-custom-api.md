@@ -51,4 +51,4 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per iOS, per 
 [Archiviare script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

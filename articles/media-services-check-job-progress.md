@@ -90,4 +90,4 @@ private static string JobIdAsFileName(string jobID)
 <h2>Passaggi successivi</h2>
 Dopo avere creato un processo e averne verificato l'avanzamento, il passaggio successivo consiste nel proteggere gli asset. Per altre informazioni, vedere la [procedura per proteggere un asset con Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

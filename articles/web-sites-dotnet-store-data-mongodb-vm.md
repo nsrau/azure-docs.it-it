@@ -516,4 +516,4 @@ L'applicazione ASP.NET è stata correttamente distribuita in un sito Web di Azur
 [Creare un sito Web di Azure]: #createwebsite
 [Distribuire l'applicazione ASP.NET nel sito Web usando Git]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

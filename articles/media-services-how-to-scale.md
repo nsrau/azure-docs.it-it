@@ -93,4 +93,4 @@ Per aprire un ticket di supporto, eseguire le operazioni seguenti:
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

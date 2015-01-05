@@ -168,4 +168,4 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Documentazione sull'API Node.js: moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

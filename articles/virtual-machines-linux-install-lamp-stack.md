@@ -108,4 +108,4 @@ Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

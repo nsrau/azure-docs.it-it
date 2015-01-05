@@ -242,4 +242,4 @@ relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricar
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

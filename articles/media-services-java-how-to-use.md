@@ -448,4 +448,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
   [Sviluppo client di Servizi multimediali]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223283.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

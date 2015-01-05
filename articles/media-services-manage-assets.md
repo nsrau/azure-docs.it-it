@@ -82,4 +82,4 @@ Per altre informazioni sulla gestione di asset, vedere:
 <h2>Passaggi successivi</h2>
 Dopo avere acquisito le nozioni necessarie per gestire gli asset, è possibile passare all'argomento [Distribuire un asset mediante download](../media-services-deliver-asset-download/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

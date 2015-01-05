@@ -678,4 +678,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 [Creazione e distribuzione di un'applicazione Node.js in un Sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

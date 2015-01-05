@@ -303,4 +303,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio BLOB di Azure,
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

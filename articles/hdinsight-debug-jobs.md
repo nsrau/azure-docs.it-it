@@ -264,4 +264,4 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -531,4 +531,4 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

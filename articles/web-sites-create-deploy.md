@@ -52,4 +52,4 @@ Per eliminare i siti Web usare l'icona **Elimina** del portale di gestione di Az
 
 Per altre informazioni, vedere [Siti Web di Azure](/it-it/documentation/services/web-sites/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

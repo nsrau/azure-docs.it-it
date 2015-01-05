@@ -233,4 +233,4 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

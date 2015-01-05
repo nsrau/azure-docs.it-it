@@ -160,4 +160,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
 Per un confronto tra il Servizio di accodamento di Azure trattato in questo articolo e le code del bus di servizio di Azure trattate nell'articolo [Come usare le code del bus di servizio](/it-it/develop/ruby/how-to-guides/service-bus-queues/) vedere [Analogie e differenze tra le code di Azure e le code di Service Bus](http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

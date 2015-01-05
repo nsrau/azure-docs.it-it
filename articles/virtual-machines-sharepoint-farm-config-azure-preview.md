@@ -106,4 +106,4 @@ Ecco i dettagli di configurazione:
 	-	Passphrase farm di SharePoint: specificata durante la configurazione iniziale.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

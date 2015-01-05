@@ -709,4 +709,4 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

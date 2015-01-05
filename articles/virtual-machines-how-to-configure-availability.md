@@ -108,4 +108,4 @@ Aprire una sessione di Azure PowerShell ed eseguire il comando riportato di segu
 [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn763935.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

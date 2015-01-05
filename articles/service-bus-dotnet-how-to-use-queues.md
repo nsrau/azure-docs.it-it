@@ -233,4 +233,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Code, argomenti e sottoscrizioni.]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -1,6 +1,6 @@
 ﻿
 
-1. Se l'app non è ancora stata registrata, passare alla pagina relativa all'[invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
+1. Se l'app non è ancora stata registrata, passare alla pagina relativa all' [invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 

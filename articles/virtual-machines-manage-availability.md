@@ -59,4 +59,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

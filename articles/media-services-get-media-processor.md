@@ -73,4 +73,4 @@ Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare
 [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/it-it/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

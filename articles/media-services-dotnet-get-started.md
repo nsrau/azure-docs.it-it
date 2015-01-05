@@ -685,4 +685,4 @@ In questa procedura dettagliata è stata illustrata una sequenza di attività di
 [Passaggi successivi]:#next-steps
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

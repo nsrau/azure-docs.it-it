@@ -98,4 +98,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

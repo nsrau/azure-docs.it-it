@@ -177,4 +177,4 @@ Per rimuovere un account di archiviazione non più in uso, usare **Elimina** nel
 
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

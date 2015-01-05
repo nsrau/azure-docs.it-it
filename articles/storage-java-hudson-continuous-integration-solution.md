@@ -172,4 +172,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [ms-open-tech]: http://msopentech.com
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

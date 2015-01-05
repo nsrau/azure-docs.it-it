@@ -103,4 +103,4 @@ Se il valore delle dimensioni del file non viene aggiornato al termine del proce
 [encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [branding]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

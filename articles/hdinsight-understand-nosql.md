@@ -28,4 +28,4 @@ La tecnologia relazionale è da tempo l'approccio predominante per l'uso dei dat
 
 **Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">File PDF "Informazioni sulle tecnologie NoSQL in Microsoft Azure"</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

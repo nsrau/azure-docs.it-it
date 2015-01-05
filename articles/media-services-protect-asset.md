@@ -116,4 +116,4 @@ Per altre informazioni sulla protezione PlayReady, vedere:
 <h2>Passaggi successivi</h2>
 Dopo avere acquisito i concetti relativi alla protezione di asset con Servizi multimediali, è possibile passare all'argomento [Come gestire gli asset](../media-services-manage-assets/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

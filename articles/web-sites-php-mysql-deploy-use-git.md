@@ -269,4 +269,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

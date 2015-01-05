@@ -218,4 +218,4 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
 [azure_twilio_howto_python]: /it-it/develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /it-it/develop/php/how-to-guides/twilio-voice-and-sms-service/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

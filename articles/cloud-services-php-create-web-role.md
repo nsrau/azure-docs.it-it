@@ -219,4 +219,4 @@ Per pubblicare l'applicazione è necessario prima importare le impostazioni di p
 [Procedura: Importare le impostazioni di pubblicazione]: /it-it/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Procedura: Distribuire un servizio cloud in Azure].: /it-it/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

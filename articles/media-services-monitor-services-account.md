@@ -52,4 +52,4 @@ Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle 
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

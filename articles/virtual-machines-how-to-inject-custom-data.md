@@ -61,4 +61,4 @@ Se la macchina virtuale di Azure si trova in un'immagine Ubuntu, è possibile us
 [Interfaccia della riga di comando multipiattaforma di Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

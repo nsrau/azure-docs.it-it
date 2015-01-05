@@ -9,4 +9,4 @@ Come annunciato in TechEd 2014, a breve verrà rilasciato iOS Storage SDK per se
 
 [iOS, Servizi mobili e Archiviazione di Microsoft Azure]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

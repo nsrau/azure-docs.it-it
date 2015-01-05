@@ -23,4 +23,4 @@
 Con il controllo del codice sorgente abilitato nel servizio mobile, è possibile usare Git per clonare il repository nel computer locale.
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -40,4 +40,4 @@ La scheda CONFIGURA consente di eseguire le configurazioni seguenti:
 [origin-page]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

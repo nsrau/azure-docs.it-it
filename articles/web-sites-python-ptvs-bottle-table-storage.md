@@ -209,4 +209,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Archiviazione di Azure]: http://azure.microsoft.com/it-it/documentation/services/storage/
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

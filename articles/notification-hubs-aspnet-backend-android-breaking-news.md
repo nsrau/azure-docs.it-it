@@ -317,4 +317,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

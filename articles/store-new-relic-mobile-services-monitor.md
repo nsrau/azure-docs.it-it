@@ -139,4 +139,4 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
 [New Relic Mobile]: http://newrelic.com/mobile-monitoring
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -141,4 +141,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users/
 [Inviare notifiche agli utenti tra piattaforme diverse]: /it-it/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

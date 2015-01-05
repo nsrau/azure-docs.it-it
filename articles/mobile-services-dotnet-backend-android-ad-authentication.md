@@ -16,4 +16,4 @@ Informazioni su come autenticare l'app e accedere alle risorse usando Active Dir
 <!-- URLs. -->
 [Accedere a risorse protette tramite Azure Active Directory con iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

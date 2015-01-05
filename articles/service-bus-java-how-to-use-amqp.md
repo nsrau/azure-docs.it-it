@@ -349,4 +349,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [AMQP 1.0 per bus di servizio - Guida per sviluppatori](http://msdn.microsoft.com/it-it/library/windowsazure/jj841071.aspx)
 * [Come usare le code del bus di servizio](http://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

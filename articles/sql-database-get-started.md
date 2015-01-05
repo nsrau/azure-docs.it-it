@@ -679,4 +679,4 @@ Esistono altri metodi per spostare un database locale in un database SQL. Se si 
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -736,4 +736,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

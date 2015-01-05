@@ -78,4 +78,4 @@ Per altre informazioni sulla distribuzione di asset, vedere:
 <h2>Passaggi successivi</h2>
 Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e usando Smooth Streaming. L'argomento successivo dedicato alla [distribuzione di contenuti HLS](../media-services-deliver-http-live-streaming-content/) illustra la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

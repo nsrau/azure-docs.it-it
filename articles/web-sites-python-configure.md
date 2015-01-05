@@ -130,4 +130,4 @@ Passare al sito Web per testare la configurazione corretta. Per questo esempio, 
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

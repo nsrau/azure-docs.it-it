@@ -767,4 +767,4 @@ La tabella seguente confronta le funzionalità supportate da Diagnostica di Azur
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/it-it/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/it-it/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -407,4 +407,4 @@ Per eseguire i processi che usano queste classi, connettersi al cluster HDInsigh
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

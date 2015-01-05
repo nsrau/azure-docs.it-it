@@ -50,4 +50,4 @@ Questo argomento descrive come registrare l'app in modo da usare Live Connect co
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

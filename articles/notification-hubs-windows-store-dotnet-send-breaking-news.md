@@ -235,4 +235,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

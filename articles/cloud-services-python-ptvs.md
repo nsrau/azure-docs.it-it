@@ -135,4 +135,4 @@ Per informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e 
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

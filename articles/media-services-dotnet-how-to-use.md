@@ -144,4 +144,4 @@ Dopo avere acquisito una panoramica su Servizi multimediali, è possibile passar
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

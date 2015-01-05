@@ -73,4 +73,4 @@ Per istruzioni dettagliate su come creare una credenziale di SQL Server, vedere 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

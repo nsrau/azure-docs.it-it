@@ -99,4 +99,4 @@ Dopo avere completato questa esercitazione, è possibile reperire ulteriori info
 [Modelli]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/it-it/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

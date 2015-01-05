@@ -33,4 +33,4 @@ Accedere alla macchina virtuale Linux usando l'autenticazione con chiave SSH, qu
 In questo caso, all'utente **non** verrà richiesta una password. Dopo aver premuto `<enter>`,`sudo` eseguirà il comando con privilegi `root`.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

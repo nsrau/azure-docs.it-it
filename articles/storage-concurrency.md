@@ -267,4 +267,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Architettura di archiviazione: [Archiviazione di Windows Azure: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

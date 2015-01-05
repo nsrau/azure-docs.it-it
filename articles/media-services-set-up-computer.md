@@ -70,4 +70,4 @@ Dopo avere configurato il computer e creato una soluzione Visual Studio per la p
 [Come creare un account di Servizi multimediali]: ../media-services-create-account/
 [Come creare e caricare un asset crittografato nell'archiviazione]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -561,4 +561,4 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
 
 [Schema di configurazione dei servizi di Azure (con estensione cscfg)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

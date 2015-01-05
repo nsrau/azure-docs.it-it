@@ -148,4 +148,4 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 [Notifiche periodiche]: http://msdn.microsoft.com/it-it/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

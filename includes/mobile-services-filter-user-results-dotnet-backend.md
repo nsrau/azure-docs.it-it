@@ -42,4 +42,4 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
 
 6. Ripubblicare il progetto di servizio mobile in Azure.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

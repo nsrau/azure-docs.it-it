@@ -98,4 +98,4 @@ Per rimuovere un account di archiviazione non più in uso, usare **Elimina** nel
 
 3. Fare clic su **Sì** per confermare che si vuole eliminare l'account di archiviazione.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

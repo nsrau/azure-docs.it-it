@@ -201,4 +201,4 @@ La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Stor
 [Creazione di app di Windows universali per tutti i dispositivi Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Progetto di app di Windows universale per Servizi mobili di Azure tramite MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

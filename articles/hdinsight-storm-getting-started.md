@@ -175,4 +175,4 @@ Se immediatamente dopo questo comando viene visualizzata la pagina Web dell'inte
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

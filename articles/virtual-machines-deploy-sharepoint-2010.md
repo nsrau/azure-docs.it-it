@@ -523,4 +523,4 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

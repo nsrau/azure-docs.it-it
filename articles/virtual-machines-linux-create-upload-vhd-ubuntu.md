@@ -110,4 +110,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

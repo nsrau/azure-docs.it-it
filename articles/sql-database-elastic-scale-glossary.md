@@ -66,4 +66,4 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

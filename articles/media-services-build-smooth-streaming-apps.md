@@ -994,4 +994,4 @@ La lezione 4 è stata completata.  In questa lezione è stata aggiunta la funzio
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

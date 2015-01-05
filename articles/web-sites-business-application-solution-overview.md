@@ -213,4 +213,4 @@ Azure consente di ospitare applicazioni per Intranet sicure nel cloud. Azure Act
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

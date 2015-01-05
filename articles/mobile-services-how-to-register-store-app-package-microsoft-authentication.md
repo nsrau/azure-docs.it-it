@@ -24,4 +24,4 @@ Dopo avere registrato il pacchetto dell'app, specificare un valore <strong>true<
 [Introduzione agli utenti C#]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Introduzione agli utenti JavaScript]: /it-it/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

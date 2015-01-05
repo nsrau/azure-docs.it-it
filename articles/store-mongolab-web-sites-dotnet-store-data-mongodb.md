@@ -445,4 +445,4 @@ Congratulazioni. È stata avviata un'applicazione C# ASP.NET supportata da un da
 [manage]: #manage
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -81,4 +81,4 @@ Questo argomento descrive come registrare un'app con Windows Store in modo che p
 [JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-users-js/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
