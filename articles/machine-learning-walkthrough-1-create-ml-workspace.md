@@ -1,4 +1,4 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Azure" description="Passaggio 1: Creazione di una nuova area di lavoro di Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 

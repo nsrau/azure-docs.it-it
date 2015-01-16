@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Chiamare un'API personalizzata da un'app di Windows Phone - Servizi mobili" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Chiamare un'API personalizzata da un'app di Windows Phone - Servizi mobili" metaKeywords="" description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Windows Phone che usa Servizi mobili di Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

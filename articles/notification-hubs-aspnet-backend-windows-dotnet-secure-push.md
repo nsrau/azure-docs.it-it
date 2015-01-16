@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Push sicuro degli hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica Azure, messaggistica di Azure, push sicuro" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Push sicuro degli hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica Azure, messaggistica di Azure, push sicuro" description="Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

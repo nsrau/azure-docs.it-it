@@ -1,4 +1,4 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Passaggio 3: Creare un nuovo esperimento di Machine Learning | Azure" description="Step 3: Create a new training experiment in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Passaggio 3: Creare un nuovo esperimento di Machine Learning | Azure" description="Passaggio 3: Creazione di un nuovo esperimento di formazione in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 

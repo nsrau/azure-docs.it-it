@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Xamarin" pageTitle="Come usare il componente client Xamarin - Guida alla funzionalità Servizi mobili di Azure" metaKeywords="Servizi mobili di Azure, Xamarin, iOS, Android, client .NET" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Xamarin" pageTitle="Come usare il componente client Xamarin - Guida alla funzionalità Servizi mobili di Azure" metaKeywords="Servizi mobili di Azure, Xamarin, iOS, Android, client .NET" description="Informazioni su come usare il componente client Xamarin per Servizi mobili di Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 

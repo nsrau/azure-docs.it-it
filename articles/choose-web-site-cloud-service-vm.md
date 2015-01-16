@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Quando usare Siti Web, Servizi cloud e Macchine virtuali di Azure per l'hosting di applicazioni Web." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
@@ -324,7 +324,7 @@ Nella tabella seguente vengono confrontate le funzionalità di Siti Web, Servizi
 
 
 > [WACOM.NOTE]
-> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a> in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ## <a id="nextsteps"></a> Passaggi successivi
@@ -340,8 +340,8 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
 * [Servizi cloud di Azure](/it-it/documentation/services/cloud-services/)
 * [Macchine virtuali di Azure](/it-it/documentation/services/virtual-machines/)
 
-  [Diagramma delle scelte]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Siti Web di Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+  [Siti Web]: http://go.microsoft.com/fwlink/?LinkId=306051
   [Servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=306052
   [Macchine virtuali]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/

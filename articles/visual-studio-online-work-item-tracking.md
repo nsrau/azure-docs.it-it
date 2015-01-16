@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Tracking work for your website" pageTitle="Rilevamento del lavoro per il sito Web | Azure" metaKeywords="Visual Studio Online, VSO, work, items, backlog" description="Learn how to track and manage work for your website." metaCanonical="" services="visual-studio-online" documentationCenter="" title="Tracking work for your website" authors="rmarron" solutions="" manager="kamrani" editor="" />
+﻿<properties urlDisplayName="Tracking work for your website" pageTitle="Rilevamento del lavoro per il sito Web | Azure" metaKeywords="Visual Studio Online, VSO, work, items, backlog" description="Informazioni su come tenere traccia e gestire le attività relative al sito Web." metaCanonical="" services="visual-studio-online" documentationCenter="" title="Tracking work for your website" authors="rmarron" solutions="" manager="kamrani" editor="" />
 
 <tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rmarron" />
 

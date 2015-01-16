@@ -1,4 +1,4 @@
-﻿<properties title="Federations Migration" pageTitle="Migrazione di federazioni" description="Illustra i passaggi per migrare un'app esistente compilata con la funzionalità Federazioni al modello di scalabilità elastica." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
+﻿<properties title="Federations Migration" pageTitle="Migrazione di federazioni" description="Illustra i passaggi per eseguire la migrazione di un'app esistente, compilata con la funzionalità Federazioni, al modello di scalabilità elastica." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
 

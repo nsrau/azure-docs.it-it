@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Chiamare un'API personalizzata da un'app per iOS | Servizi mobili" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh"  solutions="" writer="krisragh" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Chiamare un'API personalizzata da un'app per iOS | Servizi mobili" metaKeywords="" description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per iOS che usa Servizi mobili di Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh"  solutions="" writer="krisragh" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

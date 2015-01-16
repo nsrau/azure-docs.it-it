@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Introduzione alle notifiche push (Xamarin.iOS) - Servizi mobili" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Introduzione alle notifiche push (Xamarin.iOS) - Servizi mobili" metaKeywords="" description="Informazioni su come usare le notifiche push in app per Xamarin.iOS con Servizi mobili di Azure." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -261,7 +261,17 @@ Il servizio mobile è ora configurato per funzionare con APNS.
 
 8. In **TodoListViewController** modificare l'azione **OnAdd** in modo da ottenere il token del dispositivo archiviato in **AppDelegeate** e archiviarlo nell'elemento **TodoItem** aggiunto.
 
-€ nel portale di gestione
+        string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+L'app è ora aggiornata per il supporto delle notifiche push.
+
+## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
 
 1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**. 
 
@@ -376,7 +386,7 @@ L'esercitazione è stata completata.
 [Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portale di provisioning di iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Servizio notifiche push Apple (APN)]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-ios
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-ios

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="iOS Client Library" pageTitle="Come usare la libreria client iOS - Servizi mobili di Azure" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="iOS Client Library" pageTitle="Come usare la libreria client iOS - Servizi mobili di Azure" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Informazioni su come usare la libreria client iOS per Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

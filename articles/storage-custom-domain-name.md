@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="custom dns storage" pageTitle="Configurare un nome di dominio per i dati BLOB in un account di archiviazione | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="custom dns storage" pageTitle="Configurare un nome di dominio per i dati BLOB in un account di archiviazione | Microsoft Azure" metaKeywords="" description="Informazioni su come configurare un dominio personalizzato per l'accesso ai dati BLOB in un account di archiviazione di Azure." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram" />
 

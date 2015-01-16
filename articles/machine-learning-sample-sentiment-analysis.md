@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Esempio di Machine Learning: Analisi del sentiment | Azure" description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Esempio di Machine Learning: Analisi del sentiment | Azure" description="Un esperimento di Azure Machine Learning di esempio che usa una classificazione del sentimento per stimare le valutazioni di un prodotto." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
  

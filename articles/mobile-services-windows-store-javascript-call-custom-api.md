@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="Chiamare un'API personalizzata da un client JS di Windows Store - Servizi mobili" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="Chiamare un'API personalizzata da un client JS di Windows Store - Servizi mobili" metaKeywords="" description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Windows Store che usa Servizi mobili di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

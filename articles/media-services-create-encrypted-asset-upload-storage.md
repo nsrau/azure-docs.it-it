@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Creare e caricare un asset crittografato nell'archiviazione - Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Creare e caricare un asset crittografato nell'archiviazione - Azure" metaKeywords="" description="Informazioni su come ottenere contenuto multimediale in Servizi multimediali creando e caricando un asset crittografato." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install MongoDB" pageTitle="Installare MongoDB in una macchina virtuale con Windows Server" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Install MongoDB" pageTitle="Installare MongoDB in una macchina virtuale con Windows Server" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Informazioni su come installare MongoDB in una macchina virtuale di Azure che esegue Windows Server in Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 

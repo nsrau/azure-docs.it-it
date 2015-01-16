@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Informazioni sui piani di hosting Web" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties pageTitle="Informazioni sui piani di hosting Web" description="Monitoraggio del piano di hosting Web" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 

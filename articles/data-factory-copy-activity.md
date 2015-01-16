@@ -1,4 +1,4 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copiare i dati con Data factory di Azure" description="Learn how to use Copy Activity in Azure Data Factory to copy data from a data source to another data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copiare i dati con Data factory di Azure" description="Informazioni su come usare l'attività di copia in Data factory di Azure per copiare dati tra origini dati." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

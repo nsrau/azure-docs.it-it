@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Aggiungere paging ai dati (Windows Phone) | Mobile Developer Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Phone app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Aggiungere paging ai dati (Windows Phone) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare il paging per gestire la quantità di dati restituiti all'app per Windows Phone da Servizi mobili." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 

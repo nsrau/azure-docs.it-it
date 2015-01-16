@@ -1,4 +1,4 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Passaggio 1: Analisi del sentiment basata sul lessico | Azure" description="Lexicon Based Sentiment Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Passaggio 1: Analisi del sentiment basata sul lessico | Azure" description="Analisi del sentiment basata sul lessico" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

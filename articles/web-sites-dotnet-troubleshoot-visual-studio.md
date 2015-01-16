@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Risoluzione dei problemi di Siti Web di Azure in Visual Studio" metaKeywords="risoluzione dei problemi debug Azure sito Web analisi registrazione" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Risoluzione dei problemi di Siti Web di Azure in Visual Studio" metaKeywords="risoluzione dei problemi debug Azure sito Web analisi registrazione" description="Informazioni su come risolvere problemi relativi a un sito Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 

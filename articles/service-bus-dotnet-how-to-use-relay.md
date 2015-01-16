@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Come usare il servizio Inoltro del bus di servizio (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Come usare il servizio Inoltro del bus di servizio (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Informazioni sull'uso del servizio di inoltro di Bus di servizio di Azure per connettere due applicazioni ospitate in posizioni diverse." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

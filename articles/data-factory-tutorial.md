@@ -1,4 +1,4 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Spostare ed elaborare i file di log con Data factory di Azure" description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Spostare ed elaborare i file di log con Data factory di Azure" description="Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

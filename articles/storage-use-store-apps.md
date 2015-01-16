@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Azure" metaKeywords="" description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Azure" metaKeywords="" description="Informazioni su come usare BLOB, code e tabelle di Azure per archiviare i dati per un'app di Windows Store." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="tamram" />
 

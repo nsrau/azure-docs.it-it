@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Store." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -44,7 +44,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 	<p>Questo codice consente di accedere al nuovo servizio mobile nell'app tramite una variabile globale. Per creare il client, è necessario specificare l'URI e la chiave dell'applicazione del nuovo servizio mobile. Poiché nel file default.html è stato aggiunto un riferimento a questo script, questa variabile è disponibile per tutti i file di script a cui viene fatto riferimento da questa pagina.</p>
 </li>
 <li><p>Aprire il file di progetto default.html, individuare il riferimento al nuovo file di script service.js e accertarsi che il percorso a cui fa riferimento sia simile al seguente:</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&lt;</script></code></pre>
 <p>Attualmente esiste un bug in Visual Studio che causa la generazione di un nome di cartella errato nel percorso.</p></li>
 <li><p>Fare clic con il pulsante destro del mouse sul progetto di app di Windows Phone, selezionare <strong>Aggiungi</strong> e fare clic su <strong>Servizio connesso...</strong>, quindi selezionare il servizio mobile appena creato e fare clic su <strong>OK</strong>. </p>
 <p>Lo stesso nuovo file di codice viene aggiunto al progetto di app di Windows Phone Store. Accertarsi di correggere anche il percorso di riferimento aggiunto al file default.html.</p></li>

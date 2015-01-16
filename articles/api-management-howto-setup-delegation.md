@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Come delegare la registrazione utente e la sottoscrizione ai prodotti" metaKeywords="" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come delegare la registrazione utente e la sottoscrizione ai prodotti" metaKeywords="" description="Informazioni su come delegare la registrazione dell'utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
 

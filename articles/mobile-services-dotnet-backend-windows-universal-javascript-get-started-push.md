@@ -1,5 +1,4 @@
-﻿<properties pageTitle="Introduzione alle notifiche push mediante un servizio mobile back-end .NET" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
-
+<properties pageTitle="Introduzione alle notifiche push mediante un servizio mobile back-end .NET" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure e Hub di notifica per inviare notifiche push all'app Windows universale." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
 
@@ -28,10 +27,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Accedere alla cartella del progetto <code>\services\mobileServices\scripts</code>, copiare il file di script <<em>nome_servizio</em>>.push.register.js generato nella cartella <code>\js</code>, condivisa, quindi eliminare questo file da entrambi i progetti di app di Windows e WindowsPhone.</p></li> 
+<li><p>Accedere alla cartella del progetto <code>\services\mobileServices\scripts</code>, copiare il file di script &lt;<em>nome_servizio</em>&gt;.push.register.js generato nella cartella <code>\js</code>, condivisa, quindi eliminare questo file da entrambi i progetti di app di Windows e WindowsPhone.</p></li> 
 <li><p>Aprire il file di script nella cartella del progetto <code>\js</code> condivisa, individuare il codice nel listener di eventi <em>activated</em> che registra l'URL del canale del dispositivo con l'hub di notifica, quindi eliminare la funzione di promessa <strong>done</strong>.</p>
 <p>In questa esercitazione le notifiche vengono inviate in corrispondenza dell'inserimento di un nuovo elemento e non della chiamata di un'API personalizzata.</p></li>
-<li><p>Nel progetto di app di Windows, aprire il file default.html e modificare il percorso del riferimento al file di script con la cartella di progetto <code>\js</code> condivisa, nel seguente modo:</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>Nel progetto di app di Windows, aprire il file default.html e modificare il percorso del riferimento al file di script con la cartella di progetto <code>\js</code> condivisa, nel seguente modo:</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Ripetere il passaggio per il progetto diapp di Windows Phone.</p>
 <p>Ora entrambi i progetti usano una versione condivisa dello script di registrazione push.</p></li>
 </ol>
@@ -104,4 +103,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/
 
-[Come usare un client HTML/JavaScript per i Servizi mobili di Azure]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
+[Come usare un client HTML/JavaScript per Servizi mobili di Azure]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library

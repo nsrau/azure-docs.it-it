@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione all'Hub eventi" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with C and receiving in C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Introduzione all'Hub eventi" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con C e ricevendoli in C# usando EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 

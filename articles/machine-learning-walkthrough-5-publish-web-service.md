@@ -1,4 +1,4 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Azure" description="Passaggio 5: Pubblicazione di un esperimento di punteggio in Azure Machine Learning Studio come servizio Web API ML" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Uso di dati offline in Servizi mobili (Windows Phone) | Mobile Developer Center" metaKeywords="" description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Using Offline Data" pageTitle="Uso di dati offline in Servizi mobili (Windows Phone) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure per sincronizzare i dati offline nell'applicazione per Windows Phone" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 

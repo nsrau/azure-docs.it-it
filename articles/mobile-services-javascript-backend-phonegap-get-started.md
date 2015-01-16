@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili con PhoneGap | Mobile Developer Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a Servizi mobili con PhoneGap | Mobile Developer Center" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo di PhoneGap per iOS, Android e Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

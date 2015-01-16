@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data - Android" pageTitle="Usare gli script del server per convalidare e modificare i dati (Android) | Mobile Developer Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate Data - Android" pageTitle="Usare gli script del server per convalidare e modificare i dati (Android) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 

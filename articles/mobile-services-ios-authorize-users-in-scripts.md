@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Autorizzazione lato servizio (iOS) | Mobile Developer Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorizzazione lato servizio (iOS) | Mobile Developer Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

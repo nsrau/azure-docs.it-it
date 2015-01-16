@@ -1,4 +1,4 @@
-<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Developer Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

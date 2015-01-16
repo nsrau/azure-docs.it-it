@@ -1,4 +1,4 @@
-﻿<properties title="Quick start guide for the Machine Learning Recommendations API" pageTitle="Guida introduttiva per l'API Recommendations di Machine Learning | Azure" description="Azure Machine Learning Recommendations - Quick Start Guide" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Quick start guide for the Machine Learning Recommendations API" pageTitle="Guida introduttiva per l'API Recommendations di Machine Learning | Azure" description="Recommendations di Azure Machine Learning - Guida introduttiva" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 

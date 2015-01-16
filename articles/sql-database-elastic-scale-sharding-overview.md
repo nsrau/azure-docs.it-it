@@ -1,4 +1,4 @@
-﻿<properties title="Sharding Overview" pageTitle="Panoramica del partizionamento orizzontale" description="Reasons for sharding: scale database resources to increase availability or performance." metaKeywords="sharding, scaling, elastic scale, Azure SQL Database" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Sharding Overview" pageTitle="Panoramica del partizionamento orizzontale" description="Motivi per il partizionamento: applicare la scalabilità alle risorse del database per aumentare la disponibilità o le prestazioni." metaKeywords="sharding, scaling, elastic scale, Azure SQL Database" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 #Panoramica del partizionamento orizzontale 

@@ -1,4 +1,4 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Domande frequenti sulla pubblicazione e sull'utilizzo delle app di Machine Learning in Azure Marketplace | Azure" description="Frequently Asked Questions" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Domande frequenti sulla pubblicazione e sull'utilizzo delle app di Machine Learning in Azure Marketplace | Azure" description="Domande frequenti" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store JavaScript) | Mobile Developer Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store JavaScript) | Mobile Developer Center" metaKeywords="" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app JavaScript per Windows Store." metaCanonical="https://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -34,7 +34,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer Code Samples site], ovvero un progetto di app di Windows Store disponibile in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.  
 
-1. Scaricare la versione JavaScript dell'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network]. 
+1. Scaricare la versione JavaScript dell'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network][Developer Code Samples site]. 
 
 2. In Visual Studio 2012 Express per Windows 8 aprire il progetto scaricato, espandere la cartella **js** ed esaminare il file default.js.
 
@@ -134,7 +134,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 
 <!-- Anchors. -->
 
-[Scaricare l'app di Windows Store]: #download-app
+[Get the Windows Store app]: #download-app
 [Creare il servizio mobile]: #create-service
 [Aggiungere una tabella dati per l'archiviazione]: #add-table
 [Aggiornare l'app per l'uso di Servizi mobili]: #update-app
@@ -159,5 +159,5 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Sito di esempi di codice per sviluppatori]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library/

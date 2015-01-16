@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with GoDaddy" pageTitle="Configurazione di un nome di dominio personalizzato per un sito Web di Azure usando Gestione traffico" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with GoDaddy" pageTitle="Configurazione di un nome di dominio personalizzato per un sito Web di Azure usando Gestione traffico" metaKeywords="Azure, Azure Web Sites, domain name" description=""services""web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 

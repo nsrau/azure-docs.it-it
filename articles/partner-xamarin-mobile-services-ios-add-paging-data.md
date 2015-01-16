@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Aggiungere paging ai dati (Xamarin iOS) | Mobile Developer Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="mobile-services" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
+﻿<properties urlDisplayName="" pageTitle="Aggiungere paging ai dati (Xamarin iOS) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare il paging per gestire la quantità di dati restituiti all'app per Xamarin iOS da Servizi mobili." metaCanonical="" services="mobile-services" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 

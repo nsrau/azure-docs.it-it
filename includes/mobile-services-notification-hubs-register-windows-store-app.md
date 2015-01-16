@@ -1,4 +1,4 @@
-﻿
+
 
 1. Se l'app non è ancora stata registrata, passare alla pagina relativa all' [invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
@@ -58,5 +58,5 @@
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portale di gestione di Azure]: https://manage.windowsazure.com/

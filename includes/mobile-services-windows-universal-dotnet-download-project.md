@@ -5,7 +5,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][app GetSt
 
 2.  In Visual Studio 2013 aprire il progetto scaricato ed esaminare il file MainPage.xaml.cs. rilevato nella cartella di progetto GetStartedWithData.Shared.
 
-    Si noti che gli oggetti **TodoItem** aggiunti sono archiviati in un oggetto **ObservableCollection\<TodoItem\>** in memoria.
+   	Si noti che gli oggetti **TodoItem** aggiunti sono archiviati in un oggetto **ObservableCollection&lt;TodoItem&gt;** in memoria.
 
 3.  Premere **F5** per ricompilare il progetto e avviare l'app.
 

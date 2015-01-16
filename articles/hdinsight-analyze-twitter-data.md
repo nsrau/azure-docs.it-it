@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analizzare i dati di Twitter con Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analizzare i dati di Twitter con Hadoop in HDInsight | Azure" metaKeywords="" description="Informazioni su come usare Hive per analizzare i dati di Twitter con Hadoop in HDInsight per rilevare la frequenza d'uso di una parola specifica." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jgao" />
 

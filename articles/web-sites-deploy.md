@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Come distribuire un sito Web di Azure" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties pageTitle="Come distribuire un sito Web di Azure" metaKeywords="Azure deploy publish web site" description="Informazioni sui metodi disponibili per la distribuzione di contenuti in un sito Web di Azure." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 

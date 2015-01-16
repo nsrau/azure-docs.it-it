@@ -1,4 +1,4 @@
-﻿<properties title="Azure SQL Database Elastic Scale" pageTitle="Scalabilità elastica del database SQL di Azure" description="Easily scale database resources in the cloud using Elastic Scale feature of Azure SQL Database." metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Azure SQL Database Elastic Scale" pageTitle="Scalabilità elastica del database SQL di Azure" description="Possibilità di applicare facilmente la scalabilità delle risorse di database nel cloud usando la funzionalità Elastic Scale del dabase SQL di Azure." metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

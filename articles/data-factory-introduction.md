@@ -1,4 +1,4 @@
-﻿<properties title="Introduction to Azure Data Factory" pageTitle="Introduzione a Data factory di Azure" description="Learn how you can use the Azure Data Factory service to compose data processing, data storage and data movement services to create pipelines that produce trusted information." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Introduction to Azure Data Factory" pageTitle="Introduzione a Data factory di Azure" description="Informazioni su come usare il servizio Data factory di Azure per comporre l'elaborazione dei dati, l'archiviazione dei dati e servizi di spostamento dei dati al fine di creare pipeline che producono informazioni attendibili." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

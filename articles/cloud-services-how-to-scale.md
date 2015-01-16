@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Come scalare un servizio cloud - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="How to scale" pageTitle="Come scalare un servizio cloud - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
 

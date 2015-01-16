@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" metaKeywords="" description="Imparare a usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
 

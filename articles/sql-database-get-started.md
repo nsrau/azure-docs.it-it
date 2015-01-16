@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Introduzione al database SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Introduzione al database SQL - Azure" metaKeywords="" description="Informazioni sulla creazione e la gestione dei database SQL in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -653,7 +653,7 @@ Esistono altri metodi per spostare un database locale in un database SQL. Se si 
 
 * [Migrazione di database nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ee730904.aspx)
 * [Copia di database nel database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/ff951624.aspx)
-* [Distribuire un database di SQL Server in una macchina virtuale di Azure](http://msdn.microsoft.com/it-it/library/dn195938(v=sql.120).aspx)
+* [Distribuire un database di SQL Server in una macchina virtuale di Azure](http://msdn.microsoft.com/it-it/library/dn195938.aspx)
 
 
 

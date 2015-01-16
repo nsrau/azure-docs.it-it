@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Prediction of the number of bike rentals" pageTitle="Esempio di Machine Learning: Previsione del numero di noleggi di biciclette | Azure" description="A sample Azure Machine Learning experiment to develop a regression model that predicts the number of bike rentals hourly." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Prediction of the number of bike rentals" pageTitle="Esempio di Machine Learning: Previsione del numero di noleggi di biciclette | Azure" description="Un esperimento di Azure Machine Learning di esempio per lo sviluppo di un modello di regressione che consente di stimare il numero di biciclette noleggiate ogni ora." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

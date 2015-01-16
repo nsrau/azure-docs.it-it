@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Store." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -135,7 +135,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   
 <!-- Anchors. -->
 
-[Scaricare l'app di Windows Store]: #download-app
+[Get the Windows Store app]: #download-app
 [Creare il servizio mobile da Visual Studio]: #create-service
 [Aggiungere una tabella dati per l'archiviazione]: #add-table
 [Aggiornare l'app per l'uso del servizio mobile]: #update-app
@@ -161,6 +161,6 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Sito di esempi di codice per sviluppatori]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
