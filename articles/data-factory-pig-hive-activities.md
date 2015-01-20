@@ -1,9 +1,14 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Usare Pig e Hive con Data factory di Azure" description="Informazioni su come elaborare i dati eseguendo script Pig e Hive in un cluster HDInsight di Azure da un'istanza di Data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Usare Pig e Hive con Data factory di Azure" description="Informazioni su come elaborare dati eseguendo script Pig e Hive in un cluster HDInsight di Azure da una data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Usare Pig e Hive con Data factory
-Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue  una specifica operazione di elaborazione. Ad esempio, in un'attività di copia i dati vengono copiati da un'archiviazione di origine a un'archiviazione di destinazione, mentre un'attività HDInsight con trasformazioni Hive/Pig usa un cluster HDInsight di Azure per elaborare i dati usando gli script Hive/Pig. L'attività HDInsight può usare uno o più input e generare uno o più output. 
+Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. 
+
+- L'**attività di copia** consente di copiare dati da un archivio di origine a un archivio di destinazione. Per altre informazioni sull'attività di copia, vedere [Copia di dati con Data factory][data-factory-copy-activity]. 
+- L'**attività HDInsight** elabora i dati tramite l'esecuzione di script Hive/Pig o di programmi MapReduce in un cluster HDInsight. L'attività HDInsight supporta tre trasformazioni: **Hive**, **Pig** e **MapReduce**. L'attività HDInsight può utilizzare uno o più input e generare uno o più output.
+ 
+Vedere la pagina che illustra come [richiamare i programmi MapReduce da Data factory][data-factory-map-reduce] per altre informazioni sull'esecuzione di programmi MapReduce in un cluster HDInsight da una pipeline di Data factory di Azure mediante le trasformazioni MapReduce dell'attività HDInsight. Questo articolo descrive l'uso della trasformazione Pig o Hive dell'attività HDInsight.
 
 ## Contenuto dell'articolo
 
@@ -11,9 +16,9 @@ Sezione | Descrizione
 ------- | -----------
 [Esempio JSON con Pig](#PigJSON) | Questa sezione fornisce uno schema JSON per definire un'attività HDInsight che usa una trasformazione Pig. 
 [Esempio JSON con Hive](#HiveJSON) | Questa sezione fornisce uno schema JSON per definire un'attività HDInsight che usa una trasformazione Hive. 
-[Uso degli script Pig e Hive archiviati nell'archiviazione BLOB di Azure](#ScriptInBlob) | Descrive come fare riferimento agli script Pig/Hive archiviati in un'archiviazione BLOB di Azure da un'attività HDInsight mediante la trasformazione Pig/Hive.
-[Query con parametri Pig e Hive](#ParameterizeQueries) | Descrive come specificare i valori per i parametri usati negli script Pig e Hive usando la proprietà **extendedProperties** in JSON.
-[Procedura dettagliata: Usare Hive con Data factory di Azure](#Waltkthrough) | Fornisce istruzioni dettagliate per creare una pipeline che usa Hive per elaborare i dati.  
+[Uso degli script Pig e Hive archiviati nell'archiviazione BLOB di Azure](#ScriptInBlob) | Descrive come fare riferimento agli script Pig/Hive archiviati in un'archiviazione BLOB di Azure da un'attività HDInsight mediante una trasformazione Pig/Hive.
+[Query con parametri Pig e Hive](#ParameterizeQueries) | Descrive come specificare i valori per i parametri usati negli script Pig e Hive mediante la proprietà **extendedProperties** in JSON.
+[Procedura dettagliata: Uso di Hive con Data factory di Azure](#Waltkthrough) | Fornisce istruzioni dettagliate per creare una pipeline che elabora i dati tramite Hive.  
 
 
 
@@ -42,8 +47,8 @@ Quando si definisce un'attività Pig o Hive in un JSON della pipeline, la propri
 **Tenere presente quanto segue:**
 	
 - L'oggetto **type** dell'attività è impostato su **HDInsightActivity**.
-- **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
-- L'oggetto **type** di **transformation** è impostato su **Pig**.
+- L'oggetto **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
+- L'oggetto **type** di **transformation** è impostato su**Pig**.
 - È possibile specificare uno script Pig inline per la proprietà **script** o archiviare i file di script in un'archiviazione BLOB di Azure e fare riferimento al file mediante la proprietà **scriptPath**, descritta più avanti in questo articolo. 
 - I parametri per lo script Pig vengono specificati mediante **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
 
@@ -72,10 +77,10 @@ Quando si definisce un'attività Pig o Hive in un JSON della pipeline, la propri
 **Tenere presente quanto segue:**
 	
 - L'oggetto **type** dell'attività è impostato su **HDInsightActivity**.
-- **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
+- L'oggetto **linkedServiceName** è impostato su **MyHDInsightLinkedService**. 
 - L'oggetto **type** di **transformation** è impostato su **Hive**.
 - È possibile specificare uno script Hive inline per la proprietà **script** o archiviare i file di script in un'archiviazione BLOB di Azure e fare riferimento al file mediante la proprietà **scriptPath**, descritta più avanti in questo articolo. 
-- I parametri per lo script Hive vengono specificati mediante **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
+- I parametri per lo script Hive si specificano mediante **extendedProperties**. Altri dettagli vengono forniti più avanti in questo articolo. 
 
 > [WACOM.NOTE] Vedere la [guida di riferimento per gli sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per informazioni dettagliate su cmdlet, schemi JSON e proprietà nello schema. 
 
@@ -86,7 +91,7 @@ Quando si definisce un'attività Pig o Hive in un JSON della pipeline, la propri
 * **scriptPath** - Percorso del file di script Pig o Hive
 * **scriptLinkedService** - Account di archiviazione di Azure contenente il file di script
 
-Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che fa riferimento al file **transformdata.hql** archiviato nella cartella **scripts** nel contenitore **adfwalkthrough** nell'archiviazione BLOB di Azure rappresentata da **StorageLinkedService**.
+Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che fa riferimento al file **transformdata.hql** archiviato nella cartella **scripts** nel contenitore **adfwalkthrough** nell'archiviazione BLOB di Azure rappresentato da **StorageLinkedService**.
 
     {
     	"name": "AnalyzeMarketingCampaignPipeline",
@@ -131,10 +136,10 @@ Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che f
 ## <a name="ParameterizeQueries"></a>Query con parametri Pig e Hive
 Le attività Pig e Hive di Data factory consentono di specificare i valori dei parametri usati negli script Pig e Hive mediante **extendedProperties**. La sezione extendedProperties è formata dal nome e dal valore del parametro.
 
-Vedere il seguente esempio per specificare i parametri per uno script Hive mediante **extendedProperties**. Per usare gli script con parametri Hive  , eseguire le operazioni seguenti:
+Vedere il seguente esempio per specificare i parametri per uno script Hive mediante **extendedProperties**. Per usare gli script con parametri Hive, eseguire le operazioni seguenti:
 
 1.	Definire i parametri in **extendedProperties**.
-2.	Nello script Hive inline (o) nel file di script Hive archiviato nell'archiviazione BLOB, fare riferimento al parametro mediante **${hiveconf:parameterName}**.
+2.	Nello script Hive inline (o) nel file di script Hive archiviato nell'archiviazione BLOB fare riferimento al parametro mediante **${hiveconf:parameterName}**.
 
    
     		
@@ -169,7 +174,7 @@ Vedere il seguente esempio per specificare i parametri per uno script Hive media
 
 -  
 
-## <a name="Walkthrough"></a>Procedura dettagliata: Usare Hive con Data factory di Azure
+## <a name="Walkthrough"></a>Procedura dettagliata: Uso di Hive con Data factory di Azure
 ### Prerequisiti
 1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
 2. Caricare il file **emp.txt** creato nell'esercitazione precedente come **hiveinput\emp.txt** nel contenitore adftutorial dell'archiviazione BLOB. La cartella **hiveinput** viene creata automaticamente nel contenitore **adftutorial** quando si carica il file emp.txt con questa sintassi. 
@@ -188,12 +193,12 @@ Vedere il seguente esempio per specificare i parametri per uno script Hive media
 		FROM hivesampletable 
 		group by country, state;
 		
-3.  Caricare **hivequery.hql** nel contenitore **adftutorial** nell'archiviazione BLOB
+3.  Caricare **hivequery.hql** nel contenitore **adftutorial** dell'archiviazione BLOB
 
 
 ### Procedura dettagliata
 
-#### Creare la tabella di input
+#### Creazione della tabella di input
 1. Creare un file JSON denominato **HiveInputBlobTable.json** nella cartella **C:\ADFGetStarted\Hive** con il seguente contenuto.
     		
 		{
@@ -219,7 +224,7 @@ Vedere il seguente esempio per specificare i parametri per uno script Hive media
 	**Tenere presente quanto segue:**
 	
 	- L'oggetto **type** di location è impostato su **AzureBlobLocation**.
-	- **linkedServiceName** è impostato su **MyBlobStore**, che definisce un account di archiviazione di Azure.
+	- **linkedServiceName** è impostato su **MyBlobStore** che definisce un account di archiviazione di Azure.
 	- **folderPath** specifica il contenitore/cartella BLOB per i dati di input. 
 	- **frequency=Day** e **interval=1** indicano le sezioni disponibili quotidianamente
 	- **waitOnExternal** indica che questi dati non sono generati da un'altra pipeline, ma esternamente rispetto all'istanza di Data factory. 
@@ -236,8 +241,8 @@ Vedere il seguente esempio per specificare i parametri per uno script Hive media
 
 		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HiveInputBlobTable.json
 
-	Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per una panoramica dettagliata dei cmdlet di Data factory. 
-#### Creare la tabella di output
+	Vedere il [riferimento ai cmdlet di Data factory][cmdlet-reference] per una panoramica dettagliata dei cmdlet di Data factory. 
+#### Creazione della tabella di output
         
 1. Creare un file JSON denominato **HiveOutputBlobTable.json** con il seguente contenuto e salvarlo nella cartella **C:\ADFGetStarted\Hive**.
 
@@ -263,7 +268,7 @@ Vedere il seguente esempio per specificare i parametri per uno script Hive media
  
 		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HiveOutputBlobTable.json
 
-### Creare un servizio collegato per un cluster HDInsight
+### Creazione di un servizio collegato per un cluster HDInsight
 Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, quando si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster. Ai fini dell'esempio, viene usato un cluster su richiesta. 
 
 #### Per usare un cluster HDInsight su richiesta
@@ -276,7 +281,6 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": "4",
-        		"jobsContainer": "adftutorialjobscontainer",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -292,7 +296,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
  
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HDInsightOnDemandCluster.json
   
-3. Vengono visualizzate le tabelle e i servizi collegati nel pannello **Data factory** del **portale di anteprima di Azure**.    
+3. Si dovrebbero visualizzare le tabelle e i servizi collegati nel pannello **Data factory** del **portale di anteprima di Azure**.    
    
 #### Per usare il proprio cluster HDInsight: 
 
@@ -320,7 +324,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
  
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
 
-### Creare e pianificare la pipeline
+### Creazione e pianificazione della pipeline
    
 1. Creare un file JSON denominato **ADFTutorialHivePipeline.json** con il seguente contenuto e salvarlo nella cartella **C:\ADFGetStarted\Hive**. Per usare il proprio cluster dopo aver seguito i passaggi per creare il servizio collegato **MyHDInsightCluster**, sostituire **HDInsightOnDemandCluster** con **MyHDInsightCluster** nel seguente JSON. 
 
@@ -377,7 +381,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
   	
 	La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni. 
 
-4. Vedere la sezione [Monitorare i set di dati e le pipeline][adfgetstartedmonitoring] dell'articolo [Introduzione a Data factory][adfgetstarted].   
+4. Vedere la sezione relativa al [monitoraggio dei set di dati e delle pipeline][adfgetstartedmonitoring] nell'[introduzione a Data factory][adfgetstarted].   
 
 ## Vedere anche
 
@@ -385,12 +389,14 @@ Articolo | Descrizione
 ------ | ---------------
 [Introduzione a Data factory di Azure][data-factory-introduction] | Questo articolo fornisce un'introduzione al servizio Data factory di Azure, ai concetti, al valore che offre e agli scenari che supporta.
 [Introduzione a Data factory di Azure][adf-getstarted] | Questo articolo fornisce un'esercitazione end-to-end che mostra come creare un'istanza di Data factory di Azure di esempio che copia i dati da un BLOB di Azure a un database SQL di Azure.
-[Consentire alle pipeline di usare dati locali][use-onpremises-datasources] | Questo articolo contiene una procedura dettagliata che mostra come copiare dati da un database SQL Server locale a un BLOB di Azure.
+[Consentire alle pipeline di usare dati locali][use-onpremises-datasources] | Questo articolo contiene una procedura dettagliata che mostra come copiare dati da un database di SQL Server locale a un BLOB di Azure.
 [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial] | Questo articolo fornisce una procedura dettagliata end-to-end che mostra come implementare uno scenario quasi reale usando Data factory di Azure per trasformare i dati da file di log a informazioni accurate.
 [Usare attività personalizzate in un'istanza di Data factory][use-custom-activities] | Questo articolo fornisce una procedura dettagliata con le istruzioni precise per creare un'attività personalizzata e usarla in una pipeline. 
-[Risolvere i problemi di Data factory][troubleshoot] | Questo articolo descrive come risolvere i problemi di Data factory di Azure.  
+[Risolvere i problemi di Data factory][troubleshoot] | Questo articolo descrive come risolvere i problemi di Data factory di Azure.
 [Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference] | La guida di riferimento per gli sviluppatori comprende informazioni di riferimento complete per cmdlet, script JSON, funzioni e così via. 
 
+[data-factory-copy-activity]: ..//data-factory-copy-activity
+[data-factory-map-reduce]: ..//data-factory-map-reduce
 
 [adf-getstarted]: ../data-factory-get-started
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -410,3 +416,5 @@ Articolo | Descrizione
 
 [Guida di riferimento per gli sviluppatori]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Portale di Azure]: http://portal.azure.com
+
+<!--HONumber=35.2-->

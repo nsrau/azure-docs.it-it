@@ -1,6 +1,6 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorare e gestire Data factory di Azure con Azure PowerShell" description="Informazioni su come usare Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure create." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorare e gestire Data factory di Azure con Azure PowerShell" description="Informazioni su come usare Azure PowerShell per monitorare e gestire le data factory di Azure create." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Monitorare e gestire Data factory di Azure con Azure PowerShell
 La seguente tabella elenca i cmdlet che è possibile usare per monitorare e gestire le istanze di Data factory di Azure con Azure PowerShell. 
@@ -47,7 +47,7 @@ Il cmdlet Get-AzureDataFactoryLinkedService ottiene le informazioni su uno speci
 Questo comando restituisce le informazioni su tutti i servizi collegati nell'istanza di Data factory di Azure ADFTutorialDataFactory.
 
 
-È possibile usare il parametro -DataFactory al posto dei parametri DataFactoryName e ResourceGroupName. Ciò consente di immettere i nomi del gruppo di risorse e della factory solo una volta e di usare l'oggetto Data factory come parametro per tutti i cmdlet che accettano sia ResourceGroupName che DataFactoryName come parametri.
+È possibile usare il parametro -DataFactory al posto dei parametri DataFactoryName e ResourceGroupName. Ciò consente di immettere i nomi del gruppo di risorse e della factory solo una volta e di usare l'oggetto Data factory come parametro per tutti i cmdlet che accettano ResourceGroupName e DataFactoryName come parametri.
 
     $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
 	
@@ -185,11 +185,11 @@ Per ciascuna sezione è possibile eseguire il drill-down dettagliato e ottenere 
 
     Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-05-20T10:00:00
 
-Questo comando ottiene tutte le sezioni per la tabella EmpSQLTable nell'istanza di Data factory di Azure ADFTutorialDataFactory generata dopo 2014-05-20T10:00:00 (GMT). Sostituire la data/ora con la data/ora di inizio specificata quando è stato eseguito Set-AzureDataFactoryPipelineActivePeriod.
+Questo comando ottiene tutte le sezioni per la tabella EmpSQLTable nell'istanza di Data factory di Azure ADFTutorialDataFactory generata dopo 2014-05-20T10:00:00 (GMT). Sostituire la data e l'ora con la data e l'ora di inizio specificate quando è stato eseguito Set-AzureDataFactoryPipelineActivePeriod.
 
 ## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
 
-Il cmdlet Get-AzureDataFactoryRun ottiene tutte le esecuzioni per una sezione di dati di una tabella in un'istanza di Data factory di Azure.  Una tabella in un'istanza di Data factory di Azure è formata da sezioni sull'asse temporale. La larghezza di una sezione viene determinata dalla pianificazione, oraria o giornaliera. L'esecuzione è un'unità di elaborazione per una sezione. Possono esserci più esecuzioni di una sezione se vengono eseguiti più tentativi o se si ripete l'esecuzione della sezione in caso di errori. Una sezione viene identificata in base all'ora di inizio. Quindi, per il cmdlet Get-AzureDataFactoryRun è necessario indicare l'ora di inizio della sezione dai risultati del cmdlet Get-AzureDataFactorySlice.
+Il cmdlet Get-AzureDataFactoryRun ottiene tutte le esecuzioni per una sezione di dati di una tabella in un'istanza di Data factory di Azure.  Una tabella in Data factory di Azure è composta da sezioni sull'asse temporale. La larghezza di una sezione viene determinata dalla pianificazione, oraria o giornaliera. L'esecuzione è un'unità di elaborazione per una sezione. Possono esserci più esecuzioni di una sezione se vengono eseguiti più tentativi o se si ripete l'esecuzione della sezione in caso di errori. Una sezione viene identificata in base all'ora di inizio. Per il cmdlet Get-AzureDataFactoryRun è pertanto necessario indicare l'ora di inizio della sezione dai risultati del cmdlet Get-AzureDataFactorySlice.
 
 Ad esempio, per ottenere un'esecuzione per la seguente sezione, usare 2015-04-02T20:00:00. 
 
@@ -234,7 +234,7 @@ Questo comando salva i file di log nella cartella Documenti (predefinita).
  
 
 ### Esempio 3
-Questo comando restituisce il percorso dei file di log. Notare che il parametro -DownloadLogs non è specificato. 
+Questo comando restituisce il percorso dei file di log. Si noti che il parametro -DownloadLogs non è specificato. 
   
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
  
@@ -272,7 +272,7 @@ Imposta lo stato di una sezione per una tabella. Le date di inizio e di fine del
 Ogni sezione di dati per una tabella passa attraverso diverse fasi. Queste fasi sono leggermente diverse a seconda dei criteri di convalida specificati.
 
 
-- Se i criteri di convalida   non sono specificati: PendingExecution -> InProgress -> Ready
+- Se i criteri di convalida non sono specificati: PendingExecution -> InProgress -> Ready
 - Se i criteri di convalida sono specificati: PendingExecution -> Pending Validation -> InProgress -> Ready
 
 La seguente tabella fornisce le descrizioni dei possibili stati di una sezione e indica se lo stato può essere impostato o meno con Set-AzureDataFactorySliceStatus.
@@ -392,7 +392,7 @@ Questo comando riprende la pipeline ADFTutorialPipeline nell'istanza di Data fac
 Articolo | Descrizione
 ------ | ---------------
 [Monitorare e gestire Data factory di Azure con il portale di anteprima di Azure][monitor-manage-using-portal] | Questo articolo descrive come monitorare e gestire un'istanza di Data factory di Azure con il portale di anteprima di Azure.
-[Consentire alle pipeline di usare dati locali][use-onpremises-datasources] | Questo articolo contiene una procedura dettagliata che mostra come copiare dati da un database SQL Server locale a un BLOB di Azure.
+[Consentire alle pipeline di usare dati locali][use-onpremises-datasources] | Questo articolo contiene una procedura dettagliata che mostra come copiare dati da un database di SQL Server locale a un BLOB di Azure.
 [Usare Pig e Hive con Data factory][use-pig-and-hive-with-data-factory] | Questo articolo contiene una procedura dettagliata che mostra come usare l'attività HDInsight per eseguire uno script hive/pig per elaborare i dati di input in modo da generare i dati di output. 
 [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial] | Questo articolo fornisce una procedura dettagliata end-to-end che mostra come implementare uno scenario quasi reale usando Data factory di Azure per trasformare i dati da file di log a informazioni accurate.
 [Usare attività personalizzate in un'istanza di Data factory][use-custom-activities] | Questo articolo fornisce una procedura dettagliata con le istruzioni precise per creare un'attività personalizzata e usarla in una pipeline. 
@@ -409,3 +409,5 @@ Articolo | Descrizione
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+<!--HONumber=35.2-->

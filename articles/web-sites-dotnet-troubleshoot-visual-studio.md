@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Risoluzione dei problemi di Siti Web di Azure in Visual Studio" metaKeywords="risoluzione dei problemi debug Azure sito Web analisi registrazione" description="Informazioni su come risolvere problemi relativi a un sito Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Risoluzione dei problemi di Siti Web di Azure in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Informazioni su come risolvere i problemi di un sito Web di Azure tramite gli strumenti di debug remoto, di traccia e di registrazione incorporati in Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 
@@ -60,7 +60,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 2. In **Esplora server** espandere **Azure** e quindi **Siti Web**.
 
-3. Fare clic con il pulsante destro del mouse sul nodo del sito Web creato in [Introduzione ad Azure e ASP.NET][GetStarted], quindi scegliere **Visualizza impostazioni**.
+3. Fare clic con il pulsante destro del mouse sul nodo del sito Web creato in [Introduzione ad Azure e ASP.NETGetStarted][GetStarted], quindi scegliere **Visualizza impostazioni**.
 
 	![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -76,7 +76,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 <h2><a name="remoteview"></a>Accedere ai file del sito Web in Esplora Server</h2>
 
-In genere un sito viene distribuito con il flag "customErrors" impostato su "On" o su "RemoteOnly" nel file Web.config, il che significa che quando si verifica un errore non vengono visualizzati messaggi utili. Per molti errori, infatti, verrà visualizzata una pagina come una di quelle illustrate di seguito.
+In genere un sito viene distribuito con il flag `customErrors` impostato su `On` o `RemoteOnly` nel file Web.config, il che significa che quando si verifica un errore non vengono visualizzati messaggi utili. Per molti errori, infatti, verrà visualizzata una pagina come una di quelle illustrate di seguito.
 
 **Errore del server nell'applicazione '/':**
 
@@ -98,13 +98,13 @@ Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abi
 
 	![File and log files](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
-2. Espandere il nodo **File** e fare doppio clic sul file Web.config.
+2. Espandere il nodo **File** e fare doppio clic sul file *Web.config*.
 
 	![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
 	Il file Web.config verrà aperto in Visual Studio dal sito remoto e accanto al relativo nome, sulla barra del titolo, verrà visualizzata l'indicazione [Remoto].
 
-3. Aggiungere la riga seguente all'elemento "system.web":
+3. Aggiungere la riga seguente all'elemento `system.web`:
 
 	`<customErrors mode="off"></customErrors>`
 
@@ -126,13 +126,13 @@ Il debug remoto non funziona nelle edizioni Express di Visual Studio.
 
 ### Debug remoto di siti Web
 
-In questa sezione viene illustrato come eseguire il debug remoto con il progetto creato in [Introduzione ad Azure e ASP.NET][GetStarted].
+In questa sezione viene illustrato come eseguire il debug remoto usando il progetto creato in [Introduzione ad Azure e ASP.NET][GetStarted].
 
 1. Aprire il progetto Web creato in [Introduzione ad Azure e ASP.NET][GetStarted].
 
 1. Aprire il file *Controllers\HomeController.cs*.
 
-2. Eliminare il metodo "About()" e inserire il codice seguente.
+2. Eliminare il metodo `About()` e inserire il codice seguente.
 
         public ActionResult About()
         {
@@ -141,7 +141,7 @@ In questa sezione viene illustrato come eseguire il debug remoto con il progetto
             return View();
         }
 
-2. [Impostare un punto di interruzione](http://www.visualstudio.com/it-it/get-started/debug-your-app-vs.aspx) sulla riga "ViewBag.Message".
+2. [Impostare un punto di interruzione](http://www.visualstudio.com/it-it/get-started/debug-your-app-vs.aspx) sulla riga `ViewBag.Message`.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
@@ -163,13 +163,13 @@ In questa sezione viene illustrato come eseguire il debug remoto con il progetto
 
 	* Nel portale di gestione di Azure passare alla scheda **Configura** relativa al sito Web, quindi scorrere verso il basso fino alla sezione **Diagnostica del sito**.
 
-	* Impostare **Debug remoto** su **On** e **Debug remoto: Visual Studio versione** su **2012**.
+	* Impostare **Debug remoto** su **On**e **Debug remoto: Visual Studio versione** su **2012**.
 
 	![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
    
 	* Nel menu **Debug** di Visual Studio fare clic su **Connetti a processo**.
 
-	* Nella casella **Qualificatore** immettere l'URL del sito Web, senza il prefisso "http://". 
+	* Nella casella **Qualificatore** immettere l'URL del sito Web, senza il prefisso `http://`. 
 
 	* Selezionare **Mostra i processi di tutti gli utenti**.
 
@@ -185,13 +185,13 @@ In questa sezione viene illustrato come eseguire il debug remoto con il progetto
 
 	Visual Studio si interrompe in corrispondenza del punto di interruzione e il codice viene eseguito in Azure, non nel computer locale.
 
-7. Passare il puntatore sulla variabile "currentTime" per visualizzare il valore relativo all'ora.
+7. Passare il puntatore sulla variabile `currentTime` per visualizzare il valore relativo all'ora.
 
 	![View variable in debug mode running in Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
 	L'ora visualizzata corrisponde a quella del server Azure, che può essere in un fuso orario diverso rispetto al computer locale.
 
-8. Immettere un nuovo valore per la variabile "currentTime", ad esempio "In esecuzione in Azure".
+8. Immettere un nuovo valore per la variabile `currentTime`, ad esempio "In esecuzione in Azure".
 
 5. Premere F5 per continuare l'esecuzione.
 
@@ -207,13 +207,13 @@ In questa sezione viene illustrato come eseguire il debug remoto con il progetto
 
 1. Nel progetto ContosoAdsWebJob aprire *Functions.cs*.
 
-2. [Impostare un punto di interruzione](http://www.visualstudio.com/it-it/get-started/debug-your-app-vs.aspx) sulla prima istruzione nel metodo "GnerateThumbnail".
+2. [Impostare un punto di interruzione](http://www.visualstudio.com/it-it/get-started/debug-your-app-vs.aspx) sulla prima istruzione nel metodo `GnerateThumbnail`.
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto Web (non sul progetto processo Web), quindi scegliere **Pubblica**.
 
-2. Nell'elenco a discesa **Profilo** selezionare il nome del profilo usato in [Introduzione a Azure WebJobs SDK].(../websites-dotnet-webjobs-sdk).
+2. Nell'elenco a discesa **Profilo** selezionare il nome del profilo usato in [Introduzione a Azure WebJobs SDK](../websites-dotnet-webjobs-sdk).
 
 3. Fare clic sulla scheda **Impostazioni**, sostituire **Configurazione** con **Debug** e quindi fare clic su **Pubblica**.
 
@@ -267,7 +267,7 @@ Se la funzione [ha scritto dei log](../websites-dotnet-webjobs-sdk-storage-queue
 
 * Durante il debug, il server invia i dati a Visual Studio, con possibili implicazioni sui costi della larghezza di banda. Per informazioni sui costi della larghezza di banda, vedere [Prezzi di Azure](/it-it/pricing/calculator/).
 
-* Assicurarsi che l'attributo "debug" dell'elemento "compilation" nel file *Web.config* sia impostato su True. Questa è l'impostazione predefinita quando si pubblica una configurazione di build di debug.
+* Assicurarsi che l'attributo `debug` dell'elemento `compilation` nel file *Web.config* sia impostato su True. Questa è l'impostazione predefinita quando si pubblica una configurazione di build di debug.
 
         <system.web>
           <compilation debug="true" targetFramework="4.5" />
@@ -297,11 +297,11 @@ Poiché la registrazione influisce sulle prestazioni del sito, Azure offre la po
 
 I log vengono scritti nei file della cartella *LogFiles* nel file system del sito Web e sono accessibili tramite FTP. I log del server Web e dell'applicazione possono anche essere scritti in un account di archiviazione di Azure. Negli account di archiviazione è possibile mantenere una quantità di log maggiore rispetto a quella consentita nel file system. Se si usa il file system, il limite massimo corrisponde a 100 megabyte di log. I log del file system sono destinati solo al mantenimento a breve termine. Quando viene raggiunto il limite, vengono eliminati per lasciare spazio a quelli nuovi.  
 
-<h2><a name="apptracelogs"></a>Creazione e visualizzazione dei log di traccia dell'applicazione</h2>
+<h2><a name="apptracelogs"></a>Creare e visualizzare i log di traccia dell'applicazione</h2>
 
 In questa sezione verranno eseguite le attività seguenti:
 
-* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NET][GetStarted].
+* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NETGetStarted][GetStarted].
 * Visualizzazione dei log quando si esegue il progetto in locale.
 * Visualizzazione dei log mentre vengono generati dall'applicazione in esecuzione in Azure. 
 
@@ -309,7 +309,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 ### Aggiungere istruzioni di traccia all'applicazione
 
-1. Aprire il file *Controllers\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni "Trace" e un'istruzione "using" per "System.Diagnostics":
+1. Aprire il file *Controllers\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -357,13 +357,13 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 3. Premere F5 per eseguire l'applicazione in modalità debug.
 
-	Il listener di traccia predefinito scrive tutto l'output di traccia nella finestra **Output**, insieme ad altro output di debug. Nella figura seguente viene illustrato l'output delle istruzioni trace aggiunte al metodo "Index".
+	Il listener di traccia predefinito scrive tutto l'output di traccia nella finestra **Output**, insieme ad altro output di debug. Nella figura seguente viene illustrato l'output delle istruzioni trace aggiunte al metodo `Index`.
 
 	![Tracing in Debug window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
 	Nei passaggi seguenti viene illustrato come visualizzare l'output di traccia in una pagina Web, senza eseguire la compilazione in modalità debug.
 
-2. Aprire il file Web.config dell'applicazione, situato nella cartella di progetto, e aggiungere un elemento "<system.diagnostics>" alla fine del file, poco prima dell'elemento "</configuration>" di chiusura:
+2. Aprire il file Web.config dell'applicazione, situato nella cartella di progetto, e aggiungere un elemento `<system.diagnostics>` alla fine del file, poco prima dell'elemento `</configuration>` di chiusura:
 
   		<system.diagnostics>
 		    <trace>
@@ -378,9 +378,9 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 		    </trace>
 		  </system.diagnostics>
 
-	'WebPageTraceListener' consente di visualizzare l'output di traccia passando a '/trace.axd'.
+	`WebPageTraceListener` consente di visualizzare l'output di traccia passando a `/trace.axd`.
 
-3. Aggiungere un <a href="http://msdn.microsoft.com/it-it/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> dopo "<system.web>" nel file Web.config, come illustrato nell'esempio seguente:
+3. Aggiungere un <a href="http://msdn.microsoft.com/it-it/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> dopo `<system.web>` nel file Web.config, come illustrato nell'esempio seguente:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -392,15 +392,15 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-	Verrà visualizzata la pagina **Request Details** e nella sezione **Trace Information** sarà riportato l'output delle istruzioni trace aggiunte al metodo "Index".
+	Verrà visualizzata la pagina **Request Details** e nella sezione **Trace Information** sarà riportato l'output delle istruzioni trace aggiunte al metodo `Index`.
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-	Per impostazione predefinita, "trace.axd" è disponibile solo in locale. Per renderlo disponibile da un sito remoto, è possibile aggiungere "localOnly="false"" all'elemento "trace" nel file *Web.config*, come illustrato nell'esempio seguente:
+	Per impostazione predefinita, `trace.axd` è disponibile solo in locale. Se si desidera renderlo disponibile da un sito remoto, è possibile aggiungere `localOnly="false"` all'elemento `trace` nel file *Web.config*, come illustrato nell'esempio seguente:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-	Tuttavia, in generale non è consigliabile abilitare "trace.axd" in un sito di produzione, per motivi di sicurezza. Nelle sezioni seguenti verrà illustrato un modo più semplice per leggere i log di traccia in un sito Web di Azure.
+	Tuttavia, per motivi di sicurezza in generale non è consigliabile abilitare `trace.axd` in un sito di produzione. Nelle sezioni seguenti verrà illustrato un modo più semplice per leggere i log di traccia in un sito Web di Azure.
 
 ### Visualizzare l'output di traccia in Azure
 
@@ -410,7 +410,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 	Dopo la pubblicazione dell'aggiornamento, verrà aperta una finestra del browser nella home page, a meno che non sia stata deselezionata l'opzione **URL di destinazione** nella scheda **Connessione**.
 
-3. In **Esplora server** fare clic con il pulsante destro del mouse sul sito Web e scegliere **View Streaming Logs**. 
+3. In **Esplora server** fare clic con il pulsante destro del mouse sul sito Web e scegliere **Visualizza registri di flusso**. 
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
@@ -420,7 +420,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 4. Nella finestra del browser in cui è visualizzata la home page dell'applicazione fare clic su **Contact**.
 
-	Entro pochi secondi nella finestra **Output** verrà visualizzata la traccia a livello di errore aggiunta al metodo "Contact".
+	Entro pochi secondi nella finestra **Output** verrà visualizzata la traccia a livello di errore aggiunta al metodo `Contact`.
 
 	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -429,7 +429,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
-	Se tuttavia si seleziona **View Streaming Logs**, in Visual Studio l'opzione **Registrazione applicazioni (file system)** viene automaticamente impostata su **Errore**, il che significa che vengono segnalati i log a livello di errore. Per visualizzare tutti i log di traccia, è possibile impostare questa opzione su **Dettagliato**. Quando si seleziona un livello di gravità inferiore a errore, vengono segnalati anche tutti i log per livelli di gravità superiori. Quindi se si seleziona Verbose verranno visualizzati anche i log di informazioni, avvisi ed errori.  
+	Se tuttavia si seleziona **Visualizza registri di flusso**, in Visual Studio l'opzione **Registrazione applicazioni (file system)** viene automaticamente impostata su **Errore**, il che significa che vengono segnalati i log a livello di errore. Per visualizzare tutti i log di traccia, è possibile impostare questa opzione su **Dettagliato**. Quando si seleziona un livello di gravità inferiore a errore, vengono segnalati anche tutti i log per livelli di gravità superiori. Quindi se si seleziona Verbose verranno visualizzati anche i log di informazioni, avvisi ed errori.  
 
 4. In **Esplora server** fare clic con il pulsante destro del mouse sul sito Web e quindi scegliere **Visualizza impostazioni** come indicato in precedenza.
 
@@ -467,7 +467,7 @@ Se si immette una stringa di ricerca o un'espressione regolare, in Visual Studio
 
 I log del server Web registrano tutta l'attività HTTP che si verifica nel sito. Per visualizzarli nella finestra **Output**, è necessario abilitarli nel sito e indicare a Visual Studio che si desidera monitorarli. 
 
-1. Nella scheda **Configurazione** di Siti Web di Azure aperta da **Esplora server** impostare Registrazione del server Web su **On**, quindi fare clic su **Salva**.
+1. Nella scheda **Configurazione di Siti Web di Azure** aperta da **Esplora server** impostare Registrazione del server Web su **On**, quindi fare clic su **Salva**.
 
 	![Enable web server logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 
@@ -570,138 +570,138 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts](/it-it/documentation/articles/storage-manage-storage-account/).
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
-5. Fare clic su **Crea**. 
+5. Click **Create**. 
 
 	![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)	
 
-1. Nella finestra **Sito Web di Azure** di Visual Studio fare clic sulla scheda **Log** e quindi su **Configura registrazione nel portale di gestione**.
+1. In the Visual Studio **Azure Website** window, click the **Logs** tab, and then click **Configure Logging in Management Portal**.
 
 	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	Nel portale di gestione verrà visualizzata la scheda **Configura** relativa al sito Web. In alternativa, è possibile fare clic sulla scheda **Siti Web**, quindi sul sito Web e infine sulla scheda **Configura**.
+	This opens the **Configure** tab in the management portal for your website. Another way to get here is to click the **Websites** tab, click your website, and then click the **Configure** tab.
 
-2. Nella scheda **Configura** del portale di gestione scorrere verso il basso fino alla sezione di diagnostica applicazioni, quindi impostare **Registrazione applicazioni (archiviazione tabella)** su **On**.
+2. In the management portal **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Table Storage)** to **On**.
 
-3. Impostare **Livello di registrazione** su **Informazioni**.
+3. Change **Logging Level** to **Information**.
 
-4. Fare clic su **Gestisci archivio tabelle**.
+4. Click **Manage Table Storage**.
 
 	![Click Manage TableStorage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
-	Nella finestra **Gestisci archivio tabelle per diagnostica applicazioni** è possibile scegliere il proprio account di archiviazione, se ne sono disponibili più di uno. È possibile creare una nuova tabella o utilizzarne una esistente.
+	In the **Manage table storage for application diagnostics** box, you can choose your storage account if you have more than one. You can create a new table or use an existing one.
 
 	![Manage table storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
 
-6. Fare clic sul segno di spunta nella finestra **Gestisci archivio tabelle per diagnostica applicazioni** per chiuderla.
+6. In the **Manage table storage for application diagnostics** box click the check mark to close the box.
 
-6. Nella scheda **Configura** del portale di gestione fare clic su **Salva**.
+6. In the management portal **Configure** tab, click **Save**.
 
-7. Nella finestra del browser in cui viene visualizzato il sito Web dell'applicazione fare clic su **Home**, quindi su **About** e infine su **Contact**.
+7. In the browser window that displays the application website, click **Home**, then click **About**, and then click **Contact**.
 
-	Le informazioni di registrazione prodotte da queste pagine Web verranno scritte nell'account di archiviazione.
+	The logging information produced by browsing these web pages will be written to the storage account.
 
-8. Nella scheda **Log** della finestra **Sito Web di Azure** in Visual Studio fare clic su **Aggiorna** in **Riepilogo diagnostica**.
+8. In the **Logs** tab of the **Azure Website** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
 
 	![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-	Per impostazione predefinita, nella sezione **Riepilogo diagnostica** vengono visualizzati i log relativi agli ultimi 15 minuti. È possibile modificare il periodo per visualizzarne altri. 
+	The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
 
-	Se viene visualizzato un messaggio di errore di tipo "tabella non trovata", verificare di aver aperto le pagine che eseguono la traccia prima di aver abilitato **Registrazione applicazioni (archiviazione)** e dopo aver fatto clic su **Salva**.
+	(If you get a "table not found" error, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
 	![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-	Si noti che in questa visualizzazione sono riportati i valori **ID processo** e **ID thread** per ogni log, che non si ottengono nei log del file system. È possibile visualizzare campi aggiuntivi aprendo direttamente la tabella di archiviazione di Azure.
+	Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Azure storage table directly.
 
-8. Fare clic su **View all application logs**.
+8. Click **View all application logs**.
 
-	Nel visualizzatore tabelle di archiviazione di Azure verrà aperta la tabella dei log di traccia.
+	The trace log table appears in the Azure storage table viewer.
    
-	Se viene visualizzato un messaggio di errore di tipo "la sequenza non contiene elementi", aprire **Esplora server**, espandere il nodo relativo all'account di archiviazione sotto il nodo **Azure**, fare clic con il pulsante destro del mouse su **Tables** e scegliere **Aggiorna**.
+	(If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Azure** node, and then right-click **Tables** and click **Refresh**.)
 
 	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	Questa visualizzazione contiene campi aggiuntivi non disponibili nelle altre visualizzazioni. Consente inoltre di filtrare i log mediante una speciale interfaccia utente Generatore query. Per altre informazioni, vedere la sezione Utilizzo delle risorse tabella - Filtro delle entità in [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/windowsazure/ff683677.aspx).
+	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/it-it/library/windowsazure/ff683677.aspx).
 
-7. Per esaminare i dettagli relativi a una singola riga, fare doppio clic su una delle righe.
+7. To look at the details for a single row, double-click one of the rows.
 
 	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
 
-<h2><a name="failedrequestlogs"></a>Visualizzare i log di traccia delle richieste non riuscite</h2>
+<h2><a name="failedrequestlogs"></a>View failed request tracing logs</h2>
 
-I log di traccia delle richieste non riuscite sono utili quando è necessario acquisire i dettagli sul modo in cui vengono gestite le richieste HTTP in IIS, in scenari come i problemi di autenticazione o di riscrittura di URL. 
+Failed request tracing logs are useful when you need to understand the details of how IIS is handling an HTTP request, in scenarios such as URL rewriting or authentication problems. 
 
-In Siti Web di Azure viene usata la stessa funzionalità di traccia delle richieste non riuscite disponibile in IIS 7.0 e versioni successive. Tuttavia, non si dispone di accesso alle impostazioni di IIS che consentono di configurare quali errori vengono registrati. Quando si abilita la traccia delle richieste non riuscite, vengono acquisiti tutti gli errori. 
+Azure Websites use the same failed request tracing functionality that has been available with IIS 7.0 and later. You don't have access to the IIS settings that configure which errors get logged, however. When you enable failed request tracing, all errors are captured. 
 
-È possibile abilitare la traccia delle richieste non riuscite mediante Visual Studio, ma non è possibile visualizzarle in Visual Studio. I log sono file in formato XML. Il servizio di log in streaming esegue il monitoraggio solo dei file leggibili in modalità testo normale, ovvero file con estensione  *.txt*, *.html* e *.log*.
+You can enable failed request tracing by using Visual Studio, but you can't view them in Visual Studio. These logs are XML files. The streaming log service only monitors files that are deemed readable in plain text mode:  *.txt*, *.html*, and *.log* files.
 
-È possibile visualizzare i log di traccia delle richieste non riuscite direttamente in un browser mediante FTP oppure in locale dopo aver usato uno strumento FTP per scaricarli nel computer in uso. In questa sezione verrà illustrato come visualizzarli direttamente in un browser.
+You can view failed request tracing logs in a browser directly via FTP or locally after using an FTP tool to download them to your local computer. In this section you'll view them in a browser directly.
 
-1. Nella scheda **Configurazione** della finestra **Azure Website** aperta da **Esplora server** impostare **Traccia delle richieste non riuscita** su **On**, quindi fare clic su **Salva**.
+1. In the **Configuration** tab of the **Azure Website** window that you opened from **Server Explorer**, change **Failed Request Tracing** to **On**, and then click **Save**.
 
 	![Enable failed request tracing](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 
-4. Nella barra degli indirizzi della finestra del browser in cui è visualizzato il sito Web aggiungere un altro carattere all'URL e quindi premere INVIO per generare un errore 404.
+4. In the address bar of the browser window that shows the website, add an extra character to the URL and click Enter to cause a 404 error.
 
-	In questo modo verrà creato un log di traccia delle richieste non riuscite. Di seguito viene illustrato come visualizzare o scaricare il log.
+	This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 
-2. In Visual Studio, nella scheda **Configurazione** della finestra **Azure Website**, fare clic su **Open in Management Portal**.
+2. In Visual Studio, in the **Configuration** tab of the **Azure Website** window, click **Open in Management Portal**.
 
-3. Nel portale di gestione fare clic su **Dashboard** e quindi su **Reimposta le credenziali di distribuzione** nella sezione **Riepilogo rapido**.
+3. In the management portal, click **Dashboard**, and then click **Reset your deployment credentials** in the **Quick Glance** section.
 
 	![Reset FTP credentials link in Dashboard](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
 
-4. Immettere un nuovo nome utente e una nuova password.
+4. Enter a new user name and password.
 
 	![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. Nella scheda **Dashboard** del portale di gestione premere F5 per aggiornare la pagina, quindi scorrere verso il basso fino a visualizzare **Utente FTP/distribuzione**. Si noti che prima del nome utente è inserito il prefisso del nome sito. **Quando si effettua l'accesso, è necessario usare questo nome utente completo con il prefisso del nome sito, come illustrato nella figura.**
+5. In the management portal **Dashboard** tab press F5 to refresh the page, and then scroll down to where you see **Deployment / FTP User**. Notice that the user name has the site name prefixed to it. **When you log in, you have to use this full user name with the site name prefixed to it as shown here.**
 
-5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** nella scheda **Dashboard** della pagina del portale di gestione relativa al sito Web. **Nome host FTP** si trova accanto a **Utente FTP/distribuzione** nella sezione **Riepilogo rapido**.
+5. In a new browser window, go to the URL that is shown under **FTP Host Name** in the **Dashboard** tab of the management portal page for your website. **FTP Host Name** is located near **Deployment / FTP User** in the **Quick Glance** section.
 
-6. Effettuare l'accesso usando le credenziali FTP create in precedenza, includendo il prefisso del nome sito per il nome utente.
+6. Log in using the FTP credentials that you created earlier (including the site name prefix for the user name).
 
-	Nel browser verrà visualizzata la cartella radice del sito.
+	The browser shows the root folder of the site.
 
-6. Aprire la cartella *LogFiles*.
+6. Open the *LogFiles* folder.
 
 	![Open LogFiles folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
 
-7. Aprire la cartella denominata W3SVC più un valore numerico.
+7. Open the folder that is named W3SVC plus a numeric value.
 
 	![Open W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
 
-	La cartella contiene i file XML relativi a eventuali errori registrati dopo l'abilitazione della traccia delle richieste non riuscite, oltre a un file XSL utilizzabile dal browser per formattare i file XML.
+	The folder contains XML files for any errors that have been logged after you enabled failed request tracing, and an XSL file that a browser can use to format the XML.
 
 	![W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
 
-8. Fare clic sul file XML relativo alla richiesta non riuscita per cui si desidera visualizzare informazioni di traccia.
+8. Click the XML file for the failed request that you want to see tracing information for.
 
-	Nella figura seguente è illustrata una parte delle informazioni di traccia per un errore di esempio.
+	The following illustration shows part of the tracing information for a sample error.
 
 	![Failed request tracing in browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
 
-<h2><a name="nextsteps"></a>Passaggi successivi</h2>
+<h2><a name="nextsteps"></a>Next Steps</h2>
 
-In questo articolo è stato illustrato come visualizzare in Visual Studio i log creati da un sito Web di Azure. Le sezioni seguenti forniscono collegamenti ad altre risorse su argomenti correlati:
+You've seen how Visual Studio makes it easy to view logs created by an Azure Website. The following sections provide links to more resources on related topics:
 
-* Risoluzione dei problemi di Siti Web di Azure
-* Debug in Visual Studio 
-* Debug remoto in Azure
-* Traccia nelle applicazioni ASP.NET
-* Analisi dei log del server Web
-* Analisi dei log di traccia delle richieste non riuscite
-* Debug di Servizi cloud
+* Azure Website troubleshooting
+* Debugging in Visual Studio 
+* Remote debugging in Azure
+* Tracing in ASP.NET applications
+* Analyzing web server logs
+* Analyzing failed request tracing logs
+* Debugging Cloud Services
 
-### Risoluzione dei problemi di Siti Web di Azure
+### Azure Website troubleshooting
 
-Per altre informazioni sulla risoluzione dei problemi di Siti Web di Azure, vedere le risorse seguenti:
+For more information about troubleshooting Azure Websites (WAWS), see the following resources:
 
-* [Come monitorare i siti Web](/it-it/manage/services/web-sites/how-to-monitor-websites/)
+* [How to Monitor Web Sites](/it-it/manage/services/web-sites/how-to-monitor-websites/)
 * [Analisi delle perdite di memoria in Siti Web di Azure con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
 * [Strumenti online di Siti Web di Microsoft Azure che è necessario conoscere](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Post del blog di Amit Apple.
 
@@ -785,3 +785,5 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un si
 [GetStarted]: ../web-sites-dotnet-get-started/
 [GetStartedWJ]: ../websites-dotnet-webjobs-sdk/
 
+
+<!--HONumber=35.2-->

@@ -1,6 +1,6 @@
-﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Data factory di Azure - Domande frequenti" description="Domande frequenti su Data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Data factory di Azure - Domande frequenti" description="Domande frequenti su Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Data factory di Azure - Domande frequenti
 
@@ -15,11 +15,11 @@ Data factory di Azure bilancia la possibilità di sfruttare archiviazioni dati d
 **D: A chi si rivolge Data factory?**
 
 
-- Sviluppatori di dati, che sono responsabili della creazione di servizi di integrazione tra Hadoop e altri sistemi:
+- Agli sviluppatori di dati, che sono responsabili della creazione di servizi di integrazione tra Hadoop e altri sistemi:
 	- Devono stare al passo con un panorama in continua evoluzione e favorire l'integrazione
 	- Devono scrivere codice personalizzato per la produzione di informazioni, costoso e di difficile manutenzione, non ad elevata disponibilità né a tolleranza di errore
 
-- Professionisti IT, che mirano a integrare dati sempre più diversificati nella propria infrastruttura IT:
+- Ai professionisti IT, che mirano a integrare dati sempre più diversificati nella propria infrastruttura IT:
 	- Devono analizzare tutti i dati aziendali per definire una visione completa dell'attività
 	- Devono gestire le risorse di calcolo e archiviazione per il bilanciamento dei costi e la scalabilità in locale e nel cloud
 	- Devono aggiungere rapidamente diverse origini ed elaborazioni per soddisfare nuove esigenze aziendali, pur mantenendo la visibilità in tutte le risorse di calcolo e di archiviazione
@@ -28,16 +28,16 @@ Data factory di Azure bilancia la possibilità di sfruttare archiviazioni dati d
 
 Per saperne di più, vedere la [pagina relativa ai prezzi di Data factory][adf-pricing-details].  
 
-**D. Come iniziare a usare Data factory di Azure?**
+**D: Come posso iniziare a usare Data factory di Azure?**
 
-- Per una panoramica di Data factory di Azure, vedere la [presentazione di Data factory di Azure][adf-introduction].
-- Per una rapida esercitazione, vedere l'[introduzione ad Data factory di Azure][adfgetstarted].
+- Per una panoramica di Data factory di Azure, vedere [Introduzione a Data factory di Azure][adf-introduction].
+- Per una rapida esercitazione, vedere [Introduzione a Data factory di Azure][adfgetstarted].
 - Per una documentazione completa, vedere la [documentazione di Data factory di Azure][adf-documentation-landingpage].
  
 **D: Quali sono le origini dati e le attività supportate?**
 
 - **Origini dati supportate:** Archiviazione di Azure (BLOB e tabelle), SQL Server, Database SQL di Azure. 
-- **Attività supportate:**: Attività di copia (da locale al cloud e dal cloud a locale), attività di HDInsight (trasformazioni Pig e Hive) e attività C# personalizzate.
+- **Attività supportate:**: Attività di copia (da locale al cloud e dal cloud a locale), attività HDInsight (trasformazioni Pig e Hive) e attività C# personalizzate.
   
 **D: In che modo i clienti accedono a Data factory?**
 
@@ -45,19 +45,19 @@ I clienti possono accedere a Data factory tramite il [portale di anteprima di Az
 
 **D: In quali paesi è disponibile Data factory?**
 
-In anteprima pubblica, Data factory è disponibile solo negli Stati Uniti occidentali.  I servizi di calcolo e di archiviazione usati dalle Data factory possono essere disponibili in altri paesi.
+In anteprima pubblica, Data factory è disponibile solo negli Stati Uniti occidentali.  I servizi di calcolo e di archiviazione usati dalle istanze di Data factory possono essere disponibili in altri paesi.
  
-**D: Quali sono i limiti sul numero di Data factory/pipeline/attività/dataset?** 
+**D: Quali sono i limiti sul numero di Data factory/pipeline/attività/set di dati?** 
 
 
 - Numero di Data factory all'interno di una sottoscrizione: 50
-- Numero di pipeline all'interno di una Data factory: 100
+- Numero di pipeline all'interno di un'istanza di Data factory: 100
 - Numero di attività all'interno di una pipeline: 10
-- Numero di set di dati all'interno di una Data factory: 100
+- Numero di set di dati all'interno di un'istanza di Data factory: 100
 
 **D: Quali aree sono supportate dall'attività di copia?**
 
-L'attività di copia supporta la copia dei dati nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa settentrionale, Europa occidentale e sud-est asiatico.
+L'attività di copia supporta la copia dei dati nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa settentrionale, Europa occidentale e Asia sud-orientale.
 
 In altre regioni è supportata anche la copia di dati, usando una delle cinque aree sopra citate per il routing dei dati.  Il consumo dell'operazione di copia viene misurato in base all'area geografica attraverso la quale i dati vengono reindirizzati.
 
@@ -67,24 +67,32 @@ Stati Uniti orientali | Stati Uniti orientali 2
 Stati Uniti centrali | Stati Uniti centrali 2
 Stati Uniti centro-settentrionali | Stati Uniti orientali 2
 Stati Uniti centro-meridionali | Stati Uniti occidentali
-Asia orientale | Asia sudorientale
+Asia orientale | Asia sud-orientale
 Giappone orientale | Stati Uniti occidentali
 Giappone occidentale | Stati Uniti occidentali
 Brasile meridionale | Stati Uniti orientali 2
 
 **D: Quando si usa un cluster HDInsight, quali sono le aree supportate da HDInsight?**
 
-Vedere la sezione Disponibilità a livello geografico nell'articolo seguente: o [Dettagli prezzi di HDInsight][hdinsight-supported-regions].
+Vedere la sezione Disponibilità a livello geografico nell'articolo [Dettagli prezzi - HDInsight][hdinsight-supported-regions].
 
 **D: Quale area geografica viene usata per un cluster HDInsight su richiesta?**
 
 Il cluster HDInsight su richiesta viene creato nella stessa area geografica in cui è presente l'archivio specificato per l'utilizzo con il cluster.    
 
-[adfgetstarted]: ../data-factory-get-started
+## Vedere anche
+[Introduzione a Data factory di Azure][adf-introduction]
+[Introduzione a Data factory di Azure][adfgetstarted]
+[Guida alla risoluzione dei problemi di Data factory][adf-troubleshoot]
 
+
+[adfgetstarted]: ../data-factory-get-started
 [adf-introduction]: ../data-factory-introduction
+[adf-troubleshoot]: ../data-factory-troubleshoot
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/it-it/pricing/details/hdinsight/
+
+<!--HONumber=35.2-->

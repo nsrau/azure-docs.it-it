@@ -1,87 +1,75 @@
-<properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="How to Create a DocumentDB Account" pageTitle="Creazione di un account di database | Azure" description="Informazioni su come creare un account del database di documenti DocumentDB NoSQL e scegliere le impostazioni dell'account nel portale di anteprima di Azure."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
 
-# Come creare un account DocumentDB
+#Creazione di un account di database
+Per usare Microsoft Azure DocumentDB, è necessario creare un account DocumentDB.  Questo argomento descrive come creare un account DocumentDB nel portale di gestione di anteprima di Azure.  
 
-Per usare DocumentDB è necessario creare un account DocumentDB in un'area geografica disponibile. In questo argomento viene descritto come creare un account DocumentDB nel portale di anteprima di Azure.
 
-## Sommario
+1.	Accedere al [portale di gestione di anteprima](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
+2.	Fare clic su Nuovo -> Account DocumentDB.  
+	![][1]  
 
--   [Procedura: Creare un account DocumentDB][Procedura: Creare un account DocumentDB]
--   [Passaggi successivi][Passaggi successivi]
+	In alternativa, dalla Schermata iniziale accedere ad Azure Marketplace, selezionare la categoria "Raccolta e analisi dei dati", scegliere **DocumentDB** e quindi fare clic su **Crea**.  
 
-## <span id="HowTo"></span></a>Procedura: Creare un account DocumentDB
+	![][2]   
 
-1.  Accedere al [portale di anteprima di gestione di Azure][portale di anteprima di gestione di Azure]
-2.  Fare clic su Nuovo -\> Account DocumentDB.
-    ![][0]
+3. Nel pannello **Nuovo DocumentDB (anteprima)** specificare la configurazione desiderata per l'account DocumentDB. 
+ 
+	![][3] 
 
-    In alternativa, sfogliare la Raccolta di Azure, selezionare la categoria "Dati, archiviazione, cache e backup", scegliere **DocumentDB** e fare clic su **Crea**.
 
-    ![][1]
+	- Nella casella **ID** immettere un nome per identificare l'account DocumentDB. Questo valore diventa il nome host nell'URI. L'ID può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Tenere presente che al nome di endpoint scelto viene aggiunto documents.azure.com e il risultato finale sarà l'endpoint dell'account DocumentDB.
 
-    Nel pannello **Nuovo DocumentDB (anteprima)** specificare la configurazione desiderata per l'account DocumentDB.
+	- La sezione **Livello di prezzo** è bloccata, perché l'anteprima di DocumentDB supporta un unico livello di prezzo standard. Per altre informazioni, vedere [DocumentDB - Prezzi](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
-    ![][2]
+	- La sezione **Configurazione facoltativa** consente di specificare la capacità iniziale allocata all'account DocumentDB.  DocumentDB viene offerto in unità di capacità, che consentono di scalare l'account DocumentDB in base alle esigenze. Ogni unità di capacità include velocità effettiva e spazio di archiviazione di database riservato.  Per impostazione predefinita, viene effettuato il provisioning di 1 unità di capacità.  È possibile modificare il numero di unità di capacità disponibili per l'account DocumentDB in qualsiasi momento mediante il [portale di gestione di anteprima](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Per informazioni sulla capacità e sulla velocità effettiva dell'account DocumentDB, vedere l'articolo [Gestire la capacità e le prestazioni di DocumentDB][documentdb-manage].
 
-    In Nome immettere il nome da usare nell'URI per l'account DocumentDB. Questo valore diventerà il nome host all'interno dell'URI usato per fare riferimento all'account DocumentDB. Il nome deve avere una lunghezza compresa tra 3 e 50 caratteri e può contenere solo lettere minuscole, numeri e il carattere '-'.
+	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB.  Per impostazione predefinita, verrà creato un nuovo gruppo di risorse.  È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB. Per altre informazioni, vedere [Uso dei gruppi di risorse per la gestione delle risorse di Azure](http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups/).
 
-    *Notare che al nome di endpoint scelto verrà aggiunto documents.azure.com e il risultato finale sarà l'endpoint dell'account DocumentDB.*
+	- Per **Sottoscrizione** selezionare la sottoscrizione di Azure che si desidera usare per l'account DocumentDB. Se l'account ha una sola sottoscrizione, verrà selezionato automaticamente.*
+ 
+	- Usare **Posizione** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.   
 
-    La sezione **Livello di prezzo** è bloccata, perché l'anteprima di DocumentDB supporta un unico livello di prezzo standard.
+3.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**.  La creazione dell'account DocumentDB può richiedere alcuni minuti.  Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
+	![][4]  
+  
+	o dall'Hub di notifica.  
 
-    *Per altre informazioni, vedere i [dettagli sui prezzi di DocumentDB][dettagli sui prezzi di DocumentDB]*
+	![][5]  
 
-    La sezione **Configurazione facoltativa** consente di specificare la capacità iniziale allocata all'account DocumentDB. DocumentDB viene offerto in unità di capacità, che consentono di scalare l'account DocumentDB in base alle esigenze. Ogni unità di capacità include velocità effettiva e spazio di archiviazione di database riservato. Per impostazione predefinita, viene effettuato il provisioning di 1 unità di capacità. È possibile modificare il numero di unità di capacità disponibili per l'account DocumentDB in qualsiasi momento mediante il [portale di anteprima di gestione di Azure][portale di anteprima di gestione di Azure].
+	![][6]
 
-    *Per informazioni sulla capacità e la velocità effettiva dell'account DocumentDB, vedere l'articolo [Gestire la capacità e le prestazioni di DocumentDB][Gestire la capacità e le prestazioni di DocumentDB].*
+4.	Dopo la creazione, l'account DocumentDB è pronto all'uso con le impostazioni predefinite.
 
-    In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB. Per impostazione predefinita, verrà creato un nuovo gruppo di risorse. È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB.
+	*Tenere presente che la coerenza predefinita dell'account DocumentDB sarà impostata su Sessione.  È possibile modificare le impostazioni di coerenza predefinite tramite il [portale di gestione di anteprima](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
+	![][7]  
 
-    *Per altre informazioni, vedere [Uso di Gruppi di risorse per gestire le risorse di Azure][Uso di Gruppi di risorse per gestire le risorse di Azure].*
+5.	È inoltre possibile accedere agli account DocumentDB esistenti dal pannello **Sfoglia**.  
+	![][8]
 
-    Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account DocumentDB.
+##<a id="NextSteps"></a>Passaggi successivi
+Per iniziare a usare Azure DocumentDB, vedere le risorse seguenti:
 
-    *Se l'account dispone di una sola sottoscrizione, verrà selezionata automaticamente.*
+-	[Modello di risorse e concetti relativi a DocumentDB](/documentation/articles/documentdb-resources/)
+-	[Interagire con risorse di DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
+-	[Come creare un account DocumentDB](/documentation/articles/documentdb-create-account/)
+-	[Introduzione a un account DocumentDB](/documentation/articles/documentdb-get-started/)
 
-    Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
+Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319)
 
-3.  Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. La creazione dell'account DocumentDB può richiedere alcuni minuti. Per controllare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale.
-    ![][3]
-
-    Oppure dall'hub Notifiche.
-
-    ![][4]
-
-    ![][5]
-
-4.  Dopo la creazione, l'account DocumentDB è pronto all'uso con le impostazioni predefinite.
-
-    *Notare che la coerenza predefinita dell'account DocumentDB sarà impostata su Sessione. È possibile modificare le impostazioni predefinite relative alla coerenza nel [portale di anteprima di gestione di Azure][portale di anteprima di gestione di Azure].*
-    ![][6]
-
-5.  È anche possibile accedere agli account DocumentDB esistenti dal pannello **Sfoglia**.
-    ![][7]
-
-## <span id="NextSteps"></span></a>Passaggi successivi
-
--   Per altre informazioni su DocumentDB, vedere la documentazione su Azure DocumentDB su [azure.com][azure.com]
+[Procedura: Creare un account DocumentDB]: #Howto
+[Passaggi successivi]: #NextSteps
+[documentdb-manage]:../documentdb-manage/
 
 <!--Image references-->
+[1]: ./media/documentdb-create-account/ca1.png
+[2]: ./media/documentdb-create-account/ca2.png
+[3]: ./media/documentdb-create-account/ca3.png
+[4]: ./media/documentdb-create-account/ca4.png
+[5]: ./media/documentdb-create-account/ca5.png
+[6]: ./media/documentdb-create-account/ca6.png
+[7]: ./media/documentdb-create-account/ca7.png
+[8]: ./media/documentdb-create-account/ca8.png
 
-  [Procedura: Creare un account DocumentDB]: #Howto
-  [Passaggi successivi]: #NextSteps
-  [portale di anteprima di gestione di Azure]: https://portal.azure.com/
-  [0]: ./media/documentdb-create-account/ca1.png
-  [1]: ./media/documentdb-create-account/ca2.png
-  [2]: ./media/documentdb-create-account/ca3.png
-  [dettagli sui prezzi di DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409
-  [Gestire la capacità e le prestazioni di DocumentDB]: ../documentdb-manage/
-  [Uso di Gruppi di risorse per gestire le risorse di Azure]: http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups/
-  [3]: ./media/documentdb-create-account/ca4.png
-  [4]: ./media/documentdb-create-account/ca5.png
-  [5]: ./media/documentdb-create-account/ca6.png
-  [6]: ./media/documentdb-create-account/ca7.png
-  [7]: ./media/documentdb-create-account/ca8.png
-  [azure.com]: http://go.microsoft.com/fwlink/p/?LinkID=402319
+<!--HONumber=35.2-->

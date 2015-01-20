@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Sito Web Node.js con MongoDB su una macchina virtuale - Esercitazione su Azure" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="Un'esercitazione che illustra come usare MongoDB per memorizzare e accedere ai dati da un'applicazione Node ospitata in Azure." metaCanonical="http://www.windowsazure.com/it-it/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="wpickett" editor=""  />
+﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Sito Web Node.js con MongoDB in una VM - Esercitazione su Azure" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="Esercitazione che illustra come usare MongoDB per archiviare i dati e accedervi da un'applicazione Node ospitata in Azure." metaCanonical="http://www.windowsazure.com/it-it/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="wpickett" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -15,17 +15,17 @@ Si apprenderà come:
 
 In questa esercitazione verrà creata una semplice applicazione di gestione delle attività basata su Web che consente di creare, recuperare e completare le attività. Le attività sono archiviate in MongoDB.
 
-> [WACOM.NOTE] In questa esercitazione viene usata un'istanza di MongoDB installata in una macchina virtuale. Se si vuole usare un'istanza di MongoDB ospitata fornita da MongoLabs, vedere <a href="/it-it/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Creazione di un'applicazione Node.js in Azure con MongoDB mediante il componente aggiuntivo MongoLab</a>.
+> [WACOM.NOTE] In questa esercitazione viene usata un'istanza di MongoDB installata in una macchina virtuale. Se si desidera usare un'istanza di MongoDB ospitata fornita da MongoLabs, vedere <a href="/it-it/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Creazione di un'applicazione Node.js in Azure con MongoDB mediante il componente aggiuntivo MongoLab</a>.
  
 I file di progetto per questa esercitazione verranno archiviati in una directory denominata **tasklist** e l'applicazione completata presenterà un aspetto simile al seguente:
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-> [WACOM.NOTE] Molte delle procedure illustrate di seguito prevedono l'uso della riga di comando. Per tali procedure, usare la riga di comando per il sistema operativo in uso, ad esempio __Windows PowerShell__ (Windows) o __Bash__ (Unix Shell). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione Terminale.
+> [WACOM.NOTE] Molte delle procedure illustrate di seguito prevedono l'uso della riga di comando. Per tali procedure, usare la riga di comando per il sistema operativo in uso, ad esempio __Windows PowerShell__ (Windows) o __Bash__ (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione Terminale.
 
 ##Prerequisiti
 
-Per le procedure illustrate in questa esercitazione viene usato [Node.js]node], pertanto nell'ambiente di sviluppo è necessario che sia installata una versione recente di Node.js.
+Per le procedure illustrate in questa esercitazione viene usato Node.js, pertanto nell'ambiente di sviluppo è necessario che sia installata una versione recente di [Node.js][node].
 
 È inoltre necessario che il sistema [Git] sia disponibile dalla riga di comando dell'ambiente di sviluppo, in quanto viene usato per distribuire l'applicazione in un sito Web di Azure.
 
@@ -75,7 +75,7 @@ Sebbene sia possibile creare una nuova macchina virtuale e quindi installarvi Mo
 
 	>[WACOM.NOTE] Per questa esercitazione, non è necessario usare il protocollo SSH per la connessione remota alla macchina virtuale. Selezionare **Use a password** e fornire una password se non si ha familiarità con l'uso dei certificati tramite SSH.
 	>
-	Per altre informazioni sull'uso del protocollo SSH per accedere a una macchina virtuale Linux in Azure, vedere la pagina relativa all'[uso di SSH con Linux in Azure][sshazure].
+	Per altre informazioni sull'uso del protocollo SSH per accedere a una macchina virtuale Linux in Azure, vedere [Come usare SSH con Linux in Azure][sshazure].
 
 7. Selezionare se usare un servizio cloud nuovo o esistente e l'area in cui verrà creata la macchina virtuale. Fare clic sulla freccia per continuare.
 
@@ -99,7 +99,7 @@ Sebbene sia possibile creare una nuova macchina virtuale e quindi installarvi Mo
 
 	![screenshot of the endpoint configuration][vmendpoint]
 
-9. Quando lo stato della macchina virtuale passa a __In esecuzione__, dovrebbe essere possibile aprire un Web browser all'indirizzo __http://&lt;NomeDNSVM&gt;.cloudapp.net:28017/__ per verificare che MongoDB sia in esecuzione. Nella parte inferiore della pagina dovrebbe essere presente un log che visualizza informazioni sul servizio, simile al seguente:
+9. Quando lo stato della macchina virtuale passa a __In esecuzione__, dovrebbe essere possibile aprire un browser Web all'indirizzo __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ per verificare che MongoDB sia in esecuzione. Nella parte inferiore della pagina dovrebbe essere presente un log che visualizza informazioni sul servizio, simile al seguente:
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -127,7 +127,7 @@ In questa sezione verrà creata una nuova applicazione Node nell'ambiente di svi
 
 	npm install express-generator -g
  
-	> [WACOM.NOTE] Quando si usa il parametro '-g' in alcuni sistemi operativi, è possibile che venga restituito l'errore: ___Error: EPERM, chmod '/usr/local/bin/express'___ con la richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando 'sudo' per eseguire npm a un livello di privilegi più elevato.
+	> [WACOM.NOTE] Quando si usa il parametro '-g' in alcuni sistemi operativi, è possibile che venga restituito l'errore analogo a: ___Error: EPERM, chmod '/usr/local/bin/express'___ con la richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando `sudo` per eseguire npm a un livello di privilegi più elevato.
 
     L'output di questo comando dovrebbe apparire simile al seguente:
 
@@ -135,7 +135,7 @@ In questa sezione verrà creata una nuova applicazione Node nell'ambiente di svi
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)                                                                         
  
-	> [WACOM.NOTE] Se si usa il parametro '-g' durante l'installazione del modulo Express, questo viene installato a livello globale, affinché sia possibile accedere al comando ___expres___s per generare lo scaffolding del sito Web senza dover generare informazioni aggiuntive sul percorso.
+	> [WACOM.NOTE] Se si usa il parametro &apos;-g&apos; durante l&apos;installazione del modulo Express, questo viene installato a livello globale, affinché sia possibile accedere al comando ___express___ per generare lo scaffolding del sito Web senza dover generare informazioni aggiuntive sul percorso.
 
 4. Per creare lo scaffolding che verrà usato per questa applicazione, usare il comando **express**:
 
@@ -465,11 +465,11 @@ L'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) consen
 		
 	Verrà richiesto di specificare il data center in cui si troverà il sito. Selezionare il data center geograficamente vicino alla propria posizione.
 	
-	Il parametro '--git' creerà un archivio Git locale nella cartella **tasklist**, se non ne esiste già uno. Creerà anche un repository [Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file [iisnode.yml] contenente le impostazioni usate da Azure per ospitare le applicazioni Node. Infine, creerà un file .gitignore per escludere la cartella dei moduli di Node dalla pubblicazione su .git.
+	Il parametro `--git` creerà un archivio Git locale nella cartella **tasklist**, se non ne esiste già uno. Creerà anche un repository [Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure, oltre a un file [iisnode.yml] contenente le impostazioni usate da Azure per ospitare le applicazioni Node. Infine, creerà un file .gitignore per escludere la cartella dei moduli di Node dalla pubblicazione su .git.
 	
 	> [WACOM.NOTE] Se questo comando viene eseguito da una directory che contiene già un archivio Git, la directory non verrà reinizializzata.
 	
-	> [WACOM.NOTE] Se il parametro '--git' viene omesso ma la directory contiene un repository Git, il repository 'azure' verrà comunque creato.
+	> [WACOM.NOTE] Se il parametro '--git' viene omesso, ma la directory contiene un repository Git, il repository 'azure' verrà comunque creato.
 	
 	Dopo il completamento di questo comando, verrà visualizzato un output simile al seguente. Si noti che la riga che inizia con **Created web site at** contiene l'URL del sito Web.
 
@@ -484,7 +484,7 @@ L'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli) consen
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE> Se questo è il primo sito Web di Azure per la sottoscrizione, verrà indicato di usare il portale per la creazione del sito Web. Per altre informazioni, vedere <a href="/it-it/develop/nodejs/tutorials/create-a-website-(mac)/">Creazione e distribuzione di un'applicazione Node.js in Siti Web di Azure</a>.
+	> [WACOM.NOTE> Se questo è il primo sito Web di Azure per la sottoscrizione, verrà indicato di usare il portale per la creazione del sito Web. Per altre informazioni, vedere <a href="/it-it/develop/nodejs/tutorials/create-a-website-(mac)/">Creazione e distribuzione di un sito Web Node.js in Azure</a>.
 
 ###Impostare la variabile di ambiente MONGODB_URI
 
@@ -525,7 +525,7 @@ Verrà creata una nuova impostazione dell'applicazione per il sito Web che sarà
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Al termine dell'operazione di push, passare al sito Web usando il comando 'azure site browse' per visualizzare l'applicazione.
+4. Al termine dell'operazione di push, passare al sito Web usando il comando `azure site browse` per visualizzare l'applicazione.
 
 ##Passaggi successivi
 
@@ -577,3 +577,5 @@ Per altre informazioni su come proteggere MongoDB, vedere l'articolo relativo al
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [sshazure]: http://www.windowsazure.com/it-it/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 
+
+<!--HONumber=35.2-->

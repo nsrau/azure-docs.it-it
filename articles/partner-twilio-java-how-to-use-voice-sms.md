@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Java) - Azure" metaKeywords="Twilio, API Twilio, chiamate, messaggio SMS, risposte TwiML, Azure Twilio Java" description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
+﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Come usare Twilio per le funzionalità voce ed SMS in Java
 
-Questa guida illustra come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
 
 ## Sommario
 * [Informazioni su Twilio](#WhatIs)
@@ -26,7 +26,7 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali usando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 <h2><a id="Pricing"></a>Prezzi Twilio e offerte speciali</h2>
-Per informazioni dettagliate, vedere la pagina relativa ai [prezzi di Twilio] [twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di chiamate in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].  
+Per informazioni sui prezzi di Twilio, vedere la pagina relativa ai [prezzi di Twilio] [twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].  
 
 <h2><a id="Concepts"></a>Concetti</h2>
 L'API Twilio è un'API RESTful che fornisce funzionalità voce e SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere la pagina relativa alle [librerie dell'API Twilio] [twilio_libraries].
@@ -59,23 +59,18 @@ Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hell
        <Say>Hello World</Say>
     </Response>
 
-Quando l'applicazione chiama l'API Twilio, uno dei parametri dell'API è l'URL che restituisce la risposta TwiML. Ai fini dello sviluppo, è possibile usare gli URL offerti da Twilio per fornire le risposte TwiML usate dalle applicazioni. È anche possibile ospitare gli URL per produrre le risposte TwiML oppure usare l'oggetto **TwiMLResponse**.
+Quando l'applicazione chiama l'API Twilio, uno dei parametri dell'API è l'URL che restituisce la risposta TwiML. Ai fini dello sviluppo, è possibile usare gli URL offerti da Twilio per fornire le risposte TwiML usate dalle applicazioni. È anche possibile ospitare gli URL per produrre le risposte TwiML oppure usare l'oggetto **TwiMLResponse** object.
 
-Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML] [twiml]. Per altre informazioni sull'API Twilio, vedere [API Twilio] [twilio_api].
+Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML] [twiml]. Per altre informazioni sull'API Twilio, vedere la pagina relativa all'[API Twilio] [twilio_api].
 
 <h2><a id="CreateAccount"></a>Creare un account Twilio</h2>
 Se si vuole creare un account Twilio, effettuare l'iscrizione tramite la pagina relativa alla [registrazione gratuita di Twilio] [try_twilio]. È possibile iniziare con un account gratuito ed eseguire l'aggiornamento in un secondo momento.
 
 Quando si effettua l'iscrizione a un account Twilio, si riceverà un ID account e un token di autenticazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. L'ID account e il token di autenticazione sono visualizzabili nella [pagina dell'account Twilio] [twilio_account], rispettivamente nei campi **ACCOUNT SID** e **AUTH TOKEN**.
 
-<h2><a id="VerifyPhoneNumbers"></a>Verificare i numeri di telefono</h2>
-I numeri di telefono usati dall'account devono essere verificati con Twilio. Ad esempio, se si vuole effettuare chiamate in uscita, il numero di telefono deve essere verificato come ID chiamante in uscita con Twilio. Allo stesso modo, se si vuole che un numero di telefono riceva messaggi SMS, il numero di telefono di destinazione deve essere verificato con Twilio. Per informazioni su come verificare un numero di telefono, vedere la sezione relativa alla [gestione dei numeri] [verify_phone]. Parte del codice illustrato di seguito si basa su numeri di telefono che sarà necessario verificare con Twilio.
-
-In alternativa, anziché usare un numero esistente per le applicazioni, è possibile acquistare un numero di telefono Twilio. Per informazioni sull'acquisto di un numero di telefono Twilio, vedere la [guida relativa ai numeri di telefono Twilio](https://www.twilio.com/help/faq/phone-numbers).
-
 <h2><a id="create_app"></a>Creare un'applicazione Java</h2>
-1. Ottenere il file JAR di Twilio e aggiungerlo al percorso di compilazione Java e all'assembly di distribuzione del file WAR. All'indirizzo [https://github.com/twilio/twilio-java][twilio_java] è possibile scaricare i file di origine disponibili in GitHub e creare un file JAR personalizzato o scaricarne uno precompilato, con o senza dipendenze.
-2. Verificare che l'archivio chiavi **cacerts**del JDK contenga il certificato Equifax Secure Certificate Authority con ID digitale MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (il numero di serie è 35:DE:F4:CF e l'ID digitale SHA1 è D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Si tratta del certificato dell'Autorità di certificazione (CA) per il servizio [https://api.twilio.com][twilio_api_service], che viene chiamato quando si usano le API Twilio. Per informazioni su come verificare che l'archivio chiavi **cacerts** del JDK contenga il certificato CA corretto, vedere [Aggiunta di un certificato all'archivio certificati CA di Java][add_ca_cert].
+1. Ottenere il file JAR di Twilio e aggiungerlo al percorso di compilazione Java e all'assembly di distribuzione del file WAR. All'indirizzo [https://github.com/twilio/twilio-java][twilio_java], è possibile scaricare i file di origine disponibili in GitHub e creare un file JAR personalizzato o scaricarne uno precompilato, con o senza dipendenze.
+2. Verificare che l'archivio chiavi **cacerts** del JDK contenga il certificato Equifax Secure Certificate Authority con ID digitale MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (il numero di serie è 35:DE:F4:CF e l'ID digitale SHA1 è D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Si tratta del certificato dell'Autorità di certificazione (CA) per il servizio [https://api.twilio.com][twilio_api_service], che viene chiamato quando si usano le API Twilio. Per informazioni su come verificare che l'archivio chiavi **cacerts** del JDK contenga il certificato CA corretto, vedere [Aggiunta di un certificato all'archivio certificati CA di Java][add_ca_cert].
 
 Per istruzioni dettagliate sull'uso della libreria client Twilio per Java, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure][howto_phonecall_java].
 
@@ -95,7 +90,7 @@ Per i file di origine JSP (Java Server Page):
     import="com.twilio.sdk.*"
     import="com.twilio.sdk.resource.factory.*"
     import="com.twilio.sdk.resource.instance.*"
-Le istruzioni **import** possono variare in base ai pacchetti o alle classi Twilio che si vuole usare.
+Le istruzioni **import** possono variare in base ai pacchetti o alle classi Twilio che si prevede di usare.
 
 <h2><a id="howto_make_call"></a>Procedura: Effettuare una chiamata in uscita</h2>
 Di seguito è illustrato come effettuare una chiamata in uscita tramite la classe **CallFactory**. Questo codice usa inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori per i numeri di telefono **From** e **To** e assicurarsi di verificare il numero di telefono in **From** per l'account Twilio prima di eseguire il codice.
@@ -130,10 +125,10 @@ Di seguito è illustrato come effettuare una chiamata in uscita tramite la class
 
 Per altre informazioni sui parametri passati al metodo **CallFactory.create**, vedere [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Come indicato in precedenza, questo codice usa un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile usare il proprio sito. Per altre informazioni, vedere la [procedura per fornire risposte TwiML in un'applicazione Java in Azure](#howto_provide_twiml_responses).
+Come indicato in precedenza, questo codice usa un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile usare il proprio sito. Per altre informazioni, vedere la procedura per [fornire risposte TwiML in un'applicazione Java in Azure](#howto_provide_twiml_responses).
 
 <h2><a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS</h2>
-Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **SmsFactory**. Il numero **4155992671** in **From** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **To** deve essere verificato per l'account Twilio prima di eseguire il codice.
+La schermata seguente illustra come inviare un messaggio SMS tramite la classe **SmsFactory**. Il numero **4155992671**, in **From**, per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **To** deve essere verificato per l'account Twilio prima di eseguire il codice.
 
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
@@ -148,25 +143,21 @@ Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la 
     Account account = client.getAccount();
 
     // Send an SMS message.
-    // Place the call From, To and Body values into a hash map. 
-    HashMap<String, String> smsParams = new HashMap<String, String>();
-    smsParams.put("From", "4155992671"); // The second parameter is a phone number provided
-                                         // by Twilio for trial accounts.
-    smsParams.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
-    smsParams.put("Body", "This is my SMS message.");
-
-    // Create an instance of the SmsFactory class.
-    SmsFactory smsFactory = account.getSmsFactory();
-
-    // Send the message.
-    Sms sms = smsFactory.create(smsParams);
-
+    MessageFactory messageFactory = account.getMessageFactory();
+    
+    List<NameValuePair> params = new ArrayList<NameValuePair>();
+    params.add(new BasicNameValuePair("To", "+14159352345")); // Replace with a valid phone number for your account.
+    params.add(new BasicNameValuePair("From", "+14158141829")); // Replace with a valid phone number for your account.
+    params.add(new BasicNameValuePair("Body", "Where's Wallace?"));
+    
+    Message sms = messageFactory.create(params);
+        
 Per altre informazioni sui parametri passati al metodo **SmsFactory.create**, vedere [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 <h2><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web</h2>
-Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallFactory.create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url]. Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message][twimlet_message_url] per visualizzare un elemento **&lt;Response&gt;** vuoto oppure fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un elemento **&lt;Response&gt;** contenente un elemento **&lt;Say&gt;**).
+Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallFactory.create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url]. Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message][twimlet_message_url] per visualizzare un elemento **&lt;Response&gt;** vuoto oppure fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un elemento **&lt;Response&gt;** contenente un elemento **&lt;Say&gt;**.
 
-Anziché usare l'URL fornito da Twilio, è possibile creare un sito Web personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato in una pagina JSP.
+Anziché usare l'URL fornito da Twilio, è possibile creare un sito URL personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato in una pagina JSP.
 
 La pagina JSP seguente crea una risposta TwiML che pronuncia **Hello World** nella chiamata.
 
@@ -188,7 +179,7 @@ La pagina JSP seguente crea una risposta TwiML che pronuncia del testo, contiene
         <Say>Good bye.</Say>
     </Response>
 
-Il parametro **ApiVersion** è disponibile nelle richieste vocali Twilio, non nelle richieste SMS. Per visualizzare i parametri di richiesta disponibili per le richieste vocali e SMS di Twilio, vedere rispettivamente <https://www.twilio.com/docs/api/twiml/twilio_request> e <https://www.twilio.com/docs/api/twiml/sms/twilio_request>. La variabile di ambiente **RoleName** è disponibile come parte di una distribuzione Azure. Se si desidera aggiungere variabili di ambiente personalizzate in modo che possano essere recuperate da **System.getenv**, vedere la sezione relativa alle variabili di ambiente nelle [istruzioni sulle impostazioni di configurazione dei ruoli][misc_role_config_settings].
+Il parametro **ApiVersion** è disponibile nelle richieste vocali Twilio, non nelle richieste SMS. Per visualizzare i parametri di richiesta disponibili per le richieste vocali e SMS di Twilio, vedere rispettivamente <https://www.twilio.com/docs/api/twiml/twilio_request> e <https://www.twilio.com/docs/api/twiml/sms/twilio_request>. La variabile di ambiente **RoleName** è disponibile come parte di una distribuzione Azure. Se si vogliono aggiungere variabili di ambiente personalizzate in modo che possano essere recuperate da **System.getenv**, vedere la sezione relativa alle variabili di ambiente nella pagina relativa alle [impostazioni varie di configurazione dei ruoli][misc_role_config_settings].
 
 Dopo aver configurato la pagina JSP in modo da fornire risposte TwiML, usare l'URL della pagina JSP come URL passato nel metodo **CallFactory.create**. Se, ad esempio, si dispone di un'applicazione Web denominata MyTwiML distribuita in un servizio ospitato in Azure e il nome della pagina JSP è mytwiml.jsp, è possibile passare l'URL a **CallFactory.create** come illustrato nell'esempio di codice seguente:
 
@@ -206,7 +197,7 @@ Un'altra possibilità per rispondere con TwiML consiste nell'usare la classe **T
 Per altre informazioni sull'uso di Twilio in Azure con Java, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure][howto_phonecall_java].
 
 <h2><a id="AdditionalServices"></a>Procedura: Usare servizi Twilio aggiuntivi</h2>
-Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile usare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio] [twilio_api_documentation].
+Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile usare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio] [twilio_api_documentation]
 
 <h2><a id="NextSteps"></a>Passaggi successivi</h2>
 Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti seguenti per altre informazioni:
@@ -240,3 +231,5 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti s
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
+<!--HONumber=35.2-->

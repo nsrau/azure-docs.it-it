@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Gestire conflitti di scrittura nel database con la concorrenza ottimistica (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come gestire conflitti di scrittura del database sia nel server che nell'applicazione per Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Gestione di conflitti di scrittura con concorrenza ottimistica (Windows Store) | Mobile Dev Center" metaKeywords="" description="Informazioni su come gestire i conflitti di scrittura del database nel server e nell'applicazione di Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -10,13 +10,13 @@
 <a href="/it-it/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
-In questa esercitazione viene descritto come gestire i conflitti che si verificano quando due o più client scrivono nello stesso record di database in un'app di Windows Phone 8. In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Servizi mobili offre supporto per il rilevamento e la risoluzione di tali conflitti. In questo argomento vengono illustrate le procedure per la gestione dei conflitti di scrittura nel database sia nel server che nell'applicazione.
+In questa esercitazione viene descritto come gestire i conflitti che si verificano quando due o più client scrivono nello stesso record di database in un'app per Windows Phone 8. In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Servizi mobili offre supporto per il rilevamento e la risoluzione di tali conflitti. In questo argomento vengono illustrate le procedure per la gestione dei conflitti di scrittura nel database sia nel server che nell'applicazione.
 
 Nel corso dell'esercitazione si aggiungeranno all'app di guida introduttiva funzionalità per la gestione dei conflitti che si verificano durante l'aggiornamento del database TodoItem. In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 1. [Aggiornare l'applicazione per consentire gli aggiornamenti]
 2. [Abilitare il rilevamento dei conflitti nell'applicazione]
-3. [Testare i conflitti di scrittura del database nell'applicazione]
+3. [Test dei conflitti di scrittura del database nell'applicazione]
 4. [Gestione automatica della risoluzione dei conflitti tramite script del server]
 
 
@@ -25,22 +25,22 @@ Per completare questa esercitazione, è necessario disporre di:
 + Microsoft Visual Studio 2012 Express per Windows Phone 8 o versione successiva.
 + [Windows Phone 8 SDK] eseguito in Windows 8. 
 + [Account Azure]
-+ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
++ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure contenute in [Introduzione a Servizi mobili].
 + Pacchetto NuGet per Servizi mobili di Azure 1.1.0 o versione successiva. Per ottenere l'ultima versione, eseguire la procedura seguente:
-	1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti NuGet**. 
+	1. In Visual Studio aprire il progetto e fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, quindi scegliere **Gestisci pacchetti Nuget**. 
 
 		![][13]
 
-	2. Espandere **Online** e fare clic su **Microsoft e .NET**. Nella casella di testo di ricerca immettere **Azure Mobile Services**. Fare clic su **Installa** accanto al pacchetto NuGet **Azure Mobile Services**.
+	2. Espandere **Online** e fare clic su **Microsoft e .NET**. Nella casella di testo di ricerca immettere **Servizi mobili di Azure**. Fare clic su **Installa** accanto al pacchetto NuGet **Servizi mobili di Azure**.
 
 		![][14]
 
 
  
 
-<h2><a name="uiupdate"></a>Aggiornare l'applicazione per consentire gli aggiornamenti</h2>
+<h2><a name="uiupdate"></a>Aggiornare 'applicazione per consentire gli aggiornamenti</h2>
 
-In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da consentire l'aggiornamento del testo di ogni elemento in un controllo ListBox. Il controllo ListBox conterrà un controllo CheckBox e un controllo TextBox per ogni elemento presente nella tabella di database. Sarà possibile aggiornare il campo di testo di TodoItem. L'applicazione gestirà l'evento "LostFocus" del controllo TextBox per aggiornare l'elemento nel database.
+In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da consentire l'aggiornamento del testo di ogni elemento in un controllo ListBox. Il controllo ListBox conterrà un controllo CheckBox e un controllo TextBox per ogni elemento presente nella tabella di database. Sarà possibile aggiornare il campo di testo di TodoItem. L'applicazione gestirà l'evento `LostFocus` del controllo TextBox per aggiornare l'elemento nel database.
 
 
 1. In Visual Studio aprire il progetto TodoList scaricato nell'esercitazione [Introduzione a Servizi mobili].
@@ -63,7 +63,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
 		using System.Threading.Tasks;
 
 
-3. In Esplora soluzioni di Visual Studio aprire MainPage.xaml.cs. Aggiungere a MainPage il gestore eventi per l'evento `LostFocus` di TextBox, come illustrato di seguito.
+3. In Esplora soluzioni di Visual Studio aprire MainPage.xaml.cs. Aggiungere a MainPage il gestore eventi per l'evento `LostFocus` del controllo TextBox, come illustrato di seguito.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -78,7 +78,7 @@ In questa sezione l'interfaccia utente di TodoList verrà aggiornata in modo da 
             }
         }
 
-4. In MainPage.xaml.cs, add the definition for the MainPage `UpdateToDoItem()` method referenced in the event handler as shown below.
+4. In MainPage.xaml.cs aggiungere la definizione per il metodo `UpdateToDoItem()` di MainPage a cui viene fatto riferimento nel gestore eventi, come illustrato di seguito.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -97,9 +97,9 @@ Ora, quando il controllo TextBox perde lo stato attivo, l'applicazione scrive ne
 
 <h2><a name="enableOC"></a>Abilitare il rilevamento dei conflitti nell'applicazione</h2>
 
-In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il [controllo della concorrenza ottimistica] presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione. Servizi mobili di Azure supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` aggiunta a ogni tabella. In questa sezione si abiliterà il rilevamento dei conflitti di scrittura nell'applicazione attraverso la proprietà di sistema `__version`. Durante i tentativi di aggiornamento, se un record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException`. Sarà quindi possibile scegliere se eseguire il commit della modifica nel database o lasciare intatta l'ultima modifica al database. Per altre informazioni sulle proprietà di sistema relative a Servizi mobili, vedere le [proprietà di sistema].
+In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. [Il controllo della concorrenza ottimistica] presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione. Servizi mobili di Azure supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento tramite la colonna di proprietà di sistema `__version` aggiunta a ogni tabella. In questa sezione si abiliterà il rilevamento dei conflitti di scrittura nell'applicazione tramite la proprietà di sistema `__version`. Durante un tentativo di aggiornamento, se un record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException`. Sarà quindi possibile scegliere se eseguire il commit della modifica nel database o lasciare intatta l'ultima modifica al database. Per altre informazioni sulle proprietà di sistema relative a Servizi mobili, vedere [Proprietà di sistema].
 
-1. In MainPage.xaml.cs aggiornare la definizione della classe **TodoItem** con il codice seguente in modo da includere la proprietà di sistema **__version** che abilita il supporto per il rilevamento dei conflitti di scrittura:
+1. In MainPage.xaml.cs aggiornare la definizione della classe **TodoItem** con il codice seguente in modo da includere la proprietà di sistema **__version**, che abilita il supporto per il rilevamento dei conflitti di scrittura:
 
 		public class TodoItem
 		{
@@ -120,7 +120,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 	</div>
 
 
-2. Aggiungendo la proprietà `Version` alla classe `TodoItem`, in fase di aggiornamento, se un record è stato modificato dopo l'ultima query l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException`. Questa eccezione include l'ultima versione dell'elemento dal server. In MainPage.xaml.cs aggiungere il codice seguente per gestire l'eccezione nel metodo `UpdateToDoItem()`.
+2. Quando nella classe `TodoItem` è inclusa la proprietà `Version`, durante un aggiornamento, se un record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException`. Questa eccezione include l'ultima versione dell'elemento dal server. In MainPage.xaml.cs aggiungere il codice seguente per gestire l'eccezione nel metodo `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -151,7 +151,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. In MainPage.xaml.cs aggiungere la definizione per il metodo `ResolveConflict()` a cui viene fatto riferimento in `UpdateToDoItem()`. Si noti che, per risolvere il conflitto, prima di eseguire il commit della decisione dell'utente la versione dell'elemento locale viene impostata sulla versione aggiornata dal server; in caso contrario, il conflitto continuerà a verificarsi.
+3. In MainPage.xaml.cs aggiungere la definizione per il metodo `ResolveConflict()` a cui viene fatto riferimento in `UpdateToDoItem()`. Si noti che, per risolvere il conflitto, prima di eseguire il commit della decisione dell'utente la versione dell'elemento locale viene impostata sulla versione aggiornata dal server. In caso contrario, il conflitto continuerà a verificarsi.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)		
@@ -187,40 +187,40 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a>Testare i conflitti di scrittura del database nell'applicazione</h2>
+<h2><a name="test-app"></a>Test dei conflitti di scrittura del database nell'applicazione</h2>
 
 In questa sezione si eseguirà il test del codice che gestisce i conflitti di scrittura eseguendo l'app in due emulatori di Windows Phone 8 diversi (WVGA e WVGA 512M). Entrambe le app client tenteranno di aggiornare la proprietà `text` dello stesso elemento e verrà chiesto l'intervento dell'utente per risolvere il conflitto.
 
 
-1. In Visual Studio, dalla casella a discesa, assicurarsi che come destinazione distribuzione sia selezionato **Emulator WVGA 512MB**, come illustrato nella schermata seguente.
+1. In Visual Studio assicurarsi che dalla casella a discesa sia selezionato **Emulator WVGA 512MB** come destinazione distribuzione, come illustrato nella schermata seguente.
 
 	![][0]
 
-2. Nel menu in Visual Studio fare clic su **COMPILA**, quindi su **Distribuisci soluzione**. Se l'emulatore non era precedentemente in esecuzione, occorreranno alcuni minuti per il caricamento del sistema operativo Windows Phone 8 da parte dell'emulatore. Nella parte inferiore della finestra di output verificare la buona riuscita della compilazione e della distribuzione dell'emulatore Windows Phone 8.
+2. Nel menu di Visual Studio fare clic su **COMPILA** e quindi su **Distribuisci soluzione**. Se l'emulatore non era precedentemente in esecuzione, occorreranno alcuni minuti per il caricamento del sistema operativo Windows Phone 8 da parte dell'emulatore. Nella parte inferiore della finestra di output verificare la buona riuscita della compilazione e della distribuzione dell'emulatore Windows Phone 8.
 
 	![][2]
 
-3. In Visual Studio modificare la casella a discesa relativa alla destinazione distribuzione in **Emulator WVGA**.
+3. In Visual Studio modificare l'impostazione della casella a discesa relativa alla destinazione distribuzione selezionando **Emulator WVGA**.
 
 	![][1]
 
-4. Nel menu in Visual Studio fare clic su **COMPILA**, quindi su **Distribuisci soluzione**. Nella parte inferiore della finestra di output verificare la buona riuscita della compilazione e della distribuzione dell'emulatore Windows Phone 8.
+4. Nel menu di Visual Studio fare clic su **COMPILA** e quindi su **Distribuisci soluzione**. Nella parte inferiore della finestra di output verificare la buona riuscita della compilazione e della distribuzione dell'emulatore Windows Phone 8.
 
-   	![][2]
+€
   
 5. Disporre i due emulatori in modo che siano affiancati durante l'esecuzione. È possibile simulare conflitti da scritture simultanee tra le app client in esecuzione negli emulatori. Scorrere da sinistra a destra in entrambi emulatori per visualizzare l'elenco delle applicazioni installate. Scorrere fino alla fine di ogni elenco e fare clic sull'app **todolist**.
 
 	![][3]
 
-6. Nell'emulatore sul lato sinistro aggiornare il valore `text` dell'ultimo elemento in **Test Write 1**, quindi fare clic su un'altra casella di testo in modo che il gestore eventi "LostFocus" aggiorni il database. Nella schermata seguente viene visualizzato un esempio. 
+6. Nell'emulatore a sinistra aggiornare la proprietà `text` dell'ultimo elemento TodoItem impostandola su **Test Write 1**, quindi fare clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` aggiorni il database. Nella schermata seguente viene visualizzato un esempio. 
 
 	![][4]
 
-7. A questo punto, l'elemento corrispondente nell'emulatore sul lato destro conterrà una versione precedente e un valore text non aggiornato. Nell'emulatore a destra immettere **Test Write 2** come proprietà text. Fare quindi clic su un'altra casella di testo in modo che il gestore eventi "LostFocus" nell'emulatore a destra tenti di aggiornare il database con la proprietà version precedente.
+7. A questo punto, l'elemento corrispondente nell'emulatore sul lato destro conterrà una versione precedente e un valore text non aggiornato. Nell'emulatore a destra immettere **Test Write 2** come proprietà text. Fare quindi clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` nell'emulatore a destra provi ad aggiornare il database con la proprietà version precedente.
 
 	![][5]
 
-8. Poiché il valore version usato nel tentativo di aggiornamento non corrisponde al valore version del server, Mobile Services SDK genera un'eccezione `MobileServicePreconditionFailedException` che consente all'app di risolvere il conflitto. Per risolvere il conflitto, è possibile fare clic su **ok** per eseguire il commit dei valori dall'app a destra. In alternativa è possibile fare clic su **cancel** per ignorare i valori nell'app a destra e lasciare invariati i valori dell'app a sinistra. 
+8. Poiché il valore version usato nel tentativo di aggiornamento non corrisponde al valore version del server, Mobile Services SDK genera un'eccezione `MobileServicePreconditionFailedException` che consente all'app di risolvere il conflitto. A tale scopo, è possibile fare clic su **ok** per eseguire il commit dei valori dall'app a destra. In alternativa, è possibile fare clic su **cancel** per rimuovere i valori nell'app a destra e mantenere il commit dei valori dell'app a sinistra. 
 
 	![][6]
 
@@ -228,10 +228,10 @@ In questa sezione si eseguirà il test del codice che gestisce i conflitti di sc
 
 <h2><a name="scriptsexample"></a>Gestione automatica della risoluzione dei conflitti tramite script del server</h2>
 
-È possibile rilevare e risolvere i conflitti tramite script del server. Questa scelta è consigliabile quando per risolvere il conflitto è possibile usare logica di script anziché richiedere l'interazione dell'utente. In questa sezione verrà aggiunto uno script sul lato server alla tabella TodoItem dell'applicazione. La logica usata dallo script per risolvere il conflitto è la seguente:
+È possibile rilevare e risolvere i conflitti tramite script del server. Questa scelta è consigliabile quando per risolvere il conflitto è possibile utilizzare logica di script anziché richiedere l'interazione dell'utente. In questa sezione verrà aggiunto uno script sul lato server alla tabella TodoItem dell'applicazione. La logica utilizzata dallo script per risolvere il conflitto è la seguente:
 
-+  Se il campo ` complete` di TodoItem è impostato su true, viene considerato completato e non sarà più possibile modificare la proprietà `text`.
-+  Se il campo ` complete` è ancora impostato su false, verrà eseguito il commit dei tentativi di aggiornamento di `text`.
++  Se il campo `complete` dell'elemento TodoItem è impostato su true, viene considerato completato e non sarà più possibile modificare la proprietà `text`.
++  Se il campo `complete` dell'elemento TodoItem è ancora impostato su false, verrà eseguito il commit dei tentativi di aggiornamento di `text`.
 
 Di seguito è riportata la procedura per aggiungere e testare lo script di aggiornamento del server.
 
@@ -264,11 +264,11 @@ Di seguito è riportata la procedura per aggiungere e testare lo script di aggio
 				}
 			}); 
 		}   
-5. Modificare il testo di TodoItem per l'ultimo elemento nell'app dell'emulatore a sinistra. Fare clic su un'altra casella di testo in modo che il gestore eventi "LostFocus" aggiorni il database.
+5. Modificare il testo di TodoItem per l'ultimo elemento nell'app dell'emulatore a sinistra. Fare quindi clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` aggiorni il database.
 
 	![][4]
 
-6. Nell'emulatore a destra immettere un valore diverso per la proprietà text dell'ultimo elemento TodoItem. Fare quindi clic su un'altra casella di testo in modo che il gestore eventi "LostFocus" nell'emulatore a destra tenti di aggiornare il database con la proprietà version precedente.
+6. Nell'emulatore a destra immettere un valore diverso per la proprietà text dell'ultimo elemento TodoItem. Fare quindi clic su un'altra casella di testo in modo che il gestore dell'evento `LostFocus` nell'emulatore a destra provi ad aggiornare il database con il valore version precedente.
 
 	![][5]
 
@@ -280,14 +280,14 @@ Di seguito è riportata la procedura per aggiungere e testare lo script di aggio
 
 	![][11]
 
-9. Nell'app dell'emulatore a destra tentare di aggiornare lo stesso testo di TodoItem attivando il trigger dell'evento "LostFocus". Lo script ha risolto il conflitto rifiutando l'aggiornamento, in quanto l'elemento era già contrassegnato come completato. 
+9. Nell'app dell'emulatore a destra provare ad aggiornare il testo dello stesso elemento TodoItem e attivare il trigger dell'evento `LostFocus`. Lo script ha risolto il conflitto rifiutando l'aggiornamento, in quanto l'elemento era già contrassegnato come completato. 
 
 	![][12]
 
+* 
+* ## <a name="next-steps"> </a>Passaggi successivi
 
-## <a name="next-steps"> </a>Passaggi successivi
-
-In questa esercitazione sono state illustrate le procedure per abilitare la gestione dei conflitti di scrittura in un'app di Windows Phone 8 quando si usano i dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti della serie relativa ai dati:
+In questa esercitazione sono state illustrate le procedure per abilitare la gestione dei conflitti di scrittura in un'app Windows Phone 8 quando si utilizzano i dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti della serie relativa ai dati:
 
 * [Convalidare e modificare dati mediante script]
   <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
@@ -300,13 +300,13 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 * [Introduzione all'autenticazione] 
   <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
  
 <!-- Anchors. -->
 [Aggiornare l'applicazione per consentire gli aggiornamenti]: #uiupdate
 [Abilitare il rilevamento dei conflitti nell'applicazione]: #enableOC
-[Testare i conflitti di scrittura del database nell'applicazione]: #test-app
+[Test dei conflitti di scrittura del database nell'applicazione]: #test-app
 [Gestione automatica della risoluzione dei conflitti tramite script del server]: #scriptsexample
 [Passaggi successivi]:#next-steps
 
@@ -343,5 +343,7 @@ Una volta completata la serie relativa ai dati, è possibile provare a eseguire 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
-[Sito di esempi di codice per sviluppatori]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
+[Sito degli esempi di codice di Developer Network]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
+
+<!--HONumber=35.2-->

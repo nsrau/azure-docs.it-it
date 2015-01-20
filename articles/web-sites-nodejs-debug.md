@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Come eseguire il debug di Siti Web di Azure in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Informazioni sul debug di un sito Web di Azure in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Come eseguire il debug di Siti Web di Azure in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Informazioni su come eseguire il debug di un sito Web di Azure in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -46,11 +46,11 @@ Per riavviare il sito Web, selezionarlo nel [portale di gestione di Azure], quin
 
 Se nell'ambiente di sviluppo sono installati gli strumenti da riga di comando di Azure, è possibile usare il comando seguente per riavviare il sito Web:
 
-	azure site restart [sitename]
+	azure site restart [nome sito]
 
 <div class="dev-callout">
 <strong>Nota</strong>
-<p>Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più usate di IISNode.yml per acquisire informazioni diagnostiche, è possibile usare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a> .</p>
+<p>Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più usate di IISNode.yml per acquisire informazioni diagnostiche, è possibile usare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a>.</p>
 </div>
 
 ##<a id="viewlogs"></a>Accesso ai log
@@ -63,7 +63,7 @@ Dopo l'installazione, è possibile accedere agli strumenti tramite il comando 'a
 
 ###FTP
 
-Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di Azure**, selezionare il sito Web e scegliere **DASHBOARD**. Nella sezione relativa ai **collegamenti rapidi** fare clic sui collegamenti **REGISTRI DI DIAGNOSTICA FTP** e **REGISTRI DI DIAGNOSTICA FTPS** per accedere ai log tramite il protocollo FTP.
+Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di Azure], selezionare il sito Web e scegliere **DASHBOARD**. Nella sezione relativa ai **collegamenti rapidi** fare clic sui collegamenti **REGISTRI DI DIAGNOSTICA FTP** e **REGISTRI DI DIAGNOSTICA FTPS** per accedere ai log tramite il protocollo FTP.
 
 <div class="dev-callout">
 <strong>Nota</strong>
@@ -80,7 +80,7 @@ L'URL FTP restituito nel dashboard si riferisce alla directory **LogFiles**, che
 
 Per scaricare un archivio ZIP dei log di diagnostica, usare il seguente comando degli strumenti da riga di comando di Azure:
 
-	azure site log download [sitename]
+	azure site log download [nome sito]
 
 Nella directory corrente verrà scaricato un file **diagnostics.zip**. Questo archivio contiene la seguente struttura di directory:
 
@@ -96,7 +96,7 @@ Nella directory corrente verrà scaricato un file **diagnostics.zip**. Questo ar
 
 Per visualizzare un flusso in diretta delle informazioni dei log di diagnostica, usare il seguente comando degli strumenti da riga di comando di Azure:
 
-	azure site log tail [sitename]
+	azure site log tail [nome sito]
 
 Verrà restituito un flusso di eventi log che vengono aggiornati non appena si verificano nel server. Questo flusso restituirà le informazioni relative alla distribuzione, oltre alle informazioni di stdout e stderr, quando loggingEnabled è impostato su true.
 
@@ -111,8 +111,10 @@ Per informazioni sulla specifica di una versione di Node.js per l'applicazione, 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [File Readme di IISNode]: https://github.com/tjanczuk/iisnode#readme
 [Come usare l'interfaccia della riga di comando multipiattaforma di Azure]: /it-it/documentation/articles/xplat-cli/
-[Utilizzo di moduli Node.js con le applicazioni Azure]: /it-it/documentation/articles/nodejs-use-node-modules-azure-apps/
+[Uso di moduli Node.js con le applicazioni Azure]: /it-it/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Specifica di una versione di Node.js in un'applicazione Azure]: /it-it/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+
+<!--HONumber=35.2-->

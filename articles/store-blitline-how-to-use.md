@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="Come usare Blitline per l'elaborazione delle immagini - Guida alle funzionalità di Azure " metaKeywords="" description="Informazioni su come usare il servizio Blitline per elaborare immagini all'interno di un'applicazione Azure." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="Come usare Blitline per l'elaborazione delle immagini - Guida alle funzionalità di Azure " metaKeywords="" description="Informazioni su come usare il servizio Blitline per elaborare immagini in un'applicazione di Azure." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="jason@blitline.com" solutions="" manager="jason@blitline.com" editor="jason@blitline.com" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="support@blitline.com" />
 
 
 
@@ -22,7 +22,7 @@ In questa guida verrà descritto come accedere ai servizi Blitline e come inviar
 
 ## <a id="whatis"></a>Informazioni su Blitline
 
-Blitline è un servizio di elaborazione a livello aziendale delle immagini basate su cloud, dal costo nettamente inferiore a quello che comporterebbe la creazione autonoma delle stesse.
+Blitline è un servizio di elaborazione a livello aziendale delle immagini basate sul cloud, dal costo nettamente inferiore a quello che comporterebbe la creazione autonoma delle stesse.
 
 Il fatto è che l'elaborazione delle immagini è un'operazione ripetuta di continuo, di solito creandole da zero per ciascun sito Web. Ce ne rendiamo conto perché noi stessi le abbiamo create un milione di volte. Ad un certo punto abbiamo deciso che era probabilmente arrivato il momento di farlo per tutti. Disponiamo delle opportune competenze, della velocità e dell'efficienza necessaria, che ci consentono di offrire a tutti un enorme risparmio del carico di lavoro.
 
@@ -40,7 +40,7 @@ Allo scopo di chiarire l'utilità di Blitline è spesso più semplice identifica
 
 - Blitline opera principalmente in parallelo e NON esegue alcuna elaborazione sincrona; vale a dire che l'utente deve comunicare un postback_url affinché sia possibile avvisarlo del termine dell'elaborazione.
 
-## <a id="createaccount"></a>Creazione di un account Blitline
+## <a id="createaccount"></a>Creare un account Blitline
 
 [WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
@@ -115,7 +115,7 @@ Sostituendo i valori IN MAIUSCOLO con i propri, sarà possibile inviare questo c
 
 <h3>Nota bene:</h3>
 
-SAS deve contenere l'intero URL di SAS, incluso il nome file del file di destinazione.
+la firma di accesso condiviso deve contenere l'intero URL, incluso il nome del file di destinazione.
 
 Esempio:
 
@@ -142,3 +142,5 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
   [Come creare un processo di Blitline]: #createjob
   [Come salvare un'immagine nell'account di archiviazione di Azure]: #saveazure
 
+
+<!--HONumber=35.2-->

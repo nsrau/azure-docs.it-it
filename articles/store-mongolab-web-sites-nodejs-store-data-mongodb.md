@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Sito Web Node.js con MongoDB in MongoLab - Azure" metaKeywords="" description="Informazioni su come creare un sito Web Node.js in Azure che si connette a un'istanza di MongoDB ospitata in MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
+﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Sito Web Node.js con MongoDB in MongoLab - Azure" metaKeywords="" description="Informazioni su come creare un sito Web di Azure Node.js che si connette a un'istanza di MongoDB ospitata in MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
 
@@ -29,7 +29,7 @@ Prima di continuare, assicurarsi di avere installato quanto segue:
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Avvio rapido
-Se si conosce già Azure Store, usare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Eseguire il provisioning del database][provision] più avanti.
+Se si conosce già Azure Store, usare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Provisioning del database][provision] più avanti.
  
 1. Aprire Azure Store.  
 ![Store][button-store]
@@ -75,7 +75,7 @@ In questa sezione si imposterà l'ambiente di sviluppo e si preparerà il codice
 
 		npm install express -g
  
-	`-g` indica la modalità globale, usata per rendere il modulo <strong>express</strong> disponibile senza specificare un percorso di directory. Se si riceve <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>usare <strong>sudo</strong> per eseguire npm a un livello di privilegi più elevato.
+	`-g` indica la modalità globale, usata per rendere il modulo <strong>express</strong> disponibile senza specificare un percorso di directory. Se viene visualizzato <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, usare <strong>sudo</strong> per eseguire npm a un livello di privilegi più elevato.
 
     L'output di questo comando dovrebbe apparire simile al seguente:
 
@@ -364,7 +364,7 @@ Ora che l'ambiente e lo scaffolding sono pronti, si estenderà l'applicazione di
 		app.use('/', routes);
 		app.use('/users', users);
 
-	And replace them with:
+	Sostituirle con:
 
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
@@ -391,7 +391,7 @@ Per installare gli strumenti da riga di comando, usare il comando seguente:
 	
 	npm install azure-cli -g
 
-Se si è già installato <strong>Azure SDK per Node.js</strong> dal <a href="/it-it/develop/nodejs/">Centro per sviluppatori di Azure</a>, gli strumenti da riga di comando saranno già installati. Per altre informazioni, vedere <a href="/it-it/develop/nodejs/how-to-guides/command-line-tools/">Strumento da riga di comando di Azure per Mac e Linux</a>.
+Se si è già installato <strong>Azure SDK per Node.js</strong> dal <a href="/it-it/develop/nodejs/">Centro per sviluppatori Azure</a>, gli strumenti da riga di comando saranno già installati. Per altre informazioni, vedere <a href="/it-it/develop/nodejs/how-to-guides/command-line-tools/">Strumenti da riga di comando di Azure per Mac e Linux</a>.
 
 Anche se gli strumenti da riga di comando di Azure sono stati creati principalmente per gli utenti Mac e Linux, essendo basati su Node.js, dovrebbero funzionare in qualsiasi sistema in grado di eseguire Node.
 
@@ -512,7 +512,7 @@ Eseguire `azure site browse` dalla directory del progetto per aprire automaticam
 
 [WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
-A questo punto verrà lanciata un'applicazione Node.js supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [support@mongolab.com](mailto:support@mongolab.com) per eventuali domande o problemi sul database o per assistenza con MongoDB o con il driver del nodo. È ora possibile usare l'applicazione.
+Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [support@mongolab.com](mailto:support@mongolab.com) per eventuali domande o problemi sul database o per assistenza con MongoDB o con il driver del nodo. È ora possibile usare l'applicazione.
 
 
 
@@ -533,16 +533,16 @@ A questo punto verrà lanciata un'applicazione Node.js supportata da un database
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[for free]: /it-it/pricing/free-trial
+[gratuitamente]: /it-it/pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/
-[Azure Developer Center]: /it-it/develop/nodejs/
-[Create and deploy a Node.js application to Azure Web Sites]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /it-it/develop/nodejs/common-tasks/publishing-with-git/
+[Strumento da riga di comando di Azure per Mac e Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/
+[Centro per sviluppatori di Azure]: /it-it/develop/nodejs/
+[Creazione e distribuzione di un'applicazione Node.js in Siti Web di Azure]: /it-it/develop/nodejs/tutorials/create-a-website-(mac)/
+[Pubblicazione in Siti Web di Azure con Git]: /it-it/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /it-it/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[Applicazione Web Node.js con archiviazione in MongoDB (macchina virtuale)]: /it-it/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
 [node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
 [download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
@@ -552,3 +552,5 @@ A questo punto verrà lanciata un'applicazione Node.js supportata da un database
 
 
 
+
+<!--HONumber=35.2-->

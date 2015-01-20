@@ -1,16 +1,16 @@
-﻿<properties pageTitle="Autorizzazione lato servizio (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorizzazione lato servizio (Windows Store) | Mobile Dev Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
-# Autorizzazione sul lato servizio degli utenti di Servizi mobili
+# Autorizzazione lato servizio degli utenti di Servizi mobili
 
 [WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-In questo argomento viene illustrato come usare script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Windows Store.  In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
+In questo argomento viene illustrato come utilizzare script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Windows Store.  In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
 
-## <a name="register-scripts"></a>Registrare gli script
+## <a name="register-scripts"></a>Registrazione di script
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app. 
@@ -21,7 +21,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -54,7 +54,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 2. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
-   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
 3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
@@ -73,10 +73,10 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 * [Introduzione ai dati]
   <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -91,7 +91,7 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 
 <!-- URLs. -->
 [Notifiche push di Windows e Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Dashboard App personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
@@ -100,3 +100,5 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 [JavaScript e HTML]: mobile-services-win8-javascript/
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

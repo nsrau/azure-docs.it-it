@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="Come effettuare una chiamata da Twilio (Java) - Azure"metaKeywords ="chiamata Azure Twilio, sito Web delle chiamate di Twilio, Azure Twilio Java" description="Informazioni su come effettuare una chiamata telefonica da una pagina Web usando Twilio con un'applicazione Java in Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
+﻿<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="Come effettuare una chiamata telefonica da Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Informazioni su come effettuare una chiamata da una pagina Web tramite Twilio in un'applicazione Java in Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure 
 
@@ -10,20 +10,18 @@ Nell'esempio seguente viene illustrato come è possibile usare Twilio per effett
 
 Per usare il codice in questo argomento è necessario eseguire le operazioni seguenti:
 
-1. Ottenere un account e un token di autenticazione Twilio. Per informazioni sui prezzi di Twilio, visitare la pagina [http://www.twilio.com/pricing][twilio_pricing]. Per effettuare l'iscrizione, visitare la pagina [https://www.twilio.com/try-twilio][try_twilio]. Per informazioni sull'API fornita da Twilio, vedere [http://www.twilio.com/api][twilio_api].
-2. Verificare il proprio numero di telefono come ID chiamante in uscita con Twilio. Per informazioni su come verificare il numero di telefono, vedere [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. In alternativa, anziché usare un numero esistente, è possibile acquistare un numero di telefono Twilio.
-Ai fini di questo esempio, usare il numero di telefono verificato come valore **From** di callform.jsp, illustrato più avanti.
-3. Ottenere il file JAR di Twilio. All'indirizzo [https://github.com/twilio/twilio-java][twilio_java_github] è possibile scaricare i file di origine disponibili in GitHub e creare un file JAR personalizzato o scaricarne uno precompilato, con o senza dipendenze.
+1. Ottenere un account e un token di autenticazione Twilio. Per iniziare con Twilio, esaminare le informazioni sui prezzi visitando la pagina [http://www.twilio.com/pricing][twilio_pricing]. Per effettuare l'iscrizione, visitare la pagina [https://www.twilio.com/try-twilio][try_twilio]. Per informazioni sull'API fornita da Twilio, vedere [http://www.twilio.com/api][twilio_api].
+2. Ottenere il file JAR di Twilio. All'indirizzo [https://github.com/twilio/twilio-java][twilio_java_github], è possibile scaricare i file di origine disponibili in GitHub e creare un file JAR personalizzato o scaricarne uno precompilato, con o senza dipendenze.
 Il codice in questo argomento è stato scritto usando il JAR precompilato TwilioJava-3.3.8-with-dependencies.
-4. Aggiungere il file JAR al percorso di compilazione Java.
-5. Se si usa Eclipse per creare l'applicazione Java, includere il JAR di Twilio nel file WAR per la distribuzione dell'applicazione usando l'assembly di distribuzione di Eclipse. Se non si usa Eclipse per creare l'applicazione Java, verificare che il JAR di Twilio sia incluso nello stesso ruolo di Azure dell'applicazione Java e che sia stato aggiunto al percorso della classe dell'applicazione.
-6. Verificare che l'archivio chiavi cacerts del JDK contenga il certificato Equifax Secure Certificate Authority con ID digitale MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (il numero di serie è 35:DE:F4:CF e l'ID digitale SHA1 è D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Si tratta del certificato dell'Autorità di certificazione (CA) per il servizio [https://api.twilio.com][twilio_api_service], che viene chiamato quando si usano le API Twilio. Per informazioni sull'aggiunta del certificato CA all'archivio cacerts del JDK, vedere [Aggiunta di un certificato all'archivio certificati CA di Java][add_ca_cert].
+3. Aggiungere il file JAR al percorso di compilazione Java.
+4. Se si usa Eclipse per creare l'applicazione Java, includere il JAR di Twilio nel file WAR per la distribuzione dell'applicazione usando l'assembly di distribuzione di Eclipse. Se non si usa Eclipse per creare l'applicazione Java, verificare che il JAR di Twilio sia incluso nello stesso ruolo di Azure dell'applicazione Java e che sia stato aggiunto al percorso della classe dell'applicazione.
+5. Verificare che l'archivio chiavi cacerts del JDK contenga il certificato Equifax Secure Certificate Authority con ID digitale MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (il numero di serie è 35:DE:F4:CF e l'ID digitale SHA1 è D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Si tratta del certificato dell'Autorità di certificazione (CA) per il servizio [https://api.twilio.com][twilio_api_service], che viene chiamato quando si usano le API Twilio. Per informazioni sull'aggiunta del certificato CA all'archivio cacerts del JDK, vedere [Aggiunta di un certificato all'archivio certificati CA di Java][add_ca_cert].
 
 Se non si usa Eclipse, è inoltre consigliabile consultare l'argomento [Creazione di un'applicazione Hello World usando il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world] o acquisire familiarità con altre tecniche per l'hosting di applicazioni Java in Azure.
 
 ## Creare un modulo Web per l'esecuzione di una chiamata
 
-Il codice illustra come creare un modulo Web per recuperare i dati utente per l'esecuzione di una chiamata. Ai fini di questo esempio, è stato creato un nuovo progetto Web dinamico denominato **TwilioCloud** ed è stato aggiunto il file JSP **callform.jsp**.
+Il codice seguente illustra come creare un modulo Web per recuperare i dati utente per l'esecuzione di una chiamata. Ai fini di questo esempio, è stato creato un nuovo progetto Web dinamico denominato **TwilioCloud** ed è stato aggiunto il file JSP **callform.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -64,7 +62,7 @@ Il codice illustra come creare un modulo Web per recuperare i dati utente per l'
     </html>
 
 ## Creare il codice per l'esecuzione della chiamata
-Il codice seguente, chiamato quando l'utente compila il modulo visualizzato da callform.jsp, crea il messaggio di chiamata e genera la chiamata. Ai fini di questo esempio, il file JSP è denominato **makecall.jsp** ed è stato aggiunto al processo **TwilioCloud**. Nel codice seguente sostituire i valori segnaposto assegnati a **accountSID** e**authToken** con il proprio account e il token di autenticazione Twilio.
+Il codice seguente, chiamato quando l'utente completa il modulo visualizzato da callform.jsp, crea il messaggio di chiamata e genera la chiamata. Ai fini di questo esempio, il file JSP è denominato **makecall.jsp** ed è stato aggiunto al processo **TwilioCloud**. Nel codice seguente sostituire i valori segnaposto assegnati a **accountSID** e **authToken** con il proprio account e il token di autenticazione Twilio.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     import="java.util.*"
@@ -152,23 +150,23 @@ Oltre ad eseguire la chiamata, makecall.jsp visualizza l'endpoint Twilio, la ver
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
 ## Esecuzione dell'applicazione
-DI seguito è riportata la procedura generale per eseguire l'applicazione. Per istruzioni dettagliate, vedere [Creazione di un'applicazione Hello World usando il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world].
+Di seguito è riportata la procedura generale per eseguire l'applicazione. Per istruzioni dettagliate, vedere [Creazione di un'applicazione Hello World usando il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world].
 
 1. Esportare il file WAR TwilioCloud nella cartella **approot** di Azure. 
-2. Modificare **startup.cmd** per decomprimere il file TwilioCloud WAR.
+2. Modificare **startup.cmd** per decomprimere il file WAR TwilioCloud.
 3. Compilare l'applicazione per l'emulatore di calcolo.
 4. Avviare la distribuzione nell'emulatore di calcolo.
-5. Oprire un browser ed eseguire **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Aprire un browser ed eseguire **http://localhost:8080/TwilioCloud/callform.jsp**.
 6. Immettere i valori nel modulo, fare clic su **Make this call** e quindi visualizzare i risultati in makecall.jsp.
 
 Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo *your_hosted_name* con il proprio valore.
 
 ## Passaggi successivi
-Questo codice ha lo scopo di illustrare le funzionalità di base dell'uso di Twilio con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. ad esempio:
+Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:
 
-* Anziché usare un modulo Web, è possibile i BLOB di archiviazione o un database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java][howto_blob_storage_java]. Per informazioni sull'uso dei database SQL in Java, vedere [Utilizzo di database SQL in Java][howto_sql_azure_java].
-* È possibile usare **RoleEnvironment.getConfigurationSettings** per recuperare l'ID e il token di autenticazione dell'account Twilio dalle impostazioni di configurazione della distribuzione, anziché impostare i valori come hardcoded in makecall.jsp. Per informazioni sulla classe **RoleEnvironment**, vedere [Utilizzo della libreria di runtime del servizio Azure in JSP][azure_runtime_jsp] e la documentazione sul pacchetto della libreria di runtime del servizio Azure all'indirizzo [http://dl.windowsazure.com/javadoc][azure_javadoc].
-* Il codice makecall.jsp assegna un URL fornito da Twilio, [http://twimlets.com/message][twimlet_message_url], alla variabile **Url**. Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, la risposta TwiML restituita può contenere un verbo **&lt;Say&gt;**, che offre una versione parlata del testo al destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Per altre informazioni su TwiML, visitare la pagina [http://www.twilio.com/docs/api/twiml][twiml] e per altre informazioni su **&lt;Say&gt;** e altri verbi Twilio, visitare la pagina [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Anziché usare un modulo Web, è possibile usare l'archiviazione BLOB o un database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java][howto_blob_storage_java]. Per informazioni sull'uso dei database SQL in Java, vedere [Uso di database SQL in Java][howto_sql_azure_java].
+* È possibile usare **RoleEnvironment.getConfigurationSettings** per recuperare l'ID e il token di autenticazione dell'account Twilio dalle impostazioni di configurazione della distribuzione, anziché impostare i valori come hardcoded in makecall.jsp. Per informazioni sulla classe **RoleEnvironment**, vedere [Uso della libreria di runtime del servizio Azure in JSP][azure_runtime_jsp] e la documentazione sul pacchetto della libreria di runtime del servizio Azure all'indirizzo [http://dl.windowsazure.com/javadoc][azure_javadoc].
+* Il codice makecall.jsp assegna un URL fornito da Twilio, [http://twimlets.com/message][twimlet_message_url], alla variabile **Url**. Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, la risposta TwiML restituita può contenere un verbo **&lt;Say&gt;**, che offre una versione parlata del testo al destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce e SMS in Java][howto_twilio_voice_sms_java]. Per altre informazioni su TwiML, visitare la pagina [http://www.twilio.com/docs/api/twiml][twiml] e per altre informazioni su **&lt;Say&gt;** e altri verbi Twilio, visitare la pagina [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Leggere le linee guida sulla sicurezza di Twilio all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security].
 
 Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_docs].
@@ -197,3 +195,5 @@ Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_do
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
+
+<!--HONumber=35.2-->

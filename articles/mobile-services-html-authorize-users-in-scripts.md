@@ -1,17 +1,17 @@
-﻿<properties pageTitle="Autorizzazione lato servizio (HTML) | Mobile Developer Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorizzazione lato servizio (HTML) | Mobile Dev Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
-# Autorizzazione sul lato servizio degli utenti di Servizi mobili
+# Autorizzazione lato servizio degli utenti di Servizi mobili
 
 [WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 
-Questo argomento illustra come usare gli script del server per autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app HTML.  In questa esercitazione verranno registrati gli script con Servizi mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
+In questo argomento viene illustrato come utilizzare gli script del server per autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app HTML.  In questa esercitazione verranno registrati gli script con Servizi mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
 
-## <a name="register-scripts"></a>Registrare gli script
+## <a name="register-scripts"></a>Registrazione di script
 Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario registrare gli script per queste operazioni sulla tabella TodoItem.
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app. 
@@ -22,7 +22,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script** e quindi selezionare l'operazione **Insert**.
 
    	![][2]
 
@@ -48,37 +48,37 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	Questo script consente di filtrare gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
 
-## Testare l'app
+## Test dell'app
 
 1. In un Web browser, passare alla pagina index.html dell'app, accedere al provider di identità scelto. 
 
-   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
-3. Nell'app, digitare un testo in **Enter new task** e quindi fare clic su **Add**.
+3. Nell'app digitare un testo in **Enter new task** e quindi fare clic su **Add**.
 
    	![][3]
 
    	Testo e userId verranno inseriti nella tabella TodoItem nel servizio mobile. Poiché il nuovo elemento contiene il valore userId corretto, viene restituito dal servizio mobile e i dati vengono visualizzati nella seconda colonna.
 
-5. Tornare alla tabella **todoitem** nel [portale di gestione][portale di gestione di Azure], fare clic su **Sfoglia** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
+5. Tornare alla tabella **TodoItem** nel [portale di gestione][Azure Management Portal], quindi fare clic su **Sfoglia** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
 
 6. (Facoltativo) Se si dispone di altri account di accesso, per verificare che gli utenti possano visualizzare solo i relativi dati, chiudere l'app (ALT+F4) ed eseguirla di nuovo. Quando viene visualizzata la finestra di dialogo per l'immissione delle credenziali di accesso, immettere un account di accesso diverso e verificare che i dati immessi nell'account precedente non siano visualizzati. 
 
 ## Passaggi successivi
 
-L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
+L'esercitazione sulle nozioni di base dell'utilizzo dell'autenticazione è terminata. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
 * [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+  <br/>Informazioni sull'archiviazione e sulle query dei dati mediante Servizi mobili.
 
 * [Riferimento per gli script del server di Servizi mobili]
-  <br/>Altre informazioni sulla registrazione e l'uso di script del server.
+  <br/>Informazioni sulla registrazione e sull'uso di script del server.
 
-* [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]
-  <br/>Altre informazioni su come usare Servizi mobili con HTML/JavaScript.
+* [Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili]
+  <br/>Informazioni su come usare Servizi mobili con HTML/JavaScript.
   
 <!-- Anchors. -->
-[Registrare gli script del server]: #register-scripts
+[Registrazione degli script del server]: #register-scripts
 [Passaggi successivi]:#next-steps
 
 <!-- Images. -->
@@ -95,4 +95,6 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-html
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
+[Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
+
+<!--HONumber=35.2-->

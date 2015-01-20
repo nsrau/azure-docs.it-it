@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) - Azure"metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -24,10 +24,8 @@ In questa guida viene illustrato come eseguire attività di programmazione comun
 SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
 -   Invio automatico di ricevute ai clienti
--   Amministrazione di liste di distribuzione per invio mensile ai clienti
-    di volantini elettronici e offerte speciali
--   Raccolta di metriche in tempo reale, ad esempio per messaggi di posta elettronica bloccati e
-    tempi di risposta dei clienti
+-   Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali
+-   Raccolta di metriche in tempo reale, ad esempio per indirizzi di posta elettronica bloccati e velocità di risposta al cliente
 -   Generazione di report per agevolare l'identificazione delle tendenze
 -   Inoltro di richieste dei clienti
 - Notifiche di posta elettronica dall'applicazione
@@ -40,13 +38,14 @@ Per altre informazioni, vedere <http://sendgrid.com>.
 
 ## <a name="bkmk_HowToUseJavax"> </a>Procedura: Usare le librerie javax.mail
 
-Ottenere le librerie di javax.mail, ad esempio da
-<http://www.oracle.com/technetwork/java/javamail>, e importarle
-nel proprio codice. In generale, il processo per l'uso della libreria javax.mail
-per l'invio di posta elettronica tramite SMTP è il seguente:
+Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail>, e importarle nel codice. Ad alto livello, la procedura per utilizzare la libreria javax.mail per l'invio di messaggio di posta elettronica mediante SMTP è la seguente:
 
-1.  Specificare i valori SMTP, compreso il server SMTP, che per
-    SendGrid è smtp.sendgrid.net.
+1.  Specificare i valori SMTP, compreso il server SMTP, che per SendGrid è smtp.sendgrid.net.
+    
+        import java.util.Properties;
+        import javax.activation.*;
+        import javax.mail.*;
+        import javax.mail.internet.*;
 
         public class MyEmailer {
 	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
@@ -66,10 +65,7 @@ per l'invio di posta elettronica tramite SMTP è il seguente:
            	  properties.put("mail.smtp.auth", "true");
            	  // ...
 
-2.  Estendere la classe <span class="auto-style1">javax.mail.Authenticator</span>
-    e, nell'implementazione del
-    <span class="auto-style1">metodo</span> getPasswordAuthentication,
-    restituire il proprio nome utente e la password di SendGrid.  
+2.  Estendere la classe <span class="auto-style1">javax.mail.Authenticator</span> e nella propria implementazione del metodo <span class="auto-style1">getPasswordAuthentication</span> restituire il nome utente e la password di SendGrid.  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -78,18 +74,13 @@ per l'invio di posta elettronica tramite SMTP è il seguente:
            return new PasswordAuthentication(username, password);
         }
 
-3.  Creare una sessione di posta autenticata mediante un oggetto
-    <span class="auto-style1">javax.mail.Session</span> .  
+3.  Creare una sessione di posta autenticata mediante un oggetto <span class="auto-style1">javax.mail.Session</span>.  
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
-4.  Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e
-    contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un messaggio di posta elettronica](#bkmk_HowToCreateEmail) .
-5.  Inviare il messaggio tramite un oggetto
-    <span class="auto-style1">javax.mail.Transport</span> . Questa
-    Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][How to: Send an Email]
-    .
+4.  Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un messaggio di posta elettronica](#bkmk_HowToCreateEmail).
+5.  Inviare il messaggio tramite un oggetto <span class="auto-style1">javax.mail.Transport</span>. Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][How to: Send an Email] .
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Procedura: Creare un messaggio di posta elettronica
 
@@ -121,7 +112,7 @@ Il codice seguente illustra come inviare un messaggio di posta elettronica.
     // Connect the transport object.
     transport.connect();
     // Send the message.
-    transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+    transport.sendMessage(message, message.getAllRecipients());
     // Close the connection.
     transport.close();
 
@@ -145,8 +136,7 @@ Il codice seguente illustra come aggiungere un allegato.
 
 SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso di filtri. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo dei filtri, vedere [Impostazioni dei filtri][].
 
--   Di seguito viene illustrato come inserire un filtro di piè di pagina che determina
-    la visualizzazione di testo HTML nella parte inferiore del messaggio di posta elettronica inviato.
+-   Il codice seguente illustra come inserire un filtro per piè di pagina che provoca la visualizzazione di testo in formato HTML in fondo al messaggio di posta elettronica inviato.
 
         message.addHeader("X-SMTPAPI", 
 			"{\"filters\": 
@@ -155,7 +145,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso
         	{\"enable\":1,\"text/html\": 
 			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
 
--   Un altro esempio di filtro è quello per il monitoraggio dei clic. Si supponga ad esempio che il testo del messaggio di posta elettronica contenga un collegamento ipertestuale come il seguente e che si voglia monitorare il tasso di clic: 
+-   Un altro esempio di filtro è quello per il monitoraggio dei clic. Si supponga ad esempio che il testo del messaggio di posta elettronica contenga un collegamento ipertestuale come il seguente e che si voglia monitorare il tasso di clic:
 
         messagePart.setContent(
 			"Hello,
@@ -191,7 +181,7 @@ Per aggiungere un destinatario **Cc**, procedere come indicato di seguito:
 
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>Procedura: Usare servizi aggiuntivi forniti da SendGrid
 
-SendGrid offre API basate sul Web che è possibile usare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione dell'API SendGrid][].
+SendGrid offre API basate sul Web che è possibile utilizzare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione dell'API SendGrid][].
 
 ## <a name="bkmk_NextSteps"> </a>Passaggi successivi
 
@@ -222,3 +212,5 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
+
+<!--HONumber=35.2-->

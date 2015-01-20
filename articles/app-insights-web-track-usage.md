@@ -1,31 +1,31 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Monitorare l'uso nelle applicazioni Web" description="Log attività dell'utente." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Monitoraggio dell'utilizzo nelle applicazioni Web" description="Informazioni su come registrare le attività utente." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
-# Monitorare l'uso delle applicazioni Web
+# Monitoraggio dell'utilizzo nelle applicazioni Web
 
-È possibile scoprire in che modo viene usata l'applicazione Web. Configurare l'analisi di utilizzo per sapere quali sono le pagine visualizzate dagli utenti, chi sono gli utenti ricorrenti e con quale frequenza visitano il sito. Aggiungere alcuni [eventi e metriche personalizzati][rilevamento] per analizzare in dettaglio le funzionalità usate con maggiore frequenza, scoprire quali sono gli errori più comuni e ottimizzare l'uso dell'app da parte degli utenti.
+È possibile scoprire in che modo viene usata l'applicazione Web. Configurare l'analisi di utilizzo per sapere quali sono le pagine visualizzate dagli utenti, chi sono gli utenti ricorrenti e con quale frequenza visitano il sito. Aggiungere alcuni [eventi e metriche personalizzati][track] per analizzare in dettaglio le funzionalità usate con maggiore frequenza, scoprire quali sono gli errori più comuni e ottimizzare l'uso dell'app da parte degli utenti.
 
-I dati di telemetria vengono raccolti sia dal client che dal server. I dati del client vengono raccolti da tutti i browser Web moderni e i dati del server possono essere raccolti se si usa la piattaforma ASP.NET (non deve necessariamente essere eseguita in Azure). 
+I dati di telemetria vengono raccolti sia dal client che dal server. I dati del client vengono raccolti da tutti i browser Web moderni e i dati del server possono essere raccolti se la piattaforma in uso è ASP.NET. Non deve necessariamente essere eseguita in Azure. 
 
-* [Configurare l'analisi di utilizzo Web](#webclient)
+* [Configurazione dell'analisi di client Web](#webclient)
 * [Analisi dell'utilizzo](#usage)
 * [Conteggi di pagine personalizzati per app con singole pagine](#spa)
 * [Esame di singoli eventi di pagina](#inspect)
 * [Rilevamento dettagliato con eventi e metriche personalizzati](#custom)
 * [Video](#video)
 
-## <a name="webclient"></a> Configurazione di analisi di client Web
+## <a name="webclient"></a> Configurazione dell'analisi di client Web
 
-#### Aggiunta di una risorsa Application Insights in Azure
+#### Aggiungere una risorsa di Application Insights in Azure
 
-**Se si sta sviluppando un'app ASP.NET**, [aggiungere Application Insights al progetto Web][start] se questa operazione non è ancora stata eseguita. 
+**Se si sta sviluppando un'app ASP.NET**, [aggiungere Application Insights al progetto Web][start], se non si è ancora eseguita questa operazione. 
 
-**Se la piattaforma del sito Web non è ASP.NET:** accedere a [Microsoft Azure](http://azure.com), passare al [portale di Anteprima](https://portal.azure.com) e aggiungere una risorsa Application Insights
+**Se la piattaforma del sito Web non è ASP.NET:** iscriversi a [Microsoft Azure](http://azure.com), accedere al [portale di anteprima](https://portal.azure.com) e aggiungere una risorsa di Application Insights.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
-(è possibile tornarvi in un secondo momento con il pulsante Sfoglia).
+È possibile tornarvi in un secondo momento con il pulsante Sfoglia.
 
 
 
@@ -35,7 +35,7 @@ In Avvio rapido, ottenere lo script per le pagine Web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Inserire lo script poco prima del tag </head> di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
+Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Analisi dell'utilizzo
 
@@ -45,25 +45,24 @@ Nella falda della panoramica dell'applicazione verranno visualizzati i seguenti 
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-*Se i dati non sono ancora visualizzati, fare clic su **Aggiorna** nella parte superiore della pagina.*
+*Ancora nessun dato? Fare clic su **Aggiorna** nella parte superiore della pagina.*
 
 * **Sessioni per browser**
 
-    Una *sessione* è un periodo che inizia quando un utente apre una pagina del sito Web e termina dopo un timeout di 30 minuti dall'ultimo invio di una richiesta Web da parte dell'utente. 
+    Una *sessione* è un periodo che inizia quando un utente apre qualsiasi pagina del sito Web e termina quando l'utente non invia alcuna richiesta Web per un periodo di timeout di 30 minuti. 
 
-    Fare clic per fare zoom avanti sul grafico.
+    Fare clic per ingrandire il grafico.
 
 * **Visualizzazioni delle pagine più importanti**
 
     Mostra i conteggi totali nelle ultime 24 ore.
 
-    Fare clic sulle visualizzazioni di pagina per ottenere una cronologia più dettagliata.
+    Fare clic sulle visualizzazioni di pagina per ottenere una cronologia più dettagliata. Per ottenere una cronologia prolungata, è possibile modificare l'intervallo di tempo del report.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Fare clic su Intervallo di tempo per visualizzare una cronologia più lunga che arriva fino a sette giorni.
 
-Fare clic su un grafico per vedere le altre metriche che è possibile visualizzare.
+Fare clic su un grafico per scegliere altre metriche da visualizzare o aggiungere un nuovo grafico e selezionare le metriche visualizzate.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
@@ -86,29 +85,29 @@ Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratte
 
 In genere la telemetria delle visualizzazioni di pagina viene analizzata da Application Insights e vengono quindi visualizzati solo i report cumulativi, mediati su tutti gli utenti del sito. A scopo di debug, tuttavia, è possibile visualizzare anche singoli eventi di visualizzazione di pagina.
 
-Nella falda di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
+Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 ![](./media/appinsights/appinsights-51searchpageviews.png)
 
 Selezionare qualsiasi evento per visualizzare altri dettagli.
 
-> [AZURE.NOTE] Se si usa la [ricerca][diagnostica], tenere presente che è necessario cercare parole intere: "Circ" e "irca" non troveranno "Circa", ma "Circ* " sì. Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa". 
+> [AZURE.NOTE] Se si usa la funzione di [ricerca][diagnostic], tenere presente che è necessario cercare parole intere: "Circ" e "irca" non troveranno "Circa", ma "Circ* " sì. Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa". 
 
-> [Altre informazioni sulla ricerca diagnostica][diagnostica]
+> [Altre informazioni sulla ricerca diagnostica][diagnostic]
 
 ## <a name="custom"></a> Rilevamento dettagliato con eventi e metriche personalizzati
 
 Per sapere in che modo gli utenti usano l'app, inserire le chiamate nel codice del client e del server per inviare i dati di telemetria ad Application Insights. È possibile, ad esempio, scoprire quanti utenti creano ordini senza completarli, quali sono gli errori di convalida che si verificano con maggiore frequenza oppure qual è il punteggio medio di un gioco.
 
-[Altre informazioni sull'API per sugli eventi e le metriche personalizzati][rilevamento].
+[Altre informazioni sull'API per gli eventi e le metriche personalizzati][track].
 
 ## <a name="video"></a> Video: monitoraggio dell'utilizzo
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a>Passaggi successivi
+## <a name="next"></a> Passaggi successivi
 
-[Tenere traccia dell'utilizzo con eventi e metriche personalizzati][rilevamento]
+[Monitoraggio dell'utilizzo con eventi e metriche personalizzati][track]
 
 
 
@@ -117,3 +116,6 @@ Per sapere in che modo gli utenti usano l'app, inserire le chiamate nel codice d
 
 
 
+
+
+<!--HONumber=35.2-->

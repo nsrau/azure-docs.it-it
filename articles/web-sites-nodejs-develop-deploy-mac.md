@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website" pageTitle="Creare un sito Web Node.js su Mac - Esercitazioni su Azure" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Informazioni sulla creazione e sulla distribuzione di un sito Web Node.js in Azure. I codici di esempio sono scritti in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="Creare un sito Web Node.js su Mac - Esercitazioni su Azure" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Informazioni su come compilare e distribuire un sito Node.js in Azure. Il codice di esempio è scritto in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -12,6 +12,7 @@
 Questa esercitazione illustra come creare un'applicazione [Node] [nodejs.org] e distribuirla in un sito Web di Azure tramite [Git]. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.
 
 Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione.
+[AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
  
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -21,9 +22,10 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Per creare un sito Web di Azure e quindi abilitare la pubblicazione Git per tale sito, attenersi alla procedura seguente.
 
-<div class="dev-callout"><strong>Nota</strong>
-<p>Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di versione di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Versione di valutazione gratuita di Azure</a>.</p>
-</div>
+> [WACOM.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di versione di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
+> 
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 1. Accedere al [portale di gestione di Azure].
 
@@ -51,7 +53,7 @@ Per creare un sito Web di Azure e quindi abilitare la pubblicazione Git per tale
 
 	![The dialog prompting for user name and password.][portal-git-username-password]
 
-8. Quando il repository Git è pronto, verranno visualizzate le istruzioni sui comandi Git da usare per configurare un repository locale e quindi effettuare il push dei file in Azure.
+8. Quando l'archivio Git è pronto, verranno visualizzate le istruzioni sui comandi Git da usare per configurare un archivio locale e quindi effettuare il push dei file in Azure.
 
 	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
@@ -148,7 +150,7 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
 Anche se nella procedura illustrata in questo articolo viene usato il portale di Azure per creare un sito Web, è anche possibile usare gli [strumenti da riga di comando di Azure per Mac e Linux] per eseguire le stesse operazioni.
 
-Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni sull'utilizzo di Siti Web di Azure con i moduli, vedere [Utilizzo di moduli Node.js con applicazioni Azure](/it-it/documentation/articles/nodejs-use-node-modules-azure-apps/).
+Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni sull'uso di Siti Web di Azure con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](/it-it/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
 Per informazioni sulle versioni di Node.js fornite con Azure e su come specificare la versione da usare con l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure](/it-it/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
@@ -182,3 +184,5 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
+
+<!--HONumber=35.2-->

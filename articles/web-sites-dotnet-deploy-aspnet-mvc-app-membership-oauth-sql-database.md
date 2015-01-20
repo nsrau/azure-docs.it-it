@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with SQL Database" pageTitle="Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Informazioni su come sviluppare un sito Web ASP.NET MVC 5 con il back-end del database SQL e distribuirlo in Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="Website with SQL Database" pageTitle="Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Informazioni su come sviluppare un sito Web ASP.NET MVC 5 con un back-end del database SQL e distribuirlo in Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="riande" /> 
 
@@ -24,7 +24,7 @@ Verrà creata una semplice app Web di elenco contatti basata su ASP.NET MVC 5 ch
 
 ![login page][rxb]
 
->[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per una versione di valutazione gratuita</a>
+>[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 Contenuto dell'esercitazione:
@@ -236,9 +236,9 @@ La classe **Contacts** consente di definire i dati che verranno archiviati per o
 
 La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticamente codice per l'esecuzione di azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
-<h2><a name="bkmk_addcontroller"></a>Aggiunta di un controller e di una visualizzazione per i dati</h2>
+<h2><a name="bkmk_addcontroller"></a>Aggiungere un controller e una visualizzazione per i dati</h2>
 
-1. Creare il progetto **(CTRL+MAIUSC+B)**. Per usare il meccanismo scaffolding, è innanzitutto necessario creare il progetto. 
+1. Compilare il progetto **(CTRL+MAIUSC+B)**. Per usare il meccanismo scaffolding, è innanzitutto necessario creare il progetto. 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller**.
 
 	![Add Controller in Controllers folder context menu][addcode001]
@@ -364,10 +364,10 @@ Oltre all'autenticazione, nell'esercitazione verranno usati anche i ruoli per im
 
 Seguire le istruzioni fornite nell'esercitazione sulla [creazione di un'app MVC 5 con autenticazione OAuth2 mediante Facebook, Twitter, LinkedIn e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) nella sezione relativa alla **creazione di un'app Google per OAuth 2 per configurare un'app Google per OAuth2**. Eseguire e testare l'applicazione per verificare che sia possibile accedere usando l'autenticazione di Google.
 
-<h2><a name="mbrDB"></a>Utilizzo dell'API di appartenenza</h2>
+<h2><a name="mbrDB"></a>Uso dell'API di appartenenza</h2>
 In questa sezione verranno aggiunti un utente locale e il ruolo *canEdit* al database di appartenenza. Solo gli utenti con il ruolo *canEdit* saranno in grado di modificare i dati. È consigliabile assegnare ai ruoli un nome corrispondente alle azioni che consentono di eseguire, quindi il nome *canEdit* è preferibile rispetto ad *admin*. Nel corso dell'evoluzione dell'applicazione sarà possibile aggiungere nuovi ruoli, ad esempio *canDeleteMembers*, al posto di ruoli con nomi meno descrittivi come *superAdmin*.
 
-1. Aprire il file *migrations\configuration.cs* e aggiungere le istruzioni `using` seguenti:
+1. Aprire il file migrations\configuration.cs e aggiungere le istruzioni `using` seguenti:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -496,7 +496,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/it-it/l
 1. Effettuare l'accesso come *user1@contoso.com* (con password "P_assw0rd1") e verificare che sia possibile apportare modifiche ai dati.
 1. Effettuare la disconnessione.
 1. Passare alla [Google Developers Console](https://console.developers.google.com/) e nella scheda **Credentials** aggiornare gli URI di reindirizzamento e le origini JavaScript in modo che usino l'URL di Azure.
-1. Effettuare l'accesso usando Google o Facebook. L'account Google o Facebook verrà aggiunto al ruolo **canEdit**. Se si verifica un errore HTTP 400 con il messaggio che indica che l'URI di reindirizzamento della richiesta: https://contactmanager{my version}.azurewebsites.net/signin-google did not match a registered redirect URI.*, you'll have to wait until the changes you made are propagated. If you get this error after more than a minute, verify the URIs are correct.
+1. Effettuare l'accesso usando Google o Facebook. L'account Google o Facebook verrà aggiunto al ruolo **canEdit**. Se viene visualizzato un errore HTTP 400 con il messaggio indicante che l'URI di reindirizzamento della richiesta https://contactmanager{my version}.azurewebsites.net/signin-google non corrisponde a un URI di reindirizzamento registrato, sarà necessario attendere che le modifiche apportate vengano propagate. Se questo errore viene visualizzato dopo più di un minuto, verificare che gli URI siano corretti.
 
 ### Arrestare il sito Web per impedire la registrazione da parte di altri utenti  
 
@@ -538,7 +538,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/it-it/l
 
 	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
  
-1. Fare clic su un collegamento per la modifica. Si verrà reindirizzati alla pagina di accesso. In **Use another service to log in** fare clic su Google o Facebook ed effettuare l'accesso con l'account registrato in precedenza. (Se si lavora velocemente e il cookie della sessione non è scaduto, l'accesso verrà eseguito automaticamente con l'account di Google o Facebook usato in precedenza).
+1. Fare clic su un collegamento per la modifica. Si verrà reindirizzati alla pagina di accesso. In **Use another service to log in** fare clic su Google o Facebook ed effettuare l'accesso con l'account registrato in precedenza. Se si lavora velocemente e il cookie della sessione non è scaduto, l'accesso verrà eseguito automaticamente con l'account di Google o Facebook usato in precedenza.
 2. Verificare che sia possibile modificare i dati quando si effettua l'accesso con tale account.
  	**Nota:** non è possibile disconnettersi da Google da questa app e quindi effettuare l'accesso con un account Google diverso con lo stesso browser. Se si usa un browser, sarà necessario passare a Google e disconnettersi. È possibile effettuare l'accesso con un altro account dallo stesso autenticatore di terze parti, ad esempio Google, usando un browser diverso.
 
@@ -738,3 +738,5 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 
 
 
+
+<!--HONumber=35.2-->

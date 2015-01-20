@@ -1,116 +1,108 @@
-<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" metaKeywords="Azure image gallery vm" description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando la raccolta di macchine virtuali nel portale di anteprima di Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" metaKeywords="Azure image gallery vm" description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando la raccolta di macchine virtuali nel portale di anteprima di Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Create a Virtual Machine Running Windows in the Azure Preview Portal" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Creare una macchina virtuale con Windows nel portale di anteprima di Azure
+<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
+-->
+
+# Creare una macchina virtuale nel portale di anteprima di Azure#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Portale di Azure</a><a href="/it-it/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Portale di anteprima di Azure</a></div>
 
-Questa esercitazione mostra come è facile creare una macchina virtuale di Azure che esegue Windows usando come esempio un'immagine di Windows Server dalla Raccolta immagini nel portale di anteprima di Azure. Nella raccolta è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, di sistemi operativi basati su Linux e di applicazioni.
+Questa esercitazione mostra come è facile creare una macchina virtuale di Azure che esegue Windows usando come esempio un'immagine di Windows Server dalla Raccolta immagini nel portale di anteprima di Azure. Nella raccolta è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, di sistemi operativi basati su Linux e di applicazioni. 
 
-> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure][Creare un account Azure].
+> [WACOM.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/). 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si apprenderà:
 
--   [Come creare la macchina virtuale][Come creare la macchina virtuale]
--   [Come accedere alla macchina virtuale dopo averla creata][Come accedere alla macchina virtuale dopo averla creata]
+- [Come creare la macchina virtuale](#createvirtualmachine)
+- [Come accedere alla macchina virtuale dopo averla creata](#logon)
 
-Per altre informazioni, vedere [Macchine virtuali][Macchine virtuali].
+Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
-## <span id="createvirtualmachine"></span> </a>Come creare la macchina virtuale
 
-Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale usando Windows Server come esempio. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
+##<a id="createvirtualmachine"> </a>Come creare la macchina virtuale##
 
-> [WACOM.NOTE] Il numero e il tipo di immagini disponibili nella raccolta dipende dal tipo di sottoscrizione dell'utente. Questa esercitazione usa un'immagine di Windows Server, ma una sottoscrizione MSDN potrebbe avere immagini aggiuntive disponibili, incluse le immagini desktop.
+Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale usando Windows Server 2012 R2 Datacenter come esempio. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
 
-1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure]. Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita][versione di valutazione gratuita].
+> [WACOM.NOTE] Le immagini disponibili dipendono dalla sottoscrizione dell'utente. Questa esercitazione usa un'immagine di Windows Server, ma un abbonamento MSDN può offrire immagini aggiuntive, incluse le immagini desktop. 
+ 
 
-2.  Nel menu Hub fare clic su **Nuovo**.
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com). Se non si dispone ancora di una sottoscrizione, usare la [versione di valutazione gratuita](http://www.windowsazure.com/it-it/pricing/free-trial/).
 
-    ![Selezionare Nuovo nella barra dei comandi][Selezionare Nuovo nella barra dei comandi]
+2. Nel menu Hub fare clic su **Nuovo**.
 
-3.  In **Nuovo** fare clic su **Tutto**, quindi in **Raccolta** fare clic su **Macchine virtuali**. Fare clic su **Server 2012 R2 Datacenter**. In questa pagina fare clic su **Crea**.
+	![Select New from the Command Bar](./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png)
 
-    ![Selezionare un'immagine di macchina virtuale dalla raccolta][Selezionare un'immagine di macchina virtuale dalla raccolta]
+3. Nel pannello **Nuovo** fare clic su **Tutto**, quindi su **Macchine virtuali**, **Windows Server 2012 R2 Datacenter** e infine su **Crea**.
 
-4.  Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.
+	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
+	
+4. Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.  
 
-    ![Configurare il nome host e le credenziali di accesso][Configurare il nome host e le credenziali di accesso]
+	>[WACOM.NOTE] **Nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
+	
 
-    > [WACOM.NOTE] **Nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_name_pwd_preview_portal.png)
+	
+	
+5. Esaminare le impostazioni predefinite, ad esempio **Piano tariffario**, **Configurazione facoltativa** e **Percorso**. Queste opzioni influiscono sulla dimensione della macchina virtuale, nonché sulle opzioni di rete, ad esempio l'appartenenza al dominio. Ad esempio, per provare il servizio di archiviazione Premium in una macchina virtuale, è necessario selezionare un'area e una dimensione che la supporta. 
 
-5.  Per usare le impostazioni predefinite per le restanti opzioni della macchina virtuale e avviare il processo di creazione, fare clic su **Crea**. Se invece si preferisce, prima di fare clic su **Crea**, è possibile esplorare le impostazioni di **Configurazione facoltativa**. Ad esempio, è possibile configurare la diagnostica facoltativa per la macchina virtuale in modo da tenere traccia successivamente delle numerose metriche sulla macchina virtuale. Fare clic su **Configurazione facoltativa**, su **Diagnostica** e impostare lo **Stato** su **On**.
+	>[WACOM.NOTE] Il servizio di archiviazione Premium è in disponibile in anteprima per le macchine virtuali della serie DS in alcune aree. Per informazioni dettagliate, vedere [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](http://azure.microsoft.com/it-it/documentation/articles/storage-premium-storage-preview-portal/).
 
-    ![Attivare la diagnostica per la macchina virtuale][Attivare la diagnostica per la macchina virtuale]
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
+	
+6. Al termine della revisione o dell'aggiornamento delle impostazioni, fare clic su **Crea**.	
 
-    > [WACOM.NOTE] Se si attiva Diagnostica Azure, Azure archivierà i dati di diagnostica in un account di archiviazione di Azure con conseguenti costi di archiviazione aggiuntivi.
+7. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento **Notifiche** nel menu Hub. Una volta creata, la macchina virtuale verrà visualizzata nella Schermata iniziale.
 
-6.  Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Notifiche** nel menu Hub. Una volta creata, la macchina virtuale verrà visualizzata nella Schermata iniziale.
+	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png)
 
-    ![Macchina virtuale visualizzata nella Schermata iniziale][Macchina virtuale visualizzata nella Schermata iniziale]
-
-## <span id="logon"></span> </a>Come accedere alla macchina virtuale dopo averla creata
+## <a id="logon"> </a>Come accedere alla macchina virtuale dopo averla creata ##
 
 Questa sezione descrive come accedere alla macchina virtuale per gestirne le impostazioni e le applicazioni che verranno eseguite al suo interno.
 
-> [WACOM.NOTE] Per i requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH][Connettersi a una macchina virtuale di Azure con RDP o SSH].
+>[WACOM.NOTE] Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
-1.  Accedere al [portale di anteprima di Azure][portale di anteprima di Azure] se questa operazione non è già stata eseguita.
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com) se questa operazione non è già stata eseguita.
 
-2.  Fare clic sulla macchina virtuale nella Schermata iniziale. Per trovarla, fare clic su **Sfoglia**, quindi su **Macchine virtuali**.
+2. Fare clic sulla macchina virtuale nella Schermata iniziale. Per trovarla, fare clic su **Sfoglia**, quindi su **Macchine virtuali**. 
 
-    ![Cercare la macchina virtuale][Cercare la macchina virtuale]
+	![Browse to find the VM](./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png)
 
-3.  Nel pannello della macchina virtuale fare clic su **Connetti** in alto.
+3. Nel pannello della macchina virtuale fare clic su **Connetti** in alto.
 
-    ![Accesso alla macchina virtuale][Accesso alla macchina virtuale]
+	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png)
 
-4.  Fare clic su **Apri** per usare il file RDP (Remote Desktop Protocol) creato automaticamente per la macchina virtuale.
+4. Fare clic su **Apri** per usare il file RDP (Remote Desktop Protocol) creato automaticamente per la macchina virtuale.
+	
+5. Fare clic su **Connetti** per procedere con la connessione.
 
-5.  Fare clic su **Connect** per procedere con la connessione.
+	![Continue with connecting](./media/virtual-machines-log-on-windows-server/connectpublisher.png)
 
-    ![Procedere alla connessione][Procedere alla connessione]
+6. Digitare il nome utente e la password dell'account amministrativo della macchina virtuale, quindi fare clic su **OK**.
+	
+7. Fare clic su **Sì** per verificare l'identità della macchina virtuale.
 
-6.  Digitare il nome utente e la password dell'account amministrativo della macchina virtuale, quindi fare clic su **OK**.
+	![Verify the identity of the machine](./media/virtual-machines-log-on-windows-server/connectverify.png)
 
-7.  Fare clic su **Yes** per verificare l'identità della macchina virtuale.
+	È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
 
-    ![Verificare l'identità della macchina virtuale][Verificare l'identità della macchina virtuale]
-
-    È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
-
-## Passaggi successivi
+##Passaggi successivi 
 
 Per altre informazioni sulla configurazione di macchine virtuali Windows in Azure, vedere gli articoli seguenti:
 
-[Come connettere macchine virtuali in un servizio cloud][Come connettere macchine virtuali in un servizio cloud]
+[Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/it-it/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server][Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server]
+[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Connettere un disco dati a una macchina virtuale][Connettere un disco dati a una macchina virtuale]
+[Connettere un disco dati a una macchina virtuale](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/)
 
-[Gestione della disponibilità delle macchine virtuali][Gestione della disponibilità delle macchine virtuali]
+[Gestire la disponibilità delle macchine virtuali](http://www.windowsazure.com/it-it/documentation/articles/manage-availability-virtual-machines/)
 
-[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure][Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]
+[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-  [Creare un account Azure]: http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/
-  [Come creare la macchina virtuale]: #createvirtualmachine
-  [Come accedere alla macchina virtuale dopo averla creata]: #logon
-  [Macchine virtuali]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [portale di anteprima di Azure]: https://portal.azure.com
-  [versione di valutazione gratuita]: http://www.windowsazure.com/it-it/pricing/free-trial/
-  [Selezionare Nuovo nella barra dei comandi]: ./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png
-  [Selezionare un'immagine di macchina virtuale dalla raccolta]: ./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png
-  [Configurare il nome host e le credenziali di accesso]: ./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png
-  [Attivare la diagnostica per la macchina virtuale]: ./media/virtual-machines-windows-tutorial-azure-preview/vm_diagnostics_status_preview_portal.png
-  [Macchina virtuale visualizzata nella Schermata iniziale]: ./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png
-  [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://go.microsoft.com/fwlink/p/?LinkId=398294
-  [Cercare la macchina virtuale]: ./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png
-  [Accesso alla macchina virtuale]: ./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png
-  [Procedere alla connessione]: ./media/virtual-machines-log-on-windows-server/connectpublisher.png
-  [Verificare l'identità della macchina virtuale]: ./media/virtual-machines-log-on-windows-server/connectverify.png
-  [Come connettere macchine virtuali in un servizio cloud]: http://www.windowsazure.com/it-it/documentation/articles/cloud-services-connect-virtual-machine/
-  [Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server]: http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [Connettere un disco dati a una macchina virtuale]: http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/
-  [Gestione della disponibilità delle macchine virtuali]: http://www.windowsazure.com/it-it/documentation/articles/manage-availability-virtual-machines/
-  [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Come creare la macchina virtuale]: #custommachine
+[Come accedere alla macchina virtuale dopo averla creata]: #logon
+
+<!--HONumber=35.2-->
