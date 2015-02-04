@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload a Linux VHD" pageTitle="Creare e caricare un file VHD Linux in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a Linux VHD" pageTitle="Creare e caricare un file VHD Linux in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 
@@ -22,7 +22,7 @@ Per questo motivo, è consigliabile iniziare con una delle [distribuzioni approv
 La restante parte di questo articolo sarà incentrata sulle indicazioni generali per l'esecuzione della distribuzione Linux in Azure.
 
 
-##Note generali sull'installazione di Linux##
+## Note generali sull'installazione di Linux##
 
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 

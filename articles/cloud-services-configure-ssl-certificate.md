@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable SSL" pageTitle="Configurare SSL per un servizio cloud - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configurare SSL per un servizio cloud - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
 
@@ -35,7 +35,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 -   Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da usare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Se, ad esempio, il nome di dominio personalizzato è **contoso.com**, si richiede un certificato dalla CA per ***.contoso.com** o **www.contoso.com**.
 -   Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
-Per eseguire delle prove, è possibile creare e usare un certificato autofirmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**. Per informazioni dettagliate sulla creazione di un certificato autofirmato con [Gestione IIS, vedere Come creare un certificato per un ruolo][].
+Per eseguire delle prove, è possibile creare e usare un certificato autofirmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**. Per informazioni dettagliate sulla creazione di un certificato autofirmato con Gestione IIS, vedere [Come creare un certificato per un ruolo][].
 
 A questo punto, è necessario includere le informazioni sul certificato nei file di definizione e configurazione del servizio.
 
@@ -158,6 +158,6 @@ Se si desidera usare SSL per una distribuzione di gestione temporanea anziché d
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx
+  [Come configurare un certificato SSL su un endpoint HTTPS]: http://msdn.microsoft.com/it-it/library/windowsazure/ff795779.aspx
 
 <!--HONumber=35.1-->

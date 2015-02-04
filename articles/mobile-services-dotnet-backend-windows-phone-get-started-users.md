@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Introduzione all'autenticazione (Windows Phone) | Mobile Developer Center" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Phone tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
+<properties pageTitle="Introduzione all'autenticazione (Windows Phone) | Mobile Developer Center" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Phone tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn="" Gailey" />
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
 
@@ -20,7 +20,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare l'
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili]. 
 
 
-##<a name="register"></a> Registrare l'app per l'autenticazione e configurare Servizi mobili
+## <a name="register"></a> Registrare l'app per l'autenticazione e configurare Servizi mobili
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -39,11 +39,11 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Archiviare i token di autorizzazione sul client
+## <a name="tokens"></a>Archiviare i token di autorizzazione sul client
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 

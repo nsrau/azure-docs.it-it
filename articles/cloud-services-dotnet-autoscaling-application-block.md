@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Autoscaling" pageTitle="Usare il blocco applicazione per la scalabilità automatica (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Informazioni sull'uso dell'applicazione per la scalabilità automatica per Azure. Negli esempi, scritti in C#, viene usata l'API .NET." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Autoscaling" pageTitle="Usare il blocco applicazione per la scalabilità automatica (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Informazioni sull'uso dell'applicazione per la scalabilità automatica per Azure. Negli esempi, scritti in C#, viene usata l'API .NET." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/14/2014" ms.author="rasquill" />
 
@@ -10,25 +10,25 @@
 
 # Come usare il blocco applicazione per la scalabilità automatica
 
-In questa guida viene illustrato come eseguire scenari comuni usando il blocco applicazione per la scalabilità automatica di [Microsoft Enterprise Library 5.0 Integration Pack per Azure][]. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono l'**hosting del blocco**, l'**uso delle regole di vincolo** e l'**uso delle regole reattive**. Per altre informazioni sul blocco applicazione per la scalabilità automatica, vedere la sezione [Passaggi successivi][].
+In questa guida viene illustrato come eseguire scenari comuni usando il blocco applicazione per la scalabilità automatica di [Microsoft Enterprise Library 5.0 Integration Pack per Azure][Microsoft Enterprise Library 5.0 Integration Pack per Azure]. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono l'**hosting del blocco**, l'**uso delle regole di vincolo** e l'**uso delle regole reattive**. Per altre informazioni sul blocco applicazione per la scalabilità automatica, vedere la sezione [Passaggi successivi][Passaggi successivi].
 
 ## Sommario
 
-[Informazioni sul blocco applicazione per la scalabilità automatica][]
- [Concetti][]   
- [Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione][]   
- [Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica][]   
- [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][] [ Procedura: Definire il modello del servizio][]   
- [Procedura: Definire le regole di scalabilità automatica][]   
- [Procedura: Configurare il blocco applicazione per la scalabilità automatica][]   
- [Passaggi successivi][]
+[Informazioni sul blocco applicazione per la scalabilità automatica][Informazioni sul blocco applicazione per la scalabilità automatica]
+ [Concetti][Concetti]   
+ [Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione][Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione]   
+ [Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica][Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica]   
+ [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla] [ Procedura: Definire il modello del servizio][ Procedura: Definire il modello del servizio]   
+ [Procedura: Definire le regole di scalabilità automatica][Procedura: Definire le regole di scalabilità automatica]   
+ [Procedura: Configurare il blocco applicazione per la scalabilità automatica][Procedura: Configurare il blocco applicazione per la scalabilità automatica]   
+ [Passaggi successivi][Passaggi successivi]
 
 ## <a id="WhatIs"> </a>Informazioni sul blocco applicazione per la scalabilità automatica
 
 Il blocco applicazione per la scalabilità automatica consente di adattare automaticamente un'applicazione Azure in base a regole definite in modo specifico per l'applicazione. È possibile usare queste regole per fare in modo che l'applicazione Azure mantenga la stessa velocità effettiva con il variare del carico di lavoro, controllando al tempo stesso i costi associati all'hosting dell'applicazione in Azure. Oltre ad adattare l'applicazione aumentando o diminuendo il numero di istanze del ruolo nell'applicazione, il blocco consente anche di usare altre operazioni di scalabilità come la limitazione di determinate funzionalità dell'applicazione o l'uso di azioni personalizzate.
 
 È possibile scegliere di ospitare il blocco in un ruolo di Azure o in un'applicazione locale. 
-Il blocco applicazione per la scalabilità automatica fa parte di [Microsoft Enterprise Library 5.0 Integration Pack per Azure][].
+Il blocco applicazione per la scalabilità automatica fa parte di [Microsoft Enterprise Library 5.0 Integration Pack per Azure][Microsoft Enterprise Library 5.0 Integration Pack per Azure].
 
 ## <a id="Concepts"> </a>Concetti
 
@@ -52,7 +52,7 @@ Le impostazioni di configurazione del blocco sono archiviate nelle due posizioni
 
 Nelle regole reattive è possibile usare i dati del contatore delle prestazioni dei ruoli come parte della definizione della regola. Una regola reattiva può ad esempio monitorare l'uso della CPU di un ruolo di Azure per determinare se il blocco deve avviare un'operazione di adattamento. Il blocco legge i dati del contatore delle prestazioni dalla tabella di Diagnostica Azure denominata **WADPerformanceCountersTable** nell'archiviazione di Azure.
 
-Per impostazione predefinita, Azure non scrive i dati del contatore delle prestazioni nella tabella di Diagnostica Azure negli archivi di Azure. Pertanto, è necessario modificare i ruoli da cui raccogliere i dati del contatore delle prestazioni per salvare tali dati. Per informazioni dettagliate su come abilitare i contatori delle prestazioni in un'applicazione, vedere [Uso dei contatori delle prestazioni in Azure][].
+Per impostazione predefinita, Azure non scrive i dati del contatore delle prestazioni nella tabella di Diagnostica Azure negli archivi di Azure. Pertanto, è necessario modificare i ruoli da cui raccogliere i dati del contatore delle prestazioni per salvare tali dati. Per informazioni dettagliate su come abilitare i contatori delle prestazioni in un'applicazione, vedere [Uso dei contatori delle prestazioni in Azure][Uso dei contatori delle prestazioni in Azure].
 
 ## <a id="CreateHost"> </a>Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica
 
@@ -60,7 +60,7 @@ Per impostazione predefinita, Azure non scrive i dati del contatore delle presta
 
 ### Scaricare il pacchetto NuGet del blocco applicazione per la scalabilità automatica
 
-Prima di usare il blocco applicazione per la scalabilità automatica in un progetto di Visual Studio, è necessario ottenere i file binari del blocco applicazione per la scalabilità automatica e aggiungere riferimenti a tali file nel progetto. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Web Developer. Il pacchetto NuGet del blocco applicazione per la scalabilità automatica è la soluzione più semplice per ottenere le API del blocco. Per altre informazioni su **NuGet** e su come installare e usare l'estensione **NuGet** di Visual Studio, visitare il sito Web [NuGet][].
+Prima di usare il blocco applicazione per la scalabilità automatica in un progetto di Visual Studio, è necessario ottenere i file binari del blocco applicazione per la scalabilità automatica e aggiungere riferimenti a tali file nel progetto. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Web Developer. Il pacchetto NuGet del blocco applicazione per la scalabilità automatica è la soluzione più semplice per ottenere le API del blocco. Per altre informazioni su **NuGet** e su come installare e usare l'estensione **NuGet** di Visual Studio, visitare il sito Web [NuGet][NuGet].
 
 Dopo avere installato Gestione pacchetti NuGet, eseguire le operazioni seguenti per installare il pacchetto NuGet per la scalabilità automatica nell'applicazione:
 
@@ -119,33 +119,33 @@ In Visual Studio verificare che il file del modello del servizio venga copiato n
 
 	Nel codice seguente è illustrato un modello di servizio di esempio in un file **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
-      <subscriptions>
-        <subscription name="[subscriptionname]"
-                      certificateThumbprint="[managementcertificatethumbprint]"
-                      subscriptionId="[subscriptionid]"
-                      certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My">
-          <services>
-            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
-              <roles>
-                <role alias="AutoscalingApplicationRole"
-                      roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/>
-              </roles>
-            </service>
-          </services>
-          <storageAccounts>
-            <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
-            </storageAccount>
-          </storageAccounts>
-        </subscription>
-      </subscriptions>
-    </serviceModel>
+    	<?xml version="1.0" encoding="utf-8" ?>
+    	<serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      	<subscriptions>
+        	<subscription name="[subscriptionname]"
+                      	certificateThumbprint="[managementcertificatethumbprint]"
+                      	subscriptionId="[subscriptionid]"
+                      	certificateStoreLocation="CurrentUser"
+                      	certificateStoreName="My">
+          	<services>
+            	<service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              	<roles>
+                	<role alias="AutoscalingApplicationRole"
+                      	roleName="[targetrolename]"
+                      	wadStorageAccountName="targetstorage"/>
+              	</roles>
+            	</service>
+          	</services>
+          	<storageAccounts>
+            	<storageAccount alias="targetstorage"
+              	connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            	</storageAccount>
+          	</storageAccounts>
+        	</subscription>
+      	</subscriptions>
+    	</serviceModel>
 
-Sostituire i valori tra parentesi quadre con quelli specifici del proprio ambiente e dell'applicazione di destinazione. Per trovare molti di questi valori, è necessario accedere al [portale di gestione di Azure][].
+Sostituire i valori tra parentesi quadre con quelli specifici del proprio ambiente e dell'applicazione di destinazione. Per trovare molti di questi valori, è necessario accedere al [portale di gestione di Azure][portale di gestione di Azure].
 
 Accedere al portale di gestione.
 
@@ -196,7 +196,7 @@ Accedere al portale di gestione.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png)
  
 
-Per altre informazioni sul contenuto del file del modello del servizio, vedere l'articolo relativo all'[archiviazione delle informazioni del servizio][].
+Per altre informazioni sul contenuto del file del modello del servizio, vedere l'articolo relativo all'[archiviazione delle informazioni del servizio][archiviazione delle informazioni del servizio].
 
 ## <a id="DefineAutoscalingRules"> </a>Procedura: Definire le regole di scalabilità automatica
 
@@ -275,7 +275,7 @@ Per impostazione predefinita, il blocco applicazione per la scalabilità automat
 2.  Nel menu **Blocks** fare clic su **Add Autoscaling Settings**:  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
-3.  Espandere **Autoscaling Settings** e quindi fare clic sui tre puntini (...)     accanto a **Data Points Store Storage Account**, aggiungere il nome in **Account name** e la chiave in **Account key** per l'account di archiviazione di Azure in cui il blocco archivierà i punti dati raccolti (per informazioni su dove trovare questi valori, vedere [Procedura: Definire il modello del servizio][],quindi fare clic su **OK**:  
+3.  Espandere **Autoscaling Settings** e quindi fare clic sui tre puntini (...)     accanto a **Data Points Store Storage Account**, aggiungere il nome in **Account name** e la chiave in **Account key** per l'account di archiviazione di Azure in cui il blocco archivierà i punti dati raccolti (per informazioni su dove trovare questi valori, vedere [Procedura: Definire il modello del servizio][Procedura: Definire il modello del servizio],quindi fare clic su **OK**:  
 
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
@@ -355,17 +355,17 @@ Per informazioni dettagliate sulle operazioni eseguite dal blocco applicazione p
 
 A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applicazione per la scalabilità automatica, visitare i collegamenti seguenti per ulteriori informazioni sull'implementazione di scenari più complessi di scalabilità automatica:
 
--   [Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro][]
--   [Implementazione del comportamento di limitazione][]
--   [Informazioni sulle classificazioni delle regole e sulla riconciliazione][]
--   [Estensione e modifica del blocco applicazione per la scalabilità automatica][]
--   [Uso dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi][]
--   [Uso delle notifiche e del ridimensionamento manuale][]
--   [Definizione di gruppi di ridimensionamento][]
--   [Uso dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell][]
--   [Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure][]
--   [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica][]
--   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure][]
+-   [Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro][Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]
+-   [Implementazione del comportamento di limitazione][Implementazione del comportamento di limitazione]
+-   [Informazioni sulle classificazioni delle regole e sulla riconciliazione][Informazioni sulle classificazioni delle regole e sulla riconciliazione]
+-   [Estensione e modifica del blocco applicazione per la scalabilità automatica][Estensione e modifica del blocco applicazione per la scalabilità automatica]
+-   [Uso dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi][Uso dello stabilizzatore dell'ottimizzazione per evitare oscillazioni di alta frequenza e ottimizzare i costi]
+-   [Uso delle notifiche e del ridimensionamento manuale][Uso delle notifiche e del ridimensionamento manuale]
+-   [Definizione di gruppi di ridimensionamento][Definizione di gruppi di ridimensionamento]
+-   [Uso dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell][Uso dei cmdlet WASABiCmdlets per modificare il blocco tramite Windows PowerShell]
+-   [Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure][Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]
+-   [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica][Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]
+-   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure][Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]
 
   [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
     http://go.microsoft.com/fwlink/?LinkID=235134
@@ -378,10 +378,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Procedura: Definire il modello del servizio]: #DefineServiceModel
   [Procedura: Definire le regole di scalabilità automatica]: #DefineAutoscalingRules
   [Procedura: Configurare il blocco applicazione per la scalabilità automatica]: #Configure
-  [Uso dei contatori di prestazioni in Azure]: http://www.windowsazure.com/it-it/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
-  [Portale di gestione di Azure]: http://manage.windowsazure.com
-  [Archiviazione delle informazioni del servizio]: http://msdn.microsoft.com/it-it/library/hh680878(PandP.50).aspx		
   [Hosting del blocco applicazione per la scalabilità automatica in un ruolo di lavoro]: http://msdn.microsoft.com/it-it/library/hh680914(PandP.50).aspx
   [Implementazione del comportamento di limitazione]: http://msdn.microsoft.com/it-it/library/hh680896(PandP.50).aspx
   [Informazioni sulle classificazioni delle regole e sulla riconciliazione]: http://msdn.microsoft.com/it-it/library/hh680923(PandP.50).aspx

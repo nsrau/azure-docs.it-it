@@ -1,3 +1,4 @@
+
 La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
 
 1.  Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli sul computer in uso, quindi aprire il file di soluzione in Visual Studio.
@@ -6,7 +7,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 3.  Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-    Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
+   	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
 4.  (Facoltativo) In una soluzione universale Windows, cambiare il progetto di avvio predefinito specificando l'altra app ed eseguire di nuovo l'app.
 

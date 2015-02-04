@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sito Web .NET con MongoDB in una macchina virtuale - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un'esercitazione che illustra come usare Git per distribuire un'app ASP.NET in un sito Web di Azure connessa a MongoDB in una macchina virtuale." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sito Web .NET con MongoDB in una macchina virtuale - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un'esercitazione che illustra come usare Git per distribuire un'app ASP.NET in un sito Web di Azure connessa a MongoDB in una macchina virtuale." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -26,7 +26,7 @@ In questa esercitazione si apprenderà come:
 Per questa esercitazione è utile, ma non obbligatorio, disporre di conoscenze sui seguenti argomenti:
 
 * Driver C# per MongoDB. Per altre informazioni sull'uso di MongoDB per lo sviluppo di applicazioni C#, vedere il [centro linguistico CSharp di MongoDB][MongoC#LangCenter]. 
-* Framework applicazione Web ASP.NET. Informazioni complete sull'argomento sono disponibili nel ][ASP.NET]sito Web ASP.net[.
+* Framework applicazione Web ASP.NET. Informazioni complete sull'argomento sono disponibili nel [sito Web ASP.net][ASP.NET].
 * Framework applicazione Web ASP.NET MVC. Informazioni complete sull'argomento sono disponibili nel [sito Web MVC ASP.NET][MVCWebSite].
 * Azure. Per informazioni, visitare il sito Web di [Azure][WindowsAzure].
 
@@ -359,7 +359,7 @@ Per impostare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+Per aggiungere la possibilità di creare una nuova attività, fare clic con il pulsante destro del mouse sulla cartella *Views\Home\\*, quindi scegliere **Aggiungi**, **Visualizzazione** per aggiungere una nuova visualizzazione. Assegnare alla visualizzazione il nome *Create*. Sostituire il codice con il codice seguente:
 
 	@model MyTaskListApp.Models.MyTask
 	

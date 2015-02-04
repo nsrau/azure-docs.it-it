@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Come usare l'archiviazione di accodamento da .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Informazioni su come usare il servizio di archiviazione di accodamento di Microsoft Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Queue Service" pageTitle="Come usare l'archiviazione di accodamento da .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Informazioni su come usare il servizio di archiviazione di accodamento di Microsoft Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -81,8 +81,7 @@ per informazioni dettagliate.
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use the **queueClient** object to get a reference to the queue you want
-to use. You can create the queue if it doesn't exist.
+Utilizzare l'oggetto **queueClient**  per ottenere un riferimento alla coda da utilizzare. È possibile creare la coda se non esiste già.
 
     // Retrieve a reference to a queue
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
@@ -278,7 +277,7 @@ per informazioni su come eseguire attività di archiviazione più complesse.
   [Procedura: Usare opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
   [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
   [Procedura: Eliminare una coda]: #delete-queue
-  [Scaricare e installare Azure SDK per .NET].: /it-it/develop/net/
+  [Scaricare e installare Azure SDK per .NET]: /it-it/develop/net/
   [Informazioni di riferimento sulla libreria client .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creazione di un progetto Azure in Visual Studio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Come usare gli argomenti del Bus di servizio (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="Come usare gli argomenti del Bus di servizio (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
 
@@ -37,16 +37,15 @@ La sottoscrizione a un argomento è simile a una coda virtuale che riceve copie 
 
 Gli argomenti e le sottoscrizioni del bus di servizio garantiscono scalabilità, consentendo di elaborare grandi quantità di messaggi tra un numero elevato di utenti e applicazioni.
 
-## <a id="create-a-service-namespace"</a>Create a Service Namespace
+## <a id="create-a-service-namespace"</a>Creare uno spazio dei nomi servizio
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
-your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio. Che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione. È necessario creare lo spazio dei nomi attraverso l'interfaccia della riga di comando perché il portale non crea il bus di servizio con una connessione ACS.
 
-To create a namespace:
+Per creare uno spazio dei nomi:
 
-1. Open an Azure Powershell console.
+1. Aprire una console di Azure PowerShell.
 
-2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+2. Digitare il comando per creare uno spazio dei nomi del bus di servizio di Azure come illustrato di seguito. Fornire un valore dello spazio dei nomi e specificare la stessa area dell’applicazione. 
 
       New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
 

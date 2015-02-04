@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Come creare e configurare un database SQL di Azure - Esercitazione di Azure" metaKeywords="Create Azure SQL Database, Configure Azure SQL Database" description="Informazioni su come creare e configurare un database SQL di Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Come creare e configurare un database SQL di Azure - Esercitazione di Azure" metaKeywords="Create Azure SQL Database, Configure Azure SQL Database" description="Informazioni su come creare e configurare un database SQL di Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,13 +6,13 @@
 
 In questo argomento verrà creato e configurato un database SQL di Azure usando il portale di gestione di Azure. In questo flusso di lavoro verrà creato prima il server. Questo approccio può essere preferibile se si dispone già di alcuni database di SQL Server da caricare.
 
-##Sommario##
+## Sommario##
 * [Procedura: Creare un server logico](#createLogical)
 * [Procedura: Configurare il firewall per il server logico](#configFWLogical)
 
 <h2><a id="createLogical"></a>Procedura: Creare un server logico</h2>
 
-1. Accedere al portale di gestione[](http://manage.windowsazure.com).
+1. Accedere al [portale di gestione](http://manage.windowsazure.com).
 
 2. Nella parte inferiore della pagina fare clic su **NUOVO**.
 
@@ -28,7 +28,7 @@ In questo argomento verrà creato e configurato un database SQL di Azure usando 
 
 6. Nelle impostazioni del server di database SQL****, immettere un nome di accesso composto da una sola parola senza spazi. 
 
-Nel database SQL viene usata l'autenticazione SQL tramite una connessione crittografata. Con il nome specificato verrà creato un nuovo account di accesso con autenticazione di SQL Server assegnato al ruolo predefinito del server sysadmin. 
+	Nel database SQL viene usata l'autenticazione SQL tramite una connessione crittografata. Con il nome specificato verrà creato un nuovo account di accesso con autenticazione di SQL Server assegnato al ruolo predefinito del server sysadmin. 
 
 	L'account di accesso non può essere un indirizzo di posta elettronica, un account utente Windows o un Windows Live ID. In un database SQL non sono supportate né l'autenticazione basata sulle attestazioni né l'autenticazione di Windows.
 	
@@ -40,13 +40,13 @@ Nel database SQL viene usata l'autenticazione SQL tramite una connessione critto
 
 9. Al termine, fare clic sul segno di spunta nella parte inferiore della pagina.
 
-###Nome del server generato automaticamente
+### Nome del server generato automaticamente
 
 Si noti che non è stato specificato un nome di server. Il database SQL genera automaticamente il nome del server per garantire che non vi siano voci DNS duplicate. Il nome del server è una stringa alfanumerica di dieci caratteri. Il nome del server di database SQL non è modificabile.
 
 Nel passaggio successivo si configurerà il firewall in modo da consentire l'accesso alle connessioni da applicazioni in esecuzione nella rete.
 
-##Procedura: Configurare il firewall per il server logico
+## Procedura: Configurare il firewall per il server logico
 
 1. Nel [portale di gestione](http://manage.windowsazure.com), scegliere **Database SQL**, quindi **Server**
 

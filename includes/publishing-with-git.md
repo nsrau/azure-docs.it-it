@@ -1,4 +1,4 @@
-﻿# Pubblicazione in Siti Web di Azure con Git
+# Pubblicazione in Siti Web di Azure con Git
 
 Siti Web di Azure supporta la distribuzione continua da strumenti di controllo del codice sorgente e di repository come BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. È possibile usare questi strumenti per gestire il contenuto e il codice del sito Web, quindi effettuare il push delle modifiche al sito in modo rapido e immediato quando è necessario.
 
@@ -247,7 +247,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: Impossibile accedere a '[URLsito]': Impossibile connettersi a [IndirizzoScm]
+**Sintomo**: Unable to access '[siteURL]':Failed to connect to [scmAddress]
 
 **Causa**: questo errore può verificarsi se il sito Web non è in esecuzione.
 
@@ -256,7 +256,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: Non è possibile risolvere il nome dell'host 'nomehost'
+**Sintomo**: Couldn't resolve host 'hostname'
 
 **Causa**: questo errore può verificarsi se le informazioni sull'indirizzo immesse durante la creazione del repository remoto 'azure' non sono corrette.
 
@@ -264,7 +264,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: non sono stati trovati riferimenti in comune e non ne sono stati specificati. Non è stata effettuata alcuna azione. Forse è necessario specificare un ramo, ad esempio 'master'.
+**Sintomo**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
 
 **Causa**: questo errore può verificarsi se non si specifica un ramo quando si effettua un'operazione push in Git e non è stato impostato il valore push.default usato da Git.
 
@@ -274,7 +274,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: non sono state trovate corrispondenze per src refspec [nome_ramo].
+**Sintomo**: src refspec [branchname] does not match any.
 
 **Causa**: questo errore può verificarsi se si tenta di effettuare il push in un ramo diverso dal master nel repository remoto 'azure'.
 
@@ -284,7 +284,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: le modifiche vengono sottoposte a commit nel repository remoto ma il sito Web non viene aggiornato.
+**Sintomo**: Error - Changes commited to remote repository but your website not updated.
 
 **Causa**: questo errore può verificarsi se si distribuisce un'applicazione Node.js contenente un file package.json che specifica altri moduli necessari.
 

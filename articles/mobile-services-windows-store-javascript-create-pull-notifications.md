@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" metaKeywords="" description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" metaKeywords="" description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Definizione di un'API personalizzata che supporta le notifiche periodiche
@@ -66,7 +66,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	Questo codice restituisce le prime tre voci non completate dalla tabella TodoItem, quindi le carica in un oggetto JSON passato alla funzione **wns**.**createTileSquareText01**. Questa funzione restituisce l'XML del modello di riquadro seguente:
 
 		<tile>
 			<visual>

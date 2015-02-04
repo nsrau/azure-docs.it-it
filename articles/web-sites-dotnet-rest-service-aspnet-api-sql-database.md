@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Servizio REST .NET usando l'API Web - Esercitazione su Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un sito Web di Azure tramite Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle="Servizio REST .NET usando l'API Web - Esercitazione su Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un sito Web di Azure tramite Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
@@ -266,7 +266,7 @@ Creare innanzitutto un semplice modello di dati nel codice.
     		}
 		}
 
-La classe ]Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per ulteriori informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
+La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per ulteriori informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
 
 ### Creare pagine Web che consentono agli utenti dell'app di usare i contatti
 
@@ -571,7 +571,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-To:
+Con:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -714,7 +714,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
+1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -881,7 +881,7 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
 [Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Add XSRF Protection]: #xsrf
+[Aggiungere la protezione XSRF]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png

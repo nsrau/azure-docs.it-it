@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Come usare le code del Bus di servizio (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="Come usare le code del Bus di servizio (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,12 +14,12 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configurare l'applicazione per l'uso del bus di servizio
+## Configurare l'applicazione per l'uso del bus di servizio
 
 Quando si crea un'applicazione che utilizza il bus di servizio, è necessario aggiungere un riferimento all'assembly del bus di servizio e includere gli
 spazi dei nomi corrispondenti.
 
-##Recupero del pacchetto NuGet del bus di servizio
+## Recupero del pacchetto NuGet del bus di servizio
 
 Il pacchetto **NuGet** del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express 2012 per il Web.
 
@@ -33,12 +33,12 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
 È ora possibile scrivere codice per il bus di servizio.
 
 
-##Come configurare una stringa di connessione per il bus di servizio
+## Come configurare una stringa di connessione per il bus di servizio
 
 Per archiviare endpoint e credenziali, nel bus di servizio viene usata una stringa di connessione. È possibile inserire la stringa di connessione in un file di configurazione, anziché impostarla come hardcoded nel codice:
 
-- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione dei servizi di Azure (file '*.csdef' e '*.cscfg').
-- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file 'web.config'.
+- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione dei servizi di Azure (file `*.csdef` e `*.cscfg`).
+- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file `web.config`.
 
 In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo 'CloudConfigurationManager.GetSetting', come illustrato più avanti in questa guida.
 
@@ -84,7 +84,7 @@ Con Siti Web o Macchine virtuali è consigliabile usare il sistema di configuraz
 
 Usare i valori relativi ad autorità emittente e chiave recuperati dal portale di gestione come descritto nella sezione precedente.
 
-##Come creare una coda
+## Come creare una coda
 
 Per eseguire operazioni di gestione per le code del bus di servizio, è possibile usare la classe **NamespaceManager**. La classe **NamespaceManager** fornisce i metodi per creare, enumerare ed eliminare le code. 
 
@@ -127,7 +127,7 @@ Per il metodo **CreateQueue** sono disponibili overload che consentono di ottimi
 
 **Nota:** è possibile usare il metodo **QueueExists** su oggetti **NamespaceManager** per verificare se in uno spazio dei nomi servizio esiste già una coda con il nome specificato.
 
-##Come inviare messaggi a una coda
+## Come inviare messaggi a una coda
 
 Per inviare un messaggio a una coda del bus di servizio, nell'applicazione viene usata la stringa di connessione per creare un oggetto **QueueClient**.
 
@@ -158,7 +158,7 @@ I messaggi inviati e ricevuti dalle code del bus di servizio sono istanze della 
 
 Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB.
 
-##Come ricevere messaggi da una coda
+## Come ricevere messaggi da una coda
 
 Il modo più semplice per ricevere i messaggi da una coda consiste nell'usare un oggetto **QueueClient**. È possibile usare tali oggetti in due diverse modalità: **ReceiveAndDelete** e **PeekLock**.
 
@@ -195,7 +195,7 @@ L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modali
        }
     } 
 
-##Come gestire arresti anomali e messaggi illeggibili dell'applicazione
+## Come gestire arresti anomali e messaggi illeggibili dell'applicazione
 
 Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevente non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **Abandon**, anziché **Complete**, sul messaggio ricevuto. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa applicazione consumer o di un'altra.
 
@@ -203,7 +203,7 @@ Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazi
 
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima dell'invio della richiesta **Complete**, il messaggio verrà recapitato all'applicazione al riavvio del sistema. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
-##Passaggi successivi
+## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i collegamenti seguenti per altre informazioni.
 

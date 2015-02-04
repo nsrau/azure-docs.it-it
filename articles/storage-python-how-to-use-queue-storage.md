@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Come usare il servizio di accodamento (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda. Gli esempi sono scritti in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Come usare il servizio di accodamento (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda. Gli esempi sono scritti in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Come usare il servizio di archiviazione di accodamento di Python In questa guida viene illustrato come eseguire scenari comuni tramite il servizio di archiviazione di accodamento di Microsoft Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
+# Come usare il servizio di archiviazione di accodamento di Python 
+In questa guida viene illustrato come eseguire scenari comuni tramite il servizio di archiviazione di accodamento di Microsoft Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per altre informazioni sulle code, fare riferimento alla sezione [Passaggi successivi][].
 
 ## Sommario
 

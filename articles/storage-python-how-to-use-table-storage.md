@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Informazioni su come usare il Servizio tabelle da Python per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Informazioni su come usare il Servizio tabelle da Python per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Come usare il servizio di archiviazione tabelle di Python In questa guida viene illustrato come eseguire scenari comuni tramite il servizio di archiviazione tabelle di Microsoft Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono la **creazione e l'eliminazione di una tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+# Come usare il servizio di archiviazione tabelle di Python 
+In questa guida viene illustrato come eseguire scenari comuni tramite il servizio di archiviazione tabelle di Microsoft Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono la **creazione e l'eliminazione di una tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
 
 ## Sommario
 
@@ -46,8 +47,7 @@ Il codice seguente consente di creare un oggetto **TableService** usando il nome
 
 ## <a name="add-entity"> </a>Come aggiungere un'entità a una tabella
 
-Per aggiungere un'entità, creare innanzitutto un dizionario che definisca i nomi e i valori della proprietà dell'entità. Si noti che per ogni entità è necessario specificare un oggetto **PartitionKey** e **RowKey**. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente di altre proprietà. Il sistema usa **PartitionKey** per distribuire automaticamente le entità della tabella su molti nodi di archiviazione.
-Le entità con lo stesso oggetto **PartitionKey**vengono archiviate nello stesso nodo. **RowKey** è l'ID univoco dell'entità all'interno della partizione cui appartiene.
+Per aggiungere un'entità, creare innanzitutto un dizionario che definisca i nomi e i valori della proprietà dell'entità. Si noti che per ogni entità è necessario specificare un oggetto **PartitionKey** e **RowKey**. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente di altre proprietà. Il sistema usa **PartitionKey** per distribuire automaticamente le entità della tabella su molti nodi di archiviazione. Le entità con lo stesso oggetto **PartitionKey**vengono archiviate nello stesso nodo. **RowKey** è l'ID univoco dell'entità all'interno della partizione cui appartiene.
 
 Per aggiungere un'entità alla tabella, passare un oggetto dizionario al metodo **insert\_entity**.
 
@@ -151,6 +151,6 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle,
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Visitare il blog del team del servizio Archiviazione di Azure].: http://blogs.msdn.com/b/windowsazurestorage/
+  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
 <!--HONumber=35.1-->

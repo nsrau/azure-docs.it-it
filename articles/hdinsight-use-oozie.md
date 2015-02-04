@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Usare Oozie di Hadoop in HDInsight | Azure" metaKeywords="" description="Usare Oozie di Hadoop in HDInsight, una soluzione per Big Data. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Usare Oozie di Hadoop in HDInsight | Azure" metaKeywords="" description="Usare Oozie di Hadoop in HDInsight, una soluzione per Big Data. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
@@ -31,7 +31,7 @@ Il flusso di lavoro che verrà implementato contiene due azioni:
 		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
 		...
 
-	The Hive script output is similar to:
+	L'output dello script Hive è simile al seguente:
 	
 		[DEBUG] 434
 		[ERROR] 3
@@ -462,7 +462,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 	    $oozieServerSatus = $jsonResponse[0].("systemMode")
 	    Write-Host "Oozie server status is $oozieServerSatus..."
 	
-5. Append the following to the script. This part creates and starts an Oozie job:	
+5. Aggiungere il codice seguente allo script. Questa parte consente di creare e avviare un processo Oozie:	
 
 	    # create Oozie job
 	    Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -479,7 +479,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 	    $clusterUriStartJob = "https://$clusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?action=start"
 	    $response = Invoke-RestMethod -Method Put -Uri $clusterUriStartJob -Credential $creds | Format-Table -HideTableHeaders #-debug
 		
-6. Append the following to the script. This part checks the Oozie job status:		
+6. Aggiungere il codice seguente allo script. Questa parte consente di verificare lo stato del processo Oozie:		
 
 	    # get job status
 	    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until the job metadata is populated in the Oozie metastore..." -ForegroundColor Green

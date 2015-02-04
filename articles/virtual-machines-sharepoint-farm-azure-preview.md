@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="Farm di SharePoint Server" description="Descrive la nuova funzionalità Farm di SharePoint Server disponibile nel portale di anteprima di Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="Farm di SharePoint Server" description="Descrive la nuova funzionalità Farm di SharePoint Server disponibile nel portale di anteprima di Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#Farm di SharePoint Server#
+# Farm di SharePoint Server#
 
 Farm di SharePoint Server è una funzionalità del portale di anteprima di Microsoft Azure che crea automaticamente una farm di SharePoint Server 2013 preconfigurata. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
 
@@ -47,7 +47,7 @@ Note:
 - Il portale di anteprima di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN da sito a sito alla rete dell'organizzazione. 
 - È possibile amministrare questi server tramite connessioni Desktop remoto.
 
-##Procedura per la configurazione##
+## Procedura per la configurazione##
 
 Per creare la farm di Sharepoint con la funzionalità Farm di SharePoint, eseguire le operazioni seguenti:
 
@@ -63,7 +63,7 @@ Per creare la farm di Sharepoint con la funzionalità Farm di SharePoint, esegui
 10. Per specificare la località (area geografica), fare clic sulla freccia.
 11. Al termine dell'operazione, scegliere **Crea**.
 
-##Gestione risorse di Azure##
+## Gestione risorse di Azure##
 
 La funzionalità Farm di SharePoint Server usa Gestione risorse di Azure e script per creare automaticamente le configurazioni dell'infrastruttura e dei server per le farm di SharePoint. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](http://azure.microsoft.com/it-it/documentation/articles/powershell-azure-resource-manager/).
 

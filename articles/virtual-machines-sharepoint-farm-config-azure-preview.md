@@ -1,9 +1,9 @@
-﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="Dettagli di configurazione della farm di SharePoint Server" description="Descrive la configurazione predefinita delle farm di SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="Dettagli di configurazione della farm di SharePoint Server" description="Descrive la configurazione predefinita delle farm di SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 
-#Dettagli di configurazione della farm di SharePoint Server#
+# Dettagli di configurazione della farm di SharePoint Server#
 
 Farm di SharePoint Server è una funzionalità del portale Microsoft Azure Preview che crea automaticamente una farm di SharePoint Server 2013 preconfigurata. Ci sono due configurazioni della farm:
 
@@ -14,7 +14,7 @@ Le sezioni seguenti illustrano i dettagli di configurazione per ogni farm.
 
 Per altre informazioni, vedere [Farm di SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Farm di SharePoint di base##
+## Farm di SharePoint di base##
 
 La farm di SharePoint di base è costituita da tre macchine virtuali nella configurazione seguente:
 
@@ -57,7 +57,7 @@ Ecco i dettagli di configurazione:
 	-	Passphrase farm di SharePoint: specificata durante la configurazione iniziale.
 
 
-##Disponibilità elevata##
+## Disponibilità elevata##
 
 La farm di SharePoint a disponibilità elevata è costituita da nove macchine virtuali nella configurazione seguente:
 

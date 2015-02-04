@@ -1,4 +1,4 @@
-﻿
+
 
 1.  In Visual Studio aprire il progetto modificato durante l'esercitazione **Introduzione ai dati**.
 
@@ -44,7 +44,7 @@
                 });
         };
 
-Questa query ignora i primi tre risultati e restituisce i tre risultati successivi. In sostanza, si tratta della seconda "pagina" di dati le cui dimensioni corrispondono a tre voci.
+   	Questa query ignora i primi tre risultati e restituisce i tre risultati successivi. In sostanza, si tratta della seconda "pagina" di dati le cui dimensioni corrispondono a tre voci.
 
     <div class="dev-callout"><b>Nota</b>
     <p>Nell'esercitazione, lo scenario è stato semplificato con il passaggio di valori di paging hardcoded ai metodi <strong>Take</strong> e <strong>Skip</strong>. In un'app reale è possibile usare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive.  È anche possibile chiamare il metodo <strong>includeTotalCount</strong> per ottenere il conteggio totale degli elementi disponibili sul server, insieme ai dati di paging.</p>

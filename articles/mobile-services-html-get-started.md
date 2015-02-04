@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -22,7 +22,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 <div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
-###Requisiti aggiuntivi
+### Requisiti aggiuntivi
 
 + Per completare questa esercitazione, è necessario che nel computer locale sia in esecuzione uno dei server Web seguenti:
 
@@ -151,7 +151,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
-[ultima versione di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
+[versione più recente di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
 [Condivisione di risorse tra le origini]: http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" metaKeywords="" description="Informazioni su come creare ed esportare processi nel portale di gestione di Azure per trasferire dati all'archiviazione BLOB." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" metaKeywords="" description="Informazioni su come creare ed esportare processi nel portale di gestione di Azure per trasferire dati all'archiviazione BLOB." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -264,8 +264,8 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 - Per le aree geografiche in Asia è supportato solo [DHL](http://www.dhl-welcome.com/Tutorial/). Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
 
 	<div class="dev-callout">
-	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<strong>Importante:</strong>
+	<p>È necessario fornire il numero di spedizione per il servizio Importazione/Esportazione di Azure o il processo non potrà essere elaborato.</p>
 	</div>
 
 **Esistono costi associati alla spedizione di ritorno?**

@@ -1,4 +1,4 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="Livelli di coerenza in DocumentDB" description="DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+<properties title="Consistency levels in DocumentDB" pageTitle="Livelli di coerenza in DocumentDB" description="DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
@@ -39,13 +39,13 @@ Differita|	Selezionare tra assoluta, con obsolescenza associata, sessione o fina
 Come per le richieste di lettura, è possibile ridurre il livello di coerenza di una specifica richiesta di query specificando l'intestazione di richiesta [x-ms-consistency-level].  
 
 ##Riferimenti
--	Doug Terry. Replicated Data Consistency explained through baseball.   
+-	Doug Terry. Dati replicati Coerenza spiegato attraverso il baseball.   
 [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--	Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
+-	Doug Terry. Garanzie sessione per debolmente coerenti dati replicati.   
 [http://www2.parc.com/csl/projects/bayou/pubs/sg-pdis-94/www/SessionGuaranteesPDIS_1.html](http://www2.parc.com/csl/projects/bayou/pubs/sg-pdis-94/www/SessionGuaranteesPDIS_1.html)
--	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story".   
+-	Daniel Abadi. Coerenza Compromessi in Modern Distributed Database Systems design: CAP è solo una parte della storia ".   
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica Bounded staleness (PBS) per pratiche quorum parziali.   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventual Consistent - Revisited.    
+-	Werner Vogels. Eventuale coerente - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)

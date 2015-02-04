@@ -25,8 +25,8 @@ Il servizio tabelle contiene i componenti seguenti:
 ![Table1][Table1]
 
 -   **Formato dell'URL:** il codice fa riferimento alle tabelle in un account usando il formato
-    di indirizzo seguente:
-    http://`<storage account>`.table.core.windows.net/`<table>`
+    di indirizzo seguente:   
+    http://`<storage account>`.table.core.windows.net/`<table>`  
 
     È possibile fare riferimento direttamente alle tabelle di Azure usando questo indirizzo con
     il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org]

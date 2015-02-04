@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Come usare le code del bus di servizio (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="Come usare le code del bus di servizio (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
@@ -145,7 +145,7 @@ tentativi di recapito.
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare
 i collegamenti seguenti per altre informazioni.
 
--   Vedere il riferimento in MSDN: [Code, argomenti e sottoscrizioni][]
+-   Vedere il riferimento in MSDN: [Code, argomenti e sottoscrizioni.][]
 
   [Passaggi successivi]: #next-steps
   [Informazioni sulle code del bus di servizio]: #what-are-service-bus-queues

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Creare un sito Web che usa MongoDB in MongoLab (.NET)" metaKeywords="" description="Informazioni su come creare un sito Web di Azure che archivia i dati in un database MongoDB ospitato da MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Creare un sito Web che usa MongoDB in MongoLab (.NET)" metaKeywords="" description="Informazioni su come creare un sito Web di Azure che archivia i dati in un database MongoDB ospitato da MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
 
@@ -230,7 +230,7 @@ Qui si accedere a una variabile di ambiente che è possibile configurare in segu
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+  Non vi sono modifiche da apportare qui. È sufficiente sapere che questo è il metodo tramite cui si ottiene un oggetto MongoCollection per l'esecuzione di inserimenti, aggiornamenti e query, come illustrato di seguito per **GetAllNotes()**:
 
         collection.FindAll().ToList<Note>();
 

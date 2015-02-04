@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Come monitorare i siti Web - Gestione servizi di Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Informazioni su come monitorare i siti Web di Azure usando la pagina di monitoraggio nel portale di gestione." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="Come monitorare i siti Web - Gestione servizi di Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Informazioni su come monitorare i siti Web di Azure usando la pagina di monitoraggio nel portale di gestione." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -85,10 +85,10 @@ Nella sezione **diagnostica applicazioni** della pagina di gestione **Configura*
 Per altre informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione](https://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/).
 
 <div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<b>NOTA</b> 
+<p>La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di un client di archiviazione per visualizzare i dati di log, risulta più utile quando si prevede di utilizzare un servizio o un'applicazione che riconosce come leggere ed elaborare i dati direttamente dall'archivio tabelle o BLOB di Azure. La registrazione nel file system genera file che possono essere scaricati nel computer locale mediante FTP o altre utilità descritte più avanti in questa sezione.
 
 <div class="dev-callout"> 
 	<b>Nota</b> 

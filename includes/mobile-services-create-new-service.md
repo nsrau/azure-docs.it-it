@@ -20,8 +20,8 @@ Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
     <div class="dev-callout">
 
-    **Nota**
-    Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riusare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa area del nuovo servizio mobile si dispone già di un database, è possibile scegliere **Use existing Database** e quindi selezionare questo database. Non è consigliabile usare un database in un'area diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate.
+    <strong>Nota</strong>
+    <p>Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riusare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa area del nuovo servizio mobile si dispone già di un database, è possibile scegliere <b>Use existing Database</b> e quindi selezionare questo database. Non è consigliabile usare un database in un'area diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate.</p>
 
     </div>
 
@@ -31,9 +31,9 @@ Per creare un nuovo servizio mobile, attenersi alla procedura seguente.
 
     <div class="dev-callout">
 
-    **Nota**
-    Se la password specificata non soddisfa i requisiti minimi oppure si verifica una mancata corrispondenza, verrà visualizzato un avviso.
-    È consigliabile prendere nota del nome di accesso e della password dell'amministratore specificati. Queste informazioni saranno infatti necessarie per riusare l'istanza o il server di database SQL in futuro.
+    <strong>Nota</strong>
+    <p>Se la password specificata non soddisfa i requisiti minimi oppure si verifica una mancata corrispondenza, verrà visualizzato un avviso.
+    È consigliabile prendere nota del nome di accesso e della password dell'amministratore specificati. Queste informazioni saranno infatti necessarie per riusare l'istanza o il server di database SQL in futuro.</p>
 
     </div>
 

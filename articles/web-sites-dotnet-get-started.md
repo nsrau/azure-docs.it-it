@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione a Siti Web di Azure per ASP.NET" metaKeywords="" description="Questa esercitazione illustra come creare un progetto Web ASP.NET in Visual Studio 2013 e distribuirlo in un sito Web di Azure. Consente di creare ed eseguire un'app nel cloud in meno di 15 minuti." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Introduzione a Siti Web di Azure per ASP.NET" metaKeywords="" description="Questa esercitazione illustra come creare un progetto Web ASP.NET in Visual Studio 2013 e distribuirlo in un sito Web di Azure. Consente di creare ed eseguire un'app nel cloud in meno di 15 minuti." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -15,7 +15,7 @@ Si apprenderà come:
 
 Per completare l'esercitazione, è necessario un account Azure.
 
-* È possibile [aprire un account Azure gratuitamente].(/it-it/pricing/free-trial/?WT.mc_id=A261C142F) - Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.
+* È possibile [aprire un account Azure gratuitamente](/it-it/pricing/free-trial/?WT.mc_id=A261C142F) - Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.
 * È possibile [attivare i benefici della sottoscrizione MSDN](/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.</li>
 
 > [WACOM.NOTE]
@@ -220,7 +220,7 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 	![Changed site deployed](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**Suggerimento:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic ** per una distribuzione ancora più rapida. Fare clic su **Visualizza** > **Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**. 
+**Suggerimento:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza** > **Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**. 
 
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
@@ -228,7 +228,7 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 Il [portale di gestione di Azure](/it-it/services/management-portal/) è un'interfaccia Web che consente di gestire e monitorare i servizi di Azure, ad esempio il sito Web appena creato. In questa sezione dell'esercitazione verranno esaminate alcune delle operazioni che è possibile eseguire nel portale.
 
-1. Nel browser passare a [http://manage.windowsazure.com] e accedere con le credenziali di Azure.
+1. Nel browser passare a [http://manage.windowsazure.com]() e accedere con le credenziali di Azure.
 
 	Il portale visualizzerà un elenco di servizi di Azure.
 
@@ -270,11 +270,11 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	In questa esercitazione è stata illustrata la procedura più rapida per creare un sito Web e distribuirlo con un'unica operazione. Per una panoramica su altre modalità di distribuzione, tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un sito Web di Azure](/it-it/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio è anche in grado di generare script di Windows PowerShell per automatizzare la distribuzione. Per altre informazioni, vedere l'articolo relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* How to manage a website in Visual Studio
+* Come gestire un sito Web in Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	Per informazioni sulle funzioni di gestione siti attività che è possibile eseguire in **Esplora server**, vedere [Risoluzione dei problemi dei siti Web di Azure in Visual Studio](/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 * Come risolvere i problemi di un sito Web
 

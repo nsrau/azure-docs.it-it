@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -33,7 +33,7 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio t
 
 ## <a name="create-app"> </a>Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o [Sito Web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -186,7 +186,7 @@ L'oggetto `result` per operazioni di aggiornamento riuscite conterrà l'**Etag**
 ## <a name="change-entities"> </a>Come usare gruppi di entità
 È talvolta consigliabile inviare più operazioni in un batch per garantire l'elaborazione atomica da parte del server. A questo scopo, usare la classe **TableBatch** per creare un batch e quindi usare il metodo **executeBatch** di **TableService** per eseguire le operazioni in batch.
 
- The following example demonstrates submitting two entities in a batch:
+ Nell'esempio seguente viene dimostrato l'invio di due entità in un batch:
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -430,7 +430,7 @@ per informazioni su come eseguire attività di archiviazione più complesse.
 
   [Servizio cloud Node.js]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Visitare il blog del team del servizio Archiviazione di Azure].: http://blogs.msdn.com/b/windowsazurestorage/
+  [Visitare il blog del team del servizio Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Servizio cloud Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/

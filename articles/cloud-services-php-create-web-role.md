@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creare ruoli Web e di lavoro" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creare ruoli Web e di lavoro" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -18,7 +18,7 @@ In questa guida verrà descritto come creare ruoli Web o di lavoro PHP in un amb
 * [Procedura: Pubblicare l'applicazione](#Publish) 
 
 ##<a name="WhatIs"></a>Cosa sono i ruoli Web e di lavoro PHP?
-In Azure sono disponibili tre modelli di calcolo per l'esecuzione di applicazioni: [Siti Web di Azure][execution model-web sites], [Macchine virtuali di Azure][execution model-vms] e [Servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la *piattaforma distribuita come servizio (PaaS)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
+In Azure sono disponibili tre modelli di calcolo per l'esecuzione di applicazioni: [Siti Web di Azure][modello di esecuzione-Siti Web], [Macchine virtuali di Azure][execution model-vms] e [Servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la *piattaforma distribuita come servizio (PaaS)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
 
 Per altre informazioni, vedere la pagina relativa alla [definizione di servizio cloud].
 
@@ -194,7 +194,7 @@ L'output sarà simile al seguente:
 	Role is running at http://127.0.0.1:81
 	Started
 
-Per visualizzare l'applicazione in esecuzione nell'emulatore, aprire un Web browser e immetter l'indirizzo locale indicato nell'output ('http://127.0.0.1:81' nell'output di esempio sopra riportato).
+Per visualizzare l'applicazione in esecuzione nell'emulatore, aprire un Web browser e immetter l'indirizzo locale indicato nell'output (`http://127.0.0.1:81` nell'output di esempio sopra riportato).
 
 Per arrestare gli emulatori, eseguire il comando seguente:
 
@@ -205,18 +205,18 @@ Per arrestare gli emulatori, eseguire il comando seguente:
 Per pubblicare l'applicazione è necessario prima importare le impostazioni di pubblicazione con il cmdlet **Import-PublishSettingsFile**, quindi sarà possibile pubblicare l'applicazione con il cmdlet **Publish-AzureServiceProject**. Informazioni dettagliate sull'uso di ciascuno dei cmdlet sono disponibili rispettivamente nelle sezioni [Procedura: Importazione delle impostazioni di pubblicazione] e [Procedura: Distribuzione di un servizio cloud in Azure].
 
 [modello di esecuzione-Siti Web]: /it-it/develop/net/fundamentals/compute/#WebSites
-[modello di esecuzione-vms]: /it-it/develop/net/fundamentals/compute/#VMachine
-[modello di esecuzione-Servizi cloud]: /it-it/develop/net/fundamentals/compute/#CloudServices
+[execution model-vms]: /it-it/develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: /it-it/develop/net/fundamentals/compute/#CloudServices
 [Azure SDK per PHP]: /it-it/develop/php/common-tasks/download-php-sdk/
-[installare ps ed emulatori]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[Informazioni sul servizio cloud]: /it-it/manage/services/cloud-services/what-is-a-cloud-service/
-[definizione del servizio (file con estensione csdef)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx
+[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
+[definizione di servizio cloud]: /it-it/manage/services/cloud-services/what-is-a-cloud-service/
+[definizione del servizio (con estensione csdef)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx
 [configurazione del servizio (file con estensione cscfg)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/it-it/sqlserver/aa937733.aspx
-[driver sqlsrv]: http://php.net/sqlsrv
+[sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Procedura: Importare le impostazioni di pubblicazione]: /it-it/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Procedura: Distribuire un servizio cloud in Azure].: /it-it/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+[Procedura: Importazione delle impostazioni di pubblicazione]: /it-it/develop/php/how-to-guides/powershell-cmdlets/
+[Procedura: Distribuzione di un servizio cloud in Azure]: /it-it/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
 <!--HONumber=35.1-->

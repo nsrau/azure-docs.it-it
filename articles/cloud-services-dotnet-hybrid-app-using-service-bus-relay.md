@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="Applicazione ibrida cloud/locale (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Applicazione ibrida cloud/locale (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,15 +152,12 @@ spazio dei nomi.
 1.  Fare clic sullo spazio dei nomi servizio nella finestra principale.   
 
 	![][39]
-  
 
 2.  Fare clic su **Informazioni di connessione**.   
 
 	![][40]
 
-
 3.  Nel riquadro **Accedi a informazioni di connessione** individuare le voci **Autorità di certificazione predefinita** e **Chiave predefinita**.   
-    
 
 4.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
 
@@ -413,8 +410,8 @@ visualizzare i dati recuperati dal servizio dei prodotti.
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  Nel file HomeController.cs in Visual Studio sostituire la definizione dello
+    spazio dei nomi esistente con il codice seguente:
 
         namespace ProductsWeb.Controllers
         {

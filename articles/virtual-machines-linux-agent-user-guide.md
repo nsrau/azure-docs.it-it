@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="Guida dell'utente dell'agente Linux per Azure" metaKeywords="" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guida dell'utente dell'agente Linux per Azure" metaKeywords="" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -23,7 +23,7 @@ L'agente Linux di Azure (waagent) gestisce l'interazione tra una macchina virtua
   - Esegue la formattazione e il montaggio del disco risorse
   - Configura l'area di swap
 * **Rete**
-  - Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma.
+  - Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma
   - Garantisce la stabilità del nome dell'interfaccia di rete
 * **Kernel**
   - Configura la piattaforma virtuale NUMA
@@ -99,7 +99,7 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 - install: Consente di installare manualmente l'agente
  * Verifica il sistema per le dipendenze necessarie
 
- * Crea lo script di inizializzazione (/etc/init.d/waagent), il file di configurazione (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * Crea lo script di inizializzazione SysV (/etc/init.d/waagent), il file di configurazione logrotate (/etc/logrotate.d/waagent) e configura l'immagine per l'esecuzione dello script di inizializzazione all'avvio
 
  * Scrive il file di configurazione di esempio in /etc/waagent.conf
 

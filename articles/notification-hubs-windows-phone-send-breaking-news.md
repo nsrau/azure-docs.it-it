@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Phone)" metaKeywords="" description="Informazioni su come usare hub di notifica di Azure per inserire tag nelle registrazioni per inviare le ultime notizie a un'app di Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Phone)" metaKeywords="" description="Informazioni su come usare hub di notifica di Azure per inserire tag nelle registrazioni per inviare le ultime notizie a un'app di Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
 
@@ -7,24 +7,24 @@
     	<a href="/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/it-it/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone 8.0/8.1 Silverlight app. If you are targeting Windows Store or Windows Phone 8.1 app, please refer to to the [Windows Universal](/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/) version. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
+Questo argomento descrive come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Windows Phone 8.0/8.1 Silverlight. Se si sviluppano app per Windows Store o Windows Phone 8.1, fare riferimento alla versione [Windows Universal](/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via.
 
-Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Guidance]. 
+È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. For more information about tags, refer to [Informazioni aggiuntive su Hub di notifica]. 
 
-This tutorial walks you through these basic steps to enable this scenario:
+In questa esercitazione vengono descritte le operazioni di base per abilitare questo scenario:
 
-1. [Add category selection to the app]
-2. [Register for notifications]
-3. [Send notifications from your back-end]
-4. [Run the app and generate notifications]
+1. [Aggiungere la selezione delle categorie all'app]
+2. [Registrarsi per le notifiche]
+3. [Inviare notifiche dal back-end]
+4. [Eseguire l'app e generare notifiche]
 
-This topic builds on the app you created in [Get started with Notification Hubs]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs].
+Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica].
 
-##<a name="adding-categories"></a>Add category selection to the app
+## <a name="adding-categories"></a>Aggiunta della selezione delle categorie all'app
 
-The first step is to add the UI elements to your existing main page that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags. 
+Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente alla pagina principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag. 
 
-1. Open the MainPage.xaml project file, then replace the **Grid** elements named `TitlePanel` and `ContentPanel` with the following code:
+1. Aprire il file di progetto MainPage.xaml e sostituire gli elementi **Grid** denominati `TitlePanel` e `ContentPanel` con il codice seguente:
 			
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -136,7 +136,7 @@ The first step is to add the UI elements to your existing main page that enable 
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie. 
 
-##<a name="register"></a>Registrarsi per le notifiche
+## <a name="register"></a>Registrarsi per le notifiche
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale. 
 
@@ -184,7 +184,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Eseguire l'app e generare notifiche
+## <a name="test-app"></a>Eseguire l'app e generare notifiche
 
 1. In Visual Studio premere F5 per compilare e avviare l'app.
 

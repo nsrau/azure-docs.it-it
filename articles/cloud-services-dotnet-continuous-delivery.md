@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Continuous Delivery" pageTitle="Recapito continuo per Servizi cloud con TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Informazioni sulla configurazione del recapito continuo per le app cloud di Azure. Esempi di codice Code per istruzioni della riga di comando MSBuild e script di PowerShell." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Recapito continuo per Servizi cloud con TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Informazioni sulla configurazione del recapito continuo per le app cloud di Azure. Esempi di codice Code per istruzioni della riga di comando MSBuild e script di PowerShell." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
@@ -69,7 +69,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
 <h2> <a name="step3"> </a>Passaggio 3: Compilare un pacchetto usando TFS Team Build (facoltativo)</h2>
 
-Se si dispone di Team Foundation Server (TFS) configurato come controller di compilazione, e il server di compilazione è impostato come computer di compilazione TFS, è possibile configurare una compilazione automatica per il pacchetto Azure. Per informazioni su come configurare e usare Team Foundation Server come sistema di compilazione, vedere [Informazioni sul sistema di compilazione di Team Foundation][]. In particolare, nella procedura seguente si presuppone che il server di compilazione sia stato configurato come descritto in [Configurare computer di compilazione][] e che siano stati creati un progetto team e un progetto servizio cloud nel progetto team.
+Se si dispone di Team Foundation Server (TFS) configurato come controller di compilazione, e il server di compilazione è impostato come computer di compilazione TFS, è possibile configurare una compilazione automatica per il pacchetto Azure. Per informazioni su come configurare e usare Team Foundation Server come sistema di compilazione, vedere [Informazioni sul sistema di compilazione di Team Foundation][]. In particolare, nella procedura seguente si presuppone che il server di compilazione sia stato configurato come descritto in [Configurare un computer di compilazione][] e che siano stati creati un progetto team e un progetto servizio cloud nel progetto team.
 
 Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedura seguente:
 
@@ -123,6 +123,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 6.  Assicurarsi che siano presenti account validi per i servizi cloud e di archiviazione creati nella sottoscrizione a cui lo script sia in grado di fare riferimento. L'account di archiviazione (archiviazione BLOB) verrà usato per caricare e archiviare temporaneamente il pacchetto di distribuzione e il file di configurazione durante la creazione della distribuzione.
 
     -   Per creare un nuovo servizio cloud, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome del servizio cloud verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. 
+
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   Per creare un nuovo account di archiviazione, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome dell'account di archiviazione verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. È possibile provare a usare lo stesso nome come del servizio cloud.
@@ -161,8 +162,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per ulteriori informazioni, vedere l'articolo
-    [http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx][].
+    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per ulteriori informazioni, vedere l'articolo [http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx](http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx).
 
     **Aggiorna distribuzione ed Elimina distribuzione -\> Nuova distribuzione**
 
@@ -568,7 +568,7 @@ Per abilitare il debug remoto con la distribuzione continua, vedere [queste istr
   [Passaggio 5: Pubblicare un pacchetto usando TFS Team Build (facoltativo)]: #step5
   [Servizio Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-  [.NET Framework 4,5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
   [Strumenti di creazione di Azure]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Librerie di Azure]: http://go.microsoft.com/fwlink/?LinkId=257862

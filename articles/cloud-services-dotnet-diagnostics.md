@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="Come usare la diagnostica (.NET) - Guida alle funzionalità di Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Informazioni sull'uso dei dati di diagnostica in Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Come usare la diagnostica (.NET) - Guida alle funzionalità di Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Informazioni sull'uso dei dati di diagnostica in Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -187,7 +187,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
 
 <h3>Passaggio 4: Creare il file di configurazione della diagnostica e installare l'estensione</h3>
 1.	Scaricare la definizione dello schema del file di configurazione pubblico eseguendo il comando PowerShell seguente:
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento** -> **Elementi Visual C#** -> **Dati** -> **File XML**. Assegnare al file il nome "WadExample.xml".

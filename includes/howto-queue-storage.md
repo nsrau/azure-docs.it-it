@@ -18,17 +18,17 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 ![Queue1][Queue1]
 
--   **Formato dell'URL:** è possibile fare riferimento alle code usando il formato di URL seguente:
+- **Formato dell'URL:** è possibile fare riferimento alle code usando il formato di URL seguente:   
     http://`<storage account>`.queue.core.windows.net/`<queue>`
 
-L'URL seguente fa riferimento a una delle code nel diagramma:
- http://myaccount.queue.core.windows.net/imagesToDownload
+L'URL seguente fa riferimento a una delle code nel diagramma:  
+	http://myaccount.queue.core.windows.net/imagesToDownload
 
 -**Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][Obiettivi di scalabilità e prestazioni per Archiviazione di Azure].
 
--   **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda.
+- **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda.
 
--   **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
+- **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
   [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/dn249410.aspx
   [Queue1]: ./media/howto-queue-storage/queue1.png

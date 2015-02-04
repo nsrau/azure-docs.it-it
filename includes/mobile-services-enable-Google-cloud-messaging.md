@@ -1,8 +1,11 @@
+
+
+
 1.  Passare al sito Web [Google Cloud Console][Google Cloud Console], eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **CREATE PROJECT**.
 
-    ![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
-    > [WACOM.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso verrà visualizzata la pagina **Projects**. Per creare un nuovo progetto dalla pagina Dashboard, espandere **API Project**, fare clic su **Create...** in **Other projects**, quindi immettere un nome di progetto e fare clic su **Create project**.
+    >[WACOM.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso verrà visualizzata la pagina **Projects**. Per creare un nuovo progetto dalla pagina Dashboard, espandere **API Project**, fare clic su **Create...** in **Other projects**, quindi immettere un nome di progetto e fare clic su **Create project**.
 
 2.  Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Eseguire la verifica SMS richiesta, quindi fare nuovamente clic su **Create**.
 

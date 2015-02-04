@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web App with Storage" pageTitle="App Web con il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Esercitazione basata sull'esercitazione per la creazione di un'app Web con Express e in cui vengono aggiunti i servizi di archiviazione di Azure e il modulo di Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="App Web con il servizio di archiviazione tabelle (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Esercitazione basata sull'esercitazione per la creazione di un'app Web con Express e in cui vengono aggiunti i servizi di archiviazione di Azure e il modulo di Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -13,8 +13,7 @@ In questa esercitazione si estenderà l'applicazione creata nell'esercitazione r
 
 Gli elementi attività vengono archiviati in Archiviazione di Azure. Archiviazione di Azure consente l'archiviazione di dati non strutturati, a tolleranza di errore e a disponibilità elevata. Archiviazione di Azure include diverse strutture di dati in cui è possibile archiviare i dati e accedervi ed è possibile usare i servizi di archiviazione dalle API incluse in Azure SDK per Node.js o tramite le API REST. Per altre informazioni, vedere [Archiviazione e accesso ai dati in Azure].
 
-In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione
-Node.js] e [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure][Node.js Web Application using Express].
+In questa esercitazione si presume che siano state completate le esercitazioni [Creazione e distribuzione di un'applicazione Node.js] e [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure][Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure].
 
 Si apprenderà come:
 
@@ -70,7 +69,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	The output of this command should appear similar to the following:
+	L'output di questo comando dovrebbe apparire simile al seguente:
 
 		node-uuid@1.4.1 node_modules\node-uuid
 
@@ -392,9 +391,9 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
 	L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
-  [Applicazione Web Node.js con Express]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/
+  [Creazione di un'applicazione Web Node.js usando Express in un servizio cloud di Azure]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Applicazione Web Node.js]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/
+  [Creazione e distribuzione di un'applicazione Node.js]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/
  
 
 <!--HONumber=35.1-->
