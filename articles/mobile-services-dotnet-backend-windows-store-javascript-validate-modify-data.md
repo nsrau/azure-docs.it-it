@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app JavaScript per Windows Store con i servizi mobili di back-end .NET di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app JavaScript per Windows Store con i servizi mobili di back-end .NET di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -142,8 +142,8 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
   <br/>Altre informazioni su come usare Servizi mobili con .NET.
 
 <!-- Anchors. -->
-[Aggiungere la stringa convalida]: #string-length-validation
-[Aggiornare il client per supportare la convalida]: #update-client-validation
+[Aggiungere la convalida della lunghezza della stringa]: #string-length-validation
+[Aggiornare il client per il supporto della convalida]: #update-client-validation
 [Testare la convalida della lunghezza]: #test-length-validation
 [Aggiunta di un campo timestamp per CompleteDate]: #add-timestamp
 [Aggiornare il client per la visualizzazione del timestamp CompleteDate]: #update-client-timestamp

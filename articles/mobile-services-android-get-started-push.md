@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Introduzione alle notifiche push (Android) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Introduzione alle notifiche push (Android) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
@@ -263,7 +263,7 @@ In questo semplice esempio un utente riceve una notifica push con i dati appena 
 
 <!-- Images. -->
 
-<google-developers.png
+[1]: ./media/mobile-services-android-get-started-push/mobile-services-google-developers.png
 [2]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server.png
 [3]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server2.png
 [4]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server3.png
@@ -296,7 +296,7 @@ In questo semplice esempio un utente riceve una notifica push con i dati appena 
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-android
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-android
 [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-android
-[Inviare notifiche push agli utenti di app]: /it-it/develop/mobile/tutorials/push-notifications-to-users-android
+[Notifiche push per utenti di app]: /it-it/develop/mobile/tutorials/push-notifications-to-users-android
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/

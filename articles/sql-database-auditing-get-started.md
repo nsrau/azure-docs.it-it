@@ -1,4 +1,4 @@
-﻿<properties title="Get started with SQL database auditing" pageTitle="Introduzione al controllo del database SQL | Azure" description="Introduzione al controllo del database SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+<properties title="Get started with SQL database auditing" pageTitle="Introduzione al controllo del database SQL | Azure" description="Introduzione al controllo del database SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
  
@@ -13,7 +13,7 @@ Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di 
 + [Configurare il controllo per il database]
 + [Analizzare i log di controllo e i report]
 
-##<a id="subheading-1">Nozioni di base sul controllo del database SQL di Azure</a>
+## <a id="subheading-1">Nozioni di base sul controllo del database SQL di Azure</a>
 
 Il controllo si configura nel portale di anteprima di Azure e non fa differenza se il database è stato creato usando il portale di Azure o il portale di anteprima di Azure. Il controllo del database SQL consente di:
 
@@ -33,7 +33,7 @@ Per altri dettagli sulle attività e gli eventi registrati, <a href="http://go.m
 
 È anche possibile scegliere l'account di archiviazione in cui salvare i log di controllo.
 
-###Stringa di connessione con sicurezza abilitata
+### Stringa di connessione con sicurezza abilitata
 Quando si configura il controllo, Azure fornisce una stringa di connessione con sicurezza abilitata per il database. Verranno registrati solo gli eventi e le attività delle applicazioni client che usano questa stringa di connessione, quindi è necessario aggiornare le applicazioni client esistenti in modo che usino il nuovo formato di stringa.
 
 Formato tradizionale della stringa di connessione: <*nome server*>.database.windows.net
@@ -41,7 +41,7 @@ Formato tradizionale della stringa di connessione: <*nome server*>.database.wind
 Stringa di connessione con sicurezza abilitata: <*nome server*>.database.**secure**.windows.net
 
 
-##<a id="subheading-2"></a>Configurare il controllo per il database
+## <a id="subheading-2"></a>Configurare il controllo per il database
 
 1. Avviare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> all'indirizzo https://portal.azure.com. In alternativa, è anche possibile avviare il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a> all'indirizzo https://manage.windowsazure.com/. Fare riferimento ai dettagli sotto.
 2. Passare al pannello di configurazione del database che si vuole controllare. Scorrere verso il basso fino alla sezione **Operazioni** e quindi fare clic su **Controllo** per abilitare il controllo e avviare il pannello di configurazione del controllo.
@@ -66,7 +66,7 @@ Stringa di connessione con sicurezza abilitata: <*nome server*>.database.**secur
 
 
 
-##<a id="subheading-3">Analizzare i log di controllo e i report</a>
+## <a id="subheading-3">Analizzare i log di controllo e i report</a>
 
 I log di controllo vengono aggregati in un'unica tabella di Azure Store denominata **AuditLogs** nell'account di archiviazione di Azure selezionato durante la configurazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
@@ -79,7 +79,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il <a href=
 ![][6]
 
 
-##<a id="subheading-4"></a>Configurare il controllo per il database con il portale di Azure classico
+## <a id="subheading-4"></a>Configurare il controllo per il database con il portale di Azure classico
 
 1. Avviare il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a> all'indirizzo https://manage.windowsazure.com/. 
 2. Fare clic sul database che si vuole controllare e quindi sulla scheda **Anteprima controllo e sicurezza**.
@@ -96,11 +96,11 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il <a href=
 7. Fare clic su **Mostra stringa di connessione sicura** per la stringa di connessione.
 
 
-##<a id="subheading-3">Procedure per l'uso in produzione</a>
+## <a id="subheading-3">Procedure per l'uso in produzione</a>
 La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
  
 
-##<a id="subheading-4"></a>Accesso con sicurezza abilitata
+## <a id="subheading-4"></a>Accesso con sicurezza abilitata
 
 Durante la produzione è probabile che si renda necessario controllare tutto il traffico verso il database da tutte le applicazioni e gli strumenti. Modificare quindi **Accesso con sicurezza abilitata** da *Facoltativo* a *Obbligatorio* e salvare il criterio. Dopo aver configurato *Obbligatorio*, non è possibile accedere al database con la stringa di connessione originale, ma solo con la stringa di connessione con sicurezza abilitata.
 
@@ -108,7 +108,7 @@ Durante la produzione è probabile che si renda necessario controllare tutto il 
 ![][9]
 
 
-##<a id="subheading-4"></a>Rigenerazione delle chiavi di archiviazione
+## <a id="subheading-4"></a>Rigenerazione delle chiavi di archiviazione
 
 Durante la produzione è probabile che si aggiornino periodicamente le chiavi di archiviazione. Il servizio di controllo non mantiene le chiavi dell'account di archiviazione. Quando si salva, viene prodotta una chiave di firma di accesso condiviso di sola scrittura per la tabella di controllo. Solo il cliente può leggere i log di controllo. A tale scopo, quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio. Il processo è il seguente:
 
@@ -121,7 +121,7 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
   
-##<a id="subheading-4"></a>Automazione
+## <a id="subheading-4"></a>Automazione
 Per PowerShell fare riferimento a <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>.
 
 Per l'API REST fare riferimento al documento relativo all'<a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">API REST del database SQL di Azure</a>
@@ -131,7 +131,7 @@ Per l'API REST fare riferimento al documento relativo all'<a href="http://downlo
 
 
 <!--Anchors-->
-[Nozioni di base sul controllo del database SQL di Azure] : #subheading-1
+[Nozioni di base sul controllo del database SQL di Azure]: #subheading-1
 [Configurare il controllo per il database]: #subheading-2
 [Analizzare i log di controllo e i report]: #subheading-3
 [Configurare il controllo per il database con il portale di Azure classico]: #subheading-4

@@ -417,7 +417,7 @@ L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme i
             }, 2500);
         }
   
-   	> [WACOM.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.  
+> [WACOM.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.  
 
 **Per Android:**
 

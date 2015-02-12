@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="Sito Web PHP con MySQL e FTP - Esercitazione su Azure" metaKeywords="" description="Un'esercitazione che illustra come creare un sito Web PHP che archivia i dati in MySQL e come usare la distribuzione FTP in Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="Sito Web PHP con MySQL e FTP - Esercitazione su Azure" metaKeywords="" description="Un'esercitazione che illustra come creare un sito Web PHP che archivia i dati in MySQL e come usare la distribuzione FTP in Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
@@ -132,7 +132,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 		</body>
 		</html>
 
-6. Nei tag PHP add PHP code for connecting to the database.
+6. All'interno dei tag PHP, aggiungere il codice PHP per la connessione al database.
 
 		// DB connection info
 		$host = "localhost";

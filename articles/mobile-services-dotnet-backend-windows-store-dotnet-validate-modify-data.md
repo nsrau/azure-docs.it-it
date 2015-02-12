@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app per Windows Store con i servizi mobili di back-end .NET di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app per Windows Store con i servizi mobili di back-end .NET di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,14 +18,14 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 
 Questa esercitazione è basata sulle procedure e sul codice di esempio creato nell'esercitazione precedente, [Introduzione a Servizi mobili] o [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Aggiunta della convalida
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Aggiornamento del client
 
-Ora che il servizio mobile è configurato per convalidare dati e inviare risposte di errore per una lunghezza di testo non valida, è necessario aggiornare l'app per gestire le risposte di errore risultanti dalla convalida. L'errore verrà rilevato come 'MobileServiceInvalidOperationException' dalla chiamata dell'app client a 'IMobileServiceTable<TodoItem].InsertAsync()'.
+Ora che il servizio mobile è configurato per convalidare dati e inviare risposte di errore per una lunghezza di testo non valida, è necessario aggiornare l'app per gestire le risposte di errore risultanti dalla convalida. L'errore verrà rilevato come `MobileServiceInvalidOperationException` dalla chiamata dell'app client `IMobileServiceTable<TodoItem].InsertAsync()`.
 
  1. Nella finestra Esplora soluzioni di Visual Studio, passare al progetto client e aprire il file MainPage.xaml.cs. Aggiungere le istruzioni **using** seguenti al file:
 
@@ -63,30 +63,29 @@ Ora che il servizio mobile è configurato per convalidare dati e inviare rispost
    	Questa versione del metodo include la gestione degli errori per l'eccezione **MobileServiceInvalidOperationException** che visualizza il messaggio di errore serializzato dal contenuto della risposta in una finestra di messaggio.
 
 ## <a name="test-length-validation"></a>Testare la convalida della lunghezza
+1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sul progetto di app client e quindi scegliere **Imposta come progetto di avvio**. Quindi, premere il tasto **F5** per avviare l'app che ospita il servizio localmente in IIS Express.
 
- 1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sul progetto di app client e quindi scegliere **Imposta come progetto di avvio**. Quindi, premere il tasto **F5** per avviare l'app che ospita il servizio localmente in IIS Express.
-
- 2. Immettere per un nuovo elemento Todo un testo di lunghezza superiore a 10 caratteri, quindi fare clic su **Salva**.
+2. Immettere per un nuovo elemento Todo un testo di lunghezza superiore a 10 caratteri, quindi fare clic su **Salva**.
 
     ![][1]
 
- 3. Se si immette testo non valido verrà visualizzato un messaggio simile al seguente.
+3. Se si immette testo non valido verrà visualizzato un messaggio simile al seguente.
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Aggiunta di un campo timestamp per CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>Aggiornare il client per la visualizzazione del timestamp CompleteDate
 
 Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visualizzi i nuovi dati **CompleteDate**. 
 
 
- 1. In Esplora soluzioni di Visual Studio, nel progetto client todolist, aprire il file MainPage.xaml e sostituire l'elemento **CheckBoxComplete** con la definizione riportata di seguito. Salvare il file. Il gestore eventi su **CheckBoxComplete** verrà modificato in modo da gestire l'evento 'click'. Si aggiungerà inoltre un blocco test accanto alla casella di controllo eseguendone il binding al timestamp di data completo.
+1. In Esplora soluzioni di Visual Studio, nel progetto client todolist, aprire il file MainPage.xaml e sostituire l'elemento **CheckBoxComplete** con la definizione riportata di seguito. Salvare il file. Il gestore eventi su **CheckBoxComplete** verrà modificato in modo da gestire l'evento `click`. Si aggiungerà inoltre un blocco test accanto alla casella di controllo eseguendone il binding al timestamp di data completo.
 	      
         <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
           Click="CheckBoxComplete_Clicked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
