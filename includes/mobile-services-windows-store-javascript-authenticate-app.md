@@ -1,4 +1,4 @@
-﻿
+
 
 1. Aprire il file di progetto default.js e nell'overload del metodo **app.OnActivated** sostituire l'ultima chiamata al metodo **refreshTodoItems** con il codice seguente: 
 	
@@ -34,10 +34,10 @@
 
         authenticate();
 
-    Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo <strong>login</strong> riportato in precedenza con uno dei seguenti: _microsoftaccount_, _twitter_, _google_ o _windowsazureactivedirectory_.
+    Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo <strong>login</strong> riportato in precedenza con uno dei seguenti: _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_.
 
-    >[WACOM.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>. Se non si effettua questa operazione, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
+    >[AZURE.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
 
 2. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
-   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.<!--HONumber=42-->

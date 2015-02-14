@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST (Platform | Backend)]
+﻿> [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
 - [(iOS | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/)
 - [(iOS | JavaScript)](/it-it/documentation/articles/mobile-services-ios-get-started-data/)
 - [(Windows Universal C# | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/)
@@ -12,3 +12,4 @@
 - [(Xamarin iOS | Javascript)](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/)
 - [(Xamarin Android | Javascript)](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/)
 - [(HTML | Javascript)](/it-it/documentation/articles/mobile-services-html-get-started-data/)
+<!--HONumber=42-->

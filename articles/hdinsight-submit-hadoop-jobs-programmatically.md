@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Inviare processi Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit  Hadoop jobs in HDInsight" authors="jgao" />
+<properties 
+	pageTitle="Inviare processi Hadoop in HDInsight | Azure" 
+	description="Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Inviare processi Hadoop in HDInsight
 
@@ -10,11 +24,11 @@ In questo articolo verrà illustrato come inviare processi MapReduce e Hive tram
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* Disporre di un cluster HDInsight di Azure. Per istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Provisioning di cluster HDInsight][hdinsight-provision].
-* Installare e configurare Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure].
+* Disporre di un cluster HDInsight di Azure. Per le istruzioni, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
+* Installare e configurare Azure PowerShell. Per le istruzioni, vedere la pagina relativa a [installazione e configurazione di Azure PowerShell][powershell-install-configure].
 
 
-##Contenuto dell'articolo
+## Contenuto dell'articolo
 
 * [Inviare processi MapReduce tramite PowerShell](#mapreduce-powershell)
 * [Inviare processi Hive tramite PowerShell](#hive-powershell)
@@ -24,8 +38,8 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * [Inviare processi Hive tramite HDInsight .NET SDK](#hive-sdk)
 * [Passaggi successivi](#nextsteps)
 
-##<a id="mapreduce-powershell"></a> Inviare processi MapReduce tramite PowerShell
-Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per altre informazioni sull'uso di PowerShell con HDInsight, vedere [Amministrazione di HDInsight tramite PowerShell][hdinsight-admin-powershell].
+## <a id="mapreduce-powershell"></a> Inviare processi MapReduce tramite PowerShell
+Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per altre informazioni sull'uso di PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell][hdinsight-admin-powershell].
 
 Hadoop MapReduce è un framework software per la scrittura di applicazioni in grado di elaborare quantità elevate di dati. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\example\jars\hadoop-examples.jar*, che contiene svariati esempi di MapReduce. Nella versione 3.0 dei cluster HDInsight, il file è stato rinominato in hadoop-mapreduce-examples.jar. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come usare PowerShell da una workstation per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare MapReduce con HDInsight][hdinsight-use-mapreduce].
 
@@ -96,7 +110,7 @@ Hadoop MapReduce è un framework software per la scrittura di applicazioni in gr
 		# Get the blob content
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Esempio *example/data/WordCountOutput* è la cartella di output specificata quando si esegue il processo MapReduce. *part-r-00000* è il nome file predefinito per l'output del processo MapReduce.  Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C.  Il file verrà scaricato nella cartella *C:\example\data\WordCountOutput\* .
+	La cartella *example/data/WordCountOutput* è la cartella di output specificata durante l'esecuzione del processo MapReduce. Il valore *part-r-00000* corrisponde al nome file predefinito per l'output del processo MapReduce.  Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C.  Il file verrà scaricato nella cartella *C:\example\data\WordCountOutput\*.
 
 5. Per stampare il file di output del processo MapReduce, eseguire il comando seguente:
 
@@ -104,10 +118,10 @@ Hadoop MapReduce è un framework software per la scrittura di applicazioni in gr
 
 	![HDI.GettingStarted.MRJobOutput][image-hdi-gettingstarted-mrjoboutput]
 
-	Il processo MapReduce produce un file denominato *part-r-00000*, che include le parole e i conteggi.  Lo script usa il comando findstr per elencare tutte le parole contenenti "there".
+	Il processo MapReduce consente di ottenere un file denominato *part-r-00000*, che include le parole e i conteggi.  Lo script usa il comando findstr per elencare tutte le parole contenenti "there".
 
 
-> [WACOM.NOTE] Se si apre ./example/data/WordCountOutput/part-r-00000, un output multilinea dal processo MapReduce, nel Blocco note, si noterà che il rendering delle interruzioni di riga non è corretto. Si tratta di un comportamento previsto.
+> [AZURE.NOTE] Se si apre ./example/data/WordCountOutput/part-r-00000, un output multilinea dal processo MapReduce, nel Blocco note, si noterà che il rendering delle interruzioni di riga non è corretto. Si tratta di un comportamento previsto.
 
 
 
@@ -245,7 +259,7 @@ Hadoop MapReduce è un framework software per la scrittura di applicazioni in gr
 
 
 
-##<a id="hive-powershell"></a> Inviare processi Hive tramite PowerShell
+## <a id="hive-powershell"></a> Inviare processi Hive tramite PowerShell
 Apache [hdinsight-use-hive][apache-hive] fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *HiveQL*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati. 
 
 I cluster HDInsight includono una tabella Hive di esempio denominata *hivesampletable*. In questa sessione si utilizzerà PowerShell per eseguire un processo Hive per ottenere un elenco di dati dalla tabella Hive. 
@@ -273,14 +287,14 @@ I cluster HDInsight includono una tabella Hive di esempio denominata *hivesample
 
 	È possibile usare l'opzione -File per specificare un file di script HiveQL in HDFS.
 
-Per altre informazioni su Hive, vedere [Usare Hive con HDInsight][hdinsight-use-hive].
+Per altre informazioni su Hive, vedere [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive].
 
-##<a id="sqoop-powershell"></a>Inviare processi Sqoop tramite PowerShell
+## <a id="sqoop-powershell"></a>Inviare processi Sqoop tramite PowerShell
 
 Vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 
-##<a id="mapreduce-sdk"></a> Inviare processi MapReduce tramite HDInsight .NET SDK
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\example\jars\hadoop-examples.jar*, che contiene svariati esempi di MapReduce. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare MapReduce con HDInsight][hdinsight-use-mapreduce].
+## <a id="mapreduce-sdk"></a> Inviare processi MapReduce tramite HDInsight .NET SDK
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\example\jars\hadoop-examples.jar*, che contiene svariati esempi di MapReduce. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare MapReduce con HDInsight][hdinsight-use-mapreduce].
 
 
 Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster HDInsight usando l'SDK:
@@ -291,7 +305,7 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 
 
 **Per installare .NET SDK per HDInsight**
-È possibile installare l'ultima build pubblicata dell'SDK [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Le istruzioni verranno illustrate nella procedura successiva.
+È possibile installare l'ultima build pubblicata dell'SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Le istruzioni verranno illustrate nella procedura successiva.
 
 **Per creare l'applicazione console di Visual Studio**
 
@@ -303,16 +317,16 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Proprietà</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valore</th></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Categoria</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelli/Visual C#/Windows</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modello</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Applicazione console</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
 	</table>
 
@@ -369,7 +383,7 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 	
 	Queste sono tutte le variabili che è necessario impostare per il programma. È possibile ottenere il nome della sottoscrizione di Azure dal [portale di gestione di Azure][azure-management-portal]. 
 
-	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di PowerShell *Get-AzurePublishSettingsFile* e *Import-AzurePublishSettingsFile*, che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito i cmdlet di PowerShell, è possibile aprire *certmgr.msc* dalla workstation e individuare il certificato espandendo *Personale/Certificati*. Il certificato creato dai cmdlet di PowerShell conterrà l'indicazione *Strumenti di Azure* in entrambi in campi *Rilasciato a* e *Rilasciato da*.
+	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di PowerShell *Get-AzurePublishSettingsFile* e *Import-AzurePublishSettingsFile* che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito i cmdlet di PowerShell, è possibile aprire *certmgr.msc* dalla workstation e individuare il certificato espandendo *Personal/Certificates*. Il certificato creato dai cmdlet di PowerShell contiene *Azure Tools* nei campi *Issued To* e *Issued By*.
 
 	Il nome dell'account di archiviazione di Azure è quello specificato al momento del provisioning del cluster HDInsight. Il nome predefinito del contenitore corrisponde al nome del cluster HDInsight.
 	
@@ -426,14 +440,14 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
         Console.WriteLine("Press ENTER to continue.");
 		Console.ReadLine();
 
-	La cartella di output viene specificata al momento della definizione del processo MapReduce. Il nome file predefinito è *part-r-00000*.
+	La cartella di output viene specificata al momento della definizione del processo MapReduce. Il nome del file predefinito è *part-r-00000*.
 
 **Per eseguire l'applicazione**
 
 Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. Verrà aperta una finestra della console in cui sono visualizzati lo stato e l'output dell'applicazione. 
 
-##<a id="streaming-sdk"></a> Inviare processi MapReduce di flussi Hadoop tramite HDInsight .NET SDK
-I cluster HDInsight includono un programma di flussi Hadoop per il conteggio di parole sviluppato in C#. Il programma mapper è */example/apps/cat.exe* e il programma reducer è */example/apps/wc.exe*. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. 
+## <a id="streaming-sdk"></a> Inviare processi MapReduce di flussi Hadoop tramite HDInsight .NET SDK
+I cluster HDInsight includono un programma di flussi Hadoop per il conteggio di parole sviluppato in C#. Il programma per il mapping è */example/apps/cat.exe* e il programma per la riduzione è */example/apps/wc.exe*. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. 
 
 Per informazioni dettagliate sulla creazione di un'applicazione .NET per l'invio di processi MapReduce, vedere [Inviare processi MapReduce tramite HDInsight .NET SDK](#mapreduce-sdk).
 
@@ -535,8 +549,8 @@ Per altre informazioni sullo sviluppo e sulla distribuzione di processi di fluss
 
 
 
-##<a id="hive-sdk"></a> Inviare processi Hive tramite HDInsight .NET SDK 
-I cluster HDInsight includono una tabella Hive di esempio denominata *hivesampletable*. In questa sessione si creerà un'applicazione .NET per eseguire un processo Hive che elenca le tabelle Hive create nel cluster HDInsight. Per altre informazioni sull'uso di Hive, vedere [Usare Hive con HDInsight][hdinsight-use-hive].
+## <a id="hive-sdk"></a> Inviare processi Hive tramite HDInsight .NET SDK 
+I cluster HDInsight includono una tabella Hive di esempio denominata *hivesampletable*. In questa sessione si creerà un'applicazione .NET per eseguire un processo Hive che elenca le tabelle Hive create nel cluster HDInsight. Per altre informazioni sull'uso di Hive, vedere [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive].
 
 Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster HDInsight usando l'SDK:
 
@@ -546,7 +560,7 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 
 
 **Per installare .NET SDK per HDInsight**
-È possibile installare l'ultima build pubblicata dell'SDK [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Le istruzioni verranno illustrate nella procedura successiva.
+È possibile installare l'ultima build pubblicata dell'SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Le istruzioni verranno illustrate nella procedura successiva.
 
 **Per creare l'applicazione console di Visual Studio**
 
@@ -558,16 +572,16 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Proprietà</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valore</th></tr>
 	<tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelli/Visual C#/Windows</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modello</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Applicazione console</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
 	</table>
 
@@ -616,7 +630,7 @@ Le procedure seguenti sono necessarie per eseguire il provisioning di un cluster
 	
 	Queste sono tutte le variabili che è necessario impostare per il programma. È possibile ottenere l'ID della sottoscrizione di Azure dall'amministratore di sistema. 
 
-	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di PowerShell *Get-AzurePublishSettingsFile* e *Import-AzurePublishSettingsFile* . che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito i cmdlet di PowerShell, è possibile aprire *certmgr.msc* dalla workstation e individuare il certificato espandendo *Personale/Certificati*. Il certificato creato dai cmdlet di PowerShell conterrà l'indicazione *Strumenti di Azure* in entrambi in campi *Rilasciato a* e *Rilasciato da* .
+	Per informazioni sul certificato, vedere [Creare e caricare un certificato di gestione per Azure][azure-certificate]. Un modo semplice per configurare il certificato consiste nell'eseguire i cmdlet di PowerShell *Get-AzurePublishSettingsFile* e *Import-AzurePublishSettingsFile* che creeranno e gestiranno automaticamente il certificato di gestione. Dopo aver eseguito i cmdlet di PowerShell, è possibile aprire *certmgr.msc* dalla workstation e individuare il certificato espandendo *Personal/Certificates*. Il certificato creato dai cmdlet di PowerShell contiene *Azure Tools* nei campi *Issued To* e *Issued By*.
 	
 11. Nella funzione Main() aggiungere il codice seguente per definire il processo Hive:
 
@@ -676,10 +690,10 @@ Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. 
 
 
 
-##<a id="nextsteps"></a> Passaggi successivi
+## <a id="nextsteps"></a> Passaggi successivi
 In questo articolo si sono appresi vari modi per eseguire il provisioning di un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]
 * [Amministrare HDInsight tramite PowerShell][hdinsight-admin-powershell]
 * [Documentazione di riferimento relativa ai cmdlet di HDInsight][hdinsight-powershell-reference]
@@ -702,11 +716,10 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

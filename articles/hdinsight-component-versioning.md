@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="Novità nelle versioni cluster di Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Vedere le versioni di Hadoop e di HortonWorks Data Platform (HDP) supportate." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+﻿<properties 
+	pageTitle="Novità nelle versioni cluster di Hadoop in HDInsight | Azure" 
+	description="HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Vedere le versioni di Hadoop e di HortonWorks Data Platform (HDP) supportate." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="bradsev"/>
 
 
 #Novità delle versioni cluster di Hadoop incluse in HDInsight
@@ -11,7 +25,7 @@ HDInsight supporta più versioni cluster Hadoop che possono essere distribuite i
 
 <table border="1">
 <tr><th>Componente</th><th>HDInsight versione 3.1 (predefinita)</th><th>HDInsight versione 3.0</th><th>HDIinsight versione 2.1</th><th>HDInsight versione 1.6</th></tr>
-<tr><td>Hortonworks Data Platform (HDP)</td><td>2.1.7</td><td>2,0</td><td>1,3</td><td>1,1</td></tr>
+<tr><td>Hortonworks Data Platform (HDP)</td><td>2.1.7</td><td>2.0</td><td>1.3</td><td>1.1</td></tr>
 <tr><td>Apache Hadoop e YARN</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td><td>1.0.3</td></tr>
 <tr><td>Tez</td><td>0.4.0</td><td></td><td></td><td></td></tr>
 <tr><td>Apache Pig</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td><td>0.9.3</td></tr>
@@ -40,7 +54,7 @@ Per altre note sulla versione relative alle versioni più recenti di HDInsight, 
 
 ### Selezionare una versione durante il provisioning di un cluster HDInsight
 
-Quando si crea un cluster tramite i cmdlet di HDInsight PowerShell o .NET SDK per HDInsight, è possibile scegliere la versione per il cluster HDInsight Hadoop usando il parametro "Version".
+Quando si crea un cluster tramite i cmdlet di HDInsight PowerShell o .NET SDK per HDInsight, è possibile scegliere la versione per il cluster Hadoop di HDInsight usando il parametro "Version".
 
 Se si usa l'opzione **Creazione rapida**, per impostazione predefinita si otterrà la versione 3.1 di HDInsight che crea il cluster Hadoop. Se si usa l'opzione **Creazione personalizzata** dal portale di Azure, è possibile scegliere la versione del cluster che si vuole distribuire dall'elenco a discesa **Versione HDInsight** nella pagina **Dettagli cluster**. 
 
@@ -57,7 +71,7 @@ Per impostazione predefinita, Azure HDInsight ora supporta Hadoop 2.4 con cluste
 
 - **Libreria Microsoft Avro**: questa libreria implementa il sistema di serializzazione dei dati Apache Avro per l'ambiente Microsoft .NET. Apache Avro offre un formato compatto di interscambio dei dati binari per la serializzazione e usa JSON per definire lo schema indipendente dal linguaggio che sottoscrive l'interoperabilità del linguaggio. I dati serializzati in un unico linguaggio possono essere letti in un altro linguaggio. I formati attualmente supportati sono C, C++, C#, Java, PHP, Python e Ruby. Il formato di serializzazione di Apache Avro è ampiamente usato in Azure HDInsight per rappresentare strutture dei dati complesse in un processo MapReduce di Hadoop.
 
-- **YARN**: nuovo framework di gestione delle applicazioni distribuito di uso generale che ha sostituito il classico framework Apache Hadoop MapReduce per l'elaborazione dei dati nei cluster Hadoop. Funge di fatto da sistema operativo di Hadoop, trasformandolo da piattaforma dati monouso per l'elaborazione batch in una piattaforma multiuso che consente l'elaborazione batch, interattiva, online e di flussi. Questo nuovo framework di gestione migliora la scalabilità e l'uso dei cluster in base a criteri quali garanzie di capacità, priorità e contratti di servizio.
+- **YARN**: nuovo framework di gestione delle applicazioni distribuito di utilizzo generale che ha sostituito il classico framework Apache Hadoop MapReduce per l'elaborazione dei dati nei cluster Hadoop. Funge di fatto da sistema operativo di Hadoop, trasformandolo da piattaforma dati monouso per l'elaborazione batch in una piattaforma multiuso che consente l'elaborazione batch, interattiva, online e di flussi. Questo nuovo framework di gestione migliora la scalabilità e l'utilizzo dei cluster in base a criteri quali garanzie di capacità, priorità e contratti di servizio.
 
 - **Tez (solo HDInsight 3.1)**: Un framework generico e personalizzabile che crea attività di elaborazione dati semplificate in carichi di lavoro in scala ridotta e su larga scala in Hadoop. Consente di eseguire un grafo aciclico diretto (DAG) delle attività relative a un singolo processo, in modo che i progetti presenti nell'ecosistema di Apache Hadoop, ad esempio Apache Hive e Apache Pig, possano soddisfare i requisiti riguardanti i tempi di risposta con interazione umana e l'estrema velocità effettiva a livello di petabyte. Notare che Hive 0.13 consente di eseguire le query Hive su Tez, piuttosto che su MapReduce.
 
@@ -99,11 +113,11 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 La **data di dichiarazione obsolescenza** è la data dopo la quale non è possibile creare la versione del cluster su HDInsight.
 
-> [WACOM.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest di Azure [Family 4](http://msdn.microsoft.com/it-it/library/azure/ee924680.aspx#explanation) che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1. 
+> [AZURE.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest di Azure [Family 4](http://msdn.microsoft.com/it-it/library/azure/ee924680.aspx#explanation) che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1. 
 
 ## Note sulla versione di Hortonworks associate alle versioni di HDInsight##
 
-* Il cluster HDInsight versione 3.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Si tratta del cluster Hadoop predefinito creato quando si usa il portale di Azure HDInsight dopo il 07/11/2014. I cluster HDInsight 3.1 creati prima del 07/11/2014 sono basati su [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 
+* Il cluster HDInsight versione 3.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Si tratta del cluster Hadoop predefinito creato quando si usa il portale di Azure HDInsight dopo il 07/11/2014. I cluster HDInsight 3.1 creati prima del 07/11/2014 sono basati su [Hortonworks Data Platform 2.1.1][hdp-2-1-1]. 
 
 * Il cluster HDInsight versione 3.0 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -131,5 +145,4 @@ La **data di dichiarazione obsolescenza** è la data dopo la quale non è possib
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿1. Aprire il file di progetto mainpage.xaml.cs e aggiungere il frammento di codice seguente alla classe MainPage:
+1. Aprire il file di progetto mainpage.xaml.cs e aggiungere il frammento di codice seguente alla classe MainPage:
 	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
@@ -24,7 +24,7 @@
 
     Verranno creati una variabile membro per archiviare l'utente corrente e un metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook.
 
-    >[WACOM.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore di <strong>MobileServiceAuthenticationProvider</strong> con il nome del provider.</p>
+    >[AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore di <strong>MobileServiceAuthenticationProvider</strong> con il valore del provider.</p>
     </div>
 
 2. Eliminare o rimuovere i simboli di commento dall'override del metodo **OnNavigatedTo** esistente e sostituirlo con il metodo seguente che gestisce l'evento **Loaded** per la pagina. 
@@ -46,8 +46,9 @@
             this.Loaded += MainPage_Loaded;
         }
 
-   	Questo costruttore registra inoltre il gestore per l'evento Loaded.
+   Questo costruttore registra inoltre il gestore per l'evento Loaded.
 		
 4. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
-   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+<!--HONumber=42-->

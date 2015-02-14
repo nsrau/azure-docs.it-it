@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST (Platform | Backend)]
+﻿> [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
 - [(iOS | JavaScript)](/it-it/documentation/articles/mobile-services-ios-add-paging-data/)
 - [(Windows Store C# | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data/)
 - [(Windows Store C# | Javascript)](/it-it/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/)
@@ -12,3 +12,4 @@
 - [(HTML | Javascript)](/it-it/documentation/articles/mobile-services-html-add-paging-data/)
 
 
+<!--HONumber=42-->

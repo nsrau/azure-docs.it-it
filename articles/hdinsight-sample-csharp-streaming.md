@@ -1,8 +1,22 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Esempio di Hadoop per il conteggio di parole dei flussi in C# in HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Informazioni su come eseguire un esempio." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
+<properties 
+	pageTitle="Esempio di Hadoop per il conteggio di parole dei flussi in C# in HDInsight | Azure" 
+	description="Informazioni su come scrivere i programmi MapReduce in C# che usa l'interfaccia di streaming Hadoop e su come eseguirli in HDInsight usando i cmdlet di PowerShell." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
-# Esempio di Hadoop per il conteggio di parole dei flussi in C# in HDInsight
+# Esempio MapReduce per il conteggio di parole dei flussi in C# in Hadoop in HDInsight
  
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java. Questa esercitazione spiega come scrivere programmi MapReduce in C# che usa l'interfaccia di streaming Hadoop e come scrivere programmi in Azure HDInsight usando i cmdlet di Azure PowerShell. 
 
@@ -24,12 +38,12 @@ Per altre sull'interfaccia Hadoop Streaming, vedere la pagina relativa all'utili
 
 - È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/it-it/pricing/free-trial/).
 
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](../hdinsight-provision-clusters/)
+- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](../hdinsight-provision-clusters/).
 
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
 
 
-##Contenuto dell'articolo
+## Contenuto dell'articolo
 Questo argomento descrive come eseguire l'esempio, presenta il codice Java per il programma MapReduce, riepiloga le nozioni acquisite e descrive alcuni passaggi successivi. L'argomento include le sezioni seguenti:
 	
 1. [Eseguire l'esempio con Azure PowerShell](#run-sample)	
@@ -43,20 +57,20 @@ Questo argomento descrive come eseguire l'esempio, presenta il codice Java per i
 
 1.	Aprire **Azure PowerShell**. Per istruzioni sull'apertura della finestra della console Azure PowerShell, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure].
 
-3. Impostare le due variabili necessarie nei comandi seguenti, quindi eseguirli:
+2. Impostare le due variabili necessarie nei comandi seguenti, quindi eseguirli:
 		
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 
 
-2. Eseguire il comando seguente per definire il processo MapReduce.
+3. Eseguire il comando seguente per definire il processo MapReduce.
  
 		# Create a MapReduce job definition for the streaming job.
 		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
 	I parametri consentono di specificare le funzioni mapper e reducer, nonché i file di input e di output.
                  
-5. Eseguire i comandi seguenti per eseguire il processo MapReduce, attendere il completamento del processo e quindi stampare l'errore standard:
+4. Eseguire i comandi seguenti per eseguire il processo MapReduce, attendere il completamento del processo e quindi stampare l'errore standard:
 
 		# Run the C# Streaming MapReduce job.
 		# Wait for the job to complete.
@@ -64,7 +78,7 @@ Questo argomento descrive come eseguire l'esempio, presenta il codice Java per i
 		Select-AzureSubscription $subscriptionName
 		$streamingWC | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
 
-6. Eseguire i comandi seguenti per visualizzare i risultati relativi al conteggio delle parole.
+5. Eseguire i comandi seguenti per visualizzare i risultati relativi al conteggio delle parole.
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
@@ -74,8 +88,8 @@ Questo argomento descrive come eseguire l'esempio, presenta il codice Java per i
 		Select-AzureSubscription $subscriptionName
               
 		# Blob storage container and account name
-      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
-      $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+			$storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
+	      $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
  
 		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
@@ -149,7 +163,7 @@ Nel codice del mapper nel file cat.cs viene usato un oggetto StreamReader per le
 	}
 
 
-Il codice del reducer nel file wc.cs usa un oggetto [StreamReader][streamreader] per leggere dal flusso di input standard i caratteri che sono stati trasmessi dal mapper cat.exe. Durante la lettura dei caratteri con il metodo [Console.Writeline][console-writeline] viene effettuato il conteggio delle parole, inclusi gli spazi e caratteri di fine riga alla fine di ogni parola. Il totale viene quindi scritto nel flusso di output standard con il metodo [Console.Writeline][console-writeline]. 
+Nel codice del reducer nel file wc.cs viene usato un oggetto [StreamReader][streamreader]   per leggere dal flusso di input standard i caratteri che sono stati trasmessi dal mapper cat.exe. Durante la lettura dei caratteri con il metodo [Console.Writeline][console-writeline] viene effettuato il conteggio delle parole, inclusi gli spazi e caratteri di fine riga alla fine di ogni parola. Il totale viene quindi scritto nel flusso di output standard con il metodo [Console.Writeline][console-writeline]. 
 
 <h2><a id="summary"></a>Riepilogo</h2>
 
@@ -159,7 +173,7 @@ In questa esercitazione è stata illustrata la distribuzione di un processo MapR
 
 Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite istruzioni sull'uso di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Esempio: Calcolo del Pi greco][hdinsight-sample-pi-estimator]
 * [Esempio: Conteggio parole][hdinsight-sample-wordcount]
 * [Esempio: GraySort da 10 GB][hdinsight-sample-10gb-graysort]
@@ -188,5 +202,4 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

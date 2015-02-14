@@ -3,7 +3,7 @@
 Le istruzioni seguenti si applicano all'aggiornamento di un'applicazione client di Windows Store, ma è possibile testare questo su una delle altre piattaforme supportate da servizi mobili di Azure. 
 
 
-1. In Visual Studio aprire il file MainPage.xaml.cs e aggiungere l'istruzione 'using' seguente all'inizio del file.
+1. In Visual Studio aprire il file MainPage.xaml.cs e aggiungere l'istruzione  `using` seguente all'inizio del file.
  
         using System.Net.Http;
 
@@ -19,7 +19,7 @@ Le istruzioni seguenti si applicano all'aggiornamento di un'applicazione client 
         }
 
 
-3. Nel file MainPage.xaml.cs aggiornare il metodo 'AuthenticateAsync' affinché chiami l'API personalizzata per restituire le informazioni aggiuntive sull'utente da Azure Active Directory. 
+3. Nel file MainPage.xaml.cs aggiornare il metodo  `AuthenticateAsync` affinché chiami l'API personalizzata per restituire le informazioni aggiuntive sull'utente da Azure Active Directory. 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -49,3 +49,4 @@ Le istruzioni seguenti si applicano all'aggiornamento di un'applicazione client 
 
 
 4. Salvare le modifiche e compilare il servizio per verificare che non vi siano errori di sintassi.  
+<!--HONumber=42-->

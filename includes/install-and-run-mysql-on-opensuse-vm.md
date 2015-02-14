@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	dove `ip-address` è l'indirizzo IP del computer da cui verrà effettuata la connessione a MySQL.
+	dove `ip-address` è l'indirizzo IP del computer dal quale verrà effettuata la connessione a MySQL.
 	
 10. Per uscire dall'utilità di amministrazione database MySQL, eseguire il comando seguente:
 
@@ -60,13 +60,13 @@
 
 11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][AzurePreviewPortal]. Nel portale di Azure fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
 
-	![Endpoints][Immagine7]
+	![Endpoints][Image7]
 
 12. Fare clic su **Aggiungi** nella parte inferiore della pagina.
-	![Endpoints][Immagine8]
+	![Endpoints][Image8]
 
 13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "3306". In questo modo sarà possibile accedere a MySQL in remoto.
-	![Endpoints][Immagine9]
+	![Endpoints][Image9]
 
 14. Per eseguire la connessione remota a MySQL in esecuzione nella macchina virtuale OpenSUSE Azure, nel computer locale eseguire il comando seguente:
 
@@ -82,5 +82,4 @@
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

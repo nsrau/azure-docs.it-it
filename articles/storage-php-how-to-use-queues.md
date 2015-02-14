@@ -1,10 +1,24 @@
-﻿<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="Come usare il servizio di accodamento (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda. Gli esempi sono scritti in PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Come usare il servizio di accodamento (PHP) | Microsoft Azure" 
+	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 # Come usare il Servizio di accodamento da PHP
 
-In questa guida verranno illustrati diversi scenari comuni di uso del Servizio di accodamento di Azure. Gli esempi sono scritti con le classi di Windows SDK per PHP. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps) .
+In questa guida verranno illustrati diversi scenari comuni di uso del Servizio di accodamento di Azure. Gli esempi sono scritti con le classi di Windows SDK per PHP. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps).
 
 ##Sommario
 
@@ -24,11 +38,11 @@ In questa guida verranno illustrati diversi scenari comuni di uso del Servizio d
 * [Procedura: Eliminare una coda](#delete-queue)
 * [Passaggi successivi](#next-steps)
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a id="create-account"></a>Creare un account di archiviazione di Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="create-app"></a>Creare un'applicazione PHP</h2>
 
@@ -38,7 +52,7 @@ In questa guida si useranno le funzionalità del Servizio di accodamento che pos
 
 <h2><a id="GetClientLibrary"></a>Acquisire le librerie client di Azure</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="configure-app"></a>Configurazione dell'applicazione per accedere al Servizio di accodamento</h2>
 
@@ -49,8 +63,8 @@ Per usare le API del Servizio di accodamento di Azure, è necessario:
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [WACOM.NOTE]
-> In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
+> [AZURE.NOTE]
+> In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader  `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -58,7 +72,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 
 Negli esempi seguenti, l'istruzione `require_once` verrà sempre visualizzata, ma si farà riferimento solo alle classi necessarie per eseguire l'esempio.
 
-<h2><a id="connection-string"></a>Configurare una connessione di archiviazione di Azure</h2>
+<h2><a id="connection-string"></a>Configurare una connessione di Archiviazione di Azure</h2>
 
 Per creare un'istanza di un client del Servizio di accodamento di Azure, è necessario innanzitutto disporre di una stringa di connessione valida. Il formato della stringa di connessione del servizio di accodamento è:
 
@@ -75,7 +89,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 
 * passare la stringa di connessione direttamente a essa o
 * usare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
-	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
+	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, - ovvero le variabili ambientali
 	* è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
@@ -118,7 +132,7 @@ Un oggetto **QueueRestProxy**consente di creare una coda usando il metodo **crea
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
 
 
@@ -379,12 +393,11 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
 
 A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento di Azure, usare i collegamenti seguenti per altre informazioni su come eseguire attività di archiviazione più complesse.
 
-- Vedere le informazioni di riferimento in MSDN: [Archiviazione e accesso ai dati in Azure] []
+- Vedere le informazioni di riferimento in MSDN: [Archiviazione] []
 - Blog del team di Archiviazione di Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portale di gestione di Azure]: http://manage.windowsazure.com/
-[Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-
-<!--HONumber=35.1-->
+[Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+<!--HONumber=42-->

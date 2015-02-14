@@ -1,13 +1,27 @@
-<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Informazioni su come usare il Servizio tabelle da Python per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Come usare il servizio di archiviazione tabelle (Python) | Microsoft Azure" 
+	description="Informazioni su come usare il Servizio tabelle da Python per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 
 
 
 
-# Come usare il servizio di archiviazione tabelle di Python 
-In questa guida viene illustrato come eseguire scenari comuni tramite il servizio di archiviazione tabelle di Microsoft Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono la **creazione e l'eliminazione di una tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
+# Come usare il servizio di archiviazione tabelle di Python
+In questa guida viene illustrato come eseguire scenari comuni del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono la **creazione e l'eliminazione di una tabella, l'inserimento e l'esecuzione di query sulle entità in una tabella**. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi][].
 
 ## Sommario
 
@@ -18,36 +32,37 @@ In questa guida viene illustrato come eseguire scenari comuni tramite il servizi
  [Procedura: Aggiungere un'entità a una tabella][]   
  [Procedura: Aggiornare un'entità][]   
  [Procedura: Modificare un gruppo di entità][]   
- [Procedura: Eseguire una query su un'entità][]   
+ [Procedura: Eseguire query su un'entità][]   
  [Procedura: Eseguire query su un set di entità][]   
- [Procedura: Eseguire una query su un subset di proprietà di entità][]   
+ [Procedura: Eseguire query su un subset di proprietà di entità][]   
  [Procedura: Eliminare un'entità][]   
  [Procedura: Eliminare una tabella][]   
  [Passaggi successivi][]
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"> </a>Creare un account di archiviazione di Azure
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 **Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python](../python-how-to-install/).
 
 
-## <a name="create-table"> </a>Come creare una tabella
+## <a name="create-table"> </a>Procedura: Creare una tabella
 
 L'oggetto **TableService** consente di usare i servizi tabelle. Il codice seguente consente di creare un oggetto **TableService**. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
 
 	from azure.storage import TableService, Entity
 
-Il codice seguente consente di creare un oggetto **TableService** usando il nome dell'account di archiviazione e la chiave dell'account.  Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **TableService** usando il nome dell'account di archiviazione e la chiave dell'account.  Sostituire 'myaccount' e 'mykey' con l'account e la chiave effettivi.
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
 	table_service.create_table('tasktable')
 
-## <a name="add-entity"> </a>Come aggiungere un'entità a una tabella
+## <a name="add-entity"> </a>Procedura: Aggiungere un'entità a una tabella
 
-Per aggiungere un'entità, creare innanzitutto un dizionario che definisca i nomi e i valori della proprietà dell'entità. Si noti che per ogni entità è necessario specificare un oggetto **PartitionKey** e **RowKey**. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente di altre proprietà. Il sistema usa **PartitionKey** per distribuire automaticamente le entità della tabella su molti nodi di archiviazione. Le entità con lo stesso oggetto **PartitionKey**vengono archiviate nello stesso nodo. **RowKey** è l'ID univoco dell'entità all'interno della partizione cui appartiene.
+Per aggiungere un'entità, creare innanzitutto un dizionario che definisca i nomi e i valori della proprietà dell'entità. Si noti che per ogni entità è necessario specificare un oggetto **PartitionKey** e **RowKey**. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente di altre proprietà. Il sistema usa **PartitionKey** per distribuire automaticamente le entità della tabella su molti nodi di archiviazione.
+Le entità con lo stesso oggetto **PartitionKey**vengono archiviate nello stesso nodo. **RowKey** è l'ID univoco dell'entità all'interno della partizione cui appartiene.
 
 Per aggiungere un'entità alla tabella, passare un oggetto dizionario al metodo **insert\_entity**.
 
@@ -70,7 +85,8 @@ Questo codice indica come sostituire la versione precedente di un'entità esiste
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se si desidera archiviare un'entità indipendentemente dalla sua precedente esistenza, usare **insert\_or\_replace_entity**.  Nell'esempio seguente, la prima chiamata sostituirà l'entità esistente. La seconda chiamata inserirà una nuova entità, poiché nella tabella non esiste alcuna entità con gli oggetti **PartitionKey** e **RowKey** specificati.
+Se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se si desidera archiviare un'entità indipendentemente dalla sua precedente esistenza, usare **insert\_or\_replace_entity**. 
+Nell'esempio seguente, la prima chiamata sostituirà l'entità esistente. La seconda chiamata inserirà una nuova entità, poiché nella tabella non esiste alcuna entità con gli oggetti **PartitionKey** e **RowKey** specificati.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
 	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task)
@@ -108,11 +124,13 @@ In questo esempio vengono individuate tutte le attività di Seattle in base a **
 
 ## <a name="query-entity-properties"> </a>Come eseguire query su un subset di proprietà di entità
 
-Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare il parametro **select** e passare i nomi delle proprietà da inoltrare al client.
+Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità.
+Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare il parametro **select** e passare i nomi delle proprietà da inoltrare al client.
 
 La query nel codice seguente restituisce solo le **descrizioni** delle entità nella tabella.
 
-*Si noti che il frammento seguente funziona solo su un servizio di archiviazione cloud e non è supportato dall'emulatore di archiviazione.*
+*Si noti che il frammento seguente funziona solo su un servizio di archiviazione cloud e non è supportato dall'emulatore di
+archiviazione.*
 
 	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
 	for task in tasks:
@@ -134,7 +152,7 @@ Nell'esempio di codice seguente viene illustrato come eliminare una tabella da u
 
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle, visitare i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
--   Vedere le informazioni di riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
+-   Vedere le informazioni di riferimento in MSDN: [Archiviazione][]
 -   [Blog del team di Archiviazione di Azure][]
 
   [Passaggi successivi]: #next-steps
@@ -145,12 +163,11 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione tabelle,
   [Procedura: Aggiungere un'entità a una tabella]: #add-entity
   [Procedura: Aggiornare un'entità]: #update-entity
   [Procedura: Modificare un gruppo di entità]: #change-entities
-  [Procedura: Eseguire una query su un'entità]: #query-for-entity
+  [Procedura: Eseguire query su un'entità]: #query-for-entity
   [Procedura: Eseguire query su un set di entità]: #query-set-entities
-  [Procedura: Eseguire una query su un subset di proprietà di entità]: #query-entity-properties
+  [Procedura: Eseguire query su un subset di proprietà di entità]: #query-entity-properties
   [Procedura: Eliminare un'entità]: #delete-entity
   [Procedura: Eliminare una tabella]: #delete-table
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

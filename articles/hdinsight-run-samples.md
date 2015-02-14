@@ -1,17 +1,31 @@
-﻿<properties urlDisplayName="Run Hadoop Samples in HDInsight" pageTitle="Eseguire gli esempi di Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Informazioni su come iniziare a usare il servizio Azure HDInsight con gli esempi forniti. Usare script PowerShell che eseguono programmi MapReduce su cluster di dati." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the Hadoop samples in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Eseguire gli esempi di Hadoop in HDInsight | Azure" 
+	description="Informazioni su come iniziare a usare il servizio Azure HDInsight con gli esempi forniti. Usare script PowerShell che eseguono programmi MapReduce su cluster di dati." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 
 
-#Eseguire gli esempi di Hadoop in HDInsight
+# Eseguire gli esempi di Hadoop in HDInsight
 
 Sono disponibili alcuni esempi utili per iniziare a eseguire processi MapReduce nei cluster Hadoop usando Azure HDInsight. Questi esempi sono disponibili in ogni cluster creato e gestito da HDInsight. L'esecuzione di questi esempi permetterà di familiarizzare con l'uso dei cmdlet di Azure PowerShell per HDInsight per l'esecuzione di processi nei cluster Hadoop.
 
 È inoltre possibile eseguire programmi MapReduce a livello di codice da un'applicazione usando l'API Microsoft .NET per HDInsight. Per altre informazioni sull'uso di API per HDInsight, vedere [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs].
 
-Sul Web sono disponibili molti altri documenti aggiuntivi per le tecnologie relative a Hadoop, ad esempio la programmazione e lo streaming MapReduce basati su Java, oltre alla documentazione sull'uso dei cmdlet negli script PowerShell. Per altre informazioni su queste risorse, vedere la sezione finale **Risorse per HDInsight** dell'argomento [Introduzione ad Azure HDInsight][hdinsight-introduction].
+Sul Web sono disponibili molti altri documenti aggiuntivi per le tecnologie relative a Hadoop, ad esempio la programmazione e lo streaming MapReduce basati su Java, oltre alla documentazione sull'utilizzo dei cmdlet negli script PowerShell. Per altre informazioni su queste risorse, vedere la sezione finale **Risorse per HDInsight** dell'argomento [Introduzione ad Azure HDInsight][hdinsight-introduction].
 
 **Informazioni sugli esempi**
 
@@ -22,9 +36,9 @@ Sul Web sono disponibili molti altri documenti aggiuntivi per le tecnologie rela
 
 - È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/it-it/pricing/free-trial/).
 
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](../hdinsight-provision-clusters/)
+- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](../hdinsight-provision-clusters/).
 
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
 
 ## Esempi ##
 
@@ -33,18 +47,18 @@ In HDInsight sono disponibili gli esempi seguenti.
 - [**Esempio di calcolo del Pi greco**][hdinsight-sample-pi-estimator] Questa esercitazione illustra come eseguire un programma MapReduce con HDInsight che usa un metodo statistico (simile al metodo Monte Carlo) per calcolare il valore di Pi greco.
 - [**Esempio WordCount**][hdinsight-sample-wordcount] Questa esercitazione illustra come usare un cluster HDInsight per eseguire un programma MapReduce che conta le occorrenze delle parole in un file di testo.
 - [**Esempio Graysort da 10 GB**][hdinsight-sample-10gb-graysort] Questa esercitazione illustra come eseguire un ordinamento GraySort di uso generale in un file da 10 GB mediante HDInsight. I processi da eseguire sono tre: Teragen per generare i dati, Terasort per ordinare i dati e Teravalidate per confermare che i dati siano stati ordinati correttamente.
-- [**Esempio di flusso C#**][hdinsight-sample-csharp-streaming] Questa esercitazione illustra come usare C# per scrivere un programma MapReduce che usa l'interfaccia di streaming Hadoop. 
+- [**Esempio di flusso C#**][hdinsight-sample-csharp-streaming] Questa esercitazione illustra come usare C# per scrivere un programma MapReduce che usa l'interfaccia di streaming Hadoop.  
 
 
 ## Come eseguire gli esempi ##
 
 Gli esempi possono essere eseguiti mediante Azure PowerShell. Per le istruzioni relative a questa operazione, fare clic sopra sui collegamenti alle pagine di ogni esempio.
 
-##Passaggi successivi ##
+## Passaggi successivi ##
 
 In questo articolo e negli articoli su ciascuno degli esempi, è stato illustrato come eseguire gli esempi inclusi nei cluster HDInsight mediante Azure PowerShell. Per le esercitazioni sull'uso di Pig, Hive e MapReduce con HDInsight, vedere gli argomenti seguenti:
 
-* [Introduzione all'uso del servizio Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]
@@ -61,7 +75,7 @@ In questo articolo e negli articoli su ciascuno degli esempi, è stato illustrat
 
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
@@ -74,5 +88,4 @@ In questo articolo e negli articoli su ciascuno degli esempi, è stato illustrat
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

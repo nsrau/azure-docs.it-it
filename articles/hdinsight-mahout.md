@@ -1,12 +1,26 @@
-﻿<properties title="Generate movie recommendations using Mahout" pageTitle="Generare raccomandazioni di film mediante Mahout con Microsoft Axure HDInsight (Hadoop)" description="Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con Microsoft Azure HDInsight (Hadoop)." metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+﻿<properties 
+	pageTitle="Generare raccomandazioni di film mediante Mahout con Microsoft Axure HDInsight (Hadoop)" 
+	description="Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight (Hadoop)." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con HDInsight (Hadoop)
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) per generare raccomandazioni di film con Microsoft Azure HDInsight (Hadoop).
 
-> [WACOM.NOTE] Per usare le informazioni presenti in questo articolo, è necessario avere un cluster HDInsight. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Azure HDInsight][getstarted].
+> [AZURE.NOTE] Per usare le informazioni presenti in questo articolo, è necessario avere un cluster HDInsight. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Azure HDInsight][getstarted].
 >
 > Mahout viene fornito con i cluster HDInsight 3.1. Se si usa una versione precedente di HDInsight, vedere [Installare Mahout](#install) prima di continuare.
 
@@ -29,19 +43,19 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 
 ##<a name="recommendations"></a>Generare raccomandazioni con PowerShell
 
-> [WACOM.NOTE] Mentre il processo usato in questa sezione funziona con PowerShell, molte delle classi fornite con Mahout al momento non funzionano con PowerShell e devono essere eseguite mediante la riga di comando di Hadoop. Per un elenco delle classi che non funzionano con PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
+> [AZURE.NOTE] Mentre il processo usato in questa sezione funziona con PowerShell, molte delle classi fornite con Mahout al momento non funzionano con PowerShell e devono essere eseguite mediante la riga di comando di Hadoop. Per un elenco delle classi che non funzionano con PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
 >
 > Per un esempio dell'uso della riga di comando di Hadoop per eseguire i processi Mahout, vedere [Classificare i dati mediante la riga di comando di Hadoop](#classify).
 
-Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nel formato `userID`, `itemId` e `prefValue` (le preferenze utente per l'elemento). Mahout può quindi eseguire l'analisi delle co-occorrenze per determinare che gli _utenti che hanno una preferenza per un elemento hanno anche una preferenza per altri elementi_. Mahout determinerà quindi gli utenti con preferenze di elementi simili che potranno essere usati per le raccomandazioni.
+Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nel formato `userID`, `itemId`, `prefValue` (le preferenze utente per l'elemento). Mahout può quindi eseguire l'analisi delle co-occorrenze per determinare che gli _utenti che hanno una preferenza per un elemento hanno anche una preferenza per altri elementi_. Mahout determinerà quindi gli utenti con preferenze di elementi simili che potranno essere usati per le raccomandazioni.
 
 Di seguito è riportato un esempio molto semplice relativo ai film:
 
-* _Co-occorrenza_: a Joe, Alice e Bob piacciono _Guerre stellari_, _L'Impero colpisce ancora_ e _Il ritorno dello Jedi_. Mahout determinerà che agli utenti che piace uno di questi film piacciono anche gli altri due.
+* __Co-occorrenza__: a Joe, Alice e Bob piacciono _Guerre stellari_, _L'Impero colpisce ancora_ e _Il ritorno dello Jedi_. Mahout determinerà che agli utenti che piace uno di questi film piacciono anche gli altri due.
 
-* _Co-occorrenza_: a Bob e Alice piacciono anche _La minaccia fantasma_, _L'attacco dei cloni_ e _La vendetta dei Sith_. Mahout determinerà che agli utenti che piacciono i tre film precedenti piacciono anche questi tre.
+* __Co-occorrenza__: a Bob e Alice piacciono anche _La minaccia fantasma_, _L'attacco dei cloni_ e _La vendetta dei Sith_. Mahout determinerà che agli utenti che piacciono i tre film precedenti piacciono anche questi tre.
 
-* _Raccomandazione per somiglianza_: poiché a Joe piacciono i primi tre film, Mahout cercherà i film che piacciono ad altri utenti con preferenze simili, ma che Joe non ha guardato o per i quali non ha ancora espresso una preferenza o una valutazione. In questo caso, Mahout raccomanderà _La minaccia fantasma_, _L'attacco dei cloni_ e _La vendetta dei Sith_.
+* __Raccomandazione per somiglianza__: poiché a Joe piacciono i primi tre film, Mahout cercherà i film che piacciono ad altri utenti con preferenze simili ma che Joe non ha guardato o per i quali non ha ancora espresso una preferenza o una valutazione. In questo caso, Mahout raccomanderà _La minaccia fantasma_, _L'attacco dei cloni_ e _La vendetta dei Sith_.
 
 ###Caricare i dati
 
@@ -49,7 +63,7 @@ Per fortuna, GroupLens Research fornisce i [dati di classificazione dei film][mo
 
 1. Scaricare l'archivio [MovieLens 100k][100k], che contiene 100.000 classificazioni di 1.000 utenti su 1.700 film.
 
-2. Estrarre l'archivio. Dovrebbe includere una directory ml-100k, che contiene molti file di dati con __u.__ come prefisso. Il file che verrà analizzato da Mahout è __u.data__. La struttura dei dati di questo file è `userID`, `movieID`, `userRating` e `timestamp`. Di seguito è riportato un esempio dei dati.
+2. Estrarre l'archivio. Dovrebbe includere una directory __ml-100k__, che contiene molti file di dati con __u.__ come prefisso. Il file che verrà analizzato da Mahout è __u.data__. La struttura dei dati di questo file è `userID`, `movieID`, `userRating` e `timestamp`. Di seguito è riportato un esempio dei dati.
 
 
 		196	242	3	881250949
@@ -59,11 +73,11 @@ Per fortuna, GroupLens Research fornisce i [dati di classificazione dei film][mo
 		166	346	1	886397596
 
 
-3. Caricare il file __u.data__ in __example/data/u.data__ nel cluster HDInsight. Se si ha [Azure PowerShell][aps], è possibile usare il modulo [PowerShell HDInsight-Tools][tools] per caricare il file. Per informazioni su altri modi per caricare i file, vedere [Caricare dati per processi Hadoop in HDInsight][upload]. L'esempio seguente illustra l'uso di `Add-HDInsightFile` per caricare il file
+3. Caricare il file __u.data__ in __example/data/u.data__ nel cluster HDInsight. Se si ha [Azure PowerShell][aps], è possibile usare il modulo [PowerShell HDInsight-Tools][tools] per caricare il file. Per informazioni su altri modi per caricare i file, vedere [Caricare dati per processi Hadoop in HDInsight][upload]. L'esempio seguente illustra l'uso di `Add-HDInsightFile` per caricare il file.
 
-    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "nome del cluster"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    Questo frammento di codice caricherà il file __u.data__ in __example/data/u.dat__a nella risorsa di archiviazione predefinita del cluster. Sarà possibile accedere a tali dati con l'URI __wasb:///example/data/u.data__ dai processi di HDInsight.
+    Questo frammento di codice caricherà il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. Sarà possibile accedere a tali dati con l'URI __wasb:///example/data/u.data__ dai processi di HDInsight.
 
 ###Eseguire il processo
 
@@ -110,7 +124,7 @@ Usare lo script di PowerShell seguente per eseguire un processo mediante il moto
 	Write-Host "STDERR"
 	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
 
-> [WACOM.NOTE] I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione del processo. Questo è il motivo per cui nel processo di esempio viene specificato il parametro `--tempDir`, ovvero per isolare i file temporanei in un percorso specifico per semplificarne l'eliminazione.
+> [AZURE.NOTE] I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione del processo. Questo è il motivo per cui nel processo di esempio viene specificato il parametro `--tempDir`, ovvero per isolare i file temporanei in un percorso specifico per semplificarne l'eliminazione.
 >
 > Per rimuovere questi file, è possibile usare una delle utility riportate nell'articolo [Caricare dati per processi Hadoop in HDInsight][upload]. In alternativa, usare la funzione `Remove-HDInsightFile` nello script PowerShell [HDInsight-Tools][tools].
 >
@@ -125,7 +139,7 @@ Di seguito è riportato un esempio del contenuto del file:
 	3	[284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
 	4	[690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-La prima colonna è `userID`. I valori racchiusi tra "[" e "]" rappresentano `movieId`:`recommendationScore`.
+La prima colonna rappresenta il valore `userID`. I valori racchiusi tra '[' e ']' rappresentano `movieId`:`recommendationScore`.
 
 ###Visualizzare l'output
 
@@ -213,12 +227,12 @@ Sebbene l'output generato risulti appropriato per essere usato in un'applicazion
 	                        @{Expression={$_.Value};Label="Score"}
 	$recommendations | format-table $recommendationFormat
 
-Per usare questo script, è necessario avere la cartella __ml-100k__ estratta precedentemente, nonché una copia locale del file di output __part-r-00000__ generato dal processo Mahout. Di seguito è riportato un esempio dell'esecuzione dello script.
+Per usare questo script, è necessario avere estratto la cartella __ml-100k__ precedentemente, nonché disporre di una copia locale del file di output __part-r-00000__ generato dal processo Mahout. Di seguito è riportato un esempio dell'esecuzione dello script.
 
 	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 
-> [WACOM.NOTE] Lo script Python di esempio, __show\_recommendations.py__, accetta gli stessi parametri.
+> [AZURE.NOTE] Lo script Python di esempio, __show\_recommendations.py__, accetta gli stessi parametri.
 
 L'output sarà simile al seguente.
 
@@ -277,11 +291,11 @@ L'implementazione corrente di Mahout è compatibile con il formato di repository
 
     Quando richiesto, immettere il nome utente e la password da usare per le sessioni remote.
 
-2. Dopo aver abilitato l'accesso remoto, selezionare __Connetti__ per iniziare la connessione. Verrà scaricato un file con estensione __rdp__ da usare per avviare la sessione Desktop remoto.
+2. Dopo aver abilitato l'accesso remoto, selezionare __Connetti__ per iniziare la connessione. Verrà scaricato un file con estensione __.rdp__ da usare per avviare la sessione Desktop remoto.
 
     ![connect][connect]
 
-3. Dopo la connessione usare l'icona della __riga di comando di Hadoop__ per visualizzare la riga di comando.
+3. Dopo la connessione usare l'icona della  __riga di comando di Hadoop__ per visualizzare la riga di comando.
 
 	![hadoop cli][hadoopcli]
 
@@ -289,19 +303,19 @@ L'implementazione corrente di Mahout è compatibile con il formato di repository
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
-	La stringa `N 3 C 2 N C 4 N C 8 N 2 C 19 N L` descrive gli attributi dei dati nel file: il primo è un attributo numerico, il secondo un attributo categorico e così via. L indica un'etichetta.
+	La stringa  `N 3 C 2 N C 4 N C 8 N 2 C 19 N L` descrive gli attributi dei dati nel file: il primo è un attributo numerico, il secondo un attributo categorico e così via. L indica un'etichetta.
 
 4. Creare una foresta di alberi delle decisioni con il comando seguente.
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    L'output di questa operazione viene archiviato nella directory __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in __wasb://user/&lt;nomeutente>/nsl-forest/nsl-forest.seq, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dall'utente.
+    L'output di questa operazione viene archiviato nella directory  __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in __wasb://user/&lt;nomeutente>/nsl-forest/nsl-forest.seq__, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dall'utente.
 
 5. Testare la foresta classificando il set di dati __KDDTest+.arff__ con il comando seguente.
 
     	hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasb:///example/data/KDDTest+.arff -ds wasb:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasb:///example/data/predictions
 
-    Questo comando restituirà le informazioni di riepilogo sul processo di classificazione simili alle seguenti.
+    This command will return summary information on classification process similar to the following.
 
 	    14/07/02 14:29:28 INFO mapreduce.TestForest:
 
@@ -329,7 +343,7 @@ L'implementazione corrente di Mahout è compatibile con il formato di repository
 
   Questo processo crea anche un file che si trova in __wasb:///example/data/predictions/KDDTest+.arff.out__, che però non è in formato leggibile dall'utente.
 
-> [WACOM.NOTE] I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
+> [AZURE.NOTE] I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
 
 ##<a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -337,7 +351,7 @@ L'implementazione corrente di Mahout è compatibile con il formato di repository
 
 Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manualmente nei cluster 3.0 o 2.1 con i passaggi seguenti.
 
-1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per sapere la versione del cluster, usare il comando seguente con [Azure PowerShell][aps]:
+1. La versione di Mahout da usare dipende dalla versione di HDInsight del cluster. Per conoscere la versione del cluster, usare il comando seguente con [Azure PowerShell][aps]:
 
     	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
@@ -350,7 +364,7 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
     	Una volta completata la compilazione, verrà creato il file JAR in __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [WACOM.NOTE] Quando verrà rilasciato Mahout 1.0 sarà possibile usare i pacchetti predefiniti con HDInsight 3.0.
+    	> [AZURE.NOTE] Quando verrà rilasciato Mahout 1.0 sarà possibile usare i pacchetti predefiniti con HDInsight 3.0.
 
 2. Caricare il file jar in __example/jars__ nella risorsa di archiviazione predefinita del cluster. L'esempio seguente usa lo script [send-hdinsight][sendhdinsight] per caricare il file.
 
@@ -406,5 +420,4 @@ Per eseguire i processi che usano queste classi, connettersi al cluster HDInsigh
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

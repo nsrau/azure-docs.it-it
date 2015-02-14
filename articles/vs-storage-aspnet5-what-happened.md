@@ -1,12 +1,26 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Introduzione all'Archiviazione di Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Introduzione all'Archiviazione di Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Per iniziare](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 > - [Risultati](/documentation/articles/vs-storage-aspnet5-what-happened/)
 
-###<span id="whathappened">Che cosa è successo al progetto?</span>
+### <span id="whathappened">Che cosa è successo al progetto?</span>
 
 ##### Aggiunta di riferimenti
 
@@ -24,7 +38,7 @@ Il pacchetto aggiunge i riferimenti a .NET seguenti:
 
 È stato anche aggiunto il pacchetto **NuGet Microsoft.Framework.ConfigurationModel.Json**.
 
-#####Aggiunta di stringa di connessione per l'Archiviazione di Azure 
+##### Aggiunta di stringa di connessione per l'Archiviazione di Azure 
 Nel file config.json del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
-Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
+Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).<!--HONumber=42-->

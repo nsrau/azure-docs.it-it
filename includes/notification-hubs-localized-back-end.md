@@ -31,7 +31,7 @@ Il metodo *SendNotificationAsync* verrà modificato con l'invio di una singola n
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
 
-Si noti che questa semplice chiamata distribuirà la notizia localizzata corretta a **all** i dispositivi, indipendentemente dalla piattaforma, in quanto l'Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
+Si noti che questa semplice chiamata distribuirà la notizia localizzata corretta a **tutti** i dispositivi, indipendentemente dalla piattaforma, in quanto l'Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
 
 ### Servizi mobili
 
@@ -51,3 +51,4 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
 	});
 	
 Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
+<!--HONumber=42-->

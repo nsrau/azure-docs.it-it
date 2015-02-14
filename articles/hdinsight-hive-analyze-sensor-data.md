@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analisi dei dati dei sensori con Hive e Microsoft Azure HDInsight (Hadoop)" description="Informazioni sull'uso di Apache Storm per elaborare i dati dei sensori in tempo reale con HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Analizzare i dati del sensore usando Hive e Microsoft Azure HDInsight (Hadoop)" 
+	description="Informazioni su come usare Hive ed Excel per analizzare e visualizzare i dati del sensore con HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #Analizzare i dati del sensore usando Hive con HDInsight
 
@@ -21,7 +35,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), attualmente disponibile solo in Windows.
+	> [AZURE.NOTE] Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/it-it/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-it&rs=it-it&ad=US), attualmente disponibile solo in Windows.
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/it-it/download/details.aspx?id=40886)
 
@@ -36,5 +50,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 2. Nella pagina Web che viene aperta, fare clic sulla scheda **Guida introduttiva** e quindi, sotto la categoria **Esempi**, fare clic sull'esempio **Analisi del log del sito Web**.
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

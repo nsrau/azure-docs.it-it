@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Administration" pageTitle="Gestire i cluster Hadoop in HDInsight con il portale di Azure | Azure" metaKeywords="" description="Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Gestire i cluster Hadoop in HDInsight con il portale di Azure | Azure" 
+	description="Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -52,7 +66,7 @@ Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Co
 1. Accedere al [portale di gestione di Azure][azure-management-portal].
 2. Fare clic su **NUOVO** nella parte inferiore della pagina, quindi su **SERVIZI DATI**, **HDINSIGHT** e infine su **CREAZIONE RAPIDA**.
 
-3. Specificare un valore in **Nome del cluster**, **Dimensione del cluster**, **Password amministratore Cluster** e un **Account di archiviazione di Azure**, quindi fare clic su **Creazione del cluster HDInsight**. Lo stato del cluster creato e in esecuzione è *In esecuzione*.
+3. Specificare un valore in **Nome del cluster**, **Dimensione del cluster**, **Password amministratore Cluster** e un **Account di archiviazione di Azure**, quindi fare clic su **Creazione del cluster HDInsight**. Lo stato del cluster creato e in esecuzione è *Running*.
 
 	![HDI.QuickCreate][image-cluster-quickcreate]
 
@@ -60,7 +74,7 @@ Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Co
 
 	Quando si usa l'opzione Quick Create per creare un cluster, nell'account di archiviazione specificato viene creato automaticamente un nuovo contenitore con il nome del cluster HDInsight. Se si desidera personalizzare il nome del contenitore che verrà usato dal cluster per impostazione predefinita, usare l'opzione Custom Create. 
 
-	> [WACOM.NOTE] Dopo avere scelto un account di archiviazione di Azure per il cluster HDInsight, l'unico modo per modificare l'account consiste nell'eliminare il cluster e crearne uno nuovo con l'account di archiviazione desiderato.
+	> [AZURE.NOTE] Dopo avere scelto un account di archiviazione di Azure per il cluster HDInsight, l'unico modo per modificare l'account consiste nell'eliminare il cluster e crearne uno nuovo con l'account di archiviazione desiderato.
 
 4. Fare clic sul nuovo cluster creato.  Verrà visualizzata la pagina di destinazione:
 
@@ -72,18 +86,16 @@ Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Co
 HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco dei componenti verificati e supportati, vedere [Versione di Hadoop inclusa in Azure HDInsight][hdinsight-versions]. Per personalizzare HDInsight, è possibile scegliere una delle opzioni seguenti:
 
 - Usare i parametri di personalizzazione del cluster in HDInsight .NET SDK o in Azure PowerShell durante il provisioning del cluster. In questo modo le modifiche alla configurazione vengono mantenute per tutta la durata del cluster e non vengono interessate dalla ricreazione delle immagini dei nodi del cluster che la piattaforma Azure esegue periodicamente per la manutenzione. Per altre informazioni sull'uso dei parametri di personalizzazione dei cluster, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
-- Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout o Cascading, sotto forma di file JAR. Tali file JAR possono essere distribuiti nell'archiviazione BLOB di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]. 
+- Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout o Cascading, sotto forma di file JAR. Tali file JAR possono essere distribuiti nell'archivio BLOB di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]. 
 
-
-	>[WACOM.NOTE] In caso di problemi durante la distribuzione di file JAR in cluster HDInsight o la chiamata di file JAR in cluster HDInsight, contattare il [Supporto tecnico Microsoft][hdinsight-support].
+	>[AZURE.NOTE] In caso di problemi durante la distribuzione di file JAR in cluster HDInsight o la chiamata di file JAR in cluster HDInsight, contattare il [Supporto tecnico Microsoft][hdinsight-support].
 	
 	> Cascading non è supportato da HDInsight, pertanto in caso di problemi non è possibile rivolgersi al Supporto Microsoft. Per gli elenchi dei componenti supportati, vedere [Novità delle versioni cluster incluse con HDInsight][hdinsight-versions].
-
 
 L'installazione di software personalizzato nel cluster tramite Connessione Desktop remoto non è supportata. È consigliabile evitare di archiviare file nelle unità del nodo head in quanto andranno perse nel caso in cui fosse necessario ricreare i cluster. È consigliabile archiviare i file nell'archiviazione BLOB di Azure. L'archivio BLOB è persistente.
 
 ##<a id="password"></a> Modifica di nome utente e password di cluster HDInsight
-Per un cluster HDInsight possono esistere due account utente.  L'account utente del cluster HDInsight viene creato durante il processo di provisioning.  È inoltre possibile creare un account utente RDP per accedere al cluster tramite RDP. Vedere la sezione relativa all'[abilitazione di Desktop remoto](#enablerdp) 
+Per un cluster HDInsight possono esistere due account utente.  L'account utente del cluster HDInsight viene creato durante il processo di provisioning.  È inoltre possibile creare un account utente RDP per accedere al cluster tramite RDP. Vedere la sezione relativa all'[abilitazione di Desktop remoto](#enablerdp).
 
 **Per modificare nome utente e password di cluster HDInsight**
 
@@ -91,14 +103,14 @@ Per un cluster HDInsight possono esistere due account utente.  L'account utente 
 2. Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco dei cluster HDInsight distribuiti.
 3. Fare clic sul cluster HDInsight di cui reimpostare nome utente e password.
 4. Fare clic su **CONFIGURAZIONE** nella parte superiore della pagina.
-5. Fare clic su **OFF** accanto a **HADOOP SERVICES**.
+5. Fare clic su **DISATTIVA** accanto  a **SERVIZI HADOOP**.
 6. Fare clic su **SALVA** nella parte inferiore della pagina e attendere il completamento dell'operazione di disabilitazione.
-7. Dopo la disabilitazione del servizio, fare clic su **ON** accanto a **HADOOP SERVICES**.
+7. Dopo la disabilitazione del servizio, fare clic su **ATTIVA** accanto a **SERVIZI HADOOP**.
 8. Immettere un valore in **NOME UTENTE** e **NUOVA PASSWORD**.  Questi saranno il nuovo nome utente e la nuova password del cluster.
 8. Fare clic su **SALVA**.
 
 
-##<a id="rdp"></a> Connessione a cluster HDInsight tramite RDP
+##<a id="rdp"></a> Connettersi a cluster HDInsight tramite RDP
 
 Le credenziali del cluster fornite durante la creazione consentono di accedere ai servizi nel cluster, ma non al cluster stesso tramite Desktop remoto. L'accesso a Desktop remoto è disattivato per impostazione predefinita, pertanto per l'accesso diretto al cluster sono necessarie alcune operazioni di configurazione aggiuntive successive alla creazione.
 
@@ -109,13 +121,13 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
 3. Fare clic sul cluster HDInsight a cui connettersi.
 4. Fare clic su **CONFIGURAZIONE** nella parte superiore della pagina.
 5. Nella parte inferiore della pagina fare clic su **ABILITA MODALITÀ REMOTA**.
-6. Nella procedura guidata **Configura desktop remoto** immettere nome utente e password di Desktop remoto. Si noti che il nome utente deve essere diverso da quello usato per creare il cluster (admin per impostazione predefinita con l'opzione Creazione rapida). Immettere una data di scadenza nella casella **DATA DI SCADENZA**. Si noti che la data di scadenza deve ricorrere nel futuro e non deve essere successiva a una settimana rispetto alla data odierna. Per impostazione predefinita, si presuppone che l'ora di scadenza del giorno sia la mezzanotte della data specificata. Fare clic sull'icona del segno di spunta.
+6. Nella procedura guidata **Configura desktop remoto** immettere nome utente e password di Desktop remoto. Si noti che il nome utente deve essere diverso da quello usato per creare il cluster (*admin* per impostazione predefinita con l'opzione Creazione rapida). Immettere una data di scadenza nella casella **DATA DI SCADENZA**. Si noti che la data di scadenza deve ricorrere nel futuro e non deve essere successiva a una settimana rispetto alla data odierna. Per impostazione predefinita, si presuppone che l'ora di scadenza del giorno sia la mezzanotte della data specificata. Fare clic sull'icona del segno di spunta.
 
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 	La data di scadenza deve ricorrere nel futuro e non essere successiva a sette giorni rispetto alla data odierna. L'ora corrisponde alla mezzanotte della data selezionata.
 
-> [WACOM.NOTE] Dopo aver abilitato RDP per un cluster, è necessario aggiornare la pagina per potersi connettere al cluster.
+> [AZURE.NOTE] Dopo aver abilitato RDP per un cluster, è necessario aggiornare la pagina per potersi connettere al cluster.
  
 **Per connettersi a un cluster tramite RDP**
 
@@ -152,7 +164,7 @@ Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con 
 
 Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso dal portale di gestione. 
 
->[WACOM.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
+>[AZURE.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
 **Per concedere/revocare l'accesso ai servizi Web HTTP**
 
@@ -160,7 +172,7 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 2. Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco dei cluster HDInsight distribuiti.
 3. Fare clic sul cluster HDInsight da configurare.
 4. Fare clic su **CONFIGURAZIONE** nella parte superiore della pagina.
-5. Fare clic su **ON** o **OFF** accanto a **HADOOP SERVICES**.  
+5. Fare clic su **ATTIVA** o **DISATTIVA** accanto  a **SERVIZI HADOOP**.  
 6. Immettere un valore in **NOME UTENTE** e **NUOVA PASSWORD**.  Questi saranno il nuovo nome utente e la nuova password del cluster.
 7. Fare clic su **SALVA**.
 
@@ -189,7 +201,6 @@ Per connettersi al cluster tramite Desktop remoto e usare la riga di comando di 
 		
 	![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-
 	Per altre informazioni sui comandi Hadoop, vedere la [documentazione di riferimento sui comandi Hadoop][hadoop-command-reference].
 
 Nella schermata precedente nel nome della cartella è incorporato il numero di versione di Hadoop. Il numero di versione cambia in base alla versione dei componenti Hadoop installati nel cluster. È possibile usare le variabili d'ambiente di Hadoop per fare riferimento a tali cartelle.  Ad esempio:
@@ -207,7 +218,7 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 * [Amministrare HDInsight tramite l'interfaccia della riga di comando multipiattaforma][hdinsight-admin-cross-platform]
 * [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]
 * [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Versione di Hadoop inclusa in Azure HDInsight][hdinsight-versions]
 
 [hdinsight-admin-cross-platform]: ../hdinsight-administer-use-command-line/
@@ -236,5 +247,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

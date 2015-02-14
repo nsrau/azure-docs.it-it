@@ -1,6 +1,20 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Come usare il servizio di archiviazione BLOB (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB. Gli esempi di codice sono scritti in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Come usare il servizio di archiviazione BLOB (PHP) | Microsoft Azure" 
+	description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB. Gli esempi di codice sono scritti in PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 #Come usare il servizio BLOB da PHP
 
@@ -22,11 +36,11 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio B
 * [Procedura: Eliminare un contenitore BLOB](#DeleteContainer)
 * [Passaggi successivi](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Creare un account di archiviazione di Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Creare un'applicazione PHP</h2>
 
@@ -36,7 +50,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 <h2><a id="GetClientLibrary"></a>Acquisire le librerie client di Azure</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configurare l'applicazione per l'accesso al servizio BLOB</h2>
 
@@ -47,7 +61,7 @@ Per usare le API del servizio BLOB di Azure, è necessario:
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
@@ -73,7 +87,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 
 * passare la stringa di connessione direttamente a essa o
 * usare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
-	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
+	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, - ovvero le variabili ambientali
 	* è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
@@ -289,18 +303,17 @@ Per eliminare un contenitore di BLOB, infine, passare il nome del contenitore a 
 
 A questo punto, dopo aver appreso le nozioni di base del servizio BLOB di Azure, visitare i collegamenti seguenti per altre informazioni su come eseguire attività di archiviazione più complesse.
 
-- Vedere le informazioni di riferimento in MSDN: [Archiviazione e accesso ai dati in Azure] []
+- Vedere le informazioni di riferimento in MSDN: [Archiviazione] []
 - Blog del team di Archiviazione di Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
-- Vedere l'esempio relativo al BLOB in blocchi PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>,
+- Vedere l'esempio relativo al BLOB in blocchi PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - Vedere l'esempio relativo al BLOB di pagine PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+[Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,7 +1,7 @@
-﻿
+
 Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale.
 
-1.  Se non lo si è già fatto, installare adesso [Mobile Services SDK per iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533). Una volta installato, copiare la directory WindowsAzureMobileServices.framework sovrascrivendo la directory WindowsAzureMobileServices.framework inclusa nel progetto scaricato. In questo modo si sarà certi di usare l'SDK di Servizi mobili di Azure più recente.
+1. Se non lo si è già fatto, installare adesso [Mobile Services iOS SDK](https://go.microsoft.com/fwLink/p/?LinkID=266533). Una volta installato, copiare la directory WindowsAzureMobileServices.framework sovrascrivendo la directory WindowsAzureMobileServices.framework inclusa nel progetto scaricato. In questo modo si sarà certi di usare l'SDK di Servizi mobili di Azure più recente.
 
 2. Nel file TodoService.h individuare la riga di codice commentata seguente:
 
@@ -11,21 +11,21 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
         @property (nonatomic, strong)   MSClient *client;
 
-   	Verrà creata una proprietà che rappresenta il client Servizi mobili che si connette al servizio
+   Verrà creata una proprietà che rappresenta il client Servizi mobili che si connette al servizio
 
 3. Nel file TodoService.m individuare la riga di codice commentata seguente:
 
         // TODO - create an MSTable property for your items
 
-   	Dopo questo commento, aggiungere la riga di codice seguente all'interno della dichiarazione @interface:
+   Dopo questo commento, aggiungere la riga di codice seguente all'interno della dichiarazione @interface:
 
         @property (nonatomic, strong)   MSTable *table;
 
-   	Verrà creata una rappresentazione della proprietà per la tabella di Servizi mobili.
+   Verrà creata una rappresentazione della proprietà per la tabella di Servizi mobili.
 
 4. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-5. Fare clic sulla scheda **Dashboard** e prendere nota dell'**URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
+5. Fare clic sulla scheda **Dashboard** e prendere nota del valore di **URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
 
    	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
 
@@ -108,10 +108,10 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
    	Il codice rimuove gli elementi TodoItems dopo che sono stati contrassegnati come completati.
 
-13. In TodoListController.m, trovare il metodo **onAdd** e sovrascriverlo con il codice seguente:
+13. In TodoListController.m individuare il metodo **onAdd** e sovrascriverlo con il codice seguente:
 
-      - (IBAction)onAdd:(id)sender
-      {
+		- (IBAction)onAdd:(id)sender
+		  {
           if (itemText.text.length  == 0)
           {
               return;
@@ -127,7 +127,8 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
           }];
 
           itemText.text = @"";
-      }
+		}
 
 
 Una volta aggiornata l'app per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
+<!--HONumber=42-->

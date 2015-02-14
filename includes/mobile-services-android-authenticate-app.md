@@ -1,4 +1,4 @@
-﻿
+
 1. In Package Explorer di Eclipse aprire il file ToDoActivity.java e aggiungere le istruzioni import seguenti.
 
 		import java.util.concurrent.ExecutionException;
@@ -31,22 +31,20 @@
     			createTable();	
     		}
     	});   	
-	}
+		}
 
 
-	In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Google. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
+   In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Google. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>Se si usa un provider di identità diverso da Google, sostituire il valore passato al metodo <strong>login</strong> riportato in precedenza con uno dei seguenti: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> o <em>windowsazureactivedirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] Se si utilizza un provider di identità diverso da Google, sostituire il valore passato al metodo di **accesso** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
-3. Nel metodo **onCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto 'MobileServiceClient'.
+3. Nel metodo **onCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto  `MobileServiceClient`.
 
 		authenticate();
 
 	Questa chiamata avvia il processo di autenticazione.
 
-4. Spostare il codice rimanente dopo 'authenticate();' nel metodo **onCreate** in un nuovo metodo **createTable**, simile al seguente:
+4. Spostare il codice rimanente dopo `authenticate();` nel metodo **onCreate** in un nuovo metodo **createTable**, simile al seguente:
 
 		private void createTable() {
 	
@@ -66,4 +64,4 @@
 
 9. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
-   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+  	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.<!--HONumber=42-->

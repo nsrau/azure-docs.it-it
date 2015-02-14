@@ -1,13 +1,13 @@
-﻿
+
 ##<a name="add-select-images"></a>Aggiornamento dell'app client della guida introduttiva in modo da acquisire e caricare le immagini
 
-In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili] verrà aggiornato in modo da consentire di scattare foto e caricarle in Archiviazione BLOB di Azure. Per acquisire l'immagine, in questa esercitazione viene usato [CameraCaptureTask] ricavato dallo spazio dei nomi `Microsoft.Phone.Tasks`. Questa classe avvia l'interfaccia utente della fotocamera sul dispositivo Windows Phone per acquisire la foto e salva automaticamente l'immagine nel rullino sul dispositivo Windows Phone. Se non si vogliono salvare le immagini nel rullino, usare la classe [PhotoCamera] nello spazio dei nomi `Microsoft.Devices`.
+In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili] verrà aggiornato in modo da consentire di scattare foto e caricarle in Archiviazione BLOB di Azure. Per acquisire l'immagine, in questa esercitazione viene usata la classe [CameraCaptureTask] ricavata dallo spazio dei nomi  `Microsoft.Phone.Tasks`. Questa classe avvia l'interfaccia utente della fotocamera sul dispositivo Windows Phone per acquisire la foto e salva automaticamente l'immagine nel rullino sul dispositivo Windows Phone. Se non si desidera salvare le immagini nel rullino, usare la classe [PhotoCamera] nello spazio dei nomi  `Microsoft.Devices`.
 
-1. In Esplora soluzioni di Visual Studio, nel progetto, espandere **Proprietà**. Aprire quindi il file WMAppManifest.xml e nella scheda **Funzionalità** abilitare la fotocamera facendo clic su **ID\_CAP\_ISV\_CAMERA**. Chiudere il file per salvare la modifica.
+1. In Esplora soluzioni di Visual Studio espandere **Proprietà** nel progetto. Aprire quindi il file WMAppManifest.xml e nella scheda **Funzionalità** abilitare la fotocamera facendo clic su **ID\_CAP\_ISV\_CAMERA**. Chiudere il file per salvare la modifica.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
-   	In questo modo si garantirà che l'app sia in grado di usare una fotocamera collegata al computer. Alla prima esecuzione dell'app, verrà chiesto agli utenti di consentire l'accesso alla fotocamera.
+   	In questo modo si garantirà che l'app sia in grado di utilizzare una fotocamera collegata al computer. Alla prima esecuzione dell'app, verrà chiesto agli utenti di consentire l'accesso alla fotocamera.
 
 2. Aprire il file MainPage.xaml e sostituire l'elemento **Grid** denominato **ContentPanel** con il codice seguente:
 
@@ -44,7 +44,7 @@ In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili]
         </Grid>
 
 
-   	Viene aggiunto un nuovo pulsante per avviare [CameraCaptureTask], quindi viene aggiunta un'immagine a **ItemTemplate** e l'origine dell'associazione viene impostata come URI dell'immagine caricata nel servizio di archiviazione BLOB.
+   Verrà aggiunto un nuovo pulsante per avviare [CameraCaptureTask], verrà aggiunta un'immagine a **ItemTemplate** e l'origine dell'associazione verrà impostata come URI dell'immagine caricata nel servizio di archiviazione BLOB.
 
 3. Aprire il file del progetto MainPage.xaml.cs e aggiungere le istruzioni **using** seguenti:
 	
@@ -75,7 +75,7 @@ In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili]
         // Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
 
-6. Nel file del progetto MainPage.xaml.cs aggiornare la classe MainPage. Aggiungere il codice seguente per aggiornare il costruttore in modo da creare CameraCaptureTask e aggiungere un gestore eventi Completed:
+6. Nel file del progetto MainPage.xaml.cs aggiornare la classe MainPage. Aggiungere il codice seguente per aggiornare il costruttore in modo da creare CameraCaptureTask e aggiungere un gestore dell'evento Completed:
 
         // Constructor
         public MainPage()
@@ -99,7 +99,7 @@ In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili]
         }
 
 
-8. Nel file del progetto MainPage.xaml.cs aggiornare la classe MainPage. Sostituire il metodo `InsertTodoItem` esistente con il codice seguente:
+8. Nel file del progetto MainPage.xaml.cs aggiornare la classe MainPage. Sostituire il metodo  `InsertTodoItem` esistente con il codice seguente:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -145,16 +145,15 @@ In questa sezione il progetto dell'esercitazione [Introduzione a Servizi mobili]
             TextInput.Text = "";
         }
 
-
-	Questo codice invia al servizio mobile la richiesta di inserire un nuovo oggetto TodoItem, incluso il nome file di immagine. La risposta contiene la firma di accesso condiviso, che viene quindi usata per inserire l'immagine nell'archivio BLOB, e l'URI dell'immagine per l'associazione dati.
+  Questo codice invia al servizio mobile la richiesta di inserire un nuovo oggetto TodoItem, incluso il nome file di immagine. La risposta contiene la firma di accesso condiviso, che viene quindi utilizzata per inserire l'immagine nell'archivio BLOB, e l'URI dell'immagine per l'associazione dati.
 
 Il passaggio finale prevede il test dell'app e la convalida del completamento dei caricamenti.
 		
 ##<a name="test"></a>Test del caricamento delle immagini nell'app
 
-1. In Visual Studio, è possibile premere F5 per testare l'app nell'emulatore o con un vero e proprio dispositivo di destinazione.
+1. In Visual Studio è possibile premere F5 per testare l'app nell'emulatore o usando un vero e proprio dispositivo di destinazione.
 
-2.  Immettere del testo nella casella di testo, quindi fare clic su **Capture Image**.
+2. Immettere un testo nella casella di testo, quindi fare clic su **Capture Image**.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
@@ -176,9 +175,10 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
-   >[WACOM.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento viene associata al controllo <strong>Image</strong>.
+   >[AZURE.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento viene associata al controllo <strong>Image</strong>.
 
 
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-get-started
 [CameraCaptureTask]: http://msdn.microsoft.com/it-it/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/it-it/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+<!--HONumber=42-->

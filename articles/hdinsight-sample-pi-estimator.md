@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Esempio di calcolo del Pi greco di Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Informazioni su come eseguire un esempio MapReduce di Hadoop in HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
+<properties 
+	pageTitle="Esempio di calcolo del Pi greco di Hadoop in HDInsight | Azure" 
+	description="Informazioni su come eseguire un esempio MapReduce di Hadoop in HDInsight." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Esempio di calcolo del Pi greco di Hadoop in HDInsight
  
@@ -8,7 +22,7 @@ Questo argomento descrive come eseguire un programma MapReduce di Hadoop per il 
 
 Il programma usa un metodo statistico (simile al metodo Monte Carlo) per calcolare il valore di Pi greco. Anche i punti posizionati in modo casuale all'interno di un quadrato unitario rientrano in un cerchio incluso in tale quadrato con una probabilità uguale all'area del cerchio, Pi greco/4. Il valore di Pi greco può essere stimato in base a valore di 4R, dove R indica il rapporto tra il numero di punti che si trovano all'interno del cerchio e il numero totale di punti che si trovano all'interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti usati.
 
-Il codice Java PiEstimator, contenente le funzioni per il mapper e per il reducer, è disponibile di seguito per l'analisi. Il programma mapper consente di generare un numero specifico di punti posizionati in modo casuale all'interno di un quadrato unitario e quindi di contare il numero di tali punti inclusi all'interno del cerchio. Il programma reducer consente di accumulare i punti contati dalle funzioni di mapper e quindi di calcolare il valore di Pi greco in base alla formula 4R, dove R indica il rapporto tra il numero di punti che si trovano all'interno del cerchio e il numero totale di punti che si trovano all'interno del quadrato.
+Il codice Java PiEstimator, contenente le funzioni per il mapper e per il reducer, è disponibile di seguito per l'analisi. Il programma mapper consente di generare un numero specifico di punti posizionati in modo casuale all'interno di un quadrato unitario e quindi di contare il numero di tali punti inclusi all'interno del cerchio. Il programma per la riduzione consente di accumulare i punti contati dalle funzioni di mapping e quindi di calcolare il valore di Pi greco in base alla formula 4R, dove R indica il rapporto tra il numero di punti che si trovano all'interno del cerchio e il numero totale di punti che si trovano all'interno del quadrato.
 
 Lo script fornito per questo esempio invia un processo JAR Hadoop ed è configurato per l'esecuzione con un valore pari a 16 mappe, ognuna delle quali è necessaria per il calcolo di 10 milioni di punti campione da parte dei valori del parametro. È possibile modificare tali valori di parametro per ottimizzare il valore stimato di Pi greco. A scopo di riferimento, si noti che le prime 10 cifre decimali di Pi greco sono 3,1415926535.
 
@@ -25,11 +39,11 @@ Gli altri esempi disponibili per imparare rapidamente a usare HDInsight per l'es
 
 - È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/it-it/pricing/free-trial/).
 
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](../hdinsight-provision-clusters/)
+- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](../hdinsight-provision-clusters/).
 
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
 
-##Contenuto dell'articolo	
+## Contenuto dell'articolo	
 Questo argomento descrive come eseguire l'esempio, presenta il codice Java per il programma MapReduce per il calcolo del Pi greco, riepiloga i concetti appresi e indica alcuni passaggi successivi. L'argomento include le sezioni seguenti:
 	
 1. [Eseguire l'esempio con Azure PowerShell](#run-sample)	
@@ -47,14 +61,14 @@ Questo argomento descrive come eseguire l'esempio, presenta il codice Java per i
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 
-4. Per creare una definizione del processo MapReduce, eseguire i comandi seguenti:	
+3. Per creare una definizione del processo MapReduce, eseguire i comandi seguenti:	
 
 		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
 
 	
 	Il primo argomento indica il numero di mappe da creare. Il valore predefinito è 16. Il secondo argomento indica il numero di esempi generati per ogni mappa. Il valore predefinito è 10 milioni. Questo programma usa pertanto 16*10 milioni = 160 milioni di punti casuali per il calcolo del Pi greco. Il terzo argomento indica il percorso e il nome del file jar usato per eseguire l'esempio nei cluster HDInsight 3.0 e 3.1. Per il contenuto del file vedere di seguito.
 
-5. Eseguire i comandi seguenti per inviare il processo MapReduce e attendere il completamento del processo:
+4. Eseguire i comandi seguenti per inviare il processo MapReduce e attendere il completamento del processo:
 
 		# Run the Pi Estimator MapReduce job.
 		Select-AzureSubscription $subscriptionName
@@ -63,7 +77,7 @@ Questo argomento descrive come eseguire l'esempio, presenta il codice Java per i
 		# Wait for the job to complete.  
 		$piJob | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
 
-6. Eseguire il comando seguente per recuperare l'output standard del processo MapReduce:
+5. Eseguire il comando seguente per recuperare l'output standard del processo MapReduce:
 
 		# Print output and standard error file of the MapReduce job
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
@@ -444,7 +458,7 @@ Di seguito è disponibile lo script completo usato per eseguire questo esempio i
 
 Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite istruzioni sull'uso di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Esempio: GraySort da 10 GB][hdinsight-sample-10gb-graysort]
 * [Esempio: Conteggio parole][hdinsight-sample-wordcount]
 * [Esempio: streaming C#][hdinsight-sample-csharp-streaming]
@@ -454,7 +468,7 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
@@ -468,5 +482,4 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 [hdinsight-use-pig]: ../hdinsight-use-pig/
  
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

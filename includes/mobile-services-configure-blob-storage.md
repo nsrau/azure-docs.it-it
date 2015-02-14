@@ -2,7 +2,7 @@
 
 0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione].
 
-1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**. 
+1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione, quindi su **Gestisci chiavi**. 
 
   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
 
@@ -12,8 +12,8 @@
 
 3. Nel servizio mobile fare clic sulla scheda **Configura**, scorrere fino a **Impostazioni app** e immettere una coppia **Nome** e **Valore** per ognuno degli elementi seguenti ottenuti dall'account di archiviazione, quindi fare clic su **Salva**.
 
-	+ "STORAGE_ACCOUNT_NAME"
-	+ "STORAGE_ACCOUNT_ACCESS_KEY"
+	+ `STORAGE_ACCOUNT_NAME`
+	+ `STORAGE_ACCOUNT_ACCESS_KEY`
 
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
@@ -23,7 +23,7 @@
 
    	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
-5.  In **todoitem** fare clic sulla scheda **Script** e selezionare **Insert**. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
+5.  In **todoitem** fare clic sulla scheda **Script** e selezionare **Inserisci**. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
 
 		var azure = require('azure');
 		var qs = require('querystring');
@@ -37,7 +37,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, which must be lowercase.
+		        // Set the BLOB store container name on the item, Utilizzare caratteri minuscoli.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -80,9 +80,9 @@
 
  	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
-   	La funzione richiamata quando si verifica un inserimento nella tabella TodoItem verrà sostituita da un nuovo script. Il nuovo script genera una nuova firma di accesso condiviso per l'inserimento, valida per 5 minuti, quindi assegna il valore di questa firma generata alla proprietà "sasQueryString" dell'elemento restituito. La proprietà "imageUri" viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
+   	La funzione richiamata quando si verifica un inserimento nella tabella TodoItem verrà sostituita da un nuovo script. Il nuovo script genera una nuova firma di accesso condiviso per l'inserimento, valida per 5 minuti, quindi assegna il valore di questa firma generata alla proprietà  `sasQueryString` dell'elemento restituito. La proprietà  `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-	>[WACOM.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">metodo generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: 
+	>[AZURE.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">metodo generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: 
 	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funzionalità di caricamento delle immagini mediante la firma di accesso condiviso generata per l'inserimento.
@@ -94,3 +94,4 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 <!-- URLs. -->
 [Come creare un account di archiviazione]: /it-it/manage/services/storage/how-to-create-a-storage-account
 [Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=42-->

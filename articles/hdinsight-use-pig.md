@@ -1,22 +1,36 @@
-﻿<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Usare Pig con Hadoop in HDInsight | Azure" metaKeywords="" description="Informazioni su come usare Pig con HDInsight. Scrivere istruzioni Pig Latin per analizzare un file di registro applicazioni ed eseguire query dei dati per generare l'output da analizzare." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Usare Pig con Hadoop in HDInsight | Azure" 
+	description="Informazioni su come usare Pig con HDInsight. Scrivere istruzioni Pig Latin per analizzare un file di registro applicazioni ed eseguire query dei dati per generare l'output da analizzare." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="jgao"/>
 
 
 
 # Usare Pig con Hadoop in HDInsight
 
-Questa esercitazione illustra come eseguire processi [Apache Pig][apachepig-home] in HDInsight per analizzare i file di dati di grandi dimensioni. Pig offre un linguaggio di scripting per l'esecuzione di processi MapReduce in alternativa alla scrittura di codice Java. Il linguaggio di scripting di Pig è chiamato *Pig Latin*.
+Questa esercitazione illustra come eseguire processi [Apache Pig][apachepig-home] in HDInsight per analizzare i file di dati di grandi dimensioni. Pig offre un linguaggio di scripting per l'esecuzione di processi *MapReduce* in alternativa alla scrittura di codice Java. Il linguaggio di scripting di Pig è chiamato *Pig Latin*.
 
 **Prerequisiti**
 
-* È necessario avere completato il provisioning di un cluster HDInsight di Azure. Per istruzioni, vedere [Introduzione all'utilizzo di Hadoop 2.4 in HDInsight][hdinsight-get-started] o [Provisioning di cluster Hadoop in HDInsight con opzioni personalizzate][hdinsight-provision]. Per completare questa esercitazione sarà necessario il nome del cluster.
+* È necessario avere completato il provisioning di un cluster HDInsight di Azure. Per le istruzioni, vedere [Introduzione all'uso di Azure HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare questa esercitazione sarà necessario il nome del cluster.
 
-* È necessario avere installato e configurato Azure PowerShell nella workstation. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install-configure]. 
+* È necessario avere installato e configurato Azure PowerShell nella workstation. Per le istruzioni, vedere la pagina relativa a [installazione e configurazione di Azure PowerShell][powershell-install-configure]. 
 
 **Tempo previsto per il completamento:** 30 minuti
 
-##Contenuto dell'articolo
+## Contenuto dell'articolo
 
 * [Perché usare Pig?](#usage)
 * [Che cosa si farà in questa esercitazione?](#what)
@@ -26,7 +40,7 @@ Questa esercitazione illustra come eseguire processi [Apache Pig][apachepig-home
 * [Inviare processi Pig tramite HDInsight .NET SDK](#sdk)
 * [Passaggi successivi](#nextsteps)
  
-##<a id="usage"></a>Perché usare Pig?
+## <a id="usage"></a>Perché usare Pig?
 È difficile lavorare con i Big Data usando database relazionali e statistiche/pacchetti di visualizzazione. A causa delle grandi quantità di dati, è spesso necessario un software parallelo in esecuzione su decine, centinaia o anche migliaia di server per poter calcolare questi dati in un tempo ragionevole. Hadoop fornisce un framework *MapReduce* per scrivere applicazioni che elaborano in parallelo grandi quantità di dati strutturati e non strutturati in grandi cluster di computer in modo del tutto affidabile e a tolleranza di errore.
 
 ![HDI.Pig.Architecture][image-hdi-pig-architecture]
@@ -41,8 +55,8 @@ Le istruzioni di Pig Latin seguono questo flusso generale:
 
 Per altre informazioni su Pig Latin, vedere il [manuale di riferimento di Pig Latin 1][piglatin-manual-1] e il [manuale di riferimento di Pig Latin 2][piglatin-manual-2].
 
-##<a id="what"></a>Che cosa si farà in questa esercitazione?
-In questa esercitazione si analizzerà un file di log di Apache (*sample.log*) per determinare il numero dei diversi livelli di log, ad esempio INFO, DEBUG, TRACE, ecc. Le due figure seguenti mostrano la rappresentazione visiva di ciò che si eseguirà in questo articolo. La prima figura mostra un frammento del file sample.log:
+## <a id="what"></a>Che cosa si farà in questa esercitazione?
+In questa esercitazione verrà analizzato un file di log di Apache (*sample.log*) per determinare il numero dei diversi livelli di log, ad esempio INFO, DEBUG, TRACE, ecc. Le due figure seguenti mostrano la rappresentazione visiva di ciò che si eseguirà in questo articolo. La prima figura mostra un frammento del file sample.log:
 
 ![Whole File Sample][image-hdi-log4j-sample]
 
@@ -52,15 +66,15 @@ La seconda figura illustra il flusso e la trasformazione dei dati mentre si scor
 
 Il processo Pig creato in questa esercitazione segue lo stesso flusso.
 
-##<a id="data"></a>Identificare i dati da analizzare
+## <a id="data"></a>Identificare i dati da analizzare
 
-HDInsight usa il contenitore dell'archivio BLOB di Azure come file system predefinito per i cluster Hadoop. Alcuni file di dati di esempio vengono aggiunti all'archivio BLOB come parte del provisioning del cluster ed è possibile usarli per eseguire query Hive sul cluster. Volendo è anche possibile caricare il proprio file di dati nell'account di archiviazione BLOB associato al cluster. Per istruzioni, vedere [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data]. Per altre informazioni sul modo in cui HDInsight usa l'archivio BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight][hdinsight-storage].
+HDInsight usa il contenitore dell'archivio BLOB di Azure come file system predefinito per i cluster Hadoop. Alcuni file di dati di esempio vengono aggiunti all'archivio BLOB come parte del provisioning del cluster ed è possibile usarli per eseguire query Hive sul cluster. Volendo è anche possibile caricare il proprio file di dati nell'account di archiviazione BLOB associato al cluster. Per le istruzioni, vedere [Caricare i dati in HDInsight][hdinsight-upload-data]. Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
 La sintassi per accedere ai file nell'archivio BLOB è la seguente:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Nella versione 3.0 del cluster HDInsight è supportata solo la sintassi *wasb://*. La sintassi *asv://*, meno recente, è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
+> [AZURE.NOTE] Nel cluster HDInsight versione 3.0 è supportata solo la sintassi *wasb://*. La sintassi *asv://*, meno recente, è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
 
 È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito anche usando uno degli URI seguenti (usare come esempio sample.log.  Si tratta del file di dati usato nell'esercitazione):
 
@@ -72,16 +86,16 @@ Per accedere al file direttamente dall'account di archiviazione, il nome del BLO
 
 	example/data/sample.log
 
-In questo articolo verrà usato un file *log4j* di esempio incluso nel cluster HDInsight e archiviato nel percorso *\example\data\sample.log*. Per informazioni sul caricamento di file di dati personalizzati, vedere [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data].
+In questo articolo sarà usato un file *log4j* di esempio incluso nel cluster HDInsight e archiviato nel percorso *\example\data\sample.log*. Per informazioni sul caricamento di file di dati personalizzati, vedere [Caricare i dati in HDInsight][hdinsight-upload-data].
 
 
 
 
-##<a id="understand"></a> Informazioni su Pig Latin
+## <a id="understand"></a> Informazioni su Pig Latin
 
 In questa sezione, si esamineranno singolarmente alcune istruzioni Pig Latin e i risultati dopo l'esecuzione delle istruzioni. Nella sezione successiva, si userà PowerShell per eseguire assieme le istruzioni Pig allo scopo di analizzare il file di log di esempio. Le singole istruzioni Pig Latin devono essere eseguite direttamente sul cluster HDInsight.
 
-1. Abilitare Desktop remoto per il cluster HDInsight seguendo le istruzioni fornite in [Connessione a cluster HDInsight tramite RDP](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Accedere al nodo del cluster e, dal desktop, fare clic su **Hadoop Command Line**.
+1. Abilitare Desktop remoto per il cluster HDInsight seguendo le istruzioni fornite in [Connettersi a cluster HDInsight tramite RDP](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Accedere al nodo del cluster e, dal desktop, fare clic su **Hadoop Command Line**.
 
 2. Dalla riga di comando passare alla directory in cui è installato **Pig**. Digitare:
 
@@ -185,9 +199,9 @@ In questa sezione, si esamineranno singolarmente alcune istruzioni Pig Latin e i
 	 	(ERROR,6)
 		(FATAL,2)
 
-##<a id="powershell"></a>Inviare processi Pig tramite PowerShell
+## <a id="powershell"></a>Inviare processi Pig tramite PowerShell
 
-In questa sezione sono disponibili le istruzioni per usare i cmdlet di PowerShell. Prima di procedere in questa sezione, è necessario innanzitutto configurare l'ambiente locale e la connessione ad Azure. Per i dettagli, vedere [Introduzione all'utilizzo di Hadoop 2.4 in HDInsight][hdinsight-get-started] e [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell][hdinsight-admin-powershell].
+In questa sezione sono disponibili le istruzioni per usare i cmdlet di PowerShell. Prima di procedere in questa sezione, è necessario innanzitutto configurare l'ambiente locale e la connessione ad Azure. Per informazioni dettagliate, vedere [Introduzione all'uso di Azure HDInsight][hdinsight-get-started] e [Amministrare HDInsight tramite PowerShell][hdinsight-admin-powershell].
 
 
 **Per eseguire Pig Latin mediante PowerShell**
@@ -200,7 +214,7 @@ In questa sezione sono disponibili le istruzioni per usare i cmdlet di PowerShel
 
 	Verrà richiesto di immettere le credenziali dell'account Azure. Questo metodo, che prevede l'aggiunta di una connessione alla sottoscrizione, scade dopo 12 ore, di conseguenza sarà necessario eseguire nuovamente il cmdlet. 
 
-	> [WACOM.NOTE] Se si dispone di più sottoscrizioni di Azure e la sottoscrizione predefinita non è quella che si desidera utilizzare, usare il cmdlet  <strong>Select-AzureSubscription</strong> per selezionare la sottoscrizione corrente.
+	> [AZURE.NOTE] Se si dispone di più sottoscrizioni di Azure e non si vuole usare quella predefinita, eseguire il cmdlet <strong>Select-AzureSubscription</strong> per selezionare la sottoscrizione corrente.
 2. Copiare e incollare le righe seguenti nel riquadro dello script.
 
 		$clusterName = "<HDInsightClusterName>" 	#Specify the cluster name
@@ -242,7 +256,7 @@ In questa sezione sono disponibili le istruzioni per usare i cmdlet di PowerShel
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	> [WACOM.NOTE] Uno dei cmdlet Get-AzureHDInsightJobOut è commentato per abbreviare l'output nella schermata seguente.   
+	> [AZURE.NOTE] Uno dei cmdlet Get-AzureHDInsightJobOut è commentato per abbreviare l'output nella schermata seguente.   
 
 7. Premere **F5** per eseguire lo script:
 
@@ -251,11 +265,11 @@ In questa sezione sono disponibili le istruzioni per usare i cmdlet di PowerShel
 	Il processo Pig calcola le frequenze di tipi di log diversi.
 
 
-##<a id="sdk"></a>Inviare processi Pig tramite HDInsight .NET SDK
+## <a id="sdk"></a>Inviare processi Pig tramite HDInsight .NET SDK
 
-Attenersi alla procedura riportata di seguito per inviare un processo Pig con un'applicazione C#.   Per istruzioni sulla creazione di un'applicazione C# per l'invio di processi Hadoop, vedere [Inviare processi Hadoop in HDInsight][hdinsight-submit-jobs].
+Attenersi alla procedura riportata di seguito per inviare un processo Pig con un'applicazione C#.   Per istruzioni sulla creazione di un'applicazione C# per l'invio di processi Hadoop, vedere [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs].
 
-1. Creare un certificato autofirmato, installarlo nella workstation e caricarlo nella sottoscrizione di Azure. Per istruzioni, vedere [Creare un certificato autofirmato](http://go.microsoft.com/fwlink/?LinkId=511138).
+1. Creare un certificato autofirmato, installarlo nella workstation e caricarlo nella sottoscrizione di Azure. Per le istruzioni, vedere [Creare un certificato autofirmato](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 2. Creare l'applicazione console di Visual Studio e installare il pacchetto HDInsight. Nel menu Strumenti fare clic su **Gestione pacchetti NuGet**, quindi su **Console di Gestione pacchetti**. Al prompt, immettere il codice seguente:
 
@@ -354,15 +368,15 @@ Attenersi alla procedura riportata di seguito per inviare un processo Pig con un
 		    }
 		}
 
-##<a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 
 Oltre a Pig, che consente di eseguire l'analisi dei dati, altri linguaggi inclusi in HDInsight potrebbero risultare utili. Hive fornisce un linguaggio di query simile a SQL che consente di eseguire facilmente una query sulla base dei dati archiviati in HDInsight, mentre i processi MapReduce scritti in Java consentono di eseguire analisi di dati complesse. Per altre informazioni, vedere quanto segue:
 
 
-* [Introduzione all'utilizzo di Hadoop 2.4 in HDInsight][hdinsight-get-started]
-* [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data]
-* [Inviare processi MapReduce tramite HDInsight .NET SDK][hdinsight-submit-jobs]
-* [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
+* [Caricare i dati in HDInsight][hdinsight-upload-data]
+* [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]
+* [Usare Hive con HDInsight][hdinsight-use-hive]
 
 
 
@@ -381,7 +395,7 @@ Oltre a Pig, che consente di eseguire l'analisi dei dati, altri linguaggi inclus
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [powershell-start]: http://technet.microsoft.com/it-it/library/hh847889.aspx
 
@@ -390,4 +404,4 @@ Oltre a Pig, che consente di eseguire l'analisi dei dati, altri linguaggi inclus
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!--HONumber=35.2-->
+<!--HONumber=42-->

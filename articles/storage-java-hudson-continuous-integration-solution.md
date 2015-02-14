@@ -1,14 +1,28 @@
-﻿<properties urlDisplayName="Hudson Continuous Integration" pageTitle="Come usare Hudson con il servizio BLOB di Azure | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Come usare Hudson con il servizio BLOB di Azure | Microsoft Azure" 
+	description="Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 #Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 
-*Autore: [Microsoft Open Technologies Inc.][ms-open-tech]*
+*Autore [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 L'articolo seguente descrive come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Hudson (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (usando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio.  Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
-In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Hudson reso disponibile da Microsoft Open Technologies, Inc.
+In questa esercitazione si userà il plug-in di Archiviazione di Azure per l'Integrazione continuata Hudson reso disponibile da Microsoft Open Technologies, Inc.
 
 ## Sommario
 
@@ -51,9 +65,9 @@ Per usare il servizio BLOB con la soluzione di Integrazione continuata Hudson è
 
     3. Nel browser aprire `http://localhost:8080/`. Verrà aperto il dashboard di Hudson.
 
-    4. Al primo uso di Hudson, completare la configurazione iniziale all'indirizzo `http://localhost:8080/`. 
+    4. Al primo utilizzo di Hudson, completare la configurazione iniziale all'indirizzo `http://localhost:8080/`. 
 
-    5. Dopo aver completato la configurazione iniziale, annullare l'istanza in esecuzione del file WAR di Hudson, avviarlo nuovamente e riaprire il dashboard di Hudson, `http://localhost:8080/`, che verrà usato per installare e configurare il plug-in di Archiviazione di Azure.
+    5. Dopo avere completato la configurazione iniziale, annullare l'istanza in esecuzione del file hudson.war, avviarlo nuovamente e riaprire il dashboard di Hudson, `http://localhost:8080/`, che verrà usato per installare e configurare il plug-in di Archiviazione di Azure.
 
         Sebbene sia necessario configurare una tipica soluzione di Integrazione continuata Hudson per eseguirla come servizio, ai fini di questa esercitazione sarà sufficiente eseguire il file WAR di Hudson nella riga di comando.
 
@@ -94,9 +108,9 @@ Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Ar
 Ai fini di questa esercitazione, è necessario innanzitutto creare un processo che crei più file e quindi aggiungere l'operazione post-compilazione per caricare i file nell'account di archiviazione.
 
 1. Nel dashboard di Hudson fare clic su **New Job**.
-2. Denominare il processo **MyJob**, fare clic su **Build a free-style software job** e quindi fare clic su **OK**.
+2. Denominare il processo **MyJob**, fare clic su **Build a free-style software job**, quindi scegliere **OK**.
 3. Nella sezione **Build** della configurazione del processo fare clic su **Add build step** e scegliere **Execute Windows batch command**.
-4. Nella sezione **Command** usare i comandi seguenti:
+4. Nella sezione **Command** usare i seguenti comandi:
 
         md text
         cd text
@@ -112,7 +126,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
     
     Sotto la sezione **Command** in cui è stato immesso uno script per **Execute Windows batch command** è presente un collegamento alle variabili di ambiente riconosciute da Hudson. Fare clic sul collegamento per ottenere dettagli sui nomi e le descrizioni delle variabili di ambiente. Si noti che le variabili di ambiente che contengono caratteri speciali come la variabile di ambiente **BUILD_URL** non sono ammesse come nome di contenitore o come percorso virtuale comune.
 
-8. Ai fini di questo esempio, fare clic su **Make new container public by default**. Se si intende usare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso. Questa operazione non rientra nell'ambito di questo argomento. Per altre informazioni sulle firme di accesso condiviso, vedere [Creare e usare una firma di accesso condiviso](http://go.microsoft.com/fwlink/?LinkId=279889).
+8. Ai fini di questo esempio, fare clic su **Make new container public by default**. Se si intende usare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso. Questa operazione non rientra nell'ambito di questo argomento. Per altre informazioni sulle firme di accesso condiviso, vedere [Creare e utilizzare una firma di accesso condiviso](http://go.microsoft.com/fwlink/?LinkId=279889).
 9. [Facoltativo] Fare clic su **Clean container before uploading** se si vuole cancellare i contenuti dal contenitore prima di caricare gli elementi di compilazione (lasciare questa casella deselezionata se non si vuole pulire i contenuti del contenitore).
 10. In **List of Artifacts to upload** immettere **text/*.txt**.
 11. In **Common virtual path for uploaded artifacts** immettere **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -122,10 +136,10 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
     1. Accedere al portale di gestione di Azure, all'indirizzo <https://manage.windowsazure.com>.
     2. Fare clic su **Storage**.
     3. Fare clic sul nome dell'account di archiviazione usato per Hudson.
-    4. Fare clic su **Container**.
+    4. Fare clic su **Containers**.
     5. Fare clic sul contenitore denominato **myjob**, ossia la versione in lettere minuscole del nome processo assegnato al momento della creazione del processo Hudson. In Archiviazione di Azure i nomi di contenitori e i nomi di BLOB sono riportati in lettere minuscole (e si applica la distinzione maiuscole/minuscole). Nell'elenco di BLOB per il contenitore denominato **myjob** dovrebbero essere visualizzati **hello.txt** e **date.txt**. Copiare l'URL di uno di questi elementi e aprirlo nel browser. Verrà visualizzato il file di testo caricato come elemento di compilazione.
 
-È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archiviazione BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archiviazione BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Hudson crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archiviazione BLOB di Azure, in **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, in **List of Artifacts to upload**: **build/\*.jar::binaries;build/\*.txt::notices**.
+È possibile creare solo un'azione post-compilazione per il caricamento di elementi nell'archivio BLOB di Azure per ogni processo. Si noti che la singola azione post-compilazione per il caricamento di elementi nell'archiviazione BLOB di Azure può specificare file (inclusi caratteri jolly) e percorsi di file diversi in **List of Artifacts to upload** usando un punto e virgola come separatore. Ad esempio, se la compilazione Hudson crea file JAR e TXT nella cartella **build** dell'area di lavoro dell'utente e si intende caricarli entrambi nell'archiviazione BLOB di Azure, in **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. Per specificare il percorso da usare nel nome del BLOB, è anche possibile usare la sintassi con i due punti. Ad esempio, se si vuole caricare i file JAR usando **binaries** nel percorso del BLOB e i file TXT usando **notices** nel percorso del BLOB, in **List of Artifacts to upload**: **build/\*.jar::binaries;build/\*.txt::notices**.
 
 ## <a name="howtocreatebuildstep"></a>Come creare un passaggio di compilazione per il download di elementi dall'archiviazione BLOB di Azure ##
 
@@ -154,7 +168,7 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
     
     Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel portale di gestione di Azure per determinare l'endpoint dell'URL.
 
-    Nel formato riportato sopra `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore usato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato usato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
+    Nel formato riportato sopra  `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e  `blob_name` rappresenta il nome del BLOB. Nel nome del contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore usato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato usato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -171,5 +185,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

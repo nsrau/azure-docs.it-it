@@ -1,9 +1,6 @@
 ﻿Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macchina virtuale che esegue Windows Server.
 
-<div class="dev-callout">
-<b>Importante</b>
-<p>Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e il binding di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione.  Vedere <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">sicurezza e autenticazione</a> per altre informazioni.</p>
-</div>
+> [AZURE.IMPORTANT] Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e il binding di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione.  Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start**.
 2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**.  In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://\*.mongodb.org* all'elenco dei siti attendibili.
@@ -22,7 +19,7 @@
 		C:\> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tutti i messaggi di log verranno indirizzati al file *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
+	Tutti i messaggi di log verranno indirizzati al file  *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
 
 8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le informazioni seguenti:
 
@@ -96,5 +93,4 @@
 [Image7]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

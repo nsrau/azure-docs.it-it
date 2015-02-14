@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari | Azure" metaKeywords="" description="Usare le API Apache Ambari per il provisioning, la gestione e il monitoraggio di cluster Hadoop. Gli intuitivi strumenti operatore e le API di Ambari nascondono la complessità di Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
+<properties 
+	pageTitle="Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari | Azure" 
+	description="Usare le API Apache Ambari per il provisioning, la gestione e il monitoraggio di cluster Hadoop. Gli intuitivi strumenti operatore e le API di Ambari nascondono la complessità di Hadoop." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	editor="cgronlun" 
+	manager="paulettm"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
  
@@ -27,13 +41,13 @@ Attualmente HDInsight supporta solo la funzione di monitoraggio di Ambari. L'API
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una workstation** in cui sia stato installato e configurato Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install]. Per eseguire script di PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
+- **Una workstation** in cui sia stato installato e configurato Azure PowerShell. Per le istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install]. Per eseguire script di PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
 
-	[Curl][curl] è facoltativo. Può essere installato da [questo collegamento][curl-download].
+	[Curl][curl] è facoltativo. Può essere installato facendo clic [qui][curl-download].
 
-	>[WACOM.NOTE] Quando si usa il comando curl in Windows, per i valori delle opzioni sostituire le virgolette alle virgolette singole.
+	>[AZURE.NOTE] Quando si usa il comando curl in Windows, per i valori delle opzioni sostituire le virgolette singole con virgolette doppie.
 
-- **Cluster HDInsight di Azure**. Per istruzioni sul provisioning del cluster, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
+- **Cluster HDInsight di Azure**. Per istruzioni sul provisioning del cluster, vedere [Introduzione all'uso di HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
 	<table border="1">
 	<tr><th>Proprietà del cluster</th><th>Nome variabile di PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
@@ -42,7 +56,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	<tr><td>Password cluster</td><td>$clusterPassword</td><td></td><td>Password dell'utente del cluster.</td></tr>
 	</table>
 
-	> [WACOM.NOTE] L'inserimento dei valori nelle tabelle  potrà essere utile per completare questa esercitazione.
+	> [AZURE.NOTE] L'inserimento dei valori nelle tabelle  potrà essere utile per completare questa esercitazione.
 
 
 
@@ -52,7 +66,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 **Uso di Azure PowerShell**
 
-Di seguito è riportato uno script di PowerShell che consente di ottenere informazioni sul jobtracker di MapReduce *su un cluster 3.1*.  La differenza principale consiste nel fatto che le informazioni verranno estratte dal servizio YARN (piuttosto che da Map Reduce).
+Di seguito è riportato uno script di PowerShell che consente di ottenere informazioni sul jobtracker di MapReduce: *on a 3.1 cluster.*  La differenza principale consiste nel fatto che le informazioni verranno estratte dal servizio YARN (piuttosto che da Map Reduce).
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -68,7 +82,7 @@ Di seguito è riportato uno script di PowerShell che consente di ottenere inform
 	
 	$response.metrics.'yarn.queueMetrics'
 
-Di seguito è riportato uno script di PowerShell che consente di ottenere informazioni sul jobtracker di MapReduce *su un cluster 2.1*:
+Di seguito è riportato uno script di PowerShell che consente di ottenere informazioni sul jobtracker di MapReduce: *on a 2.1 cluster*
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -112,7 +126,7 @@ L'output è:
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
 Note per la versione rilasciata il 08/10/2014:
-Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", il campo *host_name* ora restituisce il nome di dominio completo (FQDN) del nodo invece del solo nome host. Prima della versione dell'8/10/2014, questo esempio restituiva semplicemente "**headnode0**". Dopo la versione dell'8/10/2014, si otterrà il nome FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**" come nell'esempio precedente. Questa modifica si è resa necessaria per facilitare scenari in cui sia possibile implementare più tipi di cluster, come HBase e Hadoop, in un'unica rete virtuale (VNET). Ciò accade, ad esempio, quando si usa HBase come piattaforma back-end per Hadoop.
+quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", il campo *host_name* ora restituisce il nome di dominio completo (FQDN) del nodo invece del solo nome host. Prima della versione dell'8/10/2014, questo esempio restituiva semplicemente "**headnode0**". Dopo la versione dell'8/10/2014, si otterrà il nome FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**" come nell'esempio precedente. Questa modifica si è resa necessaria per facilitare scenari in cui sia possibile implementare più tipi di cluster, come HBase e Hadoop, in un'unica rete virtuale (VNET). Ciò accade, ad esempio, quando si usa HBase come piattaforma back-end per Hadoop.
 
 ##<a id="monitor"></a>API Ambari di monitoraggio
 
@@ -121,21 +135,21 @@ La tabella seguente riporta alcune delle chiamate API Ambari di monitoraggio pi�
 <table border="1">
 <tr><th>Chiamata API di monitoraggio</th><th>URI</th><th>Descrizione</th></tr>
 <tr><td>Get clusters</td><td><tt>/api/v1/clusters</tt></td><td></td></tr>
-<tr><td>Get cluster info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net</tt></td><td>cluster, servizi, host</td></tr>
-<tr><td>Get services</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services</tt></td><td>Services include: hdfs, mapreduce</td></tr>
-<tr><td>Get services info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;</tt></td><td></td></tr>
-<tr><td>Get service components</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
-<tr><td>Get component info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;</tt></td><td>ServiceComponentInfo, componenti host, metriche</td></tr>
-<tr><td>Get hosts</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>Get host info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt; 
+<tr><td>Get cluster info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net</tt></td><td>cluster, servizi, host</td></tr>
+<tr><td>Get services</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/services</tt></td><td>Services include: hdfs, mapreduce</td></tr>
+<tr><td>Get services info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;</tt></td><td></td></tr>
+<tr><td>Get service components</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
+<tr><td>Get component info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;NomeComponente&gt;</tt></td><td>ServiceComponentInfo, componenti host, metriche</td></tr>
+<tr><td>Get hosts</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
+<tr><td>Get host info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/hosts/&lt;NomeHost&gt; 
 </td><td></td></tr>
-<tr><td>Get host components</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components
+<tr><td>Get host components</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/hosts/&lt;NomeHost&gt;/host_components
 </tt></td><td>namenode, resourcemanager</td></tr>
-<tr><td>Get host component info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;
+<tr><td>Get host component info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;NomeComponente&gt;
 </tt></td><td>HostRoles, componente, host, metriche</td></tr>
-<tr><td>Get configurations</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations 
+<tr><td>Get configurations</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/configurations 
 </tt></td><td>Config types: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-<tr><td>Get configuration info.</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt; 
+<tr><td>Get configuration info.</td><td><tt>/api/v1/clusters/&lt;NomeCluster&gt;.azurehdinsight.net/configurations?type=&lt;TipoConfig&gt;&tag=&lt;NomeVersione&gt; 
 </tt></td><td>Config types: core-site, hdfs-site, mapred-site, hive-site</td></tr>
 </table>
 
@@ -147,8 +161,8 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 - [Amministrare cluster HDInsight tramite il portale di gestione][hdinsight-admin-portal]
 - [Amministrare cluster HDInsight tramite Azure PowerShell][hdinsight-admin-powershell]
 - [Amministrare cluster HDInsight tramite l'interfaccia della riga di comando][hdinsight-admin-cli]
-- [Documentazione di HDInsight][hdinsight-documentation]
-- [Introduzione all'uso di HDInsight][hdinsight-get-started]
+- [Documentazione relativa a HDInsight][hdinsight-documentation]
+- [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 
 
 
@@ -160,8 +174,8 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[Powershell-install]: ../install-configure-powershell/
-[Powershell-script]: http://technet.microsoft.com/it-it/library/ee176949.aspx 
+[powershell-install]: ../install-configure-powershell/
+[powershell-script]: http://technet.microsoft.com/it-it/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
@@ -172,5 +186,4 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

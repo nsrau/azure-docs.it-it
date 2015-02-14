@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST (Platform | Backend)]
+﻿> [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
 - [(iOS | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
 - [(iOS | JavaScript)](/it-it/documentation/articles/mobile-services-ios-get-started-users/)
 - [(Windows Universal C# | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)
@@ -15,3 +15,4 @@
 - [(Xamarin Android | Javascript)](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
 - [(HTML | Javascript)](/it-it/documentation/articles/mobile-services-html-get-started-users/)
 - [(Appcelerator | Javascript)](/it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)
+<!--HONumber=42-->

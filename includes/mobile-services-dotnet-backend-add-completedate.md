@@ -2,9 +2,9 @@
 
 1. In Esplora soluzioni di Visual Studio espandere la cartella **App_Start** nel progetto di servizio todolist. Aprire il file WebApiConfig.cs.
 
-2. Nel file WebApiConfig.cs si noti che la classe predefinita dell'inizializzatore del database deriva dalla classe "DropCreateDatabaseIfModelChanges". Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che i dati di seeding siano i seguenti e salvare il file WebApiConfig.cs.
+2. Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe  `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che i dati di seeding siano i seguenti e salvare il file WebApiConfig.cs.
 
-    >[WACOM.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+    >[AZURE.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
         List<TodoItem> todoItems = new List<TodoItem>
         {
@@ -22,7 +22,7 @@
           public System.DateTime? CompleteDate { get; set; }
         }
 
-4. In Esplora soluzioni di Visual Studio espandere la cartella **Controllers** nel progetto di servizio todolist. Aprire il file TodoItemController.cs e aggiornare il metodo "PatchTodoItem" in modo che venga impostato il campo **CompleteDate** quando la proprietà **Complete** cambia da false a true. Quindi, salvare il file TodoItemController.cs.
+4. In Esplora soluzioni di Visual Studio espandere la cartella **Controllers** nel progetto di servizio todolist. Aprire il file TodoItemController.cs e aggiornare il metodo `PatchTodoItem` in modo che venga impostato il campo **CompleteDate** quando la proprietà **Complete** cambia da false a true. Quindi, salvare il file TodoItemController.cs.
 
         public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
         {
@@ -38,4 +38,4 @@
 
 5. Ricompilare il progetto di servizio back-end .NET todolist e verificare che non siano presenti errori di compilazione. 
 
-A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.
+A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.<!--HONumber=42-->

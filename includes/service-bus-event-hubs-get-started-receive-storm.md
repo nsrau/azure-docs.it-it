@@ -1,4 +1,4 @@
-﻿## Ricevere messaggi con Apache Storm
+## Ricevere messaggi con Apache Storm
 
 [**Apache Storm**](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout dell'hub eventi per ricevere eventi dall'hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione degli hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 
@@ -6,7 +6,7 @@ Per altre informazioni sui modelli di ricezione degli hub eventi, vedere [Panora
 
 Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo Spout di Hub eventi già disponibile.
 
-1. Seguire la procedura indicata nell'[introduzione a HDInsight Storm](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-storm-getting-started/) per creare un nuovo cluster HDInsight, quindi connettersi a quest'ultimo tramite Desktop remoto.
+1. Seguire la procedura indicata nell'introduzione a [HDInsight Storm](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-storm-getting-started/) per creare un nuovo cluster HDInsight, quindi connettersi a quest'ultimo tramite Desktop remoto.
 
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 
@@ -14,15 +14,15 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. In Eclipse creare un nuovo progetto Maven (fare clic su **File**, quindi su **Nuovo**, quindi su **Progetto**).
+4. In Eclipse creare un nuovo progetto Maven (fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**).
 
    	![][12]
 
-5. Selezionare **Usa percorso predefinito dello spazio di lavoro**, quindi fare clic su **Avanti**
+5. Selezionare **Usa percorso predefinito dello spazio di lavoro**, quindi fare clic su **Avanti**.
 
-6. Selezionare l'archetipo **maven-archetype-quickstart**, quindi fare clic su **Avanti**
+6. Selezionare l'archetipo **maven-archetype-quickstart**, quindi fare clic su **Avanti**.
 
-7. Inserire un **GroupId** e un **ArtifactId**, quindi fare clic su **Fine**
+7. Inserire un **GroupId** e un **ArtifactId**, quindi fare clic su **Fine**.
 
 8. In **pom.xml** aggiungere le dipendenze seguenti nel nodo `<dependency>`.
 		
@@ -216,8 +216,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 			}
 		}
 
-
-	La classe crea un nuovo Spout degli hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
+  La classe crea un nuovo Spout degli hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
 
 <!-- Links -->
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn821413.aspx
@@ -228,4 +227,4 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

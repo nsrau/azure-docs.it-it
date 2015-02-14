@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Introduzione all'Archiviazione di Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Introduzione all'Archiviazione di Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Per iniziare](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
@@ -13,7 +27,7 @@
 > - [Code](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Tabelle](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Il servizio di archiviazione tabelle di Azure permette di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.  Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
+Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.  Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 
 Per accedere alle tabelle a livello di codice in progetti ASP.NET 5, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
 
@@ -30,7 +44,7 @@ Per accedere alle tabelle a livello di codice in progetti ASP.NET 5, è necessar
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####Ottenere la stringa di connessione di archiviazione
+##### Ottenere la stringa di connessione di archiviazione
 Prima di eseguire operazioni relative a una tabella, è necessario ottenere la stringa di connessione per l'account di archiviazione in cui risiederanno le tabelle. È possibile usare il tipo **CloudStorageAccount** per rappresentare le informazioni sull'account di archiviazione. Se si usa un progetto vNext ASP.NET, sarà possibile chiamare il metodo Get dell'oggetto Configuration per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure, come mostrato nel codice seguente.
 
 **NOTA:** le API che effettuano chiamate all'Archiviazione di Azure in ASP.NET 5 sono asincrone. Per altre informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice seguente si presuppone l'uso di metodi di programmazione asincrona.
@@ -38,7 +52,7 @@ Prima di eseguire operazioni relative a una tabella, è necessario ottenere la s
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####Creare una tabella
+##### Creare una tabella
 Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di usarlo per creare una nuova tabella. Il codice tenta di fare riferimento a una tabella denominata "people". Se non è in grado di trovare una tabella con tale nome, ne crea una.
 
 **NOTA:** in tutto il codice incluso in questa guida si presuppone che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure. Usare inoltre tutto questo codice prima del codice nelle sezioni seguenti.
@@ -50,7 +64,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare u
 	CloudTable table = tableClient.GetTableReference("people");
 	await table.CreateIfNotExistsAsync();
 
-#####Aggiungere un'entità a una tabella
+##### Aggiungere un'entità a una tabella
 Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
 	public class CustomerEntity : TableEntity
@@ -81,7 +95,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the insert operation.
 	await table.ExecuteAsync(insertOperation);
 
-#####Inserire un batch di entità
+##### Inserire un batch di entità
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** usando il metodo Insert e quindi avvia l'operazione chiamando CloudTable.ExecuteBatchAsync.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -107,7 +121,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the batch operation.
 	await table.ExecuteBatchAsync(batchOperation);
 
-#####Ottenere tutte le entità di una partizione
+##### Ottenere tutte le entità di una partizione
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
@@ -130,7 +144,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
     return View();
 
 
-#####Ottenere una singola entità
+##### Ottenere una singola entità
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in TableResult.Result è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **Tabelle**.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -148,7 +162,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####Eliminare un'entità
+##### Eliminare un'entità
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
 
 	// Create the CloudTable that represents the "people" table.
@@ -178,4 +192,5 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->

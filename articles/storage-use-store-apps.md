@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Azure" metaKeywords="" description="Informazioni su come usare BLOB, code e tabelle di Azure per archiviare i dati per un'app di Windows Store." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Azure" 
+	description="Informazioni su come usare BLOB, code e tabelle di Azure per archiviare i dati per un'app di Windows Store." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="tamram"/>
 
 
 
@@ -35,7 +49,7 @@ A questo punto l'app è pronta per chiamare i servizi BLOB e di accodamento. Agg
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo del gestore eventi con la [parola chiave async](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx):
+Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo del gestore eventi con la [parola chiave async](http://msdn.microsoft.com/it-it/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -76,5 +90,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

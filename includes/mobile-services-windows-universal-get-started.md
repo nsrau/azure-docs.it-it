@@ -1,14 +1,10 @@
+﻿
 Di seguito sono riportate alcune schermate dell'app completata:
 
-![][0]
+![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
+<br/>App di Windows Store
 
-App di Windows Store
+![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
+<br/>Windows Phone Store app
 
-![][1]
-
-App di Windows Phone Store
-
-Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app di Windows Store e Windows Phone Store.
-
-  [0]: ./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png
-  [1]: ./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png
+Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app di Windows Store e Windows Phone Store. <!--HONumber=42-->

@@ -1,9 +1,9 @@
 ﻿
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. In questa sezione verrà aggiunto del codice al servizio mobile che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1. Avviare Visual Studio con l'opzione **Esegui come amministratore** e aprire la soluzione contenente il progetto di servizio mobile usato nell'esercitazione [Attività iniziali] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+1. Avviare Visual Studio con l'opzione **Esegui come amministratore** e aprire la soluzione contenente il progetto di servizio mobile utilizzato nell'esercitazione [Attività iniziali] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 
-2. Nella finestra di Esplora soluzioni espandere il progetto di servizio elenco attività, quindi **Controller**. Aprire il file TodoItemController.cs, che fa parte del progetto di servizio mobile.  
+2. Nella finestra di Esplora soluzioni espandere il progetto di servizio elenco attività, quindi espandere **Contollers**. Aprire il file TodoItemController.cs, che fa parte del progetto di servizio mobile.  
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
 
@@ -25,13 +25,13 @@
 
 
 
-4. Fare clic con il pulsante destro del mouse sul progetto di servizio mobile, quindi scegliere **Compila** per compilarlo. Accertarsi che non si siano verificati errori.
+4. Fare clic con il pulsante destro del mouse sul progetto di servizio mobile, quindi scegliere **Compila** per compilarlo. Verificare che non si siano verificati errori.
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
-5. Fare di nuovo clic con il pulsante destro del mouse sul progetto di servizio e scegliere **Pubblica**. Pubblicare il servizio mobile nell'account Microsoft Azure usando le impostazioni di pubblicazione illustrate nell'esercitazione [Attività iniziali] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+5. Fare di nuovo clic con il pulsante destro del mouse sul progetto di servizio e scegliere **Pubblica**. Pubblicare il servizio mobile nell'account Microsoft Azure utilizzando le impostazioni di pubblicazione illustrate nell'esercitazione [Attività iniziali] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
  
-     >[WACOM.NOTE] In alternativa, è possibile eseguire il test con il servizio ospitato in locale in IIS Express. Per altre informazioni, vedere l'esercitazione [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+     >[AZURE.NOTE] In alternativa, è possibile eseguire il test con il servizio ospitato in locale in IIS Express. Per altre informazioni, vedere l'esercitazione[Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 
@@ -41,3 +41,4 @@
 
 <!-- URLs. -->
 [Attività iniziali]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+<!--HONumber=42-->

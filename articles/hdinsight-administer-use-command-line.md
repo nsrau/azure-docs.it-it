@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Gestire cluster Hadoop tramite l'interfaccia della riga di comando multipiattaforma | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Informazioni su come usare l'interfaccia della riga di comando multipiattaforma per la gestione di cluster Hadoop in HDInsight su qualsiasi piattaforma che supporti Node.js, incluso Windows, Mac e Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+﻿<properties 
+	pageTitle="Gestire cluster Hadoop tramite l'interfaccia della riga di comando multipiattaforma | Azure" 
+	description="Informazioni su come usare l'interfaccia della riga di comando multipiattaforma per la gestione di cluster Hadoop in HDInsight su qualsiasi piattaforma che supporti Node.js, incluso Windows, Mac e Linux.." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando multipiattaforma
 
@@ -8,7 +22,7 @@ In questo articolo è illustrato come usare l'interfaccia della riga di comando 
 
 Lo strumento da riga di comando è open source.  Il codice sorgente viene gestito in GitHub all'indirizzo <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
-Questo articolo descrive solo l'uso dell'interfaccia della riga di comando da Windows. Per una guida generale sull'uso dell'interfaccia della riga di comando, vedere [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][azure-command-line-tools]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][azure-command-line-tool].
+Questo articolo descrive solo l'utilizzo dell'interfaccia della riga di comando da Windows. Per una guida generale sull'uso dell'interfaccia della riga di comando, vedere [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][azure-command-line-tools]. Per la documentazione di riferimento completa, vedere [Strumento da riga di comando di Azure per Mac e Linux][azure-command-line-tool].
 
 
 **Prerequisiti:**
@@ -28,18 +42,18 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * [Passaggi successivi](#nextsteps)
 
 ##<a id="installation"></a> Installazione
-L'interfaccia della riga di comando può essere installata mediante *Node.js Package Manager (NPM)* o Windows Installer.
+Per installare l'interfaccia della riga di comando, è possibile usare *Node.js Package Manager (NPM)* o Windows Installer.
 
 **Per installare l'interfaccia della riga di comando mediante NPM**
 
 1.	Passare a **www.nodejs.org**.
 2.	Fare clic su **INSTALL** e seguire le istruzioni usando le impostazioni predefinite.
-3.	Aprire **Prompt dei comandi** (o il *prompt dei comandi di Azure* oppure il *prompt dei comandi per sviluppatori per VS2012*) dalla workstation.
+3.	Aprire il **prompt dei comandi** (o *Azure Command Prompt*, o *Developer Command Prompt for VS2012*) dalla workstation.
 4.	Nella finestra del prompt dei comandi eseguire il comando seguente.
 
 		npm install -g azure-cli
 
-	> [WACOM.NOTE] Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\Programmi (x86)\nodejs;C:\Users\[nomeutente]\AppData\Roaming\npm</i> o <i>C:\Programmi\nodejs;C:\Users\[nomeutente]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE] Se viene visualizzato un errore che informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\Programmi (x86)\nodejs;C:\Users\[nomeutente]\AppData\Roaming\npm</i> oppure <i>C:\Programmi\nodejs;C:\Users\[nomeutente]\AppData\Roaming\npm</i>
 
 
 5.	Eseguire il comando seguente per verificare l'installazione:
@@ -62,7 +76,7 @@ L'interfaccia della riga di comando può essere installata mediante *Node.js Pac
 
 Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
-> [WACOM.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Si consiglia di eliminare il file o di eseguire ulteriori passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
+> [AZURE.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Si consiglia di eliminare il file o di eseguire ulteriori passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
 
 
 **Per scaricare e importare impostazioni di pubblicazione**
@@ -85,9 +99,9 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 	Nella schermata precedente, il file di impostazioni di pubblicazione è stato salvato nella cartella C:\HDInsight sulla workstation.
 
 
-##<a id="provision"></a> Provisioning di un cluster HDInsight
+##<a id="provision"></a> Effettuare il provisioning di un cluster HDInsight
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
 HDInsight usa un contenitore dell'archiviazione BLOB di Azure come file system predefinito. Per poter creare un cluster HDInsight, è necessario un account di archiviazione di Azure. 
@@ -97,7 +111,7 @@ Dopo avere importato il file publishsettings è possibile usare il comando segue
 	azure account storage create [options] <StorageAccountName>
 
 
-> [WACOM.NOTE] L'account di archiviazione deve trovarsi nello stesso data center. È attualmente possibile eseguire il provisioning di cluster HDInsight solo nei data center seguenti:
+> [AZURE.NOTE] L'account di archiviazione deve trovarsi nello stesso data center. È attualmente possibile eseguire il provisioning di cluster HDInsight solo nei data center seguenti:
 
 ><ul>
 <li>Asia sudorientale</li>
@@ -119,7 +133,7 @@ Se si dispone già di un account di archiviazione, ma non si conosce il nome acc
 	-- Lists the keys for a storage account
 	azure account storage keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione* di [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso* di [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
 
 
 Il comando *azure hdinsight cluster create* crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile usare il comando seguente:
@@ -171,8 +185,8 @@ In genere, si effettua il provisioning di un cluster HDInsight, vi si eseguono i
 ![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
 
 
-##<a id="listshow"></a> Elenco e visualizzazione di cluster
-Usare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
+##<a id="listshow"></a> Elencare i cluster e visualizzarne i dettagli
+Usare i comandi seguenti per elencare i cluster e visualizzarne i dettagli:
 	
 	azure hdinsight cluster list
 	azure hdinsight cluster show <ClusterName>
@@ -193,9 +207,9 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 
 * [Amministrare HDInsight tramite il portale di gestione][hdinsight-admin-portal]
 * [Amministrare HDInsight tramite PowerShell][hdinsight-admin-powershell]
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Come usare gli strumenti da riga di comando di Azure per Mac e Linux][azure-command-line-tools]
-* [Strumento da riga di comando di Azure per Mac e Linux][azure-command-line-tool]
+* [Strumenti da riga di comando di Azure per Mac e Linux][azure-command-line-tool]
 
 
 [azure-command-line-tools]: ../xplat-cli/
@@ -214,5 +228,4 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

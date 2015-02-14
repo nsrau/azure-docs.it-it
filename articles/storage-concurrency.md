@@ -1,6 +1,20 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="obbligatorio" 
+	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="tamram"/>
 
 #Gestione della concorrenza nell'archiviazione di Microsoft Azure
 Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:  
@@ -65,7 +79,7 @@ Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempi
 	        throw;
 	}  
 
-Il servizio di archiviazione include anche il supporto di altre intestazioni condizionale quali **If-Modified-Since**, **If-Unmodified-Since** e **If-None-Match** nonché le relative combinazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio Blob](http://msdn.microsoft.com/it-it/library/dd179371.aspx) su MSDN.  
+Il servizio di archiviazione include anche il supporto di altre intestazioni condizionale quali **If-Modified-Since**, **If-Unmodified-Since** e **If-None-Match**, nonché le relative combinazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio Blob](http://msdn.microsoft.com/it-it/library/dd179371.aspx) in MSDN.  
 
 Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.  
 
@@ -155,9 +169,9 @@ Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pes
 -	Get Block List
 -	Put Page
 -	Get Page Ranges
--	Snapshot Blob: ID lease facoltativo se esiste un lease
+-	Snapshot Blob - ID lease facoltativo se esiste un lease
 -	Copy Blob: ID lease obbligatorio se esiste un lease nel BLOB di destinazione
--	Abort Copy Blob: ID lease obbligatorio se esiste un lease infinito nel BLOB di destinazione
+-	Abort Copy Blob - ID lease obbligatorio se esiste un lease infinito nel BLOB di destinazione
 -	Lease Blob  
 
 ##Concorrenza pessimistica per i contenitori
@@ -177,7 +191,7 @@ Per altre informazioni, vedere:
 
 - [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](http://msdn.microsoft.com/it-it/library/azure/dd179371.aspx)
 - [Lease Container](http://msdn.microsoft.com/it-it/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/it-it/library/azure/ee691972.aspx) 
+- [Lease Blob](http://msdn.microsoft.com/it-it/library/azure/ee691972.aspx) 
 
 #Gestione della concorrenza nel servizio tabelle
 Il servizio tabelle usa i controlli della concorrenza ottimistica come comportamento predefinito quando si usano entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire controlli di concorrenza ottimistica. L'altra differenza tra il servizio tabelle e il servizio BLOB risiede nel fatto che con il primo è possibile gestire solo il comportamento di concorrenza delle entità, mentre con il servizio BLOB è possibile gestire la concorrenza sia dei contenitori sia dei BLOB.  
@@ -192,7 +206,7 @@ Per usare la concorrenza ottimistica e controllare se un altro processo ha modif
 
 Si noti che, a differenza del servizio BLOB, il servizio tabelle richiede che il client includa un'intestazione **If-Match** nelle richieste di aggiornamento. Tuttavia, è possibile forzare un aggiornamento condizionale (strategia della prevalenza dell'ultima scrittura) e ignorare i controlli della concorrenza se il client imposta l'intestazione **If-Match** sul carattere jolly (*) nella richiesta.  
 
-Il frammento C# seguente mostra un'entità del cliente precedentemente creata o recuperata con l'aggiornamento dell'indirizzo di posta elettronica. L'operazione iniziale di inserimento o recupero archivia il valore ETag nell'oggetto del cliente e, poiché l'esempio usa la stessa istanza di oggetto quando esegue l'operazione di sostituzione, invia automaticamente il valore ETag alla tabella, consentendo al servizio di verificare l'eventuale presenza di violazioni della concorrenza. Se un altro processo ha aggiornato l'entità nella tabella di archiviazione, il servizio restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo [qui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).  
+Il frammento C# seguente mostra un'entità del cliente precedentemente creata o recuperata con l'aggiornamento dell'indirizzo di posta elettronica. L'operazione iniziale di inserimento o recupero archivia il valore ETag nell'oggetto del cliente e, poiché l'esempio usa la stessa istanza di oggetto quando esegue l'operazione di sostituzione, invia automaticamente il valore ETag alla tabella, consentendo al servizio di verificare l'eventuale presenza di violazioni della concorrenza. Se un altro processo ha aggiornato l'entità nella tabella di archiviazione, il servizio restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo [qui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	try
 	{
@@ -225,7 +239,7 @@ Delete Entity|	No|	Sì|
 Insert or Replace Entity|	Sì|	No|
 Insert or Merge Entity|	Sì|	No 
 
-Si noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** non eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
+Si noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** *non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
 
 In generale gli sviluppatori che usano tabelle devono fare affidamento sulla concorrenza ottimistica quando sviluppano applicazioni scalabili. Se è necessario un blocco pessimistico, un possibile approccio che gli sviluppatori possono adottare quando effettuano l'accesso alle tabelle è di assegnare un BLOB designato per ciascuna tabella e provare ad acquisire un lease sul BLOB prima di eseguire operazioni sulla tabella. Adottando questo approccio è necessario che l'applicazione verifichi che tutti i percorsi di accesso ai dati ottengano il lease prima di eseguire operazioni sulla tabella. Occorre inoltre notare che il tempo di lease minimo è di 15 secondi, pertanto è necessario prestare una particolare attenzione alla scalabilità.  
 
@@ -266,5 +280,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Introduzione all'archiviazione per [BLOB](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/), [tabelle](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/) e [code](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Architettura di archiviazione: [Archiviazione di Windows Azure: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

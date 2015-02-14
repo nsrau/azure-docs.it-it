@@ -1,6 +1,20 @@
-﻿<properties title="How to use Giraph with HDInsight" pageTitle="Informazioni sull'uso di Apache Giraph con Azure HDInsight" description="Informazioni sull'uso di Apache Giraph per eseguire l'elaborazione di grafici con Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+<properties 
+	pageTitle="Come usare Apache Giraph con Azure HDInsight" 
+	description="Informazioni sull'uso di Apache Giraph per eseguire l'elaborazione di grafici con Azure HDInsight" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/14/2014" 
+	ms.author="larryfr"/>
 
 #Informazioni sull'uso di Apache Giraph con Azure HDInsight (Hadoop)
 
@@ -38,7 +52,7 @@
 
 Giraph non viene fornito nel cluster HDInsight e quindi deve essere compilato dal codice sorgente.  Per altre informazioni sulla compilazione di Giraph, vedere il [repository Giraph](https://github.com/apache/giraph).
 
-1. Alla data corrente (14/07/2014) per poter usare Giraph con l'archivio file WASB usato da HDInsight è necessaria una patch che è stata inviata al progetto Apache Giraph, ma non è stata ancora accettata. Scaricare la patch dalla sezione attachments di [GIRAPH-930](https://issues.apache.org/jira/browse/GIRAPH-930) e salvarla nell'unità locale come __giraph-930.diff__.
+1. Alla data corrente (14/07/2014) per poter usare Giraph con l'archivio file WASB usato da HDInsight è necessaria una patch che è stata inviata al progetto Apache Giraph, ma non è stata ancora accettata. Scaricare la patch dalla sezione __attachments__ di [GIRAPH-930](https://issues.apache.org/jira/browse/GIRAPH-930) e salvarla nell'unità locale come __giraph-930.diff__.
 
 1. A una riga di comando usare il comando Git seguente per creare un clone del repository Giraph.
 
@@ -52,7 +66,7 @@ Giraph non viene fornito nel cluster HDInsight e quindi deve essere compilato da
 
 		git apply giraph-930.diff
 
-	Sostituire __giraph-930.diff__ con il percorso del file creato al passaggio 1.
+	Sostituire __giraph-930.diff__ il percorso del file creato al passaggio 1.
 
 3. Compilare Giraph per la versione del cluster HDInsight usando uno dei comandi seguenti.
 
@@ -70,17 +84,17 @@ Giraph non viene fornito nel cluster HDInsight e quindi deve essere compilato da
 
 		Add-HDInsightFile giraph-examples-1.1.0-SNAPSHOT-for-hadoop-0.23.1-jar-with-dependencies.jar example/jars/giraph.jar clustername
 
-	Sostituire __giraph-examples-1.1.0-SNAPSHOT-for-hadoop-0.23.1-jar-with-dependencies.jar__ con il percorso e il nome del file JAR ottenuto al passaggio precedente e __clustername__ con il nome del cluster HDInsight. Ad esempio, se il pacchetto è stato compilato con il parametro `-Phadoop_0.20.203`, il nome del file JAR includerà __hadoop-0.20.203__.
+	Sostituire __giraph-examples-1.1.0-SNAPSHOT-for-hadoop-0.23.1-jar-with-dependencies.jar__ con il percorso e il nome del file JAR ottenuto al passaggi precedente e __clustername__ con il nome del cluster HDInsight. Ad esempio, se il pacchetto è stato compilato con il parametro `-Phadoop_0.20.203`, il nome del file JAR includerà __hadoop-0.20.203__.
 
 	Una volta completato il comando, il file JAR risulterà caricato in wasb:///example/jars/giraph.jar.
 
-	> [WACOM.NOTE] Per un elenco di utilità che è possibile usare per caricare file in HDInsight, vedere [Caricare dati per processi Hadoop in HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] Per un elenco di utilità che è possibile usare per caricare file in HDInsight, vedere [Caricare dati per processi Hadoop in HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-upload-data/).
 
 ##<a id="run"></a>Eseguire l'esempio
 
 In SimpleShortestPathsComputation è illustrata l'implementazione di base di [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) per individuare il percorso più breve tra oggetti in un grafico. Usare la procedura seguente per caricare i dati di esempio, eseguire un processo con l'esempio SimpleShortestPathsComputation e quindi visualizzare i risultati.
 
-> [WACOM.NOTE] Il codice sorgente per questo è disponibile, insieme ad altri esempi, nel [release-1.1 branch](https://github.com/apache/giraph/tree/release-1.1) del [repository GitHub](https://github.com/apache/giraph).
+> [AZURE.NOTE] Il codice sorgente per questo è disponibile, insieme ad altri esempi, nel [release-1.1 branch](https://github.com/apache/giraph/tree/release-1.1) del [repository GitHub](https://github.com/apache/giraph).
 
 1. Creare un nuovo file denominato __tiny\_graph.txt__. Questo file deve contenere le righe seguenti.
 
@@ -148,9 +162,9 @@ Nella directory corrente verrà creata la struttura di directory __example/outpu
 	1	0.0
 	3	1.0
 
-L'esempio SimpleShortestPathComputation è hardcoded in modo da essere avviato con l'ID oggetto 1 e individuare il percorso più breve ad altri oggetti. L'output dovrebbe quindi essere `destination_id distance`, in cui distance è il valore (o il peso) dei confini attraversati tra l'ID oggetto 1 e l'ID di destinazione.
+L'esempio SimpleShortestPathComputation è hardcoded in modo da essere avviato con l'ID oggetto 1 e individuare il percorso più breve ad altri oggetti. L'output dovrebbe quindi essere  `destination_id distance`, in cui distance è il valore (o il peso) dei confini attraversati tra l'ID oggetto 1 e l'ID di destinazione.
 
-Con questa visualizzazione è possibile verificare i risultati attraversando i percorsi più brevi tra l'ID 1 e tutti gli altri oggetti. Notare che il percorso più breve tra l'ID 1 e l'ID 4 è 5, che corrisponde alla distanza totale tra <span style="color:orange">ID 1 e 3</span> e quindi <span style="color:red">ID 3 e 4</span>.
+Con questa visualizzazione è possibile verificare i risultati attraversando i percorsi più brevi tra l'ID 1 e tutti gli altri oggetti. Notare che il percorso più breve tra l'ID 1 e l'ID 4 è 5, che corrisponde alla distanza totale tra <span style="color:orange">ID 1 e 3</span>e quindi <span style="color:red">ID 3 e 4</span>.
 
 ![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-giraph\giraph-graph-out.png)
 
@@ -166,15 +180,15 @@ Se si vuole eseguire un processo più volte, è necessario rimuovere la director
 
 Anche se in questo articolo viene spiegato come eseguire un processo Giraph tramite PowerShell, è possibile eseguire il processo anche tramite la riga di comando di Hadoop.
 
-> [WACOM.NOTE] La riga di comando di Hadoop è disponibile solo quando ci si connette al cluster HDInsight con Desktop remoto.
+> [AZURE.NOTE] La riga di comando di Hadoop è disponibile solo quando ci si connette al cluster HDInsight con Desktop remoto.
 > 
 > Le sessioni di Desktop remoto a risorse di calcolo di Azure, come il cluster HDInsight, possono essere eseguite solo da client di Desktop remoto basati su Windows.
 
 Per connettersi al cluster HDInsight, eseguire la procedura seguente:
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) selezionare il cluster HDInsight e quindi scegliere __Configuration__.
+1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) selezionare il cluster HDInsight e quindi scegliere __Configurazione__.
 
-2. Nella parte inferiore della pagina selezionare __Abilita modalità remota__ e specificare il nome utente, la password e la data di scadenza della connessione Desktop remoto.
+2. Nella parte inferiore della pagina selezionare __Abilita modalità remota__ e specificare il nome utente, la password e la data di scadenza della Connessione Desktop remoto.
 
 3. Una volta elaborata la richiesta di abilitazione di Desktop remoto, nella parte inferiore della pagina verrà visualizzata una nuova voce __Connetti__. Selezionarla per scaricare il file RDP per la sessione di Desktop remoto.
 
@@ -201,7 +215,6 @@ A questo punto, dopo aver appreso come usare Giraph con HDInsight, provare a usa
 [giraph]: http://giraph.apache.org
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
-[pig]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-pig/
-[hive]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-hive/
-
-<!--HONumber=35.1-->
+[Pig]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-pig/
+[Hive]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-hive/
+<!--HONumber=42-->

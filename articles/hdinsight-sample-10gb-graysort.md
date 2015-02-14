@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Esempio GraySort da 10 GB | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Informazioni su come eseguire un ordinamento GraySort di utilizzo generale su Hadoop con HDInsight tramite Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties 
+	pageTitle="Esempio GraySort da 10 GB | Azure" 
+	description="Informazioni su come eseguire un GraySort generico per grandi quantità di dati, in genere almeno 100 TB, su Hadoop con HDInsight usando Azure PowerShell." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Esempio GraySort di Hadoop da 10 GB in HDInsight
  
 Questo argomento di esempio illustra come eseguire un programma MapReduce GraySort per Hadoop di uso generale in Azure HDInsight usando Azure PowerShell. GraySort è un ordinamento benchmark che usa come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità molto elevate di dati, in genere almeno 100 TB. 
 
-In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento di terabyte di uso generale ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per altre informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/).
+In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento di terabyte di uso generale ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per altre informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/)   .
 
 In questo esempio vengono usati tre set di programmi MapReduce:	
  
@@ -22,15 +36,15 @@ Il formato di input e il formato di output, usati da tutte e tre le applicazioni
 * Aspetto di un programma MapReduce in Java.
 
 
-**Prerequisiti**:	
+**Prerequisiti**	
 
 - È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/it-it/pricing/free-trial/).
 
-- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Provisioning di cluster HDInsight](../hdinsight-provision-clusters/)
+- È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Effettuare il provisioning di cluster HDInsight](../hdinsight-provision-clusters/).
 
-- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installazione e configurazione di Azure PowerShell][powershell-install-configure].
+- È necessario che Azure PowerShell sia installato e configurato per l'uso con l'account utente. Per le relative istruzioni, vedere [Installare e configurare Azure PowerShell][powershell-install-configure].
 
-##Contenuto dell'articolo
+## Contenuto dell'articolo
 Questo argomento descrive come eseguire la serie di programmi MapReduce che costituiscono l'esempio, presenta il codice Java per il programma MapReduce, riepiloga i concetti appresi e indica alcuni passaggi successivi. L'argomento include le sezioni seguenti:
 	
 1. [Eseguire l'esempio con Azure PowerShell](#run-sample)	
@@ -56,16 +70,16 @@ L'esempio richiede tre attività, ognuna delle quali corrisponde a uno dei progr
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
-4. Per creare una definizione del processo MapReduce, eseguire i comandi seguenti:
+3. Per creare una definizione del processo MapReduce, eseguire i comandi seguenti:
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] Il file *hadoop-examples.jar* è incluso nei cluster HDInsight della versione 2.1. Il file è stato rinominato in *hadoop-mapreduce.jar* nei cluster HDInsight della versione 3.0.
+	> [AZURE.NOTE] Il file *hadoop-examples.jar* è incluso nei cluster HDInsight della versione 2.1. Il file è stato rinominato in *hadoop-mapreduce.jar* nei cluster HDInsight della versione 3.0.
 	
-	L'argomento *"-Dmapred.map.tasks=50"* specifica che verranno create 50 funzioni Map per l'esecuzione del processo. L'argomento *100000000* specifica la quantità di dati da generare. L'argomento finale, */example/data/10GB-sort-input*, specifica la directory di output in cui vengono salvati i risultati e che include l'input per la fase di ordinamento successiva.
+	L'argomento *"-Dmapred.map.tasks=50"* specifica che verranno create 50 funzioni Map per l'esecuzione del processo. L'argomento *100000000* specifica la quantità di dati da generare. L'argomento finale,  */example/data/10GB-sort-input*, specifica la directory di output in cui vengono salvati i risultati e che include l'input per la fase di ordinamento successiva.
 
-5. Eseguire i comandi seguenti per inviare il processo, attendere il completamento del processo e quindi stampare l'errore standard:
+4. Eseguire i comandi seguenti per inviare il processo, attendere il completamento del processo e quindi stampare l'errore standard:
 
 		# Run the TeraGen MapReduce job.
 		# Wait for the job to complete.
@@ -404,7 +418,7 @@ In questo esempio è stato illustrato come eseguire una serie di processi MapRed
 
 Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite istruzioni sull'uso di processi Pig, Hive e MapReduce in Azure HDInsight con Azure PowerShell, vedere gli argomenti seguenti:
 
-* [Introduzione ad Azure HDInsight][hdinsight-get-started]
+* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Esempio: Calcolo del Pi greco][hdinsight-sample-pi-estimator]
 * [Esempio: Conteggio parole][hdinsight-sample-wordcount]
 * [Esempio: streaming C#][hdinsight-sample-csharp-streaming]
@@ -415,7 +429,7 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
@@ -429,5 +443,4 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

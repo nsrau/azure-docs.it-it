@@ -1,10 +1,10 @@
+﻿
 
-
-1. Se l'app non è ancora stata registrata, passare alla pagina relativa all' [invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
+1. Se l'app non è ancora stata registrata, passare alla pagina [Invia un'app] nel Dev Center delle app di Windows Store, accedere con l'account Microsoft e quindi fare clic su **Nome app**.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
+2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome dell'app** e quindi su **Salva**.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
@@ -36,27 +36,26 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)**. 
+10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**. 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    <div class="dev-callout"><b>Nota sulla sicurezza</b>
-	<p>Il segreto client e il SID di pacchetto sono credenziali di sicurezza importanti. Non condividere questi valori con altri né distribuirli con l'app.</p>
-    </div> 
+    > [AZURE.NOTE] La chiave privata client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri né distribuirli con l'app.
 
 11. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-12. Fare clic sulla scheda **Push**, immettere i valori di **Segreto client** e **SID pacchetto** ottenuti da WNS, quindi fare clic su **Salva**.
+12. Fare clic sulla scheda **Push** e immettere i valori di **Chiave privata client** e **Pacchetto SID** ottenuti da WNS, quindi fare clic su **Salva**.
 
-	>[WACOM.NOTE]Se si completa questa esercitazione con un servizio mobile precedente, nella parte inferiore della scheda **Push** potrebbe essere visualizzato un collegamento con l'indicazione **Abilita push avanzato**. Fare clic sul collegamento per aggiornare il servizio mobile per l'integrazione con Hub di notifica. Questa modifica non può essere annullata. Per indicazioni su come abilitare le notifiche push avanzate in un servizio mobile di produzione, vedere <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">queste linee guida</a>. 
+	>[AZURE.NOTE]Se si completa questa esercitazione con un servizio mobile meno recente, nella parte inferiore della scheda **Push** potrebbe essere visualizzato un collegamento con l'indicazione **Abilita push avanzato**. Fare clic sul collegamento per aggiornare il servizio mobile per l'integrazione con Hub di notifica. Questa modifica non può essere annullata. Per indicazioni su come abilitare le notifiche push avanzate in un servizio mobile di produzione, vedere <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">queste informazioni aggiuntive</a>. 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
-	>[WACOM.NOTE]Le credenziali WNS per le notifiche push avanzate configurate nella scheda **Push** del portale vengono condivise con Hub di notifica per configurare l'hub di notifica per l'app.
+	>[AZURE.NOTE]Le credenziali WNS per le notifiche push avanzate configurate nella scheda **Push** del portale vengono condivise con Hub di notifica per configurare l'hub di notifica per l'app.
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
-[invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

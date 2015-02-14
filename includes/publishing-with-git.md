@@ -1,10 +1,10 @@
-# Pubblicazione in Siti Web di Azure con Git
+﻿# Pubblicazione in Siti Web di Azure con Git
 
 Siti Web di Azure supporta la distribuzione continua da strumenti di controllo del codice sorgente e di repository come BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. È possibile usare questi strumenti per gestire il contenuto e il codice del sito Web, quindi effettuare il push delle modifiche al sito in modo rapido e immediato quando è necessario.
 
-Questo articolo illustrerà l'uso di Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è detto **Git locale**. Si apprenderà anche come abilitare la distribuzione continua da siti Web di repository, come BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Per informazioni sull'uso di TFS per la distribuzione continua, vedere [Distribuzione continua in Azure tramite Visual Studio Online].
+Questo articolo illustra l'uso di Git per pubblicare direttamente dal computer locale in un sito Web di Azure. In Azure questo metodo di pubblicazione è detto **Git locale**. Si apprenderà anche come abilitare la distribuzione continua da siti Web di repository, come BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Per informazioni sull'uso di TFS per la distribuzione continua, vedere [Distribuzione continua in Azure tramite Visual Studio Online].
 
-> [WACOM.NOTE] Molti comandi Git descritti in questo articolo vengono eseguiti automaticamente quando si crea un sito Web usando gli <a href="/it-it/develop/nodejs/how-to-guides/command-line-tools/">strumenti da riga di comando di Azure per Mac e Linux</a>.
+> [AZURE.NOTE] Molti comandi Git descritti in questo articolo vengono eseguiti automaticamente quando si crea un sito Web usando gli <a href="/it-it/develop/nodejs/how-to-guides/command-line-tools/">strumenti da riga di comando di Azure per Mac e Linux</a>.
 
 Questa attività include i passaggi seguenti:
 
@@ -20,9 +20,9 @@ Questa attività include i passaggi seguenti:
 
 <h2><a id="Step2"></a>Installazione di Git</h2>
 
-I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
+I passaggi necessari per installare Git variano a seconda del sistema operativo. Per informazioni aggiuntive specifiche del sistema operativo sulle distribuzioni e l'installazione, vedere la pagina relativa all'[installazione di Git].
 
-> [WACOM.NOTE] In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+> [AZURE.NOTE] In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
 
 <h2><a id="Step2"></a>Creazione di un repository locale</h2>
 
@@ -56,7 +56,7 @@ In Siti Web di Azure sono supportate applicazioni create in diversi linguaggi di
 
 		git add index.html 
 
-	> [WACOM.NOTE] Per visualizzare informazioni della Guida relative a qualsiasi comando git, digitare -help o --help dopo il comando. Ad esempio, per opzioni relative ai parametri per il comando add, digitare 'git add -help' per la guida della riga di comando oppure 'git add --help' per informazioni dettagliate.
+	> [AZURE.NOTE] Per visualizzare informazioni della Guida relative a qualsiasi comando git, digitare -help o --help dopo il comando. Ad esempio, per opzioni relative ai parametri per il comando add, digitare 'git add -help' per la guida della riga di comando oppure 'git add --help' per informazioni dettagliate.
 
 4. In seguito, eseguire il commit delle modifiche al repository con il comando seguente:
 
@@ -82,7 +82,7 @@ Eseguire la procedura seguente per abilitare il repository Git per il sito Web t
 
 3. Selezionare la scheda **DASHBOARD**.
 
-4. Nella sezione **riepilogo rapido** selezionare **Imposta distribuzione dal controllo del codice sorgente**.  Verrà visualizzata la finestra di dialogo **IMPOSTA DISTRIBUZIONE** seguente.
+4. Nella sezione **Riepilogo rapido** selezionare **Imposta distribuzione dal controllo del codice sorgente**.  Verrà visualizzata la finestra di dialogo **IMPOSTA DISTRIBUZIONE** seguente.
 
 	![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
 
@@ -110,7 +110,7 @@ Eseguire la procedura seguente per pubblicare il sito Web in Azure tramite Git l
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [WACOM.NOTE] Il comando **remote** consente di aggiungere un riferimento denominato a un repository remoto. Questo esempio crea un riferimento denominato 'azure' per il repository del sito Web di Azure.
+    > [AZURE.NOTE] Il comando **remote** consente di aggiungere un riferimento denominato a un repository remoto. Questo esempio crea un riferimento denominato 'azure' per il repository del sito Web di Azure.
 
 1. Usare il comando seguente dalla riga di comando per effettuare il push del contenuto corrente dal repository locale al repository 'azure' remoto:
 
@@ -130,7 +130,7 @@ Eseguire la procedura seguente per pubblicare il sito Web in Azure tramite Git l
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [WACOM.NOTE]  Il repository creato per il sito Web di Azure prevede che le richieste push siano destinate al ramo <strong>master</strong> del relativo repository, che verrà quindi usato come contenuto del sito Web.
+	> [AZURE.NOTE] Il repository creato per il sito Web di Azure prevede che le richieste push siano destinate al ramo <strong>master</strong> del relativo repository, che verrà quindi usato come contenuto del sito Web.
 
 2. Fare clic sul collegamento **SFOGLIA** nella parte inferiore del portale per verificare che il file **index.html** sia stato distribuito. Verrà visualizzata una pagina contenente il messaggio 'Hello Git!'.
 
@@ -138,7 +138,7 @@ Eseguire la procedura seguente per pubblicare il sito Web in Azure tramite Git l
 
 3. Con un editor di testo modificare il file **index.html** in modo che contenga la stringa 'Yay!', quindi salvarlo.
 
-4. Usare i comandi seguenti dalla riga di comando per **aggiungere** le modifiche, **eseguirne il commit** e quindi effettuare il **push** nel repository remoto:
+4. Usare i comandi seguenti dalla riga di comando per **aggiungere** le modifiche, eseguirne il **commit** e quindi effettuare il **push** nel repository remoto:
 
 		git add index.html
 		git commit -m "Celebration"
@@ -158,7 +158,7 @@ Per distribuire file da GitHub, CodePlex o BitBucket, è necessario aver pubblic
 
 1. Inserire innanzitutto i file del sito Web nel repository selezionato da usare per la distribuzione continua.
 
-2. Nel portale di Azure per il sito Web passare alla scheda **DASHBOARD**. Nella sezione **riepilogo rapido** selezionare **Imposta distribuzione dal controllo del codice sorgente**.  Verrà visualizzata la finestra di dialogo **Imposta distribuzione** con la domanda **Dove è il codice sorgente?**. 
+2. Nel portale di Azure per il sito Web passare alla scheda **DASHBOARD**. Nella sezione **Riepilogo rapido** selezionare **Imposta distribuzione dal controllo del codice sorgente**.  Verrà visualizzata la finestra di dialogo **Imposta distribuzione** con la domanda **Dove è il codice sorgente?**. 
 
 2. Scegliere il metodo di controllo del codice sorgente da usare per la distribuzione continua.
 	
@@ -170,7 +170,7 @@ Per distribuire file da GitHub, CodePlex o BitBucket, è necessario aver pubblic
   
 5. Selezionare il repository da associare al sito Web di Azure. Fare clic sul segno di spunta per continuare.
 
-	> [WACOM.NOTE] Se si abilita la distribuzione continua con GitHub o BitBucket, verranno visualizzati progetti sia pubblici che privati.
+	> [AZURE.NOTE] Se si abilita la distribuzione continua con GitHub o BitBucket, verranno visualizzati progetti sia pubblici che privati.
 
 6. In Azure viene creata un'associazione con il repository selezionato e viene effettuato il pull dei file dal ramo master. Al termine del processo, nella sezione **cronologia di distribuzione** della pagina **Distribuzioni** verrà visualizzato un messaggio relativo a **Distribuzione attiva** simile al seguente:
 
@@ -188,7 +188,7 @@ Il push di una soluzione di Visual Studio a un sito Web di Azure è paragonabile
 
 La procedura per il push della soluzione di Visual Studio in un sito Web di Azure è la stessa descritta nella [sezione precedente](#Step7), purché la soluzione e il repository siano configurati come indicato di seguito:
 
--	Nella radice del repository aggiungere un file `.gitignore`, quindi specificare tutti i file e le cartelle da escludere dal repository, ad esempio le cartelle `Obj`, `Bin` e `packages`. Per informazioni sulla formattazione, vedere la [documentazione di gitignore](http://git-scm.com/docs/gitignore). ad esempio:
+-	Nella radice del repository aggiungere un file `.gitignore`, quindi specificare tutti i file e le cartelle da escludere dal repository, ad esempio le cartelle `Obj`, `Bin` e  `packages`. Per informazioni sulla formattazione, vedere la documentazione di [gitignore](http://git-scm.com/docs/gitignore). Ad esempio:
 
 		[Oo]bj/
 		[Bb]in/
@@ -206,7 +206,7 @@ La procedura per il push della soluzione di Visual Studio in un sito Web di Azur
 		_app/
 		nuget.exe
 
-	>[WACOM.NOTE] [WACOM.NOTE] Se si usa GitHub, quando si crea il repository è possibile generare un file con estensione gitignore specifico di Visual Studio contenente tutti i file temporanei comuni, i risultati della compilazione e così via. Il file potrà quindi essere personalizzato in base a esigenze specifiche.
+	>[AZURE.NOTE] Se si usa GitHub, quando si crea il repository è possibile generare un file con estensione gitignore specifico di Visual Studio contenente tutti i file temporanei comuni, i risultati della compilazione e così via. Il file potrà quindi essere personalizzato in base a esigenze specifiche.
 
 -	Aggiungere al repository l'intero albero di directory della soluzione, con il file con estensione sln nella radice del repository.
 
@@ -225,7 +225,7 @@ Per altre informazioni sul motore di base del processo di distribuzione Git per 
 
 <h4>Specifica del ramo da usare</h4>
 
-Quando si abilita la distribuzione continua, per impostazione predefinita verrà usato il ramo **master** del repository. Se si vuole usare un ramo diverso, eseguire la procedura seguente:
+Quando si abilita la distribuzione continua, per impostazione predefinita verrà usato il ramo **master** del repository. Se si desidera usare un ramo diverso, eseguire la procedura seguente:
 
 1. Nel portale selezionare il sito Web e quindi **CONFIGURA**.
 
@@ -235,11 +235,11 @@ Quando si abilita la distribuzione continua, per impostazione predefinita verrà
 
 <h4>Disabilitazione della distribuzione continua</h4>
 
-La distribuzione continua può essere disabilitata dal **Dashboard** di Azure. Nella sezione **riepilogo rapido** scegliere l'opzione per disconnettersi dal repository usato:
+La distribuzione continua può essere disabilitata dal **Dashboard** di Azure. Nella sezione **Riepilogo rapido** scegliere l'opzione per disconnettersi dal repository usato:
 
 ![git-DisconnectFromGitHub][git-DisconnectFromGitHub]	
 
-Dopo aver risposto **Sì** al messaggio di conferma, è possibile tornare nella sezione **riepilogo rapido** e fare clic su **Imposta distribuzione dal controllo del codice sorgente** se si vuole impostare la pubblicazione da un'altra origine.
+Dopo aver risposto **Sì** al messaggio di conferma, è possibile tornare nella sezione **Riepilogo rapido** e fare clic su **Imposta distribuzione dal controllo del codice sorgente** se si vuole impostare la pubblicazione da un'altra origine.
 
 <h2><a id="Step8"></a>Risoluzione dei problemi</h2>
 
@@ -247,44 +247,44 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 ****
 
-**Sintomo**: Unable to access '[siteURL]':Failed to connect to [scmAddress]
+**Sintomo**: non è possibile accedere a '[siteURL]': non è stato possibile connettersi a [scmAddress]
 
 **Causa**: questo errore può verificarsi se il sito Web non è in esecuzione.
 
-**Risoluzione**: Avviare il sito Web nel portale di Azure. La distribuzione Git non funziona se il sito Web non è in esecuzione. 
+**Risoluzione**: avviare il sito Web nel portale di Azure. La distribuzione Git non funziona se il sito Web non è in esecuzione. 
 
 
 ****
 
-**Sintomo**: Couldn't resolve host 'hostname'
+**Sintomo**: non è stato possibile risolvere l'host 'hostname'
 
 **Causa**: questo errore può verificarsi se le informazioni sull'indirizzo immesse durante la creazione del repository remoto 'azure' non sono corrette.
 
-**Risoluzione**: usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.
+**Risoluzione**: usare il comando  `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.
 
 ****
 
-**Sintomo**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
+**Sintomo**: non sono stati trovati riferimenti in comune e non ne sono stati specificati. Non è stata effettuata alcuna azione. Forse è necessario specificare un ramo, ad esempio 'master'.
 
 **Causa**: questo errore può verificarsi se non si specifica un ramo quando si effettua un'operazione push in Git e non è stato impostato il valore push.default usato da Git.
 
-**Risoluzione**: effettuare di nuovo l'operazione push, specificando il ramo master. ad esempio:
+**Risoluzione**: effettuare di nuovo l'operazione push, specificando il ramo master. Ad esempio:
 
 	git push azure master
 
 ****
 
-**Sintomo**: src refspec [branchname] does not match any.
+**Sintomi**: non sono state trovate corrispondenze per src refspec [branchname].
 
 **Causa**: questo errore può verificarsi se si tenta di effettuare il push in un ramo diverso dal master nel repository remoto 'azure'.
 
-**Risoluzione**: effettuare di nuovo l'operazione push, specificando il ramo master. ad esempio:
+**Risoluzione**: effettuare di nuovo l'operazione push, specificando il ramo master. Ad esempio:
 
 	git push azure master
 
 ****
 
-**Sintomo**: Error - Changes commited to remote repository but your website not updated.
+**Sintomo**: le modifiche vengono sottoposte a commit nel repository remoto ma il sito Web non viene aggiornato.
 
 **Causa**: questo errore può verificarsi se si distribuisce un'applicazione Node.js contenente un file package.json che specifica altri moduli necessari.
 
@@ -310,7 +310,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 [Centro per sviluppatori di Azure]: http://www.windowsazure.com/it-it/develop/overview/
 [Portale di Azure]: http://manage.windowsazure.com
-[Sito Web di Git]: http://git-scm.com
+[Sito Web Git]: http://git-scm.com
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Come usare PowerShell per Azure]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/
@@ -328,9 +328,10 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [git-GitHubDeployed-Updated]: ./media/publishing-with-git/git-GitHubDeployed-Updated.png
 [git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
 [git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
-[Creare un archivio (GitHub)]: https://help.github.com/articles/create-a-repo
+[Creare un repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [Uso di Git con CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Creare un repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Guida introduttiva - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso di Dropbox per condividere i repository Git]: https://gist.github.com/trey/2722927
 [Recapito continuo in Azure usando Visual Studio Online]: http://www.windowsazure.com/it-it/develop/net/common-tasks/publishing-with-tfs/
+<!--HONumber=42-->

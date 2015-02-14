@@ -1,37 +1,32 @@
-## <a name="register-app-aad"></a>Registrare l'app client in Azure Active Directory
+﻿## <a name="register-app-aad"></a>Registrare l'app client in Azure Active Directory
 
-1.  Passare ad **Active Directory** nel [portale di gestione di Azure][portale di gestione di Azure], quindi fare clic sulla directory.
+1. Passare ad **Active Directory** nel [portale di gestione di Azure], quindi fare clic sulla directory.
 
-![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
-1.  Fare clic sulla scheda **Applicazioni** nella parte superiore, quindi fare clic su **AGGIUNGI** per aggiungere un'app.
+2. Fare clic sulla scheda **Applicazioni** nella parte superiore, quindi fare clic su **AGGIUNGI** per aggiungere un'app. 
 
-![][1]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png)
 
-1.  Fare clic su **Add an application my organization is developing**.
+3. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-2.  Nella procedura guidata di aggiunta applicazione immettere un **Nome** per l'applicazione e fare clic sul tipo **Applicazione client nativa**. Fare quindi clic per continuare.
+4. Nella procedura guidata di aggiunta applicazione immettere un **Nome** per l'applicazione e fare clic sul tipo **Applicazione client nativa**. Fare quindi clic per continuare.
 
-![][2]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png)
 
-1.  Nella casella **URI di reindirizzamento** immettere l'endpoint /login/done per il servizio mobile. Questo valore dovrebbe essere simile a <https://todolist.azure-mobile.net/login/done>.
+5. Nella casella **URI di reindirizzamento** immettere l'endpoint /login/done per il servizio mobile. Questo valore dovrebbe essere simile a https://todolist.azure-mobile.net/login/done.
 
-![][3]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png)
 
-1.  Fare clic sulla scheda **Configura** per l'applicazione nativa e copiare l'**ID client**, che sarà necessario più avanti.
+6. Fare clic sulla scheda **Configura** per l'applicazione nativa e copiare l'**ID client** che sarà necessario più avanti.
 
-![][4]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-client-id.png)
 
-1.  Scorrere in basso nella pagina fino alla sezione **Autorizzazioni per altre applicazioni** e concedere accesso completo all'applicazione del servizio mobile registrata in precedenza. Fare quindi clic su **Salva**.
+7. Scorrere in basso nella pagina fino alla sezione **Autorizzazioni per altre applicazioni** e fare clic sul pulsante **Aggiungi applicazione**. Scegliere **Altro** dal menu Mostra e cercare todo. Fare clic su **TodoList** per aggiungere il servizio mobile registrato in precedenza, quindi fare clic sul segno di spunta per confermare. Concedere l'accesso all'applicazione del servizio mobile. Fare quindi clic su **Salva**
 
-![][5]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-add-permissions.png)
 
 Il servizio mobile è ora configurato in Azure Active Directory per ricevere accessi tramite Single Sign-On dall'app.
 
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-   
-  [1]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png
-  [2]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png
-  [3]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png
-  [4]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-client-id.png
-  [5]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-add-permissions.png
+
+[Portale di gestione di Azure]: https://manage.windowsazure.com/<!--HONumber=42-->

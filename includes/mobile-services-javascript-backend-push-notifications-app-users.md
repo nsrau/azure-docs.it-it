@@ -1,5 +1,5 @@
 ﻿
-1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile in questione.
+1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
    	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
 
@@ -7,9 +7,9 @@
 
    	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
 	
-	In questo modo è possibile personalizzare la funzione di callback per la registrazione delle notifiche push. Se si usa Git per modificare il codice sorgente, questa stessa funzione di registrazione è disponibile in `.\service\extensions\push.js`.
+	In questo modo è possibile personalizzare la funzione di callback per la registrazione delle notifiche push. Se si usa Git per modificare il codice sorgente, questa stessa funzione di registrazione è disponibile in  `.\service\extensions\push.js`.
 
-3. Sostituire la funzione **register** esistente con il codice seguente:
+3. Sostituire la funzione **register** con il seguente codice:
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -42,6 +42,6 @@
 			}
 		}
 
-	In questo modo viene aggiunto alla registrazione un tag corrispondente all'ID dell'utente connesso. I tag specificati vengono convalidati per impedire che un utente si registri con l'ID di un altro utente. Le notifiche inviate saranno ricevute dall'utente su questo e su qualsiasi altro dispositivo registrato dall'utente stesso.
+	In questo modo viene aggiunto alla registrazione un tag corrispondente all'ID dell'utente connesso. I tag specificati vengono convalidati per evitare che un utente si registri con l'ID di un altro utente. Le notifiche inviate saranno ricevute dall'utente su questo e su qualsiasi altro dispositivo registrato dall'utente stesso.
 
-4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**. 
+4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**. <!--HONumber=42-->

@@ -5,7 +5,7 @@
 
 Con questo metodo la procedura guidata genera nuovi file push.register.js e service.js nel progetto.
 
->[WACOM.NOTE]La procedura guidata Aggiungi notifica push è attualmente supportata solo per un servizio mobile back-end .NET.
+>[AZURE.NOTE]La procedura guidata Aggiungi notifica push è attualmente supportata solo per un servizio mobile back-end .NET.
 
 1. In Esplora soluzioni di Visual Studio aprire il file di progetto push.register.js e impostare come commento o eliminare la chiamata a **addEventListener**. 
 
@@ -41,7 +41,7 @@ Con questo metodo la procedura guidata genera nuovi file push.register.js e serv
 
 Con questo metodo il codice di registrazione è stato aggiunto direttamente dall'esercitazione nel file di progetto default.js.
 
-1. In Esplora soluzioni di Visual Studio aprire il file di progetto default.js e nel gestore eventi **onActivated** trovare la riga di codice che chiama la funzione **createPushNotificationChannelForApplicationAsync**, simile a quella indicata di seguito:
+1. In Esplora soluzioni di Visual Studio aprire il file di progetto default.js e nel gestore eventi **onActivated** individuare la riga di codice che chiama la funzione **createPushNotificationChannelForApplicationAsync**, simile a quanto indicato di seguito:
 
 		// Request a push notification channel.
 		Windows.Networking.PushNotifications
@@ -79,3 +79,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 		        });
 		    });
 		}  
+<!--HONumber=42-->

@@ -1,8 +1,8 @@
-﻿
+
 
 Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoItem, è possibile usare il valore userID assegnato da Servizi mobili per filtrare i dati restituiti.
 
->[WACOM.NOTE]Per i metodi indicati di seguito è necessario applicare l'attributo **AuthorizeLevel** ad **AuthorizeLevel** di **User**. In questo modo, l'accesso alla tabella è consentito solo agli utenti autenticati.
+>[AZURE.NOTE]Per i metodi indicati di seguito è necessario applicare l'attributo **AuthorizeLevel** ad **AuthorizeLevel** di **User**. In questo modo, l'accesso alla tabella è consentito solo agli utenti autenticati.
 
 1. In Visual Studio 2013 aprire il progetto di servizio mobile, espandere la cartella DataObjects, quindi aprire il file di progetto TodoItem.cs.
 
@@ -12,9 +12,9 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
 
 		public string UserId { get; set; }
 
-	>[WACOM.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
-3. In Esplora soluzioni espandere la cartella Controller, aprire il file di progetto TodoItemController.cs e aggiungere l'istruzione **using**seguente:
+3. In Esplora soluzioni espandere la cartella Controller, aprire il file di progetto TodoItemController.cs e aggiungere l'istruzione **using** seguente:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
@@ -28,7 +28,7 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
 	    // Set the user ID on the item.
 	    item.UserId = currentUser.Id;
 
-    Questo codice aggiunge un valore UserId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
+   Questo codice aggiunge un valore UserId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
 	
 
 5. Individuare il metodo **GetAllTodoItems** e sostituire l'istruzione **return** esistente con la riga di codice seguente:
@@ -38,8 +38,7 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
 
         return Query().Where(todo => todo.UserId == currentUser.Id);
 
-   	Questa query filtra gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente. 
+   Questa query filtra gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente. 
 
 6. Ripubblicare il progetto di servizio mobile in Azure.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

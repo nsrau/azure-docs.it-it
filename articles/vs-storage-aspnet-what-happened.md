@@ -1,12 +1,26 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Introduzione all'Archiviazione di Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Introduzione all'Archiviazione di Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Per iniziare](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [Risultati](/documentation/articles/vs-storage-aspnet-what-happened/)
 
-###<span id="whathappened">Che cosa è successo al progetto?</span>
+### <span id="whathappened">Che cosa è successo al progetto?</span>
 
 ##### Aggiunta di riferimenti
 
@@ -22,7 +36,7 @@ Il pacchetto aggiunge i riferimenti a .NET seguenti:
 - `System.Data`
 - `System.Spatial`
 
-#####Aggiunta di stringa di connessione per l'Archiviazione di Azure 
+##### Aggiunta di stringa di connessione per l'Archiviazione di Azure 
 Nel file web.config del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
-Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
+Per altre informazioni, vedere [ASP.NET](http://www.asp.net).<!--HONumber=42-->

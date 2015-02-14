@@ -1,56 +1,51 @@
-##### Creare una coda
+﻿#####Creare una coda
+Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questo argomento viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione di [CloudStorageAccount](http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
 
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questo argomento viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere [CloudStorageAccount][CloudStorageAccount].
+	// Create the queue client.
+	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+Usare l'oggetto **queueClient** per ottenere un riferimento alla coda da usare. Il codice tenta di fare riferimento a una coda denominata "myqueue". Se non è in grado di trovare una coda con tale nome, ne crea una.
 
-Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da utilizzare. Il codice tenta di fare riferimento a una coda denominata “myqueue”. Se non è in grado di trovare una coda con tale nome, ne crea una.
+	// Get a reference to a queue named "myqueue".
+	CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Get a reference to a queue named “myqueue”.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+	// If the queue isn't already there, then create it.
+	queue.CreateIfNotExists();
 
-    // If the queue isn’t already there, then create it.
-    queue.CreateIfNotExists();
+**NOTA:** usare questo blocco di codice davanti al codice nelle sezioni seguenti.
 
-**NOTA:** Usare questo blocco di codice davanti al codice nelle sezioni seguenti.
-
-##### Inserire un messaggio in una coda
-
+#####Inserire un messaggio in una coda
 Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Quindi, chiamare il metodo AddMessage(). È possibile creare un oggetto **CloudQueueMessage** da una stringa in formato UTF-8 o da una matrice di byte. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World'.
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    queue.AddMessage(message);
+	// Create a message and add it to the queue.
+	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+	queue.AddMessage(message);
 
-##### Visualizzare il messaggio successivo
-
+#####Visualizzare il messaggio successivo
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo PeekMessage().
 
-    // Peek at the next message in the queue.
-    CloudQueueMessage peekedMessage = queue.PeekMessage();
+	// Peek at the next message in the queue.
+	CloudQueueMessage peekedMessage = queue.PeekMessage();
 
-    // Display the message.
-    Console.WriteLine(peekedMessage.AsString);
+	// Display the message.
+	Console.WriteLine(peekedMessage.AsString);
 
-##### Rimuovere il messaggio successivo
+#####Rimuovere il messaggio successivo
+Il codice può rimuovere un messaggio da una coda in due passaggi. 
 
-Il codice può rimuovere un messaggio da una coda in due passaggi.
 
-1.  Chiamare GetMessage() per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessage() diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi.
-2.  Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessage().
+1. Chiamare GetMessage() per ottenere il messaggio successivo in una coda. Un messaggio restituito da GetMessage() diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 
+2.	Per completare la rimozione del messaggio dalla coda, chiamare DeleteMessage(). 
 
 Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama DeleteMessage() immediatamente dopo l'elaborazione del messaggio.
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = queue.GetMessage();
+	// Get the next message in the queue.
+	CloudQueueMessage retrievedMessage = queue.GetMessage();
 
-    // Process the message in less than 30 seconds, and then delete the message.
-    queue.DeleteMessage(retrievedMessage);
+	// Process the message in less than 30 seconds, and then delete the message.
+	queue.DeleteMessage(retrievedMessage);
 
-[Ulteriori informazioni sull'Archiviazione di Azure][Ulteriori informazioni sull'Archiviazione di Azure]
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server][Esplorazione delle risorse di archiviazione con Esplora server].
+[Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx).
 
-  [CloudStorageAccount]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
-  [Ulteriori informazioni sull'Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
-  [Esplorazione delle risorse di archiviazione con Esplora server]: http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx
+<!--HONumber=42-->

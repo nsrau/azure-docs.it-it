@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="Come usare il servizio di archiviazione BLOB (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
+<properties 
+	pageTitle="Come usare il servizio di archiviazione BLOB (Java) | Microsoft Azure" 
+	description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Come usare l'archiviazione BLOB da Java
 
@@ -8,7 +22,7 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio d
 
 Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][]. 
 
-## <a name="Contents"> </a>Sommario
+## <a name="Contents"></a>Sommario
 
 * [Informazioni sull'archiviazione BLOB](#what-is)
 * [Concetti](#Concepts)
@@ -24,17 +38,17 @@ Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 * [Procedura: Eliminare un contenitore BLOB](#DeleteContainer)
 * [Passaggi successivi](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Creare un account di archiviazione di Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Creare un'applicazione Java
 
 In questa guida si useranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
-A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
+A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK per Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
 ## <a name="ConfigureStorage"> </a>Configurare l'applicazione per l'accesso all'archiviazione BLOB
 
@@ -54,7 +68,7 @@ I client di archiviazione di Azure usano le stringhe di connessione di archiviaz
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting**denominato *StorageConnectionString* nel file di configurazione del servizio:
+In un'applicazione in esecuzione in un ruolo di Microsoft Azure questa stringa può essere archiviata nel file di configurazione del servizio  *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -64,7 +78,7 @@ Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per o
 
 ## <a name="CreateContainer"> </a>Procedura: Creare un contenitore
 
-Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure].
+Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nelle [informazioni di riferimento di Azure Storage Client SDK]().
 
 Tutti i BLOB risiedono in un contenitore. Usare l'oggetto **CloudBlobClient** per ottenere un riferimento al contenitore da usare. È possibile creare un contenitore, se non esiste, con il metodo **createIfNotExists**, che in caso contrario restituirà il contenitore esistente. Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore.
 
@@ -161,7 +175,10 @@ Il servizio BLOB include anche il concetto di directory all'interno di contenito
 
 È ad esempio possibile disporre di un contenitore denominato "photos", in cui sono stati caricati i BLOB denominati "rootphoto1", "2010/photo1", "2010/photo2" e "2011/photo1". Questa situazione implica in genere la creazione delle directory virtuali "2010" e "2011" nel contenitore "photos". Quando si chiama **listBlobs** sul contenitore "photos", la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlob** che rappresentano le directory e i BLOB contenuti al primo livello. In questo caso oltre alle directory "2010" e "2011", verrà restituita anche la foto "rootphoto1". È possibile usare l'operatore **instanceof** per distinguere questi oggetti.
 
-Facoltativamente, è possibile passare parametri al metodo **listBlobs** con il parametro **useFlatBlobListing** impostato su True. In questo modo verranno restituiti tutti i BLOB indipendentemente dalla directory. Per altre informazioni, vedere **CloudBlobContainer.listBlobs** nel [Riferimento all'SDK del client di Archiviazione di Azure].
+Facoltativamente, è possibile passare parametri al metodo **listBlobs** con
+il parametro **useFlatBlobListing** impostato su true. In questo modo
+verranno restituiti tutti i BLOB, indipendentemente dalla directory. Per altre
+informazioni, vedere **CloudBlobContainer.listBlobs** nel [Riferimento all'SDK del client di archiviazione di Azure].
 
 ## <a name="DownloadBlob"> </a>Procedura: Scaricare un BLOB
 
@@ -245,7 +262,7 @@ Infine, per eliminare un contenitore BLOB, ottenere un riferimento al contenitor
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Passaggi successivi
+## <a name="NextSteps"></a>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
@@ -260,5 +277,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

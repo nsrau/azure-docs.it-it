@@ -1,9 +1,23 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="Come usare il servizio di archiviazione BLOB (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Come usare il servizio di archiviazione BLOB (Python) | Microsoft Azure" 
+	description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 # Uso del servizio di archiviazione BLOB da Python
-In questa guida verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono **caricamento**, **visualizzazione in elenchi**, **download** ed **eliminazione** di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
+In questa guida verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti usando l'API Python. Gli scenari presentati includono **caricamento**, **visualizzazione in elenchi**,**download** ed **eliminazione** di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
 
 ## Sommario
 
@@ -15,14 +29,13 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio d
  [Procedura: Elencare i BLOB in un contenitore][]   
  [Procedura: Scaricare BLOB][]   
  [Procedura: Eliminare un BLOB][]   
- [Procedura: Caricare e scaricare BLOB di grandi dimensioni][]   
  [Passaggi successivi][]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-container"> </a>Procedura: Creare un contenitore
 
@@ -33,7 +46,7 @@ L'oggetto **BlobService** permette di usare contenitori e BLOB. Il codice seguen
 
 	from azure.storage import BlobService
 
-Il codice seguente consente di creare un oggetto **BlobService** usando il nome dell'account di archiviazione e la chiave dell'account.  Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **BlobService** usando il nome dell'account di archiviazione e la chiave dell'account.  Sostituire 'myaccount' e 'mykey' con l'account e la chiave effettivi.
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
@@ -53,7 +66,7 @@ Dopo questa modifica, i BLOB in un contenitore pubblico saranno visibili a tutti
 
 ## <a name="upload-blob"> </a>Procedura: Caricare un BLOB in un contenitore
 
-Per caricare dati in un BLOB, usare i metodi **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per caricare i dati in un BLOB, usare i metodi **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
 **put\_block\_blob\_from\_path** carica i contenuti di un file dal percorso specificato, **put\_block\_blob\_from\_file** carica i contenuti da un file/flusso già aperto. **put\_block\_blob\_from\_bytes** carica una matrice di byte, **put\_block\_blob\_from\_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
 
@@ -88,7 +101,7 @@ Per eliminare un BLOB, infine, chiamare **delete_blob**.
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Vedere le informazioni di riferimento in MSDN: [Archiviazione e accesso ai dati in Azure][]
+-   Vedere le informazioni di riferimento in MSDN: [Archiviazione][]
 -   [Blog del team di Archiviazione di Azure][]
 
   [Passaggi successivi]: #next-steps
@@ -101,7 +114,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [Procedura: Scaricare BLOB]: #download-blobs
   [Procedura: Eliminare un BLOB]: #delete-blobs
   [Procedura: Caricare e scaricare BLOB di grandi dimensioni]: #large-blobs
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

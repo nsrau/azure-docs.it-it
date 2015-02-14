@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Creare e caricare un asset crittografato nell'archiviazione - Azure" metaKeywords="" description="Informazioni su come ottenere contenuto multimediale in Servizi multimediali creando e caricando un asset crittografato." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Creare e caricare un asset crittografato nell'archiviazione - Azure" 
+	description="Informazioni su come ottenere contenuto multimediale in Servizi multimediali creando e caricando un asset crittografato." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -16,7 +30,7 @@ Quando si creano asset, è possibile specificare tre diverse opzioni per la cri
 - **AssetCreationOptions.CommonEncryptionProtected**: consente di creare file CENC (Common Encryption Protected). Un esempio è un set di file già crittografati con PlayReady. 
 - **AssetCreationOptions.StorageEncrypted**: applica la crittografia di archiviazione. Crittografa un file di input non crittografato prima che venga caricato nei servizi di archiviazione di Azure.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
 
 Nel codice di esempio seguente vengono eseguite le operazioni seguenti: 
@@ -118,8 +132,7 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 </code></pre>
 
 <h2>Passaggi successivi</h2>
-Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
+Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Come ottenere un'istanza del processore di contenuti multimediali][].
 
 [Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

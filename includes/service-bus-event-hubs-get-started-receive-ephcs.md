@@ -1,14 +1,16 @@
 ﻿## Ricevere messaggi con EventProcessorHost
 
-[EventProcessorHost] è una classe .NET che semplifica la ricezione di messaggi da hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub eventi. Usando [EventProcessorHost], è possibile suddividere eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost] per un ricevitore singolo. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare [EventProcessorHost] con più ricevitori.
+**EventProcessorHost** è una classe .NET che semplifica la ricezione di messaggi da hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele dagli hub eventi. Usando **EventProcessorHost**, è possibile suddividere eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare **EventProcessorHost** per un ricevitore singolo. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare **EventProcessorHost** con più ricevitori.
 
-Per altre informazioni sui modelli di ricezione degli hub eventi, vedere [Panoramica di Hub eventi].
+Per altre informazioni sui modelli di ricezione degli hub eventi, vedere la [Guida per gli sviluppatori di Hub eventi di Azure].
+
+[EventProcessorHost] è una classe .NET che semplifica la ricezione di messaggi da hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub eventi. Usando [EventProcessorHost], è possibile suddividere eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost] per un ricevitore singolo. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare [EventProcessorHost] con più ricevitori.
 
 Per poter usare [EventProcessorHost],è necessario avere un [account di archiviazione di Azure]:
 
-1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al portale di gestione di [Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
-2. Fare clic su **Servizi dati**, quindi su **Archiviazione**, su **Creazione rapida**, quindi digitare un nome per l'account di archiviazione. Selezionare l'area desiderata e quindi fare clic su **Crea Account di archiviazione**.
+2. Fare clic su **Servizi dati**, quindi su **Archiviazione**, su **Creazione rapida**, quindi digitare un nome per l'account di archiviazione. Selezionare l'area desiderata e quindi fare clic su **Crea account di archiviazione**.
 
    	![][11]
 
@@ -18,7 +20,7 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 
 	Copiare la chiave di accesso per usarla in seguito.
 
-4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Denominare il progetto **Receiver**.
+4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
    	![][14]
 
@@ -26,11 +28,11 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 
 	Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
-6. Cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, fare clic su **Installa** e accettare le condizioni per l'uso. 
+6. Cercare  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, quindi fare clic su **Installa** e accettare le condizioni per l'utilizzo. 
 
 	![][13]
 
-	Viene scaricato e installato il pacchetto NuGet <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost</a>, con tutte le relative dipendenze e vi viene aggiunto un riferimento.
+	Viene scaricato e installato il <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost</a>, con tutte le relative dipendenze e vi viene aggiunto un riferimento.
 
 7. Creare una nuova classe denominata **SimpleEventProcessor** e aggiungere le istruzioni seguenti all'inizio del file:
 
@@ -67,19 +69,16 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 	            {
 	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 	                
-	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{2}'",
+	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
 	                    context.Lease.PartitionId, data));
 	            }
 	
 	            //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
-	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-	            {
-	                await context.CheckpointAsync();
-	                lock (this)
-	                {
-	                    this.checkpointStopWatch.Reset();
-	                }
-	            }
+	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5)) 
+                { 
+                    await context.CheckpointAsync(); 
+                    this.checkpointStopWatch.Restart(); 
+                } 
 	        }
 	    }
 
@@ -106,7 +105,7 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
         Console.WriteLine("Receiving. Press enter key to stop worker.");
         Console.ReadLine();
 
-> [AZURE.NOTE] Questa esercitazione usa una singola istanza di [EventProcessorHost]. Per aumentare la velocità effettiva, è consigliabile eseguire più istanze di [EventProcessorHost], come illustrato nell'[esempio di elaborazione di eventi scalata orizzontalmente]. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno di più ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup**. Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di [EventProcessorHost] in base alle macchine (o ai ruoli) in cui sono distribuite. Per altre informazioni su questi argomenti, vedere [Panoramica di Hub eventi] e [Guida alla programmazione di Hub eventi].
+> [AZURE.NOTE] Questa esercitazione usa una singola istanza di [EventProcessorHost]. Per aumentare la velocità effettiva, è consigliabile eseguire più istanze di [EventProcessorHost], come illustrato nell'[esempio di elaborazione di eventi scalata orizzontalmente]. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno di più ricevitori elabori *all* gli eventi, è necessario usare il concetto **ConsumerGroup**. Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di [EventProcessorHost] in base alle macchine (o ai ruoli) in cui sono distribuite. Per altre informazioni su questi argomenti, vedere [Panoramica di Hub eventi] e [Guida alla programmazione di Hub eventi].
 
 <!-- Links -->
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn821413.aspx
@@ -121,4 +120,4 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn789972.aspx
+[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn789972.aspx<!--HONumber=42-->

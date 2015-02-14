@@ -1,7 +1,7 @@
 ﻿
-Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio mobile ogni volta che l'app viene avviata. Non solo questo metodo è inefficiente, ma si potrebbero riscontrare problemi relativi all'uso qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dai Servizi mobili e provare a usare questo prima di usare un accesso basato su provider.
+Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio mobile ogni volta che l'app viene avviata. Non solo questo metodo è inefficiente, ma si potrebbero riscontrare problemi relativi all'uso qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dai Servizi mobili e provare a usare questo prima di usare un accesso basato su provider. 
 
->[WACOM.NOTE]È possibile memorizzare nella cache il token rilasciato dai Servizi mobili indipendentemente dal fatto che si usi l'autenticazione gestita dal client o gestita dal servizio. In questa esercitazione viene usata l'autenticazione gestita dal servizio.
+>[AZURE.NOTE]È possibile memorizzare nella cache il token rilasciato dai Servizi mobili indipendentemente dal fatto che si usi l'autenticazione gestita dal client o gestita dal servizio. In questa esercitazione viene usata l'autenticazione gestita dal servizio.
 
 
 1. In Eclipse aprire il file ToDoActivity.java e aggiungere le istruzioni import seguenti:
@@ -10,14 +10,14 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. Aggiungere i membri seguenti alla classe 'ToDoActivity'.
+2. Aggiungere i membri seguenti alla classe  `ToDoActivity`.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. Nel file ToDoActivity.java aggiungere la definizione seguente per il metodo 'cacheUserToken'.
+3. Nel file ToDoActivity.java aggiungere la definizione seguente per il metodo  `cacheUserToken`.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -30,10 +30,10 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
   
     Questo metodo consente di memorizzare l'ID utente e il token in un file delle preferenze contrassegnato come privato. In tal modo dovrebbe essere possibile proteggere l'accesso alla cache, in modo che le altre app sul dispositivo non possano accedere al token perché la preferenza per l'app è stata creata in modalità sandbox. Tuttavia, se qualcuno riesce ad accedere al dispositivo, è possibile che riesca accedere anche alla cache dei token con altri mezzi. 
 
-    >[WACOM.NOTE]È possibile proteggere ulteriormente il token con la crittografia se l'accesso token ai dati è considerato altamente sensibile e qualcuno potrebbe accedere al dispositivo. Tuttavia, una soluzione del tutto sicura esula dall'ambito di questa esercitazione e dipende dai rispettivi requisiti di sicurezza.
+    >[AZURE.NOTE]È possibile proteggere ulteriormente il token con la crittografia se l'accesso token ai dati è considerato altamente sensibile e qualcuno potrebbe accedere al dispositivo. Tuttavia, una soluzione del tutto sicura esula dall'ambito di questa esercitazione e dipende dai rispettivi requisiti di sicurezza.
 
 
-4. Nel file ToDoActivity.java aggiungere la definizione seguente per il metodo 'loadUserTokenCache'.
+4. Nel file ToDoActivity.java aggiungere la definizione seguente per il metodo  `loadUserTokenCache`.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 
 
-5. Nel file *ToDoActivity.java* sostituire il metodo authenticate esistente con il metodo seguente, che usa una cache dei token. Cambiare il provider di accesso se si vuole usare un account diverso da Microsoft.
+5. Nel file  *ToDoActivity.java* sostituire il metodo  `authenticate` esistente con il metodo seguente, che usa una cache dei token. Cambiare il provider di accesso se si vuole usare un account diverso da Microsoft.
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -89,3 +89,4 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 
 
+<!--HONumber=42-->

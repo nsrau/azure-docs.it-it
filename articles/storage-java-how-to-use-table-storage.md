@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Come usare il servizio di archiviazione tabelle (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Come usare il servizio di archiviazione tabelle (Java) | Microsoft Azure" 
+	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Come usare l'archiviazione tabelle da Java
 
@@ -24,23 +38,23 @@ Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 * [Procedura: Recuperare un intervallo di entità in una partizione](#RetrieveRange)
 * [Procedura: Recuperare una singola entità](#RetriveSingle)
 * [Procedura: Modificare un'entità](#ModifyEntity)
-* [Procedura: Eseguire una query su un subset di proprietà di entità](#QueryProperties)
+* [Procedura: Eseguire query su un subset di proprietà di entità](#QueryProperties)
 * [Procedura: Inserire o sostituire un'entità](#InsertOrReplace)
 * [Procedura: Eliminare un'entità](#DeleteEntity)
 * [Procedura: Eliminare una tabella](#DeleteTable)
 * [Passaggi successivi](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a name="CreateAccount"></a>Creare un account di archiviazione di Azure
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Creare un'applicazione Java
 
 In questa guida si useranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
-A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
+A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK per Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
 ## <a name="ConfigureStorage"> </a>Configurare l'applicazione per l'accesso all'archiviazione tabelle
 
@@ -61,7 +75,7 @@ I client di archiviazione di Azure usano le stringhe di connessione di archiviaz
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting**denominato *StorageConnectionString* nel file di configurazione del servizio:
+In un'applicazione in esecuzione in un ruolo di Microsoft Azure questa stringa può essere archiviata nel file di configurazione del servizio  *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -71,7 +85,9 @@ Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per o
 
 ## <a name="CreateTable"> </a>Procedura: Creare una tabella
 
-Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di usarlo per creare un oggetto **CloudTable** che rappresenta una tabella denominata "people". Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure].
+È possibile usare un oggetto **CloudTableClient** per ottenere oggetti di riferimento per tabelle
+ed entità. Il codice seguente consente di creare un oggetto **CloudTableClient**
+e di usarlo per creare un oggetto **CloudTable** che rappresenta una tabella denominata "people". Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nelle [informazioni di riferimento di Azure Storage Client SDK].
 
     try
     {
@@ -237,7 +253,7 @@ Di seguito sono riportate alcune informazioni sulle operazioni batch:
 
 ## <a name="RetrieveEntities"> </a>Procedura: Recuperare tutte le entità di una partizione
 
-Per eseguire una query su una tabella per recuperare le entità in una partizione è possibile usare **TableQuery**. Chiamare **TableQuery.from** per creare su una determinata tabella una query che restituisca un tipo di risultato specificato. Nel codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. **TableQuery.generateFilterCondition** è un metodo helper che consente di creare filtri per le query. Chiamare **where** sul riferimento restituito dal metodo **TableQuery.from** per applicare il filtro alla query. Quando la query viene eseguita con una chiamata a **execute** sull'oggetto **CloudTable** restituisce un oggetto **Iterator** con il tipo di risultato **CustomerEntity** specificato. Per usufruire dei risultati, è quindi possibile usare l'oggetto **Iterator** restituito in ogni ciclo. Il codice seguente consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
+Per eseguire una query su una tabella per recuperare le entità in una partizione è possibile usare **TableQuery**. Chiamare **TableQuery.from** per creare su una determinata tabella una query che restituisca un tipo di risultato specificato. Nel codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. **TableQuery.generateFilterCondition** è un metodo helper che consente di creare filtri per le query. Chiamare **where** sul riferimento restituito dal metodo **TableQuery.from** per applicare il filtro alla query. Quando la query viene eseguita con una chiamata a **execute** sull'oggetto **CloudTable**, restituisce un oggetto **Iterator** con il tipo di risultato **CustomerEntity** specificato. Per usufruire dei risultati, è quindi possibile usare l'oggetto **Iterator** restituito in ogni ciclo. Il codice seguente consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
     try
     {
@@ -340,7 +356,7 @@ Se non si desidera eseguire una query su tutte le entità di una partizione, è 
 
 ## <a name="RetriveSingle"> </a>Procedura: Recuperare una singola entità
 
-Per recuperare una singola entità specifica, è possibile scrivere una query. Il codice seguente chiama **TableOperation.retrieve** con i parametri della chiave di partizione e della chiave di riga per specificare il cliente "Jeff Smith", invece di creare un oggetto **TableQuery** e usare filtri per eseguire la stessa operazione. Quando si esegue l'operazione di recupero viene restituita una sola entità piuttosto che una raccolta. Il metodo **getResultAsType** esegue il cast del risultato al tipo di destinazione dell'assegnazione, un oggetto **CustomerEntity**. Se questo tipo non è compatibile con il tipo specificato per la query, verrà generata un'eccezione. Viene restituito un valore Null se per nessuna entità è disponibile una corrispondenza esatta di chiave di riga e chiave di partizione. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio tabelle.
+Per recuperare una singola entità specifica, è possibile scrivere una query. Il codice seguente chiama **Tableoperation** con partizione chiave e riga chiave parametri per specificare il cliente "Jeff Smith", anziché creare un **TableQuery** e usando i filtri per eseguire la stessa operazione. Quando si esegue l'operazione di recupero viene restituita una sola entità piuttosto che una raccolta. Il metodo **getResultAsType** esegue il cast del risultato al tipo di destinazione dell'assegnazione, un oggetto **CustomerEntity**. Se questo tipo non è compatibile con il tipo specificato per la query, verrà generata un'eccezione. Viene restituito un valore Null se per nessuna entità è disponibile una corrispondenza esatta di chiave di riga e chiave di partizione. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio tabelle.
 
     try
     {
@@ -416,7 +432,7 @@ Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggett
         e.printStackTrace();
     }
 
-## <a name="QueryProperties"> </a>Procedura: Eseguire una query su un subset di proprietà di entità
+## <a name="QueryProperties"> </a>Procedura: Eseguire query su un subset di proprietà di entità
 
 Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice seguente usa il metodo **select** per restituire solo gli indirizzi di posta elettronica di entità nella tabella. I risultati vengono proiettati in una raccolta di **String** con l'aiuto di un oggetto **EntityResolver**, che esegue la conversione di tipo sulle entità restituite dal server. Per altre informazioni sulla proiezione, vedere questo [post di blog][]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si usa un account sul servizio tabelle.
 
@@ -564,5 +580,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

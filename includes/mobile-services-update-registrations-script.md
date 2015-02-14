@@ -8,7 +8,7 @@
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-	Verrà visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **Registrazioni**.
+	Viene visualizzata la funzione che viene richiamata quando si verifica un inserimento nella tabella **Registrazioni**.
 
 3. Sostituire la funzione insert con il codice seguente, quindi fare clic su **Salva**:
 
@@ -28,3 +28,4 @@
 
    Verrà registrato un nuovo script insert, che archivia le informazioni di registrazione nella nuova tabella.
 
+<!--HONumber=42-->

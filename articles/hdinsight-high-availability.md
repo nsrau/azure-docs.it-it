@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight High Availability" pageTitle="Disponibilità dei cluster Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight distribuisce cluster affidabili e a disponibilità elevata." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
+﻿<properties 
+	pageTitle="Disponibilità dei cluster Hadoop in HDInsight | Azure" 
+	description="HDInsight distribuisce cluster affidabili e a disponibilità elevata." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -13,8 +27,8 @@
 HDInsight elimina questo singolo punto di errore con l'aggiunta di un nodo head secondario (Head Node1). [Sono stati aggiunti i nodi ZooKeeper][zookeeper] (ZK), usati per l'elezione del leader dei nodi head e per garantire che i nodi di lavoro e i gateway (GW) sappiano quando eseguire il failover sul nodo head secondario (Head Node1) quando il nodo head attivo (HeadNode0) diventa inattivo.
 
 
-## Come controllare lo stato del servizio del nodo head attivo ##
-Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). La funzionalità per accedere al cluster in remoto è disattivata per impostazione predefinita in Azure, quindi è necessario prima attivarla. Per istruzioni su come eseguire questa operazione nel portale, vedere [Connessione a cluster HDInsight tramite RDP](../hdinsight-administer-use-management-portal/#rdp)
+## Come controllare lo stato di servizio del nodo head attivo ##
+Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). La funzionalità per accedere al cluster in remoto è disattivata per impostazione predefinita in Azure, quindi è necessario prima attivarla. Per istruzioni su come eseguire questa operazione nel portale, vedere [Connettersi a cluster HDInsight tramite RDP](../hdinsight-administer-use-management-portal/#rdp).
 Dopo aver effettuato l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available Status** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](http://i.imgur.com/MYTkCHW.png)
@@ -70,5 +84,4 @@ Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster 
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->
