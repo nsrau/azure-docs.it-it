@@ -31,4 +31,5 @@
 
 	Questo valore della chiave dell'API verrà usato successivamente per abilitare Servizi mobili per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
+
 <!--HONumber=42-->

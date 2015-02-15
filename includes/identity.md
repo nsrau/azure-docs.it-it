@@ -121,4 +121,5 @@ L'utilizzo delle identità è importante per la maggior parte delle applicazioni
 ##Informazioni sull'autore
 
 David Chappell è il titolare della società Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) di San Francisco, California. Attraverso le conferenze, gli scritti e le consulenze
+
 <!--HONumber=42-->

@@ -57,4 +57,5 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }<!--HONumber=42-->
+        }
+<!--HONumber=42-->

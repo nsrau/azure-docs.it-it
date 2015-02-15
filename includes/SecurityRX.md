@@ -466,4 +466,5 @@ Tutti gli scenari e le soluzioni illustrati in questo argomento sono validi quan
 
 [Progettazione di Web SSO]: http://technet.microsoft.com/it-it/library/dd807033(WS.10).aspx
 [Progettazione di Web SSO federativo]: http://technet.microsoft.com/it-it/library/dd807050(WS.10).aspx
+
 <!--HONumber=42-->

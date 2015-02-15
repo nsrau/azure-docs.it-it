@@ -561,4 +561,5 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di s
 
 
 
+
 <!--HONumber=42-->

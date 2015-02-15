@@ -22,4 +22,5 @@ Dopo avere testato l'app rispetto al servizio mobile locale, la fase finale dell
 
 	Se la pubblicazione ha esito positivo, verrà visualizzata di nuovo la pagina di conferma, che indica che il servizio mobile è attivo e in esecuzione, questa volta in Azure.
 
+
 <!--HONumber=42-->

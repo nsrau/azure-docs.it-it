@@ -186,4 +186,5 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
+
 <!--HONumber=42-->

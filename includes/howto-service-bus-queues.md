@@ -78,4 +78,5 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
   [Portale di gestione di Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
+
 <!--HONumber=42-->

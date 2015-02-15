@@ -46,4 +46,5 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 [attachdisk]:/it-it/manage/windows/how-to-guides/attach-a-disk/
 
 [Informazioni su dischi e immagini]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=42-->

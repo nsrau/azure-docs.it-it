@@ -43,4 +43,5 @@ Per altre informazioni sull'installazione delle librerie client PHP per Azure, c
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../php-download-sdk/
 [composer-phar]: http://getcomposer.org/composer.phar
+
 <!--HONumber=42-->

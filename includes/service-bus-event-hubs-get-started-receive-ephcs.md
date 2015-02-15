@@ -120,4 +120,5 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn789972.aspx<!--HONumber=42-->
+[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn789972.aspx
+<!--HONumber=42-->

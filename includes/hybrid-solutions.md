@@ -99,4 +99,5 @@ La connessione di applicazioni fa parte dello sviluppo di soluzioni complete e i
 [queues]: ./media/hybrid-solutions/SvcBus_02_queues.png
 [topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
+
 <!--HONumber=42-->

@@ -379,4 +379,5 @@ Specificare un nome per il cluster e premere INVIO per eseguire il provisioning 
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
+
 <!--HONumber=42-->

@@ -244,4 +244,5 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere ut
   [Introduzione al database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336230.aspx
   [Modello di provisioning di database SQL]: http://msdn.microsoft.com/it-it/library/ee336227.aspx
   [Aggiunta di utenti al database SQL di Azure]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=42-->

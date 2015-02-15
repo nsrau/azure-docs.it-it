@@ -89,4 +89,5 @@
 4. Toccare il pulsante **All**. Verrà visualizzata una finestra di avviso indicante il numero di elementi contrassegnati come completati, quindi la query filtrata viene eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
   	![](./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png)
+
 <!--HONumber=42-->

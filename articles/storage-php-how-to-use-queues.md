@@ -400,4 +400,5 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portale di gestione di Azure]: http://manage.windowsazure.com/
 [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

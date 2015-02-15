@@ -30,4 +30,5 @@ Fare clic su **Sì** per verificare l'identità della macchina virtuale.
 
 È ora possibile usare la macchina virtuale in remoto.
 
+
 <!--HONumber=42-->

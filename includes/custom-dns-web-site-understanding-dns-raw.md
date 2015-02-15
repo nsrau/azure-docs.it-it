@@ -50,4 +50,5 @@ Per individuare l'indirizzo IP, oltre al nome **awverify** e ai nomi **.azureweb
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
+
 <!--HONumber=42-->

@@ -43,4 +43,5 @@ Prima di eseguire operazioni relative a una coda, è necessario ottenere la stri
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Per altre informazioni, vedere [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

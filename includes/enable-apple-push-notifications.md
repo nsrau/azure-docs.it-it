@@ -129,4 +129,5 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 9. In **Targets** fare clic su **Quickstart**, espandere **Code Signing Identity**, quindi in **Debug** selezionare il nuovo profilo. Per effetto di questa operazione, il progetto Xcode userà il nuovo profilo per la firma del codice. A questo punto, è necessario caricare il certificato in Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
+
 <!--HONumber=42-->

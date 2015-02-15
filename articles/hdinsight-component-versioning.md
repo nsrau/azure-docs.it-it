@@ -145,4 +145,5 @@ La **data di dichiarazione obsolescenza** è la data dopo la quale non è possib
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
+
 <!--HONumber=42-->

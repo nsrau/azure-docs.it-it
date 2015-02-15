@@ -103,4 +103,5 @@ Le applicazioni possono essere eseguite su HBase, usato come archivio dati. Alcu
 
 
 
+
 <!--HONumber=42-->

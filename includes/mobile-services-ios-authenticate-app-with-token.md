@@ -84,4 +84,5 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 5. Se l'app invia al Servizio mobile una richiesta che dovrebbe avere esito positivo perché l'utente è autenticato e viene invece visualizzata una risposta 401 (errore non autorizzato), significa che il token utente passato è scaduto. È possibile cercare una risposta 401 nel gestore completamento per ogni metodo disponibile che interagisce con il Servizio mobile oppure gestire tutto in un unico punto: il metodo handleRequest di MSFilter.  Per informazioni su come gestire questo scenario, vedere [questo post di blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
+
 <!--HONumber=42-->

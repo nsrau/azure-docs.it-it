@@ -213,4 +213,5 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=42-->
+[powershell-install-configure]: ../install-configure-powershell/
+<!--HONumber=42-->

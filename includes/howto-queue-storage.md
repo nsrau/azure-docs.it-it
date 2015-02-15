@@ -28,4 +28,5 @@ L'URL seguente fa riferimento a una delle code nel diagramma:
 - **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
 
+
 <!--HONumber=42-->

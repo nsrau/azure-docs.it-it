@@ -179,4 +179,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 * Vedere le informazioni di riferimento in MSDN: [Archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Repository [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
+
 <!--HONumber=42-->

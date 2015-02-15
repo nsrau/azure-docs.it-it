@@ -135,4 +135,5 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Come ottenere un'istanza del processore di contenuti multimediali][].
 
 [Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
+
 <!--HONumber=42-->

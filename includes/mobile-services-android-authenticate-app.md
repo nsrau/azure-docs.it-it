@@ -64,4 +64,5 @@
 
 9. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
-  	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.<!--HONumber=42-->
+  	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+<!--HONumber=42-->

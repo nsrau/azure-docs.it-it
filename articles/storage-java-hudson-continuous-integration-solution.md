@@ -185,4 +185,5 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
 
+
 <!--HONumber=42-->

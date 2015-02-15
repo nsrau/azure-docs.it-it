@@ -300,4 +300,5 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+
 <!--HONumber=42-->

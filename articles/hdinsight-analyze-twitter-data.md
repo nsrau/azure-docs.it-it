@@ -566,4 +566,5 @@ In questa esercitazione è stato illustrato come trasformare un set di dati Json
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+
 <!--HONumber=42-->

@@ -334,4 +334,5 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [Guida introduttiva - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso di Dropbox per condividere i repository Git]: https://gist.github.com/trey/2722927
 [Recapito continuo in Azure usando Visual Studio Online]: http://www.windowsazure.com/it-it/develop/net/common-tasks/publishing-with-tfs/
+
 <!--HONumber=42-->

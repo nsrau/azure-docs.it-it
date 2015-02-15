@@ -44,4 +44,5 @@
 
 	In questo modo viene aggiunto alla registrazione un tag corrispondente all'ID dell'utente connesso. I tag specificati vengono convalidati per evitare che un utente si registri con l'ID di un altro utente. Le notifiche inviate saranno ricevute dall'utente su questo e su qualsiasi altro dispositivo registrato dall'utente stesso.
 
-4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**. <!--HONumber=42-->
+4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**. 
+<!--HONumber=42-->

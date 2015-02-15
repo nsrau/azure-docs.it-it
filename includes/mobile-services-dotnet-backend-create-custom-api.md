@@ -64,4 +64,5 @@
 
 In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
 
+
 <!--HONumber=42-->

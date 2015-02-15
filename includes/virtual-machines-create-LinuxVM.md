@@ -31,4 +31,5 @@ Sulla barra dei comandi fare clic su **Nuovo**.
 
 
 Dopo aver creato la macchina virtuale e il servizio cloud in Azure, questi vengono elencati nel portale di gestione rispettivamente in **Macchine virtuali** e **Servizi cloud**. Sia la macchina virtuale che il servizio cloud vengono avviati automaticamente.
+
 <!--HONumber=42-->

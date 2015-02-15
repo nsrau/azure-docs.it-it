@@ -292,4 +292,5 @@ Specificare un nome per il cluster e premere INVIO per eseguire il provisioning 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+
 <!--HONumber=42-->

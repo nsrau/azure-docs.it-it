@@ -35,4 +35,5 @@ A questo punto è stato creato un nuovo servizio mobile che può essere usato da
 
 <!-- URLs. -->
 [Portale di gestione]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

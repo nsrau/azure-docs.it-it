@@ -40,4 +40,5 @@ Le nuove API Twitter v1.1 richiedono l'autenticazione dell'app prima dell'access
 [Portale di gestione di Microsoft Azure]: https://manage.windowsazure.com/
 [Registrazione delle app per l'autenticazione di Twitter con Servizi mobili]: /it-it/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->
+[Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=42-->

@@ -4,4 +4,5 @@
 
 Se non si è già aggiunto il sito Web come endpoint di Gestione traffico, è necessario eseguire questa operazione per consentire il funzionamento della risoluzione dei nomi, perché il nome di dominio personalizzato viene instradato a Gestione traffico. Gestione traffico viene quindi instradato al sito Web. Usare le informazioni della sezione [Aggiungere o eliminare endpoint](http://msdn.microsoft.com/it-it/library/windowsazure/hh744839.aspx) per aggiungere il sito Web come endpoint nel profilo di Gestione traffico.
 
-> [AZURE.NOTE] Se il sito Web non è elencato quando si aggiunge un endpoint, verificare che sia configurato per la modalità standard. Per usare Traffic Manager, è necessario che il sito Web sia impostato sulla modalità standard.<!--HONumber=42-->
+> [AZURE.NOTE] Se il sito Web non è elencato quando si aggiunge un endpoint, verificare che sia configurato per la modalità standard. Per usare Traffic Manager, è necessario che il sito Web sia impostato sulla modalità standard.
+<!--HONumber=42-->

@@ -444,4 +444,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Node.js Cloud Service with Storage]: /it-it/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

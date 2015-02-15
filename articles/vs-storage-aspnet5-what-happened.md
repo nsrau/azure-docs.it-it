@@ -41,4 +41,5 @@ Il pacchetto aggiunge i riferimenti a .NET seguenti:
 ##### Aggiunta di stringa di connessione per l'Archiviazione di Azure 
 Nel file config.json del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
-Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).<!--HONumber=42-->
+Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->

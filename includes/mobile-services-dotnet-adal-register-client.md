@@ -29,4 +29,5 @@
 Il servizio mobile è ora configurato in Azure Active Directory per ricevere accessi tramite Single Sign-On dall'app.
 
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Portale di gestione di Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

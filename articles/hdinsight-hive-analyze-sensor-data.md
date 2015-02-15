@@ -50,4 +50,5 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 2. Nella pagina Web che viene aperta, fare clic sulla scheda **Guida introduttiva** e quindi, sotto la categoria **Esempi**, fare clic sull'esempio **Analisi del log del sito Web**.
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
+
 <!--HONumber=42-->

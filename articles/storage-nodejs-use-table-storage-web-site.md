@@ -690,4 +690,5 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
 [Create and deploy a Node.js application to an Azure Web Site]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

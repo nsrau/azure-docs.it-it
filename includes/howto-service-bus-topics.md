@@ -68,4 +68,5 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
+
 <!--HONumber=42-->

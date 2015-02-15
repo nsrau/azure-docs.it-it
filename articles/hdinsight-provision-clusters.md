@@ -678,4 +678,5 @@ In questo articolo si sono appresi vari modi per eseguire il provisioning di un 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
   [89e2276a]: /it-it/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+
 <!--HONumber=42-->

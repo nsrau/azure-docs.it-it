@@ -60,4 +60,5 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=42-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+<!--HONumber=42-->

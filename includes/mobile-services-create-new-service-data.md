@@ -33,4 +33,5 @@ A questo punto verrà creato un nuovo servizio mobile per sostituire l'elenco in
 
 A questo punto è stato creato un nuovo servizio mobile che può essere usato dalle app per dispositivi mobili. In seguito, verrà aggiunta una nuova tabella in cui archiviare i dati dell'app. Questa tabella verrà utilizzata dall'app al posto della raccolta in memoria.
 
+
 <!--HONumber=42-->

@@ -46,4 +46,5 @@ Prima di eseguire operazioni relative a un BLOB, è necessario ottenere la strin
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
+
 <!--HONumber=42-->

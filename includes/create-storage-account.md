@@ -24,4 +24,5 @@ Per usare il servizio di archiviazione di Azure, è necessario un account di arc
 [Portale di gestione di Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+
 <!--HONumber=42-->

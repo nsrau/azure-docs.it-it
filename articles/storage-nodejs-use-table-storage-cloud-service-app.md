@@ -405,4 +405,5 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
   [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=42-->

@@ -19,4 +19,5 @@ In alternativa, è possibile testare le notifiche push con il servizio mobile in
 
 5. In **appSettings** sostituire il valore dell'impostazione dell'app **MS_NotificationHubName** con il nome dell'hub di notifica.
 
-A questo punto, il progetto di servizio mobile è configurato per connettersi all'hub di notifica in Azure quando viene eseguito in locale. Si noti che è importante che il nome e la stringa di connessione dell'hub di notifica corrispondano a quelli del portale, perché le impostazioni del progetto Web.config vengono sovrascritte dalle impostazioni del portale quando il servizio è eseguito in Azure.<!--HONumber=42-->
+A questo punto, il progetto di servizio mobile è configurato per connettersi all'hub di notifica in Azure quando viene eseguito in locale. Si noti che è importante che il nome e la stringa di connessione dell'hub di notifica corrispondano a quelli del portale, perché le impostazioni del progetto Web.config vengono sovrascritte dalle impostazioni del portale quando il servizio è eseguito in Azure.
+<!--HONumber=42-->

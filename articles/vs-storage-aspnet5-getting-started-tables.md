@@ -193,4 +193,5 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

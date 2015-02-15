@@ -19,4 +19,5 @@
 Per informazioni dettagliate sulle opzioni di replica, vedere il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/) e [Opzioni di ridondanza di Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/azure/dn727290.aspx).
 	
 Le differenze di prezzo tra le varie opzioni di archiviazione sono disponibili nella pagina [Prezzi di Archiviazione di Azures](/it-it/pricing/details/storage/).
+
 <!--HONumber=42-->

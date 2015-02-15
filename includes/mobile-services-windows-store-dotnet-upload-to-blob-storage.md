@@ -142,4 +142,5 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 
    >[AZURE.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento viene associata al controllo <strong>Image</strong>.
 
+
 <!--HONumber=42-->

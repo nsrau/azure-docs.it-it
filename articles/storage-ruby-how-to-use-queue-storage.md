@@ -173,4 +173,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 - Repository [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
 Per un confronto tra il servizio di accodamento di Azure descritto in questo articolo e le code del bus di servizio di Azure descritte nell'articolo [Come usare le code del bus di servizio](/it-it/develop/ruby/how-to-guides/service-bus-queues/), vedere [Analogie e differenze tra le code di Azure e le code di Service Bus](http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx)
+
 <!--HONumber=42-->

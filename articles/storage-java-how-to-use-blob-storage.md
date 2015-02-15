@@ -277,4 +277,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

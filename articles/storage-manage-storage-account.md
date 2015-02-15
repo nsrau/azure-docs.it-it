@@ -98,4 +98,5 @@ Per rimuovere un account di archiviazione non più in uso, usare **Elimina** nel
 	Fare clic sul nome dell'account di archiviazione per aprire il dashboard e quindi fare clic su **Elimina**.
 
 3. Fare clic su **Sì** per confermare che si vuole eliminare l'account di archiviazione.
+
 <!--HONumber=42-->

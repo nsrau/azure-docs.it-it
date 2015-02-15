@@ -280,4 +280,5 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Introduzione all'archiviazione per [BLOB](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/), [tabelle](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/) e [code](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Architettura di archiviazione: [Archiviazione di Windows Azure: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=42-->

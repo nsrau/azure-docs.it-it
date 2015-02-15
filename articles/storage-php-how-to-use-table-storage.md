@@ -494,4 +494,5 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
 [table-data-model]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894038.aspx
+
 <!--HONumber=42-->

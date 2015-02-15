@@ -137,4 +137,5 @@ Questo esempio illustra la creazione di un record A per il dominio radice. Per c
   [Finestra di dialogo Convalida dominio personalizzato]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

@@ -33,4 +33,5 @@
 2. Ripubblicare il progetto di servizio mobile in Azure.
 
 
+
 <!--HONumber=42-->

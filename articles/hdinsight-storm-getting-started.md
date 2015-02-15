@@ -206,4 +206,5 @@ Se immediatamente dopo questo comando viene visualizzata la pagina Web dell'inte
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

@@ -100,4 +100,5 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 [Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/it-it/library/jj927172.aspx
 [Interfaccia REST degli Hub di notifica]: http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx
+
 <!--HONumber=42-->

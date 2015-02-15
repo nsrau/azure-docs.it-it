@@ -148,4 +148,5 @@ Per un esempio, vedere [RollingTopWords](https://github.com/nathanmarz/storm-sta
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
 [gettingstarted]: /it-it/documentation/articles/hdinsight-storm-getting-started
+
 <!--HONumber=42-->

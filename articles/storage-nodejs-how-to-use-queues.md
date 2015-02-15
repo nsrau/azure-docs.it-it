@@ -386,4 +386,5 @@ per informazioni su come eseguire attività di archiviazione più complesse.
   [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
+
 <!--HONumber=42-->

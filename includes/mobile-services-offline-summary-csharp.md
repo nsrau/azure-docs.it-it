@@ -23,4 +23,5 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi  `IM
     Se si desidera rifiutare esplicitamente la sincronizzazione incrementale, passare  `null` come ID di query. In questo caso, verranno recuperati tutti i record in ogni chiamata a  `PullAsync`, potenzialmente inefficace.
 
 * Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare  `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+
 <!--HONumber=42-->

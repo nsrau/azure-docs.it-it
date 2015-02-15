@@ -50,4 +50,5 @@ In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un p
 <!-- URLs. -->
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [oggetto mssql]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->
