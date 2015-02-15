@@ -332,12 +332,4 @@ istruzioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.or
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-hive-editor.png
 [img-hdinsight-hbase-file-browser]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-file-browser.png
 
-
-
-
-
-
-
-
-
 <!--HONumber=42-->
