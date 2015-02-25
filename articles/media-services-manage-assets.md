@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Come gestire asset in Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come gestire asset in Servizi multimediali. È anche possibile gestire processi, attività, criteri di accesso, localizzatori e altro ancora. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come gestire asset in Servizi multimediali - Azure" description="Informazioni su come gestire asset in Servizi multimediali. È anche possibile gestire processi, attività, criteri di accesso, localizzatori e altro ancora. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -82,4 +82,5 @@ Per altre informazioni sulla gestione di asset, vedere:
 <h2>Passaggi successivi</h2>
 Dopo avere acquisito le nozioni necessarie per gestire gli asset, è possibile passare all'argomento [Distribuire un asset mediante download](../media-services-deliver-asset-download/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

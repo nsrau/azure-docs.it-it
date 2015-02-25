@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Sito Web .NET con WebMatrix - Esercitazioni su Azure" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Informazioni su come sviluppare e distribuire un sito Web di Azure con WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Sito Web .NET con WebMatrix - Esercitazioni di Azure" 
+	description="Informazioni su come sviluppare e distribuire un sito Web di Azure con WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -15,7 +29,7 @@ Si apprenderà come:
 * Creare un sito usando un modello predefinito con WebMatrix 
 * Distribuire il sito Web personalizzato direttamente da WebMatrix in Azure
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://azure.microsoft.com/it-it/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
 > Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -67,14 +81,14 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
     ![SendGrid added][binsendgrid]
 
-3. Aprire la pagina *Order.cshtml* facendo doppio clic sul nome file.
+3. Aprire la pagina  *Order.cshtml* facendo doppio clic sul nome file.
 
 	![][modify2]
 
 4. All'inizio del file aggiungere il codice seguente:
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. Trovare il commento //SMTP Configuration for Hotmail ed eliminare o impostare come commento tutto il codice per l'uso della posta sul Web.
 
@@ -154,15 +168,15 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 	![Bakery Sample Site][bakerysample]
 
-	Per trovare l'URL del sito Web, è anche possibile fare clic su **Siti Web** nel portale di Azure per visualizzare tutti i siti Web disponibili per la sottoscrizione. L'URL per ciascun sito Web è visualizzato nella colonna URL della pagina Siti Web.
+	Per trovare l'URL del sito Web, è anche possibile fare clic su **Siti Web** nel portale Azure per visualizzare tutti i siti Web disponibili per la sottoscrizione. L'URL per ciascun sito Web è visualizzato nella colonna URL della pagina Siti Web.
 
 ## Modificare il sito Web e ripubblicarlo nel sito Web di Azure
 
 È possibile usare WebMatrix per modificare il sito e ripubblicarlo nel sito Web di Azure. Nella procedura seguente verrà aggiunta una casella di controllo per indicare che l'ordine è un regalo.
 
-1. Aprire la pagina *Order.cshtml*.
+1. Aprire la pagina  *Order.cshtml*.
 
-2. Individuare la definizione del modulo della classe "shiping". Inserire il codice seguente dopo il blocco &lt;li&gt;.
+2. Individuare la definizione del modulo della classe "shiping". Inserire il seguente codice dopo il blocco &lt;li&gt;.
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -173,7 +187,7 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 	![][modify5]
 
-3. Individuare la riga "var shipping = Request["orderShipping"];" nel file e inserire subito dopo la riga di codice seguente.
+3. Individuare la riga "var shipping = Request["orderShipping"];"  nel file e inserire subito dopo la seguente riga di codice.
 
 		var gift = Request["isGift"];
 
@@ -183,7 +197,7 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 			body += "This is a gift." + "<br/>";
 		}
 
-	L'aspetto del file *order.cshtml* dovrebbe essere simile al seguente.
+	L'aspetto del file  *order.cshtml* dovrebbe essere simile al seguente.
 
 	![][modify6]
 
@@ -236,4 +250,5 @@ Si è appreso come creare e distribuire un sito Web da WebMatrix in Azure. Per a
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/it-it/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

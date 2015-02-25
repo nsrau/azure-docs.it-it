@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Distribuzione di SharePoint 2010 in Macchine virtuali di Azure" metaKeywords="" description="Informazioni sugli scenari supportati per l'uso di SharePoint 2010 in macchine virtuali di Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Distribuzione di SharePoint 2010 in Macchine virtuali di Azure" description="Informazioni sugli scenari supportati per l'uso di SharePoint 2010 in macchine virtuali di Azure." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="josephd"/>
 
 
 
@@ -32,9 +32,9 @@ Indubbiamente il cloud computing rappresenta una svolta significativa negli attu
 La ricerca dimostra che i tre principali fattori trainanti per l'adozione del cloud sono flessibilità, centralità ed economicità:
 
 <ul>
-<li><p><strong>Flessibilità</strong>: il cloud computing offre alle organizzazioni la possibilità di sfruttare più rapidamente le nuove opportunità e di rispondere a mutevoli esigenze aziendali.</p></li>
-<li><p><strong>Centralità</strong>: il cloud computing consente ai reparti IT di tagliare drasticamente i costi dell'infrastruttura. Grazie all'astrazione dell'infrastruttura e al raggruppamento delle risorse, infatti, è possibile gestire l'IT più come un'utilità che non come un insieme di complicati servizi e sistemi. Inoltre, è ora possibile assegnare all'IT ruoli più innovativi e strategici.</p></li>
-<li><p><strong>Convenienza</strong>: il cloud computing consente di ridurre i costi associati all'erogazione di funzionalità IT e di incrementare l'uso e l'efficienza del data center. I costi dell'erogazione sono inferiori perché con il cloud computing le applicazioni e le risorse diventano self-service e l'uso di tali risorse diventa misurabile in nuovi modi più precisi. Inoltre, l'hardware viene maggiormente sfruttato, grazie al raggruppamento e all'astrazione delle risorse di archiviazione, calcolo e rete.</p></li>
+<li><p><strong>Agility</strong>: il cloud computing offre alle organizzazioni la possibilità di sfruttare più rapidamente le nuove opportunità e di rispondere a mutevoli esigenze aziendali.</p></li>
+<li><p><strong>Focus</strong>: il cloud computing consente ai reparti IT di tagliare drasticamente i costi dell'infrastruttura. Grazie all'astrazione dell'infrastruttura e al raggruppamento delle risorse, infatti, è possibile gestire l'IT più come un'utilità che non come un insieme di complicati servizi e sistemi. Inoltre, è ora possibile assegnare all'IT ruoli più innovativi e strategici.</p></li>
+<li><p><strong>Economics</strong>: il cloud computing consente di ridurre i costi associati all'erogazione di funzionalità IT e di incrementare l'uso e l'efficienza del data center. I costi dell'erogazione sono inferiori perché con il cloud computing le applicazioni e le risorse diventano self-service e l'utilizzo di tali risorse diventa misurabile in nuovi modi più precisi. Inoltre, l'hardware viene maggiormente sfruttato, grazie al raggruppamento e all'astrazione delle risorse di archiviazione, calcolo e rete.</p></li>
 </ul>
 
 <h2>Modelli di erogazione dei servizi cloud</h2>
@@ -42,9 +42,9 @@ La ricerca dimostra che i tre principali fattori trainanti per l'adozione del cl
 In breve, il cloud computing rappresenta l'astrazione dei servizi IT. Questi servizi possono spaziare dall'infrastruttura di base ad applicazioni complete. Gli utenti finali richiedono e usano servizi astratti senza la necessità di gestire (o addirittura di conoscere) i relativi componenti. Oggi, nel settore sono stati identificati tre modelli di erogazione dei servizi cloud, ognuno dei quali offre un rapporto diverso tra controllo/flessibilità e costi complessivi:
 
 <ul>
-<li><p><strong>Infrastructure distribuita come servizio</strong> (IaaS): l'infrastruttura virtuale che ospita le macchine virtuali e prevalentemente le applicazioni esistenti.</p></li>
-<li><p><strong>Piattaforma distribuita come servizio</strong> (PaaS): l'infrastruttura di applicazioni cloud che fornisce un ambiente host di applicazioni su richiesta.</p></li>
-<li><p><strong>Software come un servizio</strong> (SaaS): modello di servizi cloud in cui un'applicazione viene distribuita tramite Internet e ai clienti vengono addebitati i costi per uso, ad esempio Microsoft Office 365 o Microsoft CRM Online.</p></li>
+<li><p><strong>Infrastructure as a Service</strong> (IaaS): l'infrastruttura virtuale che ospita le macchine virtuali e prevalentemente le applicazioni esistenti.</p></li>
+<li><p><strong>Platform as a Service</strong> (PaaS): l'infrastruttura di applicazioni cloud che fornisce un ambiente host di applicazioni su richiesta.</p></li>
+<li><p><strong>Software as a Service</strong> (SaaS): modello di servizi cloud in cui un'applicazione viene distribuita tramite Internet e ai clienti vengono addebitati i costi per uso, ad esempio Microsoft Office 365 o Microsoft CRM Online.</p></li>
 </ul>
 
 Nella figura 1 è illustrata la tassonomia dei servizi cloud e la relativa associazione dei componenti di un'infrastruttura IT. Con un modello locale, il cliente è responsabile della gestione dell'intero stack, dalla connettività di rete alle applicazioni. Con IaaS, i livelli inferiori dello stack vengono gestiti da un fornitore, mentre il cliente è responsabile della gestione del sistema operativo e delle applicazioni. Con PaaS, il fornitore della piattaforma fornisce e gestisce tutti i componenti, dalla connettività di rete fino al runtime. Il cliente è responsabile solo della gestione di applicazioni e dati. L'offerta di Azure rientra principalmente in questo modello. Infine, con SaaS, il fornitore provvede alle applicazioni e all'astrazione di tutti i servizi da tutti i componenti sottostanti.
@@ -58,19 +58,19 @@ Nella figura 1 è illustrata la tassonomia dei servizi cloud e la relativa assoc
 Con Macchine virtuali di Azure è stata introdotta una funzionalità che offre il pieno controllo e la gestione delle VM, oltre a funzionalità estese di rete virtuale. Questa offerta assicura vantaggi notevoli alle organizzazioni, come illustrato di seguito.
 
 <ul>
-<li><p><strong>Gestione</strong>: le VM possono essere gestite centralmente nel cloud con il pieno controllo per configurare e mantenere l'infrastruttura.</p></li>
-<li><p><strong>Mobilità delle applicazioni</strong>: i dischi rigidi virtuali (VHD) possono essere spostati tra ambienti locali e basati su cloud. Non è necessario ricompilare le applicazioni per l'esecuzione nel cloud.</p></li>
-<li><p><strong>Accesso ad applicazioni server Microsoft</strong>: è possibile eseguire nel colud le stesse applicazioni e infrastrutture usate in locale, tra cui Microsoft SQL Server, SharePoint Server, Windows Server e Active Directory.</p></li>
+<li><p><strong>Management</strong>: le VM possono essere gestite centralmente nel cloud con il pieno controllo per configurare e mantenere l'infrastruttura.</p></li>
+<li><p><strong>Application mobility</strong>: i dischi rigidi virtuali (VHD) possono essere spostati tra ambienti locali e basati su cloud. Non è necessario ricompilare le applicazioni per l'esecuzione nel cloud.</p></li>
+<li><p><strong>Access to Microsoft server applications</strong>: è possibile eseguire nel colud le stesse applicazioni e infrastrutture usate in locale, tra cui Microsoft SQL Server, SharePoint Server, Windows Server e Active Directory.</p></li>
 </ul>
 
 Macchine virtuali di Azure è una piattaforma semplice, aperta, flessibile e potente che consente alle organizzazioni di distribuire ed eseguire VM Windows Server e Linux in pochi minuti.
 
 <ul>
-<li><p><strong>Semplice</strong>: con Macchine virtuali Azure, le procedure di creazione, migrazione, distribuzione e gestione di VM nel cloud sono semplici e immediate. Le organizzazioni possono effettuare la migrazione dei carichi di lavoro in Azure senza la necessità di modificare il codice esistente oppure possono configurare nuove VM in Azure con pochi clic del mouse. L'offerta prevede inoltre assistenza per lo sviluppo di nuove applicazioni cloud grazie all'integrazione delle funzionalità IaaS e PaaS di Azure.</p></li>
+<li><p><strong>Easy</strong>: con Macchine virtuali Azure, le procedure di creazione, migrazione, distribuzione e gestione di VM nel cloud sono semplici e immediate. Le organizzazioni possono effettuare la migrazione dei carichi di lavoro in Azure senza la necessità di modificare il codice esistente oppure possono configurare nuove VM in Azure con pochi clic del mouse. L'offerta prevede inoltre assistenza per lo sviluppo di nuove applicazioni cloud grazie all'integrazione delle funzionalità IaaS e PaaS di Azure.</p></li>
 
-<li><p><strong>Aperta e flessibile</strong>: Azure è una piattaforma aperta che assicura flessibilità alle organizzazioni. È possibile iniziare da un'immagine predefinita della raccolta immagini oppure creare e usare dischi rigidi virtuali personalizzati e locali da caricare nella raccolta immagini. Sono inoltre disponibili versioni di Linux commerciali e per community.</p></li>
+<li><p><strong>Open and flexible</strong>: Azure è una piattaforma aperta che assicura flessibilità alle organizzazioni. È possibile iniziare da un'immagine predefinita della raccolta immagini oppure creare e usare dischi rigidi virtuali personalizzati e locali da caricare nella raccolta immagini. Sono inoltre disponibili versioni di Linux commerciali e per community.</p></li>
 
-<li><p><strong>Potente</strong>: Azure è una piattaforma cloud aziendale per l'esecuzione di applicazioni come SQL Server, SharePoint Server o Active Directory nel cloud. Le organizzazioni possono creare soluzioni ibride, locali e cloud, con connettività VPN tra il data center Azure e le loro reti.</p></li>
+<li><p><strong>Powerful</strong>: Azure è una piattaforma cloud aziendale per l'esecuzione di applicazioni come SQL Server, SharePoint Server o Active Directory nel cloud. Le organizzazioni possono creare soluzioni ibride, locali e cloud, con connettività VPN tra il data center Azure e le loro reti.</p></li>
 </ul>
 
 <h2>SharePoint in Macchine virtuali di Azure</h2>
@@ -116,18 +116,18 @@ Gli utenti possono anche caricare un'immagine sottoposta a sysprep nel portale d
 Per distribuire SharePoint 2010 in Azure, eseguire la procedura seguente:
 
 <ol>
-<li>Accedere al <a href="http://manage.windowsazure.com/">portale di gestione di Azure</a> con l'account della sottoscrizione di Azure.
+<li>Accedere al <a href="http://manage.windowsazure.com/"> portale di gestione di Azure</a> con l'account della sottoscrizione di Azure.
 <ul>
 
 <li>Se non si dispone di un account Azure, <a href="http://www.windowsazure.com/it-it/pricing/free-trial/">iscriversi per una versione di prova gratuita</a>.</li>
 </ul>
 </li>
 
-<li>Per creare una macchina virtuale con il sistema operativo di base, nel portale di gestione di Azure fare clic su <strong>NUOVO</strong>, quindi su <strong>CALCOLO</strong>, su <strong>MACCHINA VIRTUALE</strong> e infine su <strong>DA RACCOLTA</strong>.</li>
+<li>Per creare una macchina virtuale con sistema operativo di base, nel portale di gestione di Azure, fare clic su NUOVO > CALCOLO > MACCHINA VIRTUALE > DA RACCOLTA.</li>
 
 <li>Verrà visualizzata la finestra di dialogo <strong>Scegli un'immagine</strong>. Fare clic sull'immagine della piattaforma <strong>Windows Server 2008 R2 SP1</strong> e quindi sulla freccia a destra.</li>
 
-<li>Viene visualizzata la finestra di dialogo <strong><em>Configurazione macchina virtuale</em></strong>. Specificare le informazioni seguenti:
+<li>Verrà visualizzata la finestra di dialogo <strong><em>Configurazione macchina virtuale </em></strong>. Specificare le informazioni seguenti:
 
 <ul>
 <li>Immettere un nome per <strong>NOME MACCHINA VIRTUALE</strong>.
@@ -214,7 +214,7 @@ Per distribuire SharePoint 2010 in Azure, eseguire la procedura seguente:
 <ul>
 <li>È anche possibile usare CodePlex Project AutoSPInstaller, che comprende script di Windows PowerShell, un file di input XML e un file batch di Microsoft Windows standard. AutoSPInstaller fornisce un framework per uno script di installazione di SharePoint 2010 basato su Windows PowerShell. Per altre informazioni, vedere <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.
 
-<strong>Nota</strong>: assicurarsi di configurare la sicurezza nell'endpoint del portale di gestione e di impostare una porta in ingresso in Windows Firewall della macchina virtuale. Quindi, verificare che sia possibile avviare una sessione remota di Windows PowerShell in uno dei server applicazioni SharePoint aprendo una sessione di Windows PowerShell con credenziali di amministratore.
+<strong>Note</strong>: assicurarsi di configurare la sicurezza nell'endpoint del portale di gestione e di impostare una porta in ingresso in Windows Firewall della macchina virtuale. Quindi, verificare che sia possibile avviare una sessione remota di Windows PowerShell in uno dei server applicazioni SharePoint aprendo una sessione di Windows PowerShell con credenziali di amministratore.
 </li>
 </ul>
 </li>
@@ -231,7 +231,7 @@ Per distribuire SharePoint 2010 in Azure, eseguire la procedura seguente:
 È anche possibile creare le proprie immagini e caricarle in Azure come file VHD. Per creare e caricare un file VHD in Azure, eseguire la procedura seguente:
 
 <ol>
-<li>Creare l'immagine abilitata per Hyper-V: usare la console di gestione di Hyper-V per creare il disco rigido virtuale compatibile con Hyper-V. Per altre informazioni, vedere <a href="http://technet.microsoft.com/it-it/library/cc742509">Creare dischi rigidi virtuali</a>.</li>
+<li>Creare l'immagine abilitata per Hyper-V: usare la console di gestione di Hyper-V per creare il disco rigido virtuale compatibile con Hyper-V. Per altre informazioni, vedere <a href="http://technet.microsoft.com/it-it/library/cc742509">Creare dischi rigidi virtuali</a>.</li>.
 <li>Creare un account di archiviazione in Azure: l'account di archiviazione di Azure è necessario per caricare un file VHD da usare per creare una macchina virtuale. Questo account può essere creato tramite il portale di gestione di Azure. Per altre informazioni, vedere <a href="/it-it/manage/windows/common-tasks/upload-a-vhd/">Creare un account di archiviazione in Azure</a>.</li>
 <li>Preparare l'immagine da caricare: prima di caricare l'immagine in Azure, è necessario generalizzarla tramite il comando SysPrep. Per altre informazioni, vedere <a href="http://technet.microsoft.com/it-it/library/bb457073.aspx">Introduzione all'uso di SysPrep</a>.</li>
 <li>Caricare l'immagine in Azure: per caricare un'immagine contenuta in un file VHD, è necessario creare e installare un certificato di gestione. Ottenere un'identificazione personale del certificato e l'ID sottoscrizione. Impostare la connessione e caricare il file VHD tramite lo strumento da riga di comando CSUpload. Per altre informazioni, vedere <a href="/it-it/manage/windows/common-tasks/upload-a-vhd/">Caricare l'immagine in Azure</a>.</li>
@@ -264,13 +264,13 @@ Nella figura 4 è illustrato un ambiente di test e sviluppo di SharePoint in una
 Per implementare un ambiente di test e sviluppo di SharePoint in Azure, eseguire la procedura seguente:
 
 <ol>
-<li><em>Eseguire il provisioning</em>: eseguire innanzitutto il provisioning di una connessione VPN tra l'ambiente locale e Azure tramite Rete virtuale di Azure. Poiché in questo caso non si usa Active Directory, è necessario un tunnel VPN. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx">Panoramica di Rete virtuale (considerazioni sulla progettazione e scenari di connessioni sicure)</a>. Usare quindi il portale di gestione per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.
+<li><em>Provision</em>: eseguire innanzitutto il provisioning di una connessione VPN tra l'ambiente locale e Azure tramite Rete virtuale di Azure. Poiché in questo caso non si usa Active Directory, è necessario un tunnel VPN. For more information, go to <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>. Usare quindi il portale di gestione per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.
 <ul>
 <li>È possibile caricare le macchine virtuali di test e sviluppo di SharePoint locali nell'account di archiviazione di Azure e farvi riferimento tramite la raccolta immagini per creare l'ambiente richiesto.</li>
 <li>È possibile usare l'immagine di SQL Server 2012 anziché quella di Windows Server 2008 R2 SP1. Per altre informazioni, vedere <a href="/it-it/manage/windows/common-tasks/install-sql-server/">Provisioning di una macchina virtuale di SQL Server in Azure</a>.</li>
 </ul>
 </li>
-<li><em>Installazione</em>: installare SharePoint Server, Visual Studio e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
+<li><em>Install</em>: installare SharePoint Server, Visual Studio e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
 <ul>
 <li>Scegliere un'opzione per l'installazione di SharePoint Server:
 <ul>
@@ -288,20 +288,20 @@ Per implementare un ambiente di test e sviluppo di SharePoint in Azure, eseguire
 </li>
 </ul>
 </li>
-<li><em>Sviluppare pacchetti e script di distribuzione per applicazioni e database</em>: se si prevede di usare una macchina virtuale disponibile nella raccolta immagini, è possibile distribuire le applicazioni e i database locali desiderati in Macchine virtuali di Azure:
+<li><em>Develop deployment packages and scripts for applications and databases</em>: se si prevede di usare una macchina virtuale disponibile nella raccolta immagini, è possibile distribuire le applicazioni e i database locali desiderati in Macchine virtuali di Azure:
 <ul>
 <li>Creare i pacchetti di distribuzione per le applicazioni e i database locali esistenti usando SQL Server Data Tools e Visual Studio.</li>
 <li>Usare questi pacchetti per distribuire le applicazioni e i database in Macchine virtuali di Azure.</li>
 </ul>
 </li>
-<li><em>Distribuire applicazioni e database di SharePoint</em>:
+<li><em>Deploy SharePoint applications and databases</em>:
 <ul>
 <li>Configurare la sicurezza nell'endpoint del portale di gestione per impostare una porta di ingresso in Windows Firewall della macchina virtuale.</li>
 <li>Distribuire le applicazioni e i database di SharePoint in Macchine virtuali di Azure usando i pacchetti e gli script di distribuzione creati nel passaggio 3.</li>
 <li>Testare le applicazioni e i database distribuiti.</li>
 </ul>
 </li>
-<li><em>Gestire le macchine virtuali</em>:
+<li><em>Manage VMs</em>:
 <ul>
 <li>Monitorare le macchine virtuali tramite il portale di gestione.</li>
 <li>Monitorare le applicazioni tramite Visual Studio e SQL Server Management Studio.</li>
@@ -317,7 +317,7 @@ Le organizzazioni desiderano creare una presenza su Internet ospitata nel cloud 
 
 In questo scenario si usa SharePoint Server come base per l'hosting di un sito Web pubblico. In questo modo le organizzazioni possono rapidamente distribuire, personalizzare e ospitare i loro siti Web aziendali in un'infrastruttura cloud scalabile e sicura. Con i siti Web pubblici di SharePoint in Azure, le organizzazioni si assicurano la scalabilità per far fronte all'aumento del traffico e si assumono solo i costi delle risorse che usano. È possibile usare strumenti comuni, simili a quelli impiegati in locale, per la creazione di contenuti, il flusso di lavoro e l'approvazione con SharePoint in Azure.
 
-Inoltre, usando Macchine virtuali di Azure, le organizzazioni possono facilmente configurare ambienti di gestione temporanea e di produzione in esecuzione su macchine virtuali. Le macchine virtuali pubbliche di SharePoint create in Azure possono essere sottoposte a backup in uno spazio di archiviazione virtuale. Inoltre, ai fini del ripristino di emergenza, la funzionalità di replica geografica continua consente alle organizzazione di eseguire automaticamente il backup delle macchine virtuali di un data center in un altro data center situato a chilometri di distanza. Per altre informazioni sulla replica geografica, vedere <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Introduzione alla replica geografica per Archiviazione di Azure</a>.
+Inoltre, usando Macchine virtuali di Azure, le organizzazioni possono facilmente configurare ambienti di gestione temporanea e di produzione in esecuzione su macchine virtuali. Le macchine virtuali pubbliche di SharePoint create in Azure possono essere sottoposte a backup in uno spazio di archiviazione virtuale. Inoltre, ai fini del ripristino di emergenza, la funzionalità di replica geografica continua consente alle organizzazione di eseguire automaticamente il backup delle macchine virtuali di un data center in un altro data center situato a chilometri di distanza. (Per altre informazioni sulla replica geografica, vedere <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Introduzione alla replica geografica per Archiviazione di Azure</a>.
 
 Le macchine virtuali dell'infrastruttura Azure sono convalidate e supportate per l'uso con altri prodotti Microsoft, ad esempio SQL Server e SharePoint Server. È consigliabile usare Azure con SharePoint Server, in quanto fanno entrambi parte della famiglia di prodotti Microsoft e sono pienamente integrati, supportati e testati per offrire nell'insieme un'esperienza ottimale. Prevedono entrambi un singolo punto di supporto per l'applicazione SharePoint e l'infrastruttura Azure.
 
@@ -333,7 +333,7 @@ In questo scenario è necessario aggiungere altri server Web front-end per Share
 Per implementare una farm di SharePoint pubblica in Azure, eseguire la procedura seguente:
 
 <ol>
-<li><em>Distribuire Active Directory</em>: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni sulle differenze, oltre a linee guida e altre considerazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156090">Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure</a>. Per distribuire Active Directory in Azure:
+<li><em>Deploy Active Directory</em>: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni sulle differenze, oltre a linee guida e altre considerazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156090">Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure</a>. Per distribuire Active Directory in Azure:
 <ul>
 <li>Definire e creare una rete virtuale in cui è possibile assegnare le macchine virtuali a specifiche subnet. Per altre informazioni, vedere <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configurare le reti virtuali</a>.</li>
 <li>Usare il portale di gestione per creare e distribuire il controller di dominio in una nuova macchina virtuale in Azure. Per altre informazioni, vedere <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Distribuzione e creazione del controller di dominio</a>.
@@ -344,8 +344,8 @@ Per implementare una farm di SharePoint pubblica in Azure, eseguire la procedura
 </li>
 </ul>
 </li>
-<li><em>Eseguire il provisioning di una macchina virtuale</em>: Usare il portale di gestione per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.</li>
-<li><em>Distribuire una farm di SharePoint</em>:
+<li><em>Provision a VM</em>: Usare il portale di gestione per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.</li>
+<li><em>Deploy a SharePoint farm</em>:
 <ul>
 <li>Usare la macchina virtuale di cui è stato eseguito il provisioning per installare SharePoint e generare un'immagine riutilizzabile. Per altre informazioni sull'installazione di SharePoint Server, vedere <a href="http://technet.microsoft.com/it-it/library/cc262839.aspx">Installare SharePoint Server 2010 tramite Windows PowerShell</a> o <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
 <li>Configurare la macchina virtuale di SharePoint e connetterla alla farm di SharePoint.</li>
@@ -357,7 +357,7 @@ Per implementare una farm di SharePoint pubblica in Azure, eseguire la procedura
 </li>
 </ul>
 </li>
-<li><em>Gestire le macchine virtuali</em>:
+<li><em>Manage VMs</em>:
 <ul>
 <li>Monitorare le macchine virtuali tramite il portale di gestione.</li>
 <li>Monitorare la farm di SharePoint tramite Amministrazione centrale.</li>
@@ -388,7 +388,7 @@ Per scalare orizzontalmente la distribuzione dei componenti di business intellig
 Per scalare orizzontalmente un ambiente di business intelligence in Azure, eseguire la procedura seguente:
 
 <ol>
-<li><em>Eseguire il provisioning</em>:
+<li><em>Provision</em>:
 <ul>
 <li>Eseguire il provisioning di una connessione VPN tra l'ambiente locale e Azure tramite Rete virtuale di Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx">Panoramica di Rete virtuale (considerazioni sulla progettazione e scenari di connessioni sicure)</a>.</li>
 <li>Usare il portale di gestione per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.
@@ -398,7 +398,7 @@ Per scalare orizzontalmente un ambiente di business intelligence in Azure, esegu
 </li>
 </ul>
 </li>
-<li><em>Installazione</em>: se l'organizzazione non dispone di immagini predefinite di componenti di BI di SharePoint Server o SQL Server, installare SharePoint Server e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
+<li><em>Install</em>: se l'organizzazione non dispone di immagini predefinite di componenti di BI di SharePoint Server o SQL Server, installare SharePoint Server e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
 <ul>
 <li>Per altre informazioni sull'installazione di SharePoint, vedere <a href="http://technet.microsoft.com/it-it/library/cc262839.aspx">Installare SharePoint Server 2010 tramite Windows PowerShell</a> o <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
 <li>Per altre informazioni sull'installazione di SQL Server, vedere <a href="http://msdn.microsoft.com/it-it/library/ee210664.aspx">Installare SQL Server tramite SysPrep</a>.</li>
@@ -406,13 +406,13 @@ Per scalare orizzontalmente un ambiente di business intelligence in Azure, esegu
 <li>Fare riferimento al laboratorio interattivo per creare una farm di SharePoint configurando Active Directory e usando un singolo database di SQL Server: <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Distribuzione di una farm di SharePoint con Macchine virtuali di Azure</a>.</li>
 </ul>
 </li>
-<li><em>Aggiungere la macchina virtuale BI</em>:
+<li><em>Add the BI VM</em>:
 <ul>
 <li>Configurare la sicurezza nell'endpoint del portale di gestione per impostare una porta di ingresso in Windows Firewall della macchina virtuale.</li>
 <li>Aggiungere la macchina virtuale BI creata alla farm di SharePoint o SQL Server esistente.</li>
 </ul>
 </li>
-<li><em>Gestire le macchine virtuali</em>:
+<li><em>Manage VMs</em>:
 <ul>
 <li>Monitorare le macchine virtuali tramite il portale di gestione.</li>
 <li>Monitorare la farm di SharePoint tramite Amministrazione centrale.</li>
@@ -443,7 +443,7 @@ Per implementare un sito Web di SharePoint completamente personalizzato in Azure
 Nella procedura seguente viene illustrato come creare un ambiente farm di SharePoint personalizzato dalle immagini predefinite disponibili nella raccolta immagini. Si noti, tuttavia, che è anche possibile caricare le macchine virtuali della farm di SharePoint nella raccolta immagini. In seguito, gli utenti autorizzati potranno scegliere queste macchine virtuali per creare la necessaria farm di SharePoint in Azure.
 
 <ol>
-<li>Distribuire Active Directory<em>: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni sulle differenze, oltre a linee guida e altre considerazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156090">Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure</a>. Per distribuire Active Directory in Azure:</em>
+<li>Distribuire Active Directory<em>: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni sulle differenze, oltre a linee guida e altre considerazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156090"> Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure:</em>
 <ul>
 <li>Definire e creare una rete virtuale in cui è possibile assegnare le macchine virtuali a specifiche subnet. Per altre informazioni, vedere <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configurare le reti virtuali</a>.</li>
 <li>Usare il portale di gestione per creare e distribuire il controller di dominio in una nuova macchina virtuale in Azure. Per altre informazioni, vedere <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Distribuzione e creazione del controller di dominio</a>.
@@ -461,7 +461,7 @@ Nella procedura seguente viene illustrato come creare un ambiente farm di ShareP
 <li>Aggiungere la macchina virtuale al dominio Active Directory appena creato.</li>
 </ul>
 </li>
-<li><em>Distribuire una farm di SharePoint multiserver</em>:
+<li><em>Distribuire una farm di SharePoint multiserver:/em>:
 <ul>
 <li>Creare una rete virtuale. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx">Panoramica di Rete virtuale (considerazioni sulla progettazione e scenari di connessioni sicure)</a>.
 <ul>
@@ -470,12 +470,12 @@ Nella procedura seguente viene illustrato come creare un ambiente farm di ShareP
 </li>
 <li>Usare il portale di gestione per creare una macchina virtuale.</li>
 <li>Installare SharePoint Server in questa macchina virtuale e generare un'immagine riutilizzabile. Per altre informazioni sull'installazione di SharePoint Server, vedere <a href="http://technet.microsoft.com/it-it/library/cc262839.aspx">Installare SharePoint Server 2010 tramite Windows PowerShell</a> o <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
-<li>Configurare la macchina virtuale di SharePoint in modo da creare e connettersi alla farm di SharePoint usando il comando <a href="http://technet.microsoft.com/it-it/library/ff607979.aspx">Join-SharePointFarm</a>.</li>
+<li>Configure the SharePoint VM to create and connect to the SharePoint farm using the <a href="http://technet.microsoft.com/it-it/library/ff607979.aspx">Join-SharePointFarm</a> command.</li>
 <li>Usare il portale di gestione per configurare il bilanciamento del carico:
 <ul>
 <li>Configurare gli endpoint della macchina virtuale, selezionare l'opzione per il bilanciamento del carico del traffico in un endpoint esistente, quindi specificare il nome della macchina virtuale con carico bilanciato.
 <ul>
-<li>Per altre informazioni sulla distribuzione di farm di SharePoint in Macchine virtuali di Azure, guardare il <a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327">video TechEd North America 2012</a>.</li>
+<li>Per altre informazioni sulla distribuzione di farm di SharePoint in Macchine virtuali di Azure, guardare il video <a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327">TechEd North America 2012</a>.</li>.
 </ul>
 </li>
 </ul>
@@ -501,8 +501,8 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 
 <ul>
 <li>
-<p>Kit di formazione di Azure: Laboratorio interattivo e presentazione</p>
-<p><a href="http://windowsazure-trainingkit.github.com/labs.htm">http://windowsazure-trainingkit.github.com/labs.htm</a></p>
+<p>SharePoint nei servizi infrastruttura di Azure</p>
+<p><a href="http://msdn.microsoft.com/library/dn275955.aspx">http://msdn.microsoft.com/library/dn275955.aspx</a></p>
 </li>
 <li>
 <p>Guida introduttiva ad Azure PowerShell</p>
@@ -523,4 +523,7 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 </ul>
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

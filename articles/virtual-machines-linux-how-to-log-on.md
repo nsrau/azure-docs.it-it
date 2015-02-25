@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Log on to a VM" pageTitle="Accedere a una macchina virtuale che esegue Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Informazioni su come accedere a una macchina virtuale di Azure che esegue Linux tramite un client SSH (Secure Shell)." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Accedere a una macchina virtuale che esegue Linux in Azure" description="Informazioni su come accedere a una macchina virtuale di Azure che esegue Linux tramite un client SSH (Secure Shell)." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
 
 
 
@@ -14,7 +14,7 @@ Per accedere alla macchina virtuale, è necessario installare un client SSH nel 
 - In un computer che esegue un sistema operativo Windows, è possibile usare un client SSH come PuTTY. Per altre informazioni, vedere la [pagina di download di PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - In un computer che esegue un sistema operativo Linux, è possibile usare un client SSH come OpenSSH. Per altre informazioni, vedere la pagina [OpenSSH](http://www.openssh.org/).
 
->[WACOM.NOTE] Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294). 
+>[AZURE.NOTE] Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294). 
 
 In questa procedura viene illustrato come usare il programma PuTTY per accedere alla macchina virtuale.
 
@@ -28,15 +28,18 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Il nome utente predefinito è azureuser.
+4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Per altre informazioni su come creare una macchina virtuale con un nome utente e una password, vedere [Come accedere alla macchina virtuale dopo averla creata](http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-linux-tutorial/). 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[WACOM.NOTE] Se si dimentica la chiave o la password SSH, è possibile reimpostarla mediante l'estensione VMAccess. Se si dimentica il nome utente, è possibile usare l'estensione per crearne uno nuovo con privilegi sudo. Per istruzioni, vedere [Come reimpostare una password o SSH per le macchine virtuali Linux]. 
+>[AZURE.NOTE] Se si dimentica la chiave o la password SSH, è possibile reimpostarla mediante l'estensione VMAccess. Se si dimentica il nome utente, è possibile usare l'estensione per crearne uno nuovo con privilegi sudo. Per istruzioni, vedere [Come reimpostare una password o SSH per le macchine virtuali Linux]. 
 	
 È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

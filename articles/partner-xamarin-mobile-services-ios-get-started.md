@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili per app per Xamarin" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Xamarin iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introduzione a Servizi mobili per app per Xamarin" 
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Xamarin iOS." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="conceptdev" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/22/2014" 
+	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.iOS mediante Servizi mobili di Azure. In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.
 
 Se si preferisce guardare un video, nel clip seguente vengono eseguiti gli stessi passaggi dell'esercitazione.
 
@@ -22,11 +36,11 @@ Di seguito è riportata una schermata dell'app completata:
 
 Per completare questa esercitazione è necessario disporre di XCode e [Xamarin Studio] per OS X oppure del plug-in Xamarin Visual Studio per Visual Studio in Windows. L'esempio verrà eseguito su iOS 5.0 e versioni successive.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Creare una nuova app per Xamarin.iOS</h2>
 
@@ -48,7 +62,7 @@ In questa sezione si creerà una nuova app di Xamarin.iOS connessa al servizio m
 
 4. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
-5. In **Scaricare ed eseguire l'app** fare clic su **Download**. 
+5. In **Scaricare ed eseguire l'applicazione** fare clic su **Download**. 
 
 	Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile e si farà riferimento al componente Servizi mobili di Azure per Xamarin.iOS. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
@@ -64,16 +78,13 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Premere il pulsante **Run** per compilare il progetto e avviare l'applicazione nell'emulatore di iPhone, che corrisponde all'impostazione predefinita per questo progetto.
 
-3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (**+**).
+3. Nell'app digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic sull'icona con il segno più (**+**).
 
 	![][10]
 
 	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
-	<div class="dev-callout"> 
-	<b>Nota</b> 
-   	<p>È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.cs C#.</p> 
- 	</div>
+	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.cs C#.
 
 4. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
@@ -86,8 +97,8 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
-* [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+## Passaggi successivi
+Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
 * [Introduzione alla sincronizzazione dei dati offline]
   <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
@@ -97,7 +108,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 * [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
-
 
 <!-- Anchors. -->
 [Introduzione a Servizi mobili]:#getting-started
@@ -127,4 +137,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Portale di gestione]: https://manage.windowsazure.com/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

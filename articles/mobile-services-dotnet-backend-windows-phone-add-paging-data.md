@@ -1,24 +1,24 @@
-﻿<properties pageTitle="Aggiungere paging ai dati (Windows Phone) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare il paging per gestire la quantità di dati restituiti all'app per Windows Phone da Servizi mobili." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Aggiungere paging ai dati (Windows Phone) | Mobile Dev Center" description="Informazioni su come usare il paging per gestire la quantità di dati restituiti all'app per Windows Phone da Servizi mobili." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/11/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/11/2014" ms.author="glenga"/>
 
 # Usare il paging per ridefinire le query di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
-Questo argomento illustra come usare il paging per gestire la quantità di dati restituiti all'app di Windows Phone da Servizi mobili di Azure. In questa esercitazione verranno usati i metodi di query **Take** e **Skip** sul client per richiedere "pagine" di dati specifiche.
+Questo argomento descrive come usare il paging per gestire la quantità di dati restituiti all'app per Windows Phone da Servizi mobili di Azure. In questa esercitazione verranno usati i metodi di query **Take** e **Skip** sul client per richiedere "pagine" di dati specifiche.
 
->[WACOM.NOTE]Per evitare l'overflow dei dati nei client dei dispositivi mobili, Servizi mobili implementa un limite di pagina automatico, che prevede un massimo di 50 elementi in una risposta per impostazione predefinita. Specificando le dimensioni della pagina, è possibile richiedere in modo esplicito fino a un massimo di 1.000 elementi nella risposta.
+>[AZURE.NOTE] Per evitare l'overflow dei dati nei client dei dispositivi mobili, Servizi mobili implementa un limite di pagina automatico, che per impostazione predefinita prevede un massimo di 50 elementi in una risposta. Specificando la dimensione della pagina, è possibile richiedere in modo esplicito fino a un massimo di 1.000 elementi nella risposta.
 
 Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente [Aggiungere Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/), che deve essere completata prima di iniziare la presente esercitazione: 
 
 ##Impostare la dimensione delle pagine del server
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
+[AZURE.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Il set di esercitazioni relative alle nozioni di base dell'uso dei dati in Servizi mobili è concluso. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
+Il set di esercitazioni relative alle nozioni di base dell'uso dei dati in Servizi mobili è concluso. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili::
 
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un account Windows.
@@ -41,3 +41,6 @@ Il set di esercitazioni relative alle nozioni di base dell'uso dei dati in Servi
 
 
 [Portale di gestione]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

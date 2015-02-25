@@ -1,12 +1,26 @@
-<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Connessione ibrida: Connettere un sito Web di Azure a una risorsa locale" description="Creare una connessione tra un sito Web di Azure e una risorsa locale che usa una porta TCP statica" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Connessione ibrida: Connettere un sito Web di Azure a una risorsa locale" 
+	description="Creare una connessione tra un sito Web di Azure e una risorsa locale che usa una porta TCP statica" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Connettere un sito Web di Azure a una risorsa locale mediante connessioni ibride
 
 È possibile connettere un sito Web in Microsoft Azure a qualsiasi risorsa locale che utilizza una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra un sito Web di Azure e un database di SQL Server locale.
 
-> [WACOM.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisiti
 - Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/it-it/pricing/free-trial/). 
@@ -16,9 +30,9 @@
 - Il computer in cui si installa l'agente Hybrid Connection Manager locale descritto più avanti in questo articolo:
 
 	- Deve essere in grado di connettersi ad Azure usando la porta 5671
-	- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale. 
+	- Deve essere in grado di raggiungere il  *hostname*:*numero di porta* della risorsa locale. 
 
-> [WACOM.NOTE] I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
+> [AZURE.NOTE] I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
 
 ##Contenuto dell'articolo##
@@ -35,7 +49,7 @@
 
 ## Creare un sito Web nel portale di anteprima di Azure ##
 
-> [WACOM.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk](#CreateHC) e proseguire da quel punto.
+> [AZURE.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk](#CreateHC) e proseguire da quel punto.
 
 1. Nell'angolo inferiore sinistro del [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Nuovo** e quindi scegliere **Sito Web**.
 	
@@ -142,7 +156,7 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 	
 	Nel pannello **Connessioni ibride** la colonna **Stato** ora visualizza **Connesso**. 
 	
-	![Connected Status][HCStatusConnected]
+	![stato Connesso][HCStatusConnected]
 
 Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile creata un'applicazione Web che la usa. 
 
@@ -192,4 +206,5 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

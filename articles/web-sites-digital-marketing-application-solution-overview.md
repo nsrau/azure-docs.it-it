@@ -1,188 +1,144 @@
-﻿<properties urlDisplayName="Resources" pageTitle="Creare una campagna marketing digitale in Siti Web di Azure" metaKeywords="" description="Questa Guida fornisce informazioni tecniche generali sull'uso di Siti Web di Azure per la creazione di campagne marketing digitali. Sono inclusi la distribuzione, l'integrazione di social networking, le strategie di scalabilità e il monitoraggio." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Creazione di una campagna di marketing digitale in Siti Web di Azure" 
+	description="In questa Guida vengono fornite informazioni generali di carattere tecnico sull'uso di Siti Web di Azure per la creazione di campagne di marketing digitali. Sono inclusi la distribuzione, l'integrazione di social networking, le strategie di scalabilità e il monitoraggio." 
+	editor="jimbe" 
+	manager="wpickett" 
+	authors="cephalin" 
+	services="web-sites" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2014" 
+	ms.author="cephalin"/>
 
-# Creare una campagna marketing digitale in Siti Web di Azure
-In questa Guida viene fornita una panoramica tecnica dell'uso di Siti Web di Azure per la creazione di campagne marketing digitali. Una campagna marketing digitale è in genere di breve durata e si propone di ottenere un obiettivo marketing a breve termine. È necessario prendere in considerazione due scenari principali. Nel primo scenario una società di marketing di terze parti crea e gestisce la campagna per conto del cliente, per l'intera durata della promozione. Nel secondo scenario la società di marketing crea la campagna marketing digitale, quindi trasferisce al cliente la proprietà delle risorse corrispondenti. La campagna marketing digitale verrà quindi eseguita e gestita autonomamente dal cliente. 
+# Campagne di marketing digitali in Siti Web di Azure
+[Siti Web di Azure] è la scelta ideale per le campagne di marketing digitali. Le campagne di questo tipo in genere sono di breve durata e hanno la funzione di realizzare obiettivi di marketing a breve termine. È necessario prendere in considerazione due scenari principali. Nel primo scenario una società di marketing di terze parti crea e gestisce la campagna per conto del cliente, per l'intera durata della promozione. Nel secondo scenario la società di marketing crea la campagna di marketing digitale, quindi trasferisce al cliente la proprietà delle risorse corrispondenti. La campagna di marketing digitale verrà quindi eseguita e gestita autonomamente dal cliente. Siti Web di Azure è la soluzione perfetta in entrambi gli scenari. 
 
-[Siti Web di Azure][websitesoverview] è la soluzione ideale in entrambi gli scenari. Consente infatti una creazione rapida, supporta più framework e linguaggi, assicura la scalabilità in base alla domanda da parte degli utenti e permette di usare diversi sistemi di distribuzione e di controllo del codice sorgente. Se si usa Azure, sarà inoltre possibile accedere ad altri servizi di Azure, ad esempio Servizi multimediali, che consentono di ottimizzare una campagna marketing.
+> [AZURE.NOTE] Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-> [WACOM.NOTE]
-> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+Di seguito è riportato un esempio di una campagna di marketing digitale multicanale globale con Siti Web di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo Siti Web di Azure con altri servizi. **Fare clic su un elemento nella topografia per visualizzare altre informazioni su di esso.** 
 
-Benché sia possibile usare [Servizi cloud di Azure][csoverview] o [Macchine virtuali di Azure][vmoverview] per l'hosting di siti Web, tale opzione è consigliabile per questo scenario solo se è necessaria una caratteristica non offerta da Siti Web di Azure. Per informazioni sulle opzioni disponibili, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure][chooseservice].
-
-In questa guida vengono illustrati gli argomenti seguenti:
-
-- [Distribuzione di siti Web esistenti](#deployexisting)
-- [Integrazione con i social media](#socialmedia)
-- [Scalabilità in base alla domanda da parte degli utenti](#scale)
-- [Integrazione con altri servizi](#integrate)
-- [Monitoraggio della campagna](#monitor)
-
-> [WACOM.NOTE]
-> In questa guida vengono illustrate alcune delle aree e delle attività più comuni relative allo sviluppo di un sito .COM pubblico. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su queste funzionalità, vedere le guide relative <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/">alla presenza Web globale</a> e <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">alle applicazioni aziendali</a>.
-
-##<a name="deployexisting"></a>Distribuzione di siti Web esistenti
-Nello scenario relativo alla presenza Web globale vengono illustrate diverse opzioni per la creazione e la distribuzione di un nuovo sito Web. Se non si è esperti di Siti Web di Azure, è consigliabile [esaminare le informazioni disponibili][scenarioglobalweb]. Se si creano spesso campagne marketing digitali, è possibile che siano disponibili asset Web da personalizzare per le diverse promozioni. In questa sezione verranno esaminate in modo dettagliato le opzioni per la distribuzione di diversi tipi di siti Web dal controllo del codice sorgente.
-
-Se si riutilizzano asset Web per finalità diverse, è consigliabile prendere in considerazione un sistema di gestione del controllo del codice sorgente, se non se ne utilizza già uno. Tale sistema consente di archiviare i modelli di soluzioni Web comuni, che possono essere sottoposti a branching e personalizzati per clienti specifici. Siti Web consente inoltre di eseguire la sincronizzazione con molti repository diversi di codice sorgente. Nella scheda **Dashboard** selezionare il collegamento **Imposta distribuzione dal controllo del codice sorgente**.
-
-![DigitalMarketingDeploy1][DigitalMarketingDeploy1]
-
-Verrà visualizzata una finestra di dialogo con più opzioni per il controllo del codice sorgente, inclusi sistemi completi per il controllo del codice sorgente, come TFS, oltre a semplici soluzioni di distribuzione, ad esempio Dropbox.
-
-![DigitalMarketingDeploy2][DigitalMarketingDeploy2]
-
-Per gestire il nuovo progetto basato su una linea di base esistente, è possibile usare diverse tecniche per il controllo del codice sorgente. È ad esempio possibile copiare un repository di base, salvato in precedenza, per iniziare a creare il nuovo progetto oppure creare un nuovo branch per tenere traccia delle personalizzazioni per il progetto corrente. Per un esempio dell'uso di branch per la gestione di distribuzioni diverse dallo stesso repository di controllo del codice sorgente, vedere la pagina relativa agli [ambienti multipli con Siti Web di Azure][gitstaging]. In questo post viene illustrato come usare il branching Git per la gestione degli ambienti di gestione temporanea e di produzione.
-
-Dopo la connessione del sito Web al controllo del codice sorgente, sarà possibile configurare le distribuzioni e tenerne traccia dal portale. Per altre informazioni sull'uso del controllo del codice sorgente con Siti Web, vedere [Pubblicazione da controllo del codice sorgente in Siti Web di Azure][publishingwithgit].
-
-Quando si usano asset Web esistenti, è importante mantenere la flessibilità necessaria per l'hosting di tipi diversi di siti Web. Nella scheda **Configura** è possibile selezionare sia il supporto .NET che PHP per il sito Web. 
-
-![DigitalMarketingFrameworkVersions][DigitalMarketingFrameworkVersions]
-
-Oltre a queste opzioni di configurazione, Siti Web offre automaticamente supporto per Python 2.7 e Node.js. La versione predefinita di Node.js è 0.10.5.
-
-Siti Web di Azure offre inoltre il vantaggio di poter distribuire in modo rapido i siti di gestione temporanea sul Web. Durante la pianificazione, la creazione dei prototipi e le fasi iniziali dello sviluppo di un sito, l'agenzia e il cliente possono esaminare versioni effettivamente funzionanti del sito della campagna prima che sia attivato. Quando il sito è pronto per la produzione, l'agenzia può gestire la distribuzione in produzione per conto del cliente oppure può fornire al cliente gli asset Web da distribuire e gestire.
-
-##<a name="socialmedia"></a>Integrazione con i social media
-La maggior parte delle campagne marketing digitali utilizza siti di social media, ad esempio Facebook o Twitter. Uno degli aspetti base dell'integrazione consiste nell'usare le identità di social media per l'autenticazione. Per un esempio di questo approccio con un'applicazione ASP.NET, vedere [Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure][deploysecurewebsite].
-
-Molte campagne marketing digitali, tuttavia, utilizzano l'integrazione con i social media non solo per l'autenticazione ma anche come elemento chiave della strategia adottata. I siti di social media includono in genere una sezione per sviluppatori, che illustra i diversi modi in cui è possibile integrare le applicazioni con i servizi offerti da tali siti. I servizi che offrono un'API REST possono essere usati da quasi tutti i framework Web. Sono tuttavia spesso presenti informazioni specifiche per il linguaggio usato. Ad esempio, Twitter offre [un elenco di librerie disponibili che supportano l'API Twitter][twitter], incluse le librerie per .NET, Node.js, e PHP. È consigliabile esaminare le indicazioni per lo sviluppo specifiche direttamente in ogni sito di social media a cui si desidera fare riferimento nella campagna.
-
-Se si è sviluppatori ASP.NET e si desidera fare riferimento a Facebook, in Visual Studio è disponibile un modello per un'applicazione MVC 4 specifica per Facebook.  
-
-![DigitalMarketingFacebook][DigitalMarketingFacebook]
-
-Per una procedura dettagliata relativa all'uso di questo modello con Siti Web, vedere il blog relativo alla [creazione di un'app Facebook usando i modelli Facebook ASP.NET MVC e al relativo hosting gratuito in Siti Web di Azure][fbtutorial]. Per un'esercitazione più dettagliata e un'applicazione di esempio, vedere le pagine relative all'[app Facebook MVC ASP.NET per i compleanni][fbbirthdayapp] e al [nuovo modello per l'applicazione Facebook e la libreria MVC ASP.NET][fbvstemplate].
-
-È importante che gli sviluppatori ASP.NET comprendano che l'integrazione con i social media non è limitata ai modelli offerti da Visual Studio. Un modello consente di semplificare il processo, ma, come indicato in precedenza, ogni sito di social media offre in genere informazioni relative a modalità alternative per la connessione da .NET e da molti altri linguaggi e framework.
-
-##<a name="scale"></a>Scalabilità in base alla domanda da parte degli utenti
-Il cloud computing risulta utile per i carichi di lavoro non prevedibili e le campagne marketing digitali rientrano in questa categoria. È infatti difficile prevedere la popolarità di un sito di marketing di durata relativamente breve, poiché molto dipende dalla capacità di catturare l'interesse degli utenti e dalle interazioni di social media correlate che contribuiscono all'incremento di traffico verso il sito. Azure offre diverse opzioni per la scalabilità di siti Web e servizi cloud.
-
-- Scalabilità manuale tramite il [portale di gestione di Azure][managementportal].
-- Scalabilità a livello di codice tramite l'[API di gestione del servizio][servicemanagementapi] o lo [scripting PowerShell][powershell].
-- Scalabilità automatica tramite la funzionalità Autoscale (Preview).
-
-Nel portale di gestione passare alla scheda **Scalabilità** per il sito Web. Sono disponibili diverse opzioni per la scalabilità. La prima opzione definisce la modalità del sito Web, che può essere impostata su **Gratuito**, **Condiviso** o **Standard**. 
-
-![DigitalMarketingScale][DigitalMarketingScale]
-
-Le funzionalità e le opzioni di scalabilità aumentano in corrispondenza di ogni livello. Ad esempio, i siti in modalità **Gratuito** non possono essere scalati orizzontalmente in istanze multiple, ma i siti in modalità **Condiviso** possono essere scalati orizzontalmente in 6 istanze. È anche possibile aumentare il numero di istanze selezionando la modalità **Standard**. Tale modalità consente di eseguire il sito in macchine virtuali dedicate e offre opzioni specifiche per macchine di dimensioni piccole, medie e grandi. Dopo avere definito la dimensione della macchina virtuale, è inoltre possibile avvalersi della scalabilità orizzontale in istanze multiple. La modalità **Standard** offre la scalabilità orizzontale fino a 10 istanze. Un elenco completo di differenze tra le modalità è disponibile nelle [indicazioni per la determinazione dei prezzi per i siti Web][pricing].
-
-Quando si seleziona la modalità **Standard**, è possibile anche abilitare la funzionalità Scalabilità automatica (anteprima), che consente di applicare la scalabilità in base alla CPU. La percentuale **CPU destinazione** indica un intervallo di uso del processore a cui Azure fa riferimento come obiettivo per le istanze del sito Web. Se l'uso medio della CPU è inferiore a tale obiettivo, Azure riduce il conteggio di istanze, poiché lo stesso carico su un numero inferiore di istanze consentirà di ottenere un incremento dell'uso nelle istanze rimanenti. Non può tuttavia ridurre il numero di istanze al di sotto del valore minimo previsto per **Conteggio istanze**. Analogamente, se l'uso medio della CPU è superiore al valore specificato per **CPU destinazione**, Azure aumenterà il numero di istanze. La distribuzione dello stesso carico su macchine aggiuntive consentirà di ridurre l'uso della CPU in ogni macchina. Il numero di istanze aggiunte è limitato dal valore massimo specificato per **Conteggio istanze**.
-
-![DigitalMarketingAutoScale][DigitalMarketingAutoScale]
-
-La scalabilità automatica consente un uso più efficiente delle risorse. È ad esempio possibile che una campagna marketing digitale sia più attiva durante la notte e nei giorni festivi. Questa soluzione permette inoltre di gestire in modo efficace uno scenario caratterizzato da un incremento imprevisto della popolarità di una campagna. La scalabilità automatica consente di gestire in modo efficiente un incremento del carico, quindi di ridurre il numero di istanze e il relativo costo quando il carico diminuisce. 
-
-Per altre informazioni sulla scalabilità dei siti Web, vedere [Come aggiungere risorse a un sito Web][scalewebsite]. Questo argomento è strettamente associato al monitoraggio. Per altre informazioni, vedere la sezione relativa al [monitoraggio della campagna] in questa guida(#monitor).
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> Nel caso delle applicazioni Web che scelgono di usare i servizi cloud e i ruoli Web, è disponibile un'opzione aggiuntiva per la scalabilità basata sulla lunghezza degli elementi in un coda. In un servizio cloud i ruoli che elaborano le code back-end costituiscono un modello di architettura molto diffuso. Per altre informazioni sulla scalabilità dei servizi cloud, vedere <a href="http://www.windowsazure.com/it-it/manage/services/cloud-services/how-to-scale-a-cloud-service/">Come scalare un servizio cloud</a>.
+> Questa guida presenta alcune delle aree e delle attività più comuni relative all'esecuzione di una campagna di marketing digitale in Siti Web di Azure. Tuttavia, sono disponibili altre soluzioni comuni che è possibile implementare in Siti Web di Azure. Per esaminare queste soluzioni, vedere le altre guide sulla <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e sulle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">applicazioni aziendali</a>.
 
-##<a name="integrate"></a>Integrazione con altri servizi
-Un sito per il marketing digitale incorpora spesso elementi multimediali avanzati, ad esempio lo streaming di video. L'hosting di tali siti in Azure offre un'integrazione avanzata con i servizi di Azure correlati. È possibile, ad esempio, usare Servizi multimediali di Azure per la codifica e lo streaming di video dal sito Web. Per altre informazioni su Servizi multimediali, vedere [Introduzione a concetti e scenari di Servizi multimediali di Azure][mediaservices].
+### Creare i siti da zero o usare le risorse esistenti
 
-È possibile usare altri servizi di Azure per creare un'applicazione più affidabile. Ad esempio, Siti Web è in grado di usare la cache distribuita offerta dal nuovo [Servizio cache di Azure (anteprima)][caching]. In alternativa, è possibile usare i servizi di archiviazione di Azure per l'archiviazione di dati e risorse dell'applicazione. Ad esempio, è possibile archiviare in modo permanente nei BLOB elementi grafici, video e altri file di grandi dimensioni. Sono inoltre disponibili servizi database, quali Database SQL di Azure e MySQL, per soddisfare le esigenze dei dati relazionali.
+È possibile creare rapidamente nuovi siti a partire da un noto sistema CMS presente nella raccolta oppure trasferire in Siti Web di Azure le risorse Web esistenti create con una vasta gamma di linguaggi e framework diversi.
 
-##<a name="monitor"></a>Monitoraggio della campagna
-Nella scheda **Monitoraggio** sono disponibili metriche che semplificano la valutazione dell'esito e delle prestazioni del sito di marketing digitale.
+La raccolta Azure offre modelli provenienti dai più diffusi sistemi di gestione dei contenuti (CMS) per siti Web, tra cui [Orchard], [Umbraco], [Drupal] e [WordPress]. È pertanto possibile creare un sito Web il proprio CMS preferito, nonché scegliere uno dei numerosi back-end di database per soddisfare le proprie esigenze, ad esempio [Database SQL di Azure] e [MySQL].
 
-![DigitalMarketingMonitor][DigitalMarketingMonitor]
+Siti Web di Azure supporta l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node. js o Python e possono essere spostate in Siti Web di Azure mediante gli strumenti [FTP] che si è già abituati a usare. Se si creano spesso campagne di marketing digitali, è possibile che alcune risorse Web esistenti siano disponibili in un sistema di gestione del controllo del codice sorgente. È possibile effettuare la distribuzione in Siti Web di Azure direttamente dalle opzioni di controllo del codice sorgente più note, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (in locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
-È ad esempio possibile esaminare i modelli e i livelli di uso mediante metriche quali **Tempo CPU**, **Richieste** e **Dati in uscita**. I valori corrispondenti a tali metriche crescono insieme all'aumento di popolarità della campagna marketing. Le informazioni sull'uso possono consentire di decidere quando applicare la scalabilità orizzontale o verticale. Per altre informazioni, vedere [Come monitorare i siti Web][monitoring].
+### Lavorare in modo agile
 
-Se si usano le modalità **Gratuito** e **Condiviso**, è consigliabile esaminare anche le quote di risorse. Nella scheda **Dashboard** del portale vengono mostrate le statistiche di uso correnti relative a diverse quote e viene indicato quando tali quote verranno reimpostate. Le statistiche di uso visualizzate dipendono dalla modalità selezionata. Nella schermata seguente vengono mostrate le statistiche visualizzate per la modalità **Gratuito**. Se si usa la modalità **Condiviso**, la quota per **Dati in uscita** non verrà visualizzata. Nella modalità **Standard**vengono visualizzate solo le quote per **Archiviazione file system** e **Dimensione**.
+È possibile lavorare in modo agile pubblicando continuamente i dati direttamente dal controllo del codice sorgente esistente ed eseguire test A/B in Siti Web di Azure. 
 
-![DigitalMarketingUsageOverview][DigitalMarketingUsageOverview]
+Durante la pianificazione, la creazione di un prototipo e le fasi iniziali dello sviluppo di un sito, è possibile esaminare con il cliente versioni effettivamente funzionanti del sito della campagna prima che sia attivato [eseguendo la distribuzione in uno slot di gestione temporanea] del sito Web di Azure. Integrando il controllo del codice sorgente con Siti Web di Azure, si ha la possibilità di [pubblicare continuamente] in uno slot di questo tipo e quindi passare alla fase di produzione senza alcun periodo di inattività quando il sito è pronto. 
 
-Se tali quote sono quasi esaurite, è consigliabile valutare il passaggio da **Gratuito** a **Condiviso** oppure da **Condiviso** a **Standard** La modalità **Standard** offre risorse dedicate su una o più macchine virtuali di piccole, medie o grandi dimensioni. 
+Inoltre, quando si pianificano modifiche relative a un sito Web attivo, è possibile [eseguire test A/B] facilmente sugli aggiornamenti proposti tramite la funzionalità di test nell'ambiente di produzione e analizzare il comportamento dell'utente reale per prendere decisioni consapevoli sulla struttura del sito.
 
-Oltre a usare il portale di gestione per questo tipo di informazioni, è possibile usare alcuni strumenti di terze parti che forniscono dati di monitoraggio avanzati per i siti Web. È ad esempio possibile installare un componente aggiuntivo New Relic da Azure Store. Per una procedura dettagliata relativa all'uso di New Relic per il monitoraggio, vedere [Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure][newrelic]. 
 
-È infine possibile abilitare il monitoraggio e gli avvisi relativi agli endpoint nei siti Web in modalità Standard. Il monitoraggio degli endpoint esegue regolarmente il tentativo di raggiungere il sito Web e segnala quindi il tempo di risposta rilevato. Gli avvisi forniscono notifiche tramite posta elettronica nel caso in cui il tempo di risposta superi una soglia specificata. Per altre informazioni, vedere la sezione relativa al monitoraggio dello scenario basato sulla [presenza Web globale][scenarioglobalweb] e l'argomento [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure][receivealerts].
+### Integrarsi con i social media
 
-##<a name="summary"></a>Riepilogo
-Siti Web di Azure costituisce una soluzione ideale per il contenuto Web riutilizzabile, personalizzato per singole campagne marketing. Offre supporto per molti dei linguaggi, framework e sistemi di controllo di gestione del codice sorgente più diffusi, semplificando la migrazione delle risorse e dei flussi di lavoro nel cloud. Il modello dell'applicazione Facebook ASP.NET semplifica la creazione di applicazioni Facebook, ma è possibile usare praticamente qualsiasi strumento di terze parti per l'integrazione con i social media che supporti le interfacce Web. Servizi multimediali di Azure e altri servizi correlati offerti da Azure offrono strumenti aggiuntivi per la creazione di un sito progettato in modo adeguato per una campagna. Le diverse opzioni per la scalabilità manuale e automatica risultano inoltre utili per la gestione della domanda da parte degli utenti, che può essere difficile da prevedere. Per altre informazioni, vedere gli articoli tecnici seguenti.
+La campagna di marketing digitale in Siti Web di Azure può essere integrata con i social media mediante l'autenticazione presso noti provider come Facebook e Twitter. Per un esempio di questo approccio con un'applicazione ASP.NET, vedere [Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]. 
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Area</th>
-   <th align="left" valign="top">Risorse</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>Pianificazione</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/choose-web-app-service">Confronto tra Siti Web, Servizi Cloud e Macchine virtuali di Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Creazione</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-create-websites/">Come creare e distribuire un sito Web</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Distribuire</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/it-it/documentation/articles/web-sites-deploy/">Come distribuire un sito Web di Azure</a><br/>- <a href="http://www.windowsazure.com/it-it/develop/net/common-tasks/publishing-with-git/">Pubblicazione da controllo del codice sorgente in Siti Web di Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Social media</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/">Distribuire un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">Creare un'app Facebook usando i modelli Facebook ASP.NET MVC</a><br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">Modello per un'applicazione Facebook e libreria per ASP.NET MVC</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Scala</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-scale-websites/">Come scalare siti Web</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Dati multimediali elaborati</strong></td>
-   <td valign="top">- <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn223282.aspx">Introduzione a concetti e scenari di Servizi multimediali di Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Monitoraggio</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/">Come monitorare i siti Web</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure</a></td>
-</tr>
-</table>
+Inoltre, ogni sito di social media offre in genere informazioni su altre modalità di integrazione da .NET e molti altri framework.
 
-  [websitesoverview]:/it-it/documentation/services/web-sites/
-  [csoverview]:/it-it/documentation/services/cloud-services/
-  [vmoverview]:/it-it/documentation/services/virtual-machines/
-  [chooseservice]:/it-it/manage/services/web-sites/choose-web-app-service
-  [scenarioglobalweb]:/it-it/manage/services/web-sites/global-web-presence-solution-overview/
+### Usare dati multimediali elaborati e raggiungere tutti i dispositivi
+
+È possibile arricchire la propria campagna di marketing digitale con altri servizi di Azure come i seguenti:
+
+-  Caricare e trasmettere in streaming video in tutto il mondo con [Servizi multimediali di Azure].
+-  Inviare e-mail agli utenti con il servizio [SendGrid disponibile in Azure Marketplace].
+-  Stabilire la presenza nei dispositivi Windows, iOS e Android con [Servizi mobili].
+-  Inviare una notifica push a milioni di dispositivi con [Hub di notifica].
+
+### Operare a livello internazionale
+
+È possibile operare in tutto il mondo gestendo siti regionali con Gestione traffico di Azure e fornire contenuti molto rapidamente con la rete CDN di Azure.
+
+Per servire i clienti internazionali nelle rispettive aree geografiche di appartenenza, usare [Gestione traffico di Azure] per instradare i visitatori del sito a un sito regionale in grado di fornire prestazioni ottimali. In alternativa, è possibile distribuire uniformemente il carico del sito in più copie del sito Web ospitate in più aree.
+
+È inoltre possibile offrire globalmente contenuti statici agli utenti con la massima velocità [integrando il sito Web con la rete CDN di Azure]. Tale rete memorizza nella cache il contenuto statico nel [nodo della rete CDN] più vicino all'utente, riducendo al minimo la latenza e le connessioni al sito Web.
+
+### Eseguire l'ottimizzazione
+
+Ottimizzare il sito scalandolo automaticamente mediante Scalabilità automatica, effettuando la memorizzazione nella cache con Cache Redis di Azure, eseguendo le attività in background con WebJobs e mantenendo una disponibilità elevata con Gestione traffico di Azure.
+
+L'implementazione della [scalabilità verticale e orizzontale] offerta da Siti Web di Azure è perfetta per i carichi di lavoro imprevedibili, come ad esempio nelle campagne di marketing digitali. È possibile scalare in orizzontale il sito Web manualmente tramite il [portale di gestione di Azure], a livello di codice tramite l'[API di gestione del servizio] o gli [script di PowerShell] oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel piano di hosting **Standard** tale funzionalità consente di scalare in orizzontale un sito Web automaticamente in base all'uso della CPU. È pertanto possibile avere la massima agilità e contemporaneamente minimizzare i costi scalando orizzontalmente il sito Web solo quando è necessario secondo l'attività degli utenti. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per scalare rapidamente i siti Web con Azure].
+
+Aumentare la velocità di risposta del sito Web con la [Cache Redis di Azure]. Usarla per memorizzare nella cache i dati dei database back-end e altri elementi quali lo [stato della sessione ASP.NET] e la [cache di output].
+
+Mantenere un'elevata disponibilità del sito Web mediante [Gestione traffico di Azure]. Tramite il metodo **Failover**, Gestione traffico instrada automaticamente il traffico a un sito secondario se si verifica un problema nel sito primario.
+
+### Eseguire il monitoraggio e l'analisi
+
+Per restare aggiornati sul livello di prestazioni del sito Web, è possibile usare Azure o strumenti di terze parti. È inoltre possibile ricevere avvisi sugli eventi critici relativi al sito Web, nonché ottenere facilmente informazioni sugli utenti con Application Insight o analizzare i log Web con HDInsight. 
+
+Mediante il dashboard di Siti Web di Azure, è anche possibile ottenere un [riepilogo rapido] delle metriche delle prestazioni correnti del sito Web e delle quote relative alle risorse. Per avere informazioni generali complete sull'applicazione in termini di disponibilità, prestazioni e uso, avvalersi di [Application Insights di Azure], che offre potenti e rapide funzioni per la risoluzione dei problemi, la diagnostica e il recupero dei dati sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per i siti Web.
+
+Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di risposta, è possibile ricevere notifiche via e-mail ogni volta che il sito smette di rispondere. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
+
+## Altre risorse
+
+- [Documentazione di Siti Web di Azure](/it-it/documentation/services/websites/)
+- [Mappa di formazione per Siti Web di Azure](/it-it/documentation/articles/websites-learning-map/)
+- [Blog Web di Azure](/blog/topics/web/)
+
+
+[Siti Web di Azure]:/it-it/services/websites/
+
+[Orchard]:/it-it/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
+[Umbraco]:/it-it/documentation/articles/web-sites-gallery-umbraco/
+[Drupal]:/it-it/documentation/articles/web-sites-php-migrate-drupal/
+[WordPress]:/it-it/documentation/articles/web-sites-php-web-site-gallery/
   
-  
-  [publishingwithgit]:/it-it/develop/net/common-tasks/publishing-with-git/
-  [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
-  [deploysecurewebsite]:/it-it/develop/net/tutorials/web-site-with-sql-database/
-  [twitter]:https://dev.twitter.com/docs/twitter-libraries#dotnet
-  [fbtutorial]:http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx
-  [fbbirthdayapp]:http://www.asp.net/mvc/tutorials/mvc-4/aspnet-mvc-facebook-birthday-app
-  [fbvstemplate]:http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx
-  [managementportal]:http://manage.windowsazure.com/
-  [servicemanagementapi]:http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
-  [powershell]:http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
-  [pricing]:https://www.windowsazure.com/it-it/pricing/details/web-sites/
-  [scalewebsite]:/it-it/manage/services/web-sites/how-to-scale-websites/
-  
-  [mediaservices]:http://msdn.microsoft.com/it-it/library/windowsazure/dn223282.aspx
-  [caching]:http://msdn.microsoft.com/it-it/library/windowsazure/dn386094.aspx
-  [monitoring]:/it-it/manage/services/web-sites/how-to-monitor-websites/
-  [newrelic]:/it-it/develop/net/how-to-guides/new-relic/
-  [receivealerts]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  
-  
-  
-   [DigitalMarketingDeploy1]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy1.png
-  [DigitalMarketingDeploy2]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy2.png
-  [DigitalMarketingFrameworkVersions]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_FrameworkVersions.png
-  [DigitalMarketingFacebook]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Facebook.png
-  [DigitalMarketingScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Scale.png
-  [DigitalMarketingAutoScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_AutoScale.png
-  [DigitalMarketingMonitor]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Monitor.png
-  [DigitalMarketingUsageOverview]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_UsageOverview.png
-  
-  
-  
-  
-  
+[MySQL]:/it-it/documentation/articles/web-sites-php-mysql-deploy-use-git/
+[Database SQL di Azure]:/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[FTP]:/it-it/documentation/articles/web-sites-deploy/#ftp
+[Visual Studio]:/it-it/documentation/articles/web-sites-dotnet-get-started/
+[Visual Studio Online]:/it-it/documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Git]:/it-it/documentation/articles/web-sites-publish-source-control/
 
-<!--HONumber=35.1-->
+[distribuzione in uno slot di gestione temporanea]:/it-it/documentation/articles/web-sites-staged-publishing/ 
+[pubblicazione continua]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
+[esecuzione dei test A/B]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
+
+[Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure]:/it-it/develop/net/tutorials/web-site-with-sql-database/
+
+[Servizi multimediali di Azure]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
+[Servizio SendGrid in Azure Marketplace]:/it-it/documentation/articles/sendgrid-dotnet-how-to-send-email/
+[Servizi mobili]:/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[Hub di notifica]:/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+
+[Gestione traffico di Azure]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
+[integrando il sito Web con la rete CDN di Azure]:/it-it/documentation/articles/cdn-websites-with-cdn/ 
+[Nodo della rete CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
+
+[scalabilità verticale e orizzontale]:/it-it/manage/services/web-sites/how-to-scale-websites/
+[Portale di gestione di Azure]:http://manage.windowsazure.com/
+[API di gestione del servizio]:http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
+[script di PowerShell]:http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
+[Troy Hunt]:https://twitter.com/troyhunt
+[10 elementi appresi per scalare rapidamente i siti Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Cache Redis di Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[stato della sessione ASP.NET]:https://msdn.microsoft.com/it-it/library/azure/dn690522.aspx
+[cache di output]:https://msdn.microsoft.com/it-it/library/azure/dn798898.aspx
+
+[riepilogo rapido]:/it-it/manage/services/web-sites/how-to-monitor-websites/
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:/it-it/develop/net/how-to-guides/new-relic/
+[Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+
+  
+  [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
+
+
+<!--HONumber=42-->

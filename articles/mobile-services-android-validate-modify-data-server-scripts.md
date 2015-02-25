@@ -1,21 +1,21 @@
-﻿<properties urlDisplayName="Validate Data - Android" pageTitle="Usare gli script del server per convalidare e modificare i dati (Android) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare gli script del server per convalidare e modificare i dati (Android) | Mobile Dev Center" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal"/>
 
 # Convalidare e modificare i dati in Servizi mobili mediante script del server
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Questo argomento illustra come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà all'aggiornamento dell'app per Android per implementare questi nuovi comportamenti.
+Questo argomento descrive come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà all'aggiornamento dell'app per Android per implementare questi nuovi comportamenti.
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Aggiungere la convalida della lunghezza della stringa]
 2. [Aggiornare il client per il supporto della convalida]
 3. [Aggiungere un timestamp all'inserimento]
 4. [Aggiornare il client per la visualizzazione del timestamp]
 
-Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
 
 ## <a name="string-length-validation"></a>Aggiungere la convalida
 
@@ -29,7 +29,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -45,9 +45,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
     Questo script verifica la lunghezza della proprietà **text** e invia una risposta di errore quando la lunghezza supera i 10 caratteri. In caso contrario, viene chiamato il metodo **execute** per completare l'operazione di inserimento.
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>È possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Cancella</strong> e quindi su <strong>Salva</strong>.</p></div>
+   > [AZURE.TIP] È possibile rimuovere uno script registrato nella scheda **Script** facendo clic su **Cancella** e quindi su **Salva**.
 
 ## <a name="update-client-validation"></a>Aggiornare il client
 
@@ -61,19 +59,17 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 
 	Verrà visualizzato il messaggio di errore restituito dal servizio mobile. 
 
-3. Nel menu **Run** scegliere **Run** quindi digitare un testo di lunghezza superiore a 10 caratteri nella casella di testo e fare clic sul pulsante **Add**.
+3. Scegliere **Run** dal menu **Run** per avviare l'app, quindi digitare un testo di lunghezza superiore a 10 caratteri nella casella di testo e fare clic sul pulsante **Add**.
 
   Si noti che l'errore viene gestito e che il messaggio di errore viene visualizzato all'utente.
 
 ## <a name="add-timestamp"></a>Aggiungere un timestamp
 
-Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script del server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
+Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
 
-<div class="dev-callout"><b>Nota</b>
-<p>La proprietà timestamp <b>createdAt</b> illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema <b>__createdAt</b> per ogni tabella.</p>
-</div>
+> [AZURE.NOTE] La proprietà timestamp **createdAt** illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema **__createdAt** per ogni tabella.
 
-1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Inserisci** corrente con la funzione seguente, quindi fare clic su **Salva**.
+1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente, quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -86,11 +82,9 @@ Nelle attività precedenti è stata eseguita la convalida di un'operazione di in
 
     Questa funzione estende lo script insert precedente aggiungendo una nuova proprietà timestamp **createdAt** all'oggetto prima che questo venga inserito dalla chiamata al metodo **request**.**execute**. 
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>createdAt</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.</p>
-    </div>
+    > [AZURE.IMPORTANT] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **createdAt** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.
 
-2. Nel menu **Esegui** fare clic su **Esegui** per avviare l'app e quindi digitare un testo di lunghezza inferiore a 10 caratteri nella casella di testo e fare clic su **Aggiungi**.
+2. Scegliere **Run** dal menu **Run** per avviare l'app, quindi digitare un testo di lunghezza inferiore a 10 caratteri nella casella di testo e fare clic su **Add**.
 
    	Si noti che il nuovo timestamp non viene visualizzato nell'interfaccia utente dell'app.
 
@@ -104,7 +98,7 @@ Nelle attività precedenti è stata eseguita la convalida di un'operazione di in
 
 Il client del servizio mobile ignorerà i dati delle risposte che non è in grado di serializzare nelle proprietà del tipo definito. Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visualizzi questi nuovi dati.
 
-1. In Package Explorer, aprire il file ToDoItem.java, quindi aggiungere l'istruzione **import** seguente:
+1. In Package Explorer aprire il file ToDoItem.java, quindi aggiungere l'istruzione **import** seguente:
 
 		import java.util.Date;
 
@@ -116,9 +110,7 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 		@com.google.gson.annotations.SerializedName("createdAt")
 		private Date mCreatedAt;
   
-    <div class="dev-callout"><b>Nota</b>
-	<p>L'annotazione <code>SerializedName</code> indica al client di mappare la nuova proprietà <code>mCreatedAt</code> nell'app alla colonna <code>createdAt</code> definita nella tabella TodoItem che presenta un nome diverso. Grazie a questa annotazione, i nomi di proprietà sugli oggetti dell'app possono essere diversi dai nomi di colonna in database SQL. Senza questa annotazione, viene generato un errore dovuto alle differenze di convenzione per l'uso di maiuscole e minuscole.</p>
-    </div>
+    > [AZURE.NOTE] L'annotazione `SerializedName` comunica al client di eseguire il mapping della nuova proprietà `mCreatedAt` dell'app alla colonna `createdAt` definita nella tabella TodoItem, che presenta un nome diverso. Grazie a questa annotazione, i nomi di proprietà sugli oggetti dell'app possono essere diversi dai nomi di colonna in database SQL. Senza questa annotazione, viene generato un errore dovuto alle differenze di convenzione per l'uso di maiuscole e minuscole.
 
 2. Aggiungere i metodi seguenti alla classe ToDoItem per ottenere e impostare la nuova proprietà mCreatedAt:
 
@@ -153,13 +145,13 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 
    	Se esiste un valore di timestamp, verrà generata una stringa di data formattata. 
 
-7. Individuare il codice `checkBox.setText(currentItem.getText());` e sostituire questa riga di codice con la seguente:
+7. Individuare il codice `checkBox.setText(currentItem.getText());` e sostituire questa riga con il codice seguente:
 
 		checkBox.setText(currentItem.getText() + " " + createdAtText);
 
 	La data del timestamp verrà aggiunta all'elemento per la visualizzazione.
 	
-6. Nel menu **Run** scegliere **Run** per avviare l'app. 
+6. Scegliere **Run** dal menu **Run** per avviare l'app. 
 
    	Si noti che il timestamp è visualizzato solo per gli elementi inseriti dopo l'aggiornamento dello script insert.
 
@@ -188,7 +180,7 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 
    	Questo metodo aggiorna la query affinché filtri anche gli elementi che non dispongono di un valore timestamp.
 	
-8. Nel menu **Run** scegliere **Run** per avviare l'app.
+8. Scegliere **Run** dal menu **Run** per avviare l'app.
 
    	Si noti che tutti gli elementi creati senza un valore timestamp non vengono più visualizzati nell'interfaccia utente.
 
@@ -206,7 +198,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 * [Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -224,7 +216,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-android
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-android
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-android
@@ -234,3 +226,6 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

@@ -1,32 +1,32 @@
-﻿<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Attività a elevato uso di calcolo .NET in una macchina virtuale - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code di Bus di servizio per monitorare lo stato in remoto." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties pageTitle="Attività a elevato utilizzo di calcolo .NET in una macchina virtuale - Azure" description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code di Service Bus per monitorare lo stato in remoto." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
 
-# Come eseguire un'attività a elevato uso di calcolo in .NET su una macchina virtuale Azure
+# Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure
 
-Con Azure, è possibile usare una macchina virtuale per gestire attività a elevato uso di calcolo; ad esempio, una macchina virtuale potrebbe gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale sulla quale è in esecuzione un'applicazione .NET a elevato uso di calcolo che può essere monitorata da un'altra applicazione .NET.
+Con Azure, è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo; ad esempio, una macchina virtuale potrebbe gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale sulla quale è in esecuzione un'applicazione .NET a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione .NET.
 
 Per questa esercitazione si presuppone che l'utente sia in grado di creare applicazioni console .NET. Non è richiesta alcuna conoscenza di Azure. 
 
-Si apprenderà come:
+Si apprenderà:
 
-* Creare una macchina virtuale.
-* Accedere in remoto alla macchina virtuale.
-* Creare uno spazio dei nomi del bus di servizio.
-* Creare un'applicazione .NET che esegua un'attività a elevato uso di calcolo.
-* Creare un'applicazione .NET che monitori l'avanzamento dell'attività a elevato uso di calcolo.
-* Eseguire le applicazioni .NET.
-* Interrompere le applicazioni .NET.
+* Come creare una macchina virtuale.
+* Come accedere in remoto alla macchina virtuale.
+* Come creare uno spazio dei nomi del bus di servizio.
+* Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo.
+* Come creare un'applicazione .NET che monitori l'avanzamento dell'attività a elevato utilizzo di calcolo.
+* Come eseguire le applicazioni .NET.
+* Come interrompere le applicazioni .NET.
 
-In questa esercitazione verrà usato il Problema del commesso viaggiatore per l'attività a elevato uso di calcolo. Di seguito è riportato un esempio dell'applicazione .NET che esegue l'attività a elevato uso di calcolo:
+In questa esercitazione verrà usato il Problema del commesso viaggiatore per l'attività a elevato utilizzo di calcolo. Di seguito è riportato un esempio dell'applicazione .NET che esegue l'attività a elevato utilizzo di calcolo:
 
 ![Traveling Salesman Problem solver][solver_output]
 
-Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitoraggio dell'attività a elevato uso di calcolo:
+Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitoraggio dell'attività a elevato utilizzo di calcolo:
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>Per creare una macchina virtuale</h2>
 
@@ -64,10 +64,9 @@ Per creare uno spazio dei nomi servizio:
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di usare la stessa area in cui è ospitata la macchina virtuale.
-    <div class="dev-callout">
-    <strong>Importante</strong>
-    <p>Selezionare la **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.</p>
-    </div>
+
+    > [AZURE.IMPORTANT] Selezionare **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
+
 6. Se si dispone di più sottoscrizioni di Azure per l'account con cui è stato eseguito l'accesso, selezionare la sottoscrizione da usare per lo spazio dei nomi. Se si dispone di una sola sottoscrizione per l'account con cui è stato eseguito l'accesso, l'elenco a discesa contenente le sottoscrizioni non verrà visualizzato.
 7. Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -79,7 +78,8 @@ Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e s
 
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
 
-1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili:   
+1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus** per
+    visualizzare l'elenco degli spazi dei nomi disponibili:   
     ![Available namespaces screenshot][available_namespaces]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:   
     ![Namespace list screenshot][namespace_list]
@@ -87,7 +87,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
     ![Access key button][access_key_button]
 4.  Nella finestra di dialogo individuare le voci **Autorità di certificazione predefinita** e **Chiave predefinita**. Prendere nota di questi valori, in quanto dovranno essere usati per eseguire operazioni con lo spazio dei nomi. 
 
-<h2>Come creare un'applicazione .NET che esegua un'attività a elevato uso di calcolo</h2>
+<h2>Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo</h2>
 
 1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://www.windowsazure.com/it-it/develop/net/).
 2. Creare un'applicazione console .NET con il progetto denominato **TSPSolver**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4** o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto effettuando le operazioni riportate di seguito. Nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
@@ -320,7 +320,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 
 
-<h2>Come creare un'applicazione .NET che monitori l'avanzamento dell'attività a elevato uso di calcolo</h2>
+<h2>Come creare un'applicazione .NET che monitori l'avanzamento dell'attività a elevato utilizzo di calcolo</h2>
 
 1. Sul computer di sviluppo, creare un'applicazione console .NET usando il nome di progetto **TSPClient**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4** o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto effettuando le operazioni riportate di seguito. Nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
 2. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, quindi fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK (ad esempio al percorso **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
@@ -441,9 +441,9 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	}
 
 <h2>Come eseguire le applicazioni .NET</h2>
-Eseguire l'applicazione a elevato uso di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato uso di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
+Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato utilizzo di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
 
-<h3>Come eseguire l'applicazione a elevato uso di calcolo</h3>
+<h3>Come eseguire l'applicazione a elevato utilizzo di calcolo</h3>
 
 1. Accedere alla macchina virtuale.
 2. Creare una cartella denominata **c:\TSP**. Si tratta della cartella in cui verrà eseguita l'applicazione.
@@ -514,12 +514,12 @@ Eseguire l'applicazione a elevato uso di calcolo innanzitutto per creare la coda
 
 Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutte le route.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
  
 <h3>Come eseguire l'applicazione client di monitoraggio</h3>
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
 3. Copiare **TSPClient.exe** e Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPClient, nella cartella c:\TSP.
 4. Al prompt dei comandi passare alla directory c:\TSP.
 5. Eseguire il comando seguente:
@@ -550,4 +550,7 @@ Per creare o eliminare la coda, è possibile usare il [portale di gestione di Az
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

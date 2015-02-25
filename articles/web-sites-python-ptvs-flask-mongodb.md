@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio" description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Flask che archivia i dati in un'istanza di database MongoDB e che può essere distribuita in un sito Web." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Flask che archivia i dati in un'istanza del database MySQL e che può essere distribuita in un sito Web." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -13,7 +27,7 @@ L'applicazione per sondaggi definisce un'astrazione per il proprio repository ch
 
 Si apprenderà come usare uno dei servizi MongoDB ospitati in Azure, come configurare l'applicazione per l'uso di MongoDB e come pubblicare l'applicazione in un sito Web di Azure.
 
-Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato sui siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi Cloud di Azure][].
+Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato su Siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi cloud di Azure][].
 
 + [Prerequisiti](#prerequisites)
 + [Creare il progetto](#create-the-project)
@@ -29,11 +43,11 @@ Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo 
  - Visual Studio 2012 o 2013
  - [Python Tools 2.1 per Visual Studio][]
  - [VSIX di esempio di Python Tools 2.1 per Visual Studio][]
- - [Strumenti di Azure SDK per Visual Studio 2013][] o [Strumenti di Azure SDK per Visual Studio 2012][]
+ - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2012][]
  - [Python 2.7 a 32 bit][] o [Python 3.4 a 32 bit][]
  - [RoboMongo][] (facoltativo)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creare il progetto
 
@@ -87,9 +101,9 @@ Per creare una versione di valutazione gratuita con MongoLab, seguire questa pro
 
 ##<a name="configure-the-project"></a>Configurare il progetto
 
-In questa sezione verrà configurata l'applicazione per usare il database MongoDB appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure  e verrà eseguita l'applicazione in locale.
+In questa sezione verrà configurata l'applicazione per usare il database MongoDB appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale Azure  e verrà eseguita l'applicazione in locale.
 
-1.  Nel [Portale di gestione di Azure][] fare clic su **COMPONENTI AGGIUNTIVI**, quindi fare clic sul servizio MongoLab creato in precedenza.
+1.  Nel [portale di gestione di Azure][] fare clic su **COMPONENTI AGGIUNTIVI**, quindi fare clic sul servizio MongoLab creato in precedenza.
 
 1.  Fare clic su **INFORMAZIONI DI CONNESSIONE**.  È possibile usare il pulsante Copia per inserire il valore di **MONGOLAB\_URI** negli Appunti.
 
@@ -123,15 +137,15 @@ In questa sezione verrà configurata l'applicazione per usare il database MongoD
 
 1.  Creare una nuova connessione.  È necessario il valore **MONGOLAB\_URI** recuperato nella sezione precedente.
 
-    Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
+    Si noti il formato dell'URI:  `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     Il nome corrisponde al nome immesso al momento della creazione del servizio con Azure.  Viene usato sia per il nome del database che per il nome utente.
 
-1.  Nella pagina relativa alla connessione impostare **Nome** su qualsiasi nome desiderato per la connessione.  Impostare inoltre i campi **Address** e **Port** sui valori di *address* e *port* in **MONGOLAB\_URI**.
+1.  Nella pagina relativa alla connessione impostare **Nome** su qualsiasi nome desiderato per la connessione.  Impostare inoltre i campi **Indirizzo** e **Porta** sui valori  *address* e  *port* in **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  Nella pagina relativa all'autenticazione impostare **Database** e **User name** sul valore di *name* in **MONGOLAB\_URI**.  Impostare inoltre **Password** sul valore di *password* in **MONGOLAB\_URI**.
+1.  Nella pagina relativa all'autenticazione impostare **Database** e **Nome utente** sul valore  *name* in **MONGOLAB\_URI**.  Impostare inoltre **Password** sul valore  *password* in **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -187,7 +201,7 @@ In questa sezione verranno configurate le variabili di ambiente per il sito.
 
 ##<a name="next-steps"></a>Passaggi successivi
 
-Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual Studio, Flask e MongoDB.
+Usare i seguenti collegamenti per altre informazioni su Python Tools per Visual Studio, Flask e MongoDB.
 
 - [Documentazione di Python Tools per Visual Studio][]
   - [Progetti Web][]
@@ -215,10 +229,11 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentazione di Flask]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/
-[Documentazione di PyMongo]: http://api.mongodb.org/python/current/
+[PyMongo Documentation]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
 [Debug remoto in Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Progetti Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

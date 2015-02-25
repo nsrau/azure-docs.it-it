@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Introduzione alle notifiche push (push legacy) | Mobile Dev Center" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript di Windows Store (push legacy)." metaCanonical="http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione alle notifiche push (push legacy) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript di Windows Store (push legacy)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili (push legacy)
 
@@ -15,11 +15,11 @@
 	<a href="/it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end .NET</a> |  <a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>		
 
-Questo argomento descrive come usare Servizi mobili di Azure in Visual Studio 2013 per inviare notifiche push all'app di Windows Store. In questa esercitazione si utilizzerà Servizi notifica Push Windows per aggiungere notifiche push al progetto di guida introduttiva, direttamente da Visual Studio. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento descrive come usare Servizi mobili di Azure in Visual Studio 2013 per inviare notifiche push all'app di Windows Store. In questa esercitazione si userà Servizi notifica Push Windows per aggiungere notifiche push al progetto di guida introduttiva, direttamente da Visual Studio. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
->[WACOM.NOTE]In questo argomento sono supportati servizi mobili <em>esistenti</em> che <em>non sono stati ancora aggiornati</em> per l'uso dell'integrazione di Hub di notifica. Quando si crea un <em>nuovo</em> servizio mobile, questa funzionalità integrata viene abilitata automaticamente. Per i nuovi servizi mobili, vedere [Introduzione alle notifiche push].(/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]L'argomento supporta <em>servizi mobili</em> esistenti <em>che non sono stati ancora aggiornati</em> per l'uso dell'integrazione di Hub di notifica. Quando si crea un <em>nuovo</em> servizio mobile, questa funzionalità integrata è abilitata automaticamente. Per i nuovi servizi mobili, vedere [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 >
 >Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. <em>È consigliabile aggiornare i servizi mobili esistenti per l'uso di Hub di notifica, se possibile</em>. Dopo aver eseguito l'aggiornamento, vedere questa versione di [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
@@ -33,7 +33,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 <h2><a name="register"></a>Aggiungere e configurare le notifiche push nell'app</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Aprire il file di codice push.register.js generato e quindi controllare il codice che ottiene l'ID dell'installazione e il canale del dispositivo e inserisce questi dati nella nuova tabella <strong>channels</strong>.</p> 
@@ -43,9 +43,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 <p>Questo file, archiviato nel servizio mobile, contiene codice JavaScript che viene eseguito quando un client invia una richiesta per la registrazione di un dispositivo inserendo dati nella tabella channels.</p> 
 
-<div class="dev-callout"><b>Nota</b>
-	<p>La versione iniziale di questo file contiene codice che verifica la presenza di una registrazione esistente per il dispositivo. Contiene inoltre codice che invia una notifica push quando viene aggiunta una nuova registrazione alla tabella channels. Il codice che invia una notifica push può essere incluso in qualsiasi file di script registrato. Il percorso di questo script dipende da come viene attivata la notifica. Gli script possono essere registrati con un'operazione insert, update, delete o read su una tabella, come processo pianificato o come API personalizzata. Per altre informazioni, vedere <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Uso degli script del server in Servizi mobili</a>.</p>
-</div>
+> [AZURE.NOTE] La versione iniziale di questo file contiene codice che verifica la presenza di una registrazione esistente per il dispositivo. Contiene inoltre codice che invia una notifica push quando viene aggiunta una nuova registrazione alla tabella channels. Il codice che invia una notifica push può essere incluso in qualsiasi file di script registrato. Il percorso di questo script dipende da come viene attivata la notifica. Gli script possono essere registrati con un'operazione insert, update, delete o read su una tabella, come processo pianificato o come API personalizzata. Per altre informazioni, vedere [Uso degli script del server in Servizi mobili](http://go.microsoft.com/fwlink/p/?LinkID=287178).
 </li> 
 <li><p>Premere F5 per eseguire l'app e verificare che venga immediatamente ricevuta una notifica dal servizio mobile.</p>
 <p>Questa notifica è stata generata inserendo una riga nella nuova tabella channels, corrispondente alla registrazione del dispositivo.</p>
@@ -54,9 +52,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Il codice generato semplifica la dimostrazione dell'invio di una notifica durante l'esecuzione dell'app, ma in genere non si tratta di uno scenario significativo. Si rimuoverà quindi il codice delle notifiche dalla tabella channels e lo si sostituirà, con qualche modifica, nella tabella TodoItem. 
 
-<h2><a name="update-scripts"></a>Aggiornamento del codice delle notifiche push generato</h2>
+<h2><a name="update-scripts"></a>Aggiornare il codice delle notifiche push generato</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 <h2><a name="test"></a>Testare le notifiche push nell'app</h2>
 
@@ -141,4 +139,5 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users/
 [Inviare notifiche agli utenti tra piattaforme diverse]: /it-it/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

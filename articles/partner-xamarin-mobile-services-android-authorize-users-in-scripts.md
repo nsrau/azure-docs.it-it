@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.Android)" pageTitle="Autorizzare gli utenti negli script (Xamarin.Android) - Servizi mobili di Azure" metaKeywords="autorizzazione dell'utente in Azure, autorizzazione di script Xamarin.Android, autorizzare servizi mobili" description="Informazioni su come autorizzare gli utenti mediante script nell'app Servizi mobili di Azure per Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Autorizzazione degli utenti negli script (Xamarin.Android) - Servizi mobili di Azure" 
+	description="Informazioni su come autorizzare gli utenti mediante script nell'app Servizi mobili di Azure per Xamarin.Android." 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services" 
+	documentationCenter=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
-# Usare gli script per autorizzare gli utenti in Servizi mobili
+# Uso degli script per autorizzare gli utenti in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-Questo argomento illustra come usare gli script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app di Xamarin.Android.  In questa esercitazione verranno registrati gli script con Servizi Mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
+Questo argomento illustra come usare gli script del server per autorizzare gli utenti autenticati ad accedere ai dati in Servizi mobili di Azure da un'app per Xamarin.Android.  In questa esercitazione verranno registrati gli script con Servizi mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
 
@@ -17,11 +31,11 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	![][0]
 
-2. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
+2. Fare clic sulla scheda **Dati**, quindi sulla tabella **TodoItem**.
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -34,9 +48,7 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
     Questo script aggiunge un valore userId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>userId</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **userId** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.
 
 
 5. Ripetere i passaggi 3 e 4 per sostituire l'operazione **Read** esistente con la funzione seguente:
@@ -54,13 +66,13 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
 2. Fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
-   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
 3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
    	Testo e userId verranno inseriti nella tabella TodoItem nel servizio mobile. Poiché il nuovo elemento contiene il valore userId corretto, viene restituito dal servizio mobile e i dati vengono visualizzati nella seconda colonna.
 
-5. Tornare alla tabella **todoitem** nel [portale di gestione][Azure Management Portal], quindi fare clic su **Browse** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
+5. Tornare alla tabella **todoitem** nel [portale di gestione][portale di gestione di Azure], quindi fare clic su **Sfoglia** e verificare che a ogni elemento appena aggiunto sia associato un valore userId.
 
 6. (Facoltativo) Se si dispone di altri account di accesso, per verificare che gli utenti possano visualizzare solo i propri dati, chiudere l'app ed eseguirla di nuovo. Quando viene visualizzata la finestra di dialogo per l'immissione delle credenziali di accesso, immettere un account di accesso diverso e verificare che i dati immessi nell'account precedente non siano visualizzati.
 
@@ -69,12 +81,12 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
 * [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query di dati tramite Servizi mobili.
 
 * [Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -88,7 +100,7 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Dashboard App personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-android
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
@@ -96,3 +108,6 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 [Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

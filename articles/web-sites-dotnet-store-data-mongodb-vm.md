@@ -1,17 +1,31 @@
-<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sito Web .NET con MongoDB in una macchina virtuale - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un'esercitazione che illustra come usare Git per distribuire un'app ASP.NET in un sito Web di Azure connessa a MongoDB in una macchina virtuale." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Sito Web .NET con MongoDB in una macchina virtuale - Azure" 
+	description="Un'esercitazione che illustra come usare Git per distribuire un'app ASP.NET in un sito Web di Azure connessa a MongoDB in una macchina virtuale." 
+	services="web-sites, virtual-machines" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 	
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 
 # Creare un sito Web di Azure che si connette a MongoDB in esecuzione su una macchina virtuale in Azure
 
-Con Git è possibile distribuire un'applicazione ASP.NET in un sito Web di Azure. In questa esercitazione verrà creata una semplice applicazione di elenco di attività ASP.NET MVC front-end che si connette a un database MongoDB in esecuzione in una macchina virtuale in Azure.  [MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Dopo aver eseguito e verificato l'applicazione ASP.NET sul computer di sviluppo, l'applicazione verrà caricata in un sito Web di Azure usando Git.
+Con Git è possibile distribuire un'applicazione ASP.NET in un sito Web di Azure. In questa esercitazione verrà creata una semplice applicazione di elenco di attività ASP.NET MVC front-end che si connette a un database MongoDB in esecuzione in una macchina virtuale in Azure.  [MongoDB][MongoDB] è un noto database NoSQL open source a prestazioni elevate. Dopo aver eseguito e verificato l'applicazione ASP.NET sul computer di sviluppo, l'applicazione verrà caricata in un sito Web di Azure usando Git.
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 
 
-##Panoramica##
+##Informazioni generali##
 
 In questa esercitazione si apprenderà come:
 
@@ -25,8 +39,8 @@ In questa esercitazione si apprenderà come:
 
 Per questa esercitazione è utile, ma non obbligatorio, disporre di conoscenze sui seguenti argomenti:
 
-* Driver C# per MongoDB. Per altre informazioni sull'uso di MongoDB per lo sviluppo di applicazioni C#, vedere il [centro linguistico CSharp di MongoDB][MongoC#LangCenter]. 
-* Framework applicazione Web ASP.NET. Informazioni complete sull'argomento sono disponibili nel [sito Web ASP.net][ASP.NET].
+* Driver C# per MongoDB. Per altre informazioni sull'uso di MongoDB per lo sviluppo di applicazioni C#, vedere il [centro linguaggio CSharp][MongoC#LangCenter] di MongoDB. 
+* Framework applicazione Web ASP.NET. Informazioni complete sull'argomento sono disponibili nel [sito Web ASP.NET][ASP.NET].
 * Framework applicazione Web ASP.NET MVC. Informazioni complete sull'argomento sono disponibili nel [sito Web MVC ASP.NET][MVCWebSite].
 * Azure. Per informazioni, visitare il sito Web di [Azure][WindowsAzure].
 
@@ -40,14 +54,14 @@ In questa sezione si apprenderà come creare una macchina virtuale in Azure e in
 
 In questa esercitazione si presuppone che l'utente abbia creato una macchina virtuale in Azure. Dopo aver creato la macchina virtuale è necessario installarvi MongoDB:
 
-* Per creare una macchina virtuale di Windows e installare MongoDB, vedere [Installazione di MongoDB in una macchina virtuale che esegue Windows Server in Azure][InstallMongoOnWindowsVM].
-* In alternativa, per creare una macchina virtuale Linux e installare MongoDB, visualizzare [Installazione di MongoDB in una macchina virtuale che esegue CentOS Linux in Azure][InstallMongoOnCentOSLinuxVM].
+* Per creare una macchina virtuale di Windows e installare MongoDB, vedere la pagina relativa all'[installazione di MongoDB in una macchina virtuale che esegue Windows Server in Azure][InstallMongoOnWindowsVM].
+* In alternativa, per creare una macchina virtuale Linux e installare MongoDB, vedere la pagina relativa all'[installazione di MongoDB in una macchina virtuale che esegue CentOS Linux in Azure][InstallMongoOnCentOSLinuxVM].
 
 Dopo aver creato la macchina virtuale in Azure e installato MongoDB, prendere nota del nome DNS della macchina virtuale (ad esempio; "testlinuxvm.cloudapp.net") e della porta esterna per MongoDB specificata nell'endpoint.  Sarà necessario usare queste informazioni più avanti nell'esercitazione.
 
 ### Installazione di Visual Studio##
 
-Iniziare installando ed eseguendo [Visual Studio Express 2013 per il Web] [VSEWeb] o [Visual Studio 2013] [VSUlt].
+Iniziare installando ed eseguendo [Visual Studio Express 2013 per Web] [VSEWeb] o [Visual Studio 2013] [VSUlt].
 
 Visual Studio è un IDE, cioè un ambiente di sviluppo integrato. Così come Microsoft Word viene usato per scrivere documenti, IDE viene usato per creare applicazioni. In questa esercitazione si utilizza Microsoft Visual Studio 2013, ma è possibile usare Microsoft Visual Studio Express 2013, che è una versione gratuita di Microsoft Visual Studio.
 
@@ -98,7 +112,7 @@ Il driver MongoDB C# è ora installato.  I riferimenti alle librerie **MongoDB.D
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
 ###Aggiunta di un modello##
-In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla cartella *Modelli*, quindi scegliere **Aggiungi**, **Classe** per aggiungere una nuova classe e denominarla *TaskModel.cs*.  In *TaskModel.cs*, sostituire il codice esistente con il codice seguente:
+In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella  *Models*, scegliere **Aggiungi**, quindi **Classe** per aggiungere una nuova classe e denominarla  *TaskModel.cs*.  In  *TaskModel.cs* sostituire il codice esistente con il seguente codice:
 
 	using System;
 	using System.Collections.Generic;
@@ -131,7 +145,7 @@ In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla carte
 	}
 
 ###Aggiunta di un livello di accesso ai dati###
-In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto *MyTaskListApp*, quindi scegliere **Aggiungi**, **Nuova cartella** e scegliere la cartella denominata *DAL*.  Fare clic con il pulsante destro del mouse sulla cartella *DAL* e scegliere **Aggiungi**, **Classe** per aggiungere una nuova classe. Assegnare al file della classe il nome *Dal.cs*.  In *Dal.cs* sostituire il codice esistente con il codice seguente:
+In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto  *MyTaskListApp*, scegliere **Aggiungi**, quindi **Nuova cartella** per aggiungere una nuova cartella e denominarla  *DAL*.  Fare clic con il pulsante destro del mouse sulla cartella  *DAL*, scegliere **Aggiungi**, quindi **Classe** per aggiungere una nuova classe. Assegnare al file della classe il nome  *Dal.cs*.  In  *Dal.cs* sostituire il codice esistente con il seguente codice:
 
 	using System;
 	using System.Collections.Generic;
@@ -237,7 +251,7 @@ In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto
 	}
 
 ###Aggiunta di un controller###
-In **Esplora soluzioni** aprire il file *Controllers\HomeController.cs* e sostituirne il contenuto con quello riportato di seguito:
+In **Esplora soluzioni** aprire il file  *Controllers\HomeController.cs* e sostituire il codice esistente con quello seguente:
 
 	using System;
 	using System.Collections.Generic;
@@ -318,11 +332,11 @@ In **Esplora soluzioni** aprire il file *Controllers\HomeController.cs* e sostit
 	}
 
 ###Impostazione dello stile del sito###
-Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file Views\Shared\_Layout.cshtml e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application":
+Per modificare il titolo nella parte superiore della pagina, in **Esplora soluzioni** aprire il file  *Views\Shared\\_Layout.cshtml* e sostituire "Application name" nell'intestazione della barra di navigazione con "My Task List Application" come illustrato di seguito:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Per impostare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml* e sostituire il codice esistente con il seguente codice:
+Per configurare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml* e sostituire il codice esistente con il seguente codice:
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -359,7 +373,7 @@ Per impostare il menu Elenco attività, aprire il file *\Views\Home\Index.cshtml
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Per aggiungere la possibilità di creare una nuova attività, fare clic con il pulsante destro del mouse sulla cartella *Views\Home\\*, quindi scegliere **Aggiungi**, **Visualizzazione** per aggiungere una nuova visualizzazione. Assegnare alla visualizzazione il nome *Create*. Sostituire il codice con il codice seguente:
+Per aggiungere la possibilità di creare una nuova attività, fare clic con il pulsante destro del mouse sulla cartella  *Views\Home\\* e scegliere **Aggiungi**, quindi **Visualizzazione** per aggiungere una visualizzazione.  Assegnare alla visualizzazione il nome  *Create*. Sostituire il codice con il codice seguente:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -407,11 +421,11 @@ L'aspetto di **Esplora soluzioni** dovrebbe risultare simile al seguente:
 ![Solution Explorer][SolutionExplorerMyTaskListApp]
 
 ###Impostazione della stringa di connessione MongoDB##
-In **Esplora soluzioni** aprire il file *DAL/Dal.cs*. Individuare la riga di codice seguente:
+In **Esplora soluzioni** aprire il file  *DAL/Dal.cs*. Individuare la riga di codice seguente:
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Sostituire `<vm-dns-name>` con il nome DNS della macchina virtuale che esegue MongoDB creata nel passaggio Creare una macchina virtuale e installare [MongoDB][] di questa esercitazione.  Per individuare il nome DNS della macchina virtuale, passare al portale di gestione di Azure, selezionare **Macchine virtuali** e individuare **Nome DN**.
+Sostituire `<vm-dns-name>` con il nome DNS della macchina virtuale che esegue MongoDB creata nel passaggio [Creare una macchina virtuale e installare MongoDB][] di questa esercitazione.  Per individuare il nome DNS della macchina virtuale, passare al portale di gestione di Azure, selezionare **Macchine virtuali** e individuare **Nome DN**.
 
 Se il nome DNS della macchina virtuale è "testlinuxvm.cloudapp.net" e MongoDB è in ascolto sulla porta predefinita 27017, la riga di codice della stringa di connessione avrà il seguente aspetto:
 
@@ -421,7 +435,7 @@ Se l'endpoint della macchina virtuale specifica una porta esterna diversa per Mo
 
  	private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-Per altre informazioni sulle stringhe di connessione di MongoDB, vedere l'argomento relativo alle [connessioni][MongoConnectionStrings].
+Per altre informazioni sulle stringhe di connessione di MongoDB, vedere la pagina relativa alle [connessioni][MongoConnectionStrings].
 
 ###Test della distribuzione locale###
 
@@ -454,7 +468,7 @@ In questa sezione verrà creato un sito Web di Azure.
 In questa sezione verrà distribuita l'applicazione ASP.NET My Task List usando Git.
 
 1. Fare clic sul nome del sito Web in **Siti Web**, quindi selezionare **Dashboard**.  A destra, sotto riepilogo rapido, fare clic su **Imposta distribuzione dal controllo del codice sorgente**.
-2. Nella pagina **Dove è il codice sorgente?** scegliere **Repository Git locale**, quindi fare clic sulla freccia **Avanti**. 
+2. Nella pagina **Dove è il codice sorgente?** scegliere **Archivio Git locale**, quindi fare clic sulla freccia **Avanti**. 
 3. Il repository Git verrà creato rapidamente. Prendere nota delle istruzioni riportate nella pagina visualizzata, in quanto verranno usate nella sezione successiva.
 
 	![Git Repository is Ready][Image9]
@@ -474,7 +488,7 @@ In questa sezione verrà distribuita l'applicazione ASP.NET My Task List usando 
 
 ##Riepilogo##
 
-L'applicazione ASP.NET è stata correttamente distribuita in un sito Web di Azure.  Per visualizzare il sito, fare clic sul link riportato nel campo **URL sito** della pagina **Dashboard**. Per altre informazioni sull'uso di MongoDB per lo sviluppo di applicazioni C#, vedere il [centro linguistico CSharp][MongoC#LangCenter]. 
+L'applicazione ASP.NET è stata correttamente distribuita in un sito Web di Azure.  Per visualizzare il sito, fare clic sul link riportato nel campo **URL sito** della pagina **Dashboard**. Per altre informazioni sull'uso di MongoDB per lo sviluppo di applicazioni C#, vedere il [centro linguaggio CSharp][MongoC#LangCenter]. 
 
 
 <!-- HYPERLINKS -->
@@ -516,4 +530,5 @@ L'applicazione ASP.NET è stata correttamente distribuita in un sito Web di Azur
 [Creare un sito Web di Azure]: #createwebsite
 [Distribuire l'applicazione ASP.NET nel sito Web usando Git]: #deployapp
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

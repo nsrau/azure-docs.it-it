@@ -1,24 +1,24 @@
-﻿<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure" description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
 Con Azure è possibile usare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Una volta completata la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione in Azure e configurarla per eseguire un server applicazioni Java.
 
-Si apprenderà come:
+Si apprenderà:
 
-* Creare una macchina virtuale in cui è già installato un JDK.
-* Accedere in remoto alla macchina virtuale.
-* Installare un server applicazioni Java sulla macchina virtuale.
-* Creare un endpoint per la macchina virtuale.
-* Aprire una porta nel firewall per il server applicazioni.
+* Come creare una macchina virtuale in cui è già installato un JDK.
+* Come accedere in remoto alla macchina virtuale.
+* Come installare un server applicazioni Java sulla macchina virtuale.
+* Come creare un endpoint per la macchina virtuale.
+* Come aprire una porta nel firewall per il server applicazioni.
 
 Ai fini di questa esercitazione, in una macchina virtuale verrà installato un server applicazioni Apache Tomcat. Dopo il completamento dell'installazione si otterrà un'installazione di Tomcat simile alla seguente.
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
 
@@ -114,7 +114,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 
  ![New inbound rule name][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*nome\_DNS\*.cloudapp.net**, dove ***nome\_DNS*** è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*your\_DNS\_name*.cloudapp.net**, dove ***your\_DNS\_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio Web di applicazioni (WAR) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP (Java Service Page) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
@@ -146,4 +146,7 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

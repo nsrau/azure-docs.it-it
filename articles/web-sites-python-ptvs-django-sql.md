@@ -1,17 +1,31 @@
-﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django e database SQL in Azure con Python Tools 2.1 per Visual Studio" description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Django che archivia i dati in un'istanza di database SQL e che può essere distribuita in un sito Web." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Django e Database SQL in Azure con Python Tools 2.1 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Django che archivia i dati in un'istanza del database SQL e che può essere distribuita in un sito Web." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
-# Django e database SQL in Azure con Python Tools 2.1 per Visual Studio 
+# Django e Database SQL in Azure con Python Tools 2.1 per Visual Studio 
 
 In questa esercitazione verrà creata una semplice applicazione per sondaggi usando uno dei modelli di esempio PTVS. Questa esercitazione è anche disponibile sotto forma di [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
 Si apprenderà come usare un database SQL ospitato in Azure, come configurare l'applicazione per l'uso del database SQL e come pubblicare l'applicazione in un sito Web di Azure.
 
-Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato sui siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi Cloud di Azure][].
+Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato su Siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi cloud di Azure][].
 
 + [Prerequisiti](#prerequisites)
 + [Creare il progetto](#create-the-project)
@@ -25,10 +39,10 @@ Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo 
  - Visual Studio 2012 o 2013
  - [Python Tools 2.1 per Visual Studio][]
  - [VSIX di esempio di Python Tools 2.1 per Visual Studio][]
- - [Strumenti di Azure SDK per Visual Studio 2013][] o [Strumenti di Azure SDK per Visual Studio 2012][]
+ - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2012][]
  - [Python 2.7 a 32 bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creare il progetto
 
@@ -98,9 +112,9 @@ Per creare un database, seguire questa procedura.
 
 ##<a name="configure-the-project"></a>Configurare il progetto
 
-In questa sezione l'applicazione verrà configurata per l'uso del database SQL appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure  e verranno installati i pacchetti Python aggiuntivi necessari per usare i database SQL con Django.  Quindi, verrà eseguita l'applicazione in locale.
+In questa sezione l'applicazione verrà configurata per l'uso del database SQL appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale Azure,  verranno installati i pacchetti Python aggiuntivi necessari per usare i database SQL con Django,  quindi verrà eseguita l'applicazione in locale.
 
-1.  In [Portale di gestione di Azure][] fare clic su **DATABASE SQL**, quindi fare clic sul database creato in precedenza.
+1.  In [portale di gestione di Azure][] fare clic su **DATABASE SQL**, quindi fare clic sul database creato in precedenza.
 
 1.  Fare clic su **GESTISCI**.
 
@@ -118,7 +132,7 @@ In questa sezione l'applicazione verrà configurata per l'uso del database SQL a
 
   	![Allowed Services](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
 
-1.  In Visual Studio aprire **settings.py** dalla cartella *NomeProgetto*. Modificare la definizione di `DATABASES`.
+1.  In Visual Studio aprire **settings.py** dalla cartella  *ProjectName*. Modificare la definizione di  `DATABASES`.
 
         DATABASES = {
             'default': {
@@ -135,17 +149,17 @@ In questa sezione l'applicazione verrà configurata per l'uso del database SQL a
             }
         }
 
-    `<DatabaseName>`, `<User>` e `<Password>` sono i valori specificati quando sono stati creati il database e il server.
+    `<DatabaseName>`, `<User>` e `<Password>` sono i valori specificati alla creazione del database e del server.
 
-    I valori per `<ServerName>` e `<ServerPort>` vengono generati da Azure quando viene creato il server e sono disponibili nella sezione **Connetti al database**.
+    I valori di `<ServerName>` e `<ServerPort>` sono generati da Azure al momento della creazione del server e sono disponibili nella sezione **Connetti al database**.
 
-1.  In Esplora soluzioni, in **Python Environments** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Install Python Package**.
+1.  In Esplora soluzioni, in **Ambienti Python** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Installa pacchetto Python**.
 
-1.  Installare il pacchetto `pyodbc` usando **easy_install**.
+1.  Installare il pacchetto  `pyodbc` usando **easy_install**.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
-1.  Installare il pacchetto `django-pyodbc-azure` usando **pip**.
+1.  Installare il pacchetto  `django-pyodbc-azure` usando **pip**.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
@@ -212,4 +226,5 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Django]: https://www.djangoproject.com/
 [Database SQL]: /it-it/documentation/services/sql-database/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

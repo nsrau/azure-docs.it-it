@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="Introduzione all'autenticazione (Xamarin.Android) - Servizi mobili" metaKeywords="registrazione applicazione in Azure, autenticazione di Azure, autenticazione applicazione, autenticare servizi mobili, Xamarin.Android in Servizi mobili" description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+﻿<properties 
+	pageTitle="Introduzione all'autenticazione (Xamarin.Android) - Servizi mobili" 
+	description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.Android." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
-# Aggiungere l'autenticazione all'app di Servizi mobili
+# Aggiunta dell'autenticazione all'app di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-<p>Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app di Xamarin.Android. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.</p>
+<p>In questo argomento viene illustrato come autenticare gli utenti in Servizi mobili di Azure dalla propria app di Xamarin.Android. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.</p>
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
+1. [Registrare l'app per l'autenticazione e configurazione di Servizi mobili]
 2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
 3. [Aggiungere l'autenticazione all'app]
 
@@ -18,14 +32,14 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per completare questa esercitazione, è necessario disporre di Xamarin.Android e di Android SDK 4.2 o versione successiva. 
 
-<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili</h2>
+<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurazione di Servizi mobili</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <h2><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati</h2>
 
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili]. 
@@ -38,7 +52,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 <h2><a name="add-authentication"></a>Aggiungere l'autenticazione all'app</h2>
 
-1. Aggiungere la seguente proprietà alla classe **TodoActivity**:
+1. Aggiungere la proprietà seguente alla classe **TodoActivity**:
 
 			private MobileServiceUser user;
 
@@ -59,9 +73,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso Microsoft. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>Se si usa un provider di identità diverso da Microsoft, sostituire il valore passato al metodo <strong>login</strong> riportato in precedenza con uno dei seguenti: <i>Facebook</i>, <i>Google</i>, <i>Twitter</i>, o <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] Se si usa un provider di identità diverso da Microsoft, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _Facebook_, _Google_, _Twitter_ o _WindowsAzureActiveDirectory_.
 
 3. Nel metodo **OnCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto `MobileServiceClient`.
 
@@ -69,7 +81,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 	Questa chiamata avvia il processo di autenticazione e ne attende il completamento in modalità asincrona.
 
-4. Spostare il codice rimanente dopo `await Authenticate();` nel metodo **OnCreate** in un nuovo metodo **CreateTable** simile al seguente:
+4. Spostare il codice rimanente dopo `await Authenticate();` nel metodo **OnCreate** in un nuovo metodo **CreateTable**, simile al seguente:
 
 	        private async Task CreateTable()
 	        {
@@ -87,7 +99,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 	            await RefreshItemsFromTableAsync();
 	        }
 
-5. Chiamare quindi il nuovo metodo **CreateTable** in **OnCreate** dopo la chiamata ad **Authenticate** aggiunta al passaggio 2:
+5. Chiamare quindi il nuovo metodo **CreateTable** in **OnCreate** dopo la chiamata **Authenticate** aggiunta nel passaggio 2:
 
 		await CreateTable();
 
@@ -104,7 +116,7 @@ Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le vari
 Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. 
 
 <!-- Anchors. -->
-[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
+[Registrare l'app per l'autenticazione e configurazione di Servizi mobili]: #register
 [Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
 [Aggiungere l'autenticazione all'app]: #add-authentication
 [Passaggi successivi]:#next-steps
@@ -119,7 +131,7 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 
 <!-- URLs. -->
 
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-android
@@ -131,3 +143,6 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+<!--HONumber=42-->

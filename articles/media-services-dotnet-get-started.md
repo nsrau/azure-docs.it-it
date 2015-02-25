@@ -1,688 +1,505 @@
-﻿<properties urlDisplayName="Get Started with Media Services" pageTitle="Introduzione a Servizi multimediali - Azure" metaKeywords="Azure media services" description="Introduzione all'uso di Servizi multimediali con Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introduzione a Media Services SDK per .NET- Azure" description="Questa esercitazione illustra il processo di implementazione di un'applicazione di invio di contenuti Video-on-Demand (VoD) con Servizi multimediali di Azure tramite .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako"/>
 
 
+# Invio di Video-on-Demand con Media Services SDK per .NET 
 
-# <a name="getting-started"></a>Introduzione a Servizi multimediali
+[AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
-In questa esercitazione viene illustrato come iniziare a sviluppare tramite Servizi multimediali di Azure. Vengono illustrati il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione, si sarà in grado di riprodurre un file multimediale di esempio caricato, codificato e scaricato oppure di selezionare l'asset codificato e riprodurlo nel server. 
 
-Per un progetto C# creato in Visual Studio contenente il codice di questa esercitazione, fare clic qui: [Download](http://go.microsoft.com/fwlink/?linkid=253275).
+>[AZURE.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare una versione di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione illustra il processo di implementazione di un'applicazione di invio di contenuti Video-on-Demand (VoD) usando Azure Media Services (AMS) SDK per .NET. 
 
-* [Configurazione del progetto](#Step1)
-* [Recupero del contesto del server di Servizi multimediali](#Step2)
-* [Creazione di un asset e caricamento dei file associati all'asset in Servizi multimediali](#Step3)
-* [Codifica di un asset e download di un asset di output](#Step4)
+L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.  
+
+Per implementare un'applicazione di invio di contenuti VoD è possibile usare diverse tecnologie (ad esempio, .NET, REST o Java), strumenti (portale di gestione di Azure o Azure Media Services Explorer) o una combinazione di entrambi. 
+
+Questa esercitazione usa il portale di gestione di Azure e Media Services SDK per .NET per le seguenti attività:     
+
+
+1.  [Creare un account di Servizi multimediali usando il portale](#create_ams).
+2.  [Configurare le unità di streaming usando il portale](#configure_streaming_units).
+3.  [Creare e configurare un progetto di Visual Studio](#configure_VS)
+4.  [Usare .NET per caricare, codificare e inviare il contenuto](#use_dotnet)
+	5.  [Connettersi all'account di Servizi multimediali](#connect).
+	1.  [Creare un nuovo asset e caricare un file video](#upload).
+	1.  [Codificare il file di origine in un set di file MP4 a velocità in bit adattiva](#encode).
+	1.  [Configurare i criteri di invio per l'asset codificato](#configure_delivery_method).
+	2.  [Facoltativamente, configurare la protezione dei contenuti dinamici](#configure_content_protection). 
+	1.  [Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo](#publish_get_urls). 
+1.  [Riprodurre il contenuto](#play). 
 
 ## Prerequisiti
-Per la procedura dettagliata e lo sviluppo basato su Azure Media Services SDK, sono necessari i prerequisiti illustrati di seguito.
+I seguenti prerequisiti sono necessari per avviare lo sviluppo con Media Services SDK per .NET.
 
-- Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Per informazioni dettagliate, vedere [Come creare un account di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=256662).
 - Sistemi operativi: Windows 7, Windows 2008 R2, Windows 8 o versioni successive.
-- .NET Framework 4.5 o .NET Framework 4.
-- Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
-- Installare le librerie di **Azure SDK per .NET.**, **Azure Media Services SDK per .NET** e **WCF Data Services 5.0 per OData V3** e aggiungere riferimenti al progetto usando il pacchetto [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices). Nella sezione riportata di seguito viene illustrato come installare e aggiungere questi riferimenti.
+- .NET Framework 4.5 o .NET Framework 4.0
+- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
 
->[WACOM.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-<h2><a id="Step1"></a>Configurazione del progetto</h2>
+## <a id="create_ams"></a>Creare un account di Servizi multimediali usando il portale
 
-1. Creare una nuova applicazione console C# in Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK. 
+1. Nel [portale di gestione][] fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
+   
+	![Creazione rapida di Servizi multimediali](./media/media-services-create-account/wams-QuickCreate.png)
 
-2. Aggiungere un riferimento all'assembly System.Configuration.
+2. In **NOME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri. 
 
-	Per aggiungere riferimenti usando la finestra di dialogo **Gestione riferimenti**, eseguire le operazioni seguenti. Fare clic con il pulsante destro del mouse 	sul nodo **Riferimenti** in **Esplora soluzioni**, quindi scegliere **Aggiungi riferimento**. Nella finestra di dialogo 	**Gestione riferimenti** selezionare gli assembly appropriati, in questo caso 	System.Configuration.
+3. In **AREA** selezionare l'area geografica che verrà usata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
 
-3. Se non si è ancora eseguita questa operazione, aggiungere i riferimenti alle librerie di **Azure SDK per .NET**.(Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK per .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) e **WCF Data Services 5.0 per OData V3** (Microsoft.Data.OData.dll) usando il pacchetto <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a>. 
+4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
 
-	Per aggiungere riferimenti usando il pacchetto NuGet, eseguire le operazioni seguenti. Nel menu principale di Visual Studio scegliere STRUMENTI -> Gestione pacchetti libreria -> Console di Gestione pacchetti. Nella finestra della console digitare <i>Install-Package [nome pacchetto]</i> e premere INVIO. In questo caso usare comando seguente: <i>Install-Package windowsazure.mediaservices</i>.
+5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
-4. Aggiungere una sezione *appSettings* al file **app.config** e impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure. Il nome e la chiave sono stati forniti durante il processo di configurazione dell'account di Servizi multimediali. Aggiungere tali valori all'attributo value per ciascuna impostazione nel file app.config del progetto di Visual Studio.
+6. Nella parte inferiore del modulo fare clic su **Creazione rapida**.
 
-	> [WACOM.NOTE]
-	> In Visual Studio 2012 il file App.config viene aggiunto per impostazione predefinita. In Visual Studio 2010 è invece necessario aggiungere manualmente il file di configurazione dell'applicazione.
+	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
+
+	Dopo aver creato l'account, lo stato passa su Attivo. 
+	
+	Nella parte inferiore della pagina viene visualizzato il pulsante **GESTISCI CHIAVI**. Quando si fa clic su questo pulsante, viene visualizzata una finestra di dialogo con il nome dell'account di Servizi multimediali e le chiavi primaria e secondaria. Per accedere a livello di codice all'account di Servizi multimediali è richiesto il nome dell'account e la chiave primaria. 
+
+	
+	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
+
+	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Quick Start. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENT.
+
+	 
+## <a id="configure_streaming_units"></a>Configurare le unità di streaming usando il portale
+
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti è l'invio di streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti che consente di inviare il contenuto codificato in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS) senza dover ricreare i pacchetti con questi formati di streaming. 
+
+Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario eseguire la procedura seguente:
+
+- codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione),  
+- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica l'invio del contenuto.
+
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
+
+Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming su richiesta offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+
+
+Per modificare il numero di unità riservate di streaming on demand, eseguire le operazioni seguenti:
+
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
+
+2. Selezionare la pagina ENDPOINT DI STREAMING. Quindi, fare clic sull'endpoint di streaming da modificare.
+
+3. Per specificare il numero di unità di streaming, selezionare la scheda RIDIMENSIONA e spostare il dispositivo di scorrimento **capacità riservata**.
+
+	![Scale page](./media/media-services-how-to-scale/media-services-origin-scale.png)
+
+4. Fare clic sul pulsante SALVA per salvare le modifiche apportate.
+
+	Il completamento dell'allocazione di nuove unità di streaming on demand richiede circa 20 minuti. 
+
+	 
+	>[AZURE.NOTE] Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming su richiesta, è possibile che lo streaming su richiesta venga disattivato per un periodo che può durare fino a un'ora.
+	>
+	> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+
+
+
+## <a id="configure_VS"></a>Creare e configurare un progetto di Visual Studio
+
+1. Creare una nuova applicazione console C# in Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK. 
+
+2. Usare il pacchetto Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare **Azure Media Services .NET SDK Extensions**.  Media Services .NET SDK Extensions è un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze richieste.
+ 
+3. Aggiungere un riferimento all'assembly System.Configuration. Questo assembly contiene la classe System.Configuration.ConfigurationManager usata per accedere ai file di configurazione (ad esempio, App.config). 
+
+4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere le informazioni sul nome e la chiave dell'account, aprire il portale di gestione di Azure, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
+
 
 	<pre><code>
 	&lt;configuration&gt;
-  	. . . 
-  	&lt;appSettings&gt;
-    	&lt;add key="accountName" value="Add-Media-Services-Account-Name" /&gt;
-    	&lt;add key="accountKey" value="Add-Media-Services-Account-Key" /&gt;
-  	&lt;/appSettings&gt;
+        &lt;appSettings&gt;
+    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+  	    &lt;/appSettings&gt;
 	&lt;/configuration&gt;
 	</code></pre>
 
-5. Creare nel computer locale una nuova cartella denominata supportFiles. In questo esempio la cartella supportFiles si trova nella directory del progetto MediaServicesGettingStarted. Nel <a href="http://go.microsoft.com/fwlink/?linkid=253275">progetto</a> relativo a questa procedura dettagliata è presente la directory supportFiles. È possibile copiare nella cartella supportFiles il contenuto di questa directory.
 
-6. Sovrascrivere le istruzioni using esistenti all'inizio del file Program.cs con il codice seguente.
+5. Sovrascrivere le istruzioni using esistenti all'inizio del file Program.cs con il codice seguente.
 
 		using System;
-		using System.Linq;
-		using System.Configuration;
-		using System.IO;
-		using System.Text;
-		using System.Threading;
-		using System.Threading.Tasks;
 		using System.Collections.Generic;
-		using Microsoft.WindowsAzure;
+		using System.Linq;
+		using System.Text;
+		using System.Threading.Tasks;
+		using System.Configuration;
+		using System.Threading;
+		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
+		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+
+6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles". 
+
+## <a id="use_dotnet"></a>Usare .NET per caricare, codificare e inviare il contenuto 
+
+Il codice in questa sezione mostra come eseguire le seguenti attività:
+
+1. Connettersi all'account di Servizi multimediali.
+1. Creare un nuovo asset e caricare un file video.
+1. Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
+1. Configurare i criteri di invio per l'asset codificato.
+2. Facoltativamente, configurare la protezione dei contenuti dinamici.
+1. Pubblicare l'asset e ottenere gli URL. 
 
 
-7. Aggiungere le variabili di percorso a livello di classe riportate di seguito. Il percorso **_supportFiles** deve puntare alla cartella creata in un passaggio precedente. 
+### <a id="connect"></a>Connettersi all'account di Servizi multimediali
 
-		// Base support files path.  Update this field to point to the base path  
-		// for the local support files folder that you create. 
-		private static readonly string _supportFiles =
-		            Path.GetFullPath(@"../..\supportFiles");
-		
-		// Paths to support files (within the above base path). You can use 
-		// the provided sample media files from the "supportFiles" folder, or 
-		// provide paths to your own media files below to run these samples.
-		private static readonly string _singleInputFilePath =
-		    Path.GetFullPath(_supportFiles + @"\multifile\interview2.wmv");
-		private static readonly string _outputFilesFolder =
-		    Path.GetFullPath(_supportFiles + @"\outputfiles");
-		
-8. Aggiungere le variabili a livello di classe riportate di seguito per recuperare le impostazioni di autenticazione e connessione.  Queste impostazioni vengono recuperate tramite pull dal file app.config e sono necessarie per la connessione a Servizi multimediali, l'autenticazione e il recupero di un token per l'accesso al contesto del server. Nel codice del progetto viene fatto riferimento a queste variabili per creare un'istanza del contesto del server.
+Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via. 
+ 
+Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessone dal file App.config e come creare l'oggetto CloudMediaContext per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/azure/jj129571.aspx).
+
+La funzione **Main** chiama dei metodi definiti più in dettaglio in questa sezione.
 	
-		private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
-		private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
-
-9. Aggiungere la variabile a livello di classe riportata di seguito usata come riferimento statico al contesto del server.
-
-		// Field for service context.
-		private static CloudMediaContext _context = null;
-		
-<h2><a id="Step2"></a>Recupero del contesto di Servizi multimediali</h2>
-
-L'oggetto contesto di Servizi multimediali contiene tutti gli oggetti e le raccolte fondamentali per la programmazione basata su Servizi multimediali. Il contesto include riferimenti a raccolte importanti, tra cui processi, asset, file, criteri di accesso, localizzatori e altri oggetti. Il contesto del server deve essere recuperato per la maggior parte delle attività di programmazione di Servizi multimediali.
-
-Nel file Program.cs aggiungere il codice seguente come primo elemento del metodo **Main**. Questo codice usa i valori del nome e della chiave dell'account di Servizi multimediali presenti nel file app.config per creare un'istanza del contesto del server. L'istanza viene assegnata alla variabile **_context** creata a livello di classe.
-
-	// Get the service context.
-	_context = new CloudMediaContext(_accountName, _accountKey);
-	
-<h2><a id="Step3"></a>Creazione di un asset e caricamento di un file</h2>
-
-Il codice contenuto in questa sezione consente di effettuare le seguenti operazioni: 
-
-1. Creare un asset vuoto.<br/>
-Quando si creano asset, è possibile specificare tre diverse opzioni per la crittografia. 
-
-	- **AssetCreationOptions.None**: non applica alcuna crittografia. Impostare questa opzione se si desidera creare un asset non crittografato.
-	- **AssetCreationOptions.CommonEncryptionProtected**: consente di creare file CENC (Common Encryption Protected). Un esempio è un set di file già crittografati con PlayReady. 
-	- **AssetCreationOptions.StorageEncrypted**: applica la crittografia di archiviazione. Crittografa un file di input non crittografato prima che venga caricato nei servizi di archiviazione di Azure.
-
-		<div class="dev-callout"> 
-	<strong>Nota</strong> 
-	<p>Si noti che Servizi multimediali offre una crittografia di archiviazione su disco, non in rete come Digital Rights Management (DRM).</p> 
-	</div>
-
-2. Creare un'istanza di AssetFile da associare all'asset.
-3. Creare un'istanza di AccessPolicy che definisce le autorizzazioni e la durata dell'accesso all'asset.
-4. Creare un'istanza di Locator che consente l'accesso all'asset.
-5. Caricare in Servizi multimediali un singolo file multimediale. Il processo di creazione e caricamento è anche noto come inserimento di asset.
-
-Aggiungere alla classe i metodi riportati di seguito.
-
-<pre><code>
-static private IAsset CreateEmptyAsset(string assetName, AssetCreationOptions assetCreationOptions)
-{
-    var asset = _context.Assets.Create(assetName, assetCreationOptions);
-
-    Console.WriteLine("Asset name: " + asset.Name);
-    Console.WriteLine("Time created: " + asset.Created.Date.ToString());
-
-    return asset;
-}
-
-static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
-{
-    var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
-    var asset = CreateEmptyAsset(assetName, assetCreationOptions);
-
-    var fileName = Path.GetFileName(singleFilePath);
-
-    var assetFile = asset.AssetFiles.Create(fileName);
-
-    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-    var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(3),
-                                                        AccessPermissions.Write | AccessPermissions.List);
-
-    var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-
-    Console.WriteLine("Upload {0}", assetFile.Name);
-
-    assetFile.Upload(singleFilePath);
-    Console.WriteLine("Done uploading of {0} using Upload()", assetFile.Name);
-
-    locator.Delete();
-    accessPolicy.Delete();
-
-    return asset;
-}
-
-</code></pre>
-
-Aggiungere una chiamata al metodo dopo la riga **\_context = new CloudMediaContext(_accountName, _accountKey);** del metodo Main. 
-
-	IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
-
-<h2><a id="Step4"></a>Codifica di un asset nel server e download di un asset di output</h2>
-
-In Servizi multimediali è possibile creare processi che eseguono diversi tipi di elaborazione sui contenuti multimediali: codifica, crittografia, conversioni di formato e così via. Un processo di Servizi multimediali contiene sempre una o più attività che specificano i dettagli dell'elaborazione da eseguire. In questa sezione verrà creata un'attività di codifica di base e verrà eseguito un processo che effettua tale attività mediante Azure Media Encoder. L'attività usa una stringa di set di impostazioni per specificare il tipo di codifica da eseguire. Per verificare i valori di codifica disponibili nel set di impostazioni, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/it-it/library/windowsazure/jj129582.aspx). Servizi multimediali supporta gli stessi formati di input e di output dei file multimediali di Microsoft Expression Encoder. Per un elenco dei formati supportati, vedere l'articolo relativo ai [tipi di file supportati per Servizi multimediali](http://msdn.microsoft.com/it-it/library/windowsazure/hh973634.aspx).
-
-<ol>
-<li>
-Aggiungere alla classe la definizione del metodo <strong>CreateEncodingJob</strong> riportata di seguito. Questo metodo mostra come eseguire numerose attività obbligatorie per un processo di codifica.
-<ul>
-<li>
-Declare a new job.
-</li>
-<li>
-Dichiarare un processore di contenuti multimediali per la gestione del processo. Un processore di contenuti multimediali è un componente che gestisce processi di codifica, crittografia, conversione di formato e altri processi di elaborazione correlati. Sono disponibili vari tipi di processori di contenuti multimediali ed è possibile scorrerli tutti tramite _context.MediaProcessors. Il metodo GetLatestMediaProcessorByName, illustrato più avanti in questa procedura dettagliata, restituisce il processore Azure Media Encoder.
-</li>
-<li>
-Dichiarare una nuova attività. Ogni processo contiene una o più attività. È necessario passare un nome descrittivo, un'istanza del processore di contenuti multimediali, una stringa di configurazione dell'attività e le opzioni di creazione dell'attività. La stringa di configurazione specifica le impostazioni di codifica. In questo esempio viene usata l'impostazione <strong>H264 Broadband 720p</strong>. Questo set di impostazioni genera un singolo file MP4. Per altre informazioni su questo e altri set di impostazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/jj129582.aspx">Stringhe di set di impostazioni di attività per Azure Media Encoder</a>.
-</li>
-<li>
-Aggiungere all'attività un asset di input. In questo esempio come asset di input viene usato l'asset creato nella sezione precedente.
-</li>
-<li>
-Aggiungere all'attività un asset di output. Per un asset di output è necessario specificare un nome descrittivo, un valore booleano per indicare se l'output deve essere salvato nel server al termine del processo o meno e un valore <strong>AssetCreationOptions.None</strong> per indicare che l'output non deve essere crittografato per l'archiviazione e il trasporto. 
-</li>
-<li>
-Inviare il processo.<br/>
-L'invio è l'ultimo passaggio necessario per un processo di codifica.
-</li>
-</ul>
-Il metodo mostra inoltre come eseguire altre attività utili ma facoltative quali il monitoraggio dell'avanzamento del processo e l'accesso all'asset creato dal processo di codifica.
-<pre><code>
-static IJob CreateEncodingJob(IAsset asset, string inputMediaFilePath, string outputFolder)
-{
-    // Declare a new job.
-    IJob job = _context.Jobs.Create("My encoding job");
-    // Get a media processor reference, and pass to it the name of the 
-    // processor to use for the specific task.
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-
-    // Create a task with the encoding details, using a string preset.
-    ITask task = job.Tasks.AddNew("My encoding task",
-        processor,
-        "H264 Broadband 720p",
-        Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
-
-    // Specify the input asset to be encoded.
-    task.InputAssets.Add(asset);
-    // Add an output asset to contain the results of the job. 
-    // This output is specified as AssetCreationOptions.None, which 
-    // means the output asset is not encrypted. 
-    task.OutputAssets.AddNew("Output asset",
-        AssetCreationOptions.None);
-    // Use the following event handler to check job progress.  
-    job.StateChanged += new
-            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
-
-    // Launch the job.
-    job.Submit();
-
-    // Optionally log job details. This displays basic job details
-    // to the console and saves them to a JobDetails-{JobId}.txt file 
-    // in your output folder.
-    LogJobDetails(job.Id);
-
-    // Check job execution and wait for job to finish. 
-    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-    progressJobTask.Wait();
-
-    // **********
-    // Optional code.  Code after this point is not required for 
-    // an encoding job, but shows how to access the assets that 
-    // are the output of a job, either by creating URLs to the 
-    // asset on the server, or by downloading. 
-    // **********
-
-    // Get an updated job reference.
-    job = GetJob(job.Id);
-
-    // If job state is Error the event handling 
-    // method for job progress should log errors.  Here we check 
-    // for error state and exit if needed.
-    if (job.State == JobState.Error)
+    class Program
     {
-        Console.WriteLine("\nExiting method due to job error.");
-        return job;
-    }
+        // Read values from the App.config file.
+        private static readonly string _mediaServicesAccountName =
+            ConfigurationManager.AppSettings["MediaServicesAccountName"];
+        private static readonly string _mediaServicesAccountKey =
+            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
-    // Get a reference to the output asset from the job.
-    IAsset outputAsset = job.OutputMediaAssets[0];
-    IAccessPolicy policy = null;
-    ILocator locator = null;
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+        private static MediaServicesCredentials _cachedCredentials = null;
 
-    // Declare an access policy for permissions on the asset. 
-    // You can call an async or sync create method. 
-    policy =
-        _context.AccessPolicies.Create("My 30 days readonly policy",
-            TimeSpan.FromDays(30),
-            AccessPermissions.Read);
-
-    // Create a SAS locator to enable direct access to the asset 
-    // in blob storage. You can call a sync or async create method.  
-    // You can set the optional startTime param as 5 minutes 
-    // earlier than Now to compensate for differences in time  
-    // between the client and server clocks. 
-
-    locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset,
-        policy,
-        DateTime.UtcNow.AddMinutes(-5));
-
-    // Build a list of SAS URLs to each file in the asset. 
-    List&lt;String&gt; sasUrlList = GetAssetSasUrlList(outputAsset, locator);
-
-    // Write the URL list to a local file. You can use the saved 
-    // SAS URLs to browse directly to the files in the asset.
-    if (sasUrlList != null)
-    {
-        string outFilePath = Path.GetFullPath(outputFolder + @"\" + "FileSasUrlList.txt");
-        StringBuilder fileList = new StringBuilder();
-        foreach (string url in sasUrlList)
+        static void Main(string[] args)
         {
-            fileList.AppendLine(url);
-            fileList.AppendLine();
-        }
-        WriteToFile(outFilePath, fileList.ToString());
-
-        // Optionally download the output to the local machine.
-        DownloadAssetToLocal(job.Id, outputFolder);
-    }
-
-    
-    return job;
-}
-
-</code></pre>
-</li>
-<li>
-Aggiungere una chiamata al metodo <strong>CreateEncodingJob</strong> nel metodo <strong>Main</strong>, dopo le righe aggiunte in precedenza.
-<pre><code>
-CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
-</code></pre>
-</li>
-<li>
-Aggiungere alla classe i metodi helper riportati di seguito. Questi metodi sono necessari per il supporto del metodo <strong>CreateEncodingJob</strong>. Di seguito è riportato un riepilogo dei metodi helper.
-<ul>
-<li>
-Il metodo <strong>GetLatestMediaProcessorByName</strong> restituisce un processore di contenuti multimediali appropriato per la gestione di un'attività di codifica, crittografia o un'altra attività di elaborazione correlata. Per creare un processore di contenuti multimediali è necessario usare il nome di stringa appropriato del processore da creare. Le stringhe che è possibile passare al metodo per il parametro mediaProcessor sono le seguenti: <strong>Azure Media Encoder</strong>, <strong>Microsoft Azure Media Packager</strong>, <strong>Microsoft Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-    // The possible strings that can be passed into the 
-    // method for the mediaProcessor parameter:
-    //   Azure Media Encoder
-    //   Windows Azure Media Packager
-    //   Windows Azure Media Encryptor
-    //   Storage Decryption
-
-    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-
-</code></pre>
-</li>
-<li>
-Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. Nell'esempio di codice seguente viene definito il gestore eventi StateChanged, che monitora l'avanzamento del processo e ne indica lo stato aggiornato. Il codice consente inoltre di definire il metodo helper LogJobStop, che registra i dettagli degli errori.
-
-<pre><code>
-private static void StateChanged(object sender, JobStateChangedEventArgs e)
-{
-    Console.WriteLine("Job state changed event:");
-    Console.WriteLine("  Previous state: " + e.PreviousState);
-    Console.WriteLine("  Current state: " + e.CurrentState);
-
-    switch (e.CurrentState)
-    {
-        case JobState.Finished:
-            Console.WriteLine();
-            Console.WriteLine("********************");
-            Console.WriteLine("Job is finished.");
-            Console.WriteLine("Please wait while local tasks or downloads complete...");
-            Console.WriteLine("********************");
-            Console.WriteLine();
-            Console.WriteLine();
-            break;
-        case JobState.Canceling:
-        case JobState.Queued:
-        case JobState.Scheduled:
-        case JobState.Processing:
-            Console.WriteLine("Please wait...\n");
-            break;
-        case JobState.Canceled:
-        case JobState.Error:
-            // Cast sender as a job.
-            IJob job = (IJob)sender;
-            // Display or log error details as needed.
-            LogJobStop(job.Id);
-            break;
-        default:
-            break;
-    }
-}
-
-private static void LogJobStop(string jobId)
-{
-    StringBuilder builder = new StringBuilder();
-    IJob job = GetJob(jobId);
-
-    builder.AppendLine("\nThe job stopped due to cancellation or an error.");
-    builder.AppendLine("***************************");
-    builder.AppendLine("Job ID: " + job.Id);
-    builder.AppendLine("Job Name: " + job.Name);
-    builder.AppendLine("Job State: " + job.State.ToString());
-    builder.AppendLine("Job started (server UTC time): " + job.StartTime.ToString());
-    builder.AppendLine("Media Services account name: " + _accountName);
-    // Log job errors if they exist.  
-    if (job.State == JobState.Error)
-    {
-        builder.Append("Error Details: \n");
-        foreach (ITask task in job.Tasks)
-        {
-            foreach (ErrorDetail detail in task.ErrorDetails)
+            try
             {
-                builder.AppendLine("  Task Id: " + task.Id);
-                builder.AppendLine("    Error Code: " + detail.Code);
-                builder.AppendLine("    Error Message: " + detail.Message + "\n");
+                // Create and cache the Media Services credentials in a static class variable.
+                _cachedCredentials = new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_cachedCredentials);
+
+                // Add calls to methods defined in this section.
+
+                IAsset inputAsset =
+                    UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+
+                IAsset encodedAsset =
+                    EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+
+                ConfigureClearAssetDeliveryPolicy(encodedAsset);
+
+                PublishAssetGetURLs(encodedAsset);
+            }
+            catch (Exception exception)
+            {
+                // Parse the XML error message in the Media Services response and create a new 
+                // exception with its content.
+                exception = MediaServicesExceptionParser.Parse(exception);
+
+                Console.Error.WriteLine(exception.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
             }
         }
-    }
-    builder.AppendLine("***************************\n");
-    // Write the output to a local file and to the console. The template 
-    // for an error output file is:  JobStop-{JobId}.txt
-    string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
-    WriteToFile(outputFile, builder.ToString());
-    Console.Write(builder.ToString());
-}
 
-private static void LogJobDetails(string jobId)
-{
-    StringBuilder builder = new StringBuilder();
-    IJob job = GetJob(jobId);
+### <a id="upload"></a>Creare un nuovo asset e caricare un file video
 
-    builder.AppendLine("\nJob ID: " + job.Id);
-    builder.AppendLine("Job Name: " + job.Name);
-    builder.AppendLine("Job submitted (client UTC time): " + DateTime.UtcNow.ToString());
-    builder.AppendLine("Media Services account name: " + _accountName);
+In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
 
-    // Write the output to a local file and to the console. The template 
-    // for an error output file is:  JobDetails-{JobId}.txt
-    string outputFile = _outputFilesFolder + @"\JobDetails-" + JobIdAsFileName(job.Id) + ".txt";
-    WriteToFile(outputFile, builder.ToString());
-    Console.Write(builder.ToString());
-}
-        
-private static string JobIdAsFileName(string jobID)
-{
-    return jobID.Replace(":", "_");
-}
-</code></pre>
-</li>
-<li>
-Il metodo WriteToFile scrive un file nella cartella di output specificata.
-<pre><code>
-static void WriteToFile(string outFilePath, string fileContent)
-{
-    StreamWriter sr = File.CreateText(outFilePath);
-    sr.Write(fileContent);
-    sr.Close();
-}
+Il metodo **UploadFile** definito di seguito chiama **CreateFromFile** (definito nelle estensioni di SDK per .NET). **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato. 
 
-</code></pre>
-</li>
-<li>
-Dopo la codifica degli asset in Servizi multimediali, è possibile accedere agli asset di output risultanti da un processo di codifica. In questa procedura dettagliata vengono illustrate due modalità per l'accesso all'output di un processo di codifica:
-<ul>
-<li>
-Creazione di un URL di firma di accesso condiviso di un asset nel server. 
-</li>
-<li>
-Download dell'asset di output dal server.
-</li>
-</ul>
-Il metodo GetAssetSasUrlList crea un elenco di URL di firma di accesso condiviso di tutti i file di un asset. 
-<pre><code>
-static List&lt;String&gt; GetAssetSasUrlList(IAsset asset, ILocator locator)
-{
-    // Declare a list to contain all the SAS URLs.
-    List&lt;String&gt; fileSasUrlList = new List&lt;String&gt;();
+Il metodo **CreateFromFile** acquisisce **AssetCreationOptions** che consente di specificare una delle seguenti opzioni di creazione:
+ 
+- **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+- **StorageEncrypted**: crittografa il contenuto non crittografato localmente usando la crittografia a 256 bit AES, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+- **CommonEncryption**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
+- **EnvelopeEncrypted**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
-    // If the asset has files, build a list of URLs to 
-    // each file in the asset and return. 
-    foreach (IAssetFile file in asset.AssetFiles)
+Il metodo **CreateFromFile** consente anche di specificare un callback per visualizzare l'avanzamento del caricamento del file.
+
+Nel seguente esempio è specificato **None** per le opzioni dell'asset.
+
+Aggiungere il metodo seguente alla classe Program.
+
+	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+	{
+	    IAsset inputAsset = _context.Assets.CreateFromFile(
+	        fileName,
+	        options,
+	        (af, p) =>
+	        {
+	            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+	        });
+	
+	    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+	
+	    return inputAsset;
+	}
+
+
+### <a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
+
+Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate Processi e ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset. 
+
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti è l'invio di streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+
+Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario eseguire la procedura seguente:
+
+- codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,  
+- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica l'invio del contenuto. 
+
+Nel codice seguente viene illustrato come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Il codice invia il processo e ne attende il completamento. 
+
+Al termine, è possibile eseguire lo streaming dell'asset o il download progressivo dei file MP4 creati con la transcodifica.
+Non è necessario ottenere le unità di streaming su richiesta per poter eseguire il download progressivo dei file MP4. 
+
+
+Aggiungere il metodo seguente alla classe Program.
+
+	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
+	{
+		// Prepare a job with a single task to transcode the specified asset
+        // into a multi-bitrate asset.
+
+	    IJob job = _context.Jobs.CreateWithSingleTask(
+	        MediaProcessorNames.AzureMediaEncoder,
+	        MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+	        asset,
+	        "Adaptive Bitrate MP4",
+	        options);
+	
+		Console.WriteLine("Submitting transcoding job...");
+	
+
+	    // Submit the job and wait until it is completed.
+	    job.Submit();
+	
+	    job = job.StartExecutionProgressTask(
+	        j =>
+	        {
+	            Console.WriteLine("Job state: {0}", j.State);
+	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+	        },
+	        CancellationToken.None).Result;
+	
+	    Console.WriteLine("Transcoding job finished.");
+	
+	    IAsset outputAsset = job.OutputMediaAssets[0];
+	
+	    return outputAsset;
+	}
+
+
+### <a id="configure_content_protection"></a>Facoltativamente, configurare la protezione dei contenuti dinamici
+
+Per informazioni su come configurare la protezione dei contenuti, vedere gli articoli seguenti:
+
+- [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](http://msdn.microsoft.com/it-it/library/azure/dn783457.aspx)
+- [Uso della crittografia dinamica PlayReady e del servizio di distribuzione delle licenze](http://msdn.microsoft.com/it-it/library/azure/dn783467.aspx)
+- [Invio di contenuto crittografato di archiviazione](http://msdn.microsoft.com/it-it/library/azure/dn783451.aspx)
+
+### <a id="configure_delivery_method"></a>Configurare i criteri di invio per l'asset codificato
+
+Uno dei passaggi del flusso di lavoro di invio dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di invio degli asset. La configurazione dei criteri di invio degli asset include: i protocolli da usare per inviare l'asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), se crittografare dinamicamente l'asset e le eventuali modalità di crittografia (crittografia Envelope o Common). 
+
+Il seguente metodo **ConfigureClearAssetDeliveryPolicy** specifica di non applicare la crittografia dinamica e di inviare il flusso in uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. 
+  
+Aggiungere il metodo seguente alla classe Program.
+
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
-        string sasUrl = BuildFileSasUrl(file, locator);
-        fileSasUrlList.Add(sasUrl);
-    }
+        IAssetDeliveryPolicy policy =
+            _context.AssetDeliveryPolicies.Create("Clear Policy",
+            AssetDeliveryPolicyType.NoDynamicEncryption, 
+            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
-    // Return the list of SAS URLs.
-    return fileSasUrlList;
-}
-
-// Create and return a SAS URL to a single file in an asset. 
-static string BuildFileSasUrl(IAssetFile file, ILocator locator)
-{
-    // Take the locator path, add the file name, and build 
-    // a full SAS URL to access this file. This is the only 
-    // code required to build the full URL.
-    var uriBuilder = new UriBuilder(locator.Path);
-    uriBuilder.Path += "/" + file.Name;
-
-    // Optional:  print the locator.Path to the asset, and 
-    // the full SAS URL to the file
-    Console.WriteLine("Locator path: ");
-    Console.WriteLine(locator.Path);
-    Console.WriteLine();
-    Console.WriteLine("Full URL to file: ");
-    Console.WriteLine(uriBuilder.Uri.AbsoluteUri);
-    Console.WriteLine();
-
-
-    //Return the SAS URL.
-    return uriBuilder.Uri.AbsoluteUri;
-}
-
-</code></pre>
-</li>
-<li>
-Il metodo <strong>DownloadAssetToLocal</strong> scarica in una cartella locale ogni file nell'asset. In questo esempio, poiché l'asset è stato creato con un file multimediale di input, la raccolta di file di asset di output contiene due file: il file multimediale codificato (con estensione mp4) e un file con estensione xml contenente i metadati dell'asset. Il metodo scarica entrambi i file.
-<pre><code>
-static IAsset DownloadAssetToLocal(string jobId, string outputFolder)
-{
-    // This method illustrates how to download a single asset. 
-    // However, you can iterate through the OutputAssets
-    // collection, and download all assets if there are many. 
-
-    // Get a reference to the job. 
-    IJob job = GetJob(jobId);
-    // Get a reference to the first output asset. If there were multiple 
-    // output media assets you could iterate and handle each one.
-    IAsset outputAsset = job.OutputMediaAssets[0];
-
-    IAccessPolicy accessPolicy = _context.AccessPolicies.Create("File Download Policy", TimeSpan.FromDays(30), AccessPermissions.Read);
-    ILocator locator = _context.Locators.CreateSasLocator(outputAsset, accessPolicy);
-    BlobTransferClient blobTransfer = new BlobTransferClient
-    {
-        NumberOfConcurrentTransfers = 10,
-        ParallelTransferThreadCount = 10
-    };
-
-    var downloadTasks = new List&lt;Task&gt;();
-    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
-    {
-        // Use the following event handler to check download progress.
-        outputFile.DownloadProgressChanged += DownloadProgress;
-
-        string localDownloadPath = Path.Combine(outputFolder, outputFile.Name);
-
-        Console.WriteLine("File download path:  " + localDownloadPath);
-
-        downloadTasks.Add(outputFile.DownloadAsync(Path.GetFullPath(localDownloadPath), blobTransfer, locator, CancellationToken.None));
-
-        outputFile.DownloadProgressChanged -= DownloadProgress;
+        asset.DeliveryPolicies.Add(policy);
     }
 
-    Task.WaitAll(downloadTasks.ToArray());
+Dopo questo invio, dovrebbe essere possibile richiedere un flusso Smooth, HLS o MPEG DASH usando i seguenti formati:
 
-    return outputAsset;
-}
+Smooth Streaming:
 
-static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
-{
-    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
-}
-</code></pre>
-</li>
-<li>
-I metodi helper GetJob e GetAsset recuperano tramite query e restituiscono un riferimento a un oggetto processo e un oggetto asset con gli ID specificati. È possibile usare un tipo simile di query LINQ per restituire riferimenti ad altri oggetti Servizi multimediali nel server.
-<pre><code>
-static IJob GetJob(string jobId)
-{
-    // Use a Linq select query to get an updated 
-    // reference by Id. 
-    var jobInstance =
-        from j in _context.Jobs
-        where j.Id == jobId
-        select j;
-    // Return the job reference as an Ijob. 
-    IJob job = jobInstance.FirstOrDefault();
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-    return job;
-}
-static IAsset GetAsset(string assetId)
-{
-    // Use a LINQ Select query to get an asset.
-    var assetInstance =
-        from a in _context.Assets
-        where a.Id == assetId
-        select a;
-    // Reference the asset as an IAsset.
-    IAsset asset = assetInstance.FirstOrDefault();
+HLS:
 
-    return asset;
-}
-</code></pre>
-</li>
-</ul>
-</li>
-</ol>
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-## Test del codice
-Eseguire il programma premendo F5. Nella console verrà visualizzato un output simile a quello riportato di seguito:
+MPEG DASH
 
-<pre><code>
-Asset name: UploadSingleFile_11/14/2012 10:09:11 PM
-Time created: 11/14/2012 12:00:00 AM
-Created assetFile interview2.wmv
-Upload interview2.wmv
-Done uploading of interview2.wmv using Upload()
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
 
-Job ID: nb:jid:UUID:ea8d5a66-86b8-9b4d-84bc-6d406259acb8
-Job Name: My encoding job
-Job submitted (client UTC time): 11/14/2012 10:09:39 PM
-Media Services account name: Add-Media-Services-Account-Name
-Media Services account location: Add-Media-Services-account-location-name
 
-Job(My encoding job) state: Queued.
-Please wait...
+### <a id="publish_get_urls"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo
 
-Job(My encoding job) state: Processing.
-Please wait...
+Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: Localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatore SAS (firma di accesso condiviso), usati per scaricare i file multimediali.
 
-********************
-Job(My encoding job) is finished.
-Please wait while local tasks or downloads complete...
-********************
+Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. 
 
-Locator path:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62?st=2012-11-14T22%3A07%3A01Z&amp;se=2012-11-14T23%3A07%3A01Z&amp;sr=c&amp;
-si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&amp;sig=XKMo0qJI5w8Fod3NsV%2FBxERnav8Jb6hL7f
-xylq3oESc%3D
 
-Full URL to file:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62/interview2.mp4?st=2012-11-14T22%3A07%3A01Z&amp;se=2012-11-14T23%3
-A07%3A01Z&amp;sr=c&amp;si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&amp;sig=XKMo0qJI5w8Fod3NsV%2F
-BxERnav8Jb6hL7fxylq3oESc%3D
+Un URL su richiesta per Smooth Streaming ha il seguente formato:
 
-Locator path:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62?st=2012-11-14T22%3A07%3A01Z&amp;se=2012-11-14T23%3A07%3A01Z&amp;sr=c&amp;
-si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&amp;sig=XKMo0qJI5w8Fod3NsV%2FBxERnav8Jb6hL7f
-xylq3oESc%3D
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Full URL to file:
-https://mediasvcd08mtz29tcpws.blob.core.windows-int.net/asset-4f5b42f4-3ade-4c2c
--9d48-44900d4f6b62/interview2_metadata.xml?st=2012-11-14T22%3A07%3A01Z&amp;se=2012-1
-1-14T23%3A07%3A01Z&amp;sr=c&amp;si=d07ec40c-02d7-4642-8e54-443b79f3ba3c&amp;sig=XKMo0qJI5w8F
-od3NsV%2FBxERnav8Jb6hL7fxylq3oESc%3D
+Un URL su richiesta per HLS ha il seguente formato:
 
-Downloads are in progress, please wait.
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-File download path:  C:\supportFiles\outputfiles\interview2.mp4
-1.70952185308162 % download progress.
-3.68508804454907 % download progress.
-6.48870388360293 % download progress.
-6.83808741232649 % download progress.
-. . . 
-99.0763740574049 % download progress.
-99.1522674787341 % download progress.
-100 % download progress.
-File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
-100 % download progress.
+Un URL su richiesta per MPEG DASH ha il seguente formato:
 
-</code></pre>
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-1. Durante l'esecuzione di questa applicazione, si verifica quanto descritto di seguito:
+Un URL SAS usato per scaricare i file ha il seguente formato:
 
-2. In Servizi multimediali viene caricato un file con estensione wmv. 
+	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-3. Il file viene quindi codificato tramite il set di impostazioni **H264 Broadband 720p** di **Azure Media Encoder**.
+Media Services .NET SDK Extensions fornisce dei pratici metodi di supporto che restituiscono URL formattati per l'asset pubblicato.
+ 
+Il codice seguente usa .NET SDK Extensions per creare i localizzatori e ottenere URL per lo streaming e il download progressivo. Il codice mostra anche come scaricare i file in una cartella locale.
 
-4. Nella cartella \supportFiles\outputFiles viene creato il file FileSasUrlList.txt contenente l'URL dell'asset codificato. 
+Aggiungere il metodo seguente alla classe Program.
 
-	Per riprodurre il file multimediale, copiare l'URL dell'asset dal file di testo e incollarlo in un browser. 
+    static public void PublishAssetGetURLs(IAsset asset)
+    {
+        // Publish the output asset by creating an Origin locator for adaptive streaming, 
+        // and a SAS locator for progressive download.
 
-5. Il file multimediale con estensione mp4 e il file _metadata.xml vengono scaricati nella cartella outputFiles.
+        _context.Locators.Create(
+            LocatorType.OnDemandOrigin,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
 
->[WACOM.NOTE]
-> Nel modello a oggetti di Servizi multimediali un asset è un oggetto raccolta di contenuto di Servizi multimediali che rappresenta uno o più file. Il percorso localizzatore fornisce un URL BLOB di Azure corrispondente al percorso di base dell'asset nei servizi di archiviazione di Azure. Per accedere a file specifici all'interno dell'asset, aggiungere un nome di file al percorso localizzatore di base.
+        _context.Locators.Create(
+            LocatorType.Sas,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
 
-<h2>Passaggi successivi</h2>
-In questa procedura dettagliata è stata illustrata una sequenza di attività di programmazione per la compilazione di un'applicazione Servizi multimediali semplice. Sono state illustrate le attività di programmazione fondamentali di Servizi multimediali, tra cui il recupero del contesto del server, la creazione e la codifica di asset nonché il download di asset presenti nel server o il relativo accesso. Per i passaggi successivi e attività di sviluppo più avanzate, vedere:
 
-- <a href="http://azure.microsoft.com/it-it/develop/media-services/resources/">Come usare Servizi multimediali</a>
-- <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh973618.aspx">Creazione di applicazioni con l'API REST di Servizi multimediali</a>
+        IEnumerable<IAssetFile> mp4AssetFiles = asset
+                .AssetFiles
+                .ToList()
+                .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming, 
+        // and the Progressive Download URL.
+        Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
+        Uri hlsUri = asset.GetHlsUri();
+        Uri mpegDashUri = asset.GetMpegDashUri();
+
+        // Get progressive download URLs for each MP4 file that was generated as a result
+		// of encoding.
+		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+
+
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
+        Console.WriteLine(smoothStreamingUri);
+        Console.WriteLine(hlsUri);
+        Console.WriteLine(mpegDashUri);
+        Console.WriteLine();
+
+		// Display the progressive download URLs.
+        Console.WriteLine("Use the following URLs for progressive download.");
+        mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
+        Console.WriteLine();
+
+        // Download the output asset to a local folder.
+        string outputFolder = "job-output";
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Downloading output asset files to a local folder...");
+        asset.DownloadToFolder(
+            outputFolder,
+            (af, p) =>
+            {
+                Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
+
+        Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
+    }
+
+## <a id="play"></a>Riprodurre il contenuto  
+
+Dopo aver eseguito il programma definito nella sezione precedente, nella finestra della console vengono visualizzati URL simili al seguente.
+
+URL per streaming adattivo:
+
+Smooth Streaming
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
+
+HLS
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+
+MPEG DASH
+
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+
+URL per download progressivo (audio e video).    
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+
+
+Per testare Smooth Streaming, usare [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) o [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+
+Per testare MPEG DASH, usare [http://dashif.org](http://dashif.org/reference/players/javascript/).
+
+Per testare HLS, usare dispositivi iOS o Safari oppure [3ivx-hls-player](http://apps.microsoft.com/windows/it-it/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+
+
+Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
+
 
 <h2>Risorse aggiuntive</h2>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servizi multimediali di Azure 102 - Creazione dinamica dei pacchetti e dispositivi mobili</a>
 
+
 <!-- Anchors. -->
-[Introduzione a Servizi mobili]:#getting-started
-[Creare un nuovo servizio mobile]:#create-new-service
-[Definire l'istanza del servizio mobile]:#define-mobile-service-instance
-[Passaggi successivi]:#next-steps
 
 
-<!--HONumber=35.1-->
+<!-- URLs. -->
+  [Installazione guidata piattaforma Web]: http://go.microsoft.com/fwlink/?linkid=255386
+  [portale di gestione]: http://manage.windowsazure.com/
+
+
+
+
+<h2>Risorse aggiuntive</h2>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servizi multimediali di Azure 102 - Creazione dinamica dei pacchetti e dispositivi mobili</a>
+
+
+
+<!--HONumber=42-->

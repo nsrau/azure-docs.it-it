@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Guida dell'utente dell'agente Linux per Azure" metaKeywords="" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Guida dell'utente dell'agente Linux per Azure" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
 
 
 
@@ -23,7 +23,7 @@ L'agente Linux di Azure (waagent) gestisce l'interazione tra una macchina virtua
   - Esegue la formattazione e il montaggio del disco risorse
   - Configura l'area di swap
 * **Rete**
-  - Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma
+  - Gestisce i percorsi per migliorare la compatibilità con i server DHCP della piattaforma.
   - Garantisce la stabilità del nome dell'interfaccia di rete
 * **Kernel**
   - Configura la piattaforma virtuale NUMA
@@ -44,7 +44,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 È possibile ottenere l'agente Linux più recente direttamente da:
 
 - [I vari provider di distribuzione che supportano Linux in Azure](http://support.microsoft.com/kb/2805216)
-- o dal [repository open source Github per l'agente Linux di Azure](https://github.com/WindowsAzure/WALinuxAgent)
+- Il [repository open source Github per l'agente Linux di Azure](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Distribuzioni Linux supportate
@@ -56,7 +56,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 * SLES 11 SP2+
 * Oracle Linux 6.4+
 
-Other Supported Systems:
+Altri sistemi supportati:
 
 * FreeBSD 9+ (WALinuxAgent v2.0.0+)
 
@@ -107,7 +107,7 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 
  * Rileva la versione del kernel e applica la soluzione alternativa VNUMA, se necessario
 
- * Sposta le regole udev che possono interferire con la rete (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/  
+ * Sposta le regole udev che possono interferire con la rete (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) in /var/lib/waagent/  
 
 - uninstall: Rimuove waagent e i file associati
  * Annulla la registrazione dello script di inizializzazione dal sistema e lo elimina
@@ -135,14 +135,16 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 
 - version: Visualizza la versione dell'agente
 
-- serialconsole: Configura GRUB affinché contrassegni ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
+- serialconsole: Configura GRUB affinché contrassegni ttyS0 (la prima porta seriale) come
+   console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla
+   porta seriale e resi disponibili per il debug.
 
 - daemon: Esegue waagent come daemon per gestire l'interazione con la piattaforma.
    Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
 
 ##Configurazione
 
-Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente. 
+Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. 
 Di seguito è riportato un file di configurazione di esempio:
 	
 	#
@@ -248,7 +250,7 @@ Specifica il tipo di file system per il disco risorse. I valori supportati varia
 Tipo: String  
 Predefinito: /mnt/resource 
 
-Specifica il percorso in cui è montato il disco risorse. Si noti che il disco risorse è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale.
+Specifica il percorso in cui è montato il disco risorse. Si noti che il disco risorse è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale.
 
 **ResourceDisk.EnableSwap:**
 
@@ -403,4 +405,7 @@ Predefinito: None
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

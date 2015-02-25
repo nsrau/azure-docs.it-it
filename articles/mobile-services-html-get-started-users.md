@@ -1,28 +1,28 @@
-﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" metaKeywords="" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite numerosi provider di identità, tra cui Microsoft, Facebook, Twitter e Google." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
 
-# Aggiunta dell'autenticazione nell'app di Servizi mobili 
+# Aggiungere l'autenticazione all'app di Servizi mobili 
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app HTML o PhoneGap.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
+Questo argomento descrive come autenticare gli utenti in Servizi mobili di Azure dalla propria app HTML o PhoneGap.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1. [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]
-2. [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]
-3. [Aggiunta dell'autenticazione all'app]
+1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
+2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
+3. [Aggiungere l'autenticazione all'app]
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili]. 
 
-##<a name="register"></a>Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili
+##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a>Limitazione delle autorizzazioni agli utenti autenticati
+##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. Nella directory dell'app avviare uno dei file di comando seguenti dalla sottocartella **server**.
@@ -30,8 +30,8 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 	+ **launch-windows** (computer Windows) 
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
-
-	>[WACOM.NOTE]In un computer Windows, digitare 'R' quando PowerShell chiede di confermare che si desidera eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
+	
+	>[AZURE.NOTE]In un computer Windows digitare `R` quando PowerShell chiede di confermare che si vuole eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare la nuova app.
 
@@ -43,11 +43,11 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prima di richiedere risorse al servizio mobile.
 
-##<a name="add-authentication"></a>Aggiunta dell'autenticazione all'app
+##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
->[WACOM.NOTE]Poiché l'accesso viene eseguito in una finestra popup, richiamare il metodo <strong>login</strong> dall'evento clic di un pulsante. In caso contrario, in molti browser non sarà visualizzata la finestra di accesso.
+>[AZURE.NOTE]Poiché l'accesso viene eseguito in una finestra popup, richiamare il metodo <strong>login</strong> da un evento clic del pulsante. In caso contrario, in molti browser non sarà visualizzata la finestra di accesso.
 
-1. Aprire il file di progetto, individuare l'elemento H1 e sotto di esso aggiungere il frammento di codice seguente:
+1. Aprire il file di progetto index.html, individuare l'elemento H1 e sotto di esso aggiungere il frammento di codice seguente:
 
 	    <div id="logged-in">
             You are logged in as <span id="login-name"></span>.
@@ -93,9 +93,9 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 			$("#logged-in button").click(logOut);
 		});
 
-    In questo modo viene creato set di funzioni per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo <strong>login</strong> precedente con uno dei seguenti: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> o <em>aad</em>.
+    In questo modo viene creato set di funzioni per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo di <strong>login</strong> riportato in precedenza con uno dei seguenti: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> o <em>aad</em>.
 
-	>[WACOM.NOTE]In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti:
+	>[AZURE.IMPORTANT]In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
 	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -103,16 +103,16 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 	   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-	>[WACOM.NOTE]Se si utilizza Internet Explorer, dopo l'accesso potrebbe essere visualizzato un errore che indica che <code>non è possibile accedere all'oggetto opener della finestra, in quanto potrebbe trovarsi in un'area di Internet Explorer diversa</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, aprire la scheda <strong>Sicurezza</strong> di <strong>Opzioni Internet</strong>, fare clic su <strong>Intranet locale</strong>, quindi su <strong>Siti</strong> e infine disabilitare <strong>Rileva automaticamente rete Intranet</strong>. Ricordare di tornare a modificare questa opzione al termine del test.
+	>[AZURE.NOTE]Se si usa Internet Explorer, dopo l'accesso potrebbe essere visualizzato un errore che indica che <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in <strong>Opzioni Internet</strong> aprire la scheda <strong>Sicurezza</strong>, fare clic su <strong>Intranet locale</strong>, quindi su <strong>Siti</strong> e disabilitare <strong>Rileva automaticamente rete Intranet</strong>. Ricordare di tornare a modificare questa opzione al termine del test.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per altre informazioni su come usare Servizi mobili con HTML/JavaScript, vedere [Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili].
+Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per altre informazioni su come usare Servizi mobili con HTML/JavaScript, vedere [Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili].
 
 <!-- Anchors. -->
-[Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
-[Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
-[Aggiunta dell'autenticazione all'app]: #add-authentication
+[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
+[Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
+[Aggiungere l'autenticazione all'app]: #add-authentication
 [Passaggi successivi]:#next-steps
 
 <!-- Images. -->
@@ -126,9 +126,10 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-html-get-started
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-html-get-started-data
-[Autorizzazione di utenti con script]: /it-it/documentation/articles/mobile-services-html-authorize-users-in-scripts
+[Autorizzare gli utenti con gli script]: /it-it/documentation/articles/mobile-services-html-authorize-users-in-scripts
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
+[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

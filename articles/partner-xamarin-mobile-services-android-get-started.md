@@ -1,14 +1,29 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili per Xamarin.Android" metaKeywords="applicazione Xamarin.Android di Azure, XamarinAndroid di servizi mobili, introduzione ad Azure Xamarin.Android" writer="craigd" description="Informazioni su come usare Servizi mobili di Azure con l'app per Xamarin.Android." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Introduzione a Servizi mobili per Xamarin.Android" 
+	writer="craigd" 
+	description="Informazioni su come usare Servizi mobili di Azure con l'app per Xamarin.Android." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin.Android con Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.</p>
+<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Android mediante Servizi mobili di Azure. In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile.</p>
 <p>Di seguito è riportata una schermata dell'app completata:</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">10:05</span></div>
@@ -18,13 +33,13 @@
 
 Per completare questa esercitazione, è necessario disporre di [Xamarin.Android], che installa Xamarin Studio e un plug-in di Visual Studio (in Windows), nonché della piattaforma Android più recente. È necessario Android 4.2 SDK o una versione successiva. 
 
-Il progetto di guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Mentre questo progetto è destinato ad Android 4.2 o versione successiva, con Mobile Services SDK è richiesto solo Android 2.2 o una versione successiva.
+Il progetto di Guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Questo progetto richiede Android 4.2 o versione successiva, invece l'SDK di Servizi mobili richiede solo Android 2.2 o versione successiva.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <h2>Creare una nuova app per Xamarin.Android</h2>
 
@@ -34,7 +49,7 @@ In questa sezione si creerà una nuova app di Xamarin.Android connessa al serviz
 
 1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-2. Nella scheda Guida introduttiva fare clic su **Xamarin.Android** in **Scegli piattaforma** ed espandere **Crea una nuova app Android**.
+2. Nella scheda Avvio rapido fare clic su **Xamarin.Android** in **Scegli piattaforma** ed espandere **Crea una nuova app Android**.
 
 	![][6]
 
@@ -44,7 +59,7 @@ In questa sezione si creerà una nuova app di Xamarin.Android connessa al serviz
 
 3. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
-4. In **Scaricare ed eseguire l'app** fare clic su **Download**. 
+4. In **Scaricare ed eseguire l'applicazione** fare clic su **Download**. 
 
 	Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
@@ -62,15 +77,15 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 3. Premere il pulsante **Esegui** per compilare il progetto e avviare l'app. Verrà chiesto di selezionare un emulatore o un dispositivo USB collegato. 
 
-	<div class="dev-callout"><strong>Nota</strong> <p>Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un Android Virtual Device (AVD). Usare AVD Manager per creare e gestire questi dispositivi.</p></div>
+	> [AUZRE.NOTE] Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
 
-4. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_ e quindi fare clic su **Add**.
+4. Nell'app digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic su **Add**.
 
 	![][10]
 
 	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
    	> È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.cs in C#.
 
 6. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
@@ -84,16 +99,13 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
-* [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
-
 * [Introduzione alla sincronizzazione dei dati offline]
   <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Introduzione alle notifiche push] 
+* [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 <!-- Anchors. -->
@@ -127,3 +139,6 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

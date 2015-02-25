@@ -1,9 +1,23 @@
-﻿       <properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
+> - [Introduzione](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
 > - [Risultati](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
@@ -23,3 +37,5 @@ Il pacchetto NuGet per Servizi mobili di Azure è stato aggiunto al progetto. So
 Nel file App.xaml.cs è stato creato un oggetto **MobileServiceClient** con l'URL applicazione e la chiave applicazione del servizio mobile selezionato. 
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

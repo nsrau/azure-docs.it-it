@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Endorsed distributions" pageTitle="Distribuzioni approvate di Linux in Azure" metaKeywords="" description="Informazioni sulle distribuzioni di Linux approvate in Azure, che includono le linee guida per Ubuntu, OpenLogic e SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Distribuzioni approvate di Linux in Azure" description="Informazioni sulle distribuzioni di Linux approvate in Azure, che includono le linee guida per Ubuntu, OpenLogic e SUSE." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark"/>
 
 
 
@@ -54,17 +54,18 @@ Questa tabella include anche un collegamento alla [patch di compatibilità per i
 		<td> Ubuntu 12.04.1+, 14.04 e 14.10 </td>
 		<td>Nel kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Obbligatoria solo per 12.04 o 12.04.01</a></td>
-		<td>Pacchetto: nell'archivio del pacchetto sotto walinuxagent <br />
+		<td>Pacchetto: Nell'archivio del pacchetto sotto walinuxagent <br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS di OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Driver LIS</a>; Driver CentOS 6.4+: nel kernel</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Driver LIS</a>; Driver CentOS 6.4+: in Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Obbligatoria solo per 6.3</a></td>
-		<td>Pacchetto: <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">nell'archivio del pacchetto Open Logic </a> sotto walinuxagent<br />
+		<td>Pacchetto: nell'<a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">archivio del pacchetto Open Logic </a> sotto walinuxagent<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
+
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
@@ -88,8 +89,8 @@ Questa tabella include anche un collegamento alla [patch di compatibilità per i
 		<td> SLES 11 SP3+</td>
         <td>Nel kernel</td>
 		<td>N/D</td>
-		<td>Pacchetto: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>Pacchetto: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud: strumenti</a> archivio, nome: WALinuxAgent<br />
+			Codice sorgente: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -97,11 +98,14 @@ Questa tabella include anche un collegamento alla [patch di compatibilità per i
 		<td> openSUSE 13.1+</td>
 		<td>Nel kernel</td>
 		<td>N/D</td>
-		<td>Pacchetto: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>Pacchetto: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud: strumenti</a> archivio, nome: WALinuxAgent<br />
+			Codice sorgente: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

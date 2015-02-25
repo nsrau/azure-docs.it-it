@@ -1,21 +1,21 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (JavaScript) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app JavaScript per Windows Store." metaCanonical="http://www.windowsazure.com/it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare gli script del server per convalidare e modificare i dati (JavaScript) | Mobile Dev Center" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app JavaScript per Windows Store." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Convalidare e modificare i dati in Servizi mobili mediante script del server 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Questo argomento illustra come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app di Windows Store per implementare questi nuovi comportamenti.
+Questo argomento descrive come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app di Windows Store per implementare questi nuovi comportamenti.
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Aggiungere la convalida della lunghezza della stringa]
 2. [Aggiornare il client per il supporto della convalida]
 3. [Aggiungere un timestamp all'inserimento]
 4. [Aggiornare il client per la visualizzazione del timestamp]
 
-Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
 
 ## <a name="string-length-validation"></a>Aggiungere la convalida
 
@@ -29,7 +29,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -45,9 +45,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
     Questo script verifica la lunghezza della proprietà **TodoItem.text** e invia una risposta di errore quando la lunghezza supera i 10 caratteri. In caso contrario, viene chiamato il metodo **execute** per completare l'operazione di inserimento.
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>È possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Cancella</strong> e quindi su <strong>Salva</strong>.</p></div>	
+    > [AZURE.TIP] È possibile rimuovere uno script registrato nella scheda **Script** facendo clic su **Cancella** e quindi su **Salva**.	
 
 ## <a name="update-client-validation"></a>Aggiornare il client
 
@@ -79,13 +77,11 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 
 ## <a name="add-timestamp"></a>Aggiungere un timestamp
 
-Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script del server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
+Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
 
-<div class="dev-callout"><b>Nota</b>
-<p>La proprietà timestamp <b>createdAt</b> illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema <b>__createdAt</b> per ogni tabella.</p>
-</div>
+> [AZURE.NOTE] La proprietà timestamp **createdAt** illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema **__createdAt** per ogni tabella.
 
-1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Inserisci** corrente con la funzione seguente, quindi fare clic su **Salva**.
+1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente, quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -98,11 +94,9 @@ Nelle attività precedenti è stata eseguita la convalida di un'operazione di in
 
     Questa funzione estende lo script insert precedente aggiungendo una nuova proprietà timestamp **createdAt** all'oggetto prima che questo venga inserito dalla chiamata al metodo **request**.**execute**. 
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>createdAt</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **createdAt** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.
 
-2. In Visual Studio premere **F5** per eseguire l'app, digitare un testo più breve di 10 caratteri in **Insert a TodoItem**, quindi fare clic su **Save**.
+2. In Visual Studio premere **F5** per eseguire l'app, digitare un testo più breve di 10 caratteri in **Insert a TodoItem**, quindi fare clic su **Salva**.
 
    	Si noti che il nuovo timestamp non viene visualizzato nell'interfaccia utente dell'app.
 
@@ -161,7 +155,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 * [Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -178,7 +172,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-js
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-js
@@ -189,3 +183,6 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

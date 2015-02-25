@@ -1,21 +1,21 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Usare gli script del server per convalidare e modificare i dati (HTML 5) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare gli script del server per convalidare e modificare i dati (HTML 5) | Mobile Dev Center" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Convalidare e modificare i dati in Servizi mobili mediante script del server 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Questo argomento illustra come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app HTML per implementare questi nuovi comportamenti.
+Questo argomento descrive come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app HTML per implementare questi nuovi comportamenti.
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Aggiungere la convalida della lunghezza della stringa]
 2. [Aggiornare il client per il supporto della convalida]
 3. [Aggiungere un timestamp all'inserimento]
 4. [Aggiornare il client per la visualizzazione del timestamp]
 
-Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
 
 ## <a name="string-length-validation"></a>Aggiungere la convalida
 
@@ -25,11 +25,11 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
    	![][0]
 
-2. Fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
+2. Fare clic sulla scheda **Dati** quindi sulla tabella **TodoItem**.
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -47,9 +47,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
     Questo script verifica la lunghezza della proprietà **TodoItem.text** e invia una risposta di errore quando la lunghezza supera i 10 caratteri. In caso contrario, viene chiamata la funzione **execute** per completare l'operazione di inserimento.
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>È possibile rimuovere uno script registrato nella scheda <strong>Script</strong> È possibile rimuovere uno script registrato nella scheda <strong>Cancella</strong> e quindi su <strong>Salva</strong>.</p></div>	
+    > [AZURE.TIP] È possibile rimuovere uno script registrato nella scheda **Script** facendo clic su **Cancella** e quindi su **Salva**.	
 
 ## <a name="update-client-validation"></a>Aggiornare il client
 
@@ -61,9 +59,7 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
-	<div class="dev-callout"><b>Nota</b>
-		<p>In un computer Windows, digitare `R` quando PowerShell chiede di confermare che si desidera eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.</p>
-	</div>
+	> [AZURE.NOTE] In un computer Windows digitare `R` quando PowerShell chiede di confermare che si vuole eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare l'app.
 
@@ -82,19 +78,17 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 			evt.preventDefault();
 		});
 
-2. In un Web browser passare a <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, quindi digitare un testo in **Add new task** e fare clic su **Add**.
+2. In un Web browser, passare a <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, quindi digitare un testo in **Add new task** e fare clic su **Add**.
 
    	Si noti che l'operazione ha esito negativo e il gestore degli errori visualizza la risposta di errore in una finestra di dialogo.
 
 ## <a name="add-timestamp"></a>Aggiungere un timestamp
 
-Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script del server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
+Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
 
-<div class="dev-callout"><b>Nota</b>
-<p>La proprietà timestamp <b>createdAt</b> illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema <b>__createdAt</b> per ogni tabella.</p>
-</div>
+> [AZURE.NOTE] La proprietà timestamp **createdAt** illustrata in questo esempio è ora ridondante. Servizi mobili crea automaticamente una proprietà di sistema **__createdAt** per ogni tabella.
 
-1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Inserisci** corrente con la funzione seguente, quindi fare clic su **Salva**.
+1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente, quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -109,9 +103,7 @@ Nelle attività precedenti è stata eseguita la convalida di un'operazione di in
 
     Questa funzione estende lo script insert precedente aggiungendo una nuova proprietà timestamp **createdAt** all'oggetto prima che questo venga inserito dalla chiamata al metodo **request**.**execute**. 
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>createdAt</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.</p>
-    </div>
+    > [AZURE.IMPORTANT] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **createdAt** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.
 
 2. Ricaricare la pagina nel Web browser, quindi digitare un testo (non superiore ai 10 caratteri) in **Add new task** e fare clic su **Add**.
 
@@ -127,11 +119,11 @@ Nelle attività precedenti è stata eseguita la convalida di un'operazione di in
 
 Il client del servizio mobile ignorerà i dati delle risposte che non è in grado di serializzare nelle proprietà del tipo definito. Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visualizzi questi nuovi dati.
 
-1. Aprire il file app.js nell'edito, quindi sostituire la funzione **refreshTodoItems** con il codice seguente:
+1. Aprire il file app.js nell'editor, quindi sostituire la funzione **refreshTodoItems** con il codice seguente:
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {
@@ -156,7 +148,7 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 
    	Viene visualizzata la parte della data della nuova proprietà **createdAt**. 
 
-2. Aprire il file style.css nell'editor e sostituire gli stili nella classe `item-text` con i seguenti:
+2. Aprire il file style.css nell'editor e sostituire gli stili nella classe  `item-text` con i seguenti:
 
 		.item-text { width: 70%; height: 26px; line-height: 24px; 
 			border: 1px solid transparent; background-color: transparent; }
@@ -213,3 +205,6 @@ Per altre informazioni, vedere [Uso degli script del server in Servizi mobili] e
 [Portale di gestione]: https://manage.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
+
+
+<!--HONumber=42-->

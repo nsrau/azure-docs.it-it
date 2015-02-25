@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="iOS Media Player Framework" pageTitle="Usare Media Player Framework per iOS con Servizi multimediali di Azure" metaKeywords="" description="Informazioni su come usare la libreria Media Player Framework per iOS di Servizi multimediali di Azure per creare app complesse e dinamiche." metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare Media Player Framework per iOS con Servizi multimediali di Azure" description="Informazioni su come usare la libreria Media Player Framework per iOS di Servizi multimediali di Azure per creare app complesse e dinamiche." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Come usare Media Player Framework per iOS di Servizi multimediali di Azure
+# Come usare Media Player Framework per iOS di Servizi multimediali di Azure
 
 La libreria Media Player Framework per iOS di Servizi multimediali di Azure consente agli sviluppatori per dispositivi iPod, iPhone e iPad di creare con facilità applicazioni client complesse e dinamiche, in grado di generare e combinare rapidamente flussi audio e video. Ad esempio, nelle applicazioni in cui vengono visualizzati contenuti sportivi è possibile inserire facilmente qualsiasi tipo di annuncio e controllarne la frequenza di visualizzazione anche quando si ritorna al contenuto principale. Questa funzionalità è utile anche per le applicazioni didattiche, ad esempio per creare lezioni in cui vengono visualizzate digressioni o intestazioni laterali prima di tornare al contenuto principale.
 
@@ -19,7 +19,7 @@ In genere, la compilazione di un'applicazione in grado di creare flussi di conte
 
 La combinazione di queste funzionalità con quelle di riproduzione multimediale dei dispositivi iOS consente di creare esperienze multimediali avanzate in tempi brevi e con meno risorse.
 
-L'SDK contiene un'applicazione SamplePlayer che illustra come creare un'applicazione per iOS che utilizzi la maggior parte di queste funzionalità per creare un flusso di contenuti in tempo reale e consentire all'utente di attivare dinamicamente altro contenuto con la semplice pressione di un pulsante. In questa esercitazione vengono illustrati i componenti principali dell'applicazione SamplePlayer e viene mostrato come usarli come punto di partenza per creare un'applicazione.
+L'SDK contiene un'applicazione SamplePlayer che illustra come creare un'applicazione per iOS che usi la maggior parte di queste funzionalità per creare un flusso di contenuti in tempo reale e consentire all'utente di attivare dinamicamente altro contenuto con la semplice pressione di un pulsante. In questa esercitazione vengono illustrati i componenti principali dell'applicazione SamplePlayer e viene mostrato come usarli come punto di partenza per creare un'applicazione.
 
 ## Introduzione all'applicazione SamplePlayer
 Nella procedura riportata di seguito viene descritto come ottenere l'applicazione e vengono presentate le aree dell'applicazione che usano il framework. 
@@ -37,7 +37,7 @@ Nella procedura riportata di seguito viene descritto come ottenere l'applicazion
 
 4. Nella cartella iPad sono presenti due file con estensione xib: **SeekbarViewController** e **SamplePlayerViewController**. Consentono di creare il layout dell'interfaccia utente dell'applicazione per iPad. Analogamente, nella cartella iPhone sono presenti due file con estensione xib che consentono di definire la barra di scorrimento e il controller. 
 
-6. La logica dell'applicazione principale risiede in **SamplePlayerViewController.m** nella cartella `Shared`. La maggior parte dei frammenti di codice descritta di seguito si trova in questo file. 
+6. La logica dell'applicazione principale risiede in **SamplePlayerViewController.m** nella cartella  `Shared`. La maggior parte dei frammenti di codice descritta di seguito si trova in questo file. 
 
 ## Informazioni sul layout dell'interfaccia utente
 L'interfaccia del lettore è definita tramite due file con estensione xib. Nella sezione seguente verrà usato il layout di un dispositivo iPad come esempio, tuttavia, il layout dell'iPhone è molto simile e i principi sono gli stessi.
@@ -59,9 +59,9 @@ L'interfaccia del lettore è definita tramite due file con estensione xib. Nella
 
 * Il controllo **Player time** visualizza due tempi (`Label:playerTime`), ad esempio 00:23/02:10. In questo caso, 00:23 indica il tempo di riproduzione corrente e 02:10 indica la durata totale del contenuto multimediale. 
 
-* I pulsanti **SkipFroward e SkipBackward** al momento non funzionano come previsto. A breve verrà rilasciata una versione aggiornata.
+* I pulsanti **SkipFroward e SkipBackward**  attualmente non funzionano come previsto. Verrà rilasciata a breve una versione aggiornata.
 
-* Se si preme il pulsante **Schedule Now button** mentre è in corso la riproduzione del contenuto principale, viene inserito un annuncio (è possibile definire l'URL di origine dell'annuncio nel code-behind). Nota: nella versione corrente non è possibile programmare un annuncio mentre è in corso la riproduzione di un altro annuncio. 
+* Se si preme il pulsante **Schedule Now** mentre è in corso la riproduzione del contenuto principale, viene inserito un annuncio (è possibile definire l'URL di origine dell'annuncio nel code-behind). Nota: nella versione corrente non è possibile programmare un annuncio mentre è in corso la riproduzione di un altro annuncio. 
 
 ### Come programmare il contenuto principale
 Programmazione di un video clip da 0 a 80 secondi:
@@ -100,7 +100,7 @@ Nel codice di esempio precedente:
         [self logFrameworkError];
     }
 
-Questa operazione consente di programmare due flussi di contenuto sulla sequenza temporale del contenuto principale. Il primo è programmato in base a `URLWithString:url` mentre il secondo in base a `URLWithString:secondContent`. La riproduzione del secondo contenuto inizia a 30 secondi del flusso video e termina a 80 secondi. 
+Questa operazione consente di programmare due flussi di contenuto sulla sequenza temporale del contenuto principale. Il primo flusso è pianificato in base a  `URLWithString:url` e il secondo contenuto è pianificato in base a  `URLWithString:secondContent`. La riproduzione del secondo contenuto inizia a 30 secondi del flusso video e termina a 80 secondi. 
 
 ## Programmazione di annunci 
 Nella versione corrente è supportato solo un annuncio **pauseTimeline=false**, pertanto al termine dell'annuncio il lettore riprenderà dal punto in cui è stato lasciato il contenuto principale. 
@@ -114,7 +114,7 @@ Di seguito sono riportati alcuni aspetti importanti:
 </ul>
 ### Come programmare annunci preroll, midroll, postroll e podcast annuncio
 
-####Programmazione di annunci preroll
+#### Programmazione di annunci preroll
 
     LinearTime *adLinearTime = [[[LinearTime alloc] init] autorelease];
     NSString *adURLString = @"http://smoothstreamingdemo.blob.core.windows.net/videoasset/WA-BumpShort_120530-1.mp4";
@@ -139,11 +139,11 @@ L'oggetto **AdInfo** rappresenta tutte le informazioni relative al clip dell'ann
 * È necessario impostare il valore **appendTo** su -1 se non si tratta di un podcast annuncio. 
 * Il valore di **type** può essere di tipo preroll, midroll, postroll o podcast annuncio. Poiché ad esso non sono associati intervalli, per gli annunci preroll o postroll è necessario specificare il tipo. 
 
-####Programmazione di annunci midroll
+#### Programmazione di annunci midroll
 
 Se si aggiunge `adLinearTime.startTime = 23;` all'esempio di codice precedente, la riproduzione dell'annuncio viene avviata al 23° secondo della sequenza temporale del contenuto principale.
 
-####Programmazione di annunci postroll
+#### Programmazione di annunci postroll
 
     //Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -195,8 +195,8 @@ I podcast annuncio sono costituiti da un'interruzione di un annuncio con più an
     }
 
 Prendere nota delle informazioni seguenti:
-* Per il primo clip, **appendTo** è -1. Quando viene chiamato `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, adIndex riceve un valore univoco che indica la fine del primo clip nel podcast annuncio. Per il secondo clip nel podcast annuncio, allineare l'inizio del secondo annuncio con la fine del primo impostando **appendTo** come `adpodInfo2.appendTo = adIndex;`, che specifica la posizione di fine del primo come la posizione di inizio del secondo clip. 
-* È quindi necessario impostare il tipo come `AdType_Pod` per indicare che si tratta di un podcast annuncio. 
+* Per il primo clip, **appendTo** è -1. Quando viene chiamato `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex` riceve un valore univoco che indica la fine del primo clip nel podcast annuncio. Per il secondo clip nel podcast annuncio, allineare l'inizio del secondo annuncio con la fine del primo impostando **appendTo** come `adpodInfo2.appendTo = adIndex;` che specifica la posizione di fine del primo come la posizione di inizio del secondo clip. 
+* È quindi necessario impostare il tipo come  `AdType_Pod` per indicare che si tratta di un podcast annuncio. 
 
 ### Come programmare un annuncio a riproduzione singola o a più riproduzioni
     AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
@@ -205,4 +205,5 @@ Prendere nota delle informazioni seguenti:
 Come illustrato nell'esempio di codice precedente, se si imposta **deleteAfterPlay** su **YES**, l'annuncio viene riprodotto solo una volta. Se invece si imposta **deleteAfterPlay** su **NO**, l'annuncio viene riprodotto in modo continuo, ovvero "a più riproduzioni".
 ### Per altre informazioni, fare riferimento al wiki di [Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

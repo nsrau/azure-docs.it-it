@@ -1,6 +1,20 @@
-<properties urlDisplayName="How to monitor" pageTitle="Come monitorare i siti Web - Gestione servizi di Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Informazioni su come monitorare i siti Web di Azure usando la pagina di monitoraggio nel portale di gestione." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Come monitorare i siti Web - Gestione servizi di Azure" 
+	description="Informazioni su come monitorare i siti Web di Azure usando la pagina di monitoraggio nel portale di gestione." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 
 
@@ -36,7 +50,7 @@ Nella modalità del sito Web **Standard** è possibile ricevere avvisi basati su
 
 È possibile configurare i siti Web per l'esecuzione in modalità **Condivisa** o **Standard** dalla pagina di gestione **Scala** del sito Web. Ogni sottoscrizione Azure ha accesso a un pool di risorse fornito allo scopo di eseguire un massimo di 100 siti Web per area in modalità sito Web **Condivisa**. Il pool di risorse disponibile per ogni sottoscrizione di Sito Web per questo scopo è condiviso da altri siti Web configurati per l'esecuzione in modalità **Condivisa** nella stessa area geografica. Poiché tali risorse sono condivise con altri siti Web, tutte le sottoscrizioni prevedono un limite per l'uso di tali risorse. I limiti applicati all'uso di queste risorse da parte della sottoscrizione sono espressi come quote di uso visualizzate nella sezione relativa alla panoramica sull'uso della pagina di gestione **Dashboard** di ogni sito Web.
 
->[WACOM.NOTE] Quando un sito Web è configurato per l'esecuzione in modalità **Standard** gli vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (valore predefinito), **Media** o **Grande**, come illustrato nella tabella [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]. Non sono previsti limiti alle risorse che una sottoscrizione può usare per l'esecuzione di siti Web in modalità **Standard**. Tuttavia, il numero di siti Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
+>[AZURE.NOTE] Quando un sito Web è configurato per l'esecuzione in modalità **Standard** gli vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (valore predefinito), **Media** o **Grande**, come illustrato nella tabella [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]. Non sono previsti limiti alle risorse che una sottoscrizione può usare per l'esecuzione di siti Web in modalità **Standard**. Tuttavia, il numero di siti Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
  
 ### Procedura: Visualizzazione delle quote di uso per i siti Web configurati per la modalità Condivisa ###
 Per determinare il livello di impatto di un sito Web sulle quote di uso delle risorse, eseguire questa procedura:
@@ -68,45 +82,38 @@ Nella sezione **diagnostica applicazioni** della pagina di gestione **Configura*
 
 È possibile abilitare o disabilitare le seguenti opzioni di diagnostica applicazioni:
 
-- **Registrazione applicazioni (file system)**: attiva la registrazione delle informazioni prodotte dall'applicazione. Il campo **Livello di registrazione** determina se vengono registrate le informazioni a livello di errore, avviso o informazioni. È inoltre possibile selezionare l'opzione Verbose per registrare tutte le informazioni generate dall'applicazione.
+- **Registrazione applicazioni (file system)*: attiva la registrazione delle informazioni prodotte dall'applicazione. Il campo **Livello di registrazione** determina se vengono registrate le informazioni a livello di errore, avviso o informazioni. È inoltre possibile selezionare l'opzione Verbose per registrare tutte le informazioni generate dall'applicazione.
 
 	I log generati da questa impostazione sono archiviati nel file system del sito Web ed è possibile scaricarli tramite la procedura descritta nella sezione **Download dei file di log per un sito Web** riportata di seguito.
 
-- **Registrazione applicazioni (archiviazione tabella)**: attiva la registrazione delle informazioni generate dall'applicazione, come quando si seleziona l'opzione Registrazione applicazioni (file system). In questo caso, le informazioni del log vengono archiviate in una tabella in un account di archiviazione di Azure.
+- **Registrazione applicazioni (archiviazione tabella)*: attiva la registrazione delle informazioni generate dall'applicazione, come quando si seleziona l'opzione Registrazione applicazioni (file system). In questo caso, le informazioni del log vengono archiviate in una tabella in un account di archiviazione di Azure.
 
 	Per specificare l'account di archiviazione di Azure e la tabella, scegliere **On**, selezionare il **Livello di registrazione** e quindi scegliere **Gestisci archivio tabelle**. Specificare l'account di archiviazione e la tabella da usare o creare una nuova tabella.
 
 	È possibile accedere alle informazioni del log archiviate nella tabella tramite un client di archiviazione di Azure.
 
-- **Registrazione applicazioni (archiviazione BLOB)**: attiva la registrazione delle informazioni generate dall'applicazione, come quando si seleziona l'opzione Registrazione applicazioni (archiviazione tabelle). In questo caso, le informazioni del log vengono archiviate in un BLOB in un account di archiviazione di Azure.
+- **Registrazione applicazioni (archiviazione BLOB)*: attiva la registrazione delle informazioni generate dall'applicazione, come quando si seleziona l'opzione Registrazione applicazioni (archiviazione tabelle). In questo caso, le informazioni del log vengono archiviate in un BLOB in un account di archiviazione di Azure.
 
 	Per specificare l'account di archiviazione di Azure e il BLOB, scegliere **On**, selezionare il **Livello di registrazione** e quindi scegliere **Gestisci archivio BLOB**. Specificare l'account di archiviazione, il contenitore BLOB e il nome BLOB da usare o creare un contenitore e un BLOB nuovi.
 
 Per altre informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione](https://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/).
 
-<div class="dev-callout"on> 
-<b>NOTA</b> 
-<p>La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.</p> </div>
+> [AZURE.NOTE] La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
 
 Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di un client di archiviazione per visualizzare i dati di log, risulta più utile quando si prevede di utilizzare un servizio o un'applicazione che riconosce come leggere ed elaborare i dati direttamente dall'archivio tabelle o BLOB di Azure. La registrazione nel file system genera file che possono essere scaricati nel computer locale mediante FTP o altre utilità descritte più avanti in questa sezione.
 
-<div class="dev-callout"> 
-	<b>Nota</b> 
-	<p><b>È possibile abilitare contemporaneamente Diagnostica applicazioni (file system)</b>, <b>Diagnostica applicazioni (archiviazione tabelle)</b> e <b>Diagnostica applicazioni (archiviazione BLOB)</b> ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.</p> </div>
+> [AZURE.NOTE] È possibile abilitare contemporaneamente **Diagnostica applicazioni (file system)**, **Diagnostica applicazioni (archiviazione tabelle)** e **Diagnostica applicazioni (archiviazione BLOB)** ed effettuare configurazioni del livello di log individuali. Ad esempio, è possibile registrare gli errori e gli avvisi nell'archivio come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato dopo avere instrumentato il codice dell'applicazione per la risoluzione di un problema.
 
-<div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet <b>Set-AzureWebsite</b>.</p><p>Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere <a href="http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/">Come usare Azure PowerShell</a>.</p></div>
+> [AZURE.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**.
+> 
+> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione Azure, vedere l'argomento relativo all'[uso di Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-<div class="dev-callout"> 
-<b>Nota</b> 
-<p>La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo usato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'uso della registrazione delle applicazioni, vedere gli articoli seguenti:</p>
-<ul>
-<li><b>.NET</b> - <a href="/it-it/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Abilitare la registrazione diagnostica per Siti Web di Azure</a></li>
-<li><b>Node.js</b> - <a href="/it-it/develop/nodejs/how-to-guides/Debug-Website/">Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure</a></li>
-</ul>
-<p>La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.</p>
-</div>
+> [AZURE.NOTE] La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo usato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'uso della registrazione delle applicazioni, vedere gli articoli seguenti:
+> 
+> - **.NET**: [abilitare la registrazione diagnostica per Siti Web di Azure](/it-it/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
+> - **Node.js**: [come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](/it-it/develop/nodejs/how-to-guides/Debug-Website/)
+> 
+> La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
 
 ####Diagnostica del sito####
 
@@ -127,10 +134,7 @@ La sezione **diagnostica del sito** della pagina di gestione **Configura** conse
 
 Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salva** nella parte inferiore della pagina di gestione **Configura** per applicare le opzioni impostate.
 
-<div class="dev-callout"> 
-<b>Importante</b> 
-<p>La registrazione e la traccia sottopongono il sito Web a un carico significativo. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.</p> 
-</div>
+> [AZURE.IMPORTANT] La registrazione e la traccia sottopongono il sito Web a un carico significativo. È consigliabile disattivare la registrazione e la traccia non appena sono stati riprodotti i problemi da risolvere.
 
 ###Configurazione avanzata###
 
@@ -162,17 +166,14 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 1. Aprire la pagina di gestione **Dashboard** del sito Web e prendere nota del sito FTP indicato in **Log di diagnostica** e dell'account visualizzato in **Utente distribuzione**. Il sito FTP è il sito in cui si trovano i file di log e l'account visualizzato in Deployment User è l'account usato per eseguire l'autenticazione al sito FTP.
 2. Se non sono ancora state create le credenziali di distribuzione, l'account visualizzato in **Utente distribuzione** indica **Non impostato**. In questo caso, è necessario creare le credenziali di distribuzione come descritto nella sezione Reset Deployment Credentials del Dashboard in quanto è necessario usare queste credenziali per eseguire l'autenticazione al sito FTP in cui sono archiviati i file di log. In Azure non è supportata l'autenticazione al sito FTP mediante le credenziali Live ID.
-3. Valutare l'uso di un client FTP, ad esempio [FileZilla][fzilla] per connettersi al sito FTP. Un client FTP semplifica l'immissione delle credenziali e la visualizzazione delle cartelle in un sito FTP rispetto al browser.
+3. Valutare l'uso di un client FTP, ad esempio [FileZilla][fzilla], per connettersi al sito FTP. Un client FTP semplifica l'immissione delle credenziali e la visualizzazione delle cartelle in un sito FTP rispetto al browser.
 4. Copiare i file di log dal sito FTP al computer locale.
 
 **Azure PowerShell**
 
 1. Dalla **schermata Start** o dal **menu Start** cercare **Azure PowerShell**. Fare clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
 
-	<div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>Se <b>Azure PowerShell</b> non è installato, vedere l'<a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx">introduzione ai cmdlet di Azure PowerShell</a> per informazioni sull'installazione e la configurazione.</p> 
-	</div>
+	> [AZURE.NOTE] Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
 
 2. Dal prompt di Azure PowerShell, usare i comandi seguenti per scaricare i file di log:
 
@@ -200,30 +201,27 @@ Verranno scaricati i file di log per il sito Web specificato da **nomesitoWeb** 
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-<div class="dev-callout"> 
-<b>Nota</b> 
-<p>Se il comando <b>azure</b> non è installato, vedere <a href="http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/">Come usare gli strumenti da riga di comando di Azure</a> per informazioni sull'installazione e la configurazione.</p>
-</div>
+> [AZURE.NOTE] Se il comando **azure** non è installato, vedere [Come usare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
 
 ###Lettura dei file di log###
 
 I file di log generati dopo avere abilitato la registrazione e/o la traccia per un sito Web variano in base al livello di registrazione/traccia impostato nella pagina di gestione Configura per il sito Web. Di seguito sono indicati i percorsi dei file di log e i modi in cui è possibile analizzarli:
 
-**Tipo di file di log: Application Logging**
+**Tipo di file di log: Registrazione applicazioni**
 
-- Percorso /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione. Le informazioni registrate includono data e ora, ID processo (PID) dell'applicazione e il valore generato dall'instrumentazione dell'applicazione.
+- Percorso: /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione. Le informazioni registrate includono data e ora, ID processo (PID) dell'applicazione e il valore generato dall'instrumentazione dell'applicazione.
 
-- Leggere i file con: Un editor di file o un parser in grado di riconoscere i valori generati dall'applicazione
+- Leggere i file con: un editor di file o un parser in grado di riconoscere i valori generati dall'applicazione
 
 **Tipo di file di log: Traccia delle richieste non riuscite**
 
-- Location: /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer. 
+- Percorso: /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer. 
 
 - Leggere i file con: Internet Explorer
 
-**Tipo di file di log: Detailed Error Logging**
+**Tipo di file di log: Registrazione errori dettagliata**
 
-- Location: /LogFiles/DetailedErrors/. La cartella /LogFiles/DetailedErrors/ contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati. 
+- Percorso: /LogFiles/DetailedErrors/. La cartella /LogFiles/DetailedErrors/ contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati. 
 
 - Leggere i file con: Web browser
 
@@ -233,13 +231,13 @@ Nei file HTM sono incluse le sezioni seguenti:
 
 - **Cause più probabili:** visualizza un elenco di cause possibili per l'errore.
 
-- **Possibili operazioni:** visualizza un elenco di soluzioni possibili per risolvere il problema segnalato dall'errore.
+- **Possibili operazioni:* visualizza un elenco di soluzioni possibili per risolvere il problema segnalato dall'errore.
 
 - **Collegamenti e altre informazioni**: fornisce informazioni di riepilogo aggiuntive sull'errore ed eventualmente i collegamenti ad altre risorse, ad esempio articoli della Microsoft Knowledge Base.
 
 **Tipo di file di log: Registrazione del server Web**
 
-- Location: /LogFiles/http/RawLogs. Le informazioni archiviate nei file sono formattate mediante il [formato di log esteso W3C](http://go.microsoft.com/fwlink/?LinkID=90561). I campi s-computername, s-ip e cs-version non sono usati da Siti Web di Azure.
+- Percorso: /LogFiles/http/RawLogs. Le informazioni archiviate nei file sono formattate mediante il [formato di log esteso W3C](http://go.microsoft.com/fwlink/?LinkID=90561). I campi s-computername, s-ip e cs-version non sono usati da Siti Web di Azure.
 
 - Leggere i file con: Log Parser. Usato per l'esecuzione di analisi e di query sui file di log IIS. Log Parser 2.2 è disponibile nell'Area download Microsoft all'indirizzo <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 
@@ -293,4 +291,5 @@ Per altre informazioni sul monitoraggio degli endpoint del sito Web, vedere i vi
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website" pageTitle="Creare un sito Web Node.js su Mac - Esercitazioni su Azure" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Informazioni su come compilare e distribuire un sito Node.js in Azure. Il codice di esempio è scritto in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Creare un sito Web Node.js su Mac - Esercitazioni di Azure" 
+	description="Informazioni sulla creazione e sulla distribuzione di un sito Web Node.js in Azure. I codici di esempio sono scritti in Java." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
@@ -22,8 +36,8 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Per creare un sito Web di Azure e quindi abilitare la pubblicazione Git per tale sito, attenersi alla procedura seguente.
 
-> [WACOM.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di versione di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
 > 
 > Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -85,9 +99,8 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
 		git init
 
-	<div class="dev-callout"><strong>Comando Git non disponibile</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Per le istruzioni sull'installazione in una specifica piattaforma, vedere <a href="http://git-scm.com/download" target="_blank">la pagina di download di Git</a>.</p>
-	</div>
+	> [AZURE.NOTE] **Comando Git non disponibile**
+	[Git](http://git-scm.com/%20target="_blank) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Per le istruzioni sull'installazione in una specifica piattaforma, vedere la [pagina di download di Git](http://git-scm.com/download%20target="_blank").
 
 2. Usare i comandi seguenti per aggiungere file all'archivio:
 
@@ -100,7 +113,7 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
     ![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
  
-4. Effettuare il push delle modifiche in Azure usando il comando seguente:
+4. Effettuare il push delle modifiche in Azure mediante il comando seguente:
 
 		git push azure master
 
@@ -129,7 +142,7 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
 ##Pubblicazione delle modifiche apportate all'applicazione
 
-1. Aprire il file **server.js** in un editor di testo e sostituire 'Hello World\n' con 'Hello Azure\n'. Salvare il file.
+1. Aprire il file **server.js** in un editor di testo e modificare 'Hello World\n' in 'Hello Azure\n'. Salvare il file.
 2. Dalla riga di comando passare alla directory **helloworld** ed eseguire i comandi seguenti.
 
 		git add .
@@ -148,13 +161,13 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'hell
 
 ##Passaggi successivi
 
-Anche se nella procedura illustrata in questo articolo viene usato il portale di Azure per creare un sito Web, è anche possibile usare gli [strumenti da riga di comando di Azure per Mac e Linux] per eseguire le stesse operazioni.
+Anche se nella procedura illustrata in questo articolo viene usato il portale Azure per creare un sito Web, è anche possibile usare gli [strumenti da riga di comando di Azure per Mac e Linux] per eseguire le stesse operazioni.
 
 Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni sull'uso di Siti Web di Azure con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](/it-it/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
 Per informazioni sulle versioni di Node.js fornite con Azure e su come specificare la versione da usare con l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure](/it-it/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](/it-it/documentation/articles/web-sites-nodejs-debug/) per informazioni su come diagnosticare l'errore.
+Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](/it-it/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
 
 
 ##Risorse aggiuntive
@@ -185,4 +198,5 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

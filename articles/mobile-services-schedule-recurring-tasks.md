@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" metaKeywords="" description="Utilizzo dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Pianificare processi ricorrenti in Servizi mobili 
 
@@ -8,7 +8,7 @@
 	<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
 </div>
  
-Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
+Questo argomento descrive come usare la funzionalità di pianificazione processi nel portale di gestione per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
 + Archiviazione di record di dati obsoleti o duplicati.
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
@@ -20,11 +20,11 @@ In questa esercitazione vengono descritte le procedure per usare la pianificazio
 + [Creare la nuova tabella Updates]
 + [Creare un nuovo processo pianificato]
 
-## <a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter v1.1 e archiviare le credenziali
+##<a name="get-oauth-credentials"></a>Registrazione per l'accesso alle API di Twitter v1.1 e archiviazione delle credenziali
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>Creare la nuova tabella Updates
+##<a name="create-table"></a>Creare la nuova tabella Updates
 
 In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
@@ -40,7 +40,7 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
   	Verrà creata una nuova tabella di archiviazione **Updates**. 
 
-## <a name="add-job"></a>Creare un nuovo processo pianificato  
+##<a name="add-job"></a>Creare un nuovo processo pianificato  
 
 Ora è possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
@@ -48,9 +48,9 @@ Ora è possibile creare l'attività pianificata che accede a Twitter e archivia 
 
    	![][4]
 
-    >[WACOM.NOTE]Quando si esegue il servizio mobile nella modalità <em>Gratuita</em> è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
+    >[AZURE.NOTE]Quando si esegue il servizio mobile nella modalità <em>Gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
 
-3. Nella finestra di dialogo dell'Utilità di pianificazione immettere _getUpdates_ per **Job Name**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta. 
+3. Nella finestra di dialogo dell'utilità di pianificazione immettere getUpdates per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta. 
    
    	![][5]
 
@@ -136,14 +136,14 @@ Ora è possibile creare l'attività pianificata che accede a Twitter e archivia 
 		}
 
 
-   	This Lo script chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag #mobileservices. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
+   	Lo script chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
-    >[WACOM.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile effettuare gli inserimenti in batch. Per altre informazioni, vedere <a href="/it-it/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Procedura: Eseguire inserimenti bulk</a>.
+    >[AZURE.NOTE]In questo esempio si presuppone che a ogni esecuzione pianificata vengano inserite solo alcune righe nella tabella. Nei casi in cui per ogni ciclo vengano inserite molte righe, è possibile che nella modalità gratuita le connessioni disponibili vengano esaurite. In questo caso, è consigliabile effettuare gli inserimenti in batch. Per altre informazioni, vedere <a href="/it-it/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Procedura: Eseguire inserimenti bulk</a>.
 
 6. Fare clic su **Esegui una volta** per testare lo script. 
 
   	![][7]
-       
+
    	Il processo verrà salvato ed eseguito pur rimanendo disabilitato nell'utilità di pianificazione.
 
 7. Fare clic sul pulsante Indietro, selezionare la scheda **Dati**, fare clic sulla tabella **Updates**, quindi su **Sfoglia** e verificare che i dati di Twitter siano stati inseriti nella tabella.
@@ -160,7 +160,7 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 
 ## <a name="nextsteps"> </a>Passaggi successivi
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -184,9 +184,12 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Registrazione delle app per l'autenticazione di Twitter con Servizi mobili]: /it-it/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Registrare le app per l'autenticazione di Twitter con Servizi mobili]: /it-it/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+
+<!--HONumber=42-->

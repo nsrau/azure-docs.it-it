@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Come crittografare asset in Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare la tecnologia di protezione Microsoft PlayReady per crittografare un asset in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come crittografare asset in Servizi multimediali - Azure" description="Informazioni su come usare la tecnologia di protezione Microsoft PlayReady per crittografare un asset in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -114,6 +114,7 @@ Per altre informazioni sulla protezione PlayReady, vedere:
 </ul>
 
 <h2>Passaggi successivi</h2>
-Dopo avere acquisito i concetti relativi alla protezione di asset con Servizi multimediali, è possibile passare all'argomento [Come gestire gli asset](../media-services-manage-assets/) .
+Dopo avere acquisito i concetti relativi alla protezione di asset con Servizi multimediali, è possibile passare all'argomento relativo alla [gestione degli asset](../media-services-manage-assets/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

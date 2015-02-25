@@ -1,6 +1,20 @@
-﻿<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Procedura dettagliata relativa a Connessioni ibride: Connettersi a un'istanza di SQL Server locale da un sito Web di Azure" description="Creare un sito Web in Microsoft Azure e connetterlo a un database di SQL Server locale" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Procedura dettagliata relativa a Connessioni ibride: Connettersi a un'istanza di SQL Server locale da un sito Web di Azure" 
+	description="Creare un sito Web in Microsoft Azure e connetterlo a un database di SQL Server locale" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride
 
@@ -9,7 +23,7 @@ Le connessioni ibride possono connettere i siti Web di Microsoft Azure a risorse
 
 In questa esercitazione si apprenderà come creare un sito Web nel portale di anteprima di Azure, connettere il sito Web al database SQL Server locale mediante la nuova funzionalità Connessioni ibride, creare una semplice applicazione Web ASP.NET che userà la connessione ibrida e distribuire l'applicazione nel sito Web di Azure. Il sito Web completato su Azure memorizza le credenziali dell'utente in un database di appartenenza locale. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET.
 
-> [WACOM.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] La parte relativa ai siti Web della funzionalità Connessioni ibride è disponibile solo nel [portale di anteprima di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Prerequisiti##
 Per completare l'esercitazione, sono necessari i prodotti seguenti. Sono tutti disponibili in versioni gratuite, quindi è possibile avviare le attività di sviluppo per Azure in modo completamente gratuito.
@@ -48,11 +62,11 @@ Il computer in cui si installa l'agente Hybrid Connection Manager locale:
     </tr>
 	<tr>
         <td>5671 e 9352</td>
-        <td><strong>Consigliato</strong> ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.</td>
+        <td><strong>Consigliato</strong> ma facoltativo per la connettività di dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.</td>
 	</tr>
 </table>
 
-- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale. 
+- Deve essere in grado di raggiungere il  *hostname*:*numero di porta* della risorsa locale. 
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -92,7 +106,7 @@ In questa sezione viene illustrato come installare SQL Server Express, abilitare
 	
 4. Accettare i valori predefiniti nella pagina **Configurazione server**.
 	
-5. Nella pagina **Configurazione del motore di database**, in **Modalità di autenticazione**, scegliere **Modalità mista (autenticazione di SQL Server e autenticazione di Windows**) e specificare una password.
+5. Nella pagina **Configurazione del motore di database**, in **Modalità di autenticazione**, scegliere**Modalità mista (autenticazione di SQL Server e autenticazione di Windows**) e specificare una password.
 	
 	![Choose Mixed Mode][ChooseMixedMode]
 	
@@ -130,7 +144,7 @@ L'applicazione Web Visual Studio richiede un database di appartenenza al quale A
 <a name="CreateSite"></a>
 ## B. Creare un sito Web nel portale di anteprima di Azure ##
 
-> [WACOM.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk](#CreateHC) e proseguire da quel punto.
+> [AZURE.NOTE] Se nel portale di anteprima di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk](#CreateHC) e proseguire da quel punto.
 
 1. Nell'angolo inferiore sinistro del [portale di anteprima di Azure](https://portal.azure.com) fare clic su **Nuovo** e quindi scegliere **Sito Web**.
 	
@@ -265,7 +279,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, verrà creata un
 
 In questo passaggio verrà modificata la stringa di connessione che comunica all'applicazione dove trovare il database SQL Server Express locale. La stringa di connessione si trova nel file Web.config dell'applicazione, che contiene le informazioni di configurazione relative all'applicazione. 
 
-> [WACOM.NOTE] Per assicurarsi che l'applicazione usi il database creato in SQL Server Express, e non quello presente nel database LocalDB predefinito di Visual Studio, è importante completare questo passaggio prima di eseguire il progetto.
+> [AZURE.NOTE] Per assicurarsi che l'applicazione usi il database creato in SQL Server Express, e non quello presente nel database LocalDB predefinito di Visual Studio, è importante completare questo passaggio prima di eseguire il progetto.
 
 1. In Esplora soluzioni fare doppio clic sul file Web.config.
 	
@@ -434,4 +448,5 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

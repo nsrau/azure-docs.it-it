@@ -1,29 +1,29 @@
-﻿<properties pageTitle="Introduzione a servizi mobili per applicazioni Windows Store | Mobile Developer Center" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Windows Store in C# o JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a servizi mobili per applicazioni Windows Store | Mobile Dev Center" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Windows Store in C# o JavaScript." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. Le soluzioni per app di Windows universali includono progetti di app di Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune. Per altre informazioni, vedere [Creare app di Windows universali per Windows e Windows Phone](http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn609832.aspx).
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. Le soluzioni per app di Windows universali includono progetti di app di Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune. Per altre informazioni, vedere [Creare app Windows universali per Windows e Windows Phone](http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn609832.aspx).
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la versione per backend .NET di questo argomento.
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la versione per back-end .NET di questo argomento.
 
->[WACOM.NOTE]Questo argomento illustra come creare un nuovo progetto di servizio mobile e un'app di Windows universale usando il portale di gestione di Azure. Visual Studio 2013 permette di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida introduttiva: Aggiungere un servizio mobile (back-end JavaScript)](http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn263180.aspx).
+>[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile e un'app di Windows universale usando il portale di gestione di Azure. Visual Studio 2013 permette di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida introduttiva: Aggiungere un servizio mobile (back-end JavaScript)](http://msdn.microsoft.com/it-it/library/windows/apps/xaml/dn263180.aspx).
 
->Per aggiungere un servizio mobile a un progetto app di Windows Phone 8.0 o Windows Phone Store 8.1, vedere [Introduzione ai dati per Windows Phonee](/it-it/documentation/articles/mobile-services-windows-phone-get-started-data).
+>Per aggiungere un servizio mobile a un progetto app di Windows Phone 8.0 o Windows Phone Store 8.1, vedere [Introduzione ai dati per Windows Phone](/it-it/documentation/articles/mobile-services-windows-phone-get-started-data).
 
-[WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
+[AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Un account Azure attivo. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express per Windows] 
 
 ## Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creare una nuova app di Windows universale
 
@@ -34,7 +34,7 @@ In questa sezione si creerà una nuova app di Windows universale connessa al ser
 1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
    
-2. Nella scheda Avvio rapido fare clic su **Windows** in **Scegli una piattaforma** ed espandere **Crea una nuova app di Windows Store**.
+2. Nella scheda Avvio rapido fare clic su **Windows** in **Scegli piattaforma** ed espandere **Crea una nuova app di Windows Store**.
 
    	![](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png)
 
@@ -46,15 +46,15 @@ In questa sezione si creerà una nuova app di Windows universale connessa al ser
 
 4. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
-5. In **Scaricare ed eseguire l'applicazione**, selezionare un linguaggio per l'app, quindi fare clic su **Scarica**. 
+5. In **Scaricare ed eseguire l'applicazione** selezionare un linguaggio per l'app, quindi fare clic su **Scarica**. 
 
   	Verrà scaricato il progetto per l'applicazione *To do list* di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
 ## Esecuzione dell'app per Windows
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-run-app](../includes/mobile-services-javascript-backend-run-app.md)]
+[AZURE.INCLUDE [mobile-services-javascript-backend-run-app](../includes/mobile-services-javascript-backend-run-app.md)]
 
->[WACOM.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file MainPage.xaml.cs.
+>[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file MainPage.xaml.cs.
 
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
@@ -93,3 +93,6 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portale di gestione]: https://manage.windowsazure.com/
 [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+
+
+<!--HONumber=42-->

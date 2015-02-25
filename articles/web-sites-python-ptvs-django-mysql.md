@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django e MySQL in Azure con Python Tools 2.1 per Visual Studio" description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Django che archivia i dati in un'istanza del database MySQL e che può essere distribuita in un sito Web." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Django e MySQL in Azure con Python Tools 2.1 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Django che archivia i dati in un'istanza del database MySQL e che può essere distribuita in un sito Web." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -11,7 +25,7 @@ In questa esercitazione verrà creata una semplice applicazione per sondaggi usa
 
 Si apprenderà come usare un servizio MySQL ospitato in Azure, come configurare l'applicazione per l'uso di MySQL e come pubblicare l'applicazione in un sito Web di Azure.
 
-Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato sui siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi Cloud di Azure][].
+Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato su Siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi cloud di Azure][].
 
 + [Prerequisiti](#prerequisites)
 + [Creare il progetto](#create-the-project)
@@ -25,13 +39,13 @@ Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo 
  - Visual Studio 2012 o 2013
  - [Python Tools 2.1 per Visual Studio][]
  - [VSIX di esempio di Python Tools 2.1 per Visual Studio][]
- - [Strumenti di Azure SDK per Visual Studio 2013][] o [Strumenti di Azure SDK per Visual Studio 2012][]
+ - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2012][]
  - [Python 2.7 a 32 bit][]
 
-> [WACOM.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. È possibile: <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="http://azure.microsoft.com/it-it/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
+> [AZURE.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://azure.microsoft.com/it-it/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
 > 
-> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##<a name="create-the-project"></a>Creare il progetto
 
@@ -107,15 +121,15 @@ Per creare un database con un piano gratuito, attenersi alla procedura seguente.
 
 ##<a name="configure-the-project"></a>Configurare il progetto
 
-In questa sezione verrà configurata l'applicazione per usare il database MySQL appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure.  Verranno inoltre installati i pacchetti Python aggiuntivi necessari per usare i database MySQL con Django,  quindi verrà eseguita l'applicazione in locale.
+In questa sezione verrà configurata l'applicazione per usare il database MySQL appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale Azure,  verranno installati i pacchetti Python aggiuntivi necessari per usare i database MySQL con Django,  quindi verrà eseguita l'applicazione in locale.
 
-1.  Nel [Portale di gestione di Azure][] fare clic su **COMPONENTI AGGIUNTIVI**, quindi fare clic sul servizio ClearDB MySQL Database creato in precedenza.
+1.  Nel [portale di gestione di Azure][] fare clic su **COMPONENTI AGGIUNTIVI**, quindi fare clic sul servizio ClearDB MySQL Database creato in precedenza.
 
 1.  Fare clic su **INFORMAZIONI DI CONNESSIONE**.  È possibile usare il pulsante Copia per inserire il valore di **CONNECTIONSTRING** negli Appunti.
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLConnectionInfo.png)
 
-1.  In Visual Studio aprire **settings.py** dalla cartella *NomeProgetto*.  Incollare temporaneamente la stringa di connessione nell'editor.  La stringa di connessione è nel formato seguente:
+1.  In Visual Studio aprire **settings.py** dalla cartella  *ProjectName*.  Incollare temporaneamente la stringa di connessione nell'editor.  La stringa di connessione è nel formato seguente:
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
@@ -133,9 +147,9 @@ In questa sezione verrà configurata l'applicazione per usare il database MySQL 
         }
 
 
-1.  In Esplora soluzioni, in **Python Environments** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Install Python Package**.
+1.  In Esplora soluzioni, in **Ambienti Python** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Installa pacchetto Python**.
 
-1. Installare il pacchetto "mysql-python" usando **easy_install**.
+1. Installare il pacchetto  `mysql-python` usando **easy_install**.
 
   	![Install Package Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -201,4 +215,5 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Documentazione di Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

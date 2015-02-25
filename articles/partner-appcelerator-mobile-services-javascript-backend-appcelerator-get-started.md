@@ -1,10 +1,24 @@
-﻿<properties pageTitle="Introduzione a servizi mobili di Azure per Appcelerator Titanium" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Appcelerator. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introduzione a Servizi mobili di Azure per Appcelerator Titanium" 
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Appcelerator." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Questa esercitazione illustra come sfruttare Servizi mobili di Mobile nelle applicazioni compilate con Appcelerator.
 
@@ -18,7 +32,7 @@ Se si compila per Android saranno necessari anche Android SDK 4.3 o versione suc
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creare una nuova app Appcelerator
 
@@ -50,7 +64,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
     ![][2]
 
-4.	Verrà infine visualizzato il progetto selezionato nella sezione dei progetti. Facoltativamente è possibile selezionare l'opzione &quot;Copy projects into workspace&quot;, che consente di copiare il progetto scaricato nell'area di lavoro. Infine, fare clic su Finish per aprire il progetto in Titanium Studio.
+4.	Verrà infine visualizzato il progetto selezionato nella sezione dei progetti. Facoltativamente è possibile selezionare l'opzione &quot;Copy projects into workspace&quot; che consente di copiare il progetto scaricato nell'area di lavoro. Infine, fare clic su Finish per aprire il progetto in Titanium Studio.
 
     ![][3]
 
@@ -64,7 +78,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
     ![][5]
 
-8.	Nella schermata successiva fare clic sull'icona con il segno PIÙ (+) e digitare un testo completo e comprensibile, ad esempio &quot;Completare l'esercitazione&quot;, quindi fare clic su Save.<br />
+8.	Nella schermata successiva fare clic sull'icona con il segno più (+) e digitare un testo completo e comprensibile, ad esempio &quot;Completare l'esercitazione&quot; quindi fare clic su Save.<br />
 
     ![][6]
 
@@ -75,7 +89,7 @@ Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Microsoft
 ![][8]
 
 
->[WACOM.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.m.
+>[AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.m.
 
 4. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
@@ -116,4 +130,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione all'autenticazione]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Introduzione alle notifiche push]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

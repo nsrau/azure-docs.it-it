@@ -1,26 +1,26 @@
-<properties urlDisplayName="Validate Data" pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare gli script del server per convalidare e modificare i dati (iOS) | Mobile Dev Center" description="Informazioni su come convalidare e modificare i dati inviati tramite script del server dall'app per iOS." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # Convalidare e modificare i dati in Servizi mobili mediante script del server
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Questo argomento illustra come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app per iOS per implementare questi nuovi comportamenti.
+Questo argomento descrive come usare gli script del server in Servizi mobili di Azure. Gli script del server vengono registrati in un servizio mobile e possono essere usati per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati. In questa esercitazione si procederà alla definizione e alla registrazione di script del server per la convalida e la modifica dei dati. Poiché il comportamento degli script sul lato server spesso influisce sul client, si procederà quindi all'aggiornamento dell'app per iOS per implementare questi nuovi comportamenti.
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Aggiungere la convalida della lunghezza della stringa]
 2. [Aggiornare il client per il supporto della convalida]
 
 
-Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ai dati].  
 
-## <a name="string-length-validation"></a>Aggiunta della convalida
+## <a name="string-length-validation"></a>Aggiungere la convalida
 
 È sempre consigliabile convalidare la lunghezza dei dati inviati dagli utenti. A questo scopo, è innanzitutto necessario registrare uno script che convalida la lunghezza dei dati di stringa inviati al servizio mobile e rifiuta le stringhe troppo lunghe, in questo caso lunghe più di 10 caratteri.
 
-1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi fare clic sull'app.
+1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
    	![][0]
 
@@ -28,7 +28,7 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
    	![][1]
 
-3. Fare clic su **Script** e quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
 
    	![][2]
 
@@ -44,17 +44,15 @@ Questa esercitazione si basa sulle procedure e sull'app di esempio dell'esercita
 
     Questo script verifica la lunghezza della proprietà **text** e invia una risposta di errore quando la lunghezza supera i 10 caratteri. In caso contrario, viene chiamato il metodo **execute** per completare l'operazione di inserimento.
 
-    <div class="dev-callout">
-	<b>Nota</b>
-	<p>È possibile rimuovere uno script registrato nella scheda <strong>Script</strong> facendo clic su <strong>Cancella</strong> e quindi su <strong>Salva</strong>.</p></div>
+    > [AZURE.TIP] È possibile rimuovere uno script registrato nella scheda **Script** facendo clic su **Cancella** e quindi su **Salva**.
 
-## <a name="update-client-validation"></a>Aggiornamento del client
+## <a name="update-client-validation"></a>Aggiornare il client
 
 Ora che il servizio mobile convalida dati e invia risposte di errore, è necessario aggiornare l'app .NET affinché sia in grado di gestire le risposte di errore dalla convalida.
 
 1. In Xcode aprire il progetto modificato dopo aver completato l'esercitazione [Introduzione ai dati].
 
-2. Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**) icon.
+2. Premere il pulsante **Run** (Comando + R) per compilare il progetto e avviare l'app, quindi immettere un testo più lungo di 10 caratteri nella casella di testo e fare clic sull'icona con il segno più (**+**).
 
    	Si noti che l'app genera un errore non gestito a seguito della risposta 400 (Richiesta non valida) restituita dal servizio mobile.
 
@@ -101,11 +99,11 @@ Ora che il servizio mobile convalida dati e invia risposte di errore, è necessa
 
   	Si noti che l'errore viene gestito e che il messaggio di errore viene visualizzato all'utente.
 
-## <a name="add-timestamp"></a>Aggiunta di un timestamp
+<!--## <a name="add-timestamp"></a>Aggiungere un timestamp
 
-Nelle attività precedenti si è proceduto alla convalida di un'operazione di inserimento che è accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti utilizzando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
+Nelle attività precedenti è stata eseguita la convalida di un'operazione di inserimento che è stata quindi accettata o rifiutata. Ora, si procederà all'aggiornamento dei dati inseriti usando uno script server che aggiunge una proprietà timestamp all'oggetto prima dell'inserimento.
 
-1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente e quindi fare clic su **Salva**.
+1. Nella scheda **Script** del [portale di gestione] sostituire lo script **Insert** corrente con la funzione seguente, quindi fare clic su **Salva**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -118,9 +116,7 @@ Nelle attività precedenti si è proceduto alla convalida di un'operazione di in
 
     Questa funzione estende lo script insert precedente aggiungendo una nuova proprietà timestamp **createdAt** all'oggetto prima che questo venga inserito dalla chiamata al metodo **request**.**execute**.
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna <strong>createdAt</strong> alla tabella <strong>TodoItem</strong> alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.</p>
-    </div>
+    > [AZURE.IMPORTANTE] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **createdAt** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata.
 
 2. In Visual Studio premere **F5** per eseguire l'app, digitare un testo più breve di 10 caratteri in **Insert a TodoItem**, quindi fare clic su **Salva**.
 
@@ -128,7 +124,7 @@ Nelle attività precedenti si è proceduto alla convalida di un'operazione di in
 
 3. Tornare al portale di gestione e fare clic sulla scheda **Sfoglia** nella tabella **todoitem**.
 
-   	Verrà visualizzata una colonna **createdAt** che contiene un valore timestamp per il nuovo elemento inserito.
+   	È ora presente una colonna **createdAt** che contiene un valore timestamp per il nuovo elemento inserito.
 
 È ora necessario aggiornare l'app iOS affinché visualizzi questa nuova colonna.
 
@@ -154,21 +150,19 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 
     Questa nuova definizione di classe include la nuova proprietà timestamp come tipo DateTime nullable.
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>L'attributo <strong>DataMemberAttribute</strong> comunica al client di eseguire il mapping della nuova proprietà <strong>CreatedAt</strong> dell'app alla colonna <strong>createdAt</strong> definita nella tabella TodoItem che presenta una convenzione per l'uso di maiuscole e minuscole diversa. Grazie a questo attributo, i nomi di proprietà sugli oggetti dell'app possono essere diversi dai nomi di colonna in database SQL. Senza questo attributo, viene generato un errore dovuto alle differenze di convenzione per l'uso di maiuscole e minuscole.</p>
-    </div>
+    > [AZURE.NOTE] L'attributo **DataMemberAttribute** comunica al client di eseguire il mapping della nuova proprietà **CreatedAt** dell'app alla colonna **createdAt** definita nella tabella TodoItem che presenta una convenzione per l'uso di maiuscole e minuscole diversa. Grazie a questo attributo, i nomi di proprietà sugli oggetti dell'app possono essere diversi dai nomi di colonna in database SQL. Senza questo attributo, viene generato un errore dovuto alle differenze di convenzione per l'uso di maiuscole e minuscole.
 
-2. Aggiungere l'elemento XAML seguente sotto l'elemento **CheckBoxComplete** nel file MainPage.xaml:
+5. Aggiungere l'elemento XAML seguente sotto l'elemento **CheckBoxComplete** nel file MainPage.xaml:
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
    	La nuova proprietà **CreatedAt** verrà visualizzata in una casella di testo.
 
-3. Premere **F5** per eseguire l'app.
+6. Premere **F5** per eseguire l'app.
 
    Si noti che il timestamp è visualizzato solo per gli elementi inseriti dopo l'aggiornamento dello script insert.
 
-4. Sostituire il metodo **RefreshTodoItems** con il codice seguente:
+7. Sostituire il metodo **RefreshTodoItems** esistente con il codice seguente:
 
         private void RefreshTodoItems()
         {
@@ -184,11 +178,11 @@ Il client del servizio mobile ignorerà i dati delle risposte che non è in grad
 
    	Questo metodo aggiorna la query affinché filtri anche gli elementi che non dispongono di un valore timestamp.
 
-5. Premere **F5** per eseguire l'app.
+8. Premere **F5** per eseguire l'app.
 
    	Si noti che tutti gli elementi creati senza un valore timestamp non vengono più visualizzati nell'interfaccia utente.
 
-L'esercitazione relativa all'uso dei dati è stata completata.
+L'esercitazione relativa all'uso dei dati è stata completata.-->
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -202,7 +196,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 * [Introduzione alle notifiche push]
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Riferimento per gli script del server di Servizi mobili]
+* [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 <!-- Anchors. -->
@@ -220,7 +214,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 [4]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
 
 <!-- URLs. -->
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-ios
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-ios
@@ -230,3 +224,6 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

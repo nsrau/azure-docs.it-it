@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="Gestire la disponibilità delle macchine virtuali - Azure" metaKeywords="" description="Informazioni su come usare più macchine virtuali per garantire la disponibilità per l'applicazione Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Gestire la disponibilità delle macchine virtuali - Azure" description="Informazioni su come usare più macchine virtuali per garantire la disponibilità per l'applicazione Azure." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
 
 #Gestire la disponibilità delle macchine virtuali
 
@@ -29,7 +29,7 @@ I domini di errore definiscono il gruppo di macchine virtuali che condividono un
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[WACOM.NOTE] Per istruzioni, vedere [Come configurare un set di disponibilità per le macchine virtuali] [].
+>[AZURE.NOTE] Per istruzioni, vedere [Come configurare un set di disponibilità per le macchine virtuali] [].
 
 ### Configurare ogni livello dell'applicazione in set di disponibilità separati
 Se le macchine virtuali di un set di disponibilità sono pressoché identiche e svolgono tutte la stessa funzione per l'applicazione, è consigliabile configurare un set di disponibilità per ciascun livello dell'applicazione.  Se in un set di disponibilità si definiscono due livelli diversi, è possibile riavviare contemporaneamente tutte le macchine virtuali dello stesso livello di applicazione. Configurando almeno due macchine virtuali per ogni livello di un set di disponibilità, si garantisce che in ogni livello sia sempre disponibile almeno una macchina virtuale.   
@@ -59,4 +59,7 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

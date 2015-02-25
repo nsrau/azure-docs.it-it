@@ -1,12 +1,12 @@
-<properties pageTitle="Inviare notifiche push agli utenti autenticati" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Informazioni su come inviare notifiche push a specifici " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Inviare notifiche push agli utenti autenticati" description="Informazioni su come inviare notifiche push a specifici" services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
 
-[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-Questo argomento illustra come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione sulle [notifiche push][Introduzione alle notifiche push], in questa esercitazione i servizi mobili vengono modificati in modo da richiedere che un utente venga autenticato prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine il codice del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
+Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione sulle [notifiche push][Introduzione alle notifiche push] in questa esercitazione i servizi mobili vengono modificati in modo da richiedere che un utente venga autenticato prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine il codice del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
 
 In questa esercitazione viene descritto il processo seguente:
 
@@ -14,7 +14,7 @@ In questa esercitazione viene descritto il processo seguente:
 + [Aggiornamento dell'app per accedere prima della registrazione]
 + [Testare l'app]
  
-Questa esercitazione supporta app di Windows Phone 8.0 e Windows Phone 8.1 ("Silverlight"). Per le app di Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
+Questa esercitazione supporta app per Windows Phone 8.0 e Windows Phone 8.1 ("Silverlight"). Per le app di Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
 
 ##Prerequisiti 
 
@@ -28,20 +28,20 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 ##<a name="register"></a>Aggiornare il servizio per richiedere l'autenticazione per la registrazione
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
 
 ##<a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)] 
 
 
 ##<a name="test"></a>Testare l'app
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
 
 <!---## <a name="next-steps"> </a>Passaggi successivi
 
-Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per altre informazioni su come usare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili]-->
+Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per altre informazioni su come usare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili]-->
 
 <!-- Anchors. -->
 [Aggiornamento del servizio per richiedere l'autenticazione per la registrazione]: #register
@@ -57,4 +57,5 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

@@ -1,19 +1,19 @@
-﻿<properties pageTitle="Autorizzazione lato servizio (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come autorizzare gli utenti nel back-end .NET di Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorizzazione lato servizio (Windows Store) | Mobile Dev Center" description="Informazioni su come autorizzare gli utenti nel back-end .NET di Servizi mobili di Azure." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
 
 # Autorizzazione sul lato servizio degli utenti di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 
-Questo argomento illustra come autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app di Windows Store. In questa esercitazione verrà aggiunto il codice ai metodi di accesso ai dati nel controller per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
+Questo argomento descrive come autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app di Windows Store. In questa esercitazione verrà aggiunto il codice ai metodi di accesso ai dati nel controller per filtrare le query in base all'userId di un utente autenticato, per garantire che ogni utente possa visualizzare solo i relativi dati.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili e sull'esercitazione precedente [Introduzione all'autenticazione]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione all'autenticazione].  
 
-## <a name="register-scripts"></a>Modificare i metodi di accesso ai dati
+## <a name="register-scripts"></a>Modifica dei metodi di accesso ai dati
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
 
 
 ## Testare l'app
@@ -22,9 +22,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 2. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
-   	Si noti che questa volta, sebbene nel corso delle esercitazioni precedenti siano stati aggiunti elementi nella tabella TodoItem, non viene restituito alcun elemento. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
+   	Si noti che questa volta non viene restituito alcun elemento, anche se nel corso delle esercitazioni precedenti sono stati aggiunti elementi nella tabella TodoItem. Questo si verifica perché gli elementi precedenti sono stati inseriti senza la colonna userId e ora presentano valori Null.
 
-3. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
+3. Nell'app digitare un testo in **Insert a TodoItem** e quindi fare clic su **Save**.
 
    	![][3]
 
@@ -60,3 +60,6 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
 
 [Come usare un client HTML/JavaScript per Servizi mobili di Azure]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
+
+
+<!--HONumber=42-->

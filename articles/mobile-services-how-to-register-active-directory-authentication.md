@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Effettuare la registrazione per l'autenticazione di Azure Active Directory - Sevizi mobili" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Informazioni su come effettuare la registrazione per l'autenticazione di Azure Active Directory nell'app di Servizi mobili." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
+﻿<properties pageTitle="Effettuare la registrazione per l'autenticazione di Azure Active Directory - Sevizi mobili" description="Informazioni su come effettuare la registrazione per l'autenticazione di Azure Active Directory nell'app di Servizi mobili." authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory
 
-Questo argomento illustra come registrare le app in modo da usare Azure Active Directory come provider di autenticazione per Servizi mobili di Azure. 
+Questo argomento descrive come registrare le app in modo da usare Azure Active Directory come provider di autenticazione per Servizi mobili di Azure. 
 
 
 >[AZURE.NOTE] I passaggi descritti in questo argomento devono essere usati con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) se si vogliono usare [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/it-it/library/azure/dn283952.aspx) con l'app. Se invece l'app richiede [operazioni di accesso dirette dal client](http://msdn.microsoft.com/it-it/library/azure/jj710106.aspx) per Azure Active Directory e un servizio mobile back-end .NET, sarà necessario eseguire prima di tutto l'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library](/it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
@@ -14,17 +14,17 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 
     ![][1]
 
-2. Fare clic sulla scheda **Identità** per il servizio mobile. 
+2. Fare clic sulla scheda **Identity** per il servizio mobile. 
 
     ![][2]
 
-3. Scorrere fino alla sezione relativa al provider di identità **Azure Active Directory** e copiare il valore **URL app** elencato in tale punto.
+3. Scorrere fino alla sezione relativa al provider di identità **Azure active directory** e copiare il valore **APP URL** elencato in tale punto.
 
     ![][3]
 
 4. Passare a **Active Directory** nel portale di gestione, quindi fare clic sulla directory.
 
-    ![][4] 
+    ![][4] 	
 
 5. Fare clic sulla scheda **Applicazioni** nella parte superiore, quindi fare clic su **AGGIUNGI** per aggiungere un'app. 
 
@@ -32,30 +32,30 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 
 6. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-7. Nella procedura guidata di aggiunta applicazione immettere un nome per l'applicazione in **Nome** e fare clic sul tipo   **Applicazione Web e/o API Web**. Fare quindi clic per continuare.
+7. Nella procedura guidata di aggiunta applicazione immettere un nome per l'applicazione in **Name** e fare clic sul tipo **Web Application And/Or Web API**. Fare quindi clic per continuare.
 
     ![][5]
 
-8. Nella casella **URL ACCESSO** incollare l'ID dell'app copiato dalle impostazioni relative al provider di identità Active Directory del servizio mobile. Immettere lo stesso identificatore univoco della risorsa nella casella **URI ID app**. Fare quindi clic per continuare.
+8. Nella casella **SIGN-ON URL** incollare l'ID dell'app copiato dalle impostazioni relative al provider di identità Active Directory del servizio mobile. Immettere lo stesso identificatore univoco della risorsa nella casella **URI ID app**. Fare quindi clic per continuare.
  
     ![][6]
 
 
-9. Una volta aggiunta l'applicazione, fare clic sulla scheda **Configura**. Fare clic per copiare il valore **ID client** per l'app.
+9. Una volta aggiunta l'applicazione, fare clic sulla scheda **Configura**. Fare clic per copiare il valore **Client ID** per l'app.
 
     Se il servizio mobile è stato creato per l'uso del back-end .NET, modificare anche il campo **URL di risposta** in **Single Sign-on** in modo che costituisca l'URL del servizio mobile con l'aggiunta del percorso, _signin-aad_. Ad esempio, `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
 
-10. Tornare alla scheda **Identità** del servizio mobile. Nella parte inferiore incollare l'impostazione **ID client** per il provider di identità Azure Active Directory.
+10. Tornare alla scheda **Identity** del servizio mobile. Nella parte inferiore incollare l'impostazione **Client ID** per il provider di identità Azure Active Directory.
 
   
-11. Nell'elenco **Tenant consentiti** è necessario aggiungere il dominio della directory in cui è stata registrata l'applicazione, ad esempio contoso.onmicrosoft.com. Per individuare il dominio predefinito, fare clic sulla scheda **Domini** in Active Directory.
+11. Nell'elenco **Allowed Tenants** è necessario aggiungere il dominio della directory in cui è stata registrata l'applicazione, ad esempio contoso.onmicrosoft.com. Per individuare il dominio predefinito, fare clic sulla scheda**Domains** in Active Directory.
 
     ![][11]
  
-    Aggiungere il nome di dominio all'elenco **Tenant consentiti** quindi fare clic su **Salva**.    
+    Aggiungere il nome di dominio all'elenco **Allowed Tenants**, quindi fare clic su **Save**.    
 
 
     ![][9]
@@ -84,3 +84,6 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 <!-- URLs. -->
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
+
+
+<!--HONumber=42-->

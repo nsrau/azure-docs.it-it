@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName=".NET Client Library" pageTitle="Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Informazioni su come compilare un'app per Windows Store mediante Servizi mobili di Azure con un back-end .NET." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure" description="Informazioni su come compilare un'app per Windows Store mediante Servizi mobili di Azure con un back-end .NET." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
-Questa esercitazione illustra come compilare un'app di Windows Store mediante Servizi mobili di Azure con un back-end .NET. Servizi mobili di Azure fornisce un back-end scalabile e sicuro con autenticazione, monitoraggio, notifiche push e altre funzionalità predefinite, oltre a una libreria client multipiattaforma per la compilazione di app per dispositivi mobili. Il back-end .NET per Servizi mobili è basato su [API Web ASP.NET](http://asp.net/web-api) e offre agli sviluppatori .NET un modo straordinario per creare API REST.   
+Questa esercitazione illustra come compilare un'app di Windows Store mediante Servizi mobili di Azure con un back-end .NET. Servizi mobili di Azure fornisce un back-end scalabile e sicuro con autenticazione, monitoraggio, notifiche push e altre funzionalità predefinite, oltre a una libreria client multipiattaforma per la compilazione di app per dispositivi mobili. Il back-end .NET per Servizi mobili è basato su [API Web ASP.NET](http://asp.net/web-api) e offre agli sviluppatori .NET un modo eccellente per creare API REST.   
 
 + [Panoramica] 
 + [Informazioni sull'app di esempio] 
@@ -111,7 +111,7 @@ Aggiungere un'altra classe denominata `PlayerRank`.
 
 Si noti che entrambe le classi ereditano dalla classe **EntityData**. L'ereditarietà da **EntityData** semplifica l'uso dei dati da parte dell'app tramite la libreria client multipiattaforma per Servizi mobili di Azure. **EntityData** consente anche a un'app di [gestire i conflitti di scrittura nel database](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
 
-La classe `PlayerRank` include una [proprietà di navigazione](http://msdn.microsoft.com/it-it/data/jj713564.aspx) che punta all'entità `Player` correlata. L'attributo **[ForeignKey]** indica a EF che la proprietà `Player` rappresenta una chiave esterna.
+La classe `PlayerRank` incluse una [proprietà di navigazione](http://msdn.microsoft.com/it-it/data/jj713564.aspx) che punta all'entità `Player` correlata. L'attributo **[ForeignKey]** indica a EF che la proprietà `Player` rappresenta una chiave esterna.
 
 # Aggiungere controller API Web
 
@@ -121,14 +121,14 @@ Fare clic con il pulsante destro del mouse sulla cartella Controllers, scegliere
 
 ![][6] 
 
-Nella finestra di dialogo **Add Scaffold** espandere **Comune** a sinistra e selezionare **Servizi mobili di Microsoft Azure**. Selezionare quindi **Microsoft Azure Mobile Services Table Controller**. Fare clic su **Aggiungi**.
+Nella finestra di dialogo **Aggiungi scaffold** espandere **Comune** a sinistra e selezionare **Servizi mobili di Microsoft Azure**. Selezionare quindi **Microsoft Azure Mobile Services Table Controller**. Fare clic su **Aggiungi**.
 
 ![][7] 
  
 Nella finestra di dialogo **Aggiungi controller**:
 
 1.	In **Classe modello** selezionare Player. 
-2.	In **Classe contesto di dati** selezionare MobileServiceContext.
+2.	In **Classe contesto dai**, selezionare MobileServiceContext.
 3.	Assegnare al controller il nome "PlayerController".
 4.	Fare clic su **Aggiungi**.
 
@@ -142,7 +142,7 @@ Il controller deriva da **TableController<T>**. Questa classe eredita **ApiContr
 - Routing: la route predefinita per un **TableController** è `/tables/{table_name}/{id}`, dove *table_name* corrisponde al nome dell'entità. Quindi, la route per il controller Player è */tables/player/{id}*. Questa convenzione di routing assicura la coerenza di **TableController** con l'[API REST](http://msdn.microsoft.com/it-it/library/azure/jj710104.aspx) di Servizi mobili.
 - Accesso ai dati: per le operazioni di database, la classe **TableController** usa l'interfaccia **IDomainManager**, che definisce un'astrazione per l'accesso ai dati.  Lo scaffolding usa **EntityDomainManager**, che è un'implementazione concreta di **IDomainManager** che esegue il wrapping di un contesto EF. 
 
-Aggiungere ora un secondo controller per le entità PlayerRank. Seguire la stessa procedura, ma scegliendo PlayerRank per la classe modello. Usare la stessa classe contesto dati. Non crearne una nuova. Assegnare al controller il nome "PlayerRankController".
+Aggiungere ora un secondo controller per le entità PlayerRank. Seguire la stessa procedura, ma scegliendo PlayerRank per la classe modello. Usare la stessa classe contesto dati. Non crearne una nuova. Assegnare al controller il nome "PlayerRankController"
 
 ## Usare un oggetto DTO per restituire le entità correlate
 
@@ -185,7 +185,7 @@ Un DTO è un oggetto che definisce la modalità di invio dei dati sulla rete. Gl
 	    }
 	}
 
-Nella classe `PlayerRankController` si userà il metodo **Select** di LINQ per convertire le istanze di `PlayerRank` in istanze di `PlayerRankDto`. Aggiornare i metodi controller `GetAllPlayerRank` e `GetPlayerRank` nel modo seguente:
+Nella classe `PlayerRankController` si userà il metodo **Select** di LINQ per convertire le istanze di `PlayerRank` in istanze di`PlayerRankDto`. Aggiornar ei metodi controller `GetAllPlayerRank` e `GetPlayerRank` nel modo seguente:
 
 	// GET tables/PlayerRank
 	public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -308,7 +308,7 @@ Aggiungere quindi il codice seguente a `PlayerRankController`:
         return Ok();
     }
 
-Il metodo `PostPlayerScore` accetta un'istanza di `PlayerScore` come input. Il client invierà `PlayerScore` in una richiesta POST HTTP. Il metodo esegue le operazioni seguenti:
+Il metodo `PostPlayerScore` accetta un'istanza di `PlayerScore` come input (il client invierà `PlayerScore` in una richiesta POST HTTP). Il metodo esegue le operazioni seguenti:
 
 1.	Aggiunge una nuova istanza di `PlayerRank` per il giocatore, se ne esiste già una nel database.
 2.	Aggiorna il punteggio del giocatore.
@@ -323,7 +323,7 @@ Per altre informazioni sull'attributo **[Route]**, vedere l'articolo relativo al
 
 ## Creare l'app di Windows Store
 
-In questa sezione verrà descritta l'app di Windows Store che usa il servizio mobile. L'attenzione non sarà focalizzata in particolare sul codice XAML o sull'interfaccia utente, quanto piuttosto sulla logica dell'applicazione. Il progetto completo è disponibile per il download [qui](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
+In questa sezione verrà descritta l'app di Windows Store che usa il servizio mobile. L'attenzione non sarà focalizzata in particolare sul codice XAML o sull'interfaccia utente, quanto piuttosto sulla logica dell'applicazione. È possibile scaricare il progetto completo [qui](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
 Aggiungere un nuovo progetto di app di Windows Store alla soluzione. È stato usato il modello Applicazione vuota (Windows). 
 
@@ -758,5 +758,8 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [Altre informazioni su Servizi mobili di Azure]: /it-it/develop/mobile/resources/
 [Altre informazioni su API Web]: http://asp.net/web-api
 [Gestire i conflitti di scrittura nel database]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[Aggiunta di notifiche push]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Aggiungere notifiche push]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
+
+
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress di livello aziendale in Siti Web di Azure" description="Informazioni su come ospitare un sito WordPress di livello aziendale in Siti Web di Azure" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="WordPress di livello aziendale in Siti Web di Azure" 
+	description="Informazioni su come ospitare un sito WordPress di livello aziendale in Siti Web di Azure" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="php" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="11/11/2014" 
+	ms.author="tomfitz"/>
 
 #WordPress di livello aziendale in Siti Web di Azure
 
-Siti Web di Azure offre un ambiente scalabile, sicuro e facile da usare per siti [WordPress][wordpress] cruciali e su vasta scala. Microsoft stessa gestisce siti di livello aziendale come i blog di [Office][officeblog] e [Bing][bingblog]. Questo documento illustra come usare Siti Web di Azure per stabilire e mantenere un sito WordPress di livello aziendale, basato sul cloud, in grado di gestire un numero elevato di visitatori.
+Siti Web di Azure rende disponibile un ambiente scalabile, sicuro e facile da usare per siti [WordPress][wordpress] cruciali e su vasta scala. Microsoft stessa gestisce siti di livello aziendale come i blog di [Office][officeblog] e [Bing][bingblog]. Questo documento illustra come usare Siti Web di Azure per stabilire e mantenere un sito WordPress di livello aziendale, basato sul cloud, in grado di gestire un numero elevato di visitatori.
 
 ##Contenuto dell'articolo 
 
@@ -18,13 +32,13 @@ Siti Web di Azure offre un ambiente scalabile, sicuro e facile da usare per siti
 
 Un'installazione di base di WordPress prevede solo due requisiti.
 
-* **Database MySQL** - Disponibile tramite [ClearDB in Azure Store][cdbnstore]. In alternativa, è possibile gestire un'installazione personalizzata di MySQL in Macchine virtuali di Azure tramite [Windows][mysqlwindows] o [Linux][mysqllinux].
+* **Database MySQL ** - Disponibile tramite [ClearDB in Azure Store][cdbnstore]. In alternativa, è possibile gestire un'installazione personalizzata di MySQL in Macchine virtuali di Azure tramite [Windows][mysqlwindows] o [Linux][mysqllinux].
 
-    > [WACOM.NOTE] ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte disponibili tramite Azure Store, vedere [Azure Store][cdbnstore] oppure per le offerte fornite direttamente da ClearDB, vedere la [pagina dei prezzi di ClearDB](http://www.cleardb.com/pricing.view).
+    > [AZURE.NOTE] ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte disponibili tramite Azure Store, vedere [Azure Store][cdbnstore] oppure, per le offerte fornite direttamente da ClearDB, vedere la [pagina dei prezzi di ClearDB](http://www.cleardb.com/pricing.view).
     
 * **PHP 5.2.4 o versione successiva** - Siti Web di Azure fornisce attualmente le [versioni PHP 5.3, 5.4 e 5.5][phpwebsite].
 
-	> [WACOM.NOTE] È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
+	> [AZURE.NOTE] È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
 
 ###Distribuzione di base
 
@@ -65,14 +79,14 @@ Per | Opzione
 **HTTPS** | [Supporto di HTTPS in Siti Web di Azure][httpscustomdomain]
 **Convalida pre-produzione** | [Supporto della pubblicazione di gestione temporanea per Siti Web di Azure][staging] <p>Si noti che con il passaggio di un sito dalla gestione temporanea alla produzione viene trasferita anche la configurazione di WordPress. Assicurarsi che tutte le impostazioni siano aggiornate in base ai requisiti del sito di produzione prima di passare il sito di gestione temporanea in produzione.</p> 
 **Monitoraggio e risoluzione dei problemi** | [Registrazione diagnostica con Siti Web di Azure][log] e [Monitoraggio di Siti Web di Azure][monitor]
-**Distribuire il sito** | [Distribuire un sito Web di Azure][deploy]
+**Distribuzione del sito** | [Distribuire un sito Web di Azure][deploy]
 
 ####Disponibilità e ripristino di emergenza
 
 Per | Opzione
 ------------------------|-----------
-**Bilanciare il carico dei siti** o **distribuire geograficamente i siti** | [Instradamento del traffico con Gestione traffico di Azure][trafficmanager]
-**Eseguire il backup e il ripristino** | [Backup di Siti Web di Azure][backup] e [Ripristinare un sito Web di Azure][restore]
+**Bilanciamento del carico** o **distribuzione geografica dei siti** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]
+**Backup e ripristino** | [Backup di Siti Web di Azure][backup] e [Ripristino di un sito Web di Azure][restore]
 
 ####Prestazioni
 
@@ -80,7 +94,7 @@ Le prestazioni nel cloud si ottengono prevalentemente tramite la memorizzazione 
 
 Per | Opzione
 ------------------------|-----------
-**Identificare le funzionalità delle istanze del sito Web** |  [Dettagli dei prezzi, incluse le funzionalità in base a dimensioni e modalità del sito Web][websitepricing]
+**Identificare le funzionalità delle istanze del sito Web ** |  [Dettagli dei prezzi, incluse le funzionalità in base a dimensioni e modalità del sito Web][]
 **Memorizzare risorse nella cache** | [Cache Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/it-it/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/it-it/gallery/store/memcachier/memcachier/) o una delle altre offerte di memorizzazione nella cache disponibili in [Azure Store](http://azure.microsoft.com/it-it/gallery/store/)
 **Scalare l'applicazione** | [Scalare un sito Web di Azure][websitescale] e [Routing ClearDB a disponibilità elevata][cleardbscale]. Se si sceglie di ospitare e gestire un'installazione personalizzata di MySQL, provare a usare [MySQL Cluster CGE][cge] per la scalabilità orizzontale
 
@@ -90,9 +104,9 @@ Sono disponibili due metodi per eseguire la migrazione di un sito WordPress esis
 
 * **[Esportazione WordPress][export]** - Viene esportato il contenuto del blog, che può quindi essere importato in un nuovo sito WordPress in Azure tramite il [plug-in di importazione di WordPress][import].
 
-	> [WACOM.NOTE] Questa procedura consente di eseguire la migrazione del contenuto, ma non di eventuali plug-in, temi o altre personalizzazioni, che sarà necessario installare di nuovo manualmente.
+	> [AZURE.NOTE] Questa procedura consente di eseguire la migrazione del contenuto, ma non di eventuali plug-in, temi o altre personalizzazioni, che sarà necessario installare di nuovo manualmente.
 
-* **Migrazione manuale** - [Eseguire il backup del sito][wordpressbackup] e del [database][wordpressdbbackup], quindi ripristinarli manualmente in un sito Web di Azure e nel database MySQL associato per eseguire la migrazione di siti con un elevato livello di personalizzazione senza doversi preoccupare di installare manualmente plug-in, temi e altre personalizzazioni.
+* **Migrazione manuale** - [Eseguire il backup del sito ][wordpressbackup] e del [database][wordpressdbbackup], quindi ripristinarli manualmente in un sito Web di Azure e nel database MySQL associato per eseguire la migrazione di siti con un elevato livello di personalizzazione senza doversi preoccupare di installare manualmente plug-in, temi e altre personalizzazioni.
 
 ##Procedure
 
@@ -106,7 +120,7 @@ Se si esegue la migrazione di un sito WordPress esistente, vedere [Eseguire la m
 
 ###<a id="migrate"></a>Eseguire la migrazione di un sito WordPress esistente in Azure
 
-Come accennato nella sezione [Architettura e pianificazione](#planning), vi sono due modi per eseguire la migrazione di un sito Web WordPress.
+Come accennato nella sezione [Architettura e pianificazione],(#planning) vi sono due modi per eseguire la migrazione di un sito Web WordPress.
 
 * **Esportazione e importazione** - Per i siti senza molte personalizzazioni o nel caso in cui si voglia trasferire solo il contenuto.
 
@@ -124,9 +138,9 @@ Usare una delle sezioni seguenti per eseguire la migrazione del sito.
 
 4. Dopo l'installazione del plug-in, fare clic su **Strumenti** -> **Importa** e quindi selezionare **WordPress** per usare il plug-in di importazione di WordPress.
 
-5. Nella pagina per **l'importazione di WordPress, fare clic sull'opzione per** la scelta dei file. Passare al file WXR esportato dal sito WordPress esistente e quindi scegliere l'opzione per **caricare il file e importare.**
+5. Nella pagina per**** l'importazione di WordPress, fare clic sull'opzione per ****la scelta dei file. Passare al file WXR esportato dal sito WordPress esistente e quindi scegliere l'opzione per caricare il file e importare.****
 
-6. Fare clic su **Invia** Verrà visualizzata la conferma della corretta esecuzione dell'importazione.
+6. Fare clic su **Invia**. Verrà visualizzata la conferma della corretta esecuzione dell'importazione.
 
 8. Dopo aver completato tutti questi passaggi, riavviare il sito Web dal relativo dashboard nel [portale di gestione di Azure][mgmtportal].
 
@@ -135,7 +149,7 @@ Dopo l'importazione del sito, può essere necessario eseguire i passaggi seguent
 Se si usano... | Effettuare l'operazione seguente...
 ------------------ | ----------
 **Collegamenti permanenti** | Nel dashboard di WordPress del nuovo sito fare clic su **Impostazioni** -> **Collegamenti permanenti** e quindi aggiornare la struttura dei collegamenti permanenti
-**Collegamenti a immagini/contenuti multimediali** | Per aggiornare i collegamenti al nuovo percorso, usare il [plug-in Velvet Blues Update URLs][velvet] o uno strumento di ricerca e sostituzione oppure eseguire l'operazione manualmente nel database
+**Collegamenti a immagini/contenuti multimediali** | Per aggiornare i collegamenti al nuovo percorso, usare il [plug-in Velvet Blues Update URLs][velvet] o uno strumento di ricerca e sostituzione, oppure eseguire l'operazione manualmente nel database
 **Temi** | Passare ad **Aspetto** -> **Tema** e aggiornare il tema del sito Web come necessario
 **Menu** | Se il tema supporta i menu, i collegamenti alla home page potrebbero ancora contenere la vecchia sottodirectory. Passare ad **Aspetto** -> **Menu** e aggiornarli
 
@@ -159,13 +173,13 @@ Se si usano... | Effettuare l'operazione seguente...
 
 	2. Nel backup di WordPress individuare il file **wp-config.php** e aprirlo in un editor. Sostituire le voci seguenti con le informazioni del nuovo database MySQL.
 
-		* **DB_NAME** - Nome utente del database
+		* **DB_NAME** - the user name of the database
 
-		* **DB_USER** - Nome utente usato per accedere al database
+		* **DB_USER** - the user name used to access the database
 
-		* **DB_PASSWORD** - Password utente
+		* **DB_PASSWORD** - the user password
 
-		Dopo aver cambiato queste voci, salvare e chiudere il file **wp-config.php**.
+		After changing these entries, save and close the **wp-config.php** file.
 
 	3. Fare riferimento alle informazioni disponibili in [Come distribuire un sito Web di Azure][deploy] per abilitare il metodo di distribuzione che si vuole usare e quindi distribuire il backup di WordPress nel sito Web di Azure.
 
@@ -178,13 +192,14 @@ Dopo la creazione o la migrazione del sito WordPress, usare le informazioni segu
 Per | Opzione
 ------------- | -----------
 **Impostare la modalità e le dimensioni del sito Web e abilitare la scalabilità** | [Come scalare siti Web][websitescale]
-**Abilitare connessioni di database persistenti** <p>Per impostazione predefinita, WordPress non usa connessioni di database permanenti, che potrebbero causare rallentamenti dopo numerose connessioni.</p>  | <ol><li><p>Modificare il file <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Trovare le righe seguenti:</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Sostituire la riga precedente con quella seguente.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Trovare la riga seguente.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Sostituire la riga precedente con quella seguente.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Salvare il file <strong>wp-includes/wp-db.php</strong> e ridistribuire il sito.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>NOTA:</h5><p>Queste modifiche possono essere sovrascritte quando WordPress viene aggiornato.</p><p>Per impostazione predefinita, gli aggiornamenti di WordPress sono automatici, ma questa opzione può essere disabilitata modificando il file <strong>wp-config.php</strong> e aggiungendo <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Un altro modo per gestire gli aggiornamenti consiste nell'usare un processo Web che monitora il file <strong>wp-db.php</strong> ed esegue le suddette modifiche ogni volta che il file viene aggiornato. Vedere la pagina di <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">introduzione ai processi Web</a> per altre informazioni.</p></div>
-**Migliorare le prestazioni** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Disabilitare il cookie ARR</a> - Questa operazione consente di migliorare le prestazioni quando si esegue WordPress in più istanze del sito Web</p></li><li><p>Abilitare la memorizzazione nella cache. <a href="http://msdn.microsoft.com/it-it/library/azure/dn690470.aspx">È possibile usare la Cache Redis</a> (anteprima) con <a href="https://wordpress.org/plugins/redis-object-cache/">il plug-in di WordPress per la memorizzazione nella cache degli oggetti Redis</a>oppure è possibile usare una delle altre offerte di memorizzazione nella cache disponibili in <a href="http://azure.microsoft.com/it-it/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Come rendere più veloce WordPress con WinCache</a> - Lo strumento WinCache è abilitato per impostazione predefinita per i siti Web</p></li><li><p><a href="http://azure.microsoft.com/it-it/documentation/articles/web-sites-scale/">Scalare il sito Web di Azure</a> e usare il <a href="http://www.cleardb.com/developers/cdbr/introduction">Routing ClearDB a disponibilità elevata</a> oppure <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
-**Usare i BLOB per l'archiviazione** | <ol><li><p><a href="http://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/">Creare un account di archiviazione di Azure</a></p></li><li><p>Leggere le informazioni su come <a href="http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/">Usare la rete di distribuzione di contenuti (CDN)</a> per distribuire geograficamente i dati archiviati in BLOB.</p></li><li><p>Installare e configurare il <a href="https://wordpress.org/plugins/windows-azure-storage/">plug-in di Archiviazione di Azure per WordPress</a>.</p><p>Per informazioni dettagliate sull'installazione e sulla configurazione del plug-in, vedere il <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">manuale dell'utente</a>.</p> </li></ol>
+**Abilitare connessioni di database persistenti** <p>Per impostazione predefinita, WordPress non usa connessioni di database permanenti, che potrebbero causare rallentamenti dopo numerose connessioni.</p>  | <ol><li><p>Modificare il file <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Trovare la riga seguente.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Sostituire la riga precedente con quella seguente.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Trovare la riga seguente.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Sostituire la riga precedente con quella seguente.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Salvare il file <strong>wp-includes/wp-db.php</strong> e ridistribuire il sito.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>NOTA:</h5><p>Queste modifiche possono essere sovrascritte quando WordPress viene aggiornato.</p><p>Per impostazione predefinita, gli aggiornamenti di WordPress sono automatici, ma questa opzione può essere disabilitata modificando il file <strong>wp-config.php</strong> e aggiungendo <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Un altro modo per gestire gli aggiornamenti consiste nell'usare un processo Web che monitora il file <strong>wp-db.php</strong> ed esegue le suddette modifiche ogni volta che il file viene aggiornato. Per altre informazioni, vedere l'<a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">introduzione ai processi Web</a>.</p></div>
+**Migliorare le prestazioni** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Disabilitare il cookie ARR</a>. In questo modo è possibile migliorare le prestazioni quando si esegue WordPress in più istanze del sito Web</p></li><li><p>Abilitare la memorizzazione nella cache. <a href="http://msdn.microsoft.com/it-it/library/azure/dn690470.aspx">È possibile usare Cache Redis</a> (anteprima) con il <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in di WordPress per l'oggetto cache Redis</a>, oppure usare una delle altre offerte di memorizzazione nella cache disponibili in <a href="http://azure.microsoft.com/it-it/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Aumentare la velocità di WordPress con Wincache</a>. Wincache è abilitata per impostazione predefinita per i siti Web</p></li><li><p><a href="http://azure.microsoft.com/it-it/documentation/articles/web-sites-scale/">Applicare la scalabilità al sito Web di Azure</a> e usare il <a href="http://www.cleardb.com/developers/cdbr/introduction">routing ClearDB a disponibilità elevata</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
+**Usare i BLOB per l'archiviazione** | <ol><li><p><a href="http://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/">Creare un account di archiviazione di Azure</a></p></li><li><p>Informazioni su come <a href="http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/">usare la rete CDN</a> per distribuire geograficamente i dati archiviati in BLOB.</p></li><li><p>Installare e configurare il <a href="https://wordpress.org/plugins/windows-azure-storage/">plug-in di archiviazione di Azure per WordPress</a>.</p><p>Per informazioni dettagliate sull'installazione e la configurazione del plug-in, vedere il <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">manuale dell'utente</a>.</p> </li></ol>
 **Abilitare la posta elettronica** | <ol><li><p><a href="http://azure.microsoft.com/it-it/gallery/store/sendgrid/sendgrid-azure/">Abilitare SendGrid con Azure Store</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Installare il plug-in SendGrid per WordPress</a></p></li></ol>
-**Configurare un nome di dominio personalizzato** | [Configurazione di un nome di dominio personalizzato per un sito Web di Azure][customdomain]
-**Abilitare HTTPS per un nome di dominio personalizzato** | [Abilitare HTTPS per un sito Web di Azure][httpscustomdomain]
-**Bilanciare il carico del sito o distribuire geograficamente il sito** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]. Se si usa un dominio personalizzato, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure][customdomain] per informazioni sull'uso di Gestione traffico con nomi di dominio personalizzati
+**Configurare un nome di dominio personalizzato** | [Usare un nome di dominio personalizzato per un sito Web di Azure][customdomain]
+**Abilitare HTTPS per un nome di dominio personalizzato** | [Usare HTTPS con un sito Web di Azure][httpscustomdomain]
+**Bilanciare il carico o distribuire geograficamente il sito 
+** | [Instradare il traffico con Gestione traffico di Azure][trafficmanager]. Se si usa un dominio personalizzato, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure][customdomain] per informazioni sull'uso di Gestione traffico con nomi di dominio personalizzati
 **Abilitare i backup automatici del sito Web** | [Backup di Siti Web di Azure][backup]
 **Abilitare la registrazione diagnostica** | [Abilitare la registrazione diagnostica per Siti Web di Azure][log]
 
@@ -270,4 +285,5 @@ Per | Opzione
 [storesendgrid]: http://azure.microsoft.com/it-it/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/it-it/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

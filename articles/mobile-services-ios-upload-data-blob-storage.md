@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Usare Servizi mobili per caricare i dati nell'archiviazione BLOB (iOS) | Servizi mobili" metaKeywords="" description="Informazioni su come usare Servizi mobili per caricare i dati nell'archiviazione BLOB di Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="Usare Servizi mobili per caricare i dati nell'archiviazione BLOB (iOS) | Servizi mobili" description="Informazioni su come usare Servizi mobili per caricare i dati nell'archiviazione BLOB di Azure." documentationCenter="ios" authors="ysxu" writer="yuaxu" manager="dwrede" services="mobile-services, storage" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 
@@ -9,4 +9,4 @@ Come annunciato in TechEd 2014, a breve verrà rilasciato iOS Storage SDK per se
 
 [iOS, Servizi mobili e Archiviazione di Microsoft Azure]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

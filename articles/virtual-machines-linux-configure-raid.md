@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." metaCanonical="http://www.windowsazure.com/it-it/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+﻿<properties pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
 
 
 
@@ -9,9 +9,9 @@ I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per 
 
 
 ## Collegamento di dischi dati
-Per configurare un dispositivo RAID sono in genere necessari due dischi dati.  In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux.  Vedere l'articolo di Microsoft Azure relativo al [collegamento di dischi](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/#attachempty) per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure.
+Per configurare un dispositivo RAID sono in genere necessari due dischi dati.  In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/#attachempty).
 
->[WACOM.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx) per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati.
+>[AZURE.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx).
 
 
 ## Installazione dell'utility mdadm
@@ -70,7 +70,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Successivamente, modificare l'ID e il **t**ipo della partizione dal valore predefinito '83' (Linux) a 'fd' (rilevamento automatico RAID Linux):
+- Successivamente, modificare l'ID e il **t**ipo della partizione dal valore predefinito '83' (Linux) a  'fd' (rilevamento automatico RAID Linux):
 
 		Command (m for help): t
 		Selected partition 1
@@ -107,7 +107,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[WACOM.NOTE] Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio.
+	>[AZURE.NOTE] Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio.
 
 
 ## Aggiungere il nuovo file a /etc/fstab
@@ -118,7 +118,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 		# sudo mkdir /data
 
-2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Servirsi dell'utility `blkid` per determinare l'UUID del nuovo file system:
+2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utility `blkid` per determinare l'UUID del nuovo file system:
 
 		# sudo /sbin/blkid
 		...........
@@ -132,7 +132,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
-	Then, save and close /etc/fstab.
+	Salvare e chiudere /etc/fstab.
 
 4. Verificare che la voce /etc/fstab sia corretta:
 
@@ -159,4 +159,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 	Per informazioni sulla corretta modifica dei parametri del kernel, fare riferimento alla documentazione della distribuzione. Ad esempio, in molte distribuzioni (CentOS, Oracle Linux, SLES 11) è possibile aggiungere manualmente tali parametri al file "`/boot/grub/menu.lst`".  In Ubuntu è possibile aggiungere il parametro alla variabile `GRUB_CMDLINE_LINUX_DEFAULT` in "/etc/default/grub".
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

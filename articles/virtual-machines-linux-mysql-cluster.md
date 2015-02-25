@@ -1,6 +1,6 @@
-﻿<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Uso di set con bilanciamento del carico per creare un cluster MySQL su Linux" description="Articolo che illustra i modelli per configurare un cluster Linux a disponibilità elevata e con bilanciamento del carico in Azure usando come esempio MySQL." metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
+﻿<properties pageTitle="Uso di set con bilanciamento del carico per creare un cluster MySQL su Linux" description="Articolo che illustra i modelli per configurare un cluster Linux a disponibilità elevata e con bilanciamento del carico in Azure usando come esempio MySQL." services="virtual-machines" documentationCenter="" authors="bureado" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel"/>
 
 # Uso di set con bilanciamento del carico per creare un cluster MySQL su Linux
 
@@ -50,23 +50,23 @@ La prima macchina virtuale Ubuntu 13.10 viene creata con un'immagine della racco
 
 Dopo aver creato la prima macchina virtuale (tecnicamente, quando viene creato il servizio cloud), sarà possibile creare la seconda macchina virtuale, `hadb02`. Anche per la seconda macchina virtuale si userà una macchina virtuale Ubuntu 13.10 della raccolta aggiunta tramite il portale, ma si sceglierà di usare un servizio cloud esistente, `hadb.cloudapp.net`, anziché crearne uno nuovo. La rete e il set di disponibilità dovrebbero essere selezionati automaticamente. Verrà anche creato un endpoint SSH.
 
-Dopo aver creato entrambe le macchine virtuali, si prenderà nota della porta SSH per `hadb01` (TCP 22) e `hadb02` (assegnata automaticamente da Azure).
+Dopo aver creato entrambe le macchine virtuali, si prenderà nota della porta SSH per `hadb01` (TCP 22) e `hadb02` (assegnata automaticamente da Azure)
 
 ### Archivio collegato
 
-Si collegherà un nuovo disco a entrambe le macchine virtuali e si creeranno nuovi dischi da 5 GB durante il processo. I dischi saranno ospitati nel contenitore VHD in uso per i dischi del sistema operativo principale. Dopo la creazione e il collegamento dei dischi non è necessario riavviare Linux, in quanto il kernel rileva il nuovo dispositivo (in genere `/dev/sdc`, è possibile controllare l'output in `dmesg`).
+Si collegherà un nuovo disco a entrambe le macchine virtuali e si creeranno nuovi dischi da 5 GB durante il processo. I dischi saranno ospitati nel contenitore VHD in uso per i dischi del sistema operativo principale. Dopo la creazione e il collegamento dei dischi non è necessario riavviare Linux, in quanto il kernel rileva il nuovo dispositivo (in genere `/dev/sdc`, è possibile controllare l'output in  `dmesg`)
 
-Su ogni macchina virtuale si procede alla creazione di una nuova partizione tramite `cfdisk` (partizione Linux primaria) e alla scrittura di una nuova tabella delle partizioni. **Non creare un file system in questa partizione**.
+In ogni macchina virtuale si procede alla creazione di una nuova partizione tramite `cfdisk` (partizione Linux primaria) e alla scrittura di una nuova tabella delle partizioni. **Non creare un file system in questa partizione** .
 
 ## Configurazione del cluster
 
-In entrambe le macchine virtuali Ubuntu è necessario usare APT per installare Corosync, Pacemaker e DRBD. Tramite `apt-get`:
+In entrambe le macchine virtuali Ubuntu è necessario usare APT per installare Corosync, Pacemaker e DRBD. Se si usa `apt-get`:
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-**Non installare MySQL a questo punto**. Gli script di installazione di Debian e Ubuntu inizializzeranno una directory di dati MySQL su `/var/lib/mysql`, ma poiché la directory sarà sostituita da un file system DRBD, occorre eseguire questa operazione più avanti.
+**Non installare MySQL a questo punto** . Gli script di installazione di Debian e Ubuntu inizializzeranno una directory di dati MySQL su  `/var/lib/mysql`, ma poiché la directory sarà sostituita da un file system DRBD, occorre eseguire questa operazione più avanti.
 
-A questo punto, è necessario verificare anche (con `/sbin/ifconfig`) che entrambe le macchine virtuali usino indirizzi della subnet 10.10.10.0/24 e che siano in grado di eseguire il ping reciprocamente in base al nome. Se lo si desidera, è anche possibile usare `ssh-keygen` e `ssh-copy-id` per verificare che entrambe le macchine virtuali siano in grado di comunicare tramite SSH senza che sia necessaria una password.
+A questo punto, è inoltre necessario verificare (con  `/sbin/ifconfig`) che entrambe le macchine virtuali usino indirizzi della subnet 10.10.10.0/24 e che siano in grado di eseguire il ping reciprocamente in base al nome. Se lo si desidera, è anche possibile usare `ssh-keygen` e `ssh-copy-id` per verificare che entrambe le macchine virtuali siano in grado di comunicare tramite SSH senza che sia necessaria una password.
 
 ### Configurazione di DRBD
 
@@ -96,7 +96,7 @@ Sul nodo primario (`hadb01`) forzare infine la proprietà (primaria) della risor
 
     sudo drbdadm primary --force r0
 
-Se si esamina il contenuto di /proc/drbd (`sudo cat /proc/drbd`) su entrambe le macchine virtuali, dovrebbe essere possibile vedere `Primary/Secondary` su `hadb01` e `Secondary/Primary` su `hadb02`, coerentemente con la soluzione a questo punto. Il disco da 5 GB verrà sincronizzato sulla rete 10.10.10.0/24 senza costi per i clienti.
+Se si esamina il contenuto di /proc/drbd (`sudo cat /proc/drbd`) su entrambe le macchine virtuali, dovrebbe essere possibile vedere `Primary/Secondary` su `hadb01` and `Secondary/Primary` su `hadb02`, coerentemente con la soluzione a questo punto. Il disco da 5 GB verrà sincronizzato sulla rete 10.10.10.0/24 senza costi per i clienti.
 
 Quando il disco è sincronizzato, è possibile creare il file system su `hadb01`. Per le operazioni di test è stato usato ext2, ma l'istruzione seguente crea un file system ext3:
 
@@ -115,13 +115,13 @@ A questo punto si può installare MySQL su `hadb01`:
 
     sudo apt-get install mysql-server
 
-Per `hadb02` sono disponibili due opzioni: È possibile installare mysql-server ora, creando /var/lib/mysql e inserendovi una nuova directory di dati, quindi procedere alla rimozione dei contenuti. In `hadb02`:
+Per `hadb02` sono disponibili due opzioni. È possibile installare mysql-server ora, creando /var/lib/mysql e inserendovi una nuova directory di dati, quindi procedere alla rimozione dei contenuti. In `hadb02`:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
     sudo rm -rf /var/lib/mysql/*
 
-La seconda opzione prevede il failover in `hadb02 e quindi l'installazione di mysql-server in questa posizione (gli script di installazione rileveranno l'installazione esistente e non la toccheranno)
+La seconda opzione prevede il failover in `hadb02` e quindi l'installazione di mysql-server in questa posizione (gli script di installazione rileveranno l'installazione esistente e non la toccheranno)
 
 In `hadb01`:
 
@@ -132,7 +132,7 @@ In `hadb02`:
     sudo drbdadm primary -force r0
     sudo apt-get install mysql-server
 
-Se non si prevede di eseguire il failover di DRBD a questo punto, la prima opzione è più semplice, anche se meno elegante. Al termine della configurazione, è possibile iniziare a lavorare sul database MySQL. In `hadb02` (o sul server attivo, in base a DRBD):
+Se non si prevede di eseguire il failover di DRBD a questo punto, la prima opzione è più semplice, anche se meno elegante. Al termine della configurazione, è possibile iniziare a lavorare sul database MySQL. In `hadb02`  o sul server attivo, in base a DRBD:
 
     mysql -u root -p
     CREATE DATABASE azureha;
@@ -142,7 +142,7 @@ Se non si prevede di eseguire il failover di DRBD a questo punto, la prima opzio
 
 **Avviso**: quest'ultima istruzione disabilita in modo efficace l'autenticazione per l'utente ROOT in questa tabella. È consigliabile sostituirla con istruzioni GRANT di livello di produzione ed è inclusa solo per scopi esplicativi.
 
-Occorre anche abilitare le connessioni di rete per MySQL se si vuole eseguire query dall'esterno delle macchine virtuali, ovvero lo scopo di questa guida. Su entrambe le macchine virtuali, aprire `/etc/mysql/my.cnf` e passare a `bind-address`, modificandolo da 127.0.0.1 a 0.0.0.0. Dopo aver salvato il file, inviare un comando `sudo service mysql restart` al nodo primario corrente.
+Occorre anche abilitare le connessioni di rete per MySQL se si vuole eseguire query dall'esterno delle macchine virtuali, ovvero lo scopo di questa guida. In entrambe le macchine virtuali aprire `/etc/mysql/my.cnf` e passare a `bind-address`, modificandolo da 127.0.0.1 a 0.0.0.0. Dopo aver salvato il file, inviare un comando `sudo service mysql restart` al nodo primario corrente.
 
 ### Creazione del set con bilanciamento del carico di MySQL
 
@@ -174,11 +174,11 @@ Dopo aver eseguito il failover manuale, è possibile ripetere la query remota, c
 
 ## Configurazione di Corosync
 
-Corosync è l'infrastruttura di cluster sottostante necessaria per il funzionamento di Pacemaker. Per gli utenti delle versioni 1 e 2 di Heartbeat (e altre metodologie come Ultramonkey), Corosync è una parte delle funzionalità CRM, mentre Pacemaker rimane più simile ad Hearbeat per funzionalità.
+Corosync è l'infrastruttura di cluster sottostante necessaria per il funzionamento di Pacemaker. Per gli utenti delle versioni 1 e 2 di Heartbeat (e altre metodologie come Ultramonkey), Corosync è una parte delle funzionalità CRM, mentre Pacemaker rimane più simile ad Heartbeat per funzionalità.
 
 Il vincolo principale per Corosync su Azure sta nel fatto che Corosync preferisce il multicast alla trasmissione su comunicazioni unicast, mentre le reti Microsoft Azure supportano solo l'unicast.
 
-Fortunatamente, Corosync include una modalità di lavoro unicast e l'unico vero vincolo è che, poiché tutti i nodi non comunicano tra loro *automaticamente*, è necessario definire i nodi nei file di configurazione, incluso l'indirizzo IP. È possibile usare i file di esempio su Corosync per unicast e cambiare solo l'indirizzo di binding, l'elenco dei nodi e la registrazione della directory (Ubuntu usa `/var/log/corosync` mentre i file di esempio usano `/var/log/cluster`) e abilitando gli strumenti del quorum. 
+Fortunatamente, Corosync include una modalità di lavoro unicast e l'unico vero vincolo è che, poiché tutti i nodi non comunicano tra loro *automaticamente*, è necessario definire i nodi nei file di configurazione, incluso l'indirizzo IP. È possibile usare i file di esempio su Corosync per unicast, cambiare solo l'indirizzo di binding, l'elenco dei nodi e la directory di registrazione (Ubuntu usa `/var/log/corosync` mentre i file di esempio usano `/var/log/cluster`) e abilitare gli strumenti del quorum. 
 
 **Si notino la direttiva `transport: udpu` sottostante e gli indirizzi IP definiti in modo manuale per i nodi**.
 
@@ -251,7 +251,7 @@ Quando si installa Pacemaker per la prima volta, la configurazione dovrebbe esse
     node $id="2" hadb02
       attributes standby="off"
 
-Verificare il programma eseguendo `sudo crm configure show`. Creare ora un file (ad esempio `/tmp/cluster.conf`) con le risorse seguenti:
+Verificare il programma eseguendo `sudo crm configure show`. Creare ora un file (ad esempio,  `/tmp/cluster.conf`) con le risorse seguenti:
 
     primitive drbd_mysql ocf:linbit:drbd \
           params drbd_resource="r0" \
@@ -333,4 +333,7 @@ Si applicano le limitazioni seguenti:
 - È necessaria l'ottimizzazione di MySQL per assicurare che la scrittura venga effettuata con la velocità corretta e che le cache siano scaricate nel disco il più frequentemente possibile per ridurre al minimo le perdite di memoria
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

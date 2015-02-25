@@ -1,6 +1,6 @@
-﻿<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Inserimento di dati personalizzati in macchine virtuali di Azure" description="Questo argomento descrive come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell'istanza e come individuare i dati personalizzati in Windows o Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
+﻿<properties pageTitle="Inserimento di dati personalizzati in macchine virtuali di Azure" description="In questo argomento viene descritto come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell'istanza e come individuare i dati personalizzati in Windows o Linux." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill"/>
 
 
 
@@ -14,7 +14,7 @@ L'inserimento di uno script o di altri dati in una macchina virtuale di Azure du
 
 - Usare strumenti speciali disponibili in alcuni sistemi per rilevare e gestire automaticamente i dati personalizzati.
 
-> [WACOM.NOTE] Questo argomento viene trattato anche in [questo post del blog di Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) che viene mantenuto aggiornato man mano che vengono aggiunte nuove funzionalità.
+> [AZURE.NOTE] Questo argomento viene trattato anche in [questo post del blog di Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/), che viene mantenuto aggiornato man mano che vengono aggiunte nuove funzionalità.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 Contenuto dell'argomento:
@@ -43,12 +43,12 @@ Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga
  
 + Se la macchina virtuale di Azure è una macchina virtuale Windows, il file di dati personalizzato viene salvato in `%SYSTEMDRIVE%\AzureData\CustomData.bin` e, anche se era codificato in Base 64 per il trasferimento dal computer locale alla nuova macchina virtuale, viene automaticamente decodificato e può essere subito aperto o usato. 
 
-   > [WACOM.NOTE] Se il file esiste viene sovrascritto. La sicurezza nella directory viene impostata su **System:Full Control** e **Administrators:Full Control**.
+   > [AZURE.NOTE] Se il file esiste viene sovrascritto. La sicurezza nella directory viene impostata su **System:Full Control** e **Administrators:Full Control**.
 
 + Se la macchina virtuale di Azure è una macchina virtuale Linux, il file di dati personalizzato viene salvato in questi due percorsi, ma i dati vengono codificati in Base 64, pertanto sarà necessario prima decodificarli.
 
-    + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData` 
+    + In `/var/lib/waagent/ovf-env.xml`
+    + In `/var/lib/waagent/CustomData` 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a id="nextsteps"></a>Passaggi successivi: Uso di cloud-init
@@ -61,4 +61,7 @@ Se la macchina virtuale di Azure si trova in un'immagine Ubuntu, è possibile us
 [Interfaccia della riga di comando multipiattaforma di Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

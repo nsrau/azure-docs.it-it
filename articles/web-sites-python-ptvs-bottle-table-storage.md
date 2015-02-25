@@ -1,6 +1,20 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-table-storage" title="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Bottle e archiviazione tabelle di Azure in Azure con Python Tools 2.1 per Visual Studio" description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Bottle che archivia i dati in archiviazione tabelle di Azure e che può essere distribuita in un sito Web." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Bottle e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio" 
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Bottle che archivia i dati in Archiviazione tabelle di Azure e può essere distribuita in un sito Web." 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
@@ -13,7 +27,7 @@ L'applicazione per sondaggi definisce un'astrazione per il proprio repository ch
 
 Si apprenderà come creare un account di archiviazione di Azure, come configurare l'applicazione per l'uso dell'archiviazione tabelle di Azure e come pubblicare l'applicazione in un sito Web di Azure.
 
-Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato sui siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi Cloud di Azure][].
+Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo sviluppo di siti Web di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL.  Sebbene questo articolo sia incentrato su Siti Web di Azure, i passaggi sono simili a quelli dello sviluppo di [Servizi cloud di Azure][].
 
 + [Prerequisiti](#prerequisites)
 + [Creare il progetto](#create-the-project)
@@ -29,10 +43,10 @@ Vedere il [Centro per sviluppatori Python][] per altri articoli che trattano lo 
  - Visual Studio 2012 o 2013
  - [Python Tools 2.1 per Visual Studio][]
  - [VSIX di esempio di Python Tools 2.1 per Visual Studio][]
- - [Strumenti di Azure SDK per Visual Studio 2013][] o [Strumenti di Azure SDK per Visual Studio 2012][]
+ - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2012][]
  - [Python 2.7 a 32 bit][] o [Python 3.4 a 32 bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creare il progetto
 
@@ -60,7 +74,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 
 ##<a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
+Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, seguire questa procedura.
 
 1.  Accedere al [portale di gestione di Azure][].
 
@@ -74,7 +88,7 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 1.  Nel campo URL, digitare un nome di sottodominio da usare nell'URI per l'account di archiviazione.  La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
 
-1.  Scegliere una regione o un gruppo di affinità in cui situare l'archiviazione. Se si utilizzerà l'archiviazione dalla propria applicazione Azure, selezionare la stessa area in cui verrà distribuita l'applicazione.
+1.  Scegliere una regione o un gruppo di affinità in cui situare l'archiviazione. Se si userà l'archiviazione dalla propria applicazione Azure, selezionare la stessa area in cui verrà distribuita l'applicazione.
 
 1.  Facoltativamente, è possibile abilitare la replica geografica.  Con la replica geografica, Archiviazione di Azure mantiene i dati persistenti in due posizioni. In entrambe le posizioni Archiviazione di Azure mantiene costantemente più repliche integre dei dati.
 
@@ -82,7 +96,7 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 ##<a name="configure-the-project"></a>Configurare il progetto
 
-In questa sezione verrà configurata l'applicazione per usare l'account di archiviazione appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure,  quindi verrà eseguita l'applicazione in locale.
+In questa sezione verrà configurata l'applicazione per usare l'account di archiviazione appena creato.  Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale Azure  e verrà eseguita l'applicazione in locale.
 
 1.  Nel [portale di gestione di Azure][] fare clic sull'account di archiviazione creato nella sezione precedente.
 
@@ -102,7 +116,7 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
     In questo modo verranno impostate le variabili di ambiente quando si sceglie **Avvia debug**.  Se si vuole che le variabili vengano impostate quando si sceglie l'opzione **Avvia senza eseguire debug**, impostare gli stessi valori anche in **Comando esecuzione server**.
 
-    In alternativa, è possibile definire variabili di ambiente usando il pannello di controllo di Windows.  Si tratta di un'opzione migliore se si vuole evitare di archiviare le credenziali nel codice sorgente/nel file del progetto.  Si noti che è necessario riavviare Visual Studio affinché i nuovi valori di ambiente siano disponibili per l'applicazione.
+    In alternativa, è possibile definire variabili di ambiente usando il Pannello di controllo di Windows.  Si tratta di un'opzione migliore se si vuole evitare di archiviare le credenziali nel codice sorgente/nel file del progetto.  Si noti che è necessario riavviare Visual Studio affinché i nuovi valori di ambiente siano disponibili per l'applicazione.
 
 1.  Il codice che implementa il repository di archiviazione tabelle di Azure si trova in **models/azuretablestorage.py**.  Vedere la [documentazione] per altre informazioni su come usare il servizio tabelle da Python.
 
@@ -116,7 +130,7 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
 È facile visualizzare e modificare le tabelle di archiviazione tramite Esplora server in Visual Studio.  In questa sezione si userà Esplora server per visualizzare il contenuto delle tabelle dell'applicazione di sondaggio.
 
-> [WACOM.NOTE] A tale scopo, è necessario che siano installati gli strumenti di Microsoft Azure, disponibili come parte di [Azure SDK per .NET][].
+> [AZURE.NOTE] A tale scopo, è necessario che siano installati gli strumenti di Microsoft Azure, disponibili come parte di [Azure SDK per .NET][].
 
 1.  Aprire **Esplora server**.  Espandere **Azure**, **Archiviazione**, l'account di archiviazione, quindi **Tabelle**.
 
@@ -209,4 +223,5 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Archiviazione di Azure]: http://azure.microsoft.com/it-it/documentation/services/storage/
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

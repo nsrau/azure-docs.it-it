@@ -1,10 +1,24 @@
-<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Introduzione alle notifiche push (Xamarin.iOS) - Servizi mobili" metaKeywords="" description="Informazioni su come usare le notifiche push in app per Xamarin.iOS con Servizi mobili di Azure." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Introduzione alle notifiche push (Xamarin.iOS) - Servizi mobili" 
+	description="Informazioni su come usare le notifiche push in app per Xamarin.iOS con Servizi mobili di Azure." 
+	documentationCenter="xamarin" 
+	authors="ysxu" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="yuaxu"/>
 
-# Aggiungere notifiche push all'app di Servizi mobili
+# Aggiunta di notifiche push all'app di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
 
 <p>Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.iOS 8. In questa esercitazione si userà il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.</p>
 
@@ -26,9 +40,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + [Xamarin.iOS Studio]
 + [Componente Servizi mobili di Azure]
 
-   <div class="dev-callout"><b>Nota</b>
-   <p>Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.</p>
-   </div>
+   > [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
 Il servizio APNS usa i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APNS, vedere [Apple Push Notification Service].
 
@@ -38,15 +50,15 @@ Il servizio APNS usa i certificati per autenticare il servizio mobile. Seguire l
 
 1. Dalla cartella Utility eseguire lo **strumento Accesso Portachiavi**.
 
-2. Fare clic su **Accesso Portachiavi**, espandere **Assistente Certificato**, quindi fare clic su **Richiedi un certificato da una Autorità di Certificazione**.
+2. Fare clic su **Accesso Portachiavi**, espandere **Assistente certificato**, quindi fare clic su **Richiedi un certificato da una Autorità di certificazione**.
 
     ![][5]
 
-3. Immettere l'**Indirizzo e-mail utente**, digitare un valore per **Nome comune**, assicurarsi che l'opzione **Salvata su disco** sia selezionata, quindi fare clic su **Continua**.
+3. Immettere un valore in **Indirizzo e-mail utente**, digitare un valore per **Nome comune**, assicurarsi che l'opzione **Registrato su disco** sia selezionata, quindi fare clic su **Continua**.
 
     ![][6]
 
-4. Digitare un nome per il file della richiesta di firma del certificato (CSR) in **Salva col nome**, selezionare il percorso in **Percorso**, quindi fare clic su **Salva**.
+4. Digitare un nome per il file della richiesta di firma del certificato (CSR) in **Salva col nome**, selezionare il percorso in **Situato in**, quindi fare clic su **Salva**.
 
     ![][7]
   
@@ -58,19 +70,19 @@ A questo punto registrare l'app con Apple, abilitare le notifiche push e caricar
 
 Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessario registrare l'applicazione con Apple ed eseguire la registrazione per abilitare le notifiche push. 
 
-1. Se l'app non è ancora stata registrata, accedere al <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> su Apple Developer Center, eseguire l'accesso con il proprio ID Apple, fare clic su **Identifiers**, quindi su **App IDs** e infine fare clic sul segno **+** per creare un ID per l'app.
+1. Se l'app non è ancora stata registrata, accedere al <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> in Apple Developer Center, eseguire l'accesso con il proprio ID Apple, fare clic su **Identificatori**, quindi su **ID app** e infine fare clic sul segno **+** per creare un ID per l'app.
     
     ![][102]
 
-2. Digitare un nome per l'app in **Description**, immettere un valore univoco per **Bundle Identifier** e ricordarlo, selezionare l'opzione "Push Notifications" nella sezione "App Services" e quindi fare clic su **Continua**. In questo esempio viene usato l'ID **MobileServices.Quickstart**, tuttavia non è possibile riutilizzare lo stesso ID, in quanto gli ID app devono essere univoci per tutti gli utenti. È pertanto consigliabile aggiungere il proprio nome completo o le proprie iniziali dopo il nome dell'app. 
+2. Digitare un nome per l'app in **Descrizione**, immettere un valore univoco per **Identificatore bundle** e ricordarlo, selezionare l'opzione "Notifiche push" nella sezione "Servizi app" e quindi fare clic su **Continua**. In questo esempio viene usato l'ID** MobileServices.Quickstart**, tuttavia non è possibile riusare lo stesso ID, in quanto gli ID app devono essere univoci per tutti gli utenti. È pertanto consigliabile aggiungere il proprio nome completo o le proprie iniziali dopo il nome dell'app. 
 
     ![][103]
    
-    Verrà generato l'ID dell'app e all'utente verrà chiesto di **inviare** le informazioni. Fare clic su **Submit**.
+    Verrà generato l'ID dell'app e all'utente verrà chiesto di **inviare** le informazioni. Fare clic su **Invia**.
    
     ![][104] 
    
-    Dopo aver fatto clic su **Submit**, verrà visualizzata la schermata **Registration complete**, come illustrato di seguito. Fare clic su **Done**.
+    Dopo aver fatto clic su **Invia** verrà visualizzata la schermata **Registrazione completata**, come illustrato di seguito. Fare clic su **Fine**.
    
     ![][105]    
 
@@ -78,23 +90,23 @@ Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessar
 
     ![][106]
    
-    Facendo clic sull'ID dell'app verranno visualizzati i dettagli relativi all'app e all'ID. Fare clic sul pulsante **Settings**.
+    Facendo clic sull'ID dell'app verranno visualizzati i dettagli relativi all'app e all'ID. Fare clic sul pulsante **Impostazioni**.
    
     ![][107] 
    
-4. Scorrere fino alla fine della schermata e fare clic su **Create Certificate** nella sezione **Development Push SSL Certificate**.
+4. Scorrere fino alla fine della schermata e fare clic sul pulsante **Crea certificato** nella sezione **Certificato SSL push di sviluppo**.
 
     ![][108] 
 
-    Verrà visualizzato l'assistente "Add iOS Certificate".
+    Verrà visualizzato l'assistente "Aggiungi certificato iOS".
    
-Nota: In questa esercitazione viene usato un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato in Servizi mobili.
+    Nota: In questa esercitazione viene usato un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato in Servizi mobili.
 
-5. Fare clic su **Choose File**, passare al percorso in cui è stato salvato il file CSR in precedenza, quindi fare clic su **Generate**. 
+5. Fare clic su **Scegli file**, passare al percorso in cui è stato salvato il file CSR in precedenza, quindi fare clic su **Crea**. 
 
     ![][110]
   
-6. Al termine della creazione del certificato nel portale, fare clic su **Download** e quindi su **Done**.
+6. Al termine della creazione del certificato nel portale, fare clic su **Scarica** e quindi su **Fine**.
  
     ![][111]  
 
@@ -102,7 +114,7 @@ Nota: In questa esercitazione viene usato un certificato di sviluppo. La stessa 
 
     ![][9] 
 
-Nota: Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
+    Nota: per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato <strong>aps_development.cer</strong>.
 
 7. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
 
@@ -110,31 +122,31 @@ Nota: Per impostazione predefinita, il file scaricato di un certificato di svilu
 
     ![][10]
 
-Nota: Il nome del certificato potrebbe essere diverso, ma verrà preceduto da <strong>Apple Development iOS Push Notification Services:</strong>.
+    Nota: il nome del certificato potrebbe essere diverso, ma sarà preceduto da <strong>Apple Development iOS Push Notification Services:</strong>.
 
 Questo certificato verrà usato in un secondo momento per generare un file con estensione p12 e verrà caricato in Servizi mobili per abilitare l'autenticazione con APNS.
 
 ## <a name="profile"></a>Creare un profilo di provisioning per l'app
  
-1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**.
+1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a>, selezionare **Profili di fornitura**, quindi **Tutto** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata per l'**aggiunta del profilo di provisioning iOS**.
 
     ![][112]
 
-2. Selezionare **iOS App Development** in **Development** come tipo di profilo di provisioning e fare clic su **Continue**.
+2. Selezionare **Sviluppo app iOS** in **Sviluppo** come tipo di profilo di provisioning e fare clic su **Continua**.
 
-3. Selezionare quindi l'ID dell'app di guida introduttiva per Servizi mobili nell'elenco a discesa **App ID** e fare clic su **Continue**.
+3. Selezionare quindi l'ID dell'app di guida introduttiva per Servizi mobili nell'elenco a discesa **ID app** e fare clic su **Continua**.
 
     ![][113]
 
-4. Nella schermata **Select certificates** selezionare il certificato creato in precedenza e fare clic su **Continue**.
+4. Nella schermata di **selezione del certificato** selezionare il certificato creato in precedenza e fare clic su **Continua**.
 
     ![][114]
 
-5. In **Devices** selezionare i dispositivi da usare per il test e fare clic su **Continue**.
+5. In **Dispositivi** selezionare i dispositivi da usare per il test e fare clic su **Continua**.
   
     ![][115]
 
-6. Infine, scegliere un nome per il profilo in **Profile Name**, fare clic su **Generate** e quindi su **Done**.
+6. Infine, scegliere un nome per il profilo in **Nome profilo**, fare clic su **Crea** e quindi su **Fine**.
 
     ![][116]
 
@@ -146,7 +158,7 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
 Dopo aver registrato l'app con APNS e aver configurato il progetto, è necessario configurare il servizio mobile in modo che si integri con APNS.
 
-1. In Accesso Portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato, scegliere **Esporta**, assegnare un nome al file, selezionare il formato **.p12**, quindi fare clic su **Salva**.
+1. In Accesso Portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato, scegliere **Esporta**, assegnare un nome al file, selezionare il formato **.p12** quindi fare clic su **Salva**.
 
     ![][28]
 
@@ -160,7 +172,7 @@ Dopo aver registrato l'app con APNS e aver configurato il progetto, è necessari
 
     ![][19]
 
-    Verrà visualizzata la finestra di dialogo Upload Certificate.
+    Verrà visualizzata la finestra di dialogo Carica certificato.
 
 4. Fare clic su **File**, selezionare il file con estensione p12 del certificato esportato, immettere la password in **Password**, verificare che in **Modalità** sia selezionata la modalità corretta, fare clic sull'icona del segno di spunta e quindi su **Salva**.
 
@@ -170,17 +182,17 @@ Il servizio mobile è ora configurato per funzionare con APNS.
 
 ## <a name="configure-app"></a>Configurare l'applicazione di Xamarin.iOS
 
-1. In Xamarin.Studio aprire **Info.plist** e aggiornare il valore in **Bundle Identifier** con l'ID creato in precedenza.
+1. In Xamarin.Studio aprire **Info.plist** e aggiornare il valore in **Identificatore bundle** con l'ID creato in precedenza.
 
     ![][121]
 
-2. Scorrere verso il basso fino a **Background Modes** e selezionare la casella **Enable Background Modes** e la casella **Remote notifications**. 
+2. Scorrere verso il basso fino a **Modalità background** e selezionare la casella **Abilità modalità background** e la casella **Notifiche remote**. 
 
     ![][122]
 
-3. Fare doppio clic sul progetto nel riquadro delle soluzioni per aprire le **opzioni del progetto**.
+3. Fare doppio clic sul progetto nel riquadro delle soluzioni per aprire **Opzioni progetto**.
 
-4.  Scegliere **iOS Bundle Signing** in **Build** e selezionare i valori corrispondenti per **Identity** e **Provisioning profile** appena configurati per questo progetto. 
+4.  Scegliere **Firma bundle iOS** in **Build** e selezionare i valori corrispondenti per **Identità** e **Profilo di fornitura** appena configurati per questo progetto. 
 
     ![][120]
 
@@ -192,7 +204,7 @@ Il servizio mobile è ora configurato per funzionare con APNS.
 
         public string DeviceToken { get; set; }
 
-2. Aprire la classe **TodoItem** e aggiungere la proprietà seguente:
+2. Aprire la classe **TodoItem** e aggiungere la seguente proprietà:
 
         [JsonProperty(PropertyName = "deviceToken")]
         public string DeviceToken { get; set; }
@@ -243,7 +255,7 @@ Il servizio mobile è ora configurato per funzionare con APNS.
             push.RegisterNativeAsync (DeviceToken, tag);
         }
 
-7. In **AppDelegate** eseguire l'override dell'evento **ReceivedRemoteNotification**:
+7. In **AppDelegate** eseguire l'override dell'evento**ReceivedRemoteNotification**:
 
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
@@ -269,11 +281,12 @@ Il servizio mobile è ora configurato per funzionare con APNS.
             Complete = false,
             DeviceToken = deviceToken
         };
+
 L'app è ora aggiornata per il supporto delle notifiche push.
 
 ## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
 
-1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**. 
+1. Nel portale di gestione fare clic sulla scheda **Dati**, quindi sulla tabella **TodoItem**. 
 
     ![][21]
 
@@ -299,27 +312,23 @@ L'app è ora aggiornata per il supporto delle notifiche push.
             }, 2500);
         }
 
-    Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert. 
+    Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta di inserimento. 
 
-    <div class="dev-callout"><b>Nota</b>
-   <p>Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica di tipo avviso popup.</p>
-   </div> 
+   > [AZURE.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica di tipo avviso popup.
 
 ## <a name="test"></a>Testare le notifiche push nell'app
 
-1. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
+1. Fare clic sul pulsante **Esegui** per compilare il progetto e avviare l'app in un dispositivo con iOS e quindi fare clic su **OK** per accettare le notifiche push.
 
     ![][23]
 
-    <div class="dev-callout"><b>Nota</b>
-    <p>È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.</p>
-    </div>
+   > [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Digitare testo significativo nell'app, ad esempio _Nuova attività di Servizi mobili_, quindi fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare testo significativo, come _Nuova attività Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
 
     ![][24]
 
-3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
+3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per ignorarla.
 
     ![][25]
 
@@ -384,7 +393,7 @@ L'esercitazione è stata completata.
 
 [Xamarin.iOS Studio]: http://xamarin.com/platform
 [Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portale di provisioning di iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Portale di provisioning per iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-ios
@@ -397,6 +406,9 @@ L'esercitazione è stata completata.
 
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[Oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331303
+
+
+<!--HONumber=42-->

@@ -1,20 +1,20 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app iOS" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per iOS. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app iOS" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per iOS." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per iOS mediante Servizi mobili di Azure.</p>
 <p>Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stessi passaggi dell'esercitazione.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-ios-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">9:38</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">guarda l'esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-ios-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">09:38</span></div>
 </div>
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per backend .NET] di questo argomento.
+In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per back-end .NET] di questo argomento.
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -22,11 +22,11 @@ Di seguito è riportata una schermata dell'app completata:
 
 Per completare questa esercitazione, è necessario disporre di XCode 4.5 e iOS 5.0 o versioni successive.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Creare una nuova app per iOS</h2>
 
@@ -36,7 +36,7 @@ In questa sezione si creerà una nuova app per iOS connessa al servizio mobile.
 
 1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-2. Nella scheda Guida introduttiva fare clic su **iOS** in **Scegli una piattaforma** ed espandere **Crea una nuova app iOS**.
+2. Nella scheda Avvio rapido fare clic su **iOS** in **Scegli piattaforma** ed espandere **Crea una nuova app iOS**.
 
    	![][6]
 
@@ -54,10 +54,10 @@ In questa sezione si creerà una nuova app per iOS connessa al servizio mobile.
 
 ## Esecuzione della nuova app per iOS
 
-[WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
+[AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Nel portale di gestione fare clic sulla scheda <strong>Dati</strong> e quindi sulla tabella <strong>TodoItems</strong>.<p></li></ol>
+<li><p>Tornare al portale di gestione e fare clic sulla scheda <strong>Dati</strong> e quindi sulla tabella <strong>TodoItems</strong>.<p></li></ol>
 
 ![](./media/mobile-services-ios-get-started/mobile-data-tab.png)
 
@@ -109,4 +109,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Portale di gestione]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Versione back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[Versione per back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+
+
+<!--HONumber=42-->

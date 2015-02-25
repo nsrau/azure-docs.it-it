@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Check Job Progress" pageTitle="Come controllare lo stato dei processi in Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come controllare lo stato dei processi in Servizi multimediali - Azure" description="Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -90,4 +90,5 @@ private static string JobIdAsFileName(string jobID)
 <h2>Passaggi successivi</h2>
 Dopo avere creato un processo e averne verificato l'avanzamento, il passaggio successivo consiste nel proteggere gli asset. Per altre informazioni, vedere la [procedura per proteggere un asset con Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

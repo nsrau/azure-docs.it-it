@@ -1,12 +1,27 @@
-﻿<properties urlDisplayName="New Relic App Performance Management" pageTitle="Gestione delle prestazioni delle app con New Relic in Azure" metaKeywords="new relic Azure, performance azure" description="Informazioni sull'uso del monitoraggio delle prestazioni di New Relic in Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="new relic" solutions="" manager="carolz" editor="" />
+﻿<properties 
+	pageTitle="Gestione delle prestazioni delle app con New Relic in Azure" 
+	description="Informazioni sull'uso del monitoraggio delle prestazioni di New Relic in Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
 #Gestione delle prestazioni delle app con New Relic in Siti Web di Azure
 
-Questa guida descrive come aggiungere New Relic al sito Web di Azure per un monitoraggio di qualità superiore. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno presentate alcune delle funzionalità. Per altre informazioni sull'uso di New Relic, vedere [Uso di New Relic](#using-new-relic).
+Questa guida descrive come aggiungere New Relic al sito Web di Azure per un monitoraggio di qualità superiore. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno presentate
+alcune delle funzionalità. Per altre informazioni sull'uso di New Relic, vedere [Uso di New Relic].(#using-new-relic).
 
 Informazioni su New Relic
 --
@@ -23,14 +38,11 @@ New Relic Pro viene offerto in più pacchetti in base alla modalità del sito in
 
 Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://www.windowsazure.com/it-it/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Nota:</strong>
-<p>Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.</p>
-</div>
+> [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-Iscrizione a New Relic usando Azure Store
+Iscriversi a New Relic usando Azure Store
 --
 
 New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e i siti Web di Azure.
@@ -54,7 +66,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 
 ### Passaggio 2. Installare il modulo New Relic.
 
-L'agente per siti Web di New Relic viene distribuito come pacchetto NuGet, che può essere aggiunto al sito Web con Visual Studio o WebMatrix. Se non si ha familiarità con l'uso di Visual Studio o WebMatrix con un sito Web di Azure, vedere l'articolo relativo alla [distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure con Visual Studio][vswebsite] oppure l'articolo relativo allo [sviluppo e alla distribuzione di un sito Web con Microsoft WebMatrix][webmatrixwebsite].
+L'agente per siti Web di New Relic viene distribuito come pacchetto NuGet, che può essere aggiunto al sito Web con Visual Studio o WebMatrix. Se non si ha familiarità con l'uso di Visual Studio o WebMatrix con un sito Web di Azure, vedere [Introduzione a Siti Web di Azure e ASP.NET][vswebsite] oppure [Sviluppare e distribuire un sito Web con Microsoft WebMatrix][webmatrixwebsite].
 
 Eseguire la procedura seguente per l'ambiente di sviluppo specifico in uso:
 
@@ -74,8 +86,7 @@ Eseguire la procedura seguente per l'ambiente di sviluppo specifico in uso:
 
 	![enter license key][vslicensekey]
 
-<!--5. Optional: At the application name prompt, enter your app's name as it will
-   appear in New Relic's dashboard. Or, use your solution name as the default.
+<!--5. Facoltativo: al prompt del nome dell'applicazione, immettere il nome dell'applicazione come verrà visualizzato nel dashboard di New Relic. In alternativa, è possibile usare il nome della soluzione come nome predefinito.
 
 	![enter application name](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget08.png)-->
 
@@ -143,10 +154,7 @@ Il pacchetto New Relic aggiunto all'applicazione nel passaggio precedente viene 
 	</tbody>
 	</table><br/>
 
-	<div class="dev-callout"> 
-	<strong>Nota</strong> 
-	<p>L'applicazione delle nuove impostazioni in <strong>Impostazioni app</strong> può richiedere fino a 30 secondi. Per forzare l'applicazione immediata delle impostazioni, riavviare il sito Web.</p> 
-	</div>
+	> [AZURE.NOTE] L'applicazione delle nuove impostazioni in <strong>Impostazioni app</strong> può richiedere fino a 30 secondi. Per forzare l'applicazione immediata delle impostazioni, riavviare il sito Web.
 
 
 4. Pubblicare l'applicazione con Visual Studio o WebMatrix.
@@ -165,7 +173,7 @@ Per visualizzare il dashboard di New Relic:
 
 	Dopo avere selezionato un'app dall'elenco nel menu **Applications**, nel dashboard **Overview** verranno visualizzate le informazioni relative al server applicazioni e al browser.
 
-### <a id="using-new-relic"></a>Usare New Relic
+### <a id="using-new-relic"></a>Uso di New Relic
 
 Dopo avere selezionato l'applicazione dall'elenco nel menu Applications, nel dashboard Overview verranno visualizzate le informazioni relative al server applicazioni e al browser. Per passare da una visualizzazione all'altra, fare clic sul pulsante **App server** o **Browser**.
 
@@ -175,7 +183,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
   <thead>
     <tr>
       <th><b>Per...</b></th>
-      <th><b>Effettuare l'operazione seguente:</b></th>
+      <th><b>Effettuare questa operazione</b></th>
     </tr>
   </thead>
   <tbody>
@@ -184,20 +192,20 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
        <td>Fare clic sul pulsante <b>App Server</b> o <b>Browser</b>.</td>
     </tr>
      <tr>
-       <td>Visualizzare i livelli di soglia per il punteggio <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> dell'app.</td>
+       <td>Visualizzare i livelli di soglia per il punteggio <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> dell'app</td>
        <td>Selezionare l'icona <b>?<b> del punteggio Apdex.</b></b></td>
     </tr>
     <tr>
        <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview, selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
+       <td>Nella visualizzazione <b>Browser</b> della schermata Overview, selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a>per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a></td>
-       <td>Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure per visualizzare dettagli relativi a una transazione Web specifica (comprese quelle del gruppo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) fare clic sul nome della transazione.</td>
+       <td>Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure per visualizzare dettagli relativi a una transazione Web specifica (comprese quelle del gruppo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>), fare clic sul nome della transazione.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è possibile visualizzare il dashboard Errors anche selezionando <b>Applications</b> &gt; (app) &gt; Events &gt; Errors.</td>
+       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è possibile visualizzare il dashboard Errors anche selezionando <b>Applications</b> &gt; (applicazione) &gt; Events &gt; Errors.</td>
     </tr>
     <tr>
        <td>Visualizzare i dettagli relativi al server applicazioni</td>
@@ -226,8 +234,7 @@ Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
 panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei profili utente, uso delle funzioni standard e dettagli sui drill-down dei dashboard
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): funzionalità disponibili nel dashboard Applications Overview di New Relic
  * [Apdex](https://newrelic.com/docs/site/apdex): panoramica delle misurazioni Apdex della soddisfazione degli utenti finali riguardo all'applicazione
- * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli 
-relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
+ * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): informazioni generali sulla modalità in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, il tempo impiegato dai browser per caricare le pagine Web e i tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
 
@@ -242,4 +249,5 @@ relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricar
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

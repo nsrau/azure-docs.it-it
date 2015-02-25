@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Introduzione all'autenticazione (Xamarin.iOS) - Servizi mobili" metaKeywords="applicazione di registrazione di Azure, autenticazione di Azure, autenticazione applicazione, autenticare servizi mobili, Servizi mobili per Xamarin.iOS" description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile"  services="mobile-services" title="Get started with authentication in Mobile Services" manager="dwrede" authors="donnam" />
+﻿<properties 
+	pageTitle="Introduzione all'autenticazione (Xamarin.iOS) - Servizi mobili" 
+	description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.iOS." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
-# Aggiungere l'autenticazione all'app di Servizi mobili
+# Aggiunta dell'autenticazione all'app di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
+In questo argomento viene illustrato come autenticare gli utenti in Servizi mobili di Azure dalla propria app.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
+1. [Registrare l'app per l'autenticazione e configurazione di Servizi mobili]
 2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
 3. [Aggiungere l'autenticazione all'app]
 
@@ -18,14 +32,14 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per completare questa esercitazione, è necessario disporre di [Xamarin.iOS], XCode 5.0 e iOS 5.0 o versioni successive.
 
-<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili</h2>
+<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurazione di Servizi mobili</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <h2><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati</h2>
 
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. In Xcode aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili]. 
@@ -38,7 +52,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 <h2><a name="add-authentication"></a>Aggiungere l'autenticazione all'app</h2>
 
-1. Aprire il file del progetto **TodoService** e aggiungere le variabili seguenti:
+1. Aprire il file del progetto **TodoService** e aggiungere le variabili seguenti
 
 		// Mobile Service logged in user
 		private MobileServiceUser user; 
@@ -58,9 +72,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
             }
         }
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato al metodo <strong>LoginAsync</strong> riportato in precedenza con uno dei seguenti: <i>Facebook</i>, <i>Twitter</i>, <i>Google</i>, o <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+	> [AZURE.NOTE] Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato al metodo **LoginAsync** riportato in precedenza con uno dei seguenti: _Facebook_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Spostare la richiesta per la tabella **TodoItem** dal costruttore **TodoService** a un nuovo metodo denominato **CreateTable**:
 
@@ -99,7 +111,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
         }
 6. Rimuovere la chiamata originale a **RefreshAsync** da **TodoListViewController.ViewDidLoad**.
 		
-7. Premere il pulsante **Run** per creare il progetto, avviare l'app nell'emulatore iPhone e quindi accedere con il provider di identità scelto.
+7. Scegliere il pulsante **Run** per creare il progetto, avviare l'app nell'emulatore iPhone e quindi accedere con il provider di identità scelto.
 
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
@@ -111,7 +123,7 @@ Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le vari
 Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. 
 
 <!-- Anchors. -->
-[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
+[Registrare l'app per l'autenticazione e configurazione di Servizi mobili]: #register
 [Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
 [Aggiungere l'autenticazione all'app]: #add-authentication
 [Passaggi successivi]:#next-steps
@@ -124,7 +136,7 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [15]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. TODO:: update completed example project link with project download -->
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
@@ -136,3 +148,6 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+<!--HONumber=42-->

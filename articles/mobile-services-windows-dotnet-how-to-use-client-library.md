@@ -1,7 +1,6 @@
-﻿
-<properties urlDisplayName=".NET Client Library" pageTitle="Uso della libreria client .NET per Servizi mobili" metaKeywords="Servizi mobili di Azure, client .NET per Servizi mobili, client .NET" description="Informazioni su come usare un client .NET per Servizi mobili di Azure." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Uso delle libreria client .NET per Servizi mobili" description="Informazioni su come usare un client .NET per Servizi mobili di Azure." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga"/>
 
 
 
@@ -45,11 +44,11 @@ In questa guida viene illustrato come eseguire scenari comuni usando un client .
 	- [Personalizzare la serializzazione]
 - [Passaggi successivi]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Installazione e prerequisiti</h2>
 
-Si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella](http://go.microsoft.com/fwlink/?LinkId=298592). Nel codice utilizzato in questo argomento, la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`.
+Si presuppone che siano stati creati un servizio mobile e una tabella. Per altre informazioni, vedere [Creare una tabella](http://go.microsoft.com/fwlink/?LinkId=298592). Nel codice usato in questo argomento la tabella è denominata  `TodoItem` e si presenta con le colonne seguenti:  `Id`, `Text` e  `Complete`.
 
 Il tipo .NET tipizzato corrispondente sul lato client è il seguente:
 
@@ -69,7 +68,7 @@ Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono gener
 
 <h2><a name="create-client"></a>Procedura: Creare il client di Servizi mobili</h2>
 
-Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per accedere al servizio mobile.
+Il codice seguente consente di creare l'oggetto  `MobileServiceClient` usato per accedere al servizio mobile.
 
 
 	MobileServiceClient client = new MobileServiceClient(
@@ -77,26 +76,26 @@ Il codice seguente consente di creare l'oggetto `MobileServiceClient` usato per 
 		"AppKey"
 	);
 
-Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave dell'applicazione, in quest'ordine. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su "Dashboard".
+Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su "Dashboard".
 
 <h2><a name="instantiating"></a>Procedura: Creare un riferimento alla tabella</h2>
 
- Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto "MobileServiceTable". Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`.
+Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto  `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto  `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Questo è il modello tipizzato di serializzazione. Più avanti in questo argomento verrà illustrato il <a href="#untyped">modello di serializzazione non tipizzato</a> .
+Questo è il modello tipizzato di serializzazione. Più avanti in questo argomento verrà illustrato il <a href="#untyped">modello di serializzazione non tipizzato</a>.
 
 <h2><a name="querying"></a>Procedura: Eseguire query sui dati da un servizio mobile</h2>
 
-Questa sezione descrive come eseguire query nel servizio mobile. Nelle sottosezioni vengono descritti aspetti diversi come ordinamento, filtri e paging.
+In questa sezione viene descritto come eseguire query nel servizio mobile. Nelle sottosezioni vengono descritti aspetti diversi come ordinamento, filtri e paging.
 
->[WACOM.NOTE]Per impostazione predefinita, viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutte le righe. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. Per restituire più di 50 righe, usare il metodo `Take` descritto in [Restituire i dati in pagine].  
+>[AZURE.NOTE] Per impostazione predefinita, viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutte le righe. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. Per restituire più di 50 righe, usare il metodo  `Take` descritto in [Restituire i dati in pagine].  
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
 
-Nel codice seguente viene illustrato come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione `Where` applica un predicato di filtro di riga alla query sulla tabella.
+Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da  `todoTable` per i quali la proprietà  `Complete` è uguale a  `false`. La funzione  `Where` applica un predicato di filtro di riga alla query sulla tabella.
 
 	// This query filters out completed TodoItems and
 	// items without a timestamp.
@@ -113,7 +112,7 @@ Normalmente, questa richiesta verrebbe convertita approssimativamente nella quer
 	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 
-La funzione passata al metodo `Where` può avere un numero di condizioni arbitrario. Ad esempio, la riga seguente:
+La funzione passata al metodo  `Where` può avere un numero di condizioni arbitrario. Ad esempio, la riga seguente:
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
@@ -128,7 +127,7 @@ Viene convertita approssimativamente (per la stessa richiesta) in
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
-L'istruzione `where` riportata sopra individuerà elementi con stato `Complete` impostato su false con `Text` diverso da null.
+L'istruzione  `where` riportata sopra trova elementi con stato  `Complete` impostato su false con  `Text` diverso da null.
 
 Sarebbe stato anche possibile usare più righe:
 
@@ -139,11 +138,11 @@ Sarebbe stato anche possibile usare più righe:
 
 I due metodi si equivalgono e possono essere usati in modo intercambiabile.  La prima opzione, che prevede la concatenazione di più predicati in una query, è più compatta ed è consigliata.
 
-La clausola `where` supporta operazioni che vengono convertite nel subset OData di Servizi mobili. Sono inclusi gli operatori relazionali (==, !=, <, <=, >, >=), gli operatori aritmetici (+, -, /, *, %), l'approssimazione dei numeri (Math.Floor, Math.Ceiling), funzioni di stringa (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), proprietà relative alla data (Year, Month, Day, Hour, Minute, Second), proprietà di accesso di un oggetto ed espressioni che combinano tutti questi elementi.
+La clausola  `where` supporta operazioni che vengono convertite nel subset OData di Servizi mobili. Sono inclusi gli operatori relazionali (==, !=, <, <=, >, >=), gli operatori aritmetici (+, -, /, *, %), l'approssimazione dei numeri (Math.Floor, Math.Ceiling), funzioni di stringa (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), proprietà relative alla data (Year, Month, Day, Hour, Minute, Second), proprietà di accesso di un oggetto ed espressioni che combinano tutti questi elementi.
 
 ### <a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
-Nel codice seguente viene illustrato come ordinare i dati includendo una funzione `OrderBy` o `OrderByDescending` nella query. L'operazione restituisce elementi della tabella `todoTable` in ordine crescente in base al campo `Text`.
+Il codice seguente illustra come ordinare i dati includendo una funzione `OrderBy` o `OrderByDescending` nella query. L'operazione restituisce elementi della tabella `todoTable` in ordine crescente in base al campo `Text`.
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -157,7 +156,7 @@ Nel codice seguente viene illustrato come ordinare i dati includendo una funzion
 
 ### <a name="paging"></a>Procedura: Restituire i dati in pagine
 
- Per impostazione predefinita, il server restituisce solo le prime 50 righe. È possibile aumentare il numero di righe restituite mediante una chiamata al metodo [Take]. Usare `Take` insieme al metodo [Skip] per richiedere una "pagina" specifica dell'intero dataset restituito dalla query. La query seguente, se eseguita, restituisce le prime tre voci della tabella.
+Per impostazione predefinita, il server restituisce solo le prime 50 righe. È possibile aumentare il numero di righe restituite mediante una chiamata al metodo [Take]. Usare  `Take` insieme al metodo [Skip] per richiedere una "pagina" specifica dell'intero set di dati restituito dalla query. La query seguente, se eseguita, restituisce le prime tre voci della tabella.
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -176,11 +175,11 @@ La query modificata riportata di seguito ignora i primi tre risultati e restitui
 
 	query = query.IncludeTotalCount();
 
-Nella situazione illustrata il passaggio di valori di paging hardcoded ai metodi "Take" e "Skip" è stato semplificato. In un'app reale è possibile usare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive.
+Nella situazione illustrata il passaggio di valori di paging hardcoded ai metodi  `Take` e  `Skip` è stato semplificato. In un'app reale è possibile usare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive.
 
 ### <a name="selecting"></a>Procedura: Selezionare colonne specifiche
 
-È possibile specificare il set di proprietà da includere nei risultati aggiungendo alla query una clausola `Select`. Ad esempio, il codice seguente illustra come selezionare un solo campo e come selezionare e formattare più campi:
+È possibile specificare il set di proprietà da includere nei risultati aggiungendo alla query una clausola `Select`. Ad esempio, nel codice seguente viene illustrato come selezionare un solo campo e come selezionare e formattare più campi:
 
 	// Select one field -- just the Text
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -203,20 +202,20 @@ Tutte le funzioni descritte in precedenza sono additive, di conseguenza è possi
 
 ### <a name="lookingup"></a>Procedura: Cercare dati in base all'ID
 
-Per cercare oggetti dal database caratterizzati da un particolare ID, è possibile usare la funzione `LookupAsync`.
+Per cercare oggetti dal database caratterizzati da un particolare ID, è possibile usare la funzione  `LookupAsync`.
 
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 <a name="inserting"></a>Procedura: Inserire dati in un servizio mobile
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per eseguire operazioni di inserimento, ricerca, eliminazione o aggiornamento su un tipo, è necessario creare un membro denominato <strong>Id</strong>. La classe di esempio <strong>TodoItem</strong> ha infatti un membro denominato <strong>Id</strong>. Un valore ID è valido solo se è sempre presente nelle operazioni di aggiornamento ed eliminazione.</p> </div>
+> [AZURE.NOTE] Per eseguire operazioni di inserimento, ricerca, eliminazione o aggiornamento su un tipo, è necessario creare un membro denominato **Id**. La classe di esempio **TodoItem** ha infatti un membro denominato **Id**. Un valore ID è valido solo se è sempre presente nelle operazioni di aggiornamento ed eliminazione.
 
 Il codice seguente illustra come inserire nuove righe in una tabella. Il parametro contiene i dati da inserire come oggetto .NET.
 
 	await todoTable.InsertAsync(todoItem);
 
-Se nell'elemento `todoItem` passato alla chiamata `todoTable.InsertAsync` non è incluso un valore ID univoco personalizzato, verrà generato un valore per l'ID dal server impostato nell'oggetto `todoItem` restituito al client.
+Se nell'elemento  `todoItem` passato alla chiamata  `todoTable.InsertAsync` non è incluso un valore ID univoco personalizzato, verrà generato un valore per l'ID dal server impostato nell'oggetto  `todoItem` restituito al client.
 
 Servizi mobili supporta valori di stringa univoci personalizzati per l'ID della tabella. In tal modo alle applicazioni è consentito usare valori personalizzati come indirizzi di posta elettronica o nomi utente per la colonna ID di una tabella di Servizi mobili. Se al momento dell'inserimento di nuovi record in una tabella non viene specificato un valore ID di stringa, Servizi mobili genera un valore univoco per l'ID.
 
@@ -275,7 +274,7 @@ Il codice seguente illustra come aggiornare con nuove informazioni un'istanza es
 	await todoTable.UpdateAsync(todoItem);
 
 
-Per inserire dati non tipizzati, è possibile usare Json.NET come illustrato di seguito. Si noti che durante un'operazione di aggiornamento è necessario specificare un ID per consentire al servizio mobile di identificare l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata "InsertAsync".
+Per inserire dati non tipizzati, è possibile usare Json.NET come illustrato di seguito. Si noti che durante un'operazione di aggiornamento è necessario specificare un ID per consentire al servizio mobile di identificare l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`.
 
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
@@ -283,41 +282,41 @@ Per inserire dati non tipizzati, è possibile usare Json.NET come illustrato di 
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 
-Se si tenta di aggiornare un elemento senza specificare il valore "Id", il servizio non sarà in grado di individuare l'istanza da aggiornare e quindi Mobile Services SDK genererà un'eccezione "ArgumentException".
+Se si tenta di aggiornare un elemento senza specificare il valore "Id", il servizio non sarà in grado di individuare l'istanza da aggiornare e quindi Mobile Services SDK genererà un'eccezione  `ArgumentException`.
 
 
 <h2><a name="deleting"></a>Procedura: Eliminare dati in un servizio mobile</h2>
 
-Il codice seguente illustra come eliminare un'istanza esistente. L'istanza è identificata dal campo "Id" impostato in "todoItem".
+Il codice seguente illustra come eliminare un'istanza esistente. L'istanza è identificata dal campo "Id" impostato in  `todoItem`.
 
 	await todoTable.DeleteAsync(todoItem);
 
-Per eliminare dati non tipizzati, è possibile usare Json.NET come illustrato di seguito. Si noti che per una richiesta di eliminazione è necessario specificare un ID per consentire al servizio mobile di identificare l'istanza da eliminare. Per una richiesta di eliminazione è necessario solo l'ID: altre proprietà non vengono passate al servizio e, in caso contrario, vengono ignorate. Anche il risultato di una chiamata `DeleteAsync` equivale normalmente a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync`.
+Per eliminare dati non tipizzati, è possibile usare Json.NET come illustrato di seguito. Si noti che per una richiesta di eliminazione è necessario specificare un ID per consentire al servizio mobile di identificare l'istanza da eliminare. Per una richiesta di eliminazione è necessario solo l'ID: altre proprietà non vengono passate al servizio e, in caso contrario, vengono ignorate. Anche il risultato di una chiamata  `DeleteAsync` equivale normalmente a  `null`. È possibile ottenere l'ID da passare dal risultato della chiamata  `InsertAsync`.
 
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Se si prova a eliminare un elemento prima di impostare il campo "Id", il servizio non è in grado di individuare l'istanza da eliminare e di conseguenza genera un'eccezione "MobileServiceInvalidOperationException". Analogamente, se si prova a eliminare un elemento non tipizzato prima di impostare il campo "Id", il servizio genera un'eccezione "MobileServiceInvalidOperationException".
+Se si prova a eliminare un elemento prima di impostare il campo "Id", il servizio non è in grado di individuare l'istanza da eliminare e di conseguenza genera un'eccezione  `MobileServiceInvalidOperationException`. Analogamente, se si prova a eliminare un elemento non tipizzato prima di impostare il campo "Id", il servizio genera un'eccezione  `MobileServiceInvalidOperationException`.
 
-## <a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
+##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
 
 Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'uso di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio completo, incluse informazioni per creare un'API personalizzata nel servizio mobile, vedere [Chiamare un'API personalizzata dal client].
 
-Per chiamare un'API personalizzata, è sufficiente chiamare uno degli overload del metodo [InvokeApiAsync] sul client. Ad esempio, la riga di codice seguente invia una richiesta POST all'API **completeAll** sul servizio mobile:
+Per chiamare un'API personalizzata, è sufficiente chiamare uno degli overload del metodo [InvokeApiAsync] sul client. Ad esempio, la riga di codice seguente invia una richiesta POST all'API **completeAll** sul Servizio mobile:
 
     var result = await App.MobileService
         .InvokeApiAsync<MarkAllResult>("completeAll",
         System.Net.Http.HttpMethod.Post, null);
 
-Si noti che questa è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati. Questo esempio è abbastanza semplice in quanto è tipizzato, non invia payload, non ha parametri di query e non modifica le intestazioni della richiesta. Per esempi più realistici e una discussione completa sul metodo [InvokeApiAsync], vedere l'articolo relativo all'[API personalizzata negli SDK del client di Servizi mobili].
+Si noti che questa è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati. Questo esempio è abbastanza semplice in quanto è tipizzato, non invia payload, non ha parametri di query e non modifica le intestazioni della richiesta. Per esempi più realistici e una discussione completa sul metodo [InvokeApiAsync], vedere l'articolo relativo all'[API personalizzata nei Servizi mobili di Azure - SDK client].
 
 
-## <a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
+##<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica
 
 In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il controllo della concorrenza ottimistica presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
-Servizi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, con la colonna di proprietà di sistema `__version` definita per ogni tabella creata da Servizi mobili. Ogni volta che un record viene aggiornato, Servizi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del server, la libreria client .NET di Servizi mobili genera un'eccezione `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del server e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto nel server per effettuare il commit delle modifiche.  
+Servizi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `__version` definita per ogni tabella creata da Servizi mobili. Ogni volta che un record viene aggiornato, Servizi mobili imposta la proprietà `__version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà _`__version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del server, la libreria client .NET di Servizi mobili genera un'eccezione  `MobileServicePreconditionFailedException<T>`. Il tipo incluso nell'eccezione corrisponde al record del server e contiene la versione del record presente sul server. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `__version` corretto nel server per effettuare il commit delle modifiche.  
 
 Per attivare la concorrenza ottimistica, l'applicazione definisce una colonna sulla classe di tabella per la proprietà di sistema `__version`. La definizione seguente ne è un esempio.
 
@@ -337,13 +336,13 @@ Per attivare la concorrenza ottimistica, l'applicazione definisce una colonna su
     }
 
 
-Le applicazioni che usano tabelle non tipizzate attivano la concorrenza ottimistica impostando il flag `Version` per `SystemProperties` della tabella, come mostrato di seguito.
+Le applicazioni che usano tabelle non tipizzate abilitano la concorrenza ottimistica impostando il flag  `Version` per  `SystemProperties` della tabella, come mostrato di seguito.
 
 	//Enable optimistic concurrency by retrieving __version
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
-Nel codice seguente viene illustrato come risolvere un conflitto di scrittura, qualora venga rilevato. Il valore `__version` corretto deve essere incluso nella chiamata `UpdateAsync()` per eseguire il commit di una risoluzione.
+Il codice seguente illustra come risolvere un conflitto di scrittura, qualora venga rilevato. Per eseguire il commit di una risoluzione è necessario includere nella chiamata  `UpdateAsync()` il valore `__version` corretto.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -406,7 +405,7 @@ Per un esempio più completo dell'uso della concorrenza ottimistica per Servizi 
 
 <h2><a name="binding"></a>Procedura: Associare dati all'interfaccia utente in un servizio mobile</h2>
 
-In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente. Per eseguire una query sugli elementi incompleti in `todoTable` e visualizzarli in un semplice elenco, è possibile eseguire il codice di esempio seguente per associare l'origine dell'elenco a una query. Mediante `MobileServiceCollection` è possibile creare una raccolta di associazione compatibile con Servizi mobili.
+In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente. Per eseguire una query sugli elementi incompleti in  `todoTable` e visualizzarli in un semplice elenco, è possibile avviare il codice di esempio seguente per associare l'origine dell'elenco a una query. Mediante  `MobileServiceCollection` è possibile creare una raccolta di associazione compatibile con Servizi mobili.
 
 	// This query filters out completed TodoItems.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
@@ -420,7 +419,7 @@ In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Alcuni controlli di Windows Runtime supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/it-it/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows Store è disponibile un supporto incorporato tramite `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows Store, eseguire le operazioni seguenti:
+Alcuni controlli di Windows Runtime supportano un'interfaccia denominata [ISupportIncrementalLoading](http://msdn.microsoft.com/it-it/library/windows/apps/Hh701916). Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows Store è disponibile un supporto incorporato tramite  `MobileServiceIncrementalLoadingCollection`, che gestisce automaticamente le chiamate dai controlli. Per usare  `MobileServiceIncrementalLoadingCollection` nelle app di Windows Store, eseguire le operazioni seguenti:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -430,23 +429,24 @@ Alcuni controlli di Windows Runtime supportano un'interfaccia denominata [ISuppo
 		lb.ItemsSource = items;
 
 
-Per usare la nuova raccolta in Windows Phone, usare i metodi di estensione `ToCollection` su `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Per caricare effettivamente i dati, chiamare `LoadMoreItemsAsync()`.
+Per usare la nuova raccolta in Windows Phone, usare i metodi di estensione  `ToCollection` su  `IMobileServiceTableQuery<T>` e  `IMobileServiceTable<T>`. Per caricare effettivamente i dati, effettuare una chiamata a  `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
-Quando si usa la raccolta creata tramite la chiamata a `ToCollectionAsync` o `ToCollection`, si ottiene una raccolta che può essere associata ai controlli dell'interfaccia utente. Questa raccolta supporta il paging, ossia consente a un controllo di chiedere e ottenere dalla raccolta di "caricare più elementi". A quel punto, il codice utente non è coinvolto e il controllo avvierà il flusso. Poiché tuttavia la raccolta carica dati dalla rete, si suppone che talvolta il caricamento avrà esito negativo. Per gestire tali errori, è possibile eseguire l'override del metodo `OnException` in `MobileServiceIncrementalLoadingCollection` per gestire le eccezioni derivanti da chiamate a `LoadMoreItemsAsync` eseguite dai controlli.
+Quando si usa la raccolta creata tramite la chiamata a  `ToCollectionAsync` o  `ToCollection`, si ottiene una raccolta che può essere associata ai controlli dell'interfaccia utente. Questa raccolta supporta il paging, ossia consente a un controllo di chiedere e ottenere dalla raccolta di "caricare più elementi". A quel punto, il codice utente non è coinvolto e il controllo avvierà il flusso. Poiché tuttavia la raccolta carica dati dalla rete, si suppone che talvolta il caricamento avrà esito negativo. Per gestire tali errori, è possibile eseguire l'override del metodo  `OnException` in  `MobileServiceIncrementalLoadingCollection` per gestire le eccezioni derivanti da chiamate a  `LoadMoreItemsAsync` eseguite dai controlli.
 
-Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri visualizzarne solo alcuni nel controllo. È possibile seguire le indicazioni riportate nella sezione <a href="#selecting"Selezionare colonne specifiche"</a>  precedente per scegliere specifiche colonne da visualizzare nell'interfaccia utente.
+Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri visualizzarne solo alcuni nel controllo. È possibile seguire le indicazioni riportate nella sezione <a href="#selecting">"Selezionare colonne specifiche"</a> precedente per scegliere specifiche colonne da visualizzare nell'interfaccia utente.
 
 <h2><a name="authentication"></a>Procedura: Autenticare gli utenti</h2>
 
 Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile usare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store][autenticazione di Windows Store]/[Windows Phone][autenticazione di Windows Phone])
 
-Sono supportati due flussi di autenticazione: un _flusso server_ e un _flusso client_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
+Sono supportati due flussi di autenticazione, _server flow_ e _client flow_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
 
 <h3>Flusso server</h3>
-Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o per Windows Phone, è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per altre informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store][autenticazione di Windows Store]/[Windows Phone][autenticazione di Windows Phone]).
+Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o Windows Phone,
+è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per altre informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store][autenticazione di Windows Store]/[Windows Phone][autenticazione di Windows Phone]).
 
 Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync method] con il valore del provider [MobileServiceAuthenticationProvider]. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
 
@@ -478,9 +478,8 @@ Se si usa un provider di identità diverso da Facebook, sostituire il valore di 
 
 In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync] restituisce un utente [MobileServiceUser], che fornisce sia un elemento [userId] dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken] sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per altre informazioni, vedere [Memorizzazione nella cache del token di autenticazione].
 
-<div class="dev-callout"><b>App di Windows Store</b>
-<p>Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è inoltre necessario registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per altre informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere <a href="/it-it/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft</a>. Dopo la registrazione delle informazioni del pacchetto con Servizi mobili, per riutilizzare le credenziali è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>.</p>
-</div>
+> [AZURE.NOTE] **App di Windows Store**
+Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è inoltre necessario registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per altre informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft](/it-it/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione delle informazioni del pacchetto con Servizi mobili, per riutilizzare le credenziali è necessario chiamare il metodo [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") specificando il valore **true** per il parametro _useSingleSignOn_.
 
 <h3>Flusso client</h3>
 
@@ -519,13 +518,13 @@ Nella forma più semplice, è possibile usare il flusso client come illustrato i
 		}
 	}
 
-Se si utilizza un account Microsoft, effettuare l'accesso come segue:
+Se si usa un account Microsoft, effettuare l'accesso come segue:
 
 	// Replace authentication_token_value with actual value of your Microsoft authentication token obtained through the Live SDK
 	user = await client
 		.LoginWithMicrosoftAccountAsync(authentication_token_value);
 
-Per un esempio di uso di un account Microsoft per consentire l'uso di un unico accesso, vedere l'esercitazione "Autenticare un'app con Single Sign-On ([Windows Store](/it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/it-it/develop/mobile/tutorials/single-sign-on-wp8/)).
+Per un esempio di uso di un account Microsoft per consentire l'uso di un unico accesso, vedere l'esercitazione "Autenticare un'app con Single Sign-On" ([Windows Store](/it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/it-it/develop/mobile/tutorials/single-sign-on-wp8/)).
 
 <h3><a name="caching"></a>Memorizzazione nella cache del token di autenticazione</h3>
 In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault], le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
@@ -556,7 +555,7 @@ In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la pr
 	vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
 
-Nel caso delle app di Windows Phone, è possibile crittografare i dati e memorizzarli nella cache usando la classe [ProtectedData] e archiviare i dati sensibili in uno spazio di memorizzazione isolato.
+Nel caso delle app per Windows Phone, è possibile crittografare i dati e memorizzarli nella cache usando la classe [ProtectedData] e archiviare i dati sensibili in uno spazio di memorizzazione isolato.
 
 <h2><a name="errors"></a>Procedura: Gestire gli errori</h2>
 
@@ -594,7 +593,7 @@ Ora che il servizio mobile convalida i dati e invia risposte di errore sul lato 
 
 <h2><a name="untyped"></a>Procedura: Usare dati non tipizzati</h2>
 
- Il client .NET è progettato per gli scenari fortemente tipizzati. In alcune situazioni una tipizzazione meno rigida può risultare più pratica, come nel caso in cui sia necessario gestire oggetti con uno schema aperto. Questo scenario viene abilitato come segue. Nelle query non verrà usato LINQ, ma il formato di trasmissione.
+Il client .NET è progettato per gli scenari fortemente tipizzati. In alcune situazioni una tipizzazione meno rigida può risultare più pratica, come nel caso in cui sia necessario gestire oggetti con uno schema aperto. Questo scenario viene abilitato come segue. Nelle query non verrà usato LINQ ma il formato di trasmissione.
 
 	// Get an untyped table reference
 	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
@@ -606,7 +605,7 @@ Si ottengono valori JSON utilizzabili come contenitore delle proprietà. Per alt
 
 <h2><a name="unit-testing"></a>Procedura: Progettare unit test</h2>
 
-Il valore restituito da `MobileServiceClient.GetTable` e dalle query sono interfacce. Queste interfacce sono facilmente "imitabili" a scopo di test, quindi è possibile creare una tabella `MyMockTable: IMobileServiceTable<TodoItem>` che implementa la logica del test.
+Il valore restituito da  `MobileServiceClient.GetTable` e le query sono interfacce e sono quindi facilmente "imitabili" a scopo di test. Di conseguenza, è possibile creare una tabella  `MyMockTable : IMobileServiceTable<TodoItem>` che implementa la logica del test.
 
 <h2><a name="customizing"></a>Procedura: Personalizzare il client</h2>
 
@@ -640,7 +639,7 @@ Il valore restituito da `MobileServiceClient.GetTable` e dalle query sono interf
 
 ### <a name="serialization"></a>Procedura: Personalizzare la serializzazione
 
-La classe [MobileServiceClient](http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) espone una proprietà `SerializerSettings` di tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
+La classe [MobileServiceClient](http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) espone una proprietà  `SerializerSettings` di tipo [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
 Con questa proprietà è possibile impostare numerose proprietà di Json.NET come, ad esempio, la proprietà che consente di convertire tutte le proprietà in lettere minuscole:
 
@@ -661,11 +660,11 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Convalidare e modificare dati mediante script]
+* [Usare script per la convalida e la modifica di dati]
   <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
 * [Usare il paging per ridefinire le query]
-  <br/>Altre informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
+  <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 * [Autorizzare gli utenti con gli script]
   <br/>Informazioni sul valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato, che verrà usato per filtrare i dati restituiti da Servizi mobili.
@@ -717,7 +716,7 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
-[Convalidare e modificare dati mediante script]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Usare script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [Metodo LoginAsync]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -736,3 +735,6 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [API personalizzata negli SDK del client di Servizi mobili]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Chiamare un'API personalizzata dal client]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+
+
+<!--HONumber=42-->

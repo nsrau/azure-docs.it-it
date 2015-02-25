@@ -1,17 +1,17 @@
-<properties pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile. È inoltre possibile visualizzare una versione video dell'esercitazione facendo clic sul fotogramma a destra.</p>
+<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>Elenco attività</em> che archivia i dati dell'app nel nuovo servizio mobile. È inoltre possibile visualizzare una versione video dell'esercitazione facendo clic sul fotogramma a destra.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">03:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">guarda l'esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">03:51</span></div>
 </div>
  
 Di seguito è riportata una schermata dell'app completata:
@@ -20,9 +20,9 @@ Di seguito è riportata una schermata dell'app completata:
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app HTML. 
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
-### Requisiti aggiuntivi
+###Requisiti aggiuntivi
 
 + Per completare questa esercitazione, è necessario che nel computer locale sia in esecuzione uno dei server Web seguenti:
 
@@ -37,7 +37,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <h2>Crea nuova app HTML</h2>
 
@@ -62,13 +62,11 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
   	Verranno scaricati i file del sito Web per l'applicazione _To do list_ di esempio connessa al servizio mobile. Salvare il file compresso nel computer locale e prendere nota del percorso.
 
-5. Nella scheda **Configura** verificare che `localhost` sia presente nell'elenco **Consentire le richieste da nomi host** in **Condivisione risorse tra le origini (CORS)**. In caso contrario, digitare `localhost` nel campo **Nome host** e quindi fare clic su **Salva**.
+5. Nella scheda **Configura** verificare che `localhost` sia già incluso nell'elenco **Consentire le richieste da nomi host** in **Condivisione risorse tra le origini (CORS)**. In caso contrario, digitare `localhost` nel campo **Nome host** e quindi fare clic su **Salva**.
 
   	![][9]
 
-	<div class="dev-callout"><b>Nota</b>
-		<p>Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco <strong>Consentire le richieste da nomi host</strong>. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx" target="_blank">Condivisione risorse tra le origini</a>.</p>
-	</div>
+	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Condivisione risorse tra le origini](http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 ## Ospitare ed eseguire l'app HTML
 
@@ -80,26 +78,21 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
-	<div class="dev-callout"><b>Nota</b>
-		<p>In un computer Windows, digitare 'R' quando PowerShell chiede di confermare che si desidera eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.</p>
-	</div>
+	> [AZURE.NOTE] In un computer Windows, digitare 'R' quando PowerShell chiede di confermare che si desidera eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare la nuova app.
 
 2. Aprire l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in un Web browser per avviare l'app.
 
-3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_ in **Enter new task** e quindi fare clic su **Add**.
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, in **Enter new task** e quindi fare clic su **Add**.
 
    	![][10]
 
    	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
-	<div class="dev-callout"> 
-	<b>Nota</b> 
-   	<p>È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.</p> 
- 	</div>
+	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.
 
-4. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
+4. Tornare al portale di gestione, fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
    	![][11]
 
@@ -151,8 +144,9 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
-[versione più recente di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
+[ultima versione di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
 [Condivisione di risorse tra le origini]: http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

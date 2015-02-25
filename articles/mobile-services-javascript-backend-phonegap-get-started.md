@@ -1,8 +1,8 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili con PhoneGap | Mobile Developer Center" metaKeywords="" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo di PhoneGap per iOS, Android e Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione a Servizi mobili con PhoneGap | Mobile Dev Center" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo di PhoneGap per iOS, Android e Windows Phone." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -20,12 +20,12 @@ PhoneGap supporta lo sviluppo per più piattaforme. Oltre agli strumenti PhoneGa
 
 - Windows Phone: installare [Visual Studio 2012 Express per Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
 - iOS: installare [Xcode] (è necessaria la versione 4.4 o successiva)
-- Android: installare [Android Developer Tools][Android SDK]
+- Android: Installare [Android Developer Tools][Android SDK]
 	<br/>Mobile Services SDK per Android supporta le app per Android 2.2 o versione successiva. Per l'esecuzione dell'app di guida introduttiva è necessario Android 4.2 o versione successiva.
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Creare una nuova app PhoneGap</h2>
 
@@ -85,16 +85,16 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 		
 			![][4]
 	
-		>[WACOM.NOTE]Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
+		>[AZURE.NOTE]Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
 			
 	
 3. Dopo aver avviato l'app in uno degli emulatori mobili indicati sopra, digitare testo nella casella di testo e quindi fare clic su **Add**.
 
 	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella **TodoItem**. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
-	<div class="dev-callout"><strong>Importante</strong> <p>Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come indicato nella sezione seguente.</p></div>
+	> [AZURE.IMPORTANT] Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
 
-4. Nel portale di gestione fare clic sulla scheda <strong>Dati</strong> e quindi fare clic sulla tabella <strong>TodoItems</strong> .
+4. Tornare al portale di gestione e fare clic sulla scheda <strong>Dati</strong> e quindi sulla tabella <strong>TodoItems</strong>.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -132,7 +132,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 4. Aprire ogni progetto nell'ambiente di sviluppo appropriato, come illustrato nella sezione precedente.
 
->[WACOM.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire query e inserire dati, disponibile nel file js/index.js.
+>[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire query e inserire dati, disponibile nel file js/index.js.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
@@ -160,4 +160,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

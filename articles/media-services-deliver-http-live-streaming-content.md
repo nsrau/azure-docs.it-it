@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Come distribuire contenuti Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Informazioni su come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come distribuire contenuti Apple HTTP Live Streaming (HLS) - Azure" description="Informazioni su come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -8,7 +8,7 @@
 
 <h1>Procedura: Distribuire contenuti in streaming Apple HLS</h1>
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire contenuti in streaming](../media-services-deliver-streaming-content/).
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire contenuti in Streaming](../media-services-deliver-streaming-content/).
 
 Questo argomento descrive come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Questo approccio consente di creare un URL per il contenuto Apple HLS e fornirlo ai dispositivi Apple iOS. L'approccio di base alla creazione dell'URL del localizzatore è lo stesso. Creare un localizzatore del percorso dell'asset Apple Live Streaming (HLS) in un server di origine e quindi l'URL completo che punta al manifesto per i contenuti in streaming.
 
@@ -85,6 +85,7 @@ Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di A
 [Introduzione a Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Creazione di applicazioni con l'API REST di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=252967
 [Creazione di applicazioni con Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/it-it/MediaServices/threads
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

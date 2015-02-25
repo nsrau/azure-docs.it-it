@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integrare il sito Web di Azure con la rete virtuale di Azure" description="Illustra come connettere un sito Web di Azure a una rete virtuale di Azure nuova o esistente" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Integrare il sito Web di Azure con la rete virtuale di Azure" 
+	description="Illustra come connettere un sito Web di Azure a una rete virtuale di Azure nuova o esistente" 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # Integrazione del sito Web di Azure con una Rete Virtuale di Azure #
 Questo documento descrive la funzionalità di anteprima dell'integrazione con una rete virtuale, specificando come configurarla con il proprio sito Web di Azure.  Le Reti Virtuali di Azure consentono di compilare soluzioni ibride con le proprie risorse su Azure e in sede.  
@@ -84,3 +98,6 @@ I siti Web di Azure offrono una funzionalità chiamata Connessioni ibride che pr
 Un'altra differenza è rappresentata dalla necessità di installare un agente di inoltro per consentire alle connessioni ibride di funzionare.  L'agente deve essere eseguito su un'istanza di Windows Server.  La funzionalità della rete virtuale, al contrario, non richiede alcuna installazione e abilita l'accesso alla risorse remote, indipendentemente dai sistemi operativi host.  
 
 Inoltre, sono attualmente presenti differenze a livello di prezzo tra le due funzionalità.  In effetti, ai livelli più economici, la funzionalità delle connessioni ibride è molto utile per gli scenari di sviluppo e collaudo e fornisce l'accesso a un numero limitato di endpoint.  La funzionalità della rete virtuale fornisce invece un accesso a tutti i contenuti presenti nella VNET o collegati alla stessa.  
+
+
+<!--HONumber=42-->

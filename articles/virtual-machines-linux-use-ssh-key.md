@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Use SSH" pageTitle="Usare SSH per connettersi a macchine virtuali Linux in Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" description="Informazioni su come generare e usare chiavi SSH con una macchina virtuale Linux in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use SSH with Linux on Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Usare SSH per connettersi a macchine virtuali Linux in Azure" description="Informazioni su come generare e usare chiavi SSH con una macchina virtuale Linux in Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos"/>
 
 #Come usare SSH con Linux in Azure
 
@@ -31,9 +31,9 @@ La versione corrente del portale di gestione di Azure accetta solo chiavi pubbli
 
 		# chmod 600 myPrivateKey.key
 
-4.	Caricare `myCert.pem` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `authorized_keys` per l'utente specificato nella macchina virtuale.
+4.	Caricare il `myCert.pem` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `authorized_keys` per l'utente specificato nella macchina virtuale.
 
-5.	Se si prevede di usare direttamente l'API, invece di usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
+5.	Se si prevede di usare direttamente l'API, anziché usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
 
 		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
@@ -41,7 +41,7 @@ La versione corrente del portale di gestione di Azure accetta solo chiavi pubbli
 ## Generare una chiave da una chiave esistente compatibile con OpenSSH
 Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Azure. In alcuni casi, è possibile che si disponga già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e si voglia usare le stesse chiavi con Microsoft Azure.
 
-Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
+Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il seguente comando verrà creata la chiave pubblica  `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -63,7 +63,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 1.	Scaricare e installare msysgit dal percorso seguente: [http://msysgit.github.com/](http://msysgit.github.com/)
 2.	Eseguire `msys` dalla directory installata, ad esempio c:\msysgit\msys.exe
-3.	Passare alla directory `bin` digitando cd bin`
+3.	Passare alla directory `bin` digitando `cd bin`
 
 ###Usare GitHub per Windows###
 
@@ -78,7 +78,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 ## Creare una chiave privata in Windows ##
 
-1.	Attenersi a uno dei set di istruzioni sopra riportati per poter eseguire `openssl.exe`.
+1.	Attenersi a uno dei set di istruzioni seguenti per poter eseguire `openssl.exe`
 2.	Digitare il comando seguente:
 
 		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
@@ -89,13 +89,13 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 4.	Rispondere alle domande.
 5.	Dovrebbero essere stati creati due file: `myPrivateKey.key` e `myCert.pem`.
-6.	Se si prevede di usare direttamente l'API, invece di usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
+6.	Se si prevede di usare direttamente l'API, anziché usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
 
 		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Creare una chiave privata PPK per Putty ##
 
-1. Scaricare e installare Puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Scaricare e installare Puttygen dal seguente percorso: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen potrebbe non essere in grado di leggere la chiave privata creata in precedenza (`myPrivateKey.key`). Eseguire il comando seguente per convertirla in una chiave privata RSA riconosciuta da Puttygen:
 
@@ -137,4 +137,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

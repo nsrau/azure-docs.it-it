@@ -1,16 +1,16 @@
-﻿<properties pageTitle="Introduzione alle notifiche push (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Introduzione alle notifiche push (Windows Store) | Mobile Dev Center" description="Informazioni su come usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
 
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows universale. 
 In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push usando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere usato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere usato da altri servizi e applicazioni.
 
->[WACOM.NOTE]Questo argomento descrive come configurare manualmente le notifiche push usando Servizi mobili di Azure in un progetto di Windows Store. È possibile usare Visual Studio 2013 per aggiungere le stesse notifiche push in un progetto di app di Windows Store. Per altre informazioni, vedere la [versione di app di Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) di questa esercitazione. 
+>[AZURE.NOTE]Questo argomento descrive come configurare manualmente le notifiche push usando Servizi mobili di Azure in un progetto di Windows Store. È possibile usare Visual Studio 2013 per aggiungere le stesse notifiche push in un progetto di app di Windows Store. Per altre informazioni, vedere la [versione per l'app di Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) di questa esercitazione. 
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
@@ -21,11 +21,11 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Introduzione ai dati] per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione. 
 
->[WACOM.NOTE]Questo argomento riguarda le app di Windows Phone Store 8.1. Per aggiungere le notifiche push a un'app di Windows Phone 8 o Windows Phone Silverlight 8.1, vedere questa versione della guida [Introduzione alle notifiche push in Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
+>[AZURE.NOTE]Questo argomento riguarda le app di Windows Phone Store 8.1. Per aggiungere le notifiche push a un'app per Windows Phone 8 o Windows Phone Silverlight 8.1, vedere questa versione della guida [Introduzione alle notifiche push in Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
 
 ##<a id="register"></a> Registrare l'app con Servizi notifica Push Windows e configurare Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
+[AZURE.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 Il servizio mobile e l'app sono ora configurati per funzionare con Servizi notifica Push Windows e Hub di notifica. A questo punto, si aggiornerà l'app di Windows Store universale per la registrazione per le notifiche.
 
@@ -69,11 +69,11 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 ##<a id="update-scripts"></a> Aggiornare gli script del server per l'invio di notifiche push
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
+[AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ##<a id="test"></a> Testare le notifiche push nell'app
 
-[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -134,4 +134,5 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche di trasmissione ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Inviare notifiche basate su modelli ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

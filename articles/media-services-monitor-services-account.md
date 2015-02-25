@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Monitorare un account di Servizi multimediali - Azure" metaKeywords="" description="Spiega come configurare il monitoraggio per l'account di Servizi multimediali in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Monitorare un account di Servizi multimediali - Azure" description="Spiega come configurare il monitoraggio per l'account di Servizi multimediali in Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -9,9 +9,9 @@
 <h1><a id="monitormediaservicesaccount"></a>Come monitorare un account di Servizi multimediali</h1>
 Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di uso e informazioni relative all'account che è possibile usare per gestire il proprio account di Servizi multimediali.
 
-You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. Se si trasferiscono contenuti in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
+You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
  
->[WACOM.NOTE] Al monitoraggio dei dati di archiviazione nel portale di gestione di Azure sono associati costi aggiuntivi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Al monitoraggio dei dati di archiviazione nel portale di gestione di Azure sono associati costi aggiuntivi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 <h2><a id="configuremonitoring"></a>Procedura: Monitorare di un account di Media Services</h2>
 
@@ -22,11 +22,10 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 2. Per monitorare i processi o i dati di codifica è sufficiente iniziare a inviare processi di codifica a Servizi multimediali, oppure iniziare a trasmettere contenuti in streaming ai clienti usando lo streaming on demand di contenuti multimediali di Azure. I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard dopo circa un'ora.
 
 <h2><a id="configuringstorage"></a>Procedura: Monitoraggio dell'uso dell'archiviazione BLOB (facoltativo)</h2>
-1. Fare clic sul nome dell'**ACCOUNT DI ARCHIVIAZIONE 
-** nella sezione **riepilogo rapido**.
+1. Fare clic sul nome dell'**ACCOUNT DI ARCHIVIAZIONE** nella sezione **riepilogo rapido**.
 2. Nella pagina dell'account di archiviazione fare clic sul collegamento **Configura** e scorrere verso il basso fino alle impostazioni **Monitoraggio** per i servizi BLOB, tabelle e accodamento, illustrati di seguito.
 
-	>[WACOM.NOTE] I BLOB sono l'unico tipo di archiviazione supportata in Servizi multimediali.
+	>[AZURE.NOTE] I BLOB sono l'unico tipo di archiviazione supportata in Servizi multimediali.
 
 	![StorageOptions][storage_options_scoped]
 
@@ -52,4 +51,5 @@ Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle 
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

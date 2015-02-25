@@ -1,33 +1,33 @@
-<properties urlDisplayName="Validate and Modify Data" pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app JavaScript per Windows Store con i servizi mobili di back-end .NET di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Usare il back-end .NET per convalidare e modificare i dati (Windows Store) | Mobile Dev Center" description="Informazioni su come convalidare, modificare e aumentare i dati per l'app JavaScript per Windows Store con i servizi mobili di back-end .NET di Azure." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc"/>
 
 # Convalidare e modificare i dati in Servizi mobili mediante il back-end .NET
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Questo argomento illustra come usare il codice in Servizi mobili di Azure back-end .NET per convalidare e modificare dati. Il servizio back-end .NET è un servizio HTTP creato con il framework API Web. Se si ha familiarità con la classe `ApiController` definita nel framework API Web, la classe `TableController` fornita da Servizi mobili risulterà molto intuitiva. `TableController` deriva dalla classe `ApiController` e fornisce funzionalità aggiuntive per l'interfaccia con una tabella di database. Può essere usato per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati, descritte in questa esercitazione. 
+Questo argomento descrive come usare il codice in Servizi mobili di Azure back-end .NET per convalidare e modificare dati. Il servizio back-end .NET è un servizio HTTP creato con il framework API Web. Se si ha familiarità con la classe `ApiController` definita nel framework API Web, la classe `TableController` fornita da Servizi mobili risulterà molto intuitiva. `TableController` deriva dalla classe `ApiController` e fornisce funzionalità aggiuntive per l'interfaccia con una tabella di database. Può essere usato per eseguire numerose operazioni sui dati inseriti e aggiornati, incluse la convalida e la modifica dei dati, descritte in questa esercitazione. 
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Aggiungere la convalida della lunghezza della stringa]
 2. [Aggiornare il client per il supporto della convalida]
 3. [Testare la convalida della lunghezza]
-4. [Aggiunta di un campo timestamp per CompleteDate]
+4. [Aggiungere un campo timestamp per CompleteDate]
 5. [Aggiornare il client per la visualizzazione del timestamp CompleteDate]
 
-Questa esercitazione è basata sulle procedure e sull'app di esempio dell'esercitazione precedente, [Introduzione a Servizi mobili] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).  
+Questa esercitazione è basata sulle procedure e sul codice di esempio creato nell'esercitazione precedente, [Introduzione a Servizi mobili] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).  
 
-## <a name="string-length-validation"></a>Aggiunta del codice di convalida a Servizi mobili
+## <a name="string-length-validation"></a>Aggiungere il codice di convalida a Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
 ## <a name="update-client-validation"></a>Aggiornare il client
 
-Ora che il servizio mobile è configurato per convalidare dati e inviare risposte di errore per una lunghezza di testo non valida, è necessario aggiornare l'app per gestire le risposte di errore risultanti dalla convalida. L'errore verrà rilevato dalla chiamata dell'app client a `IMobileServiceTable<TodoItem].InsertAsync()`.
+Ora che il servizio mobile è configurato per convalidare dati e inviare risposte di errore per una lunghezza di testo non valida, è necessario aggiornare l'app per gestire le risposte di errore risultanti dalla convalida. L'errore verrà rilevato come `IMobileServiceTable<TodoItem].InsertAsync()` dalla chiamata dell'app client.
 
-1. Nella finestra Esplora soluzioni di Visual Studio, passare al progetto client JavaScript ed espandere la cartella **js**. Quindi, aprire il file default.js.
+1. Nella finestra Esplora soluzioni di Visual Studio, passare al progetto client JavaScript ed espandere la cartella **js**. Quindi, aprire il file default.js
 
 2. Nel file default.js sostituire la funzione **insertTodoItem** esistente con la seguente definizione di funzione:
 
@@ -61,17 +61,17 @@ Ora che il servizio mobile è configurato per convalidare dati e inviare rispost
 
     ![][2]
 
-## <a name="add-timestamp"></a>Aggiunta di un campo timestamp per CompleteDate
+## <a name="add-timestamp"></a>Aggiungere un campo timestamp per CompleteDate
 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
-## <a name="update-client-timestamp"></a>Aggiornare il client per la visualizzazione del timestamp CompleteDate
+## <a name="update-client-timestamp"></a>Aggiornare il client per la visualizzazione del timestamp completeDate
 
 Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visualizzi i nuovi dati **completeDate**. 
 
 
-1. In Esplora soluzioni di Visual Studio, nel progetto client JavaScript, aprire il file default.html. Sostituire l'elemento tag `div` del template di binding con la definizione seguente. Salvare il file. Verrà aggiunto un tag `div` con la proprietà innerText associata a **completeDate**.
+1. In Esplora soluzioni di Visual Studio, nel progetto client JavaScript, aprire il file default.html. Sostituire l'elemento tag `div` del modello di binding con la definizione seguente. Salvare il file. Verrà aggiunto un tag `div` con la proprietà innerText associata a **completeDate**.
 	      
         <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
           <div style="display: -ms-grid; -ms-grid-columns: 3">
@@ -111,7 +111,7 @@ Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visua
             };
 
 
-4. Nella finestra Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **Soluzione**, quindi scegliere **Ricompila soluzione** per ricompilare sia il client sia il servizio back-end .NET. Verificare che entrambi i progetti vengano compilati senza errori.
+4. Nella finestra Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse su **Soluzione**, quindi scegliere **Ricompila soluzione** per ricompilare sia il client che il servizio back-end .NET. Verificare che entrambi i progetti vengano compilati senza errori.
 
     ![][3]
 	
@@ -121,7 +121,7 @@ Nell'ultimo passaggio si procederà all'aggiornamento del client affinché visua
 
 6. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto del servizio todolist, quindi scegliere **Pubblica**. Pubblicare il servizio back-end .NET in Microsoft Azure usando il file delle impostazioni di pubblicazione che è stato scaricato dal portale di Azure.
 
-7. Aggiornare il file default.js file per il progetto client rimuovendo i simboli di commento dalla connessione all'indirizzo del servizio mobile. Testare l'app sul servizio back-end .NET ospitato nell'account Azure.
+7. Aggiornare il file default.js file per il progetto client rimuovendo i simboli di commento dalla connessione all'indirizzo del servizio mobile. Testare l'app con il servizio back-end .NET ospitato nell'account Azure.
 
 
 
@@ -145,7 +145,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 [Aggiungere la convalida della lunghezza della stringa]: #string-length-validation
 [Aggiornare il client per il supporto della convalida]: #update-client-validation
 [Testare la convalida della lunghezza]: #test-length-validation
-[Aggiunta di un campo timestamp per CompleteDate]: #add-timestamp
+[Aggiungere un campo timestamp per CompleteDate]: #add-timestamp
 [Aggiornare il client per la visualizzazione del timestamp CompleteDate]: #update-client-timestamp
 [Passaggi successivi]: #next-steps
 
@@ -161,7 +161,7 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
 [Autorizzazione lato servizio degli utenti]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introduzione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+[Per iniziare]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 [JavaScript e HTML]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-js
@@ -169,3 +169,6 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Introduzione alle notifiche push (iOS) | Mobile Developer Center" metaKeywords="" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per iOS." metaCanonical="http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="Introduzione alle notifiche push (iOS) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per iOS usando APNS (Apple Push Notification Service). In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel [progetto di guida introduttiva](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-ios-get-started/). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
@@ -18,28 +18,28 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 6. [Aggiornare gli script per l'invio di notifiche push](#update-scripts)
 7. [Inserire dati per la ricezione di notifiche](#test)
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
 + [Mobile Services SDK per iOS]
-+ [XCode 4.5][Install Xcode]
++ [XCode 4.5][Installare Xcode]
 + Dispositivo con iOS 6.0 o versione successiva
 + Iscrizione a iOS Developer Program
 
-   > [WACOM.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
+   > [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure contenute in [Introduzione a Servizi mobili].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente][Introduzione ai dati].
 
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
 ## <a id="configure"></a>Configurare Servizi mobili per l'invio di richieste push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-## <a id="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
+## <a id="update-scripts"></a>Aggiornare gli script insert registrati nel portale di gestione
 
-1. Nel portale di gestione fare clic sulla scheda **Dati**, quindi sulla tabella **TodoItem**.
+1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
    	![][21]
 
@@ -68,7 +68,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
    	Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta di inserimento.
 
 
-   	> [WACOM.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.
+   	> [AZURE.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.
 
 ## <a id="add-push"></a>Aggiungere notifiche push all'app
 
@@ -130,7 +130,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
   	![][23]
 
-    > [WACOM.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+    > [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
 2. Nell'app digitare testo significativo, come _Nuova attività Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
 
@@ -155,10 +155,10 @@ In questa esercitazione sono state illustrate le nozioni di base per consentire 
 
 + [Inviare notifiche di trasmissione ai sottoscrittori]
 	<br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
-
-<!---+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.-->
-
+<!---
++ [Inviare notifiche basate su modelli ai sottoscrittori]
+	<br/>Informazioni su come usare i modelli per inviare notifiche push da un servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
+-->
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
 * [Introduzione ai dati]
@@ -220,7 +220,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portale di provisioning per iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
@@ -240,4 +240,5 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Riferimento per i concetti e le procedure relativi a Servizi mobili con Objective-C]: /it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

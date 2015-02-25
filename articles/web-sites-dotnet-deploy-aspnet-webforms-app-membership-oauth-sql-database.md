@@ -1,14 +1,28 @@
-﻿<properties pageTitle="Distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in un sito Web di Azure" metaKeywords="Azure WebForms Hello World Tutorial, Azure Getting Started with WebForms Tutorial, Azure C# WebForms Hello World Tutorial, SQL Azure C# WebForms Tutorial" description="Questa esercitazione illustra come compilare un'app Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy a secure ASP.NET 4.5 Web Forms app to an Azure Website" authors="erikre"  solutions="" manager="wpickett" editor="mollybos"  />
+﻿<properties 
+	pageTitle="Distribuzione di un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in un sito Web di Azure" 
+	description="Questa esercitazione illustra come compilare un'app Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="Erikre" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="erikre" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="erikre"/>
 
 
-# Distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in un sito Web di Azure
+# Distribuzione di un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in un sito Web di Azure
 
 
 Questa esercitazione illustra come compilare un'app Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure. 
 
->[WACOM.NOTE] 
+>[AZURE.NOTE] 
 Per la versione MVC di questa esercitazione, vedere [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://azure.microsoft.com/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 È possibile aprire gratuitamente un account Azure e, se non si dispone già di Visual Studio 2013, con l'SDK verrà installato automaticamente Visual Studio Express 2013 per il Web. È possibile iniziare a sviluppare per Azure gratuitamente.
@@ -28,7 +42,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su Web For
 
 ![Contacts - Edit Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png)
 
->[WACOM.NOTE] 
+>[AZURE.NOTE] 
 Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Questa esercitazione include le sezioni seguenti:
@@ -50,19 +64,19 @@ Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare
 1. Installare [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566) se non è già stato installato.  
 2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013.  
 
-	>[WACOM.NOTE]  
+	>[AZURE.NOTE]  
 	in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.  
 
 3. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
-4. Nella finestra **Installazione guidata piattaforma Web** fare clic su **Installa** e procedere con l'installazione.  
+4. Nell'**Installazione guidata piattaforma Web** fare clic su **Installa** e procedere con l'installazione.  
 	![Web Platform Installer](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-01.png)  
 
-	>[WACOM.NOTE]  
+	>[AZURE.NOTE]  
 	Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.  
 
-5. Se **Visual Studio Update 2**, non è installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versione successiva.  
+5. Se **Visual Studio Update 2** non è ancora installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versioni successive.  
 
-	>[WACOM.NOTE]  
+	>[AZURE.NOTE]  
 	È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.  
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
@@ -85,7 +99,7 @@ Database SQL di Azure è un servizio di database relazionale basato sul cloud ch
 	![Contacts - Create New Web Site](./media/web-sites-dotnet-web-forms-secure/Intro-SecureWebForms-04.png)  
 4. Nell'elenco a discesa Piano di hosting Web scegliere l'area geografica più vicina alla propria località. Questa impostazione consente di specificare il data center in cui verrà eseguita la macchina virtuale.
 5. Nell'elenco a discesa **Database** scegliere **Crea un database SQL 20 MB gratuito**.
-6. Nella casella **Nome stringa di connessione database** non modificare il valore predefinito DefaultConnection.
+6. Nella casella **Nome stringa di connessione database** non modificare il valore predefinito  *DefaultConnection*.
 7. Fare clic sulla freccia nella parte inferiore della finestra di dialogo. 
 Verrà visualizzato il passaggio **Specifica impostazioni di database della procedura guidata**.
 8. Nella casella **Nome** immettere *`ContactDB`*.  
@@ -105,20 +119,20 @@ Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il 
 	![File Menu - New Project](./media/web-sites-dotnet-web-forms-secure/SecureWebForms01.png)  
 2. Selezionare il gruppo di modelli **Modelli** -> **Visual C#** -> **Web** a sinistra. 
 3. Scegliere il modello **Applicazione Web ASP.NET** nella colonna centrale.
-4. Assegnare all'applicazione il nome *ContactManager* e fare clic su **OK**.  
+4. Assegnare al progetto il nome  *ContactManager* e fare clic su **OK**.  
 	![New Project Dialog](./media/web-sites-dotnet-web-forms-secure/SecureWebForms02.png)  
 
-	>[WACOM.NOTE]  
+	>[AZURE.NOTE]  
 	Il nome del progetto in questa serie di esercitazioni è **ContactManager**. È consigliabile usare questo nome di progetto esatto in modo che il codice fornito nel corso di tutta la serie di esercitazioni funzioni come previsto.  
 
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **Web Form**. Deselezionare la casella di controllo **Ospita nel cloud** se è selezionata e fare clic su **OK**.  
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms03.png)  
+	![Finestra di dialogo New ASP.NET Project](./media/web-sites-dotnet-web-forms-secure/SecureWebForms03.png)  
 	Verrà creata l'applicazione Web Form.
 ###Aggiornare la pagina master
 In Web Form ASP.NET le pagine master consentono di creare un layout uniforme per le pagine dell'applicazione. Una singola pagina master definisce l'aspetto e il comportamento standard da applicare a tutte le pagine (o a un gruppo di pagine) dell'applicazione. È quindi possibile creare singole pagine di contenuto per il contenuto da visualizzare. Quando gli utenti richiedono le pagine di contenuto, ASP.NET le unisce alla pagina master per generare l'output che combina il layout della pagina master con il contenuto della pagina di contenuto.
 Il nuovo sito necessita del nome dell'applicazione e di un collegamento aggiornato. Il collegamento indirizza a una pagina che visualizza i dettagli del contatto. Per apportare queste modifiche, sarà necessario modificare il codice HTML nella pagina master. 
 
-1. In **Esplora soluzioni** trovare e aprire la pagina *Site.Master*. 
+1. In **Esplora soluzioni** trovare e aprire la pagine  *Site.Master*. 
 2. Se la pagina è in visualizzazione **Progettazione**, passare alla visualizzazione **Origine dati**.
 3. Per aggiornare la pagina master, modificare o aggiungere i commenti visualizzati in giallo:
 
@@ -213,7 +227,7 @@ Il nuovo sito necessita del nome dell'applicazione e di un collegamento aggiorna
 
 Più avanti in questa esercitazione verrà aggiunta l'estensione Web Forms Scaffolding. Lo scaffolding creerà la pagina a cui fa riferimento il collegamento "Contact Demo" indicato sopra.
 ###Eseguire l'applicazione in locale 
-1. Fare clic con il pulsante destro del mouse sulla pagina *Default.aspx* in **Esplora soluzioni**, quindi scegliere **Imposta come pagina iniziale**. 
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla pagina  *Default.aspx* e scegliere **Imposta come pagina iniziale**. 
 2. Premere quindi **CTRL+F5** per eseguire l'applicazione.  
 	La pagina predefinita dell'applicazione verrà visualizzata nella finestra del browser predefinito.
 	![Contacts - Create New Web Site](./media/web-sites-dotnet-web-forms-secure/SecureWebForms04.png)  
@@ -239,7 +253,7 @@ Si vedrà lo stato di pubblicazione generale nella finestra **Attività di pubbl
 L'applicazione creata verrà ora eseguita nel cloud. Alla successiva distribuzione dell'applicazione da Visual Studio, verranno distribuiti solo i file modificati o nuovi.  
 	![App in Browser](./media/web-sites-dotnet-web-forms-secure/SecureWebForms10.png)  
 
->[WACOM.NOTE] 
+>[AZURE.NOTE] 
 Se si verifica un errore durante la pubblicazione in un sito Web già esistente, è possibile cancellare il percorso prima di aggiungere i nuovi file.  
 Pubblicare di nuovo l'applicazione, ricordando di selezionare la scheda **Impostazioni** nella finestra di dialogo **Pubblica sito Web**. Impostare quindi la configurazione su **Debug** e selezionare l'opzione **Rimuovi i file aggiuntivi nella destinazione**. Selezionare **Pubblica** per distribuire di nuovo l'applicazione.  
 	![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms11.png)  
@@ -247,13 +261,13 @@ Pubblicare di nuovo l'applicazione, ricordando di selezionare la scheda **Impost
 ##Aggiungere un database all'applicazione 
 Si passerà quindi all'aggiornamento dell'applicazione Web Form, in modo da aggiungere la funzionalità per la visualizzazione e l'aggiornamento dei contatti e per l'archiviazione dei dati in un database. Durante la procedura di creazione del progetto Web Form, per impostazione predefinita è stato creato anche un database. L'applicazione userà Entity Framework per accedere al database e per leggere e aggiornare i dati nel database.
 ###Aggiungere una classe modello di dati 
-Creare innanzitutto un semplice modello di dati usando il codice. Questo modello di dati sarà contenuto in una classe denominata `Contacts`. Il nome della classe `Contacts` è stato scelto per evitare un conflitto di nomi di classi con la classe `Contact` contenuta nel file Contact.aspx.cs creata dal modello Web Form.  
+Creare innanzitutto un semplice modello di dati usando il codice. Questo modello di dati sarà contenuto in una classe denominata  `Contacts`. Il nome della classe  `Contacts` è stato scelto per evitare un conflitto di nomi di classi con la classe  `Contact` contenuta nel file Contact.aspx.cs creata dal modello Web Form.  
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Modelli* e quindi scegliere **Aggiungi** -> **Classe**.  
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella  *Models* e scegliere **Aggiungi** -> **Classe**.  
 	![Select Class](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png)  
 	La finestra di dialogo **Aggiungi nuovo elemento** viene visualizzata.  
 
-2. Assegnare alla nuova classe il nome *Contacts.cs*.  
+2. Assegnare alla nuova classe il nome  *Contacts.cs*.  
 	![Add New Item dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)  
 3. Sostituire il codice predefinito con il codice seguente:  
 	<pre class="prettyprint">
@@ -281,50 +295,50 @@ Creare innanzitutto un semplice modello di dati usando il codice. Questo modello
 La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, `ContactID`, necessaria per il database. La classe **Contacts** rappresenta i dati di contatto che verranno visualizzati. Ogni istanza di un oggetto Contacts corrisponderà a una riga all'interno di una tabella di database relazionale e ogni proprietà della classe Contacts sarà mappata a una colonna nella tabella di database relazionale. Più avanti in questa esercitazione verranno esaminati i dati dei contatti contenuti nel database.
 
 ###Web Forms Scaffolding 
-Nella sezione precedente è stata creata la classe modello **Contacts**. È ora possibile usare l'utilità di scaffolding per Web Form per generare le pagine *List*, *Insert*, *Edit* e *Delete* necessarie quando si usano questi dati. L'utilità di scaffolding per Web Form usa Entity Framework, Bootstrap e Dynamic Data. Per impostazione predefinita, l'utilità di scaffolding per Web Form è installata come un'estensione del progetto all'interno del modello di progetto in Visual Studio 2013.
+Nella sezione precedente è stata creata la classe modello **Contacts**. È ora possibile eseguire l'utilità di scaffolding per Web Form per generare le pagine  *List*, *Insert*, *Edit* e  *Delete* necessarie quando si usano questi dati. L'utilità di scaffolding per Web Form usa Entity Framework, Bootstrap e Dynamic Data. Per impostazione predefinita, l'utilità di scaffolding per Web Form è installata come un'estensione del progetto all'interno del modello di progetto in Visual Studio 2013.
 
 La procedura seguente consente di usare l'utilità di scaffolding per Web Form.
 
 1. Sulla barra dei menu di Visual Studio selezionare **Strumenti** -> **Estensioni e aggiornamenti**.  
 	La finestra di dialogo **Estensioni e aggiornamenti** viene visualizzata.
 2. Nel riquadro sinistro della finestra di dialogo selezionare **Online** -> **Visual Studio Gallery** -> **Strumenti** -> **Scaffolding**.
-3. Se la voce "Web Forms Scaffolding" non è presente nell'elenco, digitare "Web Forms Scaffolding" nella casella di ricerca nella parte destra della finestra di dialogo.  
-4. Se l'utilità di scaffolding per Web Form non è già installata, selezionare **Download** per scaricare e installare l'estensione "Web Forms Scaffolding". Se necessario, riavviare Visual Studio. Assicurarsi di salvare le modifiche al progetto, quando richiesto.  
+3. Se la voce  'Web Forms Scaffolding' non è presente nell'elenco, immettere  'Web Forms Scaffolding' nella casella di ricerca nella parte destra della finestra di dialogo.  
+4. Se l'utilità di scaffolding per Web Form non è già installata, selezionare **Download** per scaricare e installare  'Web Forms Scaffolding'. Se necessario, riavviare Visual Studio. Assicurarsi di salvare le modifiche al progetto, quando richiesto.  
 	![Extensions and Updates dialog box](./media/web-sites-dotnet-web-forms-secure/ExtensionsAndUpdatesDB.png)  
-5. Compilare il progetto (**CTRL+MAIUSC+B**).  
+5. Creare il progetto (**CTRL+MAIUSC+B**).  
 	Per usare il meccanismo scaffolding, è innanzitutto necessario creare il progetto.  
-6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Aggiungi** -> **New Scaffolded Item**.  
+6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul  *project* e scegliere **Aggiungi** -> **New Scaffolded Item**.  
 	La finestra di dialogo **Add Scaffold** viene visualizzata.
 7. Selezionare **Web Form** nel riquadro sinistro e quindi **Pagine Web Form che usano Entity Framework** dal riquadro centrale. Fare quindi clic su **Aggiungi**.  
 	![Add Scaffold dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13a.png)  
 	La finestra di dialogo **Aggiungi pagine Web Form** viene visualizzata.  
 
-8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su `Contact (ContactManager.Models)`. Impostare **Classe contesto di dati** su `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**. 
+8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su  `Contact (ContactManager.Models)`. Impostare **Classe contesto di dati** su  `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**. 
 	![Add Web Forms Pages dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13b.png)  
 
-L'utilità di scaffolding per Web Form aggiunge una nuova cartella contenente le pagine *Default.aspx*, *Delete.aspx*, *Edit.aspx* e *Insert.aspx*. L'utilità di scaffolding per Web Form crea inoltre una cartella *DynamicData* che contiene le cartelle *EntityTemplates* e *FieldTemplates*. La classe `ApplicationDbContext` verrà usata per il database di appartenenza e per i dati relativi ai contatti.
+L'utilità di scaffolding per Web Form aggiunge una nuova cartella contenente le pagine  *Default.aspx*, *Delete.aspx*, *Edit.aspx* e  *Insert.aspx*. L'utilità di scaffolding per Web Form crea inoltre una cartella  *DynamicData* che contiene le cartelle  *EntityTemplates* e  *FieldTemplates*. La classe  `ApplicationDbContext` verrà usata per il database di appartenenza e per i dati relativi ai contatti.
 
 ###Configurare l'applicazione per l'utilizzo del modello di dati 
 L'attività successiva consiste nell'abilitare la funzionalità Migrazioni Code First, in modo da creare il database basato sul modello di dati creato. Verranno anche aggiunti dati di esempio e un inizializzatore di dati.  
 
 1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di Gestione pacchetti**.  
 	![Add Web Forms Pages dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13c.png)  
-2. Nella finestra Console di Gestione pacchetti immettere il comando seguente:  
+2. Nella finestra Console di Gestione pacchetti immettere il seguente comando:  
 	<pre class="prettyprint">
 	enable-migrations
 	</pre>  
-	Il comando enable-migrations consente di creare una cartella Migrations e di inserire in tale cartella il file *Configuration.cs*, che può essere modificato per effettuare il seeding del database e configurare le migrazioni dei dati.  
-3. Nella finestra **Console di Gestione pacchetti** immettere il comando seguente:  
+	Il comando enable-migrations consente di creare una cartella  *Migrations* e di inserire in tale cartella il file a *Configuration.cs*, che può essere modificato per effettuare il seeding del database e configurare le migrazioni dei dati.  
+3. Nella finestra **Console di Gestione pacchetti** immettere il seguente comando:  
 	<pre class="prettyprint">
 	add-migration Initial
 	</pre>  
-	Il comando `add-migration Initial` consente di generare un file con nome <timbro_data>Initial nella cartella *Migrations* che crea il database. Il primo parametro (Initial) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe `Initial` il metodo `Up` consente di creare la tabella `Contact` e il metodo `Down`, usato quando si vuole tornare allo stato precedente, consente di rimuoverla.  
-4. Aprire il file *Migrations\Configuration.cs*. 
+	Il comando  `add-migration Initial` genera un file denominato <date_stamp>Initial nella cartella  *Migrations* che crea il database. Il primo parametro (Initial) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe  `Initial` il metodo  `Up` consente di creare la tabella  `Contact` e il metodo  `Down`, che viene usato per tornare allo stato precedente, consente di rimuoverla.  
+4. Aprire il file  *Migrations\Configuration.cs*. 
 5. Aggiungere lo spazio dei nomi seguente:  
 	<pre class="prettyprint">
 	using ContactManager.Models;
 	</pre>  
-6. Sostituire il metodo `Seed` con il codice seguente:  
+6. Sostituire il metodo  `Seed` con il seguente codice:  
 	<pre class="prettyprint">
 	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
 	{
@@ -387,7 +401,7 @@ Questo codice consente di inizializzare (effettuare il seeding) il database con 
 	<pre class="prettyprint">
 	update-database
 	</pre>  
-Il comando `update-database` consente di eseguire la prima migrazione al fine di creare il database. Per impostazione predefinita, il database viene creato come database LocalDB di SQL Server Express.  
+Il comando  `update-database` consente di eseguire la prima migrazione al fine di creare il database. Per impostazione predefinita, il database viene creato come database LocalDB di SQL Server Express.  
 	![Package Manager Console](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13d.png)  
 
 ###Eseguire l'applicazione in locale e visualizzare i dati 
@@ -395,17 +409,17 @@ Eseguire l'applicazione adesso per verificare se i contatti vengono visualizzati
 
 1. Innanzitutto, compilare il progetto (**CTRL+MAIUSC+B**).  
 2. Premere **Ctrl+F5** per eseguire l'applicazione.  
-	Si aprirà il browser e verrà visualizzata la pagina *Default.aspx*:
-3. Selezionare il collegamento **Contact Demo** nella parte superiore della pagina per visualizzare la pagina *Contact List*.  
+	Si aprirà il browser e verrà visualizzata la pagina  *Default.aspx*.
+3. Fare clic sul collegamento **Contact Demo** nella parte superiore della pagina per visualizzare la pagina  *Contact List*.  
 	![Contacts List Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms17.png)  
 
 ##Abilitare SSL per il progetto 
 Secure Sockets Layer (SSL) è un protocollo definito per consentire ai server Web e ai client Web di comunicare in modo più sicuro tramite l'uso della crittografia. Quando non si usa SSL, i dati inviati tra il client e il server possono essere soggetti allo sniffing dei pacchetti da qualsiasi soggetto con accesso fisico alla rete. Inoltre, numerosi schemi di autenticazione comuni non sono sicuri sul protocollo HTTP normale. In particolare, l'autenticazione di base e l'autenticazione basata su form inviano credenziali non crittografate. Per essere sicuri, questi schemi di autenticazione devono usare il protocollo SSL.
 
 1. In **Esplora soluzioni** fare clic sul progetto **ContactManager**, quindi premere **F4** per visualizzare la finestra di dialogo **Proprietà**. 
-2. Modificare il valore di **SSL abilitato** in `true`. 
+2. Modificare il valore di **SSL abilitato** impostandolo su  `true`. 
 3. Copiare il valore di **URL SSL** per poterlo riutilizzare successivamente.  
-	L'URL SSL sarà `https://localhost:44300/` a meno che non siano stati creati siti Web SSL in precedenza (come mostrato di seguito).
+	L'URL SSL sarà `https://localhost:44300/` a meno che in precedenza non siano stati creati siti Web SSL (come mostrato di seguito).
 	![Project Properties](./media/web-sites-dotnet-web-forms-secure/SecureWebForms18.png)  
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **Contact Manager**, quindi scegliere **Proprietà**.
 5. Nella scheda a sinistra fare clic su **Web**.
@@ -427,14 +441,14 @@ In Visual Studio verrà visualizzata un'opzione che consente di evitare eventual
 
 
 ##Aggiungere un provider OAuth 2.0 
-In Web Form ASP.NET sono disponibili opzioni avanzate per l'appartenenza e l'autenticazione, tra cui OAuth. OAuth è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché in questa esercitazione si utilizzi solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi disponibili in questa esercitazione. 
+In Web Form ASP.NET sono disponibili opzioni avanzate per l'appartenenza e l'autenticazione, tra cui OAuth. OAuth è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché questa esercitazione usi solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi disponibili in questa esercitazione. 
 
-Oltre all'autenticazione, nell'esercitazione verranno usati anche i ruoli per implementare l'autorizzazione. Solo gli utenti aggiunti al ruolo `canEdit` saranno in grado di modificare i dati, ovvero creare, modificare o eliminare i contatti. 
+Oltre all'autenticazione, nell'esercitazione verranno usati anche i ruoli per implementare l'autorizzazione. Solo gli utenti aggiunti al ruolo  `canEdit` saranno in grado di modificare i dati, ovvero creare, modificare o eliminare i contatti. 
 
 La procedura seguente consente di aggiungere un provider di autenticazione Google.
 
-1. Aprire il file *App_Start\Startup.Auth.cs*. 
-2. Rimuovere i caratteri di commento dal metodo `app.UseGoogleAuthentication()` in modo che il metodo presenti l'aspetto seguente:  
+1. Aprire il file  *App_Start\Startup.Auth.cs*. 
+2. Rimuovere i caratteri di commento dal metodo  `app.UseGoogleAuthentication()` in modo che il metodo risulti come segue:  
 	<pre class="prettyprint">
 	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
 	            {
@@ -454,7 +468,7 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 	Verrà visualizzata la finestra di dialogo **Create Client ID**.
 	![Google - Create Client ID](./media/web-sites-dotnet-web-forms-secure/SecureWebForms21c.png)  
 7. Nella finestra di dialogo **Create Client ID** per il tipo di applicazione mantenere l'impostazione predefinita **Web application**.  
-8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione **(https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).  
+8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione (**https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).  
 	Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL per gestire gli URL per localhost e gli URL per l'ambiente di produzione.  
 
 9. Per **Authorized Redirect URI** immettere le impostazioni seguenti:  
@@ -463,7 +477,7 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 	</pre>  
 	Questo valore è l'URI che verrà usato da ASP.NET OAuth per comunicare con il server OAuth di Google. Immettere l'URL SSL usato in precedenza (**https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).  
 10. Fare clic sul pulsante **Create Client ID**.
-11. In Visual Studio aggiornare il metodo `UseGoogleAuthentication` della pagina *Startup.Auth.cs* copiando e incollando i valori di **AppId** e **Chiave privata app** nel metodo. I valori di **AppId** e **Chiave privata app** mostrati di seguito sono valori di esempio non funzionanti.  
+11. In Visual Studio aggiornare il metodo  `UseGoogleAuthentication` della pagina  *Startup.Auth.cs* copiando e incollando i valori di **ID app** e **Chiave privata app** nel metodo. I valori di **AppId** e **Chiave privata app** mostrati di seguito sono valori di esempio non funzionanti.  
 	<pre class="prettyprint">  
 	using System;
 	using Microsoft.AspNet.Identity;
@@ -538,20 +552,20 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 17. Sarà possibile modificare il nome di registrazione dell'indirizzo di posta elettronica locale usato per l'account Gmail, anche se in generale è preferibile mantenere l'alias di posta elettronica predefinito, ovvero quello usato per l'autenticazione. Fare clic su **Log in**.
 
 ##Usare l'API di appartenenza per limitare l'accesso 
-ASP.NET Identity è il sistema di appartenenza usato per l'autenticazione quando si crea un'applicazione Web ASP.NET. Semplifica la creazione dei dati del profilo specifici dell'utente con i dati dell'applicazione. ASP.NET Identity consente inoltre di scegliere il modello di persistenza dei profili utente nell'applicazione. È possibile archiviare i dati in un database SQL Server o in un altro archivio dati, inclusi gli archivi dati *NoSQL*, come ad esempio le tabelle di Archiviazione di Azure.
+ASP.NET Identity è il sistema di appartenenza usato per l'autenticazione quando si crea un'applicazione Web ASP.NET. Semplifica la creazione dei dati del profilo specifici dell'utente con i dati dell'applicazione. ASP.NET Identity consente inoltre di scegliere il modello di persistenza dei profili utente nell'applicazione. È possibile archiviare i dati in un database SQL Server o in un altro archivio dati, inclusi gli archivi dati  *NoSQL*, come ad esempio le tabelle di Archiviazione di Azure.
 
 Nel modello Web Form ASP.NET predefinito è disponibile la funzionalità di appartenenza incorporata che può essere usata immediatamente durante l'esecuzione dell'applicazione. Si userà ASP.NET Identity per aggiungere un ruolo amministratore e assegnare un utente a tale ruolo. Si apprenderà quindi a limitare l'accesso alla cartella di amministrazione e alle pagine in essa contenute che vengono usate per modificare i dati di contatto.
 
 ###Aggiungere un amministratore 
 ASP.NET Identity consente di aggiungere un ruolo amministratore e assegnare un utente a tale ruolo tramite il codice. 
 
-1. In **Esplora soluzioni** aprire il file *Configuration.cs* nella cartella *Migrations*.
-2. Aggiungere le istruzioni `using` seguenti nello spazio dei nomi `ContactManger.Migrations`:  
+1. In **Esplora soluzioni** aprire il file  *Configuration.cs* nella cartella  *Migrations*.
+2. Aggiungere le seguenti istruzioni  `using` nello spazio dei nomi  `ContactManger.Migrations`:  
 	<pre class="prettyprint">
 	using Microsoft.AspNet.Identity;
 	using Microsoft.AspNet.Identity.EntityFramework;
 	</pre>
-3. Add the following `AddUserAndRole` method to the `Configuration` class after the `Seed` method:  
+3. Aggiungere il seguente metodo  `AddUserAndRole` alla classe  `Configuration` dopo il metodo  `Seed`:  
 	<pre class="prettyprint">
         public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
         {
@@ -584,7 +598,7 @@ ASP.NET Identity consente di aggiungere un ruolo amministratore e assegnare un u
             }
         }
 	</pre>
-4. Aggiungere una chiamata al metodo `AddUserAndRole` all'inizio del metodo `Seed`. Si noti che è visualizzato solo l'inizio del metodo `Seed`.  
+4. Aggiungere una chiamata al metodo  `AddUserAndRole` all'inizio del metodo  `Seed`. Si noti che è visualizzato solo l'inizio del metodo  `Seed`.  
 	<pre class="prettyprint">
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
@@ -594,19 +608,19 @@ ASP.NET Identity consente di aggiungere un ruolo amministratore e assegnare un u
 	<pre class="prettyprint">
 	Update-Database
 	</pre>
-	Questo codice crea un nuovo ruolo denominato `canEdit`, quindi di creare un nuovo utente locale con l'indirizzo di posta elettronica canEditUser@wideworldimporters.com. Il codice aggiunge quindi l'utente canEditUser@wideworldimporters.com al ruolo `anEdit`. Per altre informazioni, vedere la pagina relativa alle risorse di [ASP.NET Identity](http://www.asp.net/identity).  
+	Questo codice consente di creare un nuovo ruolo denominato  `canEdit`, quindi di creare un nuovo utente locale con l'indirizzo e-mail canEditUser@wideworldimporters.com. Il codice aggiunge quindi l'utente canEditUser@wideworldimporters.com al ruolo  `canEdit`. Per altre informazioni, vedere la pagina relativa alle risorse di [ASP.NET Identity](http://www.asp.net/identity).  
 
 ###Limitare l'accesso alla cartella Administration 
 L'applicazione di esempio **ContactManager** consente di visualizzare i contatti sia agli utenti anonimi che agli utenti che hanno eseguito l'accesso. Dopo avere completato questa sezione, tuttavia, solo gli utenti assegnati al ruolo "canEdit" potranno modificare i contatti.
 
-Verrà creata una cartella denominata *Admin* a cui potranno accedere solo gli utenti assegnati al ruolo "canEdit".
+Verrà creata una cartella denominata  *Admin* a cui potranno accedere solo gli utenti assegnati al ruolo "canEdit".
 
-1. In **Esplora soluzioni** aggiungere una sottocartella alla cartella *Contacts* e denominare la sottocartella *Admin*.
-2. Spostare i file seguenti dalla cartella *Contacts* alla cartella *Contacts/Admin*:  
-	- *Delete.aspx *e* Delete.aspx.cs*
-	- *Edit.aspx *ed* Edit.aspx.cs*
-	- *Insert.aspx *e* Insert.aspx.cs*
-3. Aggiornare i riferimenti ai collegamenti in *Contacts/Default.aspx* aggiungendo "Admin/" prima dei riferimenti di pagina che indirizzano ai file *Insert.aspx*, *Edit.aspx* e *Delete.aspx*:  
+1. In **Esplora soluzioni** aggiungere una sottocartella alla cartella  *Contacts* e assegnare alla nuova sottocartella il nome  *Admin*.
+2. Spostare i seguenti file dalla cartella  *Contacts* alla cartella  *Contacts/Admin*:  
+	- *Delete.aspx * e * Delete.aspx.cs*
+	- *Edit.aspx * e * Edit.aspx.cs*
+	- *Insert.aspx * e * Insert.aspx.cs*
+3. Aggiornare i riferimenti ai collegamenti in  *Contacts/Default.aspx* aggiungendo "Admin/" prima dei riferimenti di pagina che indirizzano ai file  *Insert.aspx*, *Edit.aspx* e  *Delete.aspx*:  
 	<pre class="prettyprint">
 	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
 	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
@@ -673,15 +687,15 @@ Verrà creata una cartella denominata *Admin* a cui potranno accedere solo gli u
 	    &lt;/div&gt;
 	&lt;/asp:Content&gt;
 	</pre>
-4. Aggiornare i sei riferimenti del codice `Response.Redirect("Default.aspx")` a `Response.Redirect("~/Contacts/Default.aspx")` per i tre file seguenti:  
+4. Aggiornare i sei riferimenti del codice  `Response.Redirect("Default.aspx")` a  `Response.Redirect("~/Contacts/Default.aspx")` per i seguenti tre file:  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
 	- *Insert.aspx.cs*  
 
 	Ora i collegamenti funzioneranno correttamente durante la visualizzazione e l'aggiornamento dei dati di contatto.
-5. Per limitare l'accesso alla cartella *Admin*, in **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Admin* e scegliere **Aggiungi nuovo elemento**.
-6. Nell'elenco di modelli Web per Visual C# selezionare **File di configurazione Web** nell'elenco centrale, accettare il nome predefinito *Web.config* e quindi selezionare **Aggiungi**.
-7. Sostituire il contenuto XML esistente nel file *Web.config* con il contenuto seguente:
+5. Per limitare l'accesso alla cartella  *Admin*, in **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella  *Admin* e scegliere **Aggiungi nuovo elemento**.
+6. Nell'elenco di modelli Web per Visual C# selezionare **File di configurazione Web** dall'elenco centrale, accettare il nome predefinito  *Web.config*, quindi fare clic su **Aggiungi**.
+7. Sostituire il contenuto XML esistente nel file  *Web.config* con il seguente contenuto:
 	<pre class="prettyprint">
 	&lt;?xml version=&quot;1.0&quot;?&gt;
 	&lt;configuration&gt;
@@ -693,10 +707,10 @@ Verrà creata una cartella denominata *Admin* a cui potranno accedere solo gli u
 	  &lt;/system.web&gt;
 	&lt;/configuration&gt;
 	</pre>
-8. Salvare il file *Web.config*. 
-	Il file *Web.config* specifica che solo gli utenti assegnati al ruolo "canEdit" possono accedere alle pagine contenute nella cartella *Admin*. 
+8. Salvare il file  *Web.config*. 
+	Il file  *Web.config* specifica che solo gli utenti assegnati al ruolo "canEdit" possono accedere alle pagine contenute nella cartella  *Admin*. 
 
-Quando un utente che non fa parte del ruolo "canEdit" tenta di modificare i dati, viene reindirizzato alla pagina *Log in*.
+Quando un utente che non fa parte del ruolo "canEdit" tenta di modificare i dati, viene reindirizzato alla pagina  *Log in*.
 
 ##Distribuire l'applicazione con il database in Azure 
 Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azure.
@@ -719,13 +733,13 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 8. Fare clic sull'icona **con la freccia verso il basso** accanto alla voce **ApplicationDbContext** e impostarla su **ContactDB**.
 9. Selezionare la casella di controllo **Esegui migrazioni Code First**.  
 
-	>[WACOM.NOTE]  
-	In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.  
+	>[AZURE.NOTE]  
+	In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo  *Seed* nel file  *Configuration.cs* verrà chiamato una volta sola.  
 
 10. Fare quindi clic su **Pubblica**.  
 	L'applicazione verrà pubblicata in Azure.
 
->[WACOM.NOTE]  
+>[AZURE.NOTE]  
 Se Visual Studio è stato chiuso e riaperto dopo la creazione del profilo di pubblicazione, è possibile che la stringa di connessione non sia visualizzata nell'elenco a discesa. In tale caso, invece di modificare il profilo di pubblicazione creato in precedenza, crearne uno in base alla stessa procedura eseguita in precedenza, quindi attenersi alle istruzioni visualizzate nella scheda **Impostazioni**.  
 
 ###Verificare l'applicazione in Azure 
@@ -738,12 +752,12 @@ Se Visual Studio è stato chiuso e riaperto dopo la creazione del profilo di pub
 	Si viene reindirizzati alla pagina **Login** perché l'account con cui si è connessi non può modificare i contatti.  
 3. Dopo avere immesso l'indirizzo di posta elettronica e la password indicati di seguito, fare clic sul pulsante **Log in**.  
 	**Email**: `canEditUser@wideworldimporters.com`  
-	**Password**: `Pa$$word1`  
+	**Password**: "Pa$$word1"  
 	![Log in Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms28.png)  
 
 4. Immettere nuovi dati per ogni campo e quindi premere il pulsante **Insert**.  
 	![Add New Contact Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms30.png)  
-	Viene visualizzata la pagina *EditContactList.aspx* con il nuovo record.  
+	La pagina  *EditContactList.aspx* verrà visualizzata con il nuovo record.  
 	![Add New Contact Page](./media/web-sites-dotnet-web-forms-secure/SecureWebForms31.png)  
 
 5. Selezionare il collegamento **Log off**.
@@ -768,13 +782,13 @@ Per evitare che altre persone registrino e usino questa applicazione di esempio,
 	![Open in SQL Server Object Explorer menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms32.png)  
 3. Nella finestra di dialogo **Aggiungi regola firewall** selezionare **Aggiungi regola firewall**.  
 
-	>[WACOM.NOTE]  
+	>[AZURE.NOTE]  
 	Se non è possibile espandere **Database SQL** e non è possibile visualizzare **ContactDB** da Visual Studio, è possibile seguire le istruzioni per aprire una porta del firewall o un intervallo di porte. A questo scopo, seguire le istruzioni fornite in **Configurazione delle regole del firewall per Azure** verso la fine dell'[esercitazione per MVC](http://azure.microsoft.com/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). In alternativa, per verificare i dati del database locale è anche possibile compilare, eseguire e aggiungere i dati all'applicazione in locale (**CTRL+F5** da Visual Studio).  
 
 4. Se viene visualizzata la finestra di dialogo **Connetti al server**, immettere la **password** creata all'inizio di questa esercitazione e fare clic sul pulsante **Connetti**.  
 
-	>[WACOM.NOTE]  
-	Se non si ricorda la password, aprire il file del progetto locale per recuperarla. In **Esplora soluzioni** espandere la cartella *Properties* e quindi la cartella *PublishProfiles*. Aprire il file *contactmanager.pubxml* (il nome del file dell'utente potrebbe essere diverso). Eseguire una ricerca all'interno del file per trovare la password di pubblicazione.
+	>[AZURE.NOTE]  
+	Se non si ricorda la password, aprire il file del progetto locale per recuperarla. In **Esplora soluzioni** espandere la cartella  *Properties*, quindi espandere la cartella  *PublishProfiles*. Aprire il file  *contactmanager.pubxml* (il nome del file dell'utente potrebbe essere diverso). Eseguire una ricerca all'interno del file per trovare la password di pubblicazione.
 5. Espandere il database **contactDB**, quindi espandere **Tabelle**.
 6. Fare clic con il pulsante destro del mouse sulla tabella **dbo.AspNetUsers** quindi scegliere **Visualizza dati**.  
 	![View Data menu item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms34.png)  
@@ -782,20 +796,20 @@ Per evitare che altre persone registrino e usino questa applicazione di esempio,
 	![ContactManager window](./media/web-sites-dotnet-web-forms-secure/SecureWebForms35.png)  
 
 ###Aggiungere un utente al ruolo Admin modificando il database 
-Nei passaggi precedenti dell'esercitazione, per aggiungere utenti al ruolo canEdit è stato usato codice. Un metodo alternativo consiste nel modificare i dati direttamente nelle tabelle di appartenenza. Nella procedura seguente viene illustrato come usare questo metodo alternativo per aggiungere un utente a un ruolo.
+Nei passaggi precedenti dell'esercitazione, per aggiungere utenti al ruolo canEdit è stato usato codice. Un metodo alternativo consiste nel modificare i dati direttamente nelle tabelle di appartenenza. La seguente procedura illustra come usare questo metodo alternativo per aggiungere un utente a un ruolo.
 
 1. In **Esplora oggetti di SQL Server** fare clic con il pulsante destro del mouse su **dbo.AspNetUserRoles** e scegliere **Visualizza dati**.
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png)  
-2. Copiare il valore di *RoleId* e incollarlo nella riga vuota (nuova).  
+2. Copiare il valore di  *RoleId* e incollarlo nella riga vuota (nuova).  
 	![AspNetUserRoles data](./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png)  
-3. Nella tabella **dbo.AspNetUsers** individuare l'utente da inserire nel ruolo, copiare l'*Id* dell'utente,
-4. quindi incollarlo nel campo **UserId** della nuova riga nella tabella **AspNetUserRoles**.  
+3. Nella tabella **dbo.AspNetUsers** individuare l'utente da inserire nel ruolo, copiare l' *Id* dell'utente,
+4. quindi incollare l' *Id* copiato nel campo **UserId** della nuova riga nella tabella **AspNetUserRoles**.  
 
->[WACOM.NOTE]  
+>[AZURE.NOTE]  
 Microsoft sta attualmente lavorando alla creazione di uno strumento per semplificare la gestione di utenti e ruoli.  
 
 ##Passaggi successivi
-Per altre informazioni su Web Form ASP.NET, vedere l'articolo relativo alle [informazioni sui Web Form ASP.NET](http://www.asp.net/web-forms) nel sito Web dedicato ad ASP.NET e gli argomenti relativi alle [guide ed esercitazioni per Microsoft Azure](http://azure.microsoft.com/it-it/documentation/services/web-sites/#net).
+Per altre informazioni su Web Form ASP.NET, vedere l'articolo relativo alle [informazioni su Web Form ASP.NET](http://www.asp.net/web-forms) nel sito Web dedicato ad ASP.NET e gli argomenti relativi alle [guide ed esercitazioni per Microsoft Azure](http://azure.microsoft.com/it-it/documentation/services/web-sites/#net).
 
 Questa esercitazione è basata sull'esercitazione MVC [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://azure.microsoft.com/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) scritta da Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con il supporto di Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
@@ -803,4 +817,5 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
 
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

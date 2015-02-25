@@ -1,6 +1,6 @@
-﻿ <properties urlDisplayName="User Names in Linux" pageTitle="Selezione dei nomi utente per Linux su Azure" metaKeywords="" description="Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Selezione dei nomi utente per Linux su Azure" description="Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
 
 
 
@@ -229,6 +229,9 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 - voice
 - whoopsie
 - www-data
- 
 
-<!--HONumber=35.1-->
+
+
+
+
+<!--HONumber=42-->

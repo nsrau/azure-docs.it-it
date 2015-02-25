@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Introduzione a Mobile Analytics | Dev Center di Servizi mobili" metaKeywords="" description="Introduzione a Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+﻿<properties pageTitle="Introduzione a Mobile Analytics | Dev Center di Servizi mobili" description="Introduzione a Mobile Analytics." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
 
 # Introduzione a Mobile Analytics (Capptain)
 
@@ -14,12 +14,12 @@ In questa esercitazione verranno aggiunte funzionalità di analisi per dispositi
 >[AZURE.NOTE] Capptain.com, di proprietà di Microsoft, offre soluzioni di analisi per app mobili gratuitamente fino a 100.000 utenti attivi al mese per i clienti del Livello standard di Servizi mobili di Azure. Per sfruttare questa offerta, contattare mobileservices@microsoft.com per ricevere ulteriori istruzioni. Nell'esercitazione seguente sono riepilogate le funzionalità di Capptain.com e fornite istruzioni per il loro uso.
 
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Inizializzare Capptain SDK]
-2. [Overload di UIViewController]
+2. [Eseguire l'overload diUIViewController]
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
 * Un account di [Capptain]
 * Un'app del [Livello standard di Servizi mobili]
@@ -31,7 +31,7 @@ Per completare questa esercitazione, è necessario disporre di:
 2. In XCode, aggiungere il Capptain SDK al proprio progetto facendo clic con il pulsante destro del mouse sul progetto e selezionando "Add files to...". Scegliere la cartella CapptainSDK.
 
 3. Selezionare il progetto. Nella scheda **Build Phases** selezionare **Link Binary With Libraries** e aggiungere i framework seguenti:
-    * AdSupport.framework: impostare il collegamento come facoltativo
+    * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
     * CFNetwork.framework
@@ -55,9 +55,9 @@ Per completare questa esercitazione, è necessario disporre di:
           [...]
         }
 
-## <a name="instrument"></a>Overload di UIViewController
+## <a name="instrument"></a>Eseguire l'overload diUIViewController
 
-1. Trovare ogni figlio di `UIViewController` nel proprio progetto e assicurarsi che ciascuno di essi erediti invece da `CapptainViewController`.
+1. Individuare ogni figlio di `UIViewController` nel proprio progetto e assicurarsi che ciascuno di essi erediti invece da `CapptainViewController`.
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -71,7 +71,7 @@ Per completare questa esercitazione, è necessario disporre di:
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2. Trovare ogni figlio di `UITableViewController` nel proprio progetto e assicurarsi che ciascuno di essi erediti invece da `CapptainTableViewController`.
+2. Individuare ogni figlio di `UITableViewController` nel proprio progetto e assicurarsi che ciascuno di essi erediti invece da `CapptainTableViewController`.
 
     L'app è ora configurata per inviare dati analitici a Capptain.
 
@@ -80,11 +80,12 @@ Per altre informazioni su cosa può fare Capptain per la propria app, visitare [
 
 <!-- Anchors. -->
 [Inizializzare Capptain SDK]: #initialize
-[Overload di UIViewController]: #instrument
+[Eseguire l'overload diUIViewController]: #instrument
 
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [Livello standard di Servizi mobili]: /it-it/pricing/details/mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

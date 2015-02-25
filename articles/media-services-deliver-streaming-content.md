@@ -1,11 +1,12 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="Come distribuire contenuti in streaming da Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come distribuire contenuti in streaming da Servizi multimediali usando un URL diretto. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties pageTitle="Come distribuire contenuti in streaming da Servizi multimediali - Azure" description="Informazioni su come distribuire contenuti in streaming da Servizi multimediali usando un URL diretto. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." authors="juliako" manager="dwrede" editor="" services="media-services" documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Procedura: Distribuire contenuti in streaming
+# Procedura: Distribuire contenuti in streaming
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire un asset mediante download](../media-services-deliver-asset-download/).
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire un asset mediante download 
+](../media-services-deliver-asset-download/).
 
 Oltre al download di contenuti multimediali da Servizi multimediali, è possibile usare lo streaming a velocità in bit adattiva per distribuire contenuti. Ad esempio, è possibile creare un URL diretto, denominato localizzatore, per i contenuti in streaming su un server di origine di Servizi multimediali. Le applicazioni client come Microsoft Silverlight possono riprodurre i contenuti in streaming direttamente dal localizzatore.
 
@@ -76,6 +77,7 @@ Per altre informazioni sulla distribuzione di asset, vedere:
 </ul>
 
 <h2>Passaggi successivi</h2>
-Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e usando Smooth Streaming. L'argomento successivo dedicato alla [distribuzione di contenuti HLS](../media-services-deliver-http-live-streaming-content/) illustra la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS)
+Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e usando Smooth Streaming. Nell'argomento successivo dedicato alla [distribuzione di contenuti HLS](../media-services-deliver-http-live-streaming-content/) viene illustrata la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

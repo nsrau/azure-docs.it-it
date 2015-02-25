@@ -1,13 +1,24 @@
-<properties urlDisplayName="REST service using Web API" pageTitle="Servizio REST .NET usando l'API Web - Esercitazione su Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un sito Web di Azure tramite Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Servizio REST .NET usando l'API Web - Esercitazione di Azure" 
+	description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un sito Web di Azure tramite Visual Studio." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="riande" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
-
-
-
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/06/2014" 
+	ms.author="riande"/>
 
 # Servizio REST usando l'API Web ASP.NET e Database SQL 
 
-***Autori: [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra.***
+***Autori [Rick Anderson](https://twitter.com/RickAndMSFT) e Tom Dykstra.***
 
 In questa esercitazione viene illustrato come distribuire un'applicazione Web ASP.NET in un sito Web di Azure usando la procedura guidata Pubblica sito Web in Visual Studio 2013 o Visual Studio Express 2013 per il Web. 
 
@@ -20,12 +31,13 @@ Si apprenderà come:
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto ASP.NET MVC 5 di Visual Studio sicuro e pubblicarlo in un sito Web di Azure.
 * Creare l'API Web ASP.NET per consentire chiamate all'API RESTful.
-* Utilizzare un database SQL per l'archiviazione di dati in Azure.
+* Usare un database SQL per l'archiviazione di dati in Azure.
 * Pubblicare aggiornamenti dell'applicazione in Azure.
 
 Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET MVC 5 che utilizza ADO.NET Entity Framework per l'accesso al database. Nella figura seguente è illustrata l'applicazione completata:
 
 ![screenshot of web site][intro001]
+
 Contenuto dell'esercitazione:
 
 * [Configurare l'ambiente di sviluppo][setupdbenv]
@@ -40,9 +52,9 @@ Contenuto dell'esercitazione:
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-get-started/ -->
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2><a name="bkmk_setupwindowsazure"></a>Configurazione dell'ambiente Azure</h2>
+<h2><a name="bkmk_setupwindowsazure"></a>Configurare l'ambiente Azure</h2>
 
 Configurare l'ambiente Azure creando un sito Web di Azure e un database SQL.
 
@@ -58,7 +70,7 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 2. Fare clic su **CREAZIONE PERSONALIZZATA**.
 
-	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
+	![Collegamento di creazione con il database nel portale di gestione](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
 	Verrà aperta la procedura guidata **Nuovo sito Web - Creazione personalizzata**. 
 
@@ -68,13 +80,13 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 1. Nell'elenco a discesa **Database** scegliere **Crea un database SQL 20 MB gratuito**.
 
-	![Create a New Website step of New Website - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
+	![Passaggio di creazione di un nuovo sito Web nella procedura guidata di creazione del nuovo sito Web con il database](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
 
 6. Fare clic sulla freccia a destra nella parte inferiore della finestra di dialogo.
 
 	Verrà visualizzato il passaggio **Impostazioni database** della procedura guidata.
 
-7. Nella casella **Nome** immettere *ContactDB*.
+7. Nella casella **Nome** immettere  *ContactDB*.
 
 8. Nella casella **Server** selezionare **Nuovo server di database SQL**. In alternativa, se è stato creato in precedenza un database SQL Server, è possibile selezionare tale database SQL Server dall'elenco a discesa.
 
@@ -84,17 +96,17 @@ Database SQL è un servizio di database relazionale basato sul cloud che si avva
 
 11. Fare clic sul segno di spunta nella parte inferiore della finestra di dialogo per indicare che le operazioni sono state completate.
 
-	![Database Settings step of New Website - Create with Database wizard][setup007]
+	![Passaggio delle impostazioni del database nella procedura guidata di creazione di un nuovo sito Web con il database][setup007]
 
 	 Nell'immagine seguente viene mostrato l'uso di un database SQL Server e un accesso esistenti.
 	
-	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
+	![Passaggio delle impostazioni del database nella procedura guidata di creazione di un nuovo sito Web con il database][rxPrevDB]
 
 	Il portale di gestione torna alla pagina Siti Web e nella colonna **Stato** viene indicato che la creazione del sito è in corso. In genere, dopo meno di un minuto nella colonna **Stato** viene indicato che il sito è stato creato correttamente. Il numero di siti disponibili nell'account viene visualizzato nella barra di spostamento a sinistra accanto all'icona **Siti Web** e il numero di database viene visualizzato accanto all'icona **Database SQL**.
 
 <!-- [Websites page of Management Portal, website created][setup009] -->
 
-<h2><a name="bkmk_createmvc4app"></a>Creazione di un'applicazione ASP.NET MVC 5</h2>
+<h2><a name="bkmk_createmvc4app"></a>Creare un'applicazione ASP.NET MVC 5</h2>
 
 Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il passaggio successivo consiste nel creare il progetto dell'applicazione Web di Visual Studio che verrà pubblicato in Azure.
 
@@ -103,29 +115,29 @@ Il sito Web di Azure è stato creato, ma non include ancora alcun contenuto. Il 
 1. Avviare Visual Studio 2013.
 1. Scegliere **Nuovo progetto** dal menu **File**.
 3. Nella finestra di dialogo **Nuovo progetto** espandere **Visual C#** e selezionare **Web**, quindi selezionare **Applicazione Web ASP.NET MVC 5**. Mantenere l'opzione **.NET Framework 4.5** predefinita. Assegnare all'applicazione il nome **ContactManager** e fare clic su **OK**.
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**, selezionare **API Web**, quindi fare clic su **Modifica autenticazione**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![Finestra di dialogo del nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**.
 
-	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+	![Nessuna autenticazione](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
-	L'applicazione di esempio da creare non includerà funzionalità che richiedono l'accesso degli utenti. Per informazioni su come implementare la funzionalità di autenticazione e autorizzazione, vedere la sezione [Passaggi successivi](#nextsteps) alla fine dell'esercitazione. 
+	L'applicazione di esempio che si sta creando non includerà funzionalità che richiedono l'accesso agli utenti. Per informazioni su come implementare le funzionalità di autenticazione e autorizzazione, vedere la sezione [Passaggi successivi](#nextsteps) alla fine dell'esercitazione. 
 
 1. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![Finestra di dialogo del nuovo progetto ASP.NET](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** espandere la cartella *Views\Shared* e aprire il file* _Layout.cshtml*.
+1. In **Esplora soluzioni** espandere la cartella  *Views\Shared* e aprire il file *_Layout.cshtml*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![_Layout.cshtml in Esplora soluzioni][newapp004]
 
-1. Sostituire il contenuto del file *_Layout.cshtml* con il codice seguente.
+1. Sostituire il contenuto del file *_Layout.cshtml* con il seguente codice.
 
 
 		<!DOCTYPE html>
@@ -170,15 +182,15 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
 La home page dell'applicazione verrà visualizzata nel browser predefinito.
-	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+	![Home page dell'elenco azioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Distribuzione dell'applicazione in Azure</h2>
+<h2><a name="bkmk_deploytowindowsazure1"></a>Distribuire l'applicazione in Azure</h2>
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.
 
-	![Publish in project context menu][PublishVSSolution]
+	![Pubblica nel menu di scelta rapida del progetto][PublishVSSolution]
 
 	Viene avviata la procedura guidata **Pubblica sito Web**.
 
@@ -208,7 +220,7 @@ Non è necessario eseguire per il momento altre operazioni per creare l'applicaz
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	È possibile accettare le impostazioni predefinite in questa scheda.  Poiché verrà distribuita una configurazione della build di rilascio, non è necessario eliminare i file nel server di destinazione, precompilare l'applicazione o escludere i file della cartella App_Data. Se non si desidera eseguire il debug nel sito Azure attivo, sarà necessario distribuire una configurazione di debug (non di rilascio). Vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
+	È possibile accettare le impostazioni predefinite in questa scheda.  Poiché verrà distribuita una configurazione della build di rilascio, non è necessario eliminare i file nel server di destinazione, precompilare l'applicazione o escludere i file della cartella App_Data. Se non si desidera eseguire il debug nel sito Azure attivo, sarà necessario distribuire una configurazione di debug (non di rilascio). Vedere la sezione [Passaggi successivi](#nextsteps) alla fine dell'esercitazione.
 
 12. Nella scheda **Anteprima** fare clic su **Avvia anteprima**.
 
@@ -226,7 +238,7 @@ Non è necessario eseguire per il momento altre operazioni per creare l'applicaz
 	
 	![To Do List home page running in Azure][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>Aggiunta di un database all'applicazione</h2>
+<h2><a name="bkmk_addadatabase"></a>Aggiungere un database all'applicazione</h2>
 
 Si passerà quindi all'aggiornamento dell'applicazione MVC, in modo da aggiungere la possibilità di visualizzare e aggiornare i contatti e di archiviare i dati in un database. L'applicazione utilizzerà Entity Framework per creare il database e per leggere e aggiornare i dati nel database.
 
@@ -238,11 +250,11 @@ Creare innanzitutto un semplice modello di dati nel codice.
 
 	![Add Class in Models folder context menu][adddb001]
 
-2. Nella finestra di dialogo **Aggiungi nuovo elemento** assegnare al nuovo file di classe il nome *Contact.cs*, quindi fare clic su **Aggiungi**.
+2. Nella finestra di dialogo **Aggiungi nuovo elemento** assegnare al nuovo file di classe il nome  *Contact.cs*, quindi fare clic su **Aggiungi**.
 
 	![Add New Item dialog box][adddb002]
 
-3. Sostituire il contenuto del file Contacts.cs con il codice seguente.
+3. Sostituire il contenuto del file Contacts.cs con il seguente codice.
 
 		using System.Globalization;
 		namespace ContactManager.Models
@@ -266,13 +278,13 @@ Creare innanzitutto un semplice modello di dati nel codice.
     		}
 		}
 
-La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. Per ulteriori informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione.
+La classe **Contacts** consente di definire i dati che verranno archiviati per ogni contatto, oltre a una chiave primaria, ContactID, necessaria per il database. È possibile ottenere altre informazioni sui modelli di dati nella sezione [Passaggi successivi](#nextsteps) alla fine dell'esercitazione.
 
 ### Creare pagine Web che consentono agli utenti dell'app di usare i contatti
 
 La caratteristica scaffolding di ASP.NET MVC consente di generare automaticamente codice per l'esecuzione di azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
-<h2><a name="bkmk_addcontroller"></a>Aggiunta di un controller e di una visualizzazione per i dati</h2>
+<h2><a name="bkmk_addcontroller"></a>Aggiungere un controller e una visualizzazione per i dati</h2>
 
 1. In **Esplora soluzioni** espandere la cartella Controllers.
 
@@ -302,27 +314,27 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
 
 	![Package Manager Console in Tools menu][addcode008]
 
-2. Nella finestra **Console di Gestione pacchetti** immettere il comando seguente:
+2. Nella finestra **Console di Gestione pacchetti** immettere il seguente comando:
 
 		enable-migrations 
   
-	Il comando **enable-migrations** consente di creare una cartella *Migrations* e di inserire in tale cartella il file *Configuration.cs*, che può essere modificato per configurare le migrazioni. 
+	Il comando **enable-migrations** consente di creare una cartella  *Migrations* e di inserire in tale cartella un file  *Configuration.cs*, che può essere modificato per configurare le migrazioni. 
 
-2. Nella finestra **Console di Gestione pacchetti** immettere il comando seguente:
+2. Nella finestra **Console di Gestione pacchetti** immettere il seguente comando:
 
 		add-migration Initial
 
-	Il comando **add-migration Initial** consente di generare una classe denominata **&lt;indicatore_data&gt;Initial** che crea il database. Il primo parametro (*Initial*) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**.
+	Il comando **add-migration Initial** consente di generare una classe denominata **&lt;<indicatore_data>&gt;Initial** che crea il database. Il primo parametro ( *Initial*) è arbitrario e viene usato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**.
 
 	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, usato quando si vuole tornare allo stato precedente, consente di rimuoverla.
 
-3. Aprire il file *Migrations\Configuration.cs*. 
+3. Aprire il file  *Migrations\Configuration.cs*. 
 
 4. Aggiungere gli spazi dei nomi seguenti. 
 
     	 using ContactManager.Models;
 
-5. Sostituire il metodo *Seed* con il codice seguente:
+5. Sostituire il metodo  *Seed* con il seguente codice:
 		
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
@@ -397,12 +409,12 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 ![MVC view of data][rxz3]
 
-<h2><a name="bkmk_addview"></a>Modifica della visualizzazione</h2>
+<h2><a name="bkmk_addview"></a>Modificare la visualizzazione</h2>
 
-1. Aprire il file *Views\Home\Index.cshtml*. Nel passaggio successivo, il markup generato verrà sostituito con codice che usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine di questa esercitazione. 
+1. Aprire il file  *Views\Home\Index.cshtml*. Nel passaggio successivo il markup generato verrà sostituito con codice che usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Questo nuovo codice recupera l'elenco dei contatti con l'API Web e JSON e quindi associa i dati dei contatti all'interfaccia utente usando knockout.js. Per altre informazioni, vedere la sezione [Passaggi successivi](#nextsteps) alla fine dell'esercitazione. 
 
 
-2. Sostituire il contenuto del file con il codice seguente.
+2. Sostituire il contenuto del file con il seguente codice.
 
 		@model IEnumerable<ContactManager.Models.Contact>
 		@{
@@ -499,7 +511,7 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 4. Nella finestra di dialogo **Aggiungi nuovo elemento** immettere **Stile** nella casella di ricerca in alto a destra e quindi selezionare **Foglio di stile**.
 	![Add New Item dialog box][rxStyle]
 
-5. Assegnare al file il nome *Contacts.css* e fare clic su **Aggiungi**. Sostituire il contenuto del file con il codice seguente.
+5. Assegnare al file il nome  *Contacts.css* e fare clic su **Aggiungi**. Sostituire il contenuto del file con il seguente codice.
     
         .column {
             float: left;
@@ -557,16 +569,16 @@ Nell'applicazione vengono mostrati i dati di seeding e sono disponibili collegam
 
 	Questo foglio di stile verrà usato per il layout, i colori e gli stili nell'app Contact Manager.
 
-6. Aprire il file *App_Start\BundleConfig.cs*.
+6. Aprire il file  *App_Start\BundleConfig.cs*.
 
 
-7. Aggiungere il codice seguente per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
+7. Aggiungere il seguente codice per registrare il plug-in [Knockout](http://knockoutjs.com/index.html "KO").
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
 	In questo esempio viene usato il plug-in Knockout per semplificare il codice JavaScript dinamico che gestisce i modelli delle schermate.
 
-8. Modificare la voce contents/css per registrare il foglio di stile *contacts.css*. Sostituire la riga seguente:
+8. Modificare la voce contents/css per registrare il foglio di stile  *contacts.css*. Sostituire la riga seguente:
 
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -582,7 +594,7 @@ Con:
 
 	Install-Package knockoutjs
 
-<h2><a name="bkmk_addwebapi"></a>Aggiunta di un controller per l'interfaccia dell'API Web RESTful</h2>
+<h2><a name="bkmk_addwebapi"></a>Aggiungere un controller per l'interfaccia dell'API Web RESTful</h2>
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella Controllers, quindi scegliere **Aggiungi** e infine **Controller**. 
 
@@ -622,19 +634,19 @@ Con:
 
 	![Web API save dialog][addwebapi007]
 
-	**Avviso di sicurezza**: a questo punto, l'applicazione non è sicura ed è vulnerabile agli attacchi di richiesta intersito falsa (Cross-Site Request Forgery, CSRF). Questa vulnerabilità verrà rimossa più avanti nell'esercitazione. Per altre informazioni, vedere l'articolo che descrive come [prevenire gli attacchi di richiesta intersito falsa (CSRF)][prevent-csrf-attacks].
+	**Avviso di sicurezza**: a questo punto, l'applicazione non è sicura ed è vulnerabile agli attacchi di richiesta intersito falsa (Cross-Site Request Forgery, CSRF). Questa vulnerabilità verrà rimossa più avanti nell'esercitazione. Per altre informazioni, vedere l'articolo che descrive come [prevenire gli attacchi di richiesta intersito falsa][prevent-csrf-attacks].
 
-<h2><a name="xsrf"></a>Aggiunta della protezione XSRF</h2>
+<h2><a name="xsrf"></a>Aggiungere la protezione XSRF</h2>
 
 La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro applicazioni ospitate sul Web in base al quale un sito Web dannoso può influenzare l'interazione tra un browser client e un sito Web considerato attendibile da tale browser. Questi attacchi sono possibili in quanto i Web browser inviano automaticamente token di autenticazione con ogni richiesta a un sito Web. Un classico esempio è un cookie di autenticazione, ad esempio un ticket di autenticazione basata su form di ASP.NET. Tuttavia, i siti Web che usano un meccanismo di autenticazione persistente, ad esempio Autenticazione di Windows, autenticazione di base e così via, possono essere presi di mira da questi attacchi.
 
 Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
 
-Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF).
+Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) ([richiesta di intersito falsa](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ContactManager**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 
-2. Assegnare al file il nome *ValidateHttpAntiForgeryTokenAttribute.cs* e aggiungere il codice seguente:
+2. Assegnare al file il nome  *ValidateHttpAntiForgeryTokenAttribute.cs* e aggiungere il seguente codice:
 
         using System;
         using System.Collections.Generic;
@@ -704,7 +716,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
             }
         }
 
-1. Aggiungere l'istruzione *using* seguente al controller dei contratti per poter accedere all'attributo **[ValidateHttpAntiForgeryToken]**.
+1. Aggiungere la seguente istruzione  *using* al controller dei contratti per poter accedere all'attributo **[ValidateHttpAntiForgeryToken]**.
 
 	using ContactManager.Filters;
 
@@ -714,7 +726,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Aggiornare la sezione *Scripts* del file *Views\Home\Index.cshtml* in modo da includere il codice per recuperare i token XSRF.
+1. Aggiornare la sezione  *Scripts* del file  *Views\Home\Index.cshtml* per poter includere il codice per recuperare i token XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -769,7 +781,7 @@ Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Se
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Pubblicazione dell'aggiornamento dell'applicazione in Azure e nel database SQL</h2>
+<h2><a name="bkmk_deploydatabaseupdate"></a>Pubblicare l'aggiornamento dell'applicazione in Azure e nel database SQL</h2>
 
 Per pubblicare l'applicazione, ripetere la procedura seguita in precedenza.
 
@@ -780,7 +792,7 @@ Per pubblicare l'applicazione, ripetere la procedura seguita in precedenza.
 5. Fare clic sulla scheda **Impostazioni**.
 	
 
-1. In **ContactsManagerContext(ContactsManagerContext)** fare clic sull'icona **v** per sostituire la *Stringa di connessione remota* con la stringa di connessione per il database dei contatti. Fare clic su **ContactDB**.
+1. In **ContactsManagerContext(ContactsManagerContext)** fare clic sull'icona **v** per sostituire  *Remote connection string* con la stringa di connessione per il database dei contatti. Fare clic su **ContactDB**.
 
 	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
@@ -793,7 +805,7 @@ Al termine della distribuzione, nel browser verrà aperta la pagina iniziale del
 
 	![Index page with no contacts][intro001]
 
-	Il processo di pubblicazione di Visual Studio ha automaticamente configurato la stringa di connessione nel file *Web.config* distribuito affinché faccia riferimento al database SQL. Ha inoltre configurato le migrazioni Code First affinché aggiornino automaticamente il database alla versione più recente la prima volta che l'applicazione accede al database dopo la distribuzione.
+	Il processo di pubblicazione di Visual Studio ha automaticamente configurato la stringa di connessione nel file  *Web.config* distribuito affinché punti al database SQL. Ha inoltre configurato le migrazioni Code First affinché aggiornino automaticamente il database alla versione più recente la prima volta che l'applicazione accede al database dopo la distribuzione.
 
 	Grazie a questa configurazione, Code First ha creato il database tramite l'esecuzione del codice nella classe **Initial** creata in precedenza. Questa operazione è stata eseguita la prima volta che l'applicazione ha tentato di accedere al database dopo la distribuzione.
 
@@ -801,13 +813,13 @@ Al termine della distribuzione, nel browser verrà aperta la pagina iniziale del
 
 Se la voce immessa viene salvata e quindi visualizzata nella pagina di Contact Manager, significa che è stata archiviata nel database.
 
-![Index page with contacts][addwebapi004]
+![Pagina dell'indice con i contatti][addwebapi004]
 
-L'applicazione è ora in esecuzione nel cloud e utilizza il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non dispone di un meccanismo per limitare l'accesso.
+L'applicazione è ora in esecuzione nel cloud e usa il database SQL per archiviare i relativi dati. Al termine del test dell'applicazione in Azure, eliminarla. L'applicazione è pubblica e non dispone di un meccanismo per limitare l'accesso.
 
 <h2><a name="nextsteps"></a>Passaggi successivi</h2>
 
-Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe usato un database di appartenenza. Nell'esercitazione [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/), basata su questa esercitazione, viene illustrato come distribuire un'applicazione Web con il database di appartenenza.
+Un'applicazione reale richiederebbe l'autenticazione e l'autorizzazione e a tale scopo verrebbe usato un database di appartenenza. L'esercitazione [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](http://www.windowsazure.com/it-it/develop/net/tutorials/web-site-with-sql-database/), basata su questa esercitazione, illustra come distribuire un'applicazione Web con il database di appartenenza.
 
 Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'usare Archiviazione di Azure, che offre un servizio di archiviazione di dati non relazionali sotto forma di BLOB e tabelle. Per ulteriori informazioni sull'API Web, su ASP.NET MVC e Azure, vedere i collegamenti seguenti.
  
@@ -819,7 +831,7 @@ Un altro modo per archiviare i dati in un'applicazione di Azure consiste nell'us
 
 Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con il supporto di Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
-Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti relativi all'interesse in merito a un'ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza. 
+Inviare commenti e suggerimenti sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione, ma anche ai prodotti che illustra. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. In particolare, saranno apprezzati i commenti relativi all'interesse in merito a un'ulteriore automazione per il processo di configurazione e distribuzione del database di appartenenza. 
 
 <!-- bookmarks -->
 [Aggiungere un provider OAuth]: #addOauth
@@ -879,9 +891,9 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Add XSRF Protection]: #xsrf
-[WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [Aggiungere la protezione XSRF]: #xsrf
+[WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -889,4 +901,5 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

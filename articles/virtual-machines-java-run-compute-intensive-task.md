@@ -1,32 +1,32 @@
-﻿<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Applicazione Java a elevato uso di calcolo in una macchina virtuale - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties pageTitle="Applicazione Java a elevato utilizzo di calcolo in una macchina virtuale - Azure" description="Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
-# Come eseguire un'attività a elevato uso di calcolo in Java in una macchina virtuale
+# Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
-Con Azure è possibile usare una macchina virtuale per gestire attività a elevato uso di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato uso di calcolo che può essere monitorata da un'altra applicazione Java.
+Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
 
 In questa esercitazione si presuppone che l'utente sappia creare applicazioni della console Java, importare librerie nell'applicazione Java e generare un archivio Java (JAR). Non è richiesta alcuna conoscenza di Azure. 
 
-Si apprenderà come:
+Si apprenderà:
 
-* Creare una macchina virtuale in cui è già installato un JDK.
-* Accedere in remoto alla macchina virtuale.
-* Creare uno spazio dei nomi del bus di servizio.
-* Creare un'applicazione Java che esegua un'attività a elevato uso di calcolo.
-* Creare un'applicazione Java che esegua un'attività che monitori l'avanzamento dell'attività a elevato uso di calcolo.
-* Eseguire le applicazioni Java.
-* Arrestare le applicazioni Java.
+* Come creare una macchina virtuale in cui è già installato un JDK.
+* Come accedere in remoto alla macchina virtuale.
+* Come creare uno spazio dei nomi del bus di servizio.
+* Come creare un'applicazione Java che esegua un'attività a elevato utilizzo di calcolo.
+* Come creare un'applicazione Java che esegua un'attività che monitori l'avanzamento dell'attività a elevato utilizzo di calcolo.
+* Come eseguire le applicazioni Java.
+* Come arrestare le applicazioni Java.
 
-In questa esercitazione verrà usato il Problema del commesso viaggiatore per l'attività a elevato uso di calcolo. Di seguito è riportato un esempio dell'applicazione Java che esegue l'attività a elevato uso di calcolo.
+In questa esercitazione verrà usato il Problema del commesso viaggiatore per l'attività a elevato utilizzo di calcolo. Di seguito è riportato un esempio dell'applicazione Java che esegue l'attività a elevato utilizzo di calcolo.
 
 ![Traveling Salesman Problem solver][solver_output]
 
-Di seguito è riportato un esempio dell'applicazione Java che monitora l'attività a elevato uso di calcolo.
+Di seguito è riportato un esempio dell'applicazione Java che monitora l'attività a elevato utilizzo di calcolo.
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Per creare una macchina virtuale
 
@@ -35,9 +35,22 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 3. Nella finestra di dialogo **Selezione immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**.
 Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
 4. Fare clic su **Avanti**.
-4. Nella finestra di dialogo **Configurazione macchina virtuale**: Specificare un nome per la macchina virtuale. Specificare la dimensione da usare per la macchina virtuale. Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore. Fare clic su **Avanti**.
-5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva: Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **Stati Uniti occidentali**. Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente**. Nella casella **Set di disponibilità** selezionare **(Nessuno)**. Fare clic su **Avanti**.
-5. Nella finestra di dialogo **Configurazione macchina virtuale** finale: Accettare le voci di endpoint predefinite. Fare clic su **Operazione completata**.
+4. Nella finestra di dialogo **Configurazione macchina virtuale**:
+    1. Specificare un nome per la macchina virtuale.
+    2. Specificare la dimensione da usare per la macchina virtuale.
+    3. Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale.
+    4. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore.
+    5. Fare clic su **Avanti**.
+5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
+    1. Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**.
+    2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
+    2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **Stati Uniti occidentali**.
+    2. Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente**.
+    3. Nella casella **Set di disponibilità** selezionare **(Nessuno)**.
+    4. Fare clic su **Avanti**.
+5. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
+    1. Accettare le voci di endpoint predefinite.
+    2. Fare clic su **Operazione completata**.
 
 ## Per accedere in remoto alla macchina virtuale
 
@@ -47,7 +60,7 @@ Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui s
 4. Fare clic su **Connetti**.
 5. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, usare i valori specificati durante la creazione della macchina virtuale.
 
-Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
+Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE, vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
 
 ## Come creare uno spazio dei nomi del bus di servizio
 
@@ -57,34 +70,40 @@ Per creare uno spazio dei nomi servizio:
 
 1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2.  Nel pannello di navigazione in basso a sinistra nel portale di gestione fare clic su **Bus di servizio, controllo di accesso e memorizzazione nella cache**.
-3.  Nel pannello di navigazione in alto a sinistra nel portale di gestione fare clic sul nodo **Bus di servizio** e quindi fare clic sul pulsante **Nuovo**.  
+3.  Nel riquadro superiore sinistro del portale di gestione fare clic sul nodo **Service
+    Bus**, quindi fare clic sul pulsante **Nuovo**.  
     ![Service Bus Node screenshot][svc_bus_node]
-4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.  
+4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi del servizio** immettere uno 
+    **spazio dei nomi del servizio** quindi, per assicurarsi che sia univoco, fare clic sul pulsante
+    **Verifica disponibilità**.  
     ![Create a New Namespace screenshot][create_namespace]
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Crea spazio dei nomi**.  
+5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il
+    paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Crea spazio dei nomi**.  
       
-    Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Attivo**.
+    Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione
+    e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Attivo**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel
-nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per
-lo spazio dei nomi.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
 
-1.  Nel pannello di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili:   
+1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus** per
+    visualizzare l'elenco degli spazi dei nomi disponibili:   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:   
     ![Namespace List screenshot][namespace_list]
 3.  Nel riquadro **Proprietà** a destra verranno elencate le proprietà relative al nuovo spazio dei nomi:   
     ![Properties Pane screenshot][properties_pane]
-4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzarle:   
+4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzarle:
     ![Default Key screenshot][default_key]
-5.  Prendere nota dei valori indicati in **Autorità di certificazione predefinita** e in **Chiave predefinita**, in quanto dovranno essere usati per eseguire operazioni con lo spazio dei nomi. 
+5.  Prendere nota dei valori indicati in **Autorità di certificazione predefinita** e **Chiave predefinita**, in quanto
+    dovranno essere utilizzati per eseguire operazioni con
+    lo spazio dei nomi. 
 
-## Come creare un'applicazione Java che esegue un'attività a elevato uso di calcolo
+## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
 1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per Java](http://www.windowsazure.com/it-it/develop/java/).
-2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **namespace**, **Default Issuer** e **Default Key** del bus di servizio.
+2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà usato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
 <p/>
@@ -272,7 +291,7 @@ lo spazio dei nomi.
 
 
 
-## Come creare un'applicazione Java per monitorare lo stato dell'attività a elevato uso di calcolo
+## Come creare un'applicazione Java per monitorare lo stato dell'attività a elevato utilizzo di calcolo
 
 1. Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **namespace**, **Default Issuer** e **Default Key** del bus di servizio.
 2. Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà usato **TSPClient.jar** come nome dell'archivio JAR generato.
@@ -390,13 +409,13 @@ lo spazio dei nomi.
 	}
  
 ## Come eseguire le applicazioni Java
-Eseguire l'applicazione a elevato uso di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato uso di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
+Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato utilizzo di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
 
-### Come eseguire l'applicazione a elevato uso di calcolo
+### Come eseguire l'applicazione a elevato utilizzo di calcolo
 
 1. Accedere alla macchina virtuale.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPSolver.jar** in **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
+3. Copiare **TSPSolver.jar** in **c:\TSP**,
 4. Creare un file denominato **c:\TSP\cities.txt** con il seguente contenuto:
 
 		City_1, 1002.81, -1841.35
@@ -462,13 +481,13 @@ Eseguire l'applicazione a elevato uso di calcolo innanzitutto per creare la coda
 
  Se non si specifica un numero, il risolutore verrà eseguito per 10 città. Mano a mano che rileva le route attualmente più brevi, il risolutore le aggiunge alla coda.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
  
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPClient.jar** in **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
+3. Copiare **TSPClient.jar** in **c:\TSP**,
 4. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
 5. Al prompt dei comandi passare alla directory c:\TSP.
 6. Eseguire il comando seguente:
@@ -501,4 +520,5 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

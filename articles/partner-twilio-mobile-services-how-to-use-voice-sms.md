@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Usare Twilio per le funzionalità voce e SMS | Mobile Dev Center" metaKeywords="" description="Informazioni su come eseguire attività comuni usando l'API Twilio con Servizi mobili di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="Usare Twilio per le funzionalità voce e SMS | Mobile Dev Center" 
+	description="Informazioni su come eseguire attività comuni usando l'API Twilio con Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 <h1>Come usare Twilio per le funzionalità voce e SMS da Servizi mobili</h1>
@@ -12,7 +26,7 @@ Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che cons
 
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente di effettuare chiamate VoIP da qualsiasi telefono, tablet o browser e supporta WebRTC.
 
-<h2><a id="Pricing"></a>Prezzi Twilio e offerte speciali</h2>
+<h2><a id="Pricing"></a>Prezzi di Twilio e offerte speciali</h2>
 I clienti di Azure ricevono un'[offerta speciale][special_offer]: $ 10 di credito Twilio all'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi uso di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Per riscattare il credito Twilio e iniziare a usare il servizio, visitare la pagina all'indirizzo [ahoy.twilio.com/azure][special_offer].
 
 Twilio è un servizio con pagamento in base al consumo. Non prevede spese iniziali ed è possibile chiudere l'account in qualsiasi momento. Per altre informazioni, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing].  
@@ -53,21 +67,21 @@ Quando l'applicazione chiama l'API Twilio, uno dei parametri dell'API è l'URL c
 Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere la pagina relativa all'[API Twilio][twilio_api].
 
 <h2><a id="CreateAccount"></a>Creare un account Twilio</h2>
-Se si vuole creare un account Twilio, effettuare l'iscrizione tramite la pagina relativa alla [registrazione gratuita di Twilio][try_twilio]. È possibile iniziare con un account gratuito ed eseguire l'aggiornamento in un secondo momento.
+Se si desidera creare un account Twilio, effettuare l'iscrizione tramite la pagina relativa alla [registrazione gratuita di Twilio][try_twilio]. È possibile iniziare con un account gratuito ed eseguire l'aggiornamento in un secondo momento.
 
 Quando si effettua l'iscrizione a un account Twilio, si riceverà un ID account e un token di autenticazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. L'ID account e il token di autenticazione sono visualizzabili nella [pagina dell'account Twilio][twilio_account], rispettivamente nei campi **ACCOUNT SID** e **AUTH TOKEN**.
 
 <h2><a id="create_app"></a>Creare un servizio mobile</h2>
-Un servizio mobile che ospita un'applicazione compatibile con Twilio non è diverso da qualsiasi altro servizio mobile. È sufficiente aggiungere la libreria node.js di Twilio, in modo da potervi fare riferimento dagli script di API personalizzate del servizio mobile. Per informazioni sulla creazione di un servizio mobile iniziale, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-ios-get-started/)
+Un servizio mobile che ospita un'applicazione compatibile con Twilio non è diverso da qualsiasi altro servizio mobile. È sufficiente aggiungere la libreria node.js di Twilio, in modo da potervi fare riferimento dagli script di API personalizzate del servizio mobile. Per informazioni sulla creazione di un servizio mobile iniziale, vedere [Introduzione a Servizi mobili](it-it/documentation/articles/mobile-services-ios-get-started/).
 
 <h2><a id="ConfigureMobileService"></a>Configurare il servizio mobile per l'uso della libreria Node.js di Twilio</h2>
 Twilio fornisce una libreria Node.js che copre vari aspetti di Twilio per fornire modi semplici e pratici per interagire con l'API REST di Twilio e il client Twilio per generare risposte TwiML.
 
 Per usare la libreria Node.js di Twilio nel servizio mobile, è necessario avvalersi del supporto per il modulo npm di Servizi mobili, archiviando a tale scopo gli script nel controllo del codice sorgente. 
 
-1. Completare l'esercitazione [Archiviare script nel controllo del codice sorgente](/it-it/documentation/articles/mobile-services-store-scripts-source-control/) che illustra come configurare il controllo del codice sorgente per Servizi mobili e come archiviare gli script del server in un repository Git.
+1. Completare l'esercitazione [Archiviare il codice del progetto nel controllo del codice sorgente](/it-it/documentation/articles/mobile-services-store-scripts-source-control/) che illustra come configurare il controllo del codice sorgente per Servizi mobili e come archiviare gli script del server in un repository Git.
 
-2. Dopo avere configurato il controllo del codice sorgente per il servizio mobile, aprire il repository nel computer locale, selezionare la sottocartella `\services`, aprire il file package.json in un editor di testo e aggiungere il campo seguente all'oggetto **dependencies**:
+2. Dopo avere configurato il controllo del codice sorgente per il servizio mobile, aprire il repository nel computer locale, selezionare la sottocartella  `\services`, aprire il file package.json in un editor di testo e aggiungere il campo seguente all'oggetto **dependencies**:
 
 		"twilio": "~1.7.0"
  
@@ -91,7 +105,7 @@ Per usare la libreria Node.js di Twilio nel servizio mobile, è necessario avval
 		  "keywords":[]
 		}
 
-	>[WACOM.NOTE]La dipendenza per Twilio deve essere aggiunta come `"twilio": "~1.7.0"`, con un carattere (~). Un riferimento con l'accento circonflesso (^) non è supportato. 
+	>[AZURE.NOTE]La dipendenza per Twilio deve essere aggiunta come `"twilio": "~1.7.0"`, con un (~). Un riferimento con l'accento circonflesso (^) non è supportato. 
 
 4. Eseguire il commit dell'aggiornamento del file ed effettuarne il push nel servizio mobile.
 
@@ -156,10 +170,7 @@ Il codice seguente illustra come inviare un messaggio SMS tramite la funzione **
 
 Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo client.InitiateOutboundCall, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio illustrato in Procedura: Effettuare una chiamata in uscita viene usato l'URL fornito da Twilio http://twimlets.com/message per restituire la risposta.
 
-<div class="dev-callout">
-<b>Nota</b>
-<p>Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su <a href="http://twimlets.com/message">twimlet_message_url</a> per visualizzare un elemento &lt;Response&gt; vuoto oppure fare clic su <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">twimlet_message_url_hello_world</a> per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.</p>
-</div>
+> [AZURE.NOTE] Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [twimlet_message_url](http://twimlets.com/message) per visualizzare un elemento &lt;Response&gt; vuoto oppure fare clic su [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) per visualizzare un elemento &lt;Response&gt; contenente un elemento &lt;Say&gt;.
 
 Anziché usare l'URL fornito da Twilio, è possibile creare un sito Web personalizzato che restituisce risposte HTTP. Il sito può essere creato in un linguaggio qualsiasi purché restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato da un gestore generico ASP.NET.
 
@@ -196,7 +207,7 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
         });
     };
 
-[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -218,4 +229,5 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
 [azure_twilio_howto_python]: /it-it/develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /it-it/develop/php/how-to-guides/twilio-voice-and-sms-service/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

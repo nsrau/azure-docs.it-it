@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="Creare un sito Web CMS Orchard dalla raccolta in Azure" metaKeywords="compilare un sito Web di Azure, gestire un sito Web di Azure" description="Un'esercitazione che illustra come creare un nuovo sito Web in Azure. L'esercitazione contiene inoltre informazioni sull'avvio e sulla gestione del sito con il portale di gestione." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Creare un sito Web CMS Orchard dalla raccolta in Azure" 
+	description="Un'esercitazione che illustra come creare un nuovo sito Web in Azure. L'esercitazione contiene inoltre informazioni sull'avvio e sulla gestione del sito con il portale di gestione." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 # Creare un sito Web CMS Orchard dalla raccolta in Azure
 
-La raccolta rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le applicazioni Web create dalla raccolta non richiedono l'installazione di software, oltre al browser usato per connettersi al [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni sulle applicazioni Web nella raccolta, vedere [Raccolta di app Web Windows](http://www.microsoft.com/web/gallery/categories.aspx).
+La raccolta rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le applicazioni Web create dalla raccolta non richiedono l'installazione di software, oltre al browser usato per connettersi al [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni sulle applicazioni Web nella raccolta, vedere [Windows Web App Gallery](http://www.microsoft.com/web/gallery/categories.aspx).
 
 In questa esercitazione si apprenderà come:
 
@@ -16,7 +30,7 @@ Verrà creato un sito Web CMS Orchard basato su un modello predefinito. [Orchard
 
 ![Orchard blog][13]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2>Creare un sito Web Orchard dalla raccolta</h2>
 
@@ -53,7 +67,7 @@ In Azure verranno avviate le operazioni di creazione e distribuzione. Durante la
 
 	![browse button][12]
 
-2. Immettere le informazioni di configurazione richieste da Orchard e quindi fare clic su **Finish Setup** per completare la configurazione e aprire la home page del sito Web.
+2. Immettere le informazioni di configurazione richieste da Orchard, quindi fare clic su **Finish Setup** per completare la configurazione e aprire la home page del sito Web.
 
 	![login to Orchard][7]
 
@@ -64,8 +78,8 @@ In Azure verranno avviate le operazioni di creazione e distribuzione. Durante la
 3. Per altre informazioni su Orchard e su come configurare il nuovo sito, fare riferimento alla [documentazione di Orchard](http://docs.orchardproject.net/).
 
 <h2>Passaggio successivo</h2>
-* [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](/it-it/develop/net/tutorials/website-with-webmatrix/) - Informazioni su come modificare un sito Web di Azure in WebMatrix. 
-* [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](/it-it/develop/net/tutorials/web-site-with-sql-database/)- Informazioni su come creare un nuovo sito Web da Visual Studio.
+* [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](/it-it/develop/net/tutorials/website-with-webmatrix/) - Altre informazioni su come modificare un sito Web di Azure in WebMatrix. 
+* [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](/it-it/develop/net/tutorials/web-site-with-sql-database/)- Altre informazioni su come creare un nuovo sito Web da Visual Studio.
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
@@ -77,3 +91,6 @@ In Azure verranno avviate le operazioni di creazione e distribuzione. Durante la
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+
+
+<!--HONumber=42-->

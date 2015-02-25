@@ -1,31 +1,29 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (iOS) | Mobile Dev Center" metaKeywords="dati iOS Azure, dati servizi mobili Azure, " description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione ai dati (iOS) | Mobile Dev Center" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per iOS." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# Aggiunta di Servizi mobili a un'app esistente
+# Aggiungere Servizi mobili a un'app esistente
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per sfruttare i dati in un'app per iOS. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
+Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dati in un'app per iOS. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-<div class="dev-callout"><b>Nota</b>
-<p>In questa esercitazione viene descritto come è possibile utilizzare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per iOS e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se questa è la prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/it-it/develop/mobile/tutorials/get-started-ios">Introduzione a Servizi mobili</a>.</p>
-</div>
+> [AZURE.NOTE] In questa esercitazione viene descritto come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per iOS e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se questa è la prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](/it-it/develop/mobile/tutorials/get-started-ios).
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
 1. [Download del progetto dell'app per iOS]
 2. [Creazione del servizio mobile]
 3. [Aggiunta di una tabella dati per l'archiviazione]
 4. [Aggiornamento dell'app per l'uso di Servizi mobili]
-5. [Test dell'app in Servizi mobili]
+5. [Testare l'app in Servizi mobili]
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
-+ [Mobile Services SDK per iOS], [XCode 4.5][Install Xcode] e iOS 5.0 o versioni successive.
++ [Mobile Services SDK per iOS] e [XCode 4.5][Installare Xcode] e iOS 5.0 o versioni successive.
 + Un account Microsoft Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div>
 
-##<a name="download-app"></a>Download del progetto GetStartedWithData
+##<a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
 Questa esercitazione è basata sull'[app GetStartedWithData][GitHub], che è un'app per iOS. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili per iOS, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
@@ -43,19 +41,19 @@ Questa esercitazione è basata sull'[app GetStartedWithData][GitHub], che è un'
 
    	Si noti che il testo salvato è visualizzato nell'elenco riportato di seguito.
 
-##<a name="create-service"></a>Creazione di un nuovo servizio mobile nel portale di gestione
+##<a name="create-service"></a>Creare un nuovo servizio mobile nel portale di gestione
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-##<a name="add-table"></a>Aggiunta di una nuova tabella la servizio mobile
+##<a name="add-table"></a>Aggiungere una nuova tabella al servizio mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-##<a name="update-app"></a>Aggiornamento dell'app per l'uso del servizio mobile per l'accesso ai dati
+##<a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
+[AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
-##<a name="test-app"></a>Test dell'app sul nuovo servizio mobile
+##<a name="test-app"></a>Testare l'app nel nuovo servizio mobile
 
 1. In Xcode selezionare un emulatore in cui effettuare la distribuzione (iPhone o iPad), scegliere il pulsante **Run** (o premere il tasto Comando+R) per ricompilare il progetto e avviare l'app.
 
@@ -77,14 +75,14 @@ L'esercitazione **Introduzione ai dati** per iOS è terminata.
 
 ##<a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per iOS di utilizzare dati in Servizi mobili.
+In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per iOS di usare dati in Servizi mobili.
 
 In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
-* [Uso di script per la convalida e la modifica di dati]
-  <br/>Informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
+* [Usare script per la convalida e la modifica di dati]
+  <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
-* [Uso del paging per ridefinire le query]
+* [Usare il paging per ridefinire le query]
   <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, provare a eseguire le esercitazioni per iOS seguenti:
@@ -100,7 +98,7 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Creazione del servizio mobile]: #create-service
 [Aggiunta di una tabella dati per l'archiviazione]: #add-table
 [Aggiornamento dell'app per l'uso di Servizi mobili]: #update-app
-[Test dell'app in Servizi mobili]: #test-app
+[Testare l'app in Servizi mobili]: #test-app
 [Passaggi successivi]:#next-steps
 
 <!-- Images. -->
@@ -118,8 +116,8 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 
 
 <!-- URLs. -->
-[Uso di script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Uso del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-ios
+[Usare script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-ios
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-ios
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-ios
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-ios
@@ -127,9 +125,10 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
-[Installazione di Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [Archivio GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

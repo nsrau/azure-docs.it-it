@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Twilio Phone Call" pageTitle="Come effettuare una chiamata telefonica da Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="Come effettuare una chiamata telefonica da Twilio (.NET) - Azure" 
+	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in .NET." 
+	services="" 
+	documentationCenter=".net" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; larryf" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 
 
@@ -38,7 +52,7 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 2.  Fare clic con il pulsante destro del mouse su **Riferimenti**.
 3.  Fare clic su **Gestisci pacchetti NuGet**.
 4.  Fare clic su **Online**.
-5.  Nella casella di ricerca online digitare *twilio*.
+5.  Nella finestra di ricerca online digitare *twilio*.
 6.  Fare clic su **Install** sul pacchetto Twilio.
 
 Il codice seguente illustra come creare un modulo Web per recuperare i dati utente per l'esecuzione di una chiamata. In questo esempio viene creato un ruolo Web ASP.NET denominato **TwilioCloud**.
@@ -154,7 +168,7 @@ Per altre informazioni su TwiML, vedere [http://www.twilio.com/docs/api/twiml][t
 <h2><a id="nextsteps"></a>Passaggi successivi</h2>
 Questo codice ha lo scopo di illustrare le funzionalità di base dell'uso di Twilio in un ruolo Web ASP.NET in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:
 
-* Anziché usare un modulo Web, è possibile usare l'archiviazione BLOB di Azure o un'istanza di database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB in Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET][howto_blob_storage_dotnet]. Per informazioni sull'uso del database SQL, vedere [Come usare il database SQL di Azure in applicazioni .NET][howto_sql_azure_dotnet].
+* Anziché usare un modulo Web, è possibile usare l'archiviazione BLOB di Azure o un'istanza di database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB in Azure, vedere l'argomento relativo all'[uso del servizio di archiviazione BLOB di Azure in .NET][howto_blob_storage_dotnet]. Per informazioni sull'uso del database SQL, vedere [Come usare il database SQL di Azure in applicazioni .NET][howto_sql_azure_dotnet].
 * È possibile usare RoleEnvironment.getConfigurationSettings per recuperare l'ID e il token di autenticazione dell'account Twilio dalle impostazioni di configurazione della distribuzione, anziché impostare i valori come hardcoded nel modulo. Per informazioni sulla classe RoleEnvironment, vedere [Spazio dei nomi Microsoft.WindowsAzure.ServiceRuntime][azure_runtime_ref_dotnet].
 * Leggere le linee guida sulla sicurezza di Twilio all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security].
 * Per altre informazioni su Twilio, visitare la pagina [https://www.twilio.com/docs][twilio_docs].
@@ -188,4 +202,5 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'uso di Twi
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

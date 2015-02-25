@@ -1,45 +1,45 @@
-﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Controllo di accesso basato sui ruoli nei servizi mobili e in Azure Active Directory (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come controllare l'accesso in base ai ruoli di Azure Active Directory nell'applicazione per Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
+<properties pageTitle="Controllo di accesso basato sui ruoli nei servizi mobili e in Azure Active Directory (Windows Store) | Mobile Dev Center" description="Informazioni su come controllare l'accesso in base ai ruoli di Azure Active Directory nell'applicazione per Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # Controllo di accesso basato sui ruoli nei servizi mobili e in Azure Active Directory
 
-[WACOM.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
+[AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
 Il controllo di accesso basato sui ruoli consente di assegnare le autorizzazioni ai ruoli applicabili agli utenti, definendo in modo chiaro i limiti delle operazioni eseguibili o meno da determinate classi di utenti. Questa esercitazione descrive la procedura per aggiungere il controllo di accesso basato sui ruoli di base ai servizi mobili di Azure.
 
 Questa esercitazione illustra il controllo di accesso basato sui ruoli, verificando l'appartenenza di ciascun utente a un gruppo Vendite definito in Azure Active Directory (AAD). Il controllo degli accessi viene eseguito con il back-end del servizio mobile .NET usando la [libreria client Graph] per Azure Active Directory. Solo gli utenti che appartengono al gruppo Vendite possono eseguire query sui dati.
 
 
->[AZURE.NOTE] L'intento di questa esercitazione è di approfondire la conoscenza dell'autenticazione per includere procedure di autorizzazione. Si presuppone che sia stata completata prima di tutto l'esercitazione [Aggiungere l'autenticazione all'app] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Aggiungere l'autenticazione all'app].
+>[AZURE.NOTE] L'intento di questa esercitazione è approfondire la conoscenza dell'autenticazione per includere procedure di autorizzazione. Si presuppone che sia stata già completata l'esercitazione [Aggiungere l'autenticazione all'app] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Aggiungere l'autenticazione all'app].
 
-In questa esercitazione viene descritta la procedura seguente:
+Questa esercitazione fornisce istruzioni dettagliate sulle operazioni seguenti:
 
-1. [Creare un gruppo Vendite con l'appartenenza]
-2. [Generare una chiave per l'applicazione integrata]
-3. [Creare un attributo di autorizzazione personalizzato] 
-4. [Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database]
-5. [Testare l'accesso client]
+1. [Creazione di un gruppo Vendite con l'appartenenza]
+2. [Generazione di una chiave per l'applicazione integrata]
+3. [Creazione di un attributo di autorizzazione personalizzato] 
+4. [Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database]
+5. [Test dell'accesso client]
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
-* Visual Studio 2013 in esecuzione su Windows 8.1.
+* Visual Studio 2013 in esecuzione su Windows 8.1
 * Completamento dell'esercitazione [Aggiungere l'autenticazione all'app] con il provider di autenticazione di Azure Active Directory.
 * Completamento dell'esercitazione sull'[archiviazione degli script del server] per acquisire familiarità con un repository GIT per archiviare gli script del server.
  
 
 
-## <a name="create-group"></a>Creare un gruppo Vendite con l'appartenenza
+## <a name="create-group"></a>Creazione di un gruppo Vendite con l'appartenenza
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
+[AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Generare una chiave per l'applicazione integrata
+## <a name="generate-key"></a>Generazione di una chiave per l'applicazione integrata
 
 
 Nel corso dell'esercitazione [Aggiungere l'autenticazione all'app] è stata creata una registrazione per l'applicazione integrata quando è stato completato il passaggio [Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]. In questa sezione viene generata una chiave da usare nella lettura delle informazioni sulla directory con l'ID client dell'applicazione integrata. 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
@@ -47,11 +47,11 @@ Nel corso dell'esercitazione [Aggiungere l'autenticazione all'app] è stata crea
 
 In questa sezione viene creato un nuovo attributo di autorizzazione personalizzato che è possibile usare per eseguire i controlli di accesso sulle operazioni del servizio mobile. L'attributo cerca un gruppo Active Directory basato sul nome del ruolo specificato. Quindi, esegue i controlli di accesso in base all'appartenenza al gruppo.
 
-1. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestione pacchetti NuGet**.
 
 2. Nella finestra di dialogo Gestione pacchetti NuGet immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile.
 
-3. Nella finestra di dialogo Gestisci pacchetti NuGet, installare anche la **libreria client di Microsoft Azure Active Directory Graph** relativa al proprio servizio mobile.
+3. Nella finestra di dialogo Gestione pacchetti NuGet installare anche la **libreria client di Microsoft Azure Active Directory Graph** relativa al proprio servizio mobile.
 
 
 4. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di servizio mobile e scegliere **Aggiungi**, quindi **Nuova cartella**. Denominare la nuova cartella **Utilità**.
@@ -60,7 +60,7 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
     ![][0]
 
-6.  Nel file AuthorizeAadRole.cs aggiungere le seguenti istruzioni `using` all'inizio del file. 
+6. Nel file AuthorizeAadRole.cs aggiungere le istruzioni `using` seguenti all'inizio del file. 
 
         using System.Net;
         using System.Net.Http;
@@ -83,7 +83,7 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
             Development
         }
 
-8.  In AuthorizeAadRole.cs aggiungere la seguente definizione della classe `AuthorizeAadRole`allo spazio dei nomi Utilità.
+8. In AuthorizeAadRole.cs aggiungere la definizione della classe `AuthorizeAadRole` seguente allo spazio dei nomi Utilità.
 
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
         public class AuthorizeAadRole : AuthorizationFilterAttribute
@@ -103,9 +103,9 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
             }
         }
 
-9. In AuthorizeAadRole.cs aggiungere il seguente metodo `GetAADToken` alla classe `AuthorizeAadRole`.
+9. In AuthorizeAadRole.cs aggiungere il metodo `GetAADToken` seguente alla classe `AuthorizeAadRole`.
 
-    >[WACOM.NOTE] Invece di creare un nuovo token a ogni controllo di accesso, è possibile memorizzarlo nella cache. Aggiornare la cache se viene emessa un'eccezione AccessTokenExpiredException quando si tenta di usare il token, come indicato nella [libreria client Graph]. Nel codice seguente questo passaggio non viene mostrato per semplicità, ma consente di alleggerire il traffico di rete aggiuntivo in Active Directory.  
+    >[AZURE.NOTE] Invece di creare un nuovo token a ogni controllo di accesso, è consigliabile memorizzarlo nella cache. Aggiornare la cache se viene generata un'eccezione AccessTokenExpiredException quando si tenta di usare il token, come indicato nella [libreria client Graph]. Nel codice seguente questo passaggio non viene mostrato per semplicità, ma consente di alleggerire il traffico di rete aggiuntivo in Active Directory.  
 
         private string GetAADToken(ApiServices services)
         {
@@ -140,9 +140,9 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
             return token;
         }
 
-10. In AuthorizeAadRole.cs aggiornare il metodo `OnAuthorization` nella classe `AuthorizeAadRole` con il seguente codice. Questo codice usa la [libreria client Graph] per cercare il gruppo Active Directory corrispondente al ruolo. Quindi, controlla l'appartenenza dell'utente al gruppo per autorizzarlo.
+10. In AuthorizeAadRole.cs aggiornare il metodo `OnAuthorization` nella classe `AuthorizeAadRole` con il codice seguente. Questo codice usa la [libreria client Graph] per cercare il gruppo Active Directory corrispondente al ruolo. Quindi, controllare l'appartenenza dell'utente al gruppo per autorizzarlo.
 
-    >[WACOM.NOTE] Il codice cerca il gruppo Active Directory per nome. In molti casi è consigliabile memorizzare l'ID gruppo come impostazione dell'app del servizio mobile. Il nome del gruppo, infatti, può cambiare mentre l'ID resta inalterato. Tuttavia, quando si modifica il nome del gruppo, si verifica anche almeno una modifica nell'ambito del ruolo che può richiedere un aggiornamento del codice del servizio mobile.  
+    >[AZURE.NOTE] Il codice cerca il gruppo Active Directory per nome. In molti casi è consigliabile memorizzare l'ID gruppo come impostazione dell'app del servizio mobile. Il nome del gruppo, infatti, può cambiare mentre l'ID resta inalterato. Tuttavia, quando si modifica il nome del gruppo, si verifica anche almeno una modifica nell'ambito del ruolo che può richiedere un aggiornamento del codice del servizio mobile.  
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -231,15 +231,15 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
 8. Salvare le modifiche in AuthorizeAadRole.cs.
 
-## <a name="add-access-checking"></a>Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database
+## <a name="add-access-checking"></a>Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database
 
-1. In Visual Studio espandere la cartella **Controller** nel progetto di servizio mobile. Aprire TodoItemController.cs.
+1. In Visual Studio espandere la cartella **Controller** nel progetto di servizio mobile. Open TodoItemController.cs.
 
 2. In TodoItemController.cs aggiungere un'istruzione `using` per lo spazio dei nomi Utilità che contiene l'attributo di autorizzazione personalizzato. 
 
         using todolistService.Utilities;
 
-3. In TodoItemController.cs è possibile aggiungere l'attributo alla classe del controller o ai singoli metodi a seconda di come si vuole controllare l'accesso. Per controllare l'accesso a tutte le operazioni del controller in base allo stesso ruolo, aggiungere semplicemente l'attributo alla classe. Per testare questa esercitazione, aggiungere l'attributo alla classe come descritto di seguito.
+3. In TodoItemController.cs è possibile aggiungere l'attributo alla classe del controller o ai singoli metodi a seconda di come si vuole controllare l'accesso. Per controllare l'accesso a tutte le operazioni del controller in base allo stesso ruolo, aggiungere semplicemente l'attributo alla classe. Per il test in questa esercitazione, aggiungere l'attributo alla classe come descritto di seguito.
 
         [AuthorizeAadRole(AadGroups.Sales)]
         public class TodoItemController : TableController<TodoItem>
@@ -275,18 +275,18 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 
 ## <a name="test-client"></a>Testare l'accesso client
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
 
 
 <!-- Anchors. -->
-[Creare un gruppo Vendite con l'appartenenza]: #create-group
-[Generare una chiave per l'applicazione integrata]: #generate-key
-[Creare un attributo di autorizzazione personalizzato]: #create-custom-authorization-attribute
-[Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database]: #add-access-checking
-[Testare l'accesso client]: #test-client
+[Creazione di un gruppo Vendite con l'appartenenza]: #create-group
+[Generazione di una chiave per l'applicazione integrata]: #generate-key
+[Creazione di un attributo di autorizzazione personalizzato]: #create-custom-authorization-attribute
+[Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database]: #add-access-checking
+[Test dell'accesso client]: #test-client
 
 
 
@@ -302,3 +302,5 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/it-it/library/azure/dn151601.aspx
+
+<!--HONumber=42-->

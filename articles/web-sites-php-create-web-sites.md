@@ -1,22 +1,36 @@
-﻿<properties title="How to create a PHP website in Azure Websites" pageTitle="Come creare un sito Web PHP in Siti Web di Azure" metaKeywords ="Siti Web di Azure PHP"" description="Informazioni su come creare un sito Web PHP in Siti Web di Azure" documentationCenter="PHP" services="Web Sites" editor="mollybos" manager="wpickett" authors="tomfitz" />
+﻿<properties 
+	pageTitle="Come creare un sito Web PHP in Siti Web di Azure" 
+	description="Informazioni su come creare un sito Web PHP in Siti Web di Azure" 
+	documentationCenter="php" 
+	services="" 
+	editor="mollybos" 
+	manager="wpickett" 
+	authors="tfitzmac"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Come creare un sito Web PHP in Siti Web di Azure
 
 In questo articolo viene illustrato come creare un sito Web PHP in [Siti Web di Azure][waws] usando il [portale di gestione di Azure], gli [strumenti da riga di comando di Azure per Mac e Linux][xplat-tools] oppure i [cmdlet di Azure PowerShell][powershell-cmdlets].
 
-In generale, la creazione di un sito Web PHP non è diversa da quella di *qualsiasi* sito Web in Siti Web di Azure. Per impostazione predefinita, PHP è abilitato per tutti i siti Web. Per informazioni sulla configurazione di PHP o su come specificare il proprio runtime PHP personalizzato, vedere [Come configurare PHP in Siti Web di Azure][configure-php].
+In generale, la creazione di un sito Web PHP non è diversa da quella di QUALSIASI sito Web in Siti Web di Azure. Per impostazione predefinita, PHP è abilitato per tutti i siti Web. Per informazioni sulla configurazione di PHP o su come specificare il proprio runtime PHP personalizzato, vedere [Come configurare PHP in Siti Web di Azure][configure-php].
 
-Per ogni opzione descritta di seguito viene illustrato come creare un sito Web in un ambiente host condiviso senza alcun costo, ma con alcune limitazioni per quanto riguarda l'uso della CPU e della larghezza di banda. Per altre informazioni, vedere la [Panoramica dei prezzi dei Siti Web di Azure][websites-pricing]. Per informazioni su come aggiornare e ridimensionare il sito Web, vedere [Come applicare la scalabilità ai siti Web][scale-websites].
+Per ogni opzione descritta di seguito viene illustrato come creare un sito Web in un ambiente host condiviso senza alcun costo, ma con alcune limitazioni per quanto riguarda l'uso della CPU e della larghezza di banda. Per altre informazioni, vedere la [Panoramica dei prezzi dei Siti Web di Azure][websites-pricing]. Per informazioni su come aggiornare e ridimensionare il sito Web, vedere [Come scalare siti Web][scale-websites].
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Sommario
-* [Creare un sito Web PHP mediante il portale di gestione di Azure](#portal)
-* [Creare un sito Web PHP con gli strumenti da riga di comando per Mac e Linux](#XplatTools)
-* [Creare un sito Web PHP con i cmdlet di Azure PowerShell](#PowerShell)
+* [Creare un sito Web mediante il portale di gestione di Azure](#portal)
+* [Creare un sito Web con gli strumenti da riga di comando per Mac e Linux](#XplatTools)
+* [Creare un sito Web con i cmdlet di Azure PowerShell](#PowerShell)
 
 <h2><a name="portal"></a>Creare un sito Web PHP mediante il portale di gestione di Azure</h2>
 
@@ -35,49 +49,49 @@ Per creare un sito Web PHP con gli strumenti da riga di comando per Mac e Linux,
 
 1. Installare gli strumenti da riga di comando di Azure seguendo le istruzioni riportate in [Come installare gli strumenti da riga di comando di Azure per Mac e Linux](/it-it/develop/php/how-to-guides/command-line-tools/#Download).
 
-1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](/it-it/develop/php/how-to-guides/command-line-tools/#Account).
+1. Scaricare e importare il file delle impostazioni di pubblicazione seguendo le istruzioni riportate in [Come scaricare e importare impostazioni di pubblicazione](/it-it/develop/php/how-to-guides/command-line-tools/#Account).
 
-1. Run the following command from a command prompt:
+1. Eseguire il comando seguente da un prompt dei comandi:
 
 		azure site create MySiteName
 
-The URL for the newly created website will be  `http://MySiteName.azurewebsites.net`.  
+L'URL del nuovo sito Web sarà `http://MySiteName.azurewebsites.net`.  
  
-Note that you can execute the `azure site create` command with any of the following options:
+Si noti che è possibile eseguire il comando  `azure site create` con una qualsiasi delle opzioni seguenti:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
-* `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+* `--location [location name]`. Questa opzione consente di specificare il percorso del data center in cui viene creato il sito Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
+* `--hostname [custom host name]`. Questa opzione consente di specificare un nome host personalizzato per il sito Web.
+* `--git`. L'opzione consente di usare Git per eseguire la pubblicazione nel sito Web creando repository Git sia nella directory delle applicazioni locale che nel data center del sito Web. Si noti che qualora la cartella locale sia già un repository Git, il comando aggiungerà a quello esistente un nuovo repository remoto che punterà al repository del data center del sito Web.
 
-For information about additional options, see [How to create and manage an Azure Web Site](/it-it/develop/php/how-to-guides/command-line-tools/#WebSites).
+Per informazioni sulle altre opzioni, vedere [Come creare e gestire un sito Web di Azure](/it-it/develop/php/how-to-guides/command-line-tools/#WebSites).
 
-<h2><a name="PowerShell"></a>Create a PHP website using the Azure PowerShell cmdlets</h2>
+<h2><a name="PowerShell"></a>Creare un sito Web PHP con i cmdlet di Azure PowerShell</h2>
 
-To create a PHP website using the Azure PowerShell cmdlets, do the following:
+Per creare un sito Web PHP con i cmdlet di Azure PowerShell, eseguire le operazioni seguenti:
 
-1. Install the Azure PowerShell cmdlets by following the instructions here: [Get started with Azure PowerShell](/it-it/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
+1. Installare i cmdlet di Azure PowerShell seguendo le istruzioni riportate nella [Guida introduttiva ad Azure PowerShell](/it-it/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
 
-1. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/it-it/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
+1. Scaricare e importare il file delle impostazioni di pubblicazione seguendo le istruzioni riportate in [Procedura: Importare le impostazioni di pubblicazione](/it-it/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
 
-1. Open a PowerShell command prompt and execute the following command:
+1. Aprire un prompt dei comandi PowerShell ed eseguire il comando seguente:
 
 		New-AzureWebSite MySiteName
 
-The URL for the newly created website will be  `http://MySiteName.azurewebsites.net`.  
+L'URL del nuovo sito Web sarà  `http://MySiteName.azurewebsites.net`.  
  
-Note that you can execute the `New-AzureWebSite` command with any of the following options:
+Si noti che è possibile eseguire il comando  `New-AzureWebSite` con una qualsiasi delle opzioni seguenti:
 
-* `-Location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
-* `-Git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+* `-Location [location name]`. Questa opzione consente di specificare il percorso del data center in cui viene creato il sito Web, ad esempio "Stati Uniti occidentali". Se si omette questa opzione, verrà richiesto di scegliere un percorso.
+* `-Hostname [custom host name]`. Questa opzione consente di specificare un nome host personalizzato per il sito Web.
+* `-Git`. L'opzione consente di usare Git per eseguire la pubblicazione nel sito Web creando repository Git sia nella directory delle applicazioni locale che nel data center del sito Web. Si noti che qualora la cartella locale sia già un repository Git, il comando aggiungerà a quello esistente un nuovo repository remoto che punterà al repository del data center del sito Web.
 
-For information about additional options, see [How to: Create and manage an Azure Web Site](/it-it/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
+Per informazioni sulle altre opzioni, vedere [Procedura: Creare e gestire un sito Web di Azure](/it-it/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
 
-<h2><a name="NextSteps"></a>Next steps</h2>
+<h2><a name="NextSteps"></a>Passaggi successivi</h2>
 
-Now that you have created a PHP website in Azure Websites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
+Dopo aver creato un sito Web PHP in Siti Web di Azure, è possibile eseguirvi operazioni di gestione, configurazione, monitoraggio e distribuzione, ed è inoltre possibile ridimensionarlo. Per altre informazioni, vedere i collegamenti seguenti:
 
-* [How to configure Web Sites](/it-it/manage/services/web-sites/how-to-configure-websites/)
+* [Come configurare i siti Web](/it-it/manage/services/web-sites/how-to-configure-websites/)
 * [Come configurare PHP in Siti Web di Azure][configure-php]
 * [Come gestire i siti Web](/it-it/manage/services/web-sites/how-to-manage-websites/)
 * [Come monitorare i siti Web](/it-it/manage/services/web-sites/how-to-monitor-websites/)
@@ -96,4 +110,5 @@ Per le esercitazioni complete, visitare la pagina delle [esercitazioni nel Centr
 [websites-pricing]: http://www.windowsazure.com/it-it/pricing/details/#header-1
 [scale-websites]: /it-it/manage/services/web-sites/how-to-scale-websites/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

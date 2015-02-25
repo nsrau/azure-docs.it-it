@@ -1,20 +1,21 @@
-﻿<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="Come configurare un set di disponibilità per le macchine virtuali" description="Illustra la procedura di configurazione di un set di disponibilità per una VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="Come configurare un set di disponibilità per le macchine virtuali" description="Illustra la procedura di configurazione di un set di disponibilità per una VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
 
 #Come configurare un set di disponibilità per le macchine virtuali#
 
-Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per informazioni dettagliate sul funzionamento, vedere [Gestire la disponibilità delle macchine virtuali] []. 
 
-Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applicazione, è buona norma usare sia set di disponibilità sia endpoint con carico bilanciato. Per informazioni sugli endpoint con bilanciamento del carico, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure] [].
+Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per informazioni dettagliate sul funzionamento, vedere [Gestire la disponibilità delle macchine virtuali][]. 
+
+Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applicazione, è buona norma usare sia set di disponibilità sia endpoint con carico bilanciato. Per informazioni sugli endpoint con bilanciamento del carico, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure][].
 
 È possibile inserire le macchine virtuali in un set di disponibilità usando una di due opzioni:
 
-- [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente] []. Quindi, aggiungere le nuove macchine virtuali al set.
-- [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità] [].
+- [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente][]. Quindi, aggiungere le nuove macchine virtuali al set.
+- [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità][].
 
 
->[WACOM.NOTE] Le macchine virtuali che si vogliono inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.   
+>[AZURE.NOTE] Le macchine virtuali che si vogliono inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.   
 
 ## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente##
 
@@ -28,13 +29,14 @@ Per usare il portale di gestione:
 
 3. Fare clic su **Macchina virtuale**, quindi su **Da raccolta**.
 
-4. Usare le prime due schermate per scegliere un'immagine, un nome utente e una password, e così via. Per altre informazioni, vedere [Creare una macchina virtuale che esegue Windows][].
+4. Usare le prime due schermate per scegliere un'immagine, un nome utente e una password, e così via.  
+Per altre informazioni, vedere [Creare una macchina virtuale che esegue Windows][].
  
 5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Eseguire le operazioni seguenti:
 	 
 	1. Scegliere il servizio cloud appropriato. Non modificare l'impostazione **Crea un nuovo servizio cloud** (a meno che non si stia aggiungendo una nuova macchina virtuale a un servizio cloud VM esistente). Quindi, sotto **Nome DNS del servizio cloud**, digitare un nome. Il nome DNS diventa parte dell'URI usato per contattare la macchina virtuale. Il servizio cloud agisce da gruppo di comunicazione e isolamento. Tutte le macchine virtuali nello stesso servizio cloud possono comunicare tra loro, essere impostate per il bilanciamento del carico e inserite nello stesso set di disponibilità. 
 
-	2. In **Regione/Gruppo di affinità/Rete virtuale** specificare una rete virtuale se si pianifica di usarne una. **Importante**: se si vuole che una macchina virtuale usi una rete virtuale, è necessario aggiungere la VM alla rete virtuale quando si crea la macchina virtuale. Non è possibile aggiungere la macchina virtuale a una rete virtuale dopo averla creata. Per altre informazioni, vedere [Panoramica di Rete virtuale][]. 
+	2. In **Regione/Gruppo di affinità/Rete virtuale** specificare una rete virtuale se si pianifica di usarne una. **Importante**: se si vuole che una macchina virtuale usi una rete virtuale, è necessario aggiungere la VM alla rete virtuale quando si crea la macchina virtuale. Non è possibile aggiungere la macchina virtuale a una rete virtuale dopo averla creata. Per altre informazioni, vedere [Rete virtuale di Azure][]. 
 	
 	3. Creare il set di disponibilità. In **Set di disponibilità** non modificare l'impostazione **Crea set di disponibilità**. Quindi, digitare un nome per il set. 
 	4. Creare gli endpoint predefiniti e, se necessario, aggiungere altri endpoint. È inoltre possibile aggiungere gli endpoint in un secondo momento. 
@@ -55,7 +57,7 @@ Per usare i cmdlet di Azure:
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] Eseguire `Get-AzureVMImage` senza parametri per ottenere un elenco di tutte le immagini che si applicano alla propria sottoscrizione. Questa operazione potrebbe restituire un elenco di grandi dimensioni. Per abbreviare l'elenco, usare proprietà quali il nome della famiglia di immagini. Per suggerimenti ed esempi su come effettuare questa operazione per trovare un'immagine specifica, vedere [Gestire le immagini mediante Windows PowerShell](http://msdn.microsoft.com/it-it/library/azure/dn790330.aspx).
+	>[AZURE.NOTE] Eseguire `Get-AzureVMImage` senza parametri per ottenere un elenco di tutte le immagini che si applicano alla propria sottoscrizione. Questa operazione potrebbe restituire un elenco di grandi dimensioni. Per abbreviare l'elenco, usare proprietà quali il nome della famiglia di immagini. Per suggerimenti ed esempi su come effettuare questa operazione per trovare un'immagine specifica, vedere [Gestire le immagini mediante Windows PowerShell](http://msdn.microsoft.com/it-it/library/azure/dn790330.aspx).
 
 3.	Specificare la configurazione per la nuova macchina virtuale e quindi usare la pipeline per passare un oggetto di configurazione al cmdlet che crea la VM. Assicurarsi di sostituire i segnaposto, ad esempio &lt;VmName&gt; e &lt;VmSize&gt;, con i valori personalizzati.
 
@@ -63,7 +65,7 @@ Per usare i cmdlet di Azure:
 
 ## <a id="addmachine"> </a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità##
 
-Nel portale di gestione è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova (tenere presente che le macchine virtuali devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: in Azure PowerShell, è possibile aggiungere la macchina virtuale a un set di disponibilità esistente. 
+Nel portale di gestione è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova (si noti che le macchine virtuali devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: in Azure PowerShell, è possibile aggiungere la macchina virtuale a un set di disponibilità esistente. 
 
 1. Accedere al [portale di gestione](http://manage.windowsazure.com) di Azure se questa operazione non è già stata eseguita.
 
@@ -89,7 +91,7 @@ Aprire una sessione di Azure PowerShell ed eseguire il comando riportato di segu
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] È possibile riavviare la macchina virtuale per completarne l'aggiunta al set di disponibilità.
+>[AZURE.NOTE] È possibile riavviare la macchina virtuale per completarne l'aggiunta al set di disponibilità.
 
 
 ##Risorse aggiuntive
@@ -108,4 +110,7 @@ Aprire una sessione di Azure PowerShell ed eseguire il comando riportato di segu
 [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn763935.aspx
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

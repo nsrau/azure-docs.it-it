@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accesso alle informazioni di Azure Active Directory Graph (Windows Store) | Mobile Developer Center" metaKeywords="" description="Informazioni su come accedere a dati di Azure Active Directory usando l'API Graph nell'applicazione per Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Accesso alle informazioni di Azure Active Directory Graph (Windows Store) | Mobile Dev Center" description="Informazioni su come accedere a dati di Azure Active Directory usando l'API Graph nell'applicazione per Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # Accesso alle informazioni di Azure Active Directory Graph
 
-[WACOM.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
+[AZURE.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
 
 
 
-Come l'altro provider di identità offerto con i Servizi mobili, anche il provider di Azure Active Directory (AAD) supporta una [libreria client Graph] avanzata, che può essere usata per l'accesso alla directory a livello di codice. In questa esercitazione si aggiornerà l'app ToDoList in modo da personalizzare l'esperienza autenticata dell'utente in base alle informazioni aggiuntive recuperate dalla directory con la [libreria client Graph].
+Come gli altri provider di identità offerti con Servizi mobili, anche il provider di Azure Active Directory (AAD) supporta una [libreria client Graph] avanzata, che può essere usata per l'accesso alla directory a livello di codice. In questa esercitazione si aggiornerà l'app ToDoList in modo da personalizzare l'esperienza autenticata dell'utente in base alle informazioni aggiuntive recuperate dalla directory con la [libreria client Graph].
 
->[AZURE.NOTE] L'intento di questa esercitazione è di approfondire la conoscenza dell'autenticazione con Azure Active Directory. Si presuppone che sia stata completata l'esercitazione [Aggiungere l'autenticazione all'app] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Aggiungere l'autenticazione all'app]. 
+>[AZURE.NOTE] L'intento di questa esercitazione è di approfondire la conoscenza dell'autenticazione con Azure Active Directory. Si presuppone che sia stata già completata l'esercitazione [Aggiungere l'autenticazione all'app] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Aggiungere l'autenticazione all'app]. 
 
 
 
-In questa esercitazione viene descritta la procedura seguente:
+Questa esercitazione fornisce istruzioni dettagliate sulle operazioni seguenti:
 
 
 1. [Generare una chiave di accesso per la registrazione dell'app in AAD] 
@@ -28,7 +28,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 + [Introduzione all'autenticazione]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
 
-+ [Esercitazione sull'API personalizzata]<br/>Dimostra come chiamare un'API personalizzata. 
++ [Esercitazione sull'API personalizzata]<br/>Illustra come chiamare un'API personalizzata. 
 
 
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 Nel corso dell'esercitazione [Aggiungere l'autenticazione all'app] è stata creata una registrazione per l'applicazione integrata quando è stato completato il passaggio [Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]. In questa sezione viene generata una chiave da usare nella lettura delle informazioni sulla directory con l'ID client dell'applicazione integrata. 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 ## <a name="create-api"></a>Creare un'API personalizzata GetUserInfo
@@ -46,9 +46,9 @@ In questa sezione viene creata l'API personalizzata GetUserInfo che userà la [l
 
 Se non sono mai state usate le API personalizzate con i Servizi mobili, consultare l'[esercitazione sull'API personalizzata] prima di completare questa sezione.
 
-1. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestione pacchetti NuGet**.
 2. Nella finestra di dialogo Gestione pacchetti NuGet immettere **ADAL** nei criteri di ricerca per trovare e installare la **libreria di autenticazione di Active Directory** relativa al proprio servizio mobile.
-3. Nella finestra di dialogo Gestisci pacchetti NuGet, installare anche la **libreria client di Microsoft Azure Active Directory Graph** relativa al proprio servizio mobile.
+3. Nella finestra di dialogo Gestione pacchetti NuGet installare anche la **libreria client di Microsoft Azure Active Directory Graph** relativa al proprio servizio mobile.
 
 4. In Visual Studio, fare clic con il pulsante destro del mouse sulla cartella **Controller** per il progetto del servizio mobile e quindi fare clic su **Aggiungi** per aggiungere un nuovo **controller personalizzato dei Servizi mobili di Microsoft Azure** denominato `GetUserInfoController`. Il client chiamerà questa API per ottenere informazioni sull'utente da Active Directory.
 
@@ -149,13 +149,13 @@ Se non sono mai state usate le API personalizzate con i Servizi mobili, consulta
 
 In questa sezione verrà aggiornato il metodo `AuthenticateAsync` implementato nell'esercitazione [Aggiungere l'autenticazione all'app] per chiamare l'API personalizzata e restituire informazioni aggiuntive sull'utente da AAD. 
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
   
 
 
 ## <a name="test-app"></a>Testare l'app
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
@@ -187,3 +187,6 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [Libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [GetUser]: http://msdn.microsoft.com/it-it/library/azure/dn151678.aspx
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+
+
+<!--HONumber=42-->

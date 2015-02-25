@@ -1,30 +1,42 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Xamarin.iOS) - Servizi mobili di Azure" metaKeywords="dati Xamarin.iOS di Azure, dati di servizi mobili di Azure, " description="Informazioni su come archiviare e accedere ai dati dall'app Servizi mobili di Azure per Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="donnam" manager="dwrede" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Introduzione ai dati (Xamarin.iOS) - Servizi mobili di Azure" 
+	description="Informazioni su come archiviare e accedere ai dati dall'app Servizi mobili di Azure per Xamarin.iOS." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="donnam"/>
 
-# Aggiungere Servizi mobili a un'app esistente
+# Aggiunta di Servizi mobili a un'app esistente
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per sfruttare i dati in un'app di Xamarin.iOS. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app. Si effettuerà quindi l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
+Questo argomento illustra come usare Servizi mobili di Azure per sfruttare i dati in un'app di Xamarin.iOS. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-<div class="dev-callout"><b>Nota</b>
-<p>In questa esercitazione viene descritto come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app di Xamarin.iOS e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/it-it/develop/mobile/tutorials/get-started-xamarin-ios">Introduzione a Servizi mobili</a>.</p>
-</div>
+> [AZURE.NOTE] In questa esercitazione viene descritto come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app di Xamarin.iOS e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se questa è la prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](/it-it/develop/mobile/tutorials/get-started-xamarin-ios).
 
 In questa esercitazione vengono descritte le operazioni di base seguenti:
 
-1. [Scaricare il progetto dell'app di Xamarin.iOS][GitHub] 
-2. [Creare il servizio mobile]
-3. [Aggiungere una tabella dati per l'archiviazione]
-4. [Aggiornare l'app per l'uso di Servizi mobili]
-5. [Testare l'app in Servizi mobili]
+1. [Download del progetto dell'app di Xamarin.iOS][GitHub] 
+2. [Creazione del servizio mobile]
+3. [Aggiunta di una tabella dati per l'archiviazione]
+4. [Aggiornamento dell'app per l'uso di Servizi mobili]
+5. [Test dell'app in Servizi mobili]
 
-Per completare questa esercitazione, è necessario disporre del [componente Servizi mobili di Azure], di [XCode 5.0][Install Xcode], di [Xamarin.iOS] e di iOS 5.0 o versione successiva.
+Per completare questa esercitazione, è necessario disporre del [componente Servizi mobili di Azure], [XCode 5.0][Installare Xcode], [Xamarin.iOS] e di iOS 5.0 o versione successiva.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per completare l'esercitazione è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F" target="_blank">versione di valutazione gratuita di Azure</a>.</p></div> 
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="_blank).
 
-<h2><a name="download-app"></a>Scaricare il progetto GetStartedWithData</h2>
+<h2><a name="download-app"></a>Download del progetto GetStartedWithData</h2>
 
 Questa esercitazione è basata sull'[app GetStartedWithData][GitHub], che è un'app per Xamarin.iOS. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili per Xamarin.iOS, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale. 
 
@@ -36,7 +48,7 @@ Questa esercitazione è basata sull'[app GetStartedWithData][GitHub], che è un'
 
 3. Nel menu **Run** scegliere **Start Without Debugging** per avviare l'app.
 
-4. Nell'app digitare un testo nella casella di testo e quindi fare clic sul pulsante **+**.
+4. Nell'app digitare un testo nella casella e quindi fare clic sul pulsante **+**.
 
    	![][0]  
 
@@ -44,7 +56,7 @@ Questa esercitazione è basata sull'[app GetStartedWithData][GitHub], che è un'
 
 <h2><a name="create-service"></a>Creare un nuovo servizio mobile nel portale di gestione</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Aggiungere una nuova tabella al servizio mobile</h2>
 
@@ -58,16 +70,13 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
    	Verrà visualizzata la finestra di dialogo **Crea nuova tabella**.
 
-3. In **Nome tabella** digitare _TodoItem_, quindi fare clic sul segno di spunta.
+3. In **Nome tabella** digitare _TodoItem_ e quindi fare clic sul pulsante con il segno di spunta.
 
   	![][6]
 
   	Verrà creata una nuova tabella di archiviazione **TodoItem** con le autorizzazioni predefinite impostate. Questo significa che qualsiasi utente dell'app potrà accedere alla tabella e modificare i dati. 
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili usano lo stesso database.</p> 
-	</div>
+    > [AZURE.NOTE] Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili usano lo stesso database.
 
 4. Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
@@ -75,9 +84,7 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
 	  Questo è il requisito minimo per le tabelle in Servizi mobili. 
 
-    <div class="dev-callout"><b>Nota</b>
-	<p>Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.</p>
-    </div>
+    > [AZURE.NOTE] Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.
 
 È ora possibile usare il nuovo servizio mobile come archivio dati per l'app.
 
@@ -93,16 +100,16 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
                
 3. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-4. Fare clic sulla scheda **Dashboard** e prendere nota dell'**URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
+4. Fare clic sulla scheda **Dashboard** e prendere nota del valore di **URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
 
    	![][8]
 
-5. Nella classe **Constants** rimuovere i simboli di commento dalle costanti seguenti:
+5. Nella classe **Costanti** rimuovere i simboli di commento dalle costanti seguenti:
 
         public const string ApplicationURL = @"AppUrl";
         public const string ApplicationKey = @"AppKey";
 
-6. Sostituire **AppUrl** e **AppKey** nelle costanti precedenti con i valori recuperati dal portale di gestione.
+6. Sostituire **AppUrl** e **AppKey** nelle costanti precedenti con i valori recuperati nel portale di gestione.
 
 7. Nella classe **TodoService** rimuovere i simboli di commento dalla riga di codice seguente:
 
@@ -181,15 +188,15 @@ Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le vari
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per iOS di usare dati in Servizi mobili. 
+In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per iOS di utilizzare dati in Servizi mobili. 
 
 In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
-* [Convalidare e modificare dati mediante script]
-  <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
+* [Uso di script per la convalida e la modifica di dati]
+  <br/>Informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
-* [Usare il paging per ridefinire le query]
-  <br/>Altre informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
+* [Uso del paging per ridefinire le query]
+  <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, provare a eseguire le esercitazioni per iOS seguenti:
 
@@ -201,11 +208,11 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 
 <!-- Anchors. -->
 
-[Scaricare l'app di Windows Store]: #download-app
-[Creare il servizio mobile]: #create-service
-[Aggiungere una tabella dati per l'archiviazione]: #add-table
-[Aggiornare l'app per l'uso di Servizi mobili]: #update-app
-[Testare l'app in Servizi mobili]: #test-app
+[Download dell'app di Windows Store]: #download-app
+[Creazione del servizio mobile]: #create-service
+[Aggiunta di una tabella dati per l'archiviazione]: #add-table
+[Aggiornamento dell'app per l'uso di Servizi mobili]: #update-app
+[Test dell'app in Servizi mobili]: #test-app
 [Passaggi successivi]:#next-steps
 
 <!-- Images. -->
@@ -220,8 +227,8 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [9]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png
 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
-[Convalidare e modificare dati mediante script]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
-[Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Uso di script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+[Uso del paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-ios
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-ios
@@ -236,3 +243,6 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+
+
+<!--HONumber=42-->

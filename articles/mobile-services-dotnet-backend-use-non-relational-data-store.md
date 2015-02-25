@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Compilare un servizio con un archivio dati non relazionale - Servizi mobili di Azure" metaKeywords="" description="Informazioni su come usare un archivio di dati non relazionali, ad esempio MongoDB o Archiviazione tabelle di Azure, con il servizio mobile basato su .NET" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="Compilare un servizio con un archivio dati non relazionale - Servizi mobili di Azure" description="Informazioni su come usare un archivio di dati non relazionali, ad esempio MongoDB o Archiviazione tabelle di Azure, con il servizio mobile basato su .NET" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Compilare un servizio con MongoDB come archivio dati con il back-end .NET
 
-Questo argomento illustra come usare un archivio dati non relazionale per il servizio mobile. In questa esercitazione si modificherà il progetto di guida introduttiva di Servizi mobili per usare MongoDB anziché SQL come archivio dati.
+Questo argomento descrive come usare un archivio dati non relazionale per il servizio mobile. In questa esercitazione si modificherà il progetto di guida introduttiva di Servizi mobili per usare MongoDB anziché SQL come archivio dati.
 
 In questa esercitazione vengono descritti i passaggi per configurare un archivio non relazionale:
 
@@ -16,9 +16,9 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 
 ## <a name="create-store"></a>Creare un archivio non relazionale
 
-1. Nel [Portale di gestione di Azure] fare clic su **Nuovo** e selezionare **Archivio**.
+1. Nel [portale di gestione di Azure] fare clic su **Nuovo** e selezionare **Archivio**.
 
-2. Selezionare il componente aggiuntivo **MongoLab** ed esplorare la procedura guidata per iscriversi per creare un account. Per altre informazioni su MongoLab, vedere la [pagina relativa al componente aggiuntivo MongoLab].
+2. Selezionare il componente aggiuntivo **MongoLab** ed esplorare la procedura guidata per iscriversi per creare un account. Per altre informazioni su MongoLab, vedere la [pagina del componente aggiuntivo MongoLab].
 
     ![][0]
 
@@ -26,11 +26,11 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 
 3. Passare alla sezione Servizi mobili del portale e selezionare la scheda **Configura**.
 
-4. In **Impostazioni app**, immettere la stringa di connessione con la chiave "MongoConnectionString" e fare clic su **Salva**.
+4. In **Impostazioni** app immettere la stringa di connessione con la chiave "MongoConnectionString" e fare clic su **Salva**.
 
     ![][1]
 
-2. Aggiungere il codice seguente a `TodoItemController`:
+2. Aggiungere il codice seguente a  `TodoItemController`:
 
         static bool connectionStringInitialized = false;
 
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
             }
         }
     
-    Questo codice caricherà l'impostazione dell'applicazione e indicherà al servizio mobile di considerarla come una connessione da poter essere usata da un metodo `TableController`. Successivamente, si chiamerà questo metodo quando viene richiamato `TodoItemController`.
+    Questo codice caricherà l'impostazione dell'applicazione e indicherà al servizio mobile di considerarla come una connessione da poter essere usata da un metodo  `TableController`. Successivamente, si chiamerà questo metodo quando viene richiamato  `TodoItemController`.
 
 
 
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 
 1. Installare il pacchetto NuGet **WindowsAzure.MobileServices.Backend.Mongo**.
 
-2. Modificare `TodoItem` in modo che derivi da `DocumentData` anziché da `EntityData`.
+2. Modificare  `TodoItem` in modo da derivare da  `DocumentData` anziché da  `EntityData`.
 
         public class TodoItem : DocumentData
         {
@@ -65,7 +65,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
             public bool Complete { get; set; }
         }
 
-3. In `TodoItemController` sostituire il metodo `Initialize` con il codice seguente:
+3. In  `TodoItemController` sostituire il metodo  `Initialize` con il codice seguente:
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -77,7 +77,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. Nel codice del metodo `Initialize` sostituire ì **YOUR-DATABASE-NAME** con il nome scelto quando si è eseguito il provisioning del componente aggiuntivo MongoLab.
+4. Nel codice del metodo  `Initialize` sostituire **YOUR-DATABASE-NAME** con il nome scelto quando si è eseguito il provisioning del componente aggiuntivo MongoLab.
 
 
 ## <a name="test-application"></a>Testare l'applicazione
@@ -104,5 +104,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Informazioni sul Servizio tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
+[Informazioni sul servizio tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [Pagina del componente aggiuntivo MongoLab]: /it-it/gallery/store/mongolab/mongolab
+
+<!--HONumber=42-->

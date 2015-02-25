@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Creare e caricare un VHD Ubuntu Linux in Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Creazione e caricamento di un VHD Ubuntu Linux in Azure" description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Preparare una macchina virtuale Ubuntu per Azure
@@ -13,7 +13,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Si può usare LVM o [RAID](../virtual-machines-linux-configure-raid) sui dischi di dati, se si preferisce.
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, sui dischi di dati si può usare LVM o [RAID](../virtual-machines-linux-configure-raid) .
 
 - Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse.  Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -85,7 +85,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 	d) Eseguire 'sudo update-grub'.
 
-6. Modificare la riga di avvio del kernel per Grub in modo da includere ulteriori parametri del kernel per Azure. A questo scopo, aprire "/etc/default/grub" in un editor di testo, individuare la variabile `GRUB_CMDLINE_LINUX_DEFAULT` (o aggiungerla, se necessario) e modificarla per includere i parametri seguenti:
+6. Modificare la riga di avvio del kernel per Grub in modo da includere ulteriori parametri del kernel per Azure. A questo scopo, aprire "/etc/default/grub" in un editor di testo, individuare la variabile `GRUB_CMDLINE_LINUX_DEFAULT` (o aggiungerla, se necessario) e modificarla per includere i seguenti parametri:
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -110,4 +110,5 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

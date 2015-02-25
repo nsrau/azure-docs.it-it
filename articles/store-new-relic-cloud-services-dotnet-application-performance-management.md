@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="New Relic" pageTitle="Uso di New Relic con Azure - Guide alle funzionalità di Azure" metaKeywords="" description="Informazioni su come usare il servizio New Relic per gestire e monitorare l'applicazione Azure." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="carolz" editor="" />
+<properties 
+	pageTitle="Uso di New Relic con Azure - Guide alle funzionalità di Azure" 
+	description="Informazioni sull'uso del servizio New Relic per gestire e monitorare l'applicazione Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
@@ -23,14 +37,11 @@ New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi 
 
 Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://www.windowsazure.com/it-it/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Nota:</strong>
-<p>Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.</p>
-</div>
+> [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
-Iscrizione a New Relic usando Azure Store
+Iscriversi a New Relic usando Azure Store
 --
 
 New Relic si integra facilmente con i ruoli Web e di lavoro di Azure.
@@ -47,7 +58,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 6. Se disponibile, immettere un codice di promozione.
 7. Immettere il nome con il quale si desidera che il servizio New Relic venga visualizzato nelle impostazioni di Azure oppure usare il valore predefinito **NewRelic**. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
 8. Scegliere un valore per l'area, ad esempio **Stati Uniti occidentali**.
-9. Fare clic su **Next**.
+9. Fare clic su **Avanti**.
 10. Nella finestra di dialogo **Rivedi acquisto** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Se si accettano le condizioni, fare clic su **Acquista**.
 11. Dopo avere fatto clic su **Acquista**, verrà avviata la creazione del nuovo account New Relic. È possibile monitorare lo stato nel portale di gestione di Azure.
 12. Per recuperare il codice di licenza di New Relic, fare clic su **Valori di output**. 
@@ -67,7 +78,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 
 	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
-4. Al prompt dei comandi di Gestione pacchetti digitare `Install-Package NewRelicWindowsAzure` e premere **INVIO**.
+4. Al prompt dei comandi di Gestione pacchetti, digitare `Install-Package NewRelicWindowsAzure` e premere **INVIO**.
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
@@ -75,7 +86,7 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 
 	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
-6. Facoltativo: al prompt del nome dell'applicazione, immettere il nome dell'app come verrà visualizzato nel dashboard di New Relic. In alternativa, è possibile usare il nome della soluzione come nome predefinito.
+6. Facoltativo: al prompt del nome dell'applicazione, immettere il nome dell'applicazione come verrà visualizzato nel dashboard di New Relic. In alternativa, è possibile usare il nome della soluzione come nome predefinito.
 
 	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
@@ -84,7 +95,8 @@ Per iscriversi a New Relic direttamente da Azure Store, attenersi alla procedura
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Nota:** se si sta distribuendo l'app in Azure per la prima volta, verrà richiesta l'immissione delle credenziali di Azure. Per altre informazioni, vedere l'articolo relativo alla <a href="/it-it/develop/net/tutorials/get-started/">distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure</a>.
+**Nota:** se si sta distribuendo l'applicazione in Azure per la prima volta, verrà richiesta l'immissione delle
+credenziali di Azure. Per altre informazioni, vedere l'argomento relativo alla <a href="/it-it/develop/net/tutorials/get-started/">distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -100,7 +112,7 @@ Per visualizzare il dashboard di New Relic:
 
 	![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
 
-	Dopo avere selezionato un'applicazione dall'elenco nel menu **Applications**, nel dashboard **Overview** verranno visualizzate le informazioni relative al server applicazioni e al browser.
+	Dopo avere selezionato un'app dall'elenco nel menu **Applications**, nel dashboard **Overview** verranno visualizzate le informazioni relative al server applicazioni e al browser.
 
 ### <a id="using-new-relic"></a>Uso di New Relic
 
@@ -112,7 +124,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
   <thead>
     <tr>
       <th><b>Per...</b></th>
-      <th><b>Effettuare l'operazione seguente:</b></th>
+      <th><b>Effettuare questa operazione</b></th>
     </tr>
   </thead>
   <tbody>
@@ -120,21 +132,21 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
        <td>Visualizzare informazioni del dashboard per il server applicazioni o il browser selezionato</td>
        <td>Fare clic sul pulsante <b>App Server</b> o <b>Browser</b>.</td>
     </tr>
-     <tr>
-       <td>Visualizzare i livelli di soglia per il punteggio <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a>dell'app.</td>
+	<tr>
+	   <td>Visualizzare i livelli di soglia per il punteggio <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> dell'app</td>
        <td>Selezionare l'icona <b>?<b> del punteggio Apdex.</b></b></td>
     </tr>
     <tr>
        <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> per l'applicazione selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
+       <td>Nella visualizzazione <b>Browser</b> della schermata Overview, selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a>per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a></td>
-       <td>Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure per visualizzare dettagli relativi a una transazione Web specifica (comprese quelle del gruppo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) fare clic sul nome della transazione.</td>
+       <td>Fare clic sulla tabella Web Transactions nel dashboard Applications Overview. Oppure per visualizzare dettagli relativi a una transazione Web specifica (comprese quelle del gruppo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>), fare clic sul nome della transazione.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è possibile visualizzare il dashboard Errors anche selezionando <b>Applications</b> &gt; (app) &gt; Events &gt; Errors.</td>
+       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è possibile visualizzare il dashboard Errors anche selezionando <b>Applications</b> &gt; (applicazione) &gt; Events &gt; Errors.</td>
     </tr>
     <tr>
        <td>Visualizzare i dettagli relativi al server applicazioni</td>
@@ -163,8 +175,8 @@ Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
 panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei profili utente, uso delle funzioni standard e dettagli sui drill-down dei dashboard
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): funzionalità disponibili nel dashboard Applications Overview di New Relic
  * [Apdex](https://newrelic.com/docs/site/apdex): panoramica delle misurazioni Apdex della soddisfazione degli utenti finali riguardo all'applicazione
- * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli 
-relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
+ * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): informazioni generali sulla modalità in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, il tempo impiegato dai browser per caricare le pagine Web e i tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

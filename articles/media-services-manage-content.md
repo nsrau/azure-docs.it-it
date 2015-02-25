@@ -1,32 +1,32 @@
-﻿<properties urlDisplayName="How to manage media content" pageTitle="Come gestire i contenuti multimediali - Servizi multimediali di Azure" metaKeywords="" description="Informazioni su come gestire i contenuti multimediali in Servizi multimediali di Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Come gestire i contenuti multimediali - Servizi multimediali di Azure" description="Informazioni su come gestire i contenuti multimediali in Servizi multimediali di Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
 
 
 # Come gestire il contenuto in Servizi multimediali #
-La visualizzazione del contenuto di Servizi multimediali di Azure consente di gestire il contenuto multimediale per l'account di Servizi multimediali.
+
+Questo argomento descrive come usare il portale di gestione di Azure per gestire i contenuti multimediali nell'account di Servizi multimediali.
 
 Attualmente è possibile eseguire le operazioni sul contenuto seguenti direttamente dal portale:
 
-- Visualizzare informazioni sul contenuto, ad esempio stato di pubblicazione, URL di pubblicazione, dimensione e data e ora dell'ultimo aggiornamento
+- Visualizzare informazioni sul contenuto, ad esempio stato di pubblicazione, URL di pubblicazione, dimensione, data e ora dell'ultimo aggiornamento e se l'asset è crittografato.
 - Caricare nuovo contenuto
+- Indicizzare il contenuto
 - Codificare il contenuto
-- Riprodurre video del contenuto
+- Riprodurre il contenuto
 - Pubblicare/annullare la pubblicazione di contenuto
-- Eliminare contenuto
 
 
-## Procedura: Caricare contenuto ##
+## Procedura: Caricare contenuto 
 
 
-1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
+1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) scegliere **Servizi multimediali**, quindi fare clic sul nome dell'account di Servizi multimediali.
 2. Selezionare la pagina CONTENT. 
 3. Fare clic sul pulsante **Carica** nella pagina o nella parte inferiore del portale. 
-4. Nella finestra di dialogo **Carica contenuto 
-** selezionare il file di asset desiderato. Fare clic sul file e quindi su **Apri** oppure premere **INVIO**.
+4. Nella finestra di dialogo **Carica contenuto** selezionare il file di asset desiderato. Fare clic sul file e quindi su **Apri** oppure premere **INVIO**.
 
 	![UploadContentDialog][uploadcontent]
 
@@ -37,62 +37,93 @@ Attualmente è possibile eseguire le operazioni sul contenuto seguenti direttame
 
 Al termine del caricamento, il nuovo asset verrà visualizzato nell'elenco Content. Per convenzione, al nome verrà aggiunto il suffisso "**-Source**" per consentire di tenere traccia del nuovo contenuto come contenuto di origine per le attività di codifica.
 
+![ContentPage][contentpage]
+
 Se il valore delle dimensioni del file non viene aggiornato al termine del processo di caricamento, premere il pulsante **Sincronizza metadati**. Le dimensioni del file di asset verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina Content.	
 
+## Procedura: Indicizzare il contenuto
+
+Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. L'indicizzazione del contenuto può essere eseguita dal portale di gestione con la procedura riportata di seguito. Tuttavia, per avere più controllo sui file e sulle modalità del processo di indicizzazione, è possibile usare Media Services SDK per .NET o le API REST. Per altre informazioni vedere [Indicizzazione di file multimediali con Azure Media Indexer](https://msdn.microsoft.com/it-it/library/azure/dn783455.aspx).
+
+I seguenti passaggi mostrano come usare il portale di gestione per indicizzare il contenuto.
+
+1. Selezionare il file da indicizzare.
+	Se l'indicizzazione è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
+1. Premere il pulsante ELABORA.
+2. Nella finestra di dialogo **Elabora** scegliere il processore **Azure Media Indexer**.
+3. Quindi, inserire nella finestra di dialogo Elabora le informazioni dettagliate su **titolo** e **descrizione** relative al file multimediale di input.
+	
+	![Process][process]
 
 ## Procedura: Codificare il contenuto
 
-1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali. 
-2. Fare clic su CONTENT nella parte superiore della pagina.
-3. Fare clic sul video di origine desiderato per il processo di codifica e quindi su **Codifica** nella parte inferiore della pagina.
-4. Nella finestra di dialogo Azure Media Encoder scegliere uno dei set di impostazioni di codifica comuni o avanzati.
+Per inviare un video digitale tramite Internet è necessario comprimere il file multimediale. Servizi multimediali fornisce un codificatore multimediale che consente di specificare la modalità di codifica del contenuto (ad esempio, i codec da usare, il formato di file, la risoluzione e la velocità in bit). 
 
-	**Set di impostazioni comuni**
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti è l'invio di streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
 
-	+ **Riproduzione su PC/Mac (tramite Flash/Silverlight)**. Questo set di impostazioni genera un asset Smooth Streaming con le caratteristiche seguenti: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 96 kbps (compressione AAC) e video 720p con codifica CBR a 6 velocità in bit da 3400 kbps a 400 kbps tramite compressione H.264 Main Profile e GOP di 2 secondi.
-	+ **Riproduzione tramite HTML5 (tramite IE/Chrome/Safari)**. Questo set di impostazioni genera un singolo file MP4 con le caratteristiche seguenti: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 128 kbps (compressione AAC) e video 720p con codifica CBR a 4500 kbps tramite compressione H.264 Main Profile.
-	+ **Riproduzione su dispositivi iOS e PC/Mac**. Questo set di impostazioni genera un asset con le stesse caratteristiche dell'asset Smooth Streaming (descritte in precedenza), ma in un formato utilizzabile per trasmettere flussi Apple HLS ai dispositivi iOS. 
-	+ **Codifica con protezione dei contenuti (PlayReady)**. Questo set di impostazioni produce un asset codificato con la protezione dei contenuti PlayReady.  Affinché funzioni, è necessario abilitare il servizio di distribuzione di licenze per PlayReady. A tale scopo, accedere alla scheda **PROTEZIONE CONTENUTO** e aggiungere una riga alla tabella Creazione report personalizzazione. Il servizio di licenza PlayReady di Servizi multimediali verrà abilitato pochi minuti dopo aver premuto il pulsante SALVA.   
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti che consente di inviare il contenuto codificato in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS) senza dover ricreare i pacchetti con questi formati di streaming. 
+
+Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario eseguire la procedura seguente:
+
+- codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione),  
+- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica l'invio del contenuto. Per altre informazioni, vedere [Come scalare un servizio multimediale](http://azure.microsoft.com/it-it/documentation/articles/media-services-how-to-scale/).
+
+Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
+
+Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming su richiesta offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+
+
+Questa sezione descrive la procedura per la codifica del contenuto con Azure Media Encoder tramite il portale di gestione.
+
+1.  Selezionare il file da codificare.
+	Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
+4. Nella finestra di dialogo **Elabora** scegliere il processore **Azure Media Encoder**.
+5. Scegliere una delle **configurazioni di codifica**.
+
+	![Process2][process2]
+
+		
+	L'argomento [Stringhe di set di impostazioni di attività per Azure Media Encoder](https://msdn.microsoft.com/it-it/library/azure/dn619392.aspx) spiega il significato di ciascun set di impostazioni nelle categorie **Set di impostazioni per streaming adattivo (creazione dinamica dei pacchetti)**, **Set di impostazioni il download progressivo** e **Set di impostazioni legacy per streaming adattivo**  .  
+
+
+	Le **altre** configurazioni sono descritte di seguito:
+
+	+ **Codifica con protezione dei contenuti (PlayReady)**. Questo set di impostazioni produce un asset codificato con la protezione dei contenuti PlayReady.  
 	
 	
 		Per impostazione predefinita, viene usato il servizio di licenza PlayReady di Servizi multimediali. Per specificare un altro servizio dal quale i client possono ottenere una licenza per riprodurre i contenuti crittografati con PlayReady, usare le API REST o Media Services .NET SDK. Per altre informazioni, vedere [Uso della crittografia statica per proteggere i contenuti]() e impostare la proprietà **licenseAcquisitionUrl** nel set di impostazioni di Media Encryptor. In alternativa, è possibile usare la crittografia dinamica e impostare la proprietà **PlayReadyLicenseAcquisitionUrl** come descritto in [Uso della crittografia dinamica PlayReady e del server di distribuzione di licenze PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720 ). 
-		
-		Notare che questa opzione viene visualizzata solo se si è registrati alla funzionalità di anteprima di protezione dei contenuti PlayReady. Per ottenere un'anteprima delle funzionalità, seguire la procedura descritta nella seguente pagina: [Microsoft Azure: Anteprima funzionalità](http://azure.microsoft.com/it-it/services/preview/).  
-	
-		
-	**Set di impostazioni avanzati**
-	
-	+ Nell'argomento [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865) viene fornita una descrizione di ogni set di impostazioni disponibile nell'elenco dei set di impostazioni avanzati. 
+	+ **Riproduzione su PC/Mac (tramite Flash/Silverlight)**. Questo set di impostazioni genera un asset Smooth Streaming con le caratteristiche seguenti: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 96 kbps (compressione AAC) e video 720p con codifica CBR a 6 velocità in bit da 3400 kbps a 400 kbps tramite compressione H.264 Main Profile e GOP di 2 secondi.
+	+ **Riproduzione tramite HTML5 (tramite IE/Chrome/Safari)**. Questo set di impostazioni genera un singolo file MP4 con le caratteristiche seguenti: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 128 kbps (compressione AAC) e video 720p con codifica CBR a 4500 kbps tramite compressione H.264 Main Profile.
+	+ **Riproduzione su dispositivi iOS e PC/Mac**. Questo set di impostazioni genera un asset con le stesse caratteristiche dell'asset Smooth Streaming (descritte in precedenza), ma in un formato utilizzabile per trasmettere flussi Apple HLS ai dispositivi iOS. 
 
+5. Quindi, immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
+6. Premere OK.
 
-	![EncoderDialog][encoder]
+	Al termine della codifica, la pagina CONTENUTO includerà il file codificato. 
 
-	Attualmente il portale non supporta tutti i formati di codifica supportati da Media Encoder. Non supporta inoltre la crittografia/decrittografia degli asset multimediali. È possibile effettuare queste attività a livello di codice. Per altre informazioni, vedere [Creazione di applicazioni con Media Services SDK per .NET](http://go.microsoft.com/fwlink/?LinkId=270866) e [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865).
-
-
-5. Nella finestra di dialogo Azure Media Encoder immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
-
-	Al termine dell'operazione di codifica, la visualizzazione avrà un aspetto simile a quello riportato di seguito. 
-
-	![PortalViewUploadCompleted][portaloverview]
+	Per visualizzare l'avanzamento del processo di codifica, passare alla pagina **PROCESSI**.  
 
 
 	Se il valore delle dimensioni del file non viene aggiornato al termine del processo di codifica, premere il pulsante **Sincronizza metadati**. Le dimensioni del file di asset di output verranno sincronizzate con le dimensioni effettive del file nell'archivio e verrà aggiornato il valore nella pagina Content.	
 
 ## Procedura: Pubblicare contenuto
 
-1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Fare clic su CONTENT nella parte superiore della pagina.
-3. Fare clic su un asset non pubblicato. Fare clic sul pulsante Publish per pubblicarlo su un URL pubblico. Dopo avere pubblicato il contenuto su un URL, sarà possibile aprirlo con un lettore client in grado di eseguire il rendering del contenuto codificato.
+Quando si pubblica il contenuto, viene fornito un URL per il download in streaming o progressivo. Con questo URL, il client sarà in grado di riprodurre i video.
+
+1. Fare clic sull'asset da pubblicare. 
+2. Fare quindi clic sul pulsante Pubblica. 
+	
+	Dopo avere pubblicato il contenuto su un URL, sarà possibile aprirlo con un lettore client in grado di eseguire il rendering del contenuto codificato.
 
  ![PublishedContent][publishedcontent]
 
 ## Procedura: Riprodurre contenuto dal portale
 
+Il portale di gestione fornisce un Lettore di contenuti di Servizi multimediali che è possibile usare per testare il video.
 
-1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Fare clic su CONTENT nella parte superiore della pagina.
-3. Fare clic sul contenuto video desiderato e quindi sul pulsante **Riproduci** nella parte inferiore del portale. È possibile riprodurre dal portale solo il contenuto che è stato pubblicato e la codifica deve essere supportata dal browser in uso.
+Fare clic sul contenuto video desiderato e quindi sul pulsante **Riproduci** nella parte inferiore del portale. 
+ 
+È possibile riprodurre dal portale solo il contenuto che è stato pubblicato e la codifica deve essere supportata dal browser in uso.
 
 
 <!-- Images -->
@@ -102,5 +133,9 @@ Se il valore delle dimensioni del file non viene aggiornato al termine del proce
 [status]: ./media/media-services-manage-content/Status.png
 [encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [branding]: ./media/branding-reporting.png
+[contentpage]: ./media/media-services-manage-content/media-services-content-page.png
+[process]: ./media/media-services-manage-content/media-services-process-video.png
+[process2]: ./media/media-services-manage-content/media-services-process-video2.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

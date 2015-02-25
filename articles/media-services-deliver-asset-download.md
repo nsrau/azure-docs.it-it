@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Delivering Media Assets" pageTitle="Come distribuire asset di file multimediali - Azure" metaKeywords="" description="Informazioni sulle opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali in Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come distribuire asset di file multimediali - Azure" description="Informazioni sulle opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali in Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -11,7 +11,7 @@ Questo articolo fa parte di una serie di articoli dedicati alla programmazione i
 
 In questo argomento vengono illustrate le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. È possibile scaricare asset di file multimediali oppure accedervi mediante un localizzatore. I contenuti multimediali possono essere inviati a un'altra applicazione o un altro provider di contenuti. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN), ad esempio la rete CDN di Azure.
 
-Questo esempio illustra come scaricare asset di file multimediali da Servizi multimediali. Il codice esegue query sui processi associati all'account di Servizi multimediali mediante l'ID processo e accede alla relativa raccolta **OutputMediaAssets**, ovvero il set con uno o più asset di file multimediali di output risultante dall'esecuzione di un processo. Questo esempio illustra come scaricare asset di file multimediali di output da un processo, ma lo stesso approccio può essere usato anche per scaricare altri asset.
+Questo esempio illustra come scaricare asset di file multimediali da Servizi multimediali. Il codice esegue query sui processi associati all'account di Servizi multimediali mediante l'ID processo e accede alla relativa raccolta **OutputMediaAssets**, ovvero il set con uno o più asset di file multimediali di output risultante dall'esecuzione di un processo. Questo  esempio illustra come scaricare asset di file multimediali di output da un processo, ma lo stesso approccio può essere usato anche per scaricare altri asset.
 
 <pre><code> 
 // Download the output asset of the specified job to a local folder.
@@ -73,4 +73,5 @@ Per altre informazioni sulla distribuzione di asset, vedere:
 <h2>Passaggi successivi</h2>
 In questo argomento è stato illustrato il download di un asset da Archiviazione di Azure. Per informazioni su altri modi per distribuire asset, vedere la procedura relativa alla [distribuzione di contenuti in streaming](../media-services-deliver-streaming-content/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

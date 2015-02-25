@@ -1,9 +1,23 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-mobile-services-cordova-getting-started/)
+> - [Introduzione](/documentation/articles/vs-mobile-services-cordova-getting-started/)
 > - [Risultati](/documentation/articles/vs-mobile-services-cordova-what-happened/)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
@@ -14,7 +28,7 @@
   
 #####Valori della stringa di connessione per Servizi mobili
 
-In `services\mobileServices\settings` è stato generato un nuovo file JavaScript (con estensione js) con un elemento **MobileServiceClient**, contenente l'URL applicazione e la chiave applicazione del servizio mobile selezionato. Il file include l'inizializzazione dell'oggetto client di Servizi mobili, che usa codice analogo al seguente.
+In `services\mobileServices\settings` è stato generato un nuovo file JavaScript (.js) con un client **MobileServiceClient**, contenente l'URL e la chiave applicazione del servizio mobile selezionato. Il file include l'inizializzazione dell'oggetto client di Servizi mobili, che usa codice analogo al seguente.
 
 	var mobileServiceClient;
 	document.addEventListener("deviceready", function() {
@@ -24,3 +38,5 @@ In `services\mobileServices\settings` è stato generato un nuovo file JavaScript
 	    );
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

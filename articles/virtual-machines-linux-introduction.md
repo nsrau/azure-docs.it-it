@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Intro to Linux" pageTitle="Introduzione a Linux in Azure - Esercitazione di Azure" metaKeywords="Azure Linux vm, Linux vm" description="Informazioni sull'uso delle macchine virtuali Linux in Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Introduzione a Linux in Azure - Esercitazione di Azure" description="Informazioni sull'uso delle macchine virtuali Linux in Azure." services="virtual-machines" documentationCenter="python" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark"/>
 
 
 
@@ -22,7 +22,7 @@ In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell
 
 ## <a id="authentication"></a>Autenticazione: nomi utente, password e chiavi SSH
 
-Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password e, facoltativamente, una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
+Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password e, facoltativamente, una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account  'root', non sono consentiti.
 
  - Vedere [Come usare SSH con Linux in Azure](../linux-use-ssh-key/)
 
@@ -45,7 +45,7 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. Caricare `myCert.cer` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `~/.ssh/authorized_keys` per l'utente specificato nella macchina virtuale.
+4. Caricare il `myCert.cer` durante la creazione della macchina virtuale Linux. Il processo di provisioning installerà automaticamente la chiave pubblica di questo certificato nel file `~/.ssh/authorized_keys` per l'utente specificato nella macchina virtuale.
 
 5. Connettersi alla macchina virtuale Linux tramite ssh.
 
@@ -53,7 +53,7 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
 	La prima volta che si effettua l'accesso, verrà richiesto di accettare l'ID digitale della chiave pubblica dell'host.
 
-6. Facoltativamente, è possibile copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client openssh possa automaticamente prelevare la chiave senza usare l'opzione -i.
+6. Se si preferisce, si può copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client openssh possa automaticamente selezionarlo senza che venga usata l'opzione -i.
    In alternativa, è possibile modificare `~/.ssh/config` per includere una sezione per la macchina virtuale:
 
         Host servicename.cloudapp.net
@@ -63,16 +63,16 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 ### Generare una chiave da una chiave esistente compatibile con OpenSSH
 Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Azure. In alcuni casi, è possibile che gli utenti dispongano già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e desiderino usare le stesse chiavi con Azure.
 
-Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
+Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il seguente comando verrà creata la chiave pubblica  `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
 Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in seguito usata per il provisioning di una macchina virtuale Linux in Microsoft Azure. Durante il provisioning, il file `.pem` verrà convertito in una chiave pubblica compatibile con `openssh` e inserito in `~/.ssh/authorized_keys`.
 
 
-## <a id="superuserprivileges"></a>Utilizzo di `sudo` per ottenere privilegi utente avanzati
+## <a id="superuserprivileges"></a>Uso di `sudo` per ottenere privilegi utente avanzati
 
-L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure in modo da elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo`. Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
+L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo`. Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
 
 	# sudo <COMMAND>
 
@@ -116,7 +116,7 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 
 2. Arrestare/Spegnere la macchina virtuale.
 
-3. Fare clic su *Acquisisci* nel portale di gestione oppure usare Powershell o gli strumenti CLI per acquisire la macchina virtuale come immagine.
+3. Fare clic su *Capture* nel portale di gestione oppure usare Powershell o gli strumenti CLI per acquisire la macchina virtuale come immagine.
 
  - Vedere: [Come acquisire una macchina virtuale Linux da usare come modello](../virtual-machines-linux-capture-image/)
 
@@ -127,11 +127,14 @@ Ogni macchina virtuale ha un *disco risorse* temporaneo locale collegato. Poich�
 
 In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu).
 
-	>[WACOM.NOTE] Si noti che il disco risorse è un disco **temporaneo** e potrebbe essere eliminato e riformattato al riavvio della macchina virtuale.
+	>[AZURE.NOTE] Si noti che il disco risorse è un disco **temporaneo** e potrebbe essere eliminato e riformattato al riavvio della macchina virtuale.
 
-In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`; in tal caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in modo dettagliato nell'esercitazione: [Come collegare un disco dati a una macchina virtuale](../virtual-machines-linux-how-to-attach-disk/).
+In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in modo dettagliato nell'esercitazione: [Come collegare un disco dati a una macchina virtuale](../virtual-machines-linux-how-to-attach-disk/).
 
  - Vedere anche la pagina relativa alla [Configurare RAID software in Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

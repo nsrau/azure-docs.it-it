@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" metaKeywords="" description="Imparare a usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" description="Informazioni su come usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
 
 
 # Compilazione di app in tempo reale tramite Servizi mobili e Pusher
@@ -8,26 +8,26 @@
 	<a href="" title="iOS" class="current">iOS</a>
 </div>
 
-Questo argomento illustra come aggiungere funzionalità in tempo reale a un'app basata su Servizi mobili di Azure. Al termine dell'esercitazione, i dati dell'elenco attività saranno sincronizzati, in tempo reale, tra tutte le istanze in esecuzione dell'app.
+Questo argomento descrive come aggiungere funzionalità in tempo reale a un'app basata su Servizi mobili di Azure. Una volta completata l'esercitazione, i dati TodoList saranno sincronizzati, in tempo reale, tra tutte le istanze in esecuzione dell'app.
 
 Nell'esercitazione [Invio di notifiche push agli utenti][] viene illustrato come usare le notifiche push per informare gli utenti della presenza di nuove voci nell'elenco attività. Le notifiche push rappresentano un'ottima soluzione per mostrare modifiche occasionali. Tuttavia, un'app necessita talvolta di notifiche in tempo reale frequenti. È possibile aggiungere le notifiche in tempo reale al servizio mobile tramite l'API Pusher. In questa esercitazione verrà usato il servizio Pusher con Servizi mobili per sincronizzare le modifiche di un elenco attività in tutte le istanze in esecuzione dell'app.
 
-Pusher è un servizio basato sul cloud che, come Servizi mobili, semplifica la compilazione di app in tempo reale. È possibile usare Pusher per creare rapidamente sondaggi in diretta, chat room, giochi per più giocatori, app di collaborazione per trasmettere dati e contenuto in diretta e molto altro ancora. Per altre informazioni, visitare il sito [http://pusher.com](http://pusher.com).
+Pusher è un servizio basato su cloud che, come Servizi mobili, semplifica la compilazione di app in tempo reale. È possibile usare Pusher per creare rapidamente sondaggi in diretta, chat room, giochi per più giocatori, app di collaborazione per trasmettere dati e contenuto in diretta e molto altro ancora. Per altre informazioni, vedere [http://pusher.com](http://pusher.com).
 
 In questa esercitazione vengono descritte le operazioni di base per aggiungere funzionalità di collaborazione in tempo reale all'applicazione Elenco attività:
 
-1. [Creazione di un account Pusher][]
-2. [Aggiornamento dell'app][]
-3. [Installazione degli script del server][]
+1. [Creare un account Pusher][]
+2. [Aggiornare l'app][]
+3. [Installare gli script del server][]
 4. [Testare l'app][]
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili][].
 
-## <a name="sign-up"></a>Creazione di un account Pusher
+## <a name="sign-up"></a>Creare un nuovo account Pusher
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
-## <a name="update-app"></a>Aggiornamento dell'app
+## <a name="update-app"></a>Aggiornare l'app
 
 Dopo avere configurato l'account Pusher, nel passaggio successivo si procederà alla modifica del codice dell'app per iOS per aggiungere la nuova funzionalità.
 
@@ -40,7 +40,7 @@ La libreria [libPusher][] consente di accedere a Pusher da iOS.
 2. Nel progetto creare un gruppo denominato _libPusher_.
 
 3. In Finder decomprimere il file ZIP scaricato, selezionare le cartelle **libPusher-combined.a** e **/headers** e trascinare questi elementi nel gruppo **libPusher** nel progetto.
-
+	
 4. Selezionare **Copy items into destination group's folder**, quindi fare clic su **Finish**
 
 	![][add-files-to-group]
@@ -49,7 +49,7 @@ La libreria [libPusher][] consente di accedere a Pusher da iOS.
 
 5. Nella radice del progetto nell'area di esplorazione dei progetti fare clic su **Build Phases**, quindi su **Add Build Phase** e infine su **Add Copy Files**.
 
-6. Trascinare il file **libPusher-combined.a** dall'area di esplorazione dei progetti nella nuova fase di compilazione.
+6. Trascinare il file **libPusher-combined.a** dall'area di esplorazione dei progetti alla nuova fase di compilazione.
 
 7. Impostare **Destination** su **Frameworks** e fare clic su **Copy only when installing**.
 
@@ -62,7 +62,7 @@ La libreria [libPusher][] consente di accedere a Pusher da iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Infine, in **Build Settings**, individuare l'impostazione di compilazione di destinazione **Other Linker Flags** e aggiungere il flag **-all_load**.
+9. Infine, in **Build Settings** individuare l'impostazione di compilazione di destinazione **Other Linker Flags** e aggiungere il flag **-all_load**.
 
 	![][add-linker-flag]
 
@@ -83,7 +83,7 @@ A questo punto, la libreria è installata e pronta per l'uso.
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
 
-2. Sostituire le dichiarazioni esistenti di **addItem** e **completeItem** con le seguenti:
+2. Sostituire le dichiarazioni esistenti di **addItem** e **completeItem** con il codice seguente:
 
 		- (void) addItem:(NSDictionary *) item;
 		- (void) completeItem: (NSDictionary *) item;
@@ -178,7 +178,7 @@ A questo punto, la libreria è installata e pronta per l'uso.
 		// Sets up the Pusher client
 		- (void) setupPusher;
 
-9. Nel file **QSTodoListViewController.m** aggiungere la riga seguente sotto le altre righe **@synthesise** per implementare la nuova proprietà:
+9. In **QSTodoListViewController.m** aggiungere la riga seguente sotto le altre righe **@synthesise** per implementare la nuova proprietà:
 
 		@synthesize pusher = _pusher;
 
@@ -226,7 +226,7 @@ A questo punto, la libreria è installata e pronta per l'uso.
 		    }];
 		}
 
-11. Sostituire il segnaposto `**your_app_key**` con il valore di app_key copiato in precedenza dalla finestra di dialogo Informazioni di connessione.
+11. Sostituire il segnaposto `**your_app_key**` con il valore di app_key copiato in precedenza dalla finestra di dialogo Connection Info.
 
 12. Sostituire il metodo **onAdd** con il codice seguente:
 
@@ -258,7 +258,7 @@ L'app è ora in grado di ricevere eventi da Pusher e di aggiornare l'elenco atti
 
 
 
-<h2><a name="install-scripts"></a>Installazione degli script del server</h2>
+<h2><a name="install-scripts"></a>Installare gli script del server</h2>
 
 
 
@@ -275,7 +275,7 @@ Ora non rimane che configurare gli script del server. Verrà inserito uno script
 
 
 
-3. In **TodoItem** **Script** e selezionare **Inserisci**.
+3. In **TodoItem** fare clic sulla scheda **Script** e selezionare **Inserisci**.
 
 
 	![][2]
@@ -320,9 +320,9 @@ Ora non rimane che configurare gli script del server. Verrà inserito uno script
 
 5. Sostituire i segnaposto nello script precedente con i valori copiati dalla finestra di dialogo Connection Info:
 
-	- **`**your_app_id**`**: the app&#95;id value
-	- **`**your_app_key**`**: the app&#95;key value
-	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
+	- **`**your_app_id**`**: app&#95;id value
+	- **`**your_app_key**`**: app&#95;key value
+	- **`**your_app_key_secret**`**: app&#95;key&#95;secret
 
 
 6. Fare clic su **Salva**. Ora è stato configurato uno script che consente di pubblicare un evento in Pusher ogni volta che viene inserita una nuova voce nella tabella **TodoItem**.
@@ -402,12 +402,12 @@ Dopo avere sperimentato quanto è facile usare il servizio Pusher con Servizi mo
 -   Documentazione sull'API Pusher: <http://pusher.com/docs>
 -   Esercitazioni su Pusher: <http://pusher.com/tutorials>
 
-Per altre informazioni sulla registrazione e l'uso di script del server, vedere [Riferimento per gli script del server di Servizi mobili].
+Per altre informazioni sulla registrazione e l'uso di script del server, vedere [Informazioni di riferimento sugli script del server di Servizi mobili].
 
 <!-- Anchors. -->
-[Creazione di un account Pusher]: #sign-up
-[Aggiornamento dell'app]: #update-app
-[Installazione degli script del server]: #install-scripts
+[Creare un account Pusher]: #sign-up
+[Aggiornare l'app]: #update-app
+[Installare gli script del server]: #install-scripts
 [Testare l'app]: #test-app
 
 <!-- Images. -->
@@ -427,4 +427,7 @@ Per altre informazioni sulla registrazione e l'uso di script del server, vedere 
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+
+
+<!--HONumber=42-->

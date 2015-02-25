@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="HTML Client" pageTitle="Come usare un client HTML - Servizi mobili di Azure" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Come usare un client HTML - Servizi mobili di Azure" description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 
 # Come usare un client HTML/JavaScript per Servizi mobili di Azure
@@ -31,12 +31,12 @@ In questa guida viene illustrato come eseguire scenari comuni usando un client H
 - [Procedura: Visualizzare i dati nell'interfaccia utente]
 - [Procedura: Autenticare gli utenti]
 - [Procedura: Gestire gli errori]
-- [Procedura: Utilizzare le promesse]
+- [Procedura: Usare le promesse]
 - [Procedura: Personalizzare le intestazioni di richieste]
-- [Procedura: Utilizzare la condivisione di risorse tra origini]
+- [Procedura: Usare la condivisione di risorse tra origini]
 - [Passaggi successivi]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="create-client"></a>Procedura: Creare il client di Servizi mobili
 
@@ -46,7 +46,7 @@ Aprire il file HTML nell'editor Web e aggiungere il codice seguente ai riferimen
 
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
->[WACOM.NOTE]Per un'app di Windows Store scritta in JavaScript/HTML, è sufficiente aggiungere il pacchetto NuGet **WindowsAzure.MobileServices.WinJS** al progetto.
+> [AZURE.NOTE] Per un'app di Windows Store scritta in JavaScript/HTML, è sufficiente aggiungere il pacchetto **WindowsAzure.MobileServices.WinJS** al progetto.
 
 Nell'editor aprire o creare un file JavaScript e aggiungere il codice seguente per definire la variabile `MobileServiceClient`, infine specificare l'URL e la chiave dell'applicazione indicati nel servizio mobile nel costruttore `MobileServiceClient`, senza modificare l'ordine.
 
@@ -64,7 +64,7 @@ Tutto il codice che accede o modifica i dati nella tabella del database SQL chia
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
 
-Il codice seguente illustra come filtrare i dati includendo una clausola `where` in una query. Restituisce tutti gli elementi da `todoItemTable` per i quali il campo complete è uguale a `false`. `todoItemTable` è il riferimento alla tabella di Servizi mobili creata in precedenza. La funzione where applica un predicato di filtro di riga alla query sulla tabella. Accetta come argomento un oggetto o una funzione JSON che definisce il filtro di riga e restituisce una query che può essere composta ulteriormente.
+Il codice seguente illustra come filtrare i dati includendo una clausola `where` in una query. Il codice restituisce tutti gli elementi di `todoItemTable` il cui campo completo è uguale a `false`. `todoItemTable` è il riferimento alla tabella di Servizi mobili creata in precedenza. La funzione where applica un predicato di filtro di riga alla query sulla tabella. Accetta come argomento un oggetto o una funzione JSON che definisce il filtro di riga e restituisce una query che può essere composta ulteriormente.
 
 	var query = todoItemTable.where({
 	    complete: false
@@ -132,7 +132,7 @@ Oppure tramite l'API Fluent:
 	   difficulty: "medium"
 	});
 
-I due metodi si equivalgono e possono essere usati in modo intercambiabile. Tutte le chiamate a `where` descritte finora usano un oggetto con alcuni parametri e vengono confrontate con i dati del database per trovare uguaglianze. Esiste tuttavia un altro overload per il metodo della query, che utilizza una funzione anziché l'oggetto. In questa funzione è quindi possibile scrivere espressioni più complesse, usando operatori come quello di disuguaglianza e altre operazioni relazionali. In queste funzioni la parola chiave `this` esegue l'associazione all'oggetto server.
+I due metodi si equivalgono e possono essere usati in modo intercambiabile. Tutte le chiamate a `where` descritte finora usano un oggetto con alcuni parametri e vengono confrontate con i dati del database per trovare uguaglianze. Esiste tuttavia un altro overload per il metodo della query, che usa una funzione anziché l'oggetto. In questa funzione è quindi possibile scrivere espressioni più complesse, usando operatori come quello di disuguaglianza e altre operazioni relazionali. In queste funzioni la parola chiave `this` esegue l'associazione all'oggetto server.
 
 Il corpo della funzione viene convertito in un'espressione booleana OData (Open Data Protocol), che viene passata a un parametro di stringa della query. È possibile passare una funzione senza parametri, come:
 
@@ -166,15 +166,14 @@ Pertanto, sempre seguendo le regole, è possibile aggiungere filtri più comples
        alert("Error: " + err);
     });
 
-È possibile combinare `where` con `orderBy`, `take` e `skip`.. Per informazioni dettagliate, vedere la sezione che segue.
+È possibile combinare `where` con `orderBy`, `take` e `skip`. Per informazioni dettagliate, vedere la sezione che segue.
 
 ### <a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
-Il codice seguente illustra come ordinare i dati includendo una funzione `orderBy` o `orderByDescending` nella query. L'operazione restituisce elementi della tabella todoItemTable` in ordine crescente in base al campo `text`. Per impostazione predefinita, il server restituisce solo i primi 50 elementi.
+Il codice seguente illustra come ordinare i dati includendo una funzione `orderBy` o `orderByDescending` nella query. L'operazione restituisce elementi della tabella `todoItemTable` in ordine crescente in base al campo `text`. Per impostazione predefinita, il server restituisce solo i primi 50 elementi.
 
-<div class="dev-callout"><strong>Nota</strong> <p>Per impostazione predefinita, viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutti gli elementi. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. </p> </div>
->
-È possibile aumentare il numero di elementi da restituire chiamando `take` come descritto nella sezione successiva. `todoItemTable` è il riferimento alla tabella di Servizi mobili creata in precedenza.
+> [AZURE.NOTE] Per impostazione predefinita, viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutti gli elementi. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. 
+È possibile aumentare il numero di elementi da restituire chiamando `take` come descritto nella sezione seguente. `todoItemTable` è il riferimento alla tabella di Servizi mobili creata in precedenza.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -216,7 +215,7 @@ La query modificata riportata di seguito ignora i primi tre risultati e restitui
 
 Anche in questo caso, è possibile visualizzare l'URI della richiesta inviata al servizio mobile. Si noti che il metodo `skip(3)` è stato convertito nell'opzione di query `$skip=3` nell'URI della query.
 
-Nella situazione illustrata il passaggio di valori di paging hardcoded alle funzioni `take` e `skip` è stato semplificato. In un'app reale è possibile usare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive.
+Si tratta di uno scenario in cui il passaggio di valori di paging hardcoded alle funzioni `take` e `skip` è stato semplificato. In un'app reale è possibile usare query simili con un controllo pager o un'interfaccia utente paragonabile per consentire agli utenti di passare alle pagine precedenti e successive.
 
 ### <a name="selecting"></a>Procedura: Selezionare colonne specifiche
 
@@ -256,7 +255,7 @@ La funzione `lookup` usa solo il valore `id` e restituisce l'oggetto del databas
 
 ##<a name="odata-query"></a>Eseguire un'operazione di query OData
 
-Servizi mobili usa le convenzioni URI della query OData per la creazione e l'esecuzione di query REST.  Non tutte le query OData possono essere create mediante le funzioni di query integrate, in particolare le operazioni di filtro complesse come la ricerca di una sottostringa in una proprietà. Per query complesse di questo tipo, è possibile passare un'eventuale stringa di opzione di query OData alla funzione `read` nel modo seguente:
+Servizi mobili usa le convenzioni URI della query OData per la creazione e l'esecuzione di query REST.  Non tutte le query OData possono essere create mediante le funzioni di query integrate, in particolare le operazioni di filtro complesse come la ricerca di una sottostringa in una proprietà. Per query complesse di questo tipo, è possibile passare un'eventuale stringa di opzione di query OData valida alla funzione `read` nel modo seguente:
 
 	function refreshTodoItems() {
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
@@ -266,7 +265,7 @@ Servizi mobili usa le convenzioni URI della query OData per la creazione e l'ese
 	    }, handleError);
 	}
 
->[WACOM.NOTE]Quando si specifica una stringa di opzione di query OData nella funzione `read`, non è possibile usare anche i metodi del generatore di query nella stessa query. In questo caso, è necessario creare l'intera query come stringa di query OData. Per altre informazioni sulle opzioni di query del sistema OData, vedere il [riferimento alle opzioni di query del sistema OData].
+>[AZURE.NOTE]Quando si specifica una stringa di opzione di query OData nella funzione `read`, non è possibile usare anche i metodi del generatore di query nella stessa query. In questo caso, è necessario creare l'intera query come stringa di query OData. Per altre informazioni sulle opzioni di query del sistema OData, vedere il [riferimento alle opzioni di query del sistema OData].
 
 <h2><a name="inserting"></a>Procedura: Inserire dati in un servizio mobile</h2>
 
@@ -327,12 +326,12 @@ Il valore per `id` deve essere univoco e non deve includere caratteri appartenen
 +  Caratteri stampabili: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
-In alternativa è possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'uso dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili].
+In alternativa è possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario usare il comando `mobile table create` e l'opzione `--integerId` per creare la tabella. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'uso dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili].
 
 
 <h2><a name="modifying"></a>Procedura: Modificare dati in un servizio mobile</h2>
 
-Nel codice seguente viene illustrato come aggiornare i dati in una tabella. Il client richiede che una riga di dati venga aggiornata inviando una richiesta PATCH al servizio mobile. Il corpo della richiesta contiene i campi specifici da aggiornare come oggetto JSON. Viene aggiornato un elemento esistente nella tabella `todoItemTable`.
+Il codice seguente illustra come aggiornare i dati in una tabella. Il client richiede che una riga di dati venga aggiornata inviando una richiesta PATCH al servizio mobile. Il corpo della richiesta contiene i campi specifici da aggiornare come oggetto JSON. Viene aggiornato un elemento esistente nella tabella `todoItemTable`.
 
 			todoItemTable.update({
 			   id: idToUpdate,
@@ -354,7 +353,7 @@ Il primo parametro specifica l'istanza da aggiornare nella tabella, come indicat
 
 <h2><a name="deleting"></a>Procedura: Eliminare dati in un servizio mobile</h2>
 
-Nel codice seguente viene illustrato come eliminare i dati da una tabella. Il client richiede che una riga di dati venga eliminata inviando una richiesta DELETE al servizio mobile. Viene eliminato un elemento esistente nella tabella todoItemTable.
+Il codice seguente illustra come eliminare i dati da una tabella. Il client richiede che una riga di dati venga eliminata inviando una richiesta DELETE al servizio mobile. Viene eliminato un elemento esistente nella tabella todoItemTable.
 
 			todoItemTable.del({
 			   id: idToDelete
@@ -400,12 +399,13 @@ In un'app di Windows Store, i risultati di una query possono essere usati per cr
 
 Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti delle app tramite diversi provider di identità esterni: Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile usare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Introduzione all'autenticazione].
 
-Sono supportati due flussi di autenticazione, _server flow_ e _client flow_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, poiché si basa su SDK specifici del provider e del dispositivo.
+Sono supportati due flussi di autenticazione, un flusso _server flow_ e un flusso _client flow_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, poiché si basa su SDK specifici del provider e del dispositivo.
 
 <h3>Flusso server</h3>
-Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o HTML5, è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per altre informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store][Get started with authentication Windows Store]/[HTML][Get started with authentication]).
+Per consentire a Servizi mobili di gestire il processo di autenticazione nell'app di Windows Store o HTML5,
+è necessario effettuare la registrazione dell'app con il provider di identità. Nel proprio servizio mobile è quindi necessario configurare l'ID e il segreto dell'applicazione forniti dal provider. Per altre informazioni, vedere l'esercitazione "Introduzione all'autenticazione" ([Windows Store][Introduzione all'autenticazione - Windows Store]/[HTML][Introduzione all'autenticazione]).
 
-Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il metodo [LoginAsync method] con il valore del provider [MobileServiceAuthenticationProvider]. Per accedere ad esempio con Facebook, usare il codice seguente.
+Dopo aver effettuato la registrazione del provider di identità, è sufficiente chiamare il [metodo LoginAsync] con il valore [MobileServiceAuthenticationProvider] del provider. Per accedere ad esempio con Facebook, usare il codice seguente.
 
 		client.login("facebook").done(function (results) {
 		     alert("You are now logged in as: " + results.userId);
@@ -415,11 +415,10 @@ Dopo aver effettuato la registrazione del provider di identità, è sufficiente 
 
 Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo `login` riportato in precedenza con uno dei seguenti: `microsoftaccount`, `facebook`, `twitter`, `google` o `windowsazureactivedirectory`.
 
-In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login], quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili rispettivamente nei campi **userId** e **authenticationToken**. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per altre informazioni, vedere [Memorizzazione nella cache del token di autenticazione].
+In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login], quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili nei campi **userId** e **authenticationToken** rispettivamente. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per altre informazioni, vedere [Memorizzazione nella cache del token di autenticazione].
 
-<div class="dev-callout"><b>App di Windows Store</b>
-<p>Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è inoltre necessario registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per altre informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere <a href="/it-it/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft</a>. Dopo la registrazione con Servizi mobili delle informazioni del pacchetto, per riutilizzare le credenziali è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>.</p>
-</div>
+> [AZURE.NOTE] **App di Windows Store**
+Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è inoltre necessario registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per informazioni su come registrare il pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft](/it-it/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione delle informazioni del pacchetto con Servizi mobili, per riutilizzare le credenziali è necessario chiamare il metodo [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") specificando il valore **true** per il parametro <em>useSingleSignOn</em>.
 
 <h3>Flusso client</h3>
 L'app può inoltre contattare il provider di identità in modo indipendente e fornire il token restituito a Servizi mobili per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
@@ -440,7 +439,7 @@ Nell'esempio seguente viene usato Live SDK, che supporta Single-Sign-On per le a
 
 Questo esempio semplificato ottiene un token da Live Connect, che viene passato a Servizi mobili chiamando la funzione [login]. Per un esempio più completo di uso di un account Microsoft per consentire l'uso di un unico accesso, vedere [Autenticare un'app con Single-Sign-On].
 
-Se si utilizzano le API di Facebook o Google per l'autenticazione client, l'esempio cambia leggermente.
+Se si usano le API di Facebook o Google per l'autenticazione client, l'esempio cambia leggermente.
 
 		client.login(
 		     "facebook",
@@ -467,7 +466,7 @@ In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la pr
            // Regular login flow
        }
 
-         // Log out
+         // Log out	
         client.logout();
         sessionStorage.loggedInUser = null;
 
@@ -511,7 +510,7 @@ Per risolvere ulteriormente la situazione, passare il gestore errori come second
 
 			client.getTable("tablename").read().then(function (data) { /* do something */ }, handleError);
 
-<h2><a name="promises"></a>Procedura: Utilizzare le promesse</h2>
+<h2><a name="promises"></a>Procedura: Usare le promesse</h2>
 
 Le promesse offrono un meccanismo per pianificare il lavoro da eseguire su un valore che non è ancora stato calcolato. Si tratta di un'astrazione per la gestione delle interazioni con le API asincrone.
 
@@ -528,7 +527,7 @@ In questo modo:
 			   alert("Error: " + err);
 			});
 
-La promessa `then` corrisponde alla promessa `done`, ma, a differenza della promessa `then`, `done` garantisce la generazione di errori non gestiti all'interno della funzione. Se non si fornisce un gestore errori a `then` e l'operazione include un'errore, non viene generata un'eccezione, ma viene restituita invece una promessa nello stato di errore. Per altre informazioni, vedere [then].
+La promessa `then` corrisponde alla promessa `done` ma, a differenza della promessa `then`, `done` garantisce la generazione di errori non gestiti all'interno della funzione. Se non si fornisce un gestore errori a `then` e l'operazione include un errore, non viene generata un'eccezione, ma viene restituita invece una promessa nello stato di errore. Per altre informazioni, vedere [then].
 
 			promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -541,7 +540,7 @@ In questo modo:
 			   alert("Error: " + err);
 			});
 
-È possibile usare le promesse in molti modi diversi. È possibile concatenare operazioni di promessa chiamando `then` o `done` sulla promessa restituita dalla funzione `then` precedente. Usare `then` per una fase intermedia dell'operazione, ad esempio `.then().then()` e `done` per la fase finale dell'operazione, ad esempio `.then().then().done()`.  È possibile concatenare più funzioni `then`, in quanto `then` restituisce una promessa. Non è possibile concatenare più di un metodo `done`e, in quanto restituisce un valore indefinito. [Altre informazioni sulle differenze tra then e done].
+È possibile usare le promesse in molti modi diversi. È possibile concatenare operazioni di promessa chiamando `then` o `done` sulla promessa restituita dalla funzione `then` precedente. Usare `then` per una fase intermedia dell'operazione, ad esempio `.then().then()`, e `done` per la fase finale dell'operazione, ad esempio `.then().then().done()`.  È possibile concatenare più funzioni `then`, in quanto `then` restituisce una promessa. Non è possibile concatenare più di un metodo `done`, in quanto tale metodo restituisce un valore indefinito. [Altre informazioni sulle differenze tra then e done].
 
  			todoItemTable.insert({
  			   text: "foo"
@@ -564,7 +563,7 @@ In questo modo:
 
 I filtri sono usati per molte altre operazioni oltre alla personalizzazione delle intestazioni di richieste. Consentono di esaminare o modificare le richieste, esaminare o modificare le risposte, ignorare le chiamate di rete, inviare più chiamate e così via.
 
-<h2><a name="hostnames"></a>Procedura: Utilizzare la condivisione di risorse tra origini</h2>
+<h2><a name="hostnames"></a>Procedura: Usare la condivisione di risorse tra origini</h2>
 
 Per controllare quali siti Web possono interagire con il servizio mobile e inviare richieste a quest'ultimo, assicurarsi di aggiungere il nome host del sito Web usato per ospitare il servizio nell'elenco di condivisione di risorse tra le origini (CORS) tramite la scheda Configure. È possibile usare i caratteri jolly, se necessario. Per impostazione predefinita, il nuovo servizio mobile indica al browser di consentire l'accesso solo da `localhost`, mentre CORS consente al codice JavaScript in esecuzione in un browser su un nome host esterno di interagire con il servizio mobile.  Questa configurazione non è necessaria per le applicazioni WinJS.
 
@@ -581,11 +580,11 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Convalidare e modificare dati mediante script]
+* [Usare script per la convalida e la modifica di dati]
   <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
 * [Usare il paging per ridefinire le query]
-  <br/>Altre informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
+  <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 * [Autorizzare gli utenti con gli script]
   <br/>Informazioni sul valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato, che verrà usato per filtrare i dati restituiti da Servizi mobili.
@@ -606,9 +605,9 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Procedura: Eliminare dati in un servizio mobile]: #deleting
 [Procedura: Autenticare gli utenti]: #caching
 [Procedura: Gestire gli errori]: #errors
-[Procedura: Utilizzare le promesse]: #promises
+[Procedura: Usare le promesse]: #promises
 [Procedura: Personalizzare le intestazioni di richieste]: #customizing
-[Procedura: Utilizzare la condivisione di risorse tra origini]: #hostnames
+[Procedura: Usare la condivisione di risorse tra origini]: #hostnames
 [Passaggi successivi]: #nextsteps
 [Eseguire un'operazione di query OData]: #odata-query
 
@@ -636,7 +635,7 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Introduzione ai dati in HTML/JavaScript]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-html/
 [Un esempio completo di come configurare questo scenario è disponibile qui]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-html
-[Convalidare e modificare dati mediante script]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Usare script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-html
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-html
 [login]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554236.aspx
@@ -645,4 +644,5 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [CLI per la gestione delle tabelle di Servizi mobili]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

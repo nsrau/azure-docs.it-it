@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Sito Web PHP con MySQL e Git - Esercitazione su Azure" metaKeywords="" description="Un'esercitazione che illustra come creare un sito Web PHP che archivia i dati in MySQL e come usare la distribuzione Git in Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Sito Web PHP con MySQL e Git - Esercitazione di Azure" 
+	description="Un'esercitazione che illustra come creare un sito Web PHP che archivia i dati in MySQL e come usare la distribuzione Git in Azure." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
 #Creazione di un sito Web di Azure PHP-MySQL e distribuzione tramite Git
 
@@ -15,16 +29,16 @@ Seguendo questa esercitazione, verrà creata una semplice applicazione Web di re
 
 ![Azure PHP web site][running-app]
 
-> [WACOM.NOTE]
-> Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE]
+> Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">versione di valutazione gratuita di Azure</a>.
 > 
 > Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Configurare l'ambiente di sviluppo
 
-Questa esercitazione presuppone che nel computer siano installati [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), un server Web e [Git][install-git].
+Questa esercitazione presuppone che nel computer siano installati [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), un server Web e[Git][install-git].
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Se l'esercitazione viene eseguita in Windows, è possibile configurare il computer per PHP e configurare automaticamente IIS (il server Web incorporato in Windows) installando <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK per PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Creare un sito Web di Azure e configurare la pubblicazione Git
@@ -40,7 +54,7 @@ Per creare un sito Web di Azure e un database MySQL, attenersi alla procedura se
 
 	![Custom Create a new web site][custom-create]
 	
-	Immettere un valore per **URL**, scegliere **Crea un nuovo database MySQL** nell'elenco a discesa **Database**, quindi selezionare il data center per il sito Web nell'elenco a discesa **Area**. Fare clic sulla freccia nella parte inferiore della finestra di dialogo.
+	Immettere un valore per **URL**, scegliere **Crea un nuovo database MySQL** dall'elenco a discesa **DATABASE**, quindi selezionare il data center per il sito Web nell'elenco a discesa **AREA**. Fare clic sulla freccia nella parte inferiore della finestra di dialogo.
 
 	![Fill in web site details][website-details]
 
@@ -77,7 +91,7 @@ Per connettersi al database MySQL in esecuzione in Siti Web di Azure, è necessa
 
 	![Get database connection information][connection-string-info]
 	
-2. Prendere nota dei valori di `Database`, `Data Source`, `User Id` e `Password`.
+2. Prendere nota dei valori relativi a  `Database`, `Data Source`, `User Id` e `Password`.
 
 ##Creazione e test dell'applicazione in locale
 
@@ -89,7 +103,7 @@ L'applicazione di registrazione è una semplice applicazione PHP che consente di
 
 Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguente. Si noti che per questi passaggi si presuppone che nel computer locale siano già stati configurati PHP, lo strumento da riga di comando MySQL (che fa parte di MySQL) e un server Web e che sia stata abilitata l'[estensione PDO per MySQL][pdo-mysql].
 
-1. Connettersi al server MySQL remoto usando i valori di `Data Source`, `User Id`, `Password` e `Database` recuperati in precedenza:
+1. Connettersi al server MySQL remoto usando i valori di  `Data Source`, `User Id`, `Password` e  `Database` recuperati in precedenza:
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
@@ -97,11 +111,11 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 
 		mysql>
 
-3. Incollare il comando `CREATE TABLE` seguente per creare la tabella `registration_tbl` nel database:
+3. Incollare il seguente comando  `CREATE TABLE` per creare la tabella  `registration_tbl` nel database:
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. Nella directory radice del server Web creare una cartella denominata `registration` e al suo interno creare un file denominato `index.php`.
+4. Nella directory radice del server Web creare una cartella denominata  `registration` e al suo interno creare un file denominato  `index.php`.
 
 5. Aprire il file **index.php** in un editor di testo o in un IDE e aggiungere il codice seguente, quindi completare le necessarie modifiche contrassegnate con commenti `//TODO:`.
 
@@ -197,14 +211,14 @@ A questo punto è possibile passare a **http://localhost/registration/index.php*
 
 Dopo aver testato l'applicazione in locale, è possibile pubblicarla nel sito Web di Azure tramite Git. Inizializzare l'archivio Git locale e pubblicare l'applicazione.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Questi passaggi sono uguali a quelli illustrati nel portale alla fine della precedente sezione Creare un sito Web di Azure e configurare la pubblicazione Git.
 
 1. (Facoltativo) Se l'URL del repisitory remoto Git è stato dimenticato o smarrito, passare alla scheda Distribuzione nel portale.
 	
 	![Get Git URL][git-instructions]
 
-1. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
+1. Aprire GitBash (o un terminale, se Git si trova in  `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
 
 		git init
 		git add .
@@ -227,7 +241,7 @@ Dopo aver pubblicato l'applicazione, è possibile iniziare ad apportarvi modific
 Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura seguente:
 
 1. Apportare le modifiche all'applicazione in locale.
-2. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
+2. Aprire GitBash (o un terminale, se Git si trova in  `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -241,7 +255,7 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 
 	![Azure PHP web site][running-app]
 
-4. È inoltre possibile visualizzare la nuova distribuzione nella scheda 'Deployments' del portale di gestione di Azure:
+4. È inoltre possibile visualizzare la nuova distribuzione nella scheda  'Deployments' del portale di gestione di Azure:
 
 	![List of web site deployments][deployments-list]
 
@@ -269,4 +283,5 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

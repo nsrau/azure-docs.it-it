@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Sito Web Node.js con MongoDB in MongoLab - Azure" metaKeywords="" description="Informazioni su come creare un sito Web di Azure Node.js che si connette a un'istanza di MongoDB ospitata in MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
+<properties 
+	pageTitle="Sito Web Node.js con MongoDB in MongoLab - Azure" 
+	description="Informazioni su come creare un sito Web Node.js in Azure che si connette a un'istanza di MongoDB ospitata in MongoLab." 
+	services="web-sites, virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="chrischang12" 
+	manager="partners@mongolab.com" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="chris@mongolab.com"/>
 
 
 
@@ -13,10 +27,10 @@
 
 Salve, benvenuti nel database MongoDB distribuito come servizio. In questa esercitazione si apprenderà come:
 
-1. [Eseguire il provisioning del database][provision] - Il componente aggiuntivo [MongoLab](http://mongolab.com) di Azure Store fornisce un database MongoDB ospitato nel cloud di Azure e gestito dalla piattaforma database cloud di MongoLab.
-2. [Creare l'app][create] - Si tratterà di una semplice app Node.js per la gestione di un elenco di attività.
-3. [Distribuire l'app][deploy] - Collegando alcuni hook di configurazione, il push del codice diventerà davvero semplice.
-4. [Gestire il database][manage] - Verrà infine illustrato il portale di gestione del database basato sul Web di MongoLab, in cui è possibile cercare, visualizzare e modificare i dati con facilità.
+1. [Eseguire il provisioning del database][eseguire il provisioning]: il componente aggiuntivo [MongoLab](http://mongolab.com) di Azure Store fornisce un database MongoDB ospitato nel cloud di Azure e gestito dalla piattaforma database cloud di MongoLab.
+2. [Creare l'app][creare]: si tratterà di una semplice applicazione Node. js per la gestione di un elenco di attività.
+3. [Distribuire l'app][distribuire]: collegando alcuni hook di configurazione, il push del codice diventerà davvero semplice.
+4. [Gestire il database][gestire]: verrà infine illustrato il portale di gestione del database basato sul Web di MongoLab, in cui è possibile cercare, visualizzare e modificare i dati con facilità.
 
 In qualsiasi momento nel corso di questa esercitazione, sarà possibile inviare un messaggio di posta elettronica con eventuali domande a [support@mongolab.com](mailto:support@mongolab.com).
 
@@ -26,10 +40,10 @@ Prima di continuare, assicurarsi di avere installato quanto segue:
 
 * [Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Avvio rapido
-Se si conosce già Azure Store, usare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Provisioning del database][provision] più avanti.
+Se si conosce già Azure Store, usare questa sezione per iniziare rapidamente. In caso contrario, passare alla sezione [Eseguire il provisioning del database][eseguire il provisioning] più avanti.
  
 1. Aprire Azure Store.  
 ![Store][button-store]
@@ -58,11 +72,11 @@ Nota: Azure aggiunge il prefisso **CUSTOMCONNSTR\_** alla stringa di connessione
 
 Si passerà ora all'esercitazione completa.
 
-<h2><a name="provision"></a>Provisioning del database</h2>
+<h2><a name="provision"></a>Eseguire il provisioning del database</h2>
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[AZURE.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
-<h2><a name="create"></a>Creazione dell'app</h2>
+<h2><a name="create"></a>Creare l'app</h2>
 
 In questa sezione si imposterà l'ambiente di sviluppo e si preparerà il codice per un'applicazione Web per un elenco di attività di base mediante Node.js, Express e MongoDB. [Express] fornisce un framework View Controller per il nodo, mentre [Mongoose] è un driver per comunicare con MongoDB nel nodo.
 
@@ -357,7 +371,7 @@ Ora che l'ambiente e lo scaffolding sono pronti, si estenderà l'applicazione di
 		var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
- 	Si noti la seconda riga: si accede a una variabile di ambiente che si configurerà in seguito, contenente le informazioni sulla connessione per l'istanza di mongo. Se un'istanza locale di mongo è in esecuzione a scopo di sviluppo, potrebbe essere necessario impostare temporaneamente questo valore su "localhost" anziché su `process.env.MONGODB_URI`.
+ 	Si noti la seconda riga: si accede a una variabile di ambiente che si configurerà in seguito, contenente le informazioni sulla connessione per l'istanza di mongo. Se un'istanza locale di mongo è in esecuzione a scopo di sviluppo, può essere utile impostare temporaneamente questo valore su "localhost" anziché su `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.
 
 3. Individuare le seguenti righe:
 		
@@ -379,11 +393,11 @@ Ora che l'ambiente e lo scaffolding sono pronti, si estenderà l'applicazione di
 
 5. Salvare il file **app.js**.
 
-<h2><a name="deploy"></a>Distribuzione dell'app</h2>
+<h2><a name="deploy"></a>Distribuire l'app</h2>
 
-Ora che l'applicazione è stata sviluppata, è il momento di creare un sito Web di Azure per ospitarla, configurare tale sito e distribuire il codice. L'argomento principale di questa sezione è l'utilizzo della stringa di connessione MongoDB (URI). Si configurerà una variabile di ambiente nel sito Web con questo URI per mantenere l'URI separato dal codice.  È consigliabile considerare l'URI come un'informazione riservata in quanto contiene le credenziali per connettersi al database.
+Ora che l'applicazione è stata sviluppata, è il momento di creare un sito Web di Azure per ospitarla, configurare tale sito e distribuire il codice. L'argomento principale di questa sezione è l'uso della stringa di connessione MongoDB (URI). Si configurerà una variabile di ambiente nel sito Web con questo URI per mantenere l'URI separato dal codice.  È consigliabile considerare l'URI come un'informazione riservata in quanto contiene le credenziali per connettersi al database.
 
-Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare un nuovo sito Web di Azure e quindi viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
+Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare un nuovo sito Web di Azure e quindi viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione Azure.
 
 ### Installare lo strumento da riga di comando di Azure per Mac e Linux
 
@@ -422,7 +436,7 @@ Prima di usare gli strumenti da riga di comando con Azure, è necessario scarica
 		info:   account import command OK
 
 
-3. Al termine dell'importazione, è consigliabile eliminare il file delle impostazioni di pubblicazione perché non è più necessario e contiene informazioni riservate relative alla sottoscrizione di Azure.
+3. Al termine dell'importazione, è consigliabile eliminare il file delle impostazioni di pubblicazione perché non è più necessario e contiene informazioni riservate relative alla sottoscrizione Azure.
 
 ### Creare un nuovo sito Web ed eseguire il push del codice
 
@@ -444,7 +458,7 @@ Creare un sito Web in Azure è molto semplice. Se si tratta del primo sito Web d
 	
 	Il parametro `--git` creerà:
 	A. un repository Git locale nella cartella **tasklist** se non esiste già.
-	A. un repository [Git remoto] denominato 'azure' che verrà usato per pubblicare l'applicazione in Azure,
+	A. un repository [Git remoto] denominato 'azure', che verrà usato per pubblicare l'applicazione in Azure.
 	A. un file [iisnode.yml] contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
 	A. un file .gitignore per escludere la cartella dei moduli di Node dalla pubblicazione su .git.  
 	  
@@ -469,7 +483,7 @@ Creare un sito Web in Azure è molto semplice. Se si tratta del primo sito Web d
 9. Eseguire il push del codice:
 
 		git push azure master  
-	Durante il push delle ultime modifiche apportate a repository Git nel sito Web di Azure, è necessario specificare che il ramo di destinazione è **master** perché viene usato per il contenuto del sito Web. Se viene richiesto di specificare una password, immettere la password creata sopra durante l'impostazione della pubblicazione git per il sito Web.
+	Durante il push delle ultime modifiche apportate all'archivio Git nel sito Web di Azure, è necessario specificare che il ramo di destinazione è **master** perché viene usato per il contenuto del sito Web. Se viene richiesto di specificare una password, immettere la password creata sopra durante l'impostazione della pubblicazione git per il sito Web.
 	
 	L'output sarà simile al seguente. Durante l'esecuzione della distribuzione, Azure scaricherà tutti i moduli npm. 
 
@@ -496,21 +510,21 @@ La variabile di ambiente process.env.CUSTOMCONNSTR\_MONGOLAB\_URI nel codice ver
 
 #### Ottenere la stringa di connessione MongoLab
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### Aggiungere la stringa di connessione alle variabili di ambiente del sito Web
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Completamento della procedura
 
-Eseguire `azure site browse` dalla directory del progetto per aprire automaticamente un browser oppure aprire un browser e passare manualmente all'URL del sito Web (myuniquesite.azurewebsites.net):
+Eseguire `azure site browse` dalla directory del progetto per aprire automaticamente un browser oppure per aprire un browser e passare manualmente all'URL del sito Web (myuniquesite.azurewebsites.net):
 
 ![A webpage displaying an empty tasklist][node-mongo-finished]
 
-<h2><a name="manage"></a>Gestione del database</h2>
+<h2><a name="manage"></a>Gestire il database</h2>
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[AZURE.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un database MongoDB ospitato da MongoLab. Ora che si dispone di un database MongoLab, è possibile contattare [support@mongolab.com](mailto:support@mongolab.com) per eventuali domande o problemi sul database o per assistenza con MongoDB o con il driver del nodo. È ora possibile usare l'applicazione.
 
@@ -524,17 +538,17 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
 [screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-[provision]: #provision
-[create]: #create
-[deploy]: #deploy
-[manage]: #manage
+[eseguire il provisioning]: #provision
+[creare]: #create
+[distribuire]: #deploy
+[gestire]: #manage
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
 [gratuitamente]: /it-it/pricing/free-trial
-[Git remote]: http://git-scm.com/docs/git-remote
+[Git remoto]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Strumento da riga di comando di Azure per Mac e Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/
@@ -553,4 +567,5 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 
 
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

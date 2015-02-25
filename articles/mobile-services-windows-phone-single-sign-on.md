@@ -1,112 +1,99 @@
-<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Autenticare l'app con Live Connect (Windows Phone) | Mobile Dev Center" description="Informazioni su come usare l'accesso Single Sign-On di Live Connect in Servizi mobili di Azure da un'applicazione per Windows Phone." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # Autenticazione dell'app per Windows Phone 8 con l'accesso Single Sign-On di Live Connect
 
-<div class="dev-center-tutorial-selector sublanding">
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows Store C#</a><a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/it-it/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+</div>	
 
-[Windows Store C#][Windows Store C#][Windows Store JavaScript][Windows Store JavaScript][Windows Phone][Windows Phone]
+Questo argomento descrive come usare l'accesso Single Sign-On di Live Connect per autenticare gli utenti in Servizi mobili di Azure da un'app per Windows Phone 8.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Live Connect. Dopo essere stato autenticato da Live Connect e avere eseguito l'accesso, l'utente visualizza una schermata di benvenuto in cui sono indicati il nome utente e il relativo ID.  
 
-</div>
-
-In questo argomento viene illustrato come utilizzare l'accesso Single Sign-On di Live Connect per autenticare gli utenti in Servizi mobili di Azure da un'app per Windows Phone 8. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Live Connect. Dopo essere stato autenticato da Live Connect e avere eseguito l'accesso, l'utente visualizza una schermata di benvenuto in cui sono indicati il nome utente e il relativo ID.
-
-<div class="dev-callout">
-
-**Nota**
-In questa esercitazione vengono descritti i vantaggi offerti dall'ambiente di accesso Single Sign-On per le app per Windows Phone, che semplifica l'autenticazione degli utenti che hanno già effettuato l'accesso al servizio mobile. Per un ambiente di autenticazione più generalizzato che supporta più provider di autenticazione, vedere l'argomento [Introduzione all'autenticazione][Introduzione all'autenticazione].
-
-</div>
+>[AZURE.NOTE]In questa esercitazione vengono descritti i vantaggi offerti dall'ambiente di accesso Single Sign-On per le app per Windows Phone, che semplifica l'autenticazione degli utenti che hanno già effettuato l'accesso al servizio mobile. Per un ambiente di autenticazione più generalizzato che supporta più provider di autenticazione, vedere l'argomento <a href="/it-it/documentation/articles/mobile-services-windows-phone-get-started-users">Aggiungere l'autenticazione all'app</a>. 
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione Live Connect:
 
-1.  [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili][Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]
-2.  [Limitazione delle autorizzazioni per la tabella agli utenti autenticati][Limitazione delle autorizzazioni per la tabella agli utenti autenticati]
-3.  [Aggiunta dell'autenticazione all'app][Aggiunta dell'autenticazione all'app]
+1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
+2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
+3. [Aggiungere l'autenticazione all'app]
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
--   [Live SDK per Windows e Windows Phone][Live SDK per Windows e Windows Phone]
--   Microsoft Visual Studio 2012 Express per Windows Phone
++ [Live SDK per Windows e Windows Phone]
++ Microsoft Visual Studio 2012 Express per Windows Phone
++ Prima è necessario completare anche l'esercitazione [Aggiungere Servizi mobili a un'app esistente].
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
-
-## <a name="register"></a><span class="short-header">Registrazione dell'app</span>Registrazione dell'app con Live Connect
+<h2><a name="register"></a>Registrazione dell'app con Live Connect</h2>
 
 Per poter autenticare gli utenti, è necessario registrare l'app presso il Centro sviluppatori Live Connect. È quindi necessario registrare il segreto client per l'integrazione di Live Connect con Servizi mobili.
 
-1.  Accedere al [portale di gestione di Azure][portale di gestione di Azure], fare clic su **Mobile Services** e quindi sul servizio mobile.
+1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
-    ![][0]
+   	![][4]
 
-2.  Fare clic sulla scheda **Dashboard** e prendere nota del valore in **Site URL**.
+2. Fare clic sulla scheda **Dashboard** e prendere nota del valore in **URL sito**.
 
-    ![][1]
+   	![][5]
 
-    Questo valore verrà utilizzato per definire il dominio di reindirizzamento.
+    Questo valore verrà usato per definire il dominio di reindirizzamento.
 
-3.  Passare alla pagina [Applicazioni personali][Applicazioni personali] nel Centro sviluppatori Live Connect e, se necessario, accedere con il proprio account Microsoft.
+3. Passare alla pagina <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Applicazioni personali</a> nel Centro sviluppatori Live Connect e, se necessario, accedere con il proprio account Microsoft. 
 
-4.  Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
+4. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
 
-    ![][2]
+   	![][1] 
 
-    L'applicazione verrà registrata con Live Connect.
+   	L'applicazione verrà registrata con Live Connect.
 
-5.  Fare clic sulla pagina **Impostazioni applicazione**, quindi su **Impostazioni API** e prendere nota dei valori di **ID client** e **Chiave privata client**.
+5. Fare clic sulla pagina **Impostazioni applicazione**, quindi su **Impostazioni API** e prendere nota dei valori di **ID client** e **Segreto client**. 
 
-    ![][3]
+   	![][2]
 
-    <div class="dev-callout">
+ > [AZURE.NOTE] **Nota sulla sicurezza** Il segreto client è una credenziale di sicurezza importante. Non condividere questo valore con altri né distribuirlo con l'app.
 
-    **Nota sulla sicurezza**
-    Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
+6. In **Dominio di reindirizzamento** immettere l'URL del servizio mobile indicato nel passaggio 2, fare clic su **Sì** in **App client mobile** e quindi fare clic su **Salva**.
 
-    </div>
+7. Tornare al portale di gestione, fare clic sulla scheda **Identità**, immettere il **Segreto client** ottenuto da Live Connect e fare clic su **Salva**.
 
-6.  In **Dominio di reindirizzamento** immettere l'URL del servizio mobile indicato nel passaggio 2, fare clic su **Sì** in **App client mobile** e quindi fare clic su **Salva**.
-
-7.  Tornare al portale di gestione, fare clic sulla scheda **Identity**, immettere il segreto client ottenuto da Live Connect in **Client secret** e fare clic su **Save**.
-
-    ![][4]
+   	![][13]
 
 Il servizio mobile e l'app sono ora configurati per funzionare con Live Connect.
 
-## <a name="permissions"></a><span class="short-header">Limitazione delle autorizzazioni</span>Limitazione delle autorizzazioni agli utenti autenticati
+<h2><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati</h2>
 
-1.  Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItem**.
+1. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**. 
 
-    ![][5]
+   	![][14]
 
-2.  Fare clic sulla scheda **Permissions**, impostare tutte le autorizzazioni su **Only authenticated users** e quindi fare clic su **Save**. In questo modo, tutte le operazioni eseguite sulla tabella **TodoItem** richiederanno un utente autenticato. Questa impostazione semplifica inoltre gli script dell'esercitazione successiva, in quanto non sarà necessario considerare la possibilità di accesso da parte di utenti anonimi.
+2. Fare clic sulla scheda **Autorizzazioni**, impostare tutte le autorizzazioni su **Solo gli utenti autenticati**, quindi fare clic su **Salva**. In questo modo, tutte le operazioni eseguite sulla tabella **TodoItem** richiederanno un utente autenticato. Questa impostazione semplifica inoltre gli script dell'esercitazione successiva, in quanto non sarà necessario considerare la possibilità di accesso da parte di utenti anonimi.
 
-    ![][6]
+   	![][15]
 
-3.  In Visual Studio 2012 Express per Windows Phone aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili][Introduzione a Servizi mobili].
+3. In Visual Studio 2012 Express per Windows Phone aprire il progetto creato dopo avere completato l'esercitazione [Aggiungere Servizi mobili a un'app esistente]. 
 
-4.  Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che venga generata un'eccezione con codice di stato 401 (non autorizzato).
-
-    L'eccezione viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
+4. Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che venga generata un'eccezione con codice di stato 401 (non autorizzato). 
+   
+   	L'eccezione viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella _TodoItem_ richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti con Live Connect prima di richiedere risorse al servizio mobile.
 
-## <a name="add-authentication"></a><span class="short-header">Aggiunta dell'autenticazione</span>Aggiunta dell'autenticazione all'app
+<h2><a name="add-authentication"></a>Aggiungere l'autenticazione all'app</h2>
 
-1.  Scaricare e installare [Live SDK per Windows e Windows Phone][Live SDK per Windows e Windows Phone].
+1. Scaricare e installare [Live SDK per Windows e Windows Phone].
 
-2.  Nel menu **Progetto** in Visual Studio fare clic su **Aggiungi riferimento**, espandere **Assembly**, fare clic su **Estensioni**, selezionare **Microsoft.Live**, quindi fare clic su **OK**.
+2. Nel menu **Progetto** in Visual Studio fare clic su **Aggiungi riferimento**, espandere **Assembly**, fare clic su **Estensioni**, selezionare **Microsoft.Live**, quindi fare clic su **OK**. 
 
-    ![][7]
+   	![][16]
 
-    Verrà aggiunto un riferimento a Live SDK al progetto.
+  	Verrà aggiunto un riferimento a Live SDK al progetto.
 
-3.  Aprire il file del progetto mainpage.xaml.cs e aggiungere le istruzioni using seguenti:
+5. Aprire il file del progetto mainpage.xaml.cs e aggiungere le istruzioni using seguenti:
 
         using Microsoft.Live;      
 
-4.  Aggiungere il seguente frammento di codice alla classe MainPage:
-
+6. Aggiungere il seguente frammento di codice alla classe MainPage:
+	
         private LiveConnectSession session;
         private async System.Threading.Tasks.Task Authenticate()
         {
@@ -137,16 +124,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti con Live 
 
     Verranno creati una variabile membro per archiviare la sessione Live Connect corrente e un metodo per gestire il processo di autenticazione.
 
-5.  Aggiornare la stringa *\<\< INSERT CLIENT ID HERE \>\>* del passaggio precedente con il valore dell'ID client generato al momento della registrazione dell'app con Live Connect.
+7. Aggiornare la stringa _<< INSERT CLIENT ID HERE >>_ del passaggio precedente con il valore dell'ID client generato al momento della registrazione dell'app con Live Connect.
 
-    <div class="dev-callout">
+    > [AZURE.NOTE] In un'app per Windows Phone 8 viene creata un'istanza della classe **LiveAuthClient** passando il valore dell'ID client al costruttore di classe. In un'[app di Windows Store](/it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), viene creata un'istanza della stessa classe passando l'URI del dominio di reindirizzamento.
 
-    **Nota**
-    In un'app per Windows Phone 8 viene creata un'istanza della classe **LiveAuthClient** passando il valore dell'URI dell'ID client al costruttore della classe. In un'[app di Windows Store][app di Windows Store] viene creata un'istanza della stessa classe passando l'URI del dominio di reindirizzamento.
-
-    </div>
-
-6.  Eliminare o rimuovere i simboli di commento dall'override del metodo **OnNavigatedTo** esistente e sostituirlo con il metodo seguente che gestisce l'evento **Loaded** per la pagina.
+8. Eliminare o rimuovere i simboli di commento dall'override del metodo **OnNavigatedTo** esistente e sostituirlo con il metodo seguente che gestisce l'evento **Loaded** per la pagina. 
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -154,9 +136,9 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti con Live 
             RefreshTodoItems();
         }
 
-    Questo metodo chiama il nuovo metodo **Authenticate**.
+   	Questo metodo chiama il nuovo metodo **Authenticate**. 
 
-7.  Sostituire il costruttore MainPage con il codice seguente:
+9. Sostituire il costruttore MainPage con il codice seguente:
 
         // Constructor
         public MainPage()
@@ -165,37 +147,41 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti con Live 
             this.Loaded += MainPage_Loaded;
         }
 
-    Questo costruttore registra inoltre il gestore per l'evento Loaded.
+   	Questo costruttore registra inoltre il gestore per l'evento Loaded.
+		
+9. Premere F5 per eseguire l'app e accedere a Live Connect con l'account Microsoft. 
 
-8.  Premere F5 per eseguire l'app e accedere a Live Connect con l'account Microsoft.
-
-    Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Nella prossima esercitazione, [Autorizzazione di utenti con script][Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili. Per informazioni su come utilizzare altri provider di identità per l'autenticazione, vedere [Introduzione all'autenticazione][8].
+Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per informazioni su come usare altri provider di identità per l'autenticazione, vedere [Introduzione all'autenticazione]. 
+
+<!-- Anchors. -->
+[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
+[Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
+[Aggiungere l'autenticazione all'app]: #add-authentication
+[Passaggi successivi]:#next-steps
+
+<!-- Images. -->
+[1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
+[2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-live-connect-app-api-settings-mobile.png
+[4]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
+[5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
+
+[13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
+[14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
+[16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
+
+<!-- URLs. -->
+[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK per Windows e Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Aggiungere Servizi mobili a un'app esistente]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-users
+[Autorizzare gli utenti con gli script]: /it-it/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+
+[Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 
-
-  [Windows Store C#]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows Store JavaScript"
-  [Windows Phone]: /it-it/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
-  [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-wp8/
-  [Registrazione dell'app per l'autenticazione e configurazione di Servizi mobili]: #register
-  [Limitazione delle autorizzazioni per la tabella agli utenti autenticati]: #permissions
-  [Aggiunta dell'autenticazione all'app]: #add-authentication
-  [Live SDK per Windows e Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-  [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-wp8
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
-  [1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
-  [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-  [2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
-  [3]: ./media/mobile-services-windows-phone-single-sign-on/mobile-live-connect-app-api-settings-mobile.png
-  [4]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
-  [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-  [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
-  [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [app di Windows Store]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-  [Autorizzazione di utenti con script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-wp8
-  [8]: /it-it/develop/mobile/tutorials/get-started-with-users-wp8
+<!--HONumber=42-->

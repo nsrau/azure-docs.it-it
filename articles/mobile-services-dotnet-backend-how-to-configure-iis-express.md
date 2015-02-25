@@ -1,11 +1,15 @@
-<properties pageTitle="Configure IIS Express for local testing of Mobile Service" metaKeywords="Azure Mobile Services, .NET Backend, IIS Express" description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing." authors="glenga" title="Configure the local web server to allow connections to a local mobile service" />
+﻿<properties pageTitle="Configurare IIS Express per i test locali del servizio mobile" description="Informazioni su come configurare IIS Express per consentire le connessioni a un progetto di servizio mobile locale da usare per i test." authors="ggailey777" manager="dwrede" services="mobile-services" documentationCenter="windows" editor=""/>
 
-Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale.
-===============================================================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
 
-Servizi mobili di Azure consente di creare il servizio mobile in Visual Studio utilizzando uno dei linguaggi .NET supportati e quindi di pubblicarlo in Azure. Uno dei principali vantaggi dell'utilizzo di un back-end .NET per il servizio mobile è la possibilità di eseguire, testare ed eseguire il debug del servizio mobile sul computer locale o sulla macchina virtuale prima di pubblicarlo in Azure.
+# Configurazione del server Web locale per consentire le connessioni a un servizio mobile locale. 
 
-Per poter testare un servizio mobile localmente con i client in esecuzione su un emulatore, una macchina virtuale o una workstation separata, è necessario configurare il server Web locale e il computer host in modo da consentire le connessioni all'indirizzo e alla porta IP della workstation. In questo argomento viene descritto come configurare IIS Express in modo da abilitare le connessioni al servizio mobile ospitato localmente.
+Servizi mobili di Azure consente di creare il servizio mobile in Visual Studio usando uno dei linguaggi .NET supportati e quindi di pubblicarlo in Azure. Uno dei principali vantaggi dell'uso di un back-end .NET per il servizio mobile è la possibilità di eseguire, testare ed eseguire il debug del servizio mobile sul computer locale o sulla macchina virtuale prima di pubblicarlo in Azure. 
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
+Per poter testare un servizio mobile localmente con i client in esecuzione su un emulatore, una macchina virtuale o una workstation separata, è necessario configurare il server Web locale e il computer host in modo da consentire le connessioni all'indirizzo e alla porta IP della workstation. Questo argomento descrive come configurare IIS Express in modo da abilitare le connessioni al servizio mobile ospitato localmente. 
 
+[AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)] 
+
+
+
+<!--HONumber=42-->

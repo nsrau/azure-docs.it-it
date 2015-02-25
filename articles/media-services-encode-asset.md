@@ -1,17 +1,17 @@
-﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="Come codificare un asset per Servizi multimediali - Azure" metaKeywords="" description="Informazioni su come usare il codificatore multimediale di Azure per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Come codificare un asset per Servizi multimediali - Azure" description="Informazioni su come usare il codificatore multimediale di Azure per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Procedura: Codificare un asset
+# Procedura: Codificare un asset
 Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Ottenere un'istanza del processore di contenuti multimediali](../media-services-get-media-processor/).
 
-È possibile codificare il contenuto multimediale nel server usando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace][]. È possibile specificare i dettagli relativi alle attività di codifica usando [stringhe di set di impostazioni per il codificatore][] oppure file di configurazione. 
+È possibile codificare il contenuto multimediale nel server usando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È anche possibile usare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace][]. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di [set di impostazioni per il codificatore][] oppure file di configurazione. 
 
-##Codifica in un set MP4 velocità in bit adattiva
+## Codifica in un set MP4 velocità in bit adattiva
 È consigliabile codificare il file in formato intermedio in set MP4 velocità in bit adattiva e quindi usare funzionalità Dynamic Packaging per la distribuzione del contenuto. Per altre informazioni, vedere [Creazione di un processo di codifica con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/azure/dn282273.aspx), [Creazione dinamica dei pacchetti](http://msdn.microsoft.com/it-it/library/azure/jj889436.aspx) e [Distribuzione di contenuto](http://msdn.microsoft.com/it-it/library/azure/hh973618.aspx).
 
-##Codifica in formato MP4
+## Codifica in formato MP4
 Il metodo seguente consente di caricare un singolo asset e creare un processo per codificare l'asset in formato MP4 tramite il set di impostazioni "H264 Broadband 720p" che creerà un singolo file MP4 con la codifica H264 a una risoluzione di 720p:
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
@@ -155,15 +155,18 @@ Per altre informazioni sull'elaborazione di asset, vedere:
 <li><a href="http://msdn.microsoft.com/it-it/library/jj129574.aspx">Elaborazione di asset con l'API REST di Servizi multimediali</a></li>
 </ul>
 
-##Passaggi successivi
+## Passaggi successivi
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Impostazioni per il codificatore]: http://msdn.microsoft.com/it-it/library/dn619392.aspx
+[set di impostazioni per il codificatore]: http://msdn.microsoft.com/it-it/library/dn619392.aspx
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]:http://go.microsoft.com/fwlink/?LinkId=301732
 [Procedura: Caricare un asset crittografato]:http://go.microsoft.com/fwlink/?LinkId=301733
 [Procedura: Distribuire un asset mediante download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx
+[set di impostazioni di attività per Azure Media Packager]:http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

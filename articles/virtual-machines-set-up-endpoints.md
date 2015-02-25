@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Set up endpoints" pageTitle="Configurare gli endpoint in una macchina virtuale in Azure" metaKeywords="Azure config setup, configuring vm connection" description="Informazioni su come configurare la comunicazione con una macchina virtuale in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Configurare gli endpoint in una macchina virtuale in Azure" description="Informazioni su come configurare la comunicazione con una macchina virtuale in Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
 
 #Come configurare gli endpoint a una macchina virtuale
 
-**Nota**: per altre informazioni su come connettersi direttamente alle macchine virtuali mediante nome host o su come configurare connessioni cross-premise, vedere [Panoramica di Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Nota**: per connettersi direttamente alle macchine virtuali mediante nome host o per configurare connessioni cross-premise, vedere le [informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 Tutte le macchine virtuali create in Azure possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, altre risorse in Internet o altre reti virtuali richiedono gli endpoint per gestire il traffico di rete in ingresso alla macchina virtuale. 
 
@@ -22,7 +22,7 @@ I valori predefiniti per le porte e il protocollo per gli endpoint vengono forni
 
 ###Creare un endpoint###
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com) se questa operazione non è già stata eseguita.
+1. Se questa operazione non è già stata eseguita, accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale da configurare.
 
@@ -40,7 +40,7 @@ I valori predefiniti per le porte e il protocollo per gli endpoint vengono forni
 
 7. In **Porta pubblica** e **Porta privata** digitare i numeri di porta che si desidera usare. Questi numeri di porta possono essere diversi. La porta pubblica è il punto di ingresso per la comunicazione dall'esterno di Azure e viene usata dal servizio di bilanciamento del carico di Azure. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione.
 
-8. Fare clic su **Crea un set con carico bilanciato** se questo endpoint sarà il primo in un set con carico bilanciato. Quindi, nella pagina **Configura set con carico bilanciato** specificare un nome, il protocollo e i dettagli del probe. I set con carico bilanciato richiedono un probe in modo da monitorare l'integrità del set. Per altre informazioni, vedere [Bilanciamento del carico delle macchine virtuali](http://www.windowsazure.com/it-it/manage/windows/common-tasks/how-to-load-balance-virtual-machines/).  
+8. Fare clic su **Crea un set con carico bilanciato** se questo endpoint sarà il primo in un set con carico bilanciato. Quindi, nella pagina **Configura set con carico bilanciato** specificare un nome, il protocollo e i dettagli del probe. I set con carico bilanciato richiedono un probe in modo da monitorare l'integrità del set. Per altre informazioni, vedere l'articolo relativo al [bilanciamento del carico delle macchine virtuali](http://www.windowsazure.com/it-it/manage/windows/common-tasks/how-to-load-balance-virtual-machines/).  
 
 9.	Fare clic sul segno di spunta per creare l'endpoint.
 
@@ -50,11 +50,11 @@ I valori predefiniti per le porte e il protocollo per gli endpoint vengono forni
 
 ###Gestire l'elenco di controllo di accesso su un endpoint###
 
-Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un endpoint, attenersi alla procedura seguente.
+L'elenco di controllo di accesso su un endpoint di rete può limitare il traffico in base all'IP di origine, per proteggere gli endpoint creati nella macchina virtuale. Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un endpoint, attenersi alla procedura seguente.
 
 **Nota**: se l'endpoint fa parte di un set con carico bilanciato, qualsiasi modifica apportata all'elenco di controllo di accesso su un endpoint verrà applicata a tutti gli endpoint del set.
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com) se questa operazione non è già stata eseguita.
+1. Se questa operazione non è già stata eseguita, accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale da configurare.
 
@@ -70,6 +70,7 @@ Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un e
 
     ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
 
-6. Usare le righe nell'elenco per aggiungere, eliminare o modificare le regole per un elenco di controllo di accesso. Il valore di Remote Subnet corrisponde all'intervallo di indirizzi IP che è possibile consentire o negare come regola. Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere elencate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e ulteriori informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](http://go.microsoft.com/fwlink/p/?LinkId=303816).
+6. Usare le righe nell'elenco per aggiungere, eliminare o modificare le regole per un elenco di controllo di accesso. Il valore di Remote Subnet corrisponde all'intervallo di indirizzi IP che è possibile consentire o negare come regola. Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere elencate dalla meno restrittiva alla più restrittiva. Per esempi e altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

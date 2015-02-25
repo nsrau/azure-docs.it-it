@@ -1,5 +1,5 @@
-﻿<properties pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Servizi mobili di Azure" metaKeywords="mobile services single backend" description="Informazioni su come usare un singolo back-end del servizio mobile da più app client per diverse piattaforme mobili, ad esempio Windows Store e Windows Phone." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga" />
+<properties pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Servizi mobili di Azure" description="Informazioni su come usare un singolo back-end del servizio mobile da più app client per diverse piattaforme mobili, ad esempio Windows Store e Windows Phone." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga"/>
 
 # Supporto di piattaforme per più dispositivi da un singolo servizio mobile
  
@@ -20,7 +20,7 @@ Servizi mobili usa Hub di notifica di Azure per inviare notifiche push alle app 
 + WNS (Windows Notification Service) per app di Windows Store, Windows Phone 8.1 Store e Windows universale 
 + MPNS (Microsoft Push Notification Service) per app di Windows Phone Silverlight
 
->[WACOM.NOTE]Attualmente, Hub di notifica non include il supporto di WNS per l'invio di notifiche push ad app di Windows Phone Silverlight 8.1. Per inviare notifiche ad app di Silverlight e Windows Phone 8.0 e 7.0 è necessario usare MPNS.
+>[AZURE.NOTE] Attualmente, Hub di notifica non include il supporto di WNS per l'invio di notifiche push ad app di Windows Phone Silverlight 8.1. Per inviare notifiche ad app di Silverlight e Windows Phone 8.0 e 7.0 è necessario usare MPNS.
 
 Per altre informazioni, vedere [Hub di notifica di Azure].
 
@@ -30,13 +30,13 @@ Le registrazioni client vengono create usando la funzione di registrazione della
   
 + **Registrazione modello**<br/>Hub di notifica supporta anche registrazioni modello specifiche della piattaforma. Grazie alle registrazioni modello, è possibile inviare una notifica a un'app in esecuzione su qualsiasi piattaforma registrata eseguendo una sola chiamata all'API. Per altre informazioni, vedere [Inviare notifiche agli utenti tra piattaforme diverse].
 
->[WACOM.NOTE]Quando si tenta di inviare un messaggio a una piattaforma nativa per dispositivi per cui non esistono registrazioni di dispositivi, si verifica un errore. Questo non avviene quando si inviano notifiche modello.
+>[AZURE.NOTE] Quando si tenta di inviare un messaggio a una piattaforma nativa per dispositivi per cui non esistono registrazioni di dispositivi, si verifica un errore. Questo non avviene quando si inviano notifiche modello.
 
 Le tabelle riportate nelle sezioni seguenti forniscono collegamenti a esercitazioni specifiche del client che mostrano come implementare notifiche push da servizi mobili back-end sia .NET sia JavaScript.  
 
 ###Back-end .NET
 
-In un servizio mobile back-end .NET le notifiche vengono inviate chiamando il metodo [SendAsync] sull'oggetto [PushClient](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) ottenuto dalla proprietà [ApiServices.Push](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notifica push inviata (nativa o modello) dipende dallo specifico oggetto derivato da [IPushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) che viene passato al metodo [SendAsync], come mostrato nella tabella seguente: 
+In un servizio mobile back-end .NET le notifiche vengono inviate chiamando il metodo [SendAsync] sull'oggetto [PushClient](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) ottenuto dalla proprietà [ApiServices.Push](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notifica push inviata (nativa o modello) dipende dallo specifico oggetto derivato da [IPushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object che viene passato al metodo [SendAsync] come mostrato nella tabella seguente: 
 
 |Piattaforma |[APNS](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
@@ -60,7 +60,7 @@ Il codice seguente invia una notifica push da un servizio back-end .NET a tutte 
 
 Per esempi di come inviare notifiche push alle altre piattaforme client native, fare clic sui collegamenti relativi alla piattaforma nell'intestazione della tabella riportata sopra. 
 
-Quando si usano registrazioni client modello anziché registrazioni client native, è possibile inviare la stessa notifica con una singola chiamata a [SendAsync] fornendo un oggetto [TemplatePushMessage], come mostrato di seguito: 
+Quando si usano registrazioni client modello anziché registrazioni client native, è possibile inviare la stessa notifica con una singola chiamata a [SendAsync], fornendo un oggetto [TemplatePushMessage] come mostrato di seguito: 
 
 	// Create a new template message and add the 'message' parameter.    
 	var templatePayload = new TemplatePushMessage();
@@ -71,7 +71,7 @@ Quando si usano registrazioni client modello anziché registrazioni client nativ
  
 ###Back-end JavaScript
 
-In un servizio mobile back-end JavaScript le notifiche vengono inviate chiamando il metodo **send** sull'oggetto specifico della piattaforma ottenuto dall'[oggetto push] globale, come mostrato nella tabella seguente: 
+In un servizio mobile back-end JavaScript le notifiche vengono inviate chiamando il metodo **send** sull'oggetto specifico della piattaforma ottenuto dall'[oggetto push], globale, come mostrato nella tabella seguente: 
 
 |Piattaforma |[APNS](/it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
@@ -109,7 +109,7 @@ Il codice seguente invia una notifica push a tutte le registrazioni Android e Wi
 
 Per esempi di come inviare notifiche push alle altre piattaforme client native, fare clic sui collegamenti relativi alla piattaforma nell'intestazione della tabella riportata sopra.
 
-Quando si usano registrazioni client modello anziché registrazioni client native, è possibile inviare la stessa notifica con una singola chiamata della funzione **send** nell'[oggetto push] globale fornendo un payload di messaggio modello, come mostrato di seguito: 
+Quando si usano registrazioni client modello anziché registrazioni client native, è possibile inviare la stessa notifica con una singola chiamata della funzione **send** nell'[oggetto push], globale fornendo un payload di messaggio modello, come mostrato di seguito: 
 
 	// Create a new template message with the 'message' parameter.    
 	var templatePayload = { "message": item.text };
@@ -129,13 +129,13 @@ Lo sviluppo di app native per dispositivi mobili per tutte le principali piattaf
 
 Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per dispositivi mobili con le caratteristiche desiderate dagli utenti, condividendo al tempo stesso un unico codice base, in genere JavaScript. Servizi mobili facilita la creazione e la gestione di un servizio back-end per piattaforme di sviluppo di app multipiattaforma fornendo esercitazioni con guide rapide per le seguenti piattaforme di sviluppo: 
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator consente di usare JavaScript per sviluppare una singola app compilata per essere eseguita come nativa su tutte le piattaforme per dispositivi mobili. Questo assicura la creazione di un'interfaccia utente facile da usare, l'accesso a tutte le risorse native del dispositivo e le prestazioni tipiche delle app native. Per altre informazioni, vedere l'[esercitazione su Appcelerator][Appcelerator].
++ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator consente di usare JavaScript per sviluppare una singola app compilata per essere eseguita come nativa su tutte le piattaforme per dispositivi mobili. Questo assicura la creazione di un'interfaccia utente facile da usare, l'accesso a tutte le risorse native del dispositivo e le prestazioni tipiche delle app native. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa ad Appcelerator][Appcelerator].
  
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (una distribuzione del progetto Apache Cordova) è un framework gratuito e open source che consente di usare API Web standardizzate, HTML e JavaScript per sviluppare una singola app eseguibile su dispositivi Android, iOS e Windows. PhoneGap fornisce un'interfaccia utente basata su visualizzazione Web, ma con un'esperienza d'uso avanzata grazie alla possibilità di accesso alle risorse native del dispositivo, ad esempio le notifiche push, l'accelerometro, la fotocamera, gli spazi di archiviazione, la georilevazione e il browser integrato nell'app. Per altre informazioni, vedere l'[esercitazione con guida rapida relativa a PhoneGap][PhoneGap]. 
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (una distribuzione del progetto Apache Cordova) è un framework gratuito e open source che consente di usare API Web standardizzate, HTML e JavaScript per sviluppare una singola app eseguibile su dispositivi Android, iOS e Windows. PhoneGap fornisce un'interfaccia utente basata su visualizzazione Web, ma con un'esperienza d'uso avanzata grazie alla possibilità di accesso alle risorse native del dispositivo, ad esempio le notifiche push, l'accelerometro, la fotocamera, gli spazi di archiviazione, la georilevazione e il browser integrato nell'app. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa a PhoneGap][PhoneGap]. 
 	
 	Visual Studio consente ora di realizzare app Cordova multipiattaforma usando l'estensione Multi-Device Hybrid Apps per Visual Studio, un software in versione non definitiva. Per altre informazioni, vedere [Introduzione alle app ibride per più dispositivi con HTML e JavaScript](http://msdn.microsoft.com/it-it/library/dn771545.aspx). 
 
-+ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch offre un insieme di controlli, ottimizzati per touch-screen, che consentono di offrire un'esperienza utente simile a quella delle app native su un'ampia gamma di dispositivi mobili partendo da un'unica base di codice HTML e JavaScript. È possibile usare Sencha Touch in combinazione con le librerie di PhoneGap o Cordova per consentire agli utenti di accedere alle risorse native dei dispositivi. Per altre informazioni, vedere l'[esercitazione con guida rapida relativa a Sencha Touch][Sencha].
++ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch offre un insieme di controlli, ottimizzati per touch-screen, che consentono di offrire un'esperienza utente simile a quella delle app native su un'ampia gamma di dispositivi mobili partendo da un'unica base di codice HTML e JavaScript. È possibile usare Sencha Touch in combinazione con le librerie di PhoneGap o Cordova per consentire agli utenti di accedere alle risorse native dei dispositivi. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa a Sencha Touch][Sencha].
 
 + [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin consente di creare app completamente native per dispositivi sia iOS sia Android, con un'interfaccia utente completamente nativa e accesso a tutte le risorse del dispositivo. Le app di Xamarin sono sviluppate in C# anziché in Objective-C e Java. Questo consente agli sviluppatori .NET di pubblicare app per iOS e Android e di condividere il codice di progetti Windows. Xamarin offre agli utenti l'esperienza di app completamente native su dispositivi sia iOS sia Android partendo da codice C#. Questo consente di riutilizzare parte del codice di Servizi mobili derivante da app per Windows su dispositivi sia iOS che Android. Per altre informazioni, vedere la sezione [Sviluppo con Xamarin](#xamarin) più avanti. 
 
@@ -143,7 +143,7 @@ Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per
 Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/it-it/library/dn771552.aspx).
 
 
-##<a id="shared-vs"></a>Condivisione del codice in progetti di Visual Studio
+##<a id="shared-vs"></a>Condividere e riutilizzare il codice nei progetti di Visual Studio
 
 Servizi mobili include una libreria client .NET, ovvero una PCL (Portable Class Library) di NET Framework che supporta lo sviluppo su tutte le piattaforme Windows. Per altre informazioni, vedere l'argomento relativo all'[uso di un client .NET con Servizi mobili]. Questo facilita il riutilizzo di parte del codice di Servizi mobili, ad esempio per l'accesso ai dati o l'autenticazione, in più progetti C#.
 
@@ -155,16 +155,16 @@ Oltre a queste istruzioni di carattere generale, Visual Studio fornisce anche fu
 
 Visual Studio 2013 Update 2 include il supporto per progetti di app di Windows universali. Le app universali sono soluzioni che includono progetti di app di Windows Store 8.1 e Windows Phone Store 8.1, oltre a un progetto di codice condiviso. In questo tipo di progetto, il codice condiviso viene trattato come parte sia dei progetti Windows Store sia di quelli Windows Phone. Per altre informazioni, vedere [Creazione di app di Windows universali per tutti i dispositivi Windows]. Le app di Windows universali possono essere scritte sia in C#/XAML sia in JavaScript/HTML. 
 
-Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di gestione di Azure] genera, per iniziare, una versione "app di Windows universale" dell'app di esempio TodoList. È possibile scegliere di scaricare una versione C#/XAML o una versione JavaScript/HTML del progetto. Per altre informazioni, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/) 
+Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di gestione di Azure] genera, per iniziare, una versione "app di Windows universale" dell'app di esempio TodoList. È possibile scegliere di scaricare una versione C#/XAML o una versione JavaScript/HTML del progetto. Per altre informazioni, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-windows-store-get-started/). 
 
->[WACOM.NOTE]La versione C# del progetto di app di guida introduttiva disponibile nella scheda Guida introduttiva del portale di gestione condivide la pagina code-behind MainPage.xaml.cs, ma non usa un modello di visualizzazione. Per un esempio dell'app TodoList come progetto di app di Windows universale in C# che usa MVVM, vedere l'argomento relativo a un [progetto di app di Windows universale per Servizi mobili di Azure mediante MVVM]. 
+>[AZURE.NOTE] La versione C# del progetto di app di guida introduttiva disponibile nella scheda Guida introduttiva del portale di gestione condivide la pagina code-behind MainPage.xaml.cs ma non usa un modello di visualizzazione. Per un esempio dell'app TodoList come progetto di app di Windows universale in C# che usa MVVM, vedere l'argomento relativo a un [progetto di app di Windows universale per Servizi mobili di Azure mediante MVVM]. 
 
 ###<a id="xamarin"></a>Sviluppo con Xamarin
 
 È possibile sfruttare al massimo l'esperienza di sviluppo in Visual Studio e C# usando Xamarin e Visual Studio o Xamarin Studio per creare app per iOS e Android. Xamarin usa un'implementazione multipiattaforma di .NET Framework che permette di usare codice C# per sviluppare app per iOS e Android. Con Xamarin è possibile riutilizzare il codice esistente di progetti Windows in cui la libreria client .NET di Servizi mobili viene usata per accedere al servizio mobile in uso.  Per altre informazioni, vedere [ 
 Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/it-it/library/dn771552.aspx).
 
-Per iniziare a creare app di Xamarin che usano Servizi mobili, vedere le esercitazioni con guide rapide di Xamarin ([iOS](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
+Per iniziare a creare applicazioni di Xamarin che usano Servizi mobili, vedere le esercitazioni delle Guide rapide di Xamarin ([iOS](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
 
 
 ### App di Windows Store e Windows Phone Silverlight
@@ -173,7 +173,7 @@ Per lo sviluppo di app, in Windows Phone 8.1 è possibile scegliere di usare il 
 
 La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Store 8.1 sia di Windows Phone Silverlight 8.1. Poiché le app di Windows Runtime e Windows Phone Silverlight non possono essere sviluppate a partire dallo stesso progetto, si consiglia di adottare una strategia di riutilizzo del codice, ad esempio PCL e MVVM, come descritto sopra.
 
->[WACOM.NOTE]Per usare l'autenticazione client Single-Sign-On tramite un account Microsoft nelle app sia di Windows Runtime sia di Windows Phone Silverlight, è necessario innanzitutto registrare l'app di Windows Runtime nel dashboard di Windows Store. Dopo aver creato una registrazione Live Connect per Windows Phone non è infatti più possibile crearne una per Windows Store. Per altre informazioni su come eseguire questa operazione, vedere l'argomento **Autenticazione dell'app di Windows Store con l'accesso Single Sign-On di Live Connect** ([Windows Store][SSO Windows Store]/[Windows Phone][SSO Windows Phone]).
+>[AZURE.NOTE] Per usare l'autenticazione client Single-Sign-On tramite un account Microsoft nelle app sia di Windows Runtime sia di Windows Phone Silverlight, è necessario innanzitutto registrare l'app di Windows Runtime nel dashboard di Windows Store. Dopo aver creato una registrazione Live Connect per Windows Phone non è infatti più possibile crearne una per Windows Store. Per altre informazioni su come eseguire questa operazione, vedere l'argomento **Autenticare l'app di Windows Store con l'accesso Single Sign-On di Live Connect** ([Windows Store][SSO Windows Store]/[Windows Phone][SSO Windows Phone]).
 
 
 <!-- URLs -->
@@ -190,15 +190,16 @@ La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Stor
 [Introduzione alle notifiche push - iOS]: /it-it/develop/mobile/tutorials/get-started-with-push-ios/
 [Introduzione alle notifiche push - Android]: /it-it/develop/mobile/tutorials/get-started-with-push-android/
 [Schema dinamico]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx
-[Come usare un client .NET con Servizi mobili]: it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-[push object]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx
+[uso di un client .NET con Servizi mobili]: it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[oggetto push]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx
 [TemplatePushMessage]:http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: /it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
 [Sencha]: /it-it/documentation/articles/partner-sencha-mobile-services-get-started/
 [Appcelerator]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 [SendAsync]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
-[Novità per gli sviluppatori di Windows Phone 8]: http://msdn.microsoft.com/it-it/library/windows/apps/dn655121(v=vs.105).aspx
+[novità di Windows Phone 8 per gli sviluppatori]: http://msdn.microsoft.com/it-it/library/windows/apps/dn655121(v=vs.105).aspx
 [Creazione di app di Windows universali per tutti i dispositivi Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Progetto di app di Windows universale per Servizi mobili di Azure tramite MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

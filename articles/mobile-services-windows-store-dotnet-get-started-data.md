@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="Introduzione ai dati (Windows Store) | Mobile Dev Center" metaKeywords="" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app di Windows Store." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introduzione ai dati (Windows Store) | Mobile Dev Center" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Store." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
 
 # Introduzione ai dati in Servizi mobili
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 
 <div class="dev-center-tutorial-subselector">
@@ -13,26 +13,26 @@
 </div>
 
 
-In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per sfruttare i dati in un'app di Windows Store. Questa esercitazione consente di scaricare un progetto di Visual Studio 2013 per un'app che archivia dati in memoria, di creare un nuovo servizio mobile e integrarlo con l'app e quindi di accedere al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
+Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dati in un'app di Windows Store. Questa esercitazione consente di scaricare un progetto di Visual Studio 2013 per un'app che archivia dati in memoria, di creare un nuovo servizio mobile e integrarlo con l'app e quindi di accedere al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.
 
->[WACOM.NOTE]Questo argomento illustra come usare Visual Studio 2013 per aggiungere Servizi mobili di Azure a un progetto di Windows Store. È possibile aggiungere lo stesso servizio mobile back-end JavaScript a un progetto di app Windows universale. Per altre informazioni, vedere la [versione di app Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) di questa esercitazione. 
+>[AZURE.NOTE]Questo argomento descrive come usare Visual Studio 2013 per aggiungere Servizi mobili di Azure a un progetto di Windows Store. È possibile aggiungere lo stesso servizio mobile back-end JavaScript a un progetto di app Windows universale. Per altre informazioni, vedere la [versione universale dell'app di Windows](/it-it/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) di questa esercitazione. 
 
-In questa esercitazione vengono descritte le operazioni di base seguenti:
+Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 
-1. [Download del progetto dell'app di Windows Store][Get the Windows Store app] 
+1. [Scaricare il progetto di app di Windows Store][Scaricare l'app di Windows Store] 
 2. [Creazione del servizio mobile da Visual Studio]
 3. [Aggiunta di una tabella dati per l'archiviazione]
-4. [Aggiornamento dell'app per l'uso del servizio mobile]
-5. [Test dell'app in Servizi mobili]
+4. [Aggiornare l'app per l'uso del servizio mobile]
+5. [Testare l'app in Servizi mobili]
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F).
 * Visual Studio 2013, che facilita la connessione dell'app di Windows Store a Servizi mobili. 
 
-## <a name="download-app"></a>Download del progetto GetStartedWithData
+##<a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
-Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer Code Samples site], che è un progetto di app di Windows Store in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale. 
+Questa esercitazione è basata sull'[app GetStartedWithMobileServices][sito di esempi di codice per sviluppatori], ovvero un progetto di app di Windows Store disponibile in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale. 
 
 1. Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network]. 
 
@@ -48,9 +48,9 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 
    	Si noti che il testo salvato viene visualizzato nella seconda colonna sotto **Query and update data**.
 
-## <a name="create-service"></a>Creazione di un nuovo servizio mobile da Visual Studio
+##<a name="create-service"></a>Creare un nuovo servizio mobile da Visual Studio
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7"><li><p>In Esplora soluzioni aprire il file di codice App.xaml.cs e notare il nuovo campo static aggiunto alla classe **App**, simile all'esempio seguente:</p> 
 
@@ -64,17 +64,17 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 </li>
 </ol>
 
-## <a name="add-table"></a>Aggiunta di una nuova tabella per l'archiviazione
+##<a name="add-table"></a>Aggiungere una nuova tabella per l'archiviazione dati
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[WACOM.NOTE]Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt, e __version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt, e __version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx).
 
-# <a name="update-app"></a>Aggiornamento dell'app per l'uso del servizio mobile
+#<a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
+[AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-## <a name="test-app"></a>Test dell'app sul nuovo servizio mobile
+##<a name="test-app"></a>Testare l'app nel nuovo servizio mobile
 
 1. In Visual Studio premere F5 per eseguire l'app.
 
@@ -114,12 +114,12 @@ L'esercitazione **Introduzione ai dati** è terminata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows Store di utilizzare dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
+In questa esercitazione vengono illustrate le nozioni di base per consentire a un'app di Windows Store di usare dati in Servizi mobili. In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
 
-* [Uso di script per la convalida e la modifica di dati]
-  <br/>Informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
+* [Usare script per la convalida e la modifica di dati]
+  <br/>Altre informazioni sull'uso di script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
 
-* [Uso del paging per ridefinire le query]
+* [Usare il paging per ridefinire le query]
   <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
 
 Una volta completata la serie relativa ai dati, provare a eseguire una delle esercitazioni seguenti:
@@ -131,16 +131,15 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 * [Riferimento per i concetti e le procedure di .NET per Servizi mobili]
-  <br/>Informazioni su come usare Servizi mobili con .NET.
+  <br/>Altre informazioni su come usare Servizi mobili con .NET.
   
 <!-- Anchors. -->
 
-[Get the Windows Store app]: #download-app
 [Download dell'app di Windows Store]: #download-app
 [Creazione del servizio mobile da Visual Studio]: #create-service
 [Aggiunta di una tabella dati per l'archiviazione]: #add-table
-[Aggiornamento dell'app per l'uso del servizio mobile]: #update-app
-[Test dell'app in Servizi mobili]: #test-app
+[Aggiornare l'app per l'uso del servizio mobile]: #update-app
+[Testare l'app in Servizi mobili]: #test-app
 [Passaggi successivi]:#next-steps
 
 <!-- Images. -->
@@ -151,8 +150,8 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 
 
 <!-- URLs. -->
-[Uso di script per la convalida e la modifica di dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
-[Uso del paging per ridefinire le query]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
+[Usare script per la convalida e la modifica di dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
+[Usare il paging per ridefinire le query]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
 [Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -163,7 +162,8 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 [Portale di gestione]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Sito degli esempi di codice di Developer Network]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

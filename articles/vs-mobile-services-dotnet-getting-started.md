@@ -1,9 +1,23 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
+> - [Introduzione](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
 > - [Risultati](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
 
 ## Introduzione a Servizi mobili (progetti .NET)
@@ -31,7 +45,7 @@ Il codice seguente ottiene un riferimento a una tabella contenente i dati per To
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-Questo codice funziona se le autorizzazioni della tabella sono impostate su **Chiunque con la chiave applicazione**. Se si cambiano le autorizzazioni per proteggere il servizio mobile, sarà necessario aggiungere il supporto per l'autenticazione utente. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+Questo codice funziona se le autorizzazioni della tabella sono impostate su **Chiunque con la chiave applicazione**. Se si cambiano le autorizzazioni per proteggere il servizio mobile, sarà necessario aggiungere il supporto per l'autenticazione utente. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
 
 #####Aggiungere una voce 
 
@@ -70,3 +84,5 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->
