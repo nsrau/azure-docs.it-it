@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -80,7 +80,7 @@ Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwor
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un messaggio di posta elettronica](#bkmk_HowToCreateEmail).
-5.  Inviare il messaggio tramite un oggetto <span class="auto-style1">javax.mail.Transport</span>. Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][How to: Send an Email] .
+5.  Inviare il messaggio tramite un oggetto <span class="auto-style1">javax.mail.Transport</span>. Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica] .
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Procedura: Creare un messaggio di posta elettronica
 
@@ -208,9 +208,9 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [http://sendgrid.com/features]: https://sendgrid.com/features
   [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
   [Impostazioni dei filtri]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-  [Documentazione sull'API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
+  [documentazione dell'API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
-  [recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
+  [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android" metaKeywords="" description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android" metaKeywords="" description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare qu
 
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
-##<a name="adding-categories"></a>Aggiunta della selezione delle categorie all'app
+## <a name="adding-categories"></a>Aggiunta della selezione delle categorie all'app
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag. 
 
@@ -209,7 +209,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie. 
 
-##<a name="register"></a>Registrazione per le notifiche
+## <a name="register"></a>Registrazione per le notifiche
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale. 
 
@@ -262,7 +262,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Esecuzione dell'app e generazione di notifiche
+## <a name="test-app"></a>Esecuzione dell'app e generazione di notifiche
 
 1. In Eclipse compilare l'app e avviarla in un dispositivo o emulatore.
 	

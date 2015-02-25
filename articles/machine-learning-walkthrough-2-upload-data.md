@@ -1,4 +1,4 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Azure" description="Passaggio 2: Caricamento di dati pubblici esistenti in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Azure" description="Passaggio 2: Caricamento di dati pubblici esistenti in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
@@ -23,7 +23,7 @@ Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluz
 
 ----------
 
-#Passaggio 2: Caricare dati esistenti in un esperimento di Machine Learning di Azure  
+# Passaggio 2: Caricare dati esistenti in un esperimento di Machine Learning di Azure  
 
 Per sviluppare un modello predittivo per il rischio del credito, verrà usato il set di dati "UCI Statlog (German Credit Data) Data Set" del repository di Machine Learning UCI, disponibile al seguente indirizzo:  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@ Questi dati verranno usati per creare un modello di analisi predittiva. Una volt
 
 Ma ecco un interessante risvolto. La descrizione del set di dati spiega che classificare erroneamente un cliente come a basso rischio mentre è ad alto rischio implica costi cinque volte più alti per l'istituto di credito rispetto a classificare erroneamente un cliente come ad alto rischio mentre è a basso rischio. Un modo semplice per tenere conto di questo aspetto nell'esperimento consiste nel duplicare (5 volte) le voci che rappresentano un cliente con rischio di credito elevato. In tal modo, se il modello classifica erroneamente come basso un rischio alto, la classificazione errata sarà ripetuta 5 volte, una per ogni duplicato, e il costo di questo errore aumenterà nei risultati.  
 
-##Convertire il formato del set di dati
+## Convertire il formato del set di dati
 Nel set di dati originale viene usato un formato con valori separati da spazi vuoti. Per il funzionamento ottimale di ML Studio è preferibile usare un file con valori separati da virgole (CSV), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.  
 
 È possibile effettuare questa operazione con il comando seguente di Windows PowerShell:   
@@ -49,7 +49,7 @@ Oppure anche con il comando sed di Unix:
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##Caricare il set di dati in ML Studio
+## Caricare il set di dati in ML Studio
 
 Dopo aver convertito i dati in formato CSV, è necessario caricarli in ML Studio.  
 

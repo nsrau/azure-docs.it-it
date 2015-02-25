@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica" metaKeywords="" description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica" metaKeywords="" description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Usare Hub di notifica per inviare le ultime notizie localizzate
@@ -25,7 +25,7 @@ Lo scenario è composto da due parti:
 
 
 
-##Prerequisiti ##
+## Prerequisiti ##
 
 È necessario aver completato l'esercitazione [Usare Hub di notifica per inviare le e ultime notizie] e disporre del relativo codice, in quanto questa esercitazione è basata direttamente su tale codice. 
 
@@ -204,8 +204,8 @@ Per altre informazioni sull'uso del modelli, vedere [Usare Hub di notifica per i
 [Servizio mobile]: /it-it/develop/mobile/tutorials/get-started
 [Usare Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /it-it/manage/services/notification-hubs/notify-users-aspnet
 [Usare Hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /it-it/manage/services/notification-hubs/notify-users
-[Usare Hub di notifica per inviare notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-dotnet 
-
+[Usare Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet 
+[Usare Hub di notifica per inviare le e ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet 
 [Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

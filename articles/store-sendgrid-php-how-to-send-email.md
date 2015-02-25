@@ -1,4 +1,4 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Informazioni su come inviare messaggi con il servizio di posta elettronica SendGrid in Azure. Esempi di codice scritti in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -406,7 +406,7 @@ usare i collegamenti seguenti per ottenere altre informazioni.
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl (funzione)]: http://php.net/curl
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
-  [recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
+  [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
   [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Come usare Cache Redis di Azure" metaKeywords="" description="Informazioni su come creare e usare una cache in Cache Redis di Azure." metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Come usare Cache Redis di Azure" metaKeywords="" description="Informazioni su come creare e usare una cache in Cache Redis di Azure." metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -218,7 +218,7 @@ Digitare **RedisSessionStateProvider** nella casella di testo **Cerca online**, 
 
 Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly necessari e aggiunge la seguente sezione nel file web.config che contiene la configurazione richiesta per consentire all'applicazione ASP.NET di usare il provider di stato della sessione per Cache Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -330,7 +330,7 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 
    
 <!-- LINKS -->
-[Provider di stato della sessione Redis di Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
+[Provider di stato della sessione ASP.NET per Cache Redis di Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Portale di gestione di Azure]: http://windows.azure.com/
 [Procedura: Configurare un client della cache a livello di codice]: http://msdn.microsoft.com/it-it/library/windowsazure/gg618003.aspx
 [Provider di stato della sessione ASP.NET per Cache di Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -346,7 +346,7 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 [Procedura: Impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/it-it/library/z852zf6b.aspx
 [Configurare una cache in Cache Redis di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn793612.aspx
 
-[Modello di configurazione StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[Modello di configurazione di StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
 [Gestire gli oggetti .NET nella cache]: http://msdn.microsoft.com/it-it/library/dn690521.aspx#Objects
 
@@ -367,8 +367,8 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 
 [Redis]: http://redis.io/documentation
 [Tipi di dati Redis]: http://redis.io/topics/data-types
-[introduzione di quindici minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
+[introduzione di 15 minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
 
-[Uso di stringhe di applicazione e stringhe di connessione in Siti Web di Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[uso di stringhe di applicazione e stringhe di connessione in Siti Web di Microsoft Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->

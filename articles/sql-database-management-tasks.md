@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Come gestire un database SQL" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Informazioni su come gestire un database SQL di Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="Come gestire un database SQL" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Informazioni su come gestire un database SQL di Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 Questo argomento descrive come eseguire semplici attività di gestione in un database SQL di Azure. 
 
-##Sommario##
+## Sommario##
 
 * [Procedura: Connettersi al database SQL in Azure mediante Management Studio](#connect)
 * [Procedura: Aggiungere account di accesso e utenti al database SQL in Azure](#addlogins)
@@ -23,7 +23,7 @@ Nel passaggio seguente verrà usato Management Studio per la connessione a un se
 
 Prima di potere effettuare la connessione, è a volte necessario creare un'eccezione del firewall per consentire richieste in uscita sulla porta 1433 nel sistema locale. La porta 1433 non è in genere aperta nei computer protetti per impostazione predefinita. 
 
-##Configurare il firewall per un server locale
+## Configurare il firewall per un server locale
 
 1. In Windows Firewall con protezione avanzata creare una nuova regola in uscita.
 
@@ -32,7 +32,7 @@ Prima di potere effettuare la connessione, è a volte necessario creare un'eccez
 3. Specificare un nome significativo, ad esempio *WindowsAzureSQLDatabase (tcp-out) porta 1433*. 
 
 
-##Effettuare la connessione a un server logico
+## Effettuare la connessione a un server logico
 
 1. In Management Studio verificare in Connetti al server che Motore di database sia selezionato, quindi immettere il nome del server logico con il formato seguente: *nomeserver*.database.widnows.net
 
@@ -45,7 +45,7 @@ Prima di potere effettuare la connessione, è a volte necessario creare un'eccez
 4. In Connetti al database specificare **master**.
 
 
-##Effettuare la connessione a un server locale
+## Effettuare la connessione a un server locale
 
 1. In Management Studio verificare in Connetti al server che Motore di database sia selezionato, quindi immettere il nome di un'istanza locale con il formato seguente: *nomeserver*\\*nomeistanza*. Se il server è locale e l'istanza è predefinita, immettere *localhost*.
 
@@ -62,7 +62,7 @@ Per il primo script verrà effettuata la connessione al database master e verrà
 
 Il secondo script consente di assegnare autorizzazioni utente database. Per questo script verrà effettuata la connessione a un database già caricato in Azure.
 
-##Creare account di accesso
+## Creare account di accesso
 
 1. In Management Studio connettersi a un server logico in Azure, espandere la cartella Databases, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
@@ -82,7 +82,7 @@ Il secondo script consente di assegnare autorizzazioni utente database. Per ques
 </pre></div>
 
 
-##Creare utenti database
+## Creare utenti database
 
 1. Espandere la cartella Databases, fare clic con il pulsante destro del mouse su **school** e quindi scegliere **Nuova query**.
 
@@ -104,7 +104,7 @@ Il secondo script consente di assegnare autorizzazioni utente database. Per ques
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##Visualizzare e testare gli account di accesso
+## Visualizzare e testare gli account di accesso
 
 1. In una nuova finestra Query effettuare la connessione a **master** ed eseguire l'istruzione seguente: 
 
@@ -127,7 +127,7 @@ Sono stati ora creati e testati diversi account di accesso. Per altre informazio
 
 [Gestione di database e account di accesso in database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/ee336235.aspx
 [Monitoraggio di database SQL mediante le viste a gestione dinamica]: http://msdn.microsoft.com/it-it/library/windowsazure/ff394114.aspx
-[Gestione di Database SQL mediante SQL Server Management Studio]: http://www.windowsazure.com/it-it/develop/net/common-tasks/sql-azure-management/
+[Gestione del database SQL mediante Management Studio]: http://www.windowsazure.com/it-it/develop/net/common-tasks/sql-azure-management/
 
 
 

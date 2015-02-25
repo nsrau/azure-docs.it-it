@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Guida introduttiva di Node.js - Esercitazione di Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Esercitazione end-to-end che illustra come sviluppare una semplice applicazione Web Node.js e distribuirla in Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Guida introduttiva di Node.js - Esercitazione di Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Esercitazione end-to-end che illustra come sviluppare una semplice applicazione Web Node.js e distribuirla in Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@ Questa esercitazione consente di creare una semplice applicazione Web ospitata i
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Finestra del browser in cui è visualizzata la pagina Hello World. L'URL indica che la pagina è ora ospitata in Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Finestra del browser in cui è visualizzata la pagina Hello World. L'URL indica che la pagina è ora ospitata in Azure.">
 </p>
 
 
@@ -57,15 +57,15 @@ Per creare un nuovo progetto di Servizio cloud di Azure oltre allo scaffolding d
 	I file creati dal cmdlet **New-AzureServiceProject** sono:
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
-        application.
+        **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef** sono
+        file specifici di Azure, necessari per la pubblicazione 
+        dell'applicazione.
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	Per ulteriori informazioni su questi file, vedere
+        [Panoramica della creazione di un servizio ospitato per Azure][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** archivia le impostazioni locali utilizzate dai
+        cmdlet di distribuzione di Azure PowerShell.
 
 4.  Immettere il comando seguente per aggiungere un nuovo ruolo Web usando il cmdlet **Add-AzureNodeWebRole**:
 
@@ -162,7 +162,7 @@ Per distribuire l'applicazione in Azure, è necessario innanzitutto scaricare le
 
 2.  Crea un nuovo **account di archiviazione** nel caso non ne esista uno. L'account di archiviazione di Azure viene usato per archiviare il pacchetto dell'applicazione durante la distribuzione. L'account di archiviazione può essere eliminato dopo il completamento della distribuzione.
 
-3.  Crea un nuovo **servizio cloud** nel caso in cui non ne esista già uno. Un **servizio cloud** è il contenitore nel quale l'applicazione è ospitata quando viene distribuita in Azure. Per altre informazioni, vedere [Creazione di un servizio ospitato per Azure][].
+3.  Crea un nuovo **servizio cloud** nel caso in cui non ne esista già uno. Un **servizio cloud** è il contenitore nel quale l'applicazione è ospitata quando viene distribuita in Azure. Per altre informazioni, vedere [Panoramica della creazione di un servizio ospitato per Azure][].
 
 4.  Pubblica il pacchetto di distribuzione in Azure.
 

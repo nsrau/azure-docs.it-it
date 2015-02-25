@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Come usare il Servizio cache gestita di Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="" pageTitle="Come usare il Servizio cache gestita di Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -427,15 +427,16 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Preparare il progetto di Visual Studio per usare la memorizzazione nella cache di Azure]: #prepare-vs
 [Configurare l'applicazione in modo da usare la memorizzazione nella cache]: #configure-app
 [Introduzione al Servizio cache gestita]: #getting-started-cache-service
+[Introduzione a Cache nel ruolo]: #getting-started-cache-service
 [Creare la cache]: #create-cache
 [Configurare la cache]: #enable-caching
 [Configurare i client della cache]: #NuGet
 [Uso delle cache]: #working-with-caches
-[Procedura: creare un oggetto DataCache] #create-cache-object
-[Procedura: aggiungere e recuperare un oggetto dalla cache] #add-object
-[Procedura: specificare la scadenza di un oggetto nella cache] #specify-expiration
-[Procedura: archiviare lo stato della sessione ASP.NET nella cache] #store-session
-[Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]. #store-page
+[Procedura: creare un oggetto DataCache]: #create-cache-object
+[Procedura: aggiungere e recuperare un oggetto dalla cache]: #add-object
+[Procedura: specificare la scadenza di un oggetto nella cache]: #specify-expiration
+[Procedura: archiviare lo stato della sessione ASP.NET nella cache]: #store-session
+[Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]: #store-page
 [Scelta di un profilo .NET Framework supportato]: #prepare-vs-target-net
   
 <!-- IMAGES -->
@@ -457,7 +458,7 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 <!-- LINKS -->
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Procedura: configurare un client della cache a livello di codice]: http://msdn.microsoft.com/it-it/library/windowsazure/gg618003.aspx
-[Provider di stato della sessione per Cache di Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Provider di stato della sessione per il Servizio cache gestita di Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Cache di Azure AppFabric: stato della sessione di memorizzazione nella cache]: http://www.microsoft.com/it-it/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Provider di cache di output per Cache di Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Memorizzazione nella cache condivisa di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg278356.aspx
@@ -481,13 +482,13 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Disponibilità elevata]: http://go.microsoft.com/fwlink/?LinkId=317329
 [Notifiche]: http://go.microsoft.com/fwlink/?LinkId=317276
 [Migrazione al Servizio cache gestita]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Esempi del Servizio cache gestita]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Esempi del Servizio cache gestita di Azure]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Cmdlet del Servizio cache gestita di Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Come installare e configurare Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/it-it/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/it-it/library/dn495203.aspx
 
-[Qual è il tipo di memorizzazione nella cache appropriato?]: http://msdn.microsoft.com/it-it/library/azure/dn766201.aspx
+[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/it-it/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->

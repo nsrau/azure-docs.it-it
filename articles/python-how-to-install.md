@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Installare Python e l'SDK - Azure" metaKeywords="Azure Python SDK" description="Informazioni su come installare Python e l'SDK da usare con Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Install Python" pageTitle="Installare Python e l'SDK - Azure" metaKeywords="Azure Python SDK" description="Informazioni su come installare Python e l'SDK da usare con Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
@@ -173,8 +173,9 @@ Per informazioni su come configurare una VM Linux, vedere la sezione relativa al
 [Progetto Django: framework/CMS Web avanzato]: http://www.djangoproject.com 
 [IPython: REPL/Notebook avanzato per Python]: http://ipython.org
 [IPython Notebook in Azure]: /it-it/documentation/articles/virtual-machines-python-ipython-notebook
-[distribuzione in servizi cloud e siti Web]: /it-it/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+[distribuzione nei servizi cloud e nei siti Web]: /it-it/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
 [Python Tools per Visual Studio su CodePlex]: http://pytools.codeplex.com 
+[Python Tools per Visual Studio sul sito CodePlex]: http://pytools.codeplex.com 
 [Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 [Microsoft Azure SDK per Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409

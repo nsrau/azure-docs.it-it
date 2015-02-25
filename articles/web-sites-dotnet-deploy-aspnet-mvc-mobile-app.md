@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Sito Web .NET ASP.NET MVC 5 per dispositivi mobili - Esercitazioni su Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un'esercitazione che illustra come distribuire un'applicazione Web in un sito Web di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Sito Web .NET ASP.NET MVC 5 per dispositivi mobili - Esercitazioni su Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un'esercitazione che illustra come distribuire un'applicazione Web in un sito Web di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -137,7 +137,8 @@ Per vedere l'aspetto dell'app Web senza Bootstrap, aprire *App_Start\BundleConfi
               "~/Content/site.css"));
 
 Premere `CTRL+F5` per eseguire l'applicazione.
- La barra di spostamento comprimibile è ora un normale elenco non ordinato. Fare ancora clic su **Browse by tag**, quindi su **ASP.NET**. Nella schermata dell'emulatore per dispositivi mobili, la tabella non è più ridotta per rientrare interamente nello schermo ed è necessario scorrerla in senso orizzontale per visualizzarne la parte destra.
+
+La barra di spostamento comprimibile è ora un normale elenco non ordinato. Fare ancora clic su **Browse by tag**, quindi su **ASP.NET**. Nella schermata dell'emulatore per dispositivi mobili, la tabella non è più ridotta per rientrare interamente nello schermo ed è necessario scorrerla in senso orizzontale per visualizzarne la parte destra.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -557,7 +558,7 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 Vedere anche
 --------
 
--   [9 principi di base della progettazione Web reattiva][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
+-   [9 principi di base della progettazione Web reattiva](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Sito Web di Bootstrap][BootstrapSite]
 -   [Blog ufficiale di Bootstrap][]
 -   [Tutorial Twitter Bootstrap su Tutorial Republic][]

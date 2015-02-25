@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introduzione ad Hub di notifica di Azure" metaKeywords="" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Introduzione ad Hub di notifica di Azure" metaKeywords="" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + Android SDK (si presuppone che verrà usato Eclipse), che è possibile scaricare da <a href="http://go.microsoft.com/fwlink/?LinkId=389797">questa pagina</a>.
 + Attenersi alla procedura riportata in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">questa pagina</a> per impostare l'ambiente di sviluppo per Kindle.
 
-##Aggiunta di una nuova app al portale per sviluppatori
+## Aggiunta di una nuova app al portale per sviluppatori
 
 1. Innanzitutto, creare un'app nel [portale per gli sviluppatori].
 
@@ -57,14 +57,14 @@ Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configura*
 
 ## Configurare l'applicazione
 
-<div class="dev-callout"><b>Nota</b>
+    <div class="dev-callout"><b>Nota</b>
     <p>Quando si crea un'applicazione, usare come requisito minimo il livello API 17.</p>
     </div>
 
 Aggiungere le librerie ADM al progetto Eclipse.
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
-2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries ** nella parte superiore. Fare clic su **Add External Jar**, e selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
+2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, e selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
 3. Scaricare NotificationHubs Android SDK (collegamento).
 4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs `in Eclipse.
 

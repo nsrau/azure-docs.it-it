@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione all'Hub eventi" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# usando EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Introduzione all'Hub eventi" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# usando EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -20,7 +20,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub eventi
 
-1. Accedere al portale di gestione di [Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub eventi** e infine **Creazione rapida**.
 
@@ -77,7 +77,7 @@ A questo punto è possibile eseguire le applicazioni.
 [22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn836025.aspx
 

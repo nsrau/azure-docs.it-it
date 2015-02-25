@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Come usare il database SQL (.NET) - Guida alle funzionalità di Azure" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Introduzione a Database SQL. Informazioni su come creare un'istanza di database SQL e connettersi ad essa usando ADO.NET, ODBC e il provider EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties urlDisplayName="SQL Database" pageTitle="Come usare il database SQL (.NET) - Guida alle funzionalità di Azure" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Introduzione a Database SQL. Informazioni su come creare un'istanza di database SQL e connettersi ad essa usando ADO.NET, ODBC e il provider EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -232,7 +232,7 @@ A questo punto, dopo aver appreso le nozioni di base della connessione al databa
   [Come creare un server di database SQL]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Portale di gestione per database SQL]: http://msdn.microsoft.com/it-it/library/windowsazure/gg442309.aspx
   [Firewall del database SQL]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Supporto per strumenti e utilità (database SQL)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621784.aspx
+  [Sviluppo: Procedure (SQL Database)]: http://msdn.microsoft.com/it-it/library/windowsazure/ee621784.aspx
   [Come creare un database SQL in Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Contratto di servizio]: {localLink:1132} "CONTRATTO DI SERVIZIO"
   [Provider EntityClient per Entity Framework]: http://msdn.microsoft.com/it-it/library/bb738561.aspx

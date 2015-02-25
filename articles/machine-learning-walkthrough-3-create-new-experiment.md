@@ -1,4 +1,4 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Passaggio 3: Creare un nuovo esperimento di Machine Learning | Azure" description="Passaggio 3: Creazione di un nuovo esperimento di formazione in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Passaggio 3: Creare un nuovo esperimento di Machine Learning | Azure" description="Passaggio 3: Creazione di un nuovo esperimento di formazione in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
@@ -33,7 +33,7 @@ Questo è il terzo passaggio della procedura dettagliata [Sviluppare una soluzio
 3.	Nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento espandere **Set di dati salvati**.
 4.	Individuare il set di dati creato e trascinarlo nell'area di disegno. È possibile trovare il set di dati anche immettendone il nome nella casella **Cerca** sopra la tavolozza.  
 
-##Preparare i dati
+## Preparare i dati
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati facendo clic con il pulsante destro del mouse sulla porta di output del set di dati e selezionando **Visualizza**. Si noti che ML Studio ha già identificato il tipo di dati per ogni colonna. Sono anche state assegnate intestazioni generiche alle colonne, perché il file di dati non ne presentava alcuna.  
 
 Le intestazioni di colonna non sono indispensabili ma semplificheranno l'uso dei dati nel modello. Inoltre, quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
@@ -59,7 +59,7 @@ L'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Adding Metadata Editor][2]
  
-##Creare set di dati di training e di test
+## Creare set di dati di training e di test
 Il prossimo passaggio dell'esperimento consiste nel generare set di dati separati che verranno usati per le attività di training e di test del modello. Per questa operazione viene usato il modulo **Dividi**.  
 
 1.	Individuare il modulo **Dividi**, trascinarlo nell'area di disegno e connetterlo all'ultimo modulo **Editor metadati**.

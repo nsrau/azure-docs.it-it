@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Come usare Hub di notifica con Java" metaKeywords="" description="Informazioni su come usare Hub di notifica di Azure da un back-end Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Come usare Hub di notifica con Java" metaKeywords="" description="Informazioni su come usare Hub di notifica di Azure da un back-end Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
@@ -14,7 +14,7 @@ In questo argomento viene illustrato come:
 * Compilare un client REST per le funzionalità di Hub di notifica in Java.
 * Completare l'[esercitazione introduttiva](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/) per la piattaforma mobile preferita, implementando la parte del backend in Java.
 
-##<a name="client-interface"></a>Interfaccia del client
+## <a name="client-interface"></a>Interfaccia del client
 L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/it-it/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito oppure messi a disposizione dalla community in Internet.
 
 Tutto il codice disponibile è incluso nell'[esempio di wrapper REST Java].
@@ -36,7 +36,7 @@ Per inviare una notifica nativa iOS:
 	Notification n = Notification.createAppleNotifiation("APNS body");
 	hub.sendNotification(n);
 
-##<a name="implementation"></a>Implementazione
+## <a name="implementation"></a>Implementazione
 Se non è già stato fatto, seguire l'[esercitazione introduttiva] fino all'ultima sezione in cui è necessario implementare il back-end.
 Se si vuole, si può anche usare il codice dell'[esempio di wrapper REST Java] e passare direttamente alla sezione [Completare l'esercitazione](#complete-tutorial).
 
@@ -298,7 +298,7 @@ Una volta definita questa classe, è possibile scrivere i metodi di notifica all
 
 I metodi sopra indicati inviano una richiesta POST HTTP all'endpoint /messages dell'hub di notifica, contenenti il corpo e le intestazioni corrette per l'invio della notifica.
 
-##<a name="complete-tutorial"></a>Completare l'esercitazione
+## <a name="complete-tutorial"></a>Completare l'esercitazione
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Java.
 
 Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'[esercitazione introduttiva]:
@@ -342,7 +342,7 @@ Aggiungere quindi il codice di invio a seconda della piattaforma mobile di desti
 Eseguendo il codice Java dovrebbe essere visualizzata una notifica sul dispositivo di destinazione.
 
 
-##<a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. A questo punto è possibile:
 
 * Scaricare l'intero [esempio di wrapper REST Java], che contiene tutto il codice sopra indicato oltre alla gestione delle registrazioni.

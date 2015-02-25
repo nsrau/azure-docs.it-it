@@ -18,7 +18,7 @@ In questa guida viene illustrato come eseguire scenari comuni usando il blocco a
  [Concetti][Concetti]   
  [Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione][Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione]   
  [Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica][Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica]   
- [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla] [ Procedura: Definire il modello del servizio][ Procedura: Definire il modello del servizio]   
+ [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla] [Procedura: Definire il modello del servizio][Procedura: Definire il modello del servizio]   
  [Procedura: Definire le regole di scalabilità automatica][Procedura: Definire le regole di scalabilità automatica]   
  [Procedura: Configurare il blocco applicazione per la scalabilità automatica][Procedura: Configurare il blocco applicazione per la scalabilità automatica]   
  [Passaggi successivi][Passaggi successivi]
@@ -28,6 +28,7 @@ In questa guida viene illustrato come eseguire scenari comuni usando il blocco a
 Il blocco applicazione per la scalabilità automatica consente di adattare automaticamente un'applicazione Azure in base a regole definite in modo specifico per l'applicazione. È possibile usare queste regole per fare in modo che l'applicazione Azure mantenga la stessa velocità effettiva con il variare del carico di lavoro, controllando al tempo stesso i costi associati all'hosting dell'applicazione in Azure. Oltre ad adattare l'applicazione aumentando o diminuendo il numero di istanze del ruolo nell'applicazione, il blocco consente anche di usare altre operazioni di scalabilità come la limitazione di determinate funzionalità dell'applicazione o l'uso di azioni personalizzate.
 
 È possibile scegliere di ospitare il blocco in un ruolo di Azure o in un'applicazione locale. 
+
 Il blocco applicazione per la scalabilità automatica fa parte di [Microsoft Enterprise Library 5.0 Integration Pack per Azure][Microsoft Enterprise Library 5.0 Integration Pack per Azure].
 
 ## <a id="Concepts"> </a>Concetti
@@ -95,7 +96,7 @@ Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio
 
 ## <a id="Instantiate"> </a>Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla
 
-Usare il metodo **IServiceLocator.GetInstance** per creare un'istanza del blocco applicazione per la scalabilità automatica e quindi chiamare il metodo **Autoscaler.Start** per eseguirla****.
+Usare il metodo **IServiceLocator.GetInstance** per creare un'istanza del blocco applicazione per la scalabilità automatica e quindi chiamare il metodo **Autoscaler.Start** per eseguirla.
 
     Autoscaler scaler =
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
@@ -367,8 +368,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
 -   [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica][Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]
 -   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure][Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]
 
-  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
-    http://go.microsoft.com/fwlink/?LinkID=235134
+  [Microsoft Enterprise Library 5.0 Integration Pack per Azure]:http://go.microsoft.com/fwlink/?LinkID=235134
   [Passaggi successivi]: #NextSteps
   [Informazioni sul blocco applicazione per la scalabilità automatica]: #WhatIs
   [Concetti]: #Concepts
@@ -390,6 +390,6 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Guida allo sviluppo per Enterprise Library 5.0 Integration Pack per Azure]: http://msdn.microsoft.com/it-it/library/hh680949(PandP.50).aspx
   [Riduzione dei costi di hosting di Azure da parte di Sage con la scalabilità automatica]: http://msdn.microsoft.com/it-it/library/jj838716(PandP.50).aspx
   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/it-it/library/jj838718(PandP.50).aspx
-
+  [portale di gestione di Azure]: http://manage.windowsazure.com
 
 <!--HONumber=35.1-->

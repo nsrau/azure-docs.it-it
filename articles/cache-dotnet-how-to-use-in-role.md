@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Caching" pageTitle="Come usare Cache nel ruolo (.NET) - Guida alle funzionalità di Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Caching" pageTitle="Come usare Cache nel ruolo (.NET) - Guida alle funzionalità di Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -156,7 +156,7 @@ Il pacchetto NuGet aggiunge i seguenti elementi di configurazione nel file web.c
                allowDefinition="Everywhere" />
     </configSections>
 
-These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
+In queste nuove sezioni sono inclusi i riferimenti a un elemento **dataCacheClients** e a un elemento **cacheDiagnostics**. Questi elementi vengono inoltre aggiunti all'elemento configuration.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -168,7 +168,7 @@ These new sections include references to a **dataCacheClients** element and a **
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
+Dopo avere aggiunto la configurazione, sostituire **[cache cluster role name]** con il nome del ruolo che ospita il cluster di cache.
 
 >Se **[cache cluster role name]** non viene sostituito con il nome del ruolo che ospita il cluster di cache, verrà generata un'eccezione **TargetInvocationException** quando viene eseguito l'accesso alla cache con un'eccezione **DatacacheException** interna e un messaggio che indica che il ruolo non esiste.
 
@@ -374,11 +374,11 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 [Configurare le dimensioni desiderate per la cache]: #cache-size
 [Configurare i client della cache]: #NuGet
 [Uso delle cache]: #working-with-caches
-[Procedura: creare un oggetto DataCache] #create-cache-object
-[Procedura: aggiungere e recuperare un oggetto dalla cache] #add-object
-[Procedura: specificare la scadenza di un oggetto nella cache] #specify-expiration
-[Procedura: archiviare lo stato della sessione ASP.NET nella cache] #store-session
-[Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]. #store-page
+[Procedura: creare un oggetto DataCache]: #create-cache-object
+[Procedura: aggiungere e recuperare un oggetto dalla cache]: #add-object
+[Procedura: specificare la scadenza di un oggetto nella cache]: #specify-expiration
+[Procedura: archiviare lo stato della sessione ASP.NET nella cache]: #store-session
+[Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET]: #store-page
 [Scelta di un profilo .NET Framework supportato]: #prepare-vs-target-net
  
 <!-- IMAGES --> 
@@ -393,7 +393,7 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
 <!-- LINKS -->
-[Come configurare le dimensioni delle macchine virtuali]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Configurare le dimensioni dei servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Procedura: configurare un client della cache a livello di codice]: http://msdn.microsoft.com/it-it/library/windowsazure/gg618003.aspx
 [Procedura: impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/it-it/library/z852zf6b.aspx
 [Procedura: impostare la possibilità di inserire una pagina ASP.NET nella cache in modo dichiarativo]: http://msdn.microsoft.com/it-it/library/zd1ysf1y.aspx
@@ -401,19 +401,20 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
 [Esempi di Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/jj189876.aspx
 [Cache nel ruolo]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Cache nel ruolo]: http://www.microsoft.com/it-it/showcase/Search.aspx?phrase=azure+caching
-[Prestazioni massime: accelerare le applicazioni di Servizi cloud con Cache di Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[come ottenere le massime prestazioni accelerando le applicazioni di Servizi cloud con Cache di Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [Eseguire la migrazione a Cache nel ruolo per Cache di Azure]: http://msdn.microsoft.com/it-it/library/hh914163.aspx
 [Installazione di gestione pacchetti NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Provider di cache di output per Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185662.aspx
+[Provider di cache di output per Cache di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185662.aspx
 [Direttiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Panoramica di Cache nel ruolo]: http://go.microsoft.com/fwlink/?LinkId=254172
 [Provider di stato della sessione per Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185668.aspx
+[Provider di stato della sessione per Cache di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185668.aspx
 [Blog del team]: http://blogs.msdn.com/b/windowsazure/
 [Diagnostica e risoluzione dei problemi di Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/hh914135.aspx
 [Cache di Azure AppFabric: stato della sessione di memorizzazione nella cache]: http://www.microsoft.com/it-it/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Portale di gestione di Azure]: http://windows.azure.com/
 [Memorizzazione nella cache condivisa di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg278356.aspx
 
-[Qual è il tipo di memorizzazione nella cache appropriato?]: http://msdn.microsoft.com/it-it/library/azure/dn766201.aspx
+[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/it-it/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->

@@ -1,9 +1,9 @@
-﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica Azure, messaggistica di Azure" description="Informazioni su come usare le notifiche push in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
+<properties urlDisplayName="Azure Notification Hubs" pageTitle="Hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica Azure, messaggistica di Azure" description="Informazioni su come usare le notifiche push in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
-#Hub di notifica di Azure
+# Hub di notifica di Azure
 
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
@@ -77,7 +77,7 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Uso di Hub di notifica da parte dei clienti]: http://azure.microsoft.com/it-it/services/notification-hubs
-  [Esercitazioni e guide sull'HUB di notifica]: http://azure.microsoft.com/it-it/documentation/services/notification-hubs
+  [Esercitazioni e guide su HUB di notifica]: http://azure.microsoft.com/it-it/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started
   [Android]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-android-get-started
   [Windows Universal]: http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started
