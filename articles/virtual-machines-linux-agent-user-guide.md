@@ -1,14 +1,28 @@
-﻿<properties pageTitle="Guida dell'utente dell'agente Linux per Azure" description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Guida dell'utente dell'agente Linux per Azure" 
+	description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="szarkos"/>
 
 
 
 
 
-#Guida dell'utente dell'agente Linux di Azure
+# Guida dell'utente dell'agente Linux di Azure
 
-##Introduzione
+## Introduzione
 
 L'agente Linux di Azure (waagent) gestisce l'interazione tra una macchina virtuale e il controller di infrastruttura di Azure. Effettua le seguenti operazioni:
 
@@ -40,14 +54,14 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 
 * Un endpoint TCP che espone un'API REST usata per ottenere la configurazione della distribuzione e della topologia.
 
-###Come ottenere l'agente Linux
+### Come ottenere l'agente Linux
 È possibile ottenere l'agente Linux più recente direttamente da:
 
 - [I vari provider di distribuzione che supportano Linux in Azure](http://support.microsoft.com/kb/2805216)
 - Il [repository open source Github per l'agente Linux di Azure](https://github.com/WindowsAzure/WALinuxAgent)
 
 
-###Distribuzioni Linux supportate
+### Distribuzioni Linux supportate
 * CoreOS
 * CentOS 6.2+
 * Debian 7.0+
@@ -61,7 +75,7 @@ Altri sistemi supportati:
 * FreeBSD 9+ (WALinuxAgent v2.0.0+)
 
 
-###Requisiti
+### Requisiti
 
 Per il corretto funzionamento dell'agente Linux (waagent) sono necessari alcuni package di sistema:
 
@@ -73,7 +87,7 @@ Per il corretto funzionamento dell'agente Linux (waagent) sono necessari alcuni 
 * Strumenti di elaborazione testo: sed, grep
 * Strumenti di rete: ip-route
 
-##Installazione
+## Installazione
 
 Il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure prevede l'installazione tramite un pacchetto RPM o DEB dall'archivio di pacchetti della distribuzione.
 
@@ -85,14 +99,14 @@ Se si opta per l'installazione manuale, è necessario copiare waagent in /usr/sb
 Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 
 
-##Opzioni da riga di comando
+## Opzioni da riga di comando
 
-###Flag
+### Flag
 
 - verbose: Aumenta il livello di dettaglio del comando specificato
 - force: Ignora la conferma interattiva per determinati comandi
 
-###Comandi:
+### Comandi:
 
 - help: Elenca i flag e i comandi supportati.
 
@@ -142,7 +156,7 @@ Il file di log dell'agente viene mantenuto in /var/log/waagent.log.
 - daemon: Esegue waagent come daemon per gestire l'interazione con la piattaforma.
    Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
 
-##Configurazione
+## Configurazione
 
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. 
 Di seguito è riportato un file di configurazione di esempio:
@@ -176,21 +190,21 @@ Le opzioni di configurazione booleane possono essere specificate come "y" o "n".
 **Role.StateConsumer:**
 
 Tipo: String  
-Predefinito: None
+Predefinito: Nessuno
 
 Se è specificato un percorso a un programma eseguibile, viene richiamato dopo che waagent ha effettuato il provisioning dell'immagine e lo stato "Ready" è pronto per essere segnalato all'infrastruttura. L'argomento specificato al programma sarà "Ready". L'agente non attenderà la restituzione del programma prima di continuare.
 
 **Role.ConfigurationConsumer:**
 
 Tipo: String  
-Predefinito: None
+Predefinito: Nessuno
 
 Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un file di configurazione per una macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte, ogni volta che il file di configurazione subisce modifiche. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Tipo: String  
-Predefinito: None
+Predefinito: Nessuno
 
 Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un nuovo layout di topologia di rete per la macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte ogni, ogni volta che la topologia di rete subisce modifiche, ad esempio a seguito della correzione del servizio. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/SharedConfig.xml.
 
@@ -290,13 +304,13 @@ Consente di configurare il timeout SCSI in secondi nel disco del sistema operati
 **OS.OpensslPath:**
 
 Tipo: String  
-Predefinito: None
+Predefinito: Nessuno
 
 È possibile aggiungere questa voce per specificare un percorso alternativo per il file binario openssl da usare per le operazioni di crittografia.
 
-##Appendice
+## Appendice
 
-###File di configurazione del ruolo di esempio
+### File di configurazione del ruolo di esempio
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
@@ -328,7 +342,7 @@ Predefinito: None
 	    </ResourceReferences>
 	  </HostingEnvironmentConfig>
 
-###File di topologia del ruolo di esempio
+### File di topologia del ruolo di esempio
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
@@ -405,7 +419,4 @@ Predefinito: None
 	  </Instances>
 	</SharedConfig>
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,4 +1,4 @@
-
+﻿
 Per altre informazioni sui dischi, vedere l'argomento relativo ai [dischi della macchina virtuale in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
 ##<a id="attachempty"></a>Procedura: Collegare un disco vuoto
@@ -8,12 +8,15 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 
 2. Sulla barra dei comandi fare clic su **Connetti** e quindi su **Connetti disco vuoto**.
 
-	![Collegare un disco vuoto](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+
+	![Attach an empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
 
 3.	Verrà visualizzata la finestra di dialogo **Connetti disco vuoto**.
 
-	![Connetti disco vuoto](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
+	![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+
+ 
 	Eseguire le operazioni seguenti:
 
 	- In **Nome file** accettare il nome predefinito o digitarne un altro per il file con estensione vhd, che viene usato per il disco. Il disco dati usa un nome generato automaticamente, anche se si digita un altro nome per il file con estensione vhd.
@@ -24,7 +27,7 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 
 4.	Una volta creato e collegato, il disco dati verrà elencato nel dashboard della macchina virtuale.
 
-	![Disco dati vuoto collegato correttamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
 ##<a id="attachexisting"></a>Procedura: Collegare un disco esistente
 
@@ -34,11 +37,14 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 
 2. Sulla barra dei comandi fare clic su **Attach**, quindi selezionare **Attach Disk**.
 
-	![Collegare il disco dati](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+
+	![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
 
 	Verrà visualizzata la finestra di dialogo **Attach Disk**.
 
-	![Immettere i dettagli del disco](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+
+
+	![Enter data disk details](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
 
 3. Selezionare il disco dati da collegare alla macchina virtuale.
 
@@ -46,12 +52,13 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
  
 5.	Una volta collegato, il disco dati verrà elencato nel dashboard della macchina virtuale.
 
-	![Disco dati correttamente collegato](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+
+	![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
 > [AZURE.NOTE] 
-> Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa utilizzarlo per l'archiviazione.
+> Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

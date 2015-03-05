@@ -1,13 +1,27 @@
-<properties pageTitle="Collegare un disco a una macchina virtuale che esegue Linux in Azure" description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Collegare un disco a una macchina virtuale che esegue Linux in Azure" 
+	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="kathydav"/>
 
 #Come collegare un disco dati a una macchina virtuale Linux
 
 È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso. 
 
 > [AZURE.NOTE] È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. 
-> Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). In Linux, tuttavia, il disco dati può essere denominato dal kernel come `/dev/sdc`. In questo caso sarà necessario eseguire la partizione, la formattazione e il montaggio della risorsa. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](http://www.windowsazure.com/it-it/manage/linux/how-to-guides/linux-agent-guide/).
+> Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). In Linux, tuttavia, il disco dati può essere denominato dal kernel come `/dev/sdc`. In questo caso sarà necessario eseguire la partizione, la formattazione e il montaggio della risorsa. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/).
 
 - [Procedura: Collegare un disco vuoto](#attachempty)
 - [Procedura: Collegare un disco esistente](#attachexisting)
@@ -74,7 +88,7 @@
 
 	![Create file system](./media/virtual-machines-linux-how-to-attach-disk/DiskFileSystem.png)
 
-	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso in sola lettura ai file system ext4.  Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
+	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso di sola lettura ai file system ext4.  Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
 
 
 9. Creare una directory per il montaggio del nuovo file system. Ad esempio, digitare il comando seguente e quindi immettere la password dell'account:
@@ -128,7 +142,4 @@
 
 [logonlinux]: ../virtual-machines-linux-how-to-log-on/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -17,7 +17,7 @@
 	- Specificare un **Nome macchina virtuale**, ad esempio "testlinuxvm".
 	- Verificare il valore di **Livello** e selezionare una **Dimensione**. Il livello determina le dimensioni che è possibile scegliere.
 	- Specificare un nuovo **Nuovo nome utente**, ad esempio "newuser", che verrà aggiunto al file dell'elenco Sudoers.
-	- Definire il tipo di **Autenticazione** da usare. Per linee guida generali relative alle password, vedere [Password complesse](http://msdn.microsoft.com/it-it/library/ms161962.aspx).
+	- Definire il tipo di **Autenticazione** da usare. Per linee guida generali relative alle password, vedere [Password complesse](http://msdn.microsoft.com/library/ms161962.aspx).
 
 
 5. Nella pagina successiva **Configurazione macchina virtuale** inserire o verificare le impostazioni:
@@ -34,7 +34,7 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 	
-	Type the user's password.
+	Digitare la password dell'utente.
 
 - Se si usa un computer Windows, connettersi alla macchina virtuale tramite PuTTY. È possibile scaricare PuTTY dalla [pagina di download PuTTY][PuTTYDownLoad]. 
 
@@ -60,4 +60,4 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

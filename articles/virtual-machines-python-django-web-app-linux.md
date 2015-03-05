@@ -1,6 +1,20 @@
-﻿<properties pageTitle="App Web Python con Django in Mac - Esercitazione di Azure" description="Esercitazione che illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Linux." services="virtual-machines" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="App Web Python con Django in Mac - Esercitazione di Azure" 
+	description="Esercitazione che illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Linux." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -29,15 +43,15 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ## Creazione e configurazione di una macchina virtuale di Azure per l'hosting di Django
 
-1. Attenersi alle istruzioni riportate [qui][portal-vm] per creare una macchina virtuale di Azure della distribuzione  *Ubuntu Server 14.04 LTS*.
+1. Attenersi alle istruzioni riportate [qui][portal-vm] per creare una macchina virtuale di Azure della distribuzione *Ubuntu Server 14.04 LTS*.
 
-  **Nota:** è necessario creare  *solo* la macchina virtuale. Arrivare solo fino alla sezione  *Come accedere alla macchina virtuale dopo averla creata*.
+  **Nota:** è necessario creare *only* la macchina virtuale. Arrestare la sezione intitolata *Come accedere alla macchina virtuale dopo averla creata*.
 
 1. Impostare Azure in modo da dirigere il traffico della porta **80** proveniente dal Web alla porta **80** della macchina virtuale:
-	* Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda  *ENDPOINT*.
-	* Fare clic sul pulsante  *AGGIUNGI* nella parte inferiore della schermata.
+	* Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda *ENDPOINTS*.
+	* Fare clic sul pulsante *ADD* nella parte inferiore della schermata.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Selezionare il protocollo  *TCP* e aprire  *PORTA PUBBLICA 80* come  *PORTA PRIVATA 80*.
+	* Aprire la *PUBLIC PORT 80* del protocollo  *TCP* come *PRIVATE PORT 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Configurazione dell'ambiente di sviluppo
@@ -121,5 +135,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 [portal-vm]: /it-it/manage/linux/tutorials/virtual-machine-from-gallery/
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

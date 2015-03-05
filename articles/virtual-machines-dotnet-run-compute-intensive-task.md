@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Attività a elevato utilizzo di calcolo .NET in una macchina virtuale - Azure" description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code di Service Bus per monitorare lo stato in remoto." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Attività a elevato utilizzo di calcolo .NET in una macchina virtuale - Azure" 
+	description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code di Service Bus per monitorare lo stato in remoto." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure
 
@@ -51,13 +65,15 @@ Di seguito è riportato un esempio dell'applicazione .NET che esegue il monitora
 
 <h2>Come creare uno spazio dei nomi del bus di servizio</h2>
 
-Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario
+creare uno spazio dei nomi servizio, che fornisce un contenitore
+di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
 Per creare uno spazio dei nomi servizio:
 
 1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
+3.  Nel riquadro inferiore del portale di gestione fare clic su  **Crea**.
 
     ![Create new service bus][create_service_bus]
 4.  Nella finestra di dialogo **Crea uno spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome, che deve essere univoco.
@@ -65,7 +81,7 @@ Per creare uno spazio dei nomi servizio:
     ![Create a namespace dialog][create_namespace_dialog]
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di usare la stessa area in cui è ospitata la macchina virtuale.
 
-    > [AZURE.IMPORTANT] Selezionare **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
+    > [AZURE.IMPORTANT] Selezionare la **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6. Se si dispone di più sottoscrizioni di Azure per l'account con cui è stato eseguito l'accesso, selezionare la sottoscrizione da usare per lo spazio dei nomi. Se si dispone di una sola sottoscrizione per l'account con cui è stato eseguito l'accesso, l'elenco a discesa contenente le sottoscrizioni non verrà visualizzato.
 7. Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
@@ -76,7 +92,9 @@ Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e s
 
 <h2>Recuperare le credenziali di gestione predefinite per lo spazio dei nomi</h2>
 
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel
+nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per
+lo spazio dei nomi.
 
 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus** per
     visualizzare l'elenco degli spazi dei nomi disponibili:   
@@ -89,7 +107,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 <h2>Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo</h2>
 
-1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://www.windowsazure.com/it-it/develop/net/).
+1. Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://azure.microsoft.com/develop/net/).
 2. Creare un'applicazione console .NET con il progetto denominato **TSPSolver**. Verificare che il framework di destinazione sia impostato per .**NET Framework 4** o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto effettuando le operazioni riportate di seguito. Nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
 3. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, quindi fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK (ad esempio al percorso **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
 4. Aggiungere la libreria System Runtime Serialization. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, scegliere su **Aggiungi riferimento**, quindi fare clic sulla scheda **.NET** e selezionare **System.Runtime.Serialization** come riferimento.
@@ -519,7 +537,7 @@ Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutt
  
 <h3>Come eseguire l'applicazione client di monitoraggio</h3>
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
 3. Copiare **TSPClient.exe** e Microsoft.ServiceBus.dll, entrambi disponibili nella cartella **bin** del progetto TSPClient, nella cartella c:\TSP.
 4. Al prompt dei comandi passare alla directory c:\TSP.
 5. Eseguire il comando seguente:
@@ -530,7 +548,7 @@ Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutt
 
 	    TSPClient 1
 
-    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** (non **TSPClient**) seguente:
+    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** (non il comando **TSPClient**)  :
 
         TSPSolver deletequeue
 
@@ -550,7 +568,4 @@ Per creare o eliminare la coda, è possibile usare il [portale di gestione di Az
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,8 +1,22 @@
-﻿<properties pageTitle="Informazioni su Puppet e macchine virtuali di Azure" description="Descrive come installare e configurare Puppet in una macchina virtuale in Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Informazioni su Puppet e macchine virtuali di Azure" 
+	description="Descrive come installare e configurare Puppet in una macchina virtuale in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
-#Informazioni su Puppet e macchine virtuali di Azure
+# Informazioni su Puppet e macchine virtuali di Azure
 
 <p>Puppet Enterprise è un software di automazione per compilare, distribuire e gestire l'infrastruttura. Può essere usato per gestire il ciclo di vita dell'infrastruttura IT, ad esempio per il rilevamento, il provisioning, la gestione della configurazione di sistema operativo e applicazioni, l'orchestrazione e la creazione di report.   
 
@@ -11,10 +25,10 @@ Puppet è un sistema client-server. Puppet Master e Puppet Enterprise Agent sono
 - Puppet Master è disponibile come immagine preconfigurata, installata in un server Ubuntu. È anche possibile installare Puppet Enterprise in un server esistente, ma l'immagine rappresenta il modo più semplice per iniziare. Per configurare l'agente, sono necessarie le informazioni sul server. 
 - Puppet Enterprise Agent è disponibile come estensione della macchina virtuale che può essere installata durante la creazione di una macchina virtuale oppure in una macchina virtuale esistente.
 
-Per le istruzioni, scaricare la Guida introduttiva disponibile nella pagina [Microsoft Windows e Azure](http://puppetlabs.com/solutions/microsoft).  
+Per le istruzioni, scaricare la "Guida introduttiva" disponibile nella pagina [Microsoft Windows e Azure](http://puppetlabs.com/solutions/microsoft).  
 
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 [Nuove integrazioni con Microsoft Azure e Visual Studio]
 
 [Come accedere a una macchina virtuale che esegue Windows Server]
@@ -31,5 +45,4 @@ Per le istruzioni, scaricare la Guida introduttiva disponibile nella pagina [Mic
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

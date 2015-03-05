@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" 
+	description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	writer="szark" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -9,9 +24,9 @@ I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per 
 
 
 ## Collegamento di dischi dati
-Per configurare un dispositivo RAID sono in genere necessari due dischi dati.  In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/#attachempty).
+Per configurare un dispositivo RAID sono in genere necessari due dischi dati.  In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty).
 
->[AZURE.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx).
+>[AZURE.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati.  Per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).
 
 
 ## Installazione dell'utility mdadm
@@ -41,7 +56,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+		AVVISO: DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
@@ -118,7 +133,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 		# sudo mkdir /data
 
-2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utility `blkid` per determinare l'UUID del nuovo file system:
+2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utilità `blkid` per determinare l'UUID del nuovo file system:
 
 		# sudo /sbin/blkid
 		...........
@@ -159,7 +174,4 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 	Per informazioni sulla corretta modifica dei parametri del kernel, fare riferimento alla documentazione della distribuzione. Ad esempio, in molte distribuzioni (CentOS, Oracle Linux, SLES 11) è possibile aggiungere manualmente tali parametri al file "`/boot/grub/menu.lst`".  In Ubuntu è possibile aggiungere il parametro alla variabile `GRUB_CMDLINE_LINUX_DEFAULT` in "/etc/default/grub".
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

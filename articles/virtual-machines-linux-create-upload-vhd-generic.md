@@ -1,6 +1,20 @@
-<properties pageTitle="Creazione e caricamento di un file VHD Linux in Azure" description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Creazione e caricamento di un file VHD Linux in Azure" 
+	description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
 # <a id="nonendorsed"> </a>Informazioni per le distribuzioni non approvate #
@@ -14,7 +28,7 @@ Tutte le distribuzioni eseguite in Azure dovranno soddisfare numerosi prerequisi
 
 Per questo motivo, è consigliabile iniziare, laddove possibile, con una delle [distribuzioni approvate di Linux su Azure](../linux-endorsed-distributions). Gli articoli seguenti forniscono le istruzioni per preparare le varie distribuzioni Linux approvate che sono supportate in Azure:
 
-- **[Distribuzioni basate su centOS](../virtual-machines-linux-create-upload-vhd-centos)**
+- **[Distribuzioni basate su CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
 - **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
@@ -26,9 +40,9 @@ La restante parte di questo articolo sarà incentrata sulle indicazioni generali
 
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, sui dischi di dati si può usare LVM o [RAID](../virtual-machines-linux-configure-raid).
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, su dischi di dati si può usare LVM o [RAID](../virtual-machines-linux-configure-raid).
 
-- NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che utilizzano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure (waagent) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux.
+- NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che usano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure (waagent) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux.
 
 - Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse.  Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -37,7 +51,7 @@ La restante parte di questo articolo sarà incentrata sulle indicazioni generali
 
 ### Installazione di Linux senza Hyper-V ###
 
-In alcuni casi, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale (initrd o initramfs), a meno che non rilevi di essere in esecuzione in un ambiente Hyper-V.  Quando si utilizza un sistema di virtualizzazione diverso (ad esempio Virtualbox, KVM e così via) per preparare l'immagine Linux, potrebbe essere necessario ricreare initrd per assicurarsi che almeno i moduli kernel `hv_vmbus` e `hv_storvsc` siano disponibili sul disco RAM iniziale.  Questo è un problema noto, almeno nei sistemi basati sulla distribuzione upstream di Red Hat.
+In alcuni casi, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale (initrd o initramfs), a meno che non rilevi di essere in esecuzione in un ambiente Hyper-V.  Quando si usa un sistema di virtualizzazione diverso (ad esempio Virtualbox, KVM e così via) per preparare l'immagine Linux, potrebbe essere necessario ricreare initrd per assicurarsi che almeno i moduli kernel `hv_vmbus` e `hv_storvsc` siano disponibili sul disco RAM iniziale.  Questo è un problema noto, almeno nei sistemi basati sulla distribuzione upstream di Red Hat.
 
 Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda della distribuzione. Per la procedura appropriata, consultare la documentazione della distribuzione o il supporto.  Di seguito è riportato un esempio di come ricreare l'immagine initrd tramite l'utilità `mkinitrd`:
 
@@ -53,19 +67,19 @@ Quindi, ricreare l'immagine initrd con i moduli kernel `hv_vmbus` e `hv_storvsc`
 
 ### Ridimensionamento dei dischi rigidi virtuali ###
 
-Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 MB. Solitamente, i VHD creati usando Hyper-V sono già allineati correttamente. Se il VHD non è allineato correttamente, è possibile che venga visualizzato un messaggio di errore simile al seguente quando si tenta di creare un' *immagine* dal disco rigido virtuale:
+Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 MB.  Solitamente, i VHD creati usando Hyper-V sono già allineati correttamente.  Se il VHD non è allineato correttamente, è possibile che venga visualizzato un messaggio di errore simile al seguente quando si tenta di creare un' *image* dal disco rigido virtuale:
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs)."
 
-Per risolvere questo problema, è possibile ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/it-it/library/hh848535.aspx).
+Per risolvere questo problema, è possibile ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/ library/hh848535.aspx).
 
 Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per convertire (se necessario) e ridimensionare il disco rigido virtuale:
 
- 1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può risultare in un VHD non avviabile. Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW. Se l'immagine della VM è già stata creata come immagine disco RAW (questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM), è possibile saltare questo passaggio:
+ 1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può risultare in un VHD non avviabile.  Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW.  Se l'immagine della VM è già stata creata come immagine disco RAW (questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM), è possibile saltare questo passaggio:
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
- 2. Calcolare le dimensioni richieste dell'immagine disco per assicurare che le dimensioni virtuali siano allineate a 1 MB. A questo scopo, può essere utile il seguente script bash shell. Lo script usa "`qemu-img info`" per determinare le dimensioni virtuali dell'immagine disco, quindi calcola le dimensioni in corrispondenza del successivo 1 MB:
+ 2. Calcolare le dimensioni richieste dell'immagine disco per assicurare che le dimensioni virtuali siano allineate a 1 MB.  A questo scopo, può essere utile il seguente script bash shell.  Lo script usa "`qemu-img info`" per determinare le dimensioni virtuali dell'immagine disco, quindi calcola le dimensioni in corrispondenza del successivo 1 MB:
 
 		rawdisk="MyLinuxVM.raw"
 		vhddisk="MyLinuxVM.vhd"
@@ -115,7 +129,7 @@ Come minimo, l'assenza delle seguenti patch causa problemi in Azure e quindi tal
 
 ## Agente Linux di Azure ##
 
-L'[agente Linux di Azure](../virtual-machines-linux-agent-user-guide) (waagent) è necessario per eseguire correttamente il provisioning di una macchina virtuale Linux in Azure. È possibile scaricare la versione più recente, inviare problemi o inviare richieste pull all'[archivio GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
+L'[agente Linux di Azure](../virtual-machines-linux-agent-user-guide) (waagent) è necessario per effettuare correttamente il provisioning di una macchina virtuale Linux in Azure. È possibile scaricare la versione più recente, inviare problemi o inviare richieste pull al [repository GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
 
 - L'agente Linux viene rilasciato con la licenza Apache 2.0. Molte distribuzioni forniscono già pacchetti RPM o Debian per l'agente, che pertanto può, in alcuni casi, essere installato e aggiornato con un livello minimo di impegno.
 
@@ -134,7 +148,7 @@ L'[agente Linux di Azure](../virtual-machines-linux-agent-user-guide) (waagent) 
 
 	In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug.
 
-	Inoltre, è consigliabile  *rimuovere* i seguenti parametri, se esistenti:
+	È anche consigliabile *remove* i parametri seguenti, se esistenti:
 
 		rhgb quiet crashkernel=auto
 
@@ -144,13 +158,13 @@ L'[agente Linux di Azure](../virtual-machines-linux-agent-user-guide) (waagent) 
 
 - Installazione dell'agente Linux di Azure
 
-	L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure. Molte distribuzioni forniscono l'agente come pacchetto RPM o Debian (il pacchetto è in genere denominato 'WALinuxAgent' o 'walinuxagent'). È inoltre possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](../virtual-machines-linux-agent-user-guide).
+	L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure.  Molte distribuzioni forniscono l'agente come pacchetto RPM o Debian (il pacchetto è in genere denominato 'WALinuxAgent' o 'walinuxagent').  È anche possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](../virtual-machines-linux-agent-user-guide).
 
-- Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
+- Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questo è in genere il valore predefinito.
 
 - Non creare l'area di swap sul disco del sistema operativo.
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco  *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -173,5 +187,4 @@ L'[agente Linux di Azure](../virtual-machines-linux-agent-user-guide) (waagent) 
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Come configurare Tomcat7 in una macchina virtuale Linux con Microsoft Azure" description="Informazioni su come configurare Tomcat7 con Microsoft Azure usando una macchina virtuale Azure (VM) che esegue Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Come configurare Tomcat7 in una macchina virtuale Linux con Microsoft Azure" 
+	description="Informazioni su come configurare Tomcat7 con Microsoft Azure usando una macchina virtuale Azure (VM) che esegue Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Come configurare Tomcat7 in una macchina virtuale Linux con Microsoft Azure 
 
@@ -14,7 +28,7 @@ Si apprenderà:
 -	Come preparare la macchina virtuale per tomcat7.
 -	Come installare tomcat7.
 
-Si presuppone che l'utente disponga già di una sottoscrizione di Azure.  In caso contrario, è possibile registrarsi per una versione di valutazione gratuita all'indirizzo [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/it-it/overview/what-is-azure/).
+Si presuppone che l'utente disponga già di una sottoscrizione di Azure.  Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Azure?](http://azure.microsoft.com/overview/what-is-azure/).
 
 In questo argomento si presuppone che l'utente abbia una conoscenza pratica di base di tomcat e Linux.  
 
@@ -54,7 +68,7 @@ Configurare altre impostazioni in base alle esigenze, quindi fare clic su Crea.
 
 ##Fase 2: Preparare la macchina virtuale per Tomcat7
 In questa fase si configurerà un endpoint per il traffico in tomcat e si effettuerà la connessione alla nuova macchina virtuale.
-###Passaggio 1: Aprire la porta HTTP per consentire l'accesso Web
+###Passaggio 1: Aprire la porta HTTP per consentire l'accesso web
 Gli endpoint di Azure sono costituiti da un protocollo (TCP o UDP), insieme a una porta pubblica e privata. La porta privata è la porta ascoltata dal servizio sulla macchina virtuale. La porta pubblica è la porta ascoltata esternamente dal servizio cloud di Azure per il traffico in ingresso basato su Internet.  
 
 La porta TCP 8080 è la porta predefinita su cui tomcat è in ascolto. Se si apre questa porta con un endpoint di Azure, l'utente e altri client Internet potranno accedere alle pagine tomcat.  
@@ -84,7 +98,7 @@ Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di antepr
 Ottenere il numero di porta per le connessioni SSH dal campo **SSH**. Di seguito è fornito un esempio.  
 ![][8]
  
-Scaricare Putty da [questa pagina](http://www.putty.org/) .  
+Scaricare Putty da [questa pagina](http://www.putty.org/).  
 
 Dopo il download, fare clic sul file eseguibile PUTTY.EXE. Configurare le opzioni di base con il nome host e il numero di porta ottenuto dalle proprietà della macchina virtuale. Di seguito è fornito un esempio:  
 ![][9]
@@ -205,7 +219,7 @@ Dopo avere modificato questo file, è necessario riavviare i servizi tomcat7 con
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Aprire il browser e immettere l'URL **http://<your tomcat server DNS name>/manager/html**. Ad esempio, in questo articolo l'URL è http://tomcatexample.cloudapp.net/manager/html.  
+Aprire il browser e immettere l'URL **http://<nome del server DNS tomcat>/manager/html**. Ad esempio, in questo articolo l'URL è http://tomcatexample.cloudapp.net/manager/html.  
 
 Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente:  
 ![][18]
@@ -216,7 +230,7 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 
 -	**Sintomo**  
 Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita di Tomcat con il browser.
--	**Possibile caso radice**   
+-	**Possibile causa principale**   
 	1.	La porta di ascolto di tomcat non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico in tomcat.  
 	
 		Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di tomcat. Vedere la fase 1: Creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale.  
@@ -229,7 +243,7 @@ Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita d
 
 			sudo vi /etc/default/tomcat7  
 
-		Rimuovere quindi i commenti dall’ultima riga e modificare “no” in “sì”.  
+		Rimuovere quindi i commenti dall'ultima riga e modificare "no" in "sì".  
 
 			AUTHBIND=yes
 
@@ -240,7 +254,7 @@ Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita d
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
--	**Soluzione**
+-	**Soluzione** 
 	1. Se la porta di ascolto di tomcat non corrisponde alla porta privata dell'endpoint per il traffico nella macchina virtuale, è necessario modificare la porta privata dell'endpoint affinché corrisponda alla porta di ascolto di tomcat.   
 	
 	2.	Se il problema è causato dal firewall o dagli iptable, aggiungere le seguenti righe a /etc/sysconfig/iptables:  
@@ -270,7 +284,7 @@ Quando si usa qualsiasi client FTP sicuro (ad esempio, FileZilla) per connetters
 		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
 		Error:	File transfer failed
 
--	**Possibile caso radice**
+-	**Possibile causa principale** 
 Non si dispone delle autorizzazioni di accesso alla cartella /var/lib/tomcat7/webapps.  
 -	**Soluzione**  
 È necessario ottenere l'autorizzazione dall'account radice. È possibile modificare la proprietà di tale cartella dalla radice al nome utente usato per il provisioning della macchina. Di seguito è riportato un esempio con il nome dell'account azureuser:  
@@ -309,7 +323,4 @@ Non si dispone delle autorizzazioni di accesso alla cartella /var/lib/tomcat7/we
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure" description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure" 
+	description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat." 
+	services="virtual-machines" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
@@ -27,20 +41,20 @@ Ai fini di questa esercitazione, in una macchina virtuale verrà installato un s
 3. Nella finestra di dialogo **Selezione immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**.
 Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
 4. Fare clic su **Avanti**.
-5. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong>:
+5. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> :
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da usare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale.
-    4. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore.
+    4. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account amministratore.
     5. Fare clic su **Avanti**.
-6. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> successiva:
+6. Nella finestra dialogo successiva <strong>Configurazione macchina virtuale</strong> :
     1. Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**.
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
     2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **Stati Uniti occidentali**.
     2. Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente**.
     3. Nella casella **Set di disponibilità** selezionare **(Nessuno)**.
     4. Fare clic su **Avanti**.
-7. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> finale:
+7. Nell'ultima finestra di dialogo <strong>Configurazione macchina virtuale</strong> :
     1. Accettare le voci di endpoint predefinite.
     2. Fare clic su **Operazione completata**.
 
@@ -78,7 +92,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 4. Fare clic su **Endpoint**.
 5. Fare clic su **Aggiungi**.
 6. Nella finestra di dialogo **Aggiungi endpoint** assicurarsi che l'opzione **Aggiungi endpoint autonomo** sia selezionata, quindi fare clic su **Avanti**.
-7. Nella finestra di dialogo <strong>Dettagli nuovo endpoint</strong>:
+7. Nella finestra di dialogo <strong>Dettagli nuovo endpoint</strong> :
     1. Specificare un nome per l'endpoint, ad esempio **HttpIn**.
     2. Specificare **TCP** per il protocollo.
     3. Specificare **80** per la porta pubblica.
@@ -114,7 +128,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, sarà necessario creare un 
 
  ![New inbound rule name][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*your\_DNS\_name*.cloudapp.net**, dove ***your\_DNS\_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno, usando un URL nel formato **http://*nome\_DNS\*.cloudapp.net**, dove ***nome\_DNS\*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio Web di applicazioni (WAR) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP (Java Service Page) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
@@ -146,7 +160,4 @@ A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser estern
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

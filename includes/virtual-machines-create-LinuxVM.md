@@ -1,4 +1,4 @@
-1. Accedere al [portale di gestione](http://manage.windowsazure.com) di Azure.
+﻿1. Accedere al [portale di gestione](http://manage.windowsazure.com) di Azure.
 Sulla barra dei comandi fare clic su **Nuovo**.
 
 2. Fare clic su **Macchina virtuale**, quindi su **Da raccolta**.
@@ -25,11 +25,10 @@ Sulla barra dei comandi fare clic su **Nuovo**.
 
 13. Per le finalità di questa esercitazione, in **Set di disponibilità** usare l'impostazione predefinita **Nessuno**. 
 
-14.	In **Endpoint** esaminare l'endpoint creato automaticamente per consentire connessioni Secure Shell (SSH) alla macchina virtuale. Gli endpoint consentono a risorse in Internet o in altre reti virtuali di comunicare con una macchina virtuale. È possibile creare altri endpoint ora oppure aggiungerne in seguito. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-set-up-endpoints/).
+14.	In **Endpoint** esaminare l'endpoint creato automaticamente per consentire connessioni Secure Shell (SSH) alla macchina virtuale. Gli endpoint consentono a risorse in Internet o in altre reti virtuali di comunicare con una macchina virtuale. È possibile creare altri endpoint ora oppure aggiungerne in seguito. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 15.  In **Agente di macchine virtuali** esaminare le estensioni disponibili. Tali estensioni forniscono varie funzionalità che semplificano l'uso e la gestione di una macchina virtuale. Per informazioni dettagliate, vedere [Estensioni delle macchine virtuali di Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
 
 Dopo aver creato la macchina virtuale e il servizio cloud in Azure, questi vengono elencati nel portale di gestione rispettivamente in **Macchine virtuali** e **Servizi cloud**. Sia la macchina virtuale che il servizio cloud vengono avviati automaticamente.
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,8 +1,22 @@
-﻿<properties pageTitle="Gestire la disponibilità delle macchine virtuali - Azure" description="Informazioni su come usare più macchine virtuali per garantire la disponibilità per l'applicazione Azure." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Gestire la disponibilità delle macchine virtuali - Azure" 
+	description="Informazioni su come usare più macchine virtuali per garantire la disponibilità per l'applicazione Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
-#Gestire la disponibilità delle macchine virtuali
+# Gestire la disponibilità delle macchine virtuali
 
 ## Confronto tra manutenzione pianificata e manutenzione non pianificata
 Esistono due tipi di eventi della piattaforma Azure che possono incidere sulla disponibilità delle macchine virtuali: la manutenzione pianificata e la manutenzione non pianificata.
@@ -14,12 +28,12 @@ Esistono due tipi di eventi della piattaforma Azure che possono incidere sulla d
 ## Procedure consigliate durante la progettazione di un'applicazione per la disponibilità elevata
 Per ridurre le conseguenze dei tempi di inattività causati da uno o più di questi eventi, è possibile attuare le seguenti procedure consigliate per aumentare la disponibilità delle macchine virtuali:
 
-* [Configurare più macchine virtuali in un set di disponibilità per la ridondanza] [1]
+* [Configurare più macchine virtuali in un set di disponibilità per la ridondanza] 
 * [Configurare ogni livello dell'applicazione in set di disponibilità separati] 
 * [Combinare il bilanciamento del carico con set di disponibilità] 
 * [Evitare singole istanze di macchine virtuali nei set di disponibilità] 
 
-### Configurare più macchine virtuali in un set di disponibilità per la ridondanza [1]
+### Configurare più macchine virtuali in un set di disponibilità per la ridondanza 
 Per garantire ridondanza a un'applicazione è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni sui contratti di servizio, vedere la sezione "Servizi cloud, macchine virtuali e rete virtuale" in [Contratti di servizio](../../../support/legal/sla/). 
 
 A ogni macchina virtuale nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Per ogni set di disponibilità, inoltre, vengono assegnati cinque domini di aggiornamento non configurabili dall'utente che indicano i gruppi di macchine virtuali, con il relativo hardware fisico sottostante, che è possibile aggiornare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante gli eventi di manutenzione pianificata, ma viene sempre riavviato un dominio di aggiornamento per volta.
@@ -59,7 +73,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,8 +1,21 @@
-<properties pageTitle="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando Azure Marketplace nel portale di anteprima di Azure" services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt"/>
+<properties 
+	pageTitle="Creare una macchina virtuale con Windows nel portale di anteprima di Azure" 
+	description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando Azure Marketplace nel portale di anteprima di Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep,kathydav,rasquill"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="danlep,kathydav,rasquill"/>
 
-<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
+<!---Il flusso di lavoro può generare confusione, in quanto è necessario selezionare le dimensioni corrette scegliendo **Esplora tutti i livelli di prezzo** e quindi fare clic su Seleziona in tale riquadro e il riquadro **Livelli di prezzo consigliati** per applicarle. Ma anche dopo quest'operazione l'account di archiviazione Premium non viene selezionato e viene mostrato come "Standard-GRS" quando l'utente verifica quale tipo di account di archiviazione verrà usato per la macchina virtuale. 
 -->
 
 <!-- Preview portal screenshots getting a little out of date. Please refresh at next update.
@@ -14,7 +27,7 @@
 
 Questa esercitazione mostra come è facile creare una macchina virtuale di Azure che esegue Windows usando come esempio un'immagine di Windows Server da Azure Marketplace nel portale di anteprima di Azure. In Azure Marketplace è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, di sistemi operativi basati su Linux e di applicazioni. 
 
-> [AZURE.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 In questa esercitazione si apprenderà:
 
@@ -24,14 +37,14 @@ In questa esercitazione si apprenderà:
 Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 
-##<a id="createvirtualmachine"> </a>Come creare la macchina virtuale##
+## <a id="createvirtualmachine"> </a>Come creare la macchina virtuale ##
 
 Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale usando Windows Server 2012 R2 Datacenter come esempio. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
 
 > [AZURE.NOTE] Le immagini disponibili dipendono dalla sottoscrizione dell'utente. Questa esercitazione usa un'immagine di Windows Server, ma un abbonamento MSDN può offrire immagini aggiuntive, incluse le immagini desktop. 
  
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com). Se non si dispone ancora di una sottoscrizione, usare la [versione di valutazione gratuita](http://www.windowsazure.com/it-it/pricing/free-trial/).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com). Se non si dispone ancora di una sottoscrizione, usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 2. Nel menu Hub fare clic su **Nuovo**.
 
@@ -41,7 +54,7 @@ Questa sezione mostra come usare il portale di anteprima per creare una macchina
 
 	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
 	
-4. Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.
+4. Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.  
 
 	>[AZURE.NOTE] **Nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
 	
@@ -51,7 +64,7 @@ Questa sezione mostra come usare il portale di anteprima per creare una macchina
 	
 5. Esaminare le impostazioni predefinite, ad esempio **Piano tariffario**, **Configurazione facoltativa** e **Percorso**. Queste opzioni influiscono sulla dimensione della macchina virtuale, nonché sulle opzioni di rete, ad esempio l'appartenenza al dominio. Ad esempio, per provare il servizio di archiviazione Premium in una macchina virtuale, è necessario selezionare un'area e una dimensione che la supporta. 
 
-	>[AZURE.NOTE] Il servizio di archiviazione Premium è in disponibile in anteprima per le macchine virtuali della serie DS in alcune aree. Per informazioni dettagliate, vedere [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](http://azure.microsoft.com/it-it/documentation/articles/storage-premium-storage-preview-portal/).
+	>[AZURE.NOTE] Il servizio di archiviazione Premium è in disponibile in anteprima per le macchine virtuali della serie DS in alcune aree. Per informazioni dettagliate, vedere [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
 	
@@ -95,22 +108,21 @@ Questa sezione descrive come accedere alla macchina virtuale per gestirne le imp
 
 	È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
 
-##Passaggi successivi 
+## Passaggi successivi 
 
 Per altre informazioni sulla configurazione di macchine virtuali Windows in Azure, vedere gli articoli seguenti:
 
-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/it-it/documentation/articles/cloud-services-connect-virtual-machine/)
+[Come connettere macchine virtuali in un servizio cloud](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](http://www.windowsazure.com/it-it/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Connettere un disco dati a una macchina virtuale](http://www.windowsazure.com/it-it/documentation/articles/storage-windows-attach-disk/)
+[Connettere un disco dati a una macchina virtuale](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/)
 
-[Gestire la disponibilità delle macchine virtuali](http://www.windowsazure.com/it-it/documentation/articles/manage-availability-virtual-machines/)
+[Gestire la disponibilità delle macchine virtuali](http://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/)
 
 [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 [Come creare la macchina virtuale]: #custommachine
 [Come accedere alla macchina virtuale dopo averla creata]: #logon
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
