@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configurare tabelle HBase su cui eseguire query usando Hive in HDInsight | Azure" 
 	description="Introduzione all'uso di HBase con Hadoop in HDInsight. Informazioni sulla creazione di tabelle HBase e sull'esecuzione di query sulle tabelle mediante Hive." 
 	services="hdinsight" 
@@ -75,7 +75,7 @@ Presuppone che sia già stata completata la procedura descritta nella prima sezi
 1. Nel portale di gestione fare clic su **HDINSIGHT** a sinistra per visualizzare l'elenco dei cluster esistenti.
 2. Fare clic sul cluster HBase in cui si vuole aprire la shell di HBase.
 3. Fare clic su **CONFIGURAZIONE** nella parte superiore.
-4. Fare clic su **ABILITA MODALITÀ REMOTA** nella parte inferiore.
+4. Fare clic su **ABILITA MODALIÀ REMOTA** nella parte inferiore.
 5. Immettere il nome utente e la password RDP.  Il nome utente deve essere diverso dal nome utente del cluster usato per il provisioning del cluster. Per la **DATA DI SCADENZA** è possibile impostare una data non oltre sette giorni a partire dalla data odierna.
 6. Fare clic sul segno di spunta nella parte inferiore destra per abilitare Desktop remoto.
 7. Dopo avere abilitato RPD, fare clic su **CONNETTI** nella parte inferiore della scheda **CONFIGURAZIONE**, quindi seguire le istruzioni.
