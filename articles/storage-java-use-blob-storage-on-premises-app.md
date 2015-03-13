@@ -378,9 +378,8 @@ Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB
   [Prerequisiti]: #bkmk_prerequisites
   [Per usare l'archiviazione BLOB di Azure per caricare un file]: #bkmk_uploadfile
   [Per eliminare un contenitore]: #bkmk_deletecontainer
-  [Download di Azure SDK per Java]: http://www.windowsazure.com/it-it/develop/java/
-  [Come creare un account di archiviazione]: http://www.windowsazure.com/it-it/manage/services/storage/how-to-create-a-storage-account/
-  [Come gestire gli account di archiviazione]: http://www.windowsazure.com/it-it/manage/services/storage/how-to-manage-a-storage-account/
-  [Come usare l'archiviazione BLOB da Java]: http://www.windowsazure.com/it-it/develop/java/how-to-guides/blob-storage/
-
+  [Download di Azure SDK per Java]: http://azure.microsoft.com/develop/java/
+  [Come creare un account di archiviazione]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [Come gestire gli account di archiviazione]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [Come usare l'archiviazione BLOB da Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 <!--HONumber=42-->

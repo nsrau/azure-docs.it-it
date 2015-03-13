@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Dev Center di Servizi mobili" description="Informazioni sull'uso della funzionalità di eliminazione temporanea di Servizi mobili di Azure nell'applicazione" documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Dev Center di Servizi mobili" 
+	description="Informazioni sull'uso della funzionalità di eliminazione temporanea di Servizi mobili di Azure nell'applicazione" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Uso dell'eliminazione temporanea in Servizi mobili
 
 Le tabelle create con il back-end JavaScript o .NET possono facoltativamente avere l'eliminazione temporanea abilitata. Quando si usa l'eliminazione temporanea, una nuova colonna chiamata *\__deleted* di [tipo bit SQL] viene aggiunta al database. Con l'eliminazione temporanea abilitata, un'operazione di eliminazione non elimina fisicamente le righe dal database, ma imposta il valore della colonna eliminata su TRUE.
 
-Quando si esegue una query dei record in una tabella con l'eliminazione temporanea abilitata, le righe eliminate non vengono restituite nella query per impostazione predefinita. Per richiedere queste righe, è necessario passare un parametro di query *\__includeDeleted=true* nell'[operazione di query REST](http://msdn.microsoft.com/it-it/library/azure/jj677199.aspx). Nell'SDK del client .NET, è anche possibile usare il metodo helper  `IMobileServiceTable.IncludeDeleted()`.
+Quando si esegue una query dei record in una tabella con l'eliminazione temporanea abilitata, le righe eliminate non vengono restituite nella query per impostazione predefinita. Per richiedere queste righe, è necessario passare un parametro di query *\__includeDeleted=true* nell'[operazione di query REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Nell'SDK del client .NET, è anche possibile usare il metodo helper  `IMobileServiceTable.IncludeDeleted()`.
 
 Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili in [Back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -87,8 +101,10 @@ Il seguente processo pianificato ripulisce i record eliminati temporaneamente pi
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ Per altre informazioni sui processi pianificati con Servizi mobili per il back-e
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Tipo bit SQL]: http://msdn.microsoft.com/it-it/library/ms177603.aspx
+[Tipo bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [Sincronizzazione dati offline per Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portale di gestione]: https://manage.windowsazure.com/
 

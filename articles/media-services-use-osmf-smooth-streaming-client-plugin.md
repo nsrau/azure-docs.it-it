@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Plug-in Smooth Streaming per Open Source Media Framework" description="Informazioni su come usare il plug-in Smooth Streaming di Servizi multimediali di Azure per Adobe Open Source Media Framework." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Plug-in Smooth Streaming per Open Source Media Framework" 
+	description="Informazioni su come usare il plug-in Smooth Streaming di Servizi multimediali di Azure per Adobe Open Source Media Framework." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 # Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework #
 
-## Panoramica ##
+## Informazioni generali ##
 Il plug-in Microsoft Smooth Streaming per Open Source Media Framework 2.0 (SS per OSMF) estende le funzionalità predefinite di OSMF e aggiunge la funzionalità di riproduzione del contenuto Smooth Streaming ai lettori OSMF nuovi ed esistenti. Il plug-in aggiunge inoltre funzionalità di riproduzione Smooth Streaming a Strobe Media Playback (SMP).
 
 In Smooth Streaming per OSMF sono incluse due versioni di plug-in:
@@ -41,7 +55,7 @@ Di seguito sono riportate le funzionalità non supportate:
 
 Di seguito è riportato un elenco di problemi noti:
 
-- Si rilevano problemi nella riproduzione di contenuti Smooth Streaming con tracce audio a 48 KHz. Si verifica un errore di runtime Flash durante il rendering di contenuti audio a 48 KHz. A causa di questo problema, i contenuti Smooth Streaming codificati con impostazioni a 48 KHz potrebbero non funzionare come previsto. Per altre informazioni, vedere [il forum relativo all'utilizzo di Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3  -  Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964).
+- Si rilevano problemi nella riproduzione di contenuti Smooth Streaming con tracce audio a 48 KHz. Si verifica un errore di runtime Flash durante il rendering di contenuti audio a 48 KHz. A causa di questo problema, i contenuti Smooth Streaming codificati con impostazioni a 48 KHz potrebbero non funzionare come previsto. Per altre informazioni, vedere [Uso di Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3  -  Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964).
 - La riproduzione di più contenuti Smooth Streaming in una singola pagina può causare problemi. Si tratta di un problema noto di OSMF.
 - La riproduzione del video stage potrebbe provocare problemi e non visualizzare alcun video in determinati computer. Per risolvere il problema, disabilitare l'accelerazione hardware o il video stage.
 
@@ -328,7 +342,7 @@ package
 }
 </code></pre>
 
-## Strobe Media  Playback con plug-in dinamico SS per OSMF
+## Strobe Media Playback con plug-in dinamico SS per OSMF
 Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). È possibile usare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
 
 1.	Passare alla [pagina di installazione di Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
@@ -390,5 +404,4 @@ Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media P
 
 Per altre informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](http://osmf.org/resources.html).
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Usare il back-end .NET di Servizi mobili - Servizi mobili di Azure" description="Informazioni sul modello di programmazione back-end .NET per Servizi mobili di Azure, inclusi dettagli su come usare dati di tabella, API, autenticazione e processi pianificati" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Usare il back-end .NET di Servizi mobili - Servizi mobili di Azure" 
+	description="Informazioni sul modello di programmazione back-end .NET per Servizi mobili di Azure, inclusi dettagli su come usare dati di tabella, API, autenticazione e processi pianificati" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="mahender"/>
 # Usare il back-end .NET di Servizi mobili
 
 <div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">Back-end JavaScript</a></div>

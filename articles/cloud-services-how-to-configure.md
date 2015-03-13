@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Come configurare un servizio cloud - Azure" metaKeywords="Configurazione dei servizi cloud" description="Informazioni su come configurare servizi cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Come configurare un servizio cloud - Azure" 
+	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -13,7 +27,7 @@
 
 Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiornamenti della configurazione solo se si dispone di almeno due istanze del ruolo per ogni ruolo. In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata. Per altre informazioni, vedere [Contratti di servizio](https://www.windowsazure.com/it-it/support/legal/sla/).
 
-##Sommario##
+## Sommario##
 
 * [Procedura: Aggiornamento della configurazione del servizio cloud](#update)
 * [Procedura: Configurazione dell'accesso remoto a istanze del ruolo](#remoteaccess)
@@ -30,11 +44,11 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 2. In **monitoraggio** impostare il livello di monitoraggio su Dettagliato o Minimo e configurare le stringhe di connessione di diagnostica necessarie per il monitoraggio dettagliato. Per istruzioni, vedere [Come monitorare i servizi cloud](../how-to-monitor-a-cloud-service/).
 
 
-3. Per i ruoli del servizio (raggruppati per ruolo) è possibile aggiornare le impostazioni seguenti:
+3. Per i ruoli del servizio (raggruppati per ruolo) è possibile aggiornare le seguenti impostazioni:
 
-	>- **Impostazioni**: modificare i valori delle impostazioni di configurazione varie specificate negli elementi *ConfigurationSettings* del file di configurazione del servizio (.cscfg).
+	>- **Impostazioni**   Modificare i valori delle impostazioni di configurazione varie specificate negli elementi *ConfigurationSettings* del file di configurazione del servizio (.cscfg).
 	
-	>- **Certificati**: modificare l'identificazione personale del certificato usato nella crittografia SSL per un ruolo. Prima di cambiare un certificato, è necessario caricarne uno nuovo nella pagina **Certificati**. Quindi aggiornare l'identificazione personale nella stringa del certificato visualizzata nelle impostazioni del ruolo.
+	>- **Certificati**   Modificare l'identificazione personale del certificato usato nella crittografia SSL per un ruolo. Prima di cambiare un certificato, è necessario caricarne uno nuovo nella pagina **Certificati**. Quindi aggiornare l'identificazione personale nella stringa del certificato visualizzata nelle impostazioni del ruolo.
 
 4. In **sistema operativo** è possibile modificare la famiglia o la versione del sistema operativo per le istanze del ruolo oppure scegliere **Automatico** per abilitare gli aggiornamenti automatici della versione corrente del sistema operativo. Le impostazioni del sistema operativo si applicano a ruoli Web e ruoli di lavoro, ma non hanno effetto sulle macchine virtuali.
 
@@ -48,7 +62,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 
 5. Per salvare le impostazioni di configurazione ed effettuarne il push nelle istanze del ruolo, fare clic su **Salva**. Per annullare le modifiche, fare clic su **Ignora**. **Le opzioni Salva** e **Ignora** vengono aggiunte alla barra dei comandi dopo la modifica di un'impostazione.
 
-###Per aggiornare manualmente il file di configurazione di un servizio cloud###
+### Per aggiornare manualmente il file di configurazione di un servizio cloud###
 
 1. Scaricare un file di configurazione del servizio (.cscfg) con la configurazione corrente. Nella pagina **Configura** relativa al servizio cloud fare clic su **Download**. Fare quindi clic su **Salva** o su **Salva con nome** per salvare il file.
 
@@ -62,7 +76,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 
 	c. Se il servizio cloud contiene ruoli con un'unica istanza, selezionare la casella di controllo **Applica configurazione anche se uno o più ruoli contengono un'unica istanza** per procedere con gli aggiornamenti della configurazione per i ruoli.
 
-	Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per altre informazioni, vedere [Contratti di servizio](http://www.windowsazure.com/it-it/support/legal/sla/).
+	Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
 
 	d. Fare clic su **OK** (segno di spunta). 
 
@@ -73,11 +87,11 @@ Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azur
 
 Nella pagina **Configura** del servizio cloud è possibile abilitare Desktop remoto oppure cambiare l'account o la password di amministratore locale usata per connettersi alle macchine virtuali, il certificato usato nell'autenticazione o la data di scadenza.
 
-###Per configurare l'accesso remoto nel file di definizione del servizio###
+### Per configurare l'accesso remoto nel file di definizione del servizio###
 
 Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per importare i moduli RemoteAccess e RemoteForwarder nel modello del servizio. Quando questi moduli sono presenti, le impostazioni di configurazione per Desktop remoto vengono aggiunte al file di configurazione del servizio. Per completare la configurazione di Desktop remoto, è necessario importare un certificato in Azure e specificarlo nel file di configurazione del servizio. Per altre informazioni, vedere [Impostare una connessione Desktop remoto per un ruolo in Azure][].
 
-###Per abilitare o modificare l'accesso remoto per le istanze del ruolo nel portale di gestione###
+### Per abilitare o modificare l'accesso remoto per le istanze del ruolo nel portale di gestione###
 
 1. Fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Configura**.
 
@@ -91,7 +105,7 @@ Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per 
 
 3. In **Ruoli** selezionare il ruolo da aggiornare oppure selezionare **Tutti** per tutti i ruoli.
 
-4. Apportare una delle modifiche seguenti:
+4. Apportare una delle seguenti modifiche:
 
 	- Per abilitare Desktop remoto, selezionare la casella di controllo **Abilita desktop remoto**. Per disabilitare Desktop remoto, deselezionare la casella di controllo.
 
@@ -115,7 +129,7 @@ Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per 
 
 	d. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto.
 
-###Per disabilitare l'accesso remoto per le istanze del ruolo nel portale di gestione###
+### Per disabilitare l'accesso remoto per le istanze del ruolo nel portale di gestione###
 
 1. Fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Configura**.
 
@@ -127,9 +141,9 @@ Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per 
 
 5. Fare clic su **OK** (segno di spunta).
 
-[Impostare una connessione Desktop remoto per un ruolo in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh124107.aspx
+[Impostare una connessione Desktop remoto per un ruolo in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 
-[Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx
+[Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 			
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

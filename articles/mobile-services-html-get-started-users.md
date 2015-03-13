@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili 
 
@@ -121,7 +135,8 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
 [13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-html-get-started

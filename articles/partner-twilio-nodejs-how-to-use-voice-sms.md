@@ -1,9 +1,23 @@
-﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Utilizzo di Twilio per le funzionalità voce, VoIP e SMS in Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties 
+	pageTitle="Uso di Twilio per le funzionalità voce, VoIP e SMS in Azure" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
-# Utilizzo di Twilio per le funzionalità voce, VoIP e SMS in Azure
+# Uso di Twilio per le funzionalità voce, VoIP e SMS in Azure
 
 In questa guida viene illustrato come sviluppare app che comunicano con Twilio e Node.js in Azure.
 
@@ -32,15 +46,15 @@ Inviando richieste HTTP all'API del servizio Web Twilio, gli sviluppatori posson
 
 ### Incorporare funzionalità VoIP nel codice dell'interfaccia utente (JavaScript, iOS o Android)
 
-Twilio offre un SDK lato client che consente di trasformare qualsiasi Web browser desktop, app per iOS o app per Android in un telefono VoIP.  In questo articolo verrà illustrato l'utilizzo delle funzionalità VoIP nel browser.  Oltre all'SDK JavaScript di Twilio in esecuzione nel browser,è necessario usare un'applicazione lato server (in questo caso un'applicazione Node.js) per l'emissione di un "capability token" per il client JavaScript.  Per altre informazioni sull'uso di VoIP con Node.js, vedere il [blog per sviluppatori di Twilio][voipnode].
+Twilio offre un SDK lato client che consente di trasformare qualsiasi Web browser desktop, app per iOS o app per Android in un telefono VoIP.  In questo articolo verrà illustrato l'uso delle funzionalità VoIP nel browser.  Oltre a Twilio JavaScript SDK in esecuzione nel browser,è necessario usare un'applicazione lato server (in questo caso un'applicazione Node.js) per l'emissione di un "capability token" per il client JavaScript.  Per altre informazioni sull'uso di VoIP con Node.js, vedere il [blog per sviluppatori di Twilio][voipnode].
 
 <a id="signup"/>
-## Iscrizione a Twilio (sconto Microsoft)
+## Iscriversi a Twilio (sconto Microsoft)
 
 Prima di usare i servizi Twilio, è necessario [iscriversi per creare un account][signup].  Per i clienti di Microsoft Azure è disponibile uno sconto speciale [effettuando l'iscrizione qui][signup]!
 
 <a id="azuresite"/>
-## Creazione e distribuzione di un sito Web Node.js in Azure
+## Creare e distribuire un sito Web Node.js in Azure
 
 Si procederà ora alla creazione di un sito Web Node.js eseguito in Azure.  [La documentazione ufficiale per eseguire la procedura è disponibile qui][azure_new_site].  A livello generale, la procedura è la seguente:
 
@@ -51,7 +65,7 @@ Si procederà ora alla creazione di un sito Web Node.js eseguito in Azure.  [La 
 * Distribuzione dell'applicazione in Azure
 
 <a id="twiliomodule"/>
-## Configurazione del modulo Twilio
+## Configurare il modulo Twilio
 
 Si inizierà a scrivere una semplice applicazione Node.js che usa l'API Twilio.  Prima di iniziare, è necessario configurare le credenziali dell'account Twilio.  
 
@@ -69,7 +83,7 @@ Dopo aver configurato le variabili, riavviare l'applicazione nella console di Az
 
 Verrà ora creato un file package.json per gestire le dipendenze del modulo Node tramite [npm].  Allo stesso livello del file "server.js" creato nell'esercitazione su Azure e Node.js, creare un file denominato "package.json".  All'interno del file inserire il codice seguente:
 
-  {
+    {
     "name": "application-name",
     "version": "0.0.1",
     "private": true,
@@ -81,12 +95,12 @@ Verrà ora creato un file package.json per gestire le dipendenze del modulo Node
       "ejs": "*",
       "twilio":"*"
     }
-  }
+    }
 
 Questo codice dichiara il modulo Twilio come dipendenza, così come il diffuso [framework Web express][express] e il motore di rendering dei modelli EJS.  A questo punto, è possibile iniziare a scrivere il codice.
 
 <a id="makecall"/>
-## Esecuzione di una chiamata in uscita
+## Effettuare una chiamata in uscita
 
 Verrà ora creato un modulo molto semplice per l'esecuzione di una chiamata verso un numero scelto.  Aprire server.js e immettere il codice seguente.  Si noti che nel punto in cui nel codice è scritto "CHANGE_ME" è necessario inserire il nome del proprio sito Web di Azure:
 
@@ -219,19 +233,19 @@ Ridistribuire l'applicazione in Azure. Dovrebbe essere possibile inviare il modu
 <a id="nextsteps"/>
 ## Passaggi successivi
 
-In questa esercitazione si sono apprese le nozioni di base sull'utilizzo di Node.js e Twilio per creare applicazioni di comunicazione.  Questi esempi, tuttavia, offrono solo un'idea delle possibilità offerte da Twilio e Node.js.  Per ulteriori informazioni sull'utilizzo di Twilio con Node.js, vedere le risorse seguenti:
+In questa esercitazione si sono apprese le nozioni di base sull'utilizzo di Node.js e Twilio per creare applicazioni di comunicazione.  Questi esempi, tuttavia, offrono solo un'idea delle possibilità offerte da Twilio e Node.js.  Per altre informazioni sull'uso di Twilio con Node.js, vedere le risorse seguenti:
 
 * [Documentazione ufficiale del modulo][docs]
 * [Esercitazione sull'uso di VoIP con le applicazioni Node.js][voipnode]
 * [Votr: un'applicazione di voto via SMS in tempo reale con Node.js e CouchDB (tre parti)][votr]
 * [Programmazione in coppia nel browser con Node.js][pair]
 
-A questo punto, non resta che sperimentare tutte le possibilità offerte dall'utilizzo di Node.js e Twilio in Azure.
+A questo punto, non resta che sperimentare tutte le possibilità offerte dall'uso di Node.js e Twilio in Azure.
 
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://azure.microsoft.com/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
@@ -244,4 +258,4 @@ A questo punto, non resta che sperimentare tutte le possibilità offerte dall'ut
 
 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

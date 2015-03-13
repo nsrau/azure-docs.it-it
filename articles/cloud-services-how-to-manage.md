@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="How to manage" pageTitle="Come gestire un servizio cloud - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Informazioni su come gestire i servizi cloud nel portale di gestione di Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Come gestire un servizio cloud - Azure" 
+	description="Informazioni su come gestire i servizi cloud nel portale di gestione di Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 
-#Come gestire i servizi cloud
+# Come gestire i servizi cloud
 
 Nell'area **Servizi cloud** del portale di gestione di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e ridimensionare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
-##Sommario##
+## Sommario##
 
 * [Procedura: Aggiornare un ruolo o una distribuzione del servizio cloud](#updaterole)
 * [Procedura: Scambiare le distribuzioni per convertire una distribuzione di gestione temporanea in una distribuzione di produzione](#swap)
@@ -40,7 +54,7 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 
 7. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Aggiorna anche se uno o più ruoli contengono una singola istanza** per consentire l'esecuzione dell'aggiornamento. 
 
-	Azure può garantire una disponibilità del servizio solo del 99,95% durante l'aggiornamento del servizio cloud se ogni ruolo ha almeno due istanze (macchine virtu**ali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
+	Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
 
 8. Fare clic su **OK** (segno di spunta) per avviare l'aggiornamento del servizio.
 
@@ -78,9 +92,9 @@ Usare **Collegamento** per collegare un'istanza di database SQL nuova o esistent
 
 In questo senso, il "collegamento" di una risorsa non comporta la connessione dell'app alla risorsa. Se si crea un nuovo database mediante **Collegamento**, sarà necessario aggiungere le stringhe di connessione al codice dell'applicazione, quindi aggiornare il servizio cloud. Sarà anche necessario aggiungere le stringhe di connessione se l'app usa risorse in un account di archiviazione collegato.
 
-Nella procedura seguente viene descritto come collegare una nuova istanza di database SQL, distribuita su un nuovo server di database SQL, a un servizio cloud.
+Nella seguente procedura viene descritto come collegare una nuova istanza di database SQL, distribuita su un nuovo server di database SQL, a un servizio cloud.
 
-###Per collegare un'istanza di database SQL a un servizio cloud###
+### Per collegare un'istanza di database SQL a un servizio cloud###
 
 1. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Servizi cloud**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
 
@@ -98,7 +112,7 @@ Nella procedura seguente viene descritto come collegare una nuova istanza di dat
 
 4. Fare clic su **Crea una nuova risorsa** o **Collega una risorsa esistente**.
 
-5. Scegliere il tipo di risorsa da collegare. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Database SQL** (il portale di gestione in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
+5. Scegliere il tipo di risorsa da collegare. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Database SQL**. (il portale di gestione in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
 
 6. Per completare la configurazione del database, seguire le istruzioni nella guida per l'area **Database SQL** del portale di gestione.
 
@@ -108,7 +122,7 @@ Nella procedura seguente viene descritto come collegare una nuova istanza di dat
 
 	Terminato il collegamento, è possibile monitorare lo stato della risorsa collegata nel dashboard del servizio cloud. Per informazioni sul ridimensionamento di un database SQL collegato, vedere [Come scalare un servizio cloud e le risorse collegate](../cloud-services-how-to-scale/).
 
-###Per scollegare una risorsa collegata###
+### Per scollegare una risorsa collegata###
 
 1. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Servizi cloud**. Quindi fare clic sul nome del servizio cloud per aprire il dashboard.
 
@@ -126,7 +140,7 @@ Per eliminare un servizio cloud è necessario prima eliminare tutte le distribuz
 
 Per ridurre i costi di calcolo, è possibile eliminare la distribuzione di gestione temporanea dopo avere verificato che la distribuzione di produzione funzioni nel modo previsto. I costi di calcolo per le istanze del ruolo vengono addebitati anche se il servizio cloud non è in esecuzione.
 
-Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura seguente. 
+Per eliminare una distribuzione o il servizio cloud, attenersi alla seguente procedura. 
 
 1. Nel [portale di gestione](http://manage.windowsazure.com/) fare clic su **Servizi cloud**.
 
@@ -143,8 +157,8 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 5. Per eliminare il servizio cloud fare clic su **Elimina servizio cloud**. Quindi, alla richiesta di conferma fare clic su **Sì**.
 
-> [WACOM.NOTE]
-> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in <a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-how-to-monitor/">Come monitorare i servizi cloud</a>.
+> [AZURE.NOTE]
+> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-how-to-monitor/">Come monitorare i servizi cloud</a>.
 
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

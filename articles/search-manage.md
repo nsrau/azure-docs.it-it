@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="Gestire il servizio di ricerca in Microsoft Azure" description="Gestire il servizio di ricerca in Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestire il servizio di ricerca in Microsoft Azure" 
+	description="Gestire il servizio di ricerca in Microsoft Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
 
@@ -11,7 +25,7 @@ Il servizio di ricerca di Azure è un servizio basato sul cloud nonché un'API b
 
 Questo articolo spiega come amministrare un servizio di ricerca nel nuovo [portale di anteprima di Azure](https://portal.azure.com).
 
-In alternativa, è possibile usare l'API REST di gestione. Per informazioni dettagliate, vedere [Introduzione all'API REST di gestione del servizio di ricerca di Azure](http://azure.microsoft.com/it-it/documentation/articles/search-get-started-management-api/) e [Riferimento all'API REST di gestione di Azure](http://msdn.microsoft.com/it-it/library/azure/dn832684.aspx).
+In alternativa, è possibile usare l'API REST di gestione. Per informazioni dettagliate, vedere [Introduzione all'API REST di gestione del servizio di ricerca di Azure](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) e [Riferimento all'API REST di gestione di Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ Il servizio di ricerca standard è fatturabile perché fornisce accesso a risors
 
 Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigliabile consultare le informazioni disponibili seguendo i collegamenti seguenti:
 
-+	[Limitazioni e vincoli](http://msdn.microsoft.com/it-it/library/dn798934.aspx)
++	[Limitazioni e vincoli](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quando si è pronti per l'iscrizione, vedere [Introduzione a Ricerca di Azure](../search-get-started/).
@@ -98,10 +112,10 @@ In questa anteprima pubblica, il monitoraggio delle risorse è limitato alle inf
 
 Nella sezione Uso del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli](http://msdn.microsoft.com/it-it/library/dn798934.aspx). 
+Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli](http://msdn.microsoft.com/library/dn798934.aspx). 
 
-+	[Ottieni statistiche indice](http://msdn.microsoft.com/it-it/library/dn798942.aspx)
-+	[Conteggio documenti](http://msdn.microsoft.com/it-it/library/dn798924.aspx)
++	[Ottieni statistiche indice](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un numero documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
 
@@ -141,7 +155,7 @@ A differenza della rimozione di repliche, che non richiede operazioni aggiuntive
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
 
-Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](http://msdn.microsoft.com/it-it/library/dn798942.aspx)) per verificare quanta archiviazione è stata effettivamente usata. 
+Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](http://msdn.microsoft.com/library/dn798942.aspx)) per verificare quanta archiviazione è stata effettivamente usata. 
 
 
 <!---->
@@ -157,7 +171,7 @@ L'arresto o l'avvio del servizio non determinano la sospensione della fatturazio
 <!---->
 <h2 id="sub-8">Impostare i ruoli per il controllo dell'accesso amministrativo</h2>
 
-Azure offre un modello di autorizzazione basata sui ruoli globali per tutti i servizi gestiti tramite il portale di anteprima oppure nell'API di Gestione risorse di Azure, se si usa uno strumento di amministrazione personalizzato. I ruoli Proprietario, Collaboratore e Lettore configurano il livello di amministrazione del servizio per gli utenti, i gruppo e le entità di sicurezza di Active Directory assegnati a ogni ruolo. Per informazioni dettagliate sull'appartenenza ai ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](http://azure.microsoft.com/it-it/updates/role-based-access-control-in-azure-preview-portal/).
+Azure offre un modello di autorizzazione basata sui ruoli globali per tutti i servizi gestiti tramite il portale di anteprima oppure nell'API di Gestione risorse di Azure, se si usa uno strumento di amministrazione personalizzato. I ruoli Proprietario, Collaboratore e Lettore configurano il livello di amministrazione del servizio per gli utenti, i gruppo e le entità di sicurezza di Active Directory assegnati a ogni ruolo. Per informazioni dettagliate sull'appartenenza ai ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/).
 
 In Ricerca di Azure Search i controlli degli accessi in base al ruolo determinano le attività amministrative seguenti:
 
@@ -185,7 +199,7 @@ Gli amministratori delle sottoscrizioni e dei servizi vengono aggiunti automatic
 </tr>
 </table>
 
-Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](http://azure.microsoft.com/it-it/updates/role-based-access-control-in-azure-preview-portal/).
+Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/).
 
 I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. Solo i gestori delle sottoscrizioni possono aggiungere un servizio di ricerca a una sottoscrizione.
 
@@ -213,3 +227,5 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 [Flusso di lavoro per lo sviluppo di Ricerca di Azure]: ../search-workflow/
 [Creare la prima soluzione di ricerca con Ricerca di Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

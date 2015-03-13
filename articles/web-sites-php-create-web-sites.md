@@ -107,7 +107,7 @@ Per le esercitazioni complete, visitare la pagina delle [esercitazioni nel Centr
 [configure-php]: /it-it/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /it-it/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /it-it/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/it-it/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /it-it/manage/services/web-sites/how-to-scale-websites/
 
 

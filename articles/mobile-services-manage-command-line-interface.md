@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Amministrazione di un servizio mobile dalla riga di comando - Esercitazione su Azure" description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Amministrazione di un servizio mobile dalla riga di comando - Esercitazione su Azure" 
+	description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Automatizzare i servizi mobili con gli strumenti da riga di comando 
 
@@ -18,9 +32,9 @@ Se combinati in un unico script o file batch, questi singoli comandi consentono 
 
 Per usare gli strumenti da riga di comando di Azure per gestire Servizi mobili, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Servizi mobili di Azure.
 
-+ Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-+ Se si dispone di un account, ma è necessario abilitare l'anteprima di Servizi mobili di Azure, vedere la pagina relativa all'<a href="http://azure.microsoft.com/it-it/documentation/articles/php-create-account/#enable" target="_blank">abilitazione dell'anteprima delle funzionalità di Azure</a>.
++ Se si dispone di un account, ma è necessario abilitare l'anteprima di Servizi mobili di Azure, vedere la pagina relativa all'<a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">abilitazione dell'anteprima delle funzionalità di Azure</a>.
 
 In questo argomento vengono illustrate alcune attività di amministrazione comuni supportate dagli strumenti da riga di comando di Azure. Per altre informazioni, vedere la [documentazione degli strumenti da riga di comando di Azure][reference-docs].
 
@@ -137,7 +151,8 @@ Usare il comando seguente per caricare e registrare una funzione in un'operazion
 
 Si noti che questa operazione comporta il caricamento di un file JavaScript (con estensione js) dal computer locale. Il nome del file deve essere composto dai nomi della tabella e dell'operazione e deve trovarsi nella sottocartella  `table` relativa al percorso in cui viene eseguito il comando. Ad esempio, l'operazione seguente carica e registra un nuovo script  `insert` che appartiene alla tabella  `TodoItems`:
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 La dichiarazione di funzione nel file di script deve corrispondere all'operazione su tabella registrata. Questo significa che, per uno script  `insert`, lo script caricato contiene una funzione con la firma seguente:
 

@@ -1,6 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="Analisi di sopravvivenza | Azure" description="Analisi di sopravvivenza" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Analisi di sopravvivenza | Azure" 
+	description="Informazioni sulla probabilità che si verifichino eventi di Analisi di sopravvivenza." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Analisi di sopravvivenza 
@@ -70,7 +84,7 @@ L'interpretazione di questo test è la seguente. Si presuppone che l'obiettivo d
 
 ##Creazione del servizio Web
 
->Questo servizio Web è stato creato tramite Azure ML. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](http://azure.microsoft.com/it-it/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), vedere [azure.com/ml](http://azure.com/ml). La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
+>Questo servizio Web è stato creato tramite Azure ML. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), vedere [azure.com/ml](http://azure.com/ml). La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
 In Azure ML è stato creato un nuovo esperimento vuoto e due "Execute R Script" sono stati inseriti nell'area di lavoro. Lo schema di dati è stato creato con un semplice 'Execute R Script', che definisce lo schema di dati di input per il servizio Web. Questo modulo viene quindi collegato al secondo modulo 'Execute R Script', che esegue la maggior parte delle operazioni, ovvero la pre-elaborazione dei dati, la compilazione dei modelli e le previsioni. Nel passaggio di pre-elaborazione dei dati, i dati di input rappresentati da una stringa lunga vengono trasformati e convertiti in un intervallo di dati. Nel passaggio di compilazione del modello, viene prima di tutto installato un pacchetto R esterno denominato "survival_2.37-7.zip" per l'esecuzione dell'analisi di sopravvivenza. La funzione "coxph" viene eseguita dopo una serie di attività di elaborazione dei dati. Informazioni dettagliate sulla funzione "coxph" per l'analisi di sopravvivenza sono disponibili nella documentazione su R. Nel passaggio relativo alla previsione, un'istanza di test viene fornita al modello sottoposto a training con la funzione "surfit" e la curva di sopravvivenza per questa istanza di test viene prodotta come variabile "curve". Viene quindi ricavata la probabilità del tempo di interesse. 
 
@@ -172,6 +186,8 @@ In Azure ML è stato creato un nuovo esperimento vuoto e due "Execute R Script" 
 Questo servizio Web può accettare solo valori numerici come variabili della funzionalità (colonne). La colonna "event" può accettare solo i valori 0 o 1. La colonna "time" deve essere un numero intero positivo.
 
 ##Domande frequenti
-Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione nel Marketplace, vedere [qui](http://azure.microsoft.com/it-it/documentation/articles/machine-learning-marketplace-faq).
+Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione nel Marketplace, vedere [qui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

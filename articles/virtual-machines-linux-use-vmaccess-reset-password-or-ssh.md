@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Come usare VMAccess per le macchine virtuali Linux" 
-	description="Come usare l'estensione VMAccess per Linux per reimpostare le password e le chiavi SSH, per reimpostare le configurazioni SSH ed eliminare gli utenti Linux" 
+	description="Come usare l'estensione VMAccess per Linux per reimpostare le password, le chiavi e le configurazioni SSH" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,43 +13,33 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="10/30/2014" 
 	ms.author="kathydav"/>
 
-# Come reimpostare una password o SSH per le macchine virtuali Linux #
+#Come reimpostare una password o SSH per le macchine virtuali Linux#
 
-Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH. 
+Se si dimentica la password o la chiave SSH oppure si verifica un problema con la configurazione SSH e non è possibile connettersi a una VM Linux, usare l'estensione VMAccessforLinux per reimpostare la password, la chiave SSH o la configurazione SSH. 
 
-## Requisiti
+
+##Requisiti
 
 - Agente Linux di Microsoft Azure versione 2.0.5 o successive. La maggior parte delle immagini Linux nella raccolta di macchine virtuali include la versione 2.0.5. Per verificare la versione installata, eseguire `waagent -version`. Per aggiornare l'agente, attenersi alle istruzioni presenti nella [Guida dell'utente dell'agente Linux di Azure].
-- Azure PowerShell. I comandi disponibili nel cmdlet **Set-AzureVMExtension** verranno usati per caricare e configurare automaticamente l'estensione **VMAccessForLinux**. Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell].
-- Una nuova password o un set di chiavi SSH da reimpostare. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH. 
 
-## Non è necessaria alcuna installazione
+- Modulo di Azure Powershell. Il modulo include il cmdlet **Set-AzureVMExtension**, con il quale è possibile eseguire i comandi per usare l'estensione **VMAccessForLinux**. Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell].
 
-Non è necessario che l'estensione VMAccess sia installata per poterla usare. Se l'agente Linux è installato nella macchina virtuale, l'estensione viene caricata automaticamente quando si esegue un comando di Azure PowerShell che usa il cmdlet **Set-AzureVMExtension**. 
+- Una nuova password o le chiavi SSH che si desidera reimpostare. Queste non saranno necessarie se invece si desidera correggere la configurazione SSH. 
 
-## Usare l'estensione per reimpostare una password, la chiave SSH o la configurazione SSH oppure per eliminare un utente
+##Non è necessaria alcuna installazione
 
-Si userà il cmdlet **Set-AzureVMExtension** per apportare le modifiche consentite da VMAccess. In ogni caso, iniziare usando il nome del servizio cloud e il nome della macchina virtuale per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile. 
+Non è necessario che VMAccess sia installato per poterlo usare. Se l'agente Linux e il modulo di Azure sono installati, l'estensione viene caricata automaticamente quando si esegue un comando che chiama il cmdlet **Set-AzureVMExtension**. 
 
-Specificare i nomi del servizio cloud e della macchina virtuale, quindi eseguire i comandi seguenti in un prompt dei comandi di Azure PowerShell di livello amministratore. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >.
+##Usare l'estensione per reimpostare una password, la chiave o la configurazione SSH oppure per aggiungere un utente
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+Si userà il cmdlet **Set-AzureVMExtension** per apportare le modifiche consentite da VMAccess. In ogni caso, iniziare usando il nome del servizio cloud e il nome della macchina virtuale per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile.   
 
-Se non si conosce il servizio cloud e il nome della VM, eseguire **Get-AzureVM** per visualizzare tali informazioni per tutte le VM nella sottoscrizione corrente.
+Aprire Azure PowerShell e digitare il comando seguente al prompt dei comandi. Assicurarsi di sostituire i segnaposto MyServiceName e MyVMName con i nomi effettivi:
 
-
-> [AZURE.NOTE] Le righe di comando che iniziano con $ configurano variabili di PowerShell che verranno usate successivamente nei comandi di PowerShell.
-
-Se la macchina virtuale è stata creata con il portale di gestione di Azure, eseguire anche il comando seguente:
-
-	$vm.GetInstance().ProvisionGuestAgent = $true
-
-Questo comando eviterà l'errore relativo alla necessità di abilitare l'agente guest di provisioning sull'oggetto VM prima della configurazione dell'estensione di accesso alle VM IaaS durante l'esecuzione del comando Set-AzureVMExtension nelle sezioni seguenti. 
+	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
 
 A questo punto è possibile eseguire le attività seguenti:
 
@@ -57,75 +47,86 @@ A questo punto è possibile eseguire le attività seguenti:
 + [Reimpostare una chiave SSH](#SSHkey)
 + [Reimpostare la password e la chiave SSH](#both)
 + [Reimpostare la configurazione SSH](#config)
-+ [Eliminare un utente](#delete)
 
 ### <a name="password"></a>Reimpostare la password
+Digitare il nome utente e la password e archiviarli in variabili, quindi creare una singola variabile per archiviare i valori in modo che possano essere usati dai comandi successivi.
 
-Specificare il nome utente Linux attuale e la nuova password, quindi eseguire i comandi seguenti.
+	PS C:\> $UserName = "CurrentName"
+	PS C:\> $Password = "NewPassword"
+	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
 
-	$UserName = "<current Linux account name>"
-	$Password = "<new password>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+Archiviare il nome, l'entità di pubblicazione e il numero della versione in variabili: 
+
+	PS C:\> ExtensionName = 'VMAccessForLinux'
+	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
+	PS C:\> $Version =  '1.0'
+
+Una volta archiviati in variabili i valori necessari, eseguire il comando seguente:
+
+	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] Se si desidera reimpostare la password o la chiave SSH per un account utente esistente, assicurarsi di digitare il nome utente esatto. Se si digita un nome diverso, l'estensione VMAccess creerà un nuovo account utente e assegnerà la password a tale account.
 
+### <a name="SSHkey"></a>Reimpostare una chiave SSH
 
-### <a name="SSHKey"></a>Reimpostare una chiave SSH
+Digitare il nome utente e il percorso della nuova chiave pubblica SSH e archiviarli in variabili:
 
-Specificare il nome utente Linux attuale e il percorso del certificato contenente le chiavi SSH, quindi eseguire i comandi seguenti.
+	PS C:\> $UserName = "CurrentName"
+	PS C:\> $cert = Get-Content "CertPath"
+	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
 
-	$UserName = "<current Linux user name>"
-	$Cert = Get-Content "<certificate path>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+Attivare i seguenti comandi:
+
+	PS C:\> $ExtensionName = 'VMAccessForLinux'
+	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
+	PS C:\> $Version =  '1.0'
+	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+
 
 ### <a name="both"></a>Reimpostare la password e la chiave SSH
 
-Specificare il nome utente Linux attuale, la nuova password e il percorso del certificato contenente le chiavi SSH, quindi eseguire i comandi seguenti.
+Per l'utente corrente, digitare una nuova password e il percorso del nuovo certificato con la chiave pubblica SSH e archiviarli in variabili: 
 
-	$UserName = "<current Linux user name>"
-	$Password = "<new password>"
-	$Cert = Get-Content "<certificate path>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+	PS C:\> $UserName = "CurrentName"	
+	PS C:\> $Password = "NewPassword"
+	PS C:\> $cert = Get-Content "CertPath"
+	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
 
-### <a name="config"></a>Reimpostare la configurazione SSH
+Attivare i seguenti comandi:
 
-Eventuali errori nella configurazione SSH possono impedire l'accesso alla macchina virtuale. È possibile risolvere il problema ripristinando la configurazione di SSH predefinita. Verranno rimossi tutti i nuovi parametri di accesso nella configurazione, ad esempio nome utente, password e chiave SSH, ma ciò non modifica la password o le chiavi SSH dell'account utente. L'estensione riavvia il server SSH, apre la porta SSH nella macchina virtuale e ripristina la configurazione SSH predefinita. 
+	PS C:\> $ExtensionName = 'VMAccessForLinux'
+	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
+	PS C:\> $Version =  '1.0'
+	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-Eseguire i comandi seguenti.
+###  <a name="config"></a>Reimpostare la configurazione SSH
 
-	$PrivateConfig = '{"reset_ssh": "True"}' 
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version = "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+Eventuali errori nella configurazione SSH possono impedire l'accesso alla macchina virtuale. È possibile risolvere il problema ripristinando la configurazione predefinita. In questo modo verranno rimossi tutti i nuovi parametri di accesso della configurazione (nome utente, password o chiave SSH). Non verrà invece modificata la password o le chiavi SSH dell'account utente. L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita.  
+
+Impostare il flag che indica che si desidera reimpostare la configurazione e archiviarlo in una variabile: 
+	
+	PS C:\> $PrivateConfig = '{"reset_ssh": "True"}' 
+
+Attivare i seguenti comandi:
+
+	PS C:\> $ExtensionName = 'VMAccessForLinux'
+	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
+	PS C:\> $Version =  '1.0'
+	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] Il file di configurazione SSH si trova in /etc/ssh/sshd_config.
 
-### <a name="delete"></a> Eliminare un utente
+## Risoluzione dei problemi
 
-Specificare il nome utente Linux da eliminare e quindi eseguire i comandi seguenti.
+Quando si usa il cmdlet **Set-AzureVMExtension**, è possibile che venga visualizzato questo errore: "Prima di impostare l'estensione per l'accesso alle VM IaaS, è necessario abilitare l'agente guest di provisioning nella macchina virtuale". 
 
-	$UserName = "<Linux user name to delete>"
-	$PrivateConfig = "{"remove_user": "' + $UserName + '"}"
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version = "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+Questa situazione può verificarsi se la VM Linux è stata creata usando il portale di gestione, in quanto il valore della proprietà dell'agente guest non può essere impostato su "True". Per risolvere questo problema, attivare i seguenti comandi:
 
-## Risorse aggiuntive
+	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
 
+	PS C:\> $vm.GetInstance().ProvisionGuestAgent = $true
+
+#Risorse aggiuntive
 [Estensioni VM e funzionalità di Azure] []
 
 [Connettersi a una macchina virtuale di Azure con RDP o SSH] []
@@ -139,7 +140,4 @@ Specificare il nome utente Linux da eliminare e quindi eseguire i comandi seguen
 
 
 
-
-
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

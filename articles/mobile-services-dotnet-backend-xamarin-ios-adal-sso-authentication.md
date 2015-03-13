@@ -1,6 +1,20 @@
-<properties pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Xamarin.iOS) | Mobile Dev Center" description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Xamarin iOS." documentationCenter="xamarin" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Xamarin.iOS) | Mobile Dev Center" 
+	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Xamarin iOS." 
+	documentationCenter="xamarin" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc,mahender"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
 

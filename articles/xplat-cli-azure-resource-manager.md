@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Uso dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure con Gestione risorse" metaCanonical="http://www.windowsazure.com/it-it/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse" 
+	description="Uso dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure con Gestione risorse" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse
 
@@ -162,8 +176,10 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 * Per altre informazioni sull'utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Microsoft Azure][xplatsetup].
 * Per informazioni sull'utilizzo di Gestione risorse usando Azure PowerShell, vedere [Introduzione all'utilizzo di PowerShell con Gestione risorse][psrm]
 
-[signuporg]: http://www.windowsazure.com/it-it/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/it-it/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /it-it/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

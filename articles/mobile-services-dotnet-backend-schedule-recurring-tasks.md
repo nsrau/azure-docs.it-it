@@ -1,6 +1,21 @@
-<properties pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" description="Uso dell'utilità di pianificazione di Servizi mobili di Microsoft Azure per pianificare processi per l'app mobile." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" 
+	description="Uso dell'utilità di pianificazione di Servizi mobili di Microsoft Azure per pianificare processi per l'app mobile." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Pianificare processi ricorrenti in Servizi mobili 
 
@@ -297,7 +312,7 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Registrare le app per l'autenticazione di Twitter con Servizi mobili]: /it-it/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
 <!--HONumber=42-->

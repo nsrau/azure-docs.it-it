@@ -1,6 +1,20 @@
-<properties linkid="Azure Site Recovery Overview" urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="cfreeman" authors="raynew" />
+﻿<properties 
+	pageTitle="Panoramica di Azure Site Recovery" 
+	description="Informazioni su come distribuire Azure Site Recovery per proteggere macchine virtuali in locale in un altro sito locale o in Azure." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 # Panoramica di Azure Site Recovery
 
@@ -109,3 +123,5 @@ In caso di domande, vedere il [forum relativo ai Servizi di ripristino di Azure]
   [Introduzione ad Azure Site Recovery: Protezione da sito locale a sito locale]: http://go.microsoft.com/fwlink/?LinkId=398765
   [Introduzione ad Azure Site Recovery: Protezione da sito locale ad Azure]: http://go.microsoft.com/fwlink/?LinkId=398764
   [forum relativo ai Servizi di ripristino di Azure]: http://go.microsoft.com/fwlink/?LinkId=313628
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties urlDisplayName="View ACS SAML" pageTitle="Visualizzare il codice SAML restituito dal Servizio di controllo di accesso (Java)" metaKeywords="" description="Informazioni su come visualizzare il codice SAML restituito dal Servizio di controllo di accesso nelle applicazioni Java ospitate in Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Visualizzare il codice SAML restituito dal Servizio di controllo di accesso (Java)" 
+	description="Informazioni su come visualizzare il codice SAML restituito dal Servizio di controllo di accesso nelle applicazioni Java ospitate in Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
 
@@ -190,3 +204,5 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure utilizzando Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties title="Consistency levels in DocumentDB" pageTitle="Livelli di coerenza in DocumentDB" description="DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="Livelli di coerenza in DocumentDB" 
+	description="DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #Livelli di coerenza in DocumentDB
 Gli sviluppatori devono spesso far fronte alla sfida posta dalla scelta tra due estremi: coerenza assoluta e coerenza finale. La realtà è che esistono più stadi intermedi di coerenza tra questi due estremi. Nella maggior parte degli scenari reali, le applicazioni traggono vantaggio dai compromessi granulari tra consistenza, disponibilità e latenza. DocumentDB offre quattro livelli di coerenza ben definiti, a cui sono associati dei livelli di prestazioni. Ciò consente agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza.  
@@ -49,3 +63,5 @@ Come per le richieste di lettura, è possibile ridurre il livello di coerenza di
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventuale coerente - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

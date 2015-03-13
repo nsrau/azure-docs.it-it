@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create and Manage Hybrid Connections - BizTalk Services" pageTitle="Creare e gestire connessioni ibride | Azure" metaKeywords="BizTalk Services, BizTalk, web sites, website, hybrid connections, Azure" description="Informazioni su come creare una connessione ibrida, gestire la connessione e installare Hybrid Connection Manager." metaCanonical="" services="integration-services" documentationCenter="" title="Create and Manage Hybrid Connections" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Creare e gestire connessioni ibride | Azure" 
+	description="Informazioni su come creare una connessione ibrida, gestire la connessione e installare Hybrid Connection Manager. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 #Creare e gestire connessioni ibride
@@ -78,7 +92,7 @@ Una connessione ibrida può essere creata nel portale di gestione di Azure usand
 
 Per collegare il sito Web di Azure a una connessione ibrida esistente, selezionare **usa una connessione ibrida esistente** nel pannello delle connessioni ibride. Vedere [Connettere un sito Web di Azure a una risorsa locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Per collegare il servizio mobile di Azure a una connessione ibrida esistente, selezionare **aggiungi connessione ibrida** quando si modifica o si crea un servizio mobile. Vedere [Servizi mobili di Azure Mobile e Connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Per collegare il servizio mobile di Azure a una connessione ibrida esistente, selezionare **aggiungi connessione ibrida** quando si modifica o si crea un servizio mobile. Vedere [Servizi mobili di Azure Mobile e Connessioni ibride](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 
 ##<a name="InstallHCM"></a>Installare Gestione connessioni ibride nella risorsa locale
@@ -164,8 +178,8 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 
 - [Connettere un sito Web di Azure a una risorsa locale](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Procedura dettagliata relativa a Connessioni ibride: Connettersi a un'istanza di SQL Server locale da un sito Web di Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Servizi mobili di Azure e Connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [Panoramica delle connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/integration-hybrid-connection-overview)
+- [Servizi mobili di Azure e Connessioni ibride](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Panoramica delle connessioni ibride](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview)
 
 
 ## Vedere anche
@@ -179,3 +193,5 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

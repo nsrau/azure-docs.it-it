@@ -1,4 +1,4 @@
-Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessario creare una nuova tabella nell'istanza di database SQL associata.
+﻿Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessario creare una nuova tabella nell'istanza di database SQL associata.
 
 1. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
@@ -15,7 +15,7 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
   Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le autorizzazioni predefinite impostate. Questo significa che chiunque disponga della chiave dell'applicazione, che viene distribuita con l'app, potrà accedere alla tabella e modificare i dati. 
 
 > [AZURE.NOTE] 
-> Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili utilizzano lo stesso database.
+> Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili usano lo stesso database.
 
 4. Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
@@ -49,6 +49,7 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
  	</tr> 	
  	</table> 	
 		
+
   	Questo è il requisito minimo per le tabelle in Servizi mobili. 
 
     > [AZURE.NOTE] Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.
@@ -56,4 +57,4 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 È ora possibile usare il nuovo servizio mobile come archivio dati per l'app.
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

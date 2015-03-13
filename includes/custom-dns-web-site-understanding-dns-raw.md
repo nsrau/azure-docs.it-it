@@ -44,11 +44,10 @@ Per individuare l'indirizzo IP, oltre al nome **awverify** e ai nomi **.azureweb
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
- > [AZURE.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il sito Web usato è gratuito. Dal momento che con un sito Web gratuito non è possibile usare nomi di dominio personalizzati è necessario eseguire l'aggiornamento alla modalità condivisa, di base o standard. Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/).
+ > [AZURE.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il sito Web usato è gratuito. Dal momento che con un sito Web gratuito non è possibile usare nomi di dominio personalizzati è necessario eseguire l'aggiornamento alla modalità condivisa, di base o standard. Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/).
 
 6. Nella finestra di dialogo **GESTISCI DOMINI PERSONALIZZATI** sarà possibile visualizzare le informazioni su **awverify**, il nome di dominio **.azurewebsites.net** attualmente assegnato e l'indirizzo IP virtuale. Salvare queste informazioni perché verranno usate durante la creazione dei record DNS.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
-
 
 <!--HONumber=42-->

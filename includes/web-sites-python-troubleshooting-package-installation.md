@@ -64,8 +64,7 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 È preferibile eliminare l'ambiente virtuale nel sito, per evitare la presenza di file rimasti in seguito alla gestione automatica dell'ambiente virtuale.
 
 
-[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-windows-tutorial/
+[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilatore Microsoft Visual C++ per Python 2.7]: http:://aka.ms/vcpython27
 [compilatore Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=42-->

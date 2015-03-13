@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure" description="Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure. Esaminare i vantaggi aziendali comuni per individuare la tecnologia SQL più adatta per la propria applicazione." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jeffreyg" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure" 
+	description="Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure. Esaminare i vantaggi aziendali comuni per individuare la tecnologia SQL più adatta per la propria applicazione." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="selcint"/>
 
 # Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure
 
@@ -223,15 +237,15 @@ Grazie a tutti per la collaborazione!
    <td valign="middle">Collegamenti alla documentazione della libreria.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/azure/jj879332.aspx">Database SQL di Azure e SQL Server: confronto e contrapposizioni di prestazioni e scalabilità</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Database SQL di Azure e SQL Server: confronto e contrapposizioni di prestazioni e scalabilità</p></td>
    <td valign="middle">Questo articolo spiega le differenze di prestazioni e le tecniche di risoluzione dei problemi quando si usa il database SQL di Azure e SQL Server in esecuzione localmente o in una macchina virtuale. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/dn574746.aspx">Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure</p></td>
    <td valign="middle">Questo articolo descrive i modelli dell'applicazione più diffusi applicabili a SQL Server in Macchine virtuali di Azure e gli scenari ibridi incluso il database SQL di Azure. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/hh680934(v=PandP.50).aspx">Blocco applicazione per la gestione degli errori temporanei di Microsoft Enterprise Library</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Blocco applicazione per la gestione degli errori temporanei di Microsoft Enterprise Library</p></td>
    <td valign="middle">Questa libreria consente agli sviluppatori di rendere più resilienti le applicazioni in esecuzione nel database SQL di Azure aggiungendo un'affidabile logica di gestione degli errori temporanei. Gli errori temporanei sono dovuti a eventi temporanei, ad esempio problemi di connettività di rete o non disponibilità del servizio. Poiché il database SQL di Azure è un servizio multi-tenant, è importante gestire questi errori per ridurre gli eventuali tempi di inattività dell'applicazione. </td>   
 </tr>
 </table>

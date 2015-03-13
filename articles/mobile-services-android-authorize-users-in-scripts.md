@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Autorizzazione lato servizio (Android) | Mobile Dev Center" description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Autorizzazione lato servizio (Android) | Mobile Dev Center" 
+	description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." 
+	services="" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
 # Autorizzazione sul lato servizio degli utenti di Servizi mobili
 

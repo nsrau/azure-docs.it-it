@@ -103,7 +103,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 **Per effettuare il provisioning di un cluster HBase tramite il portale di Azure:**
 
-> [AZURE.NOTE] Per informazioni su come eseguire il provisioning di un nuovo cluster HBase usando PowerShell, vedere [Effettuare il provisioning di un cluster HBase tramite Azure PowerShell].(#powershell).
+> [AZURE.NOTE] Per informazioni su come eseguire il provisioning di un nuovo cluster HBase usando PowerShell, vedere [Effettuare il provisioning di un cluster HBase tramite Azure PowerShell)]#powershell).
 
 1. Accedere al [portale di gestione di Azure][azure-portal].
 
@@ -292,7 +292,7 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE] Per altre informazioni sulla risoluzione dei nomi in Reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](http://msdn.microsoft.com/it-it/library/azure/jj156088.aspx).
+> [AZURE.NOTE] Per altre informazioni sulla risoluzione dei nomi in Reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
 ##<a id="powershell"></a>Effettuare il provisioning di un cluster HBase tramite Azure PowerShell
 
@@ -344,9 +344,9 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 - [Panoramica di Rete virtuale][vnet-overview].
 
 
-[1]: http://azure.microsoft.com/it-it/services/virtual-network/
-[2]: http://technet.microsoft.com/it-it/library/ee176961.aspx
-[3]: http://technet.microsoft.com/it-it/library/hh847889.aspx
+[1]: http://azure.microsoft.com/services/virtual-network/
+[2]: http://technet.microsoft.com/library/ee176961.aspx
+[3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: ../hdinsight-hbase-get-started/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment/
@@ -355,14 +355,14 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 
 [azure-portal]: https://manage.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -386,5 +386,4 @@ In questa esercitazione si è appreso come eseguire il provisioning di un cluste
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
-
 <!--HONumber=42-->

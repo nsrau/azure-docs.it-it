@@ -533,9 +533,9 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di s
 - [Usare Hive con HDInsight][hdinsight-use-hive]
 - [Usare Pig con HDInsight][hdinsight-use-pig]
 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
@@ -555,7 +555,6 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di s
 [p	owershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
-
 
 
 

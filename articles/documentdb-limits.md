@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="Limiti per la versione di anteprima di DocumentDB | Azure" description="Informazioni sull'applicazione di limiti e quote nella versione di anteprima di DocumentDB." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Limiti per la versione di anteprima di DocumentDB | Azure" 
+	description="Informazioni sull'applicazione di limiti e quote nella versione di anteprima di DocumentDB." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 #Limiti per la versione di anteprima di DocumentDB
@@ -37,3 +51,5 @@ La tabella seguente descrive l'applicazione di limiti e quote nella versione di 
 |Numero massimo di JOIN per ogni query    |2
 |Numero massimo di clausole AND per ogni query      |5
 |Numero massimo di clausole OR per ogni query       |5
+
+<!--HONumber=46--> 

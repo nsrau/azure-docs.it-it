@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitoraggio e Scala nei Servizi BizTalk | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Informazioni sui controlli delle schede del portale di gestione per i Servizi BizTalk: Dashboard, Monitora e Ridimensiona." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Dashboard, Monitoraggio e Scala nei Servizi BizTalk | Azure" 
+	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale di gestione per i Servizi BizTalk: Dashboard, Monitoraggio, Scala, Configura e Connessione ibrida. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -47,7 +61,7 @@ Nell'articolo         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">
 
 <tr>
         <td><strong>Altre informazioni sui servizi BizTalk</strong></td>
-        <td>Per altre informazioni sui Servizi BizTalk di Azure visitare l'<a HREF="http://azure.microsoft.com/it-it/documentation/services/biztalk-services/">area risorse</a>.</td>
+        <td>Per altre informazioni sui Servizi BizTalk di Azure visitare l'<a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">area risorse</a>.</td>
 </tr>
 </table>
 
@@ -341,7 +355,7 @@ Le connessioni ibride consentono la connessione di un'applicazione Azure, come S
 
 Per creare connessioni ibride in Siti Web di Azure, vedere [Connettere un sito Web di Azure a una risorsa locale mediante connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Per usare connessioni ibride in Servizi mobili di Azure, vedere l'articolo [Servizi mobili di Azure e connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Per usare connessioni ibride in Servizi mobili di Azure, vedere l'articolo [Servizi mobili di Azure e connessioni ibride](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 Per creare o gestire connessioni ibride in Servizi BizTalk di Azure, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
@@ -365,3 +379,5 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+<!--HONumber=46--> 

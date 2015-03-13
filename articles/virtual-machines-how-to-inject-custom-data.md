@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Inserimento di dati personalizzati in macchine virtuali di Azure" 
 	description="In questo argomento viene descritto come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell'istanza e come individuare i dati personalizzati in Windows o Linux." 
 	services="virtual-machines" 
@@ -18,7 +18,7 @@
 
 
 
-# Inserimento di dati personalizzati in una macchina virtuale di Azure 
+#Inserimento di dati personalizzati in una macchina virtuale di Azure 
 
 L'inserimento di uno script o di altri dati in una macchina virtuale di Azure durante il provisioning è uno scenario molto comune e indipendente dal sistema operativo usato per la distribuzione, Microsoft Windows o Linux. In questo argomento viene spiegato come:
 
@@ -75,4 +75,7 @@ Se la macchina virtuale di Azure si trova in un'immagine Ubuntu, è possibile us
 [Interfaccia della riga di comando multipiattaforma di Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

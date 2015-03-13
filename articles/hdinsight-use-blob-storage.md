@@ -62,7 +62,7 @@ Durante il processo di provisioning è possibile aggiungere a tale account di ar
 - **Contenitori pubblici o BLOB pubblici negli account di archiviazione NON connessi a un cluster:** si disporrà di accesso di sola lettura ai BLOB in tali contenitori.
 
 	> [AZURE.NOTE]
-        > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB disponibili al suo interno, nonché i metadati del contenitore stesso. È possibile  accedere a un BLOB pubblico solo se se ne conosce l'URL esatto. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dd179354.aspx">Limitare l'accesso a contenitori e BLOB</a>.
+        > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB disponibili al suo interno, nonché i metadati del contenitore stesso. È possibile  accedere a un BLOB pubblico solo se se ne conosce l'URL esatto. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Limitare l'accesso a contenitori e BLOB</a>.
 
 - **Contenitori privati negli account di archiviazione NON connessi a un cluster:** non è possibile accedere ai BLOB nei contenitori a meno che non sia stato definito l'account di archiviazione quando sono stati inviati i processi WebHCat. Ciò verrà spiegato più avanti in questo articolo.
 
@@ -296,11 +296,10 @@ Per altre informazioni, vedere gli articoli seguenti:
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/it-it/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
 <!--HONumber=42-->

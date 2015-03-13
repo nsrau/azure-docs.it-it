@@ -19,7 +19,7 @@
 
 #Ripristino di un sito Web di Microsoft Azure
 
-Questo articolo illustra come ripristinare un sito Web precedentemente sottoposto a backup mediante la funzionalità di backup di Siti Web di Azure. Per altre informazioni, vedere [Backup di Siti Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-backup/). 
+Questo articolo illustra come ripristinare un sito Web precedentemente sottoposto a backup mediante la funzionalità di backup di Siti Web di Azure. Per altre informazioni, vedere [Backup di Siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
 
 La funzionalità di ripristino di Siti Web di Azure consente di ripristinare su richiesta lo stato precedente di un sito Web oppure di creare un nuovo sito Web basato su un backup del sito originale. La creazione di un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 

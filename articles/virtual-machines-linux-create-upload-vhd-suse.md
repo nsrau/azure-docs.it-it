@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Creazione e caricamento di un VHD SUSE Linux in Azure" 
 	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo SUSE Linux." 
 	services="virtual-machines" 
@@ -22,9 +22,9 @@
 - [Preparare una macchina virtuale SLES 11 SP3 per Azure](#sles11)
 - [Preparare una macchina virtuale openSUSE 13.1+ per Azure](#osuse)
 
-## Prerequisiti##
+##Prerequisiti##
 
-In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). 
+In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file .vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). 
 
 
 **Note di installazione di SLES/openSUSE**
@@ -36,7 +36,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, su dischi di dati si può usare LVM o [RAID](../virtual-machines-linux-configure-raid).
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi.  Se si preferisce, sui dischi di dati si può usare LVM o [RAID](../virtual-machines-linux-configure-raid).
 
 - Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse.  Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -78,7 +78,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 10.	Non creare l'area di swap sul disco del sistema operativo.
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco  *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -128,7 +128,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 		# sudo zypper up kernel-default
 
-	Or to update the system with all the latest patches:
+	Oppure per aggiornare il sistema con tutte le patch più recenti:
 
 		# sudo zypper update
 
@@ -157,7 +157,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 10.	Non creare l'area di swap sul disco del sistema operativo.
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporary* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+	L'agente Linux di Azure può configurare automaticamente l'area di swap usando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco  *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -179,4 +179,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

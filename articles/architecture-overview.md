@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="Architettura" metaKeywords="" description="Informazioni di carattere generale sull'architettura che includono i modelli di progettazione più comuni." metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+<properties 
+	pageTitle="Architettura" 
+	description="Informazioni generali sull'architettura che includono riferimenti ai modelli di progettazione più comuni." 
+	services="" 
+	documentationCenter="" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 #Architettura
 Risorse per la creazione di applicazioni che usano Microsoft Azure.
@@ -25,12 +39,12 @@ Se si sono già usati i simboli, assicurarsi di compilare il breve [sondaggio](h
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##Modelli di progettazione
-Microsoft Patterns and Practices ha pubblicato il libro [Cloud Design Patterns](http://msdn.microsoft.com/it-it/library/dn568099.aspx), disponibile su MSDN e come file in formato PDF per il download. È inoltre disponibile un poster di grande formato in cui sono elencati tutti i modelli. 
+Microsoft Patterns and Practices ha pubblicato il libro [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx), disponibile su MSDN e come file in formato PDF per il download. È inoltre disponibile un poster di grande formato in cui sono elencati tutti i modelli. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##Infografiche relative all'architettura
-Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [Creazione di app reali per il cloud](http://azure.microsoft.com/it-it/documentation/infographics/building-real-world-cloud-apps/) e [Scalabilità delle applicazioni con Servizi cloud](http://azure.microsoft.com/it-it/documentation/infographics/cloud-services/) . 
+Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [Creazione di app reali per il cloud](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Scalabilità delle applicazioni con Servizi cloud](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -43,3 +57,5 @@ Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

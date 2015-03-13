@@ -1,7 +1,8 @@
-###Installazione tramite Composer
+﻿###Installazione tramite Composer
 
-1. [Installazione di Git][install-git]. 
+1. [Installazione di Git][install-git] 
 
+ 
 	> [AZURE.NOTE] In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
@@ -31,10 +32,11 @@ Per scaricare e installare manualmente le librerie client PHP per Azure, attener
 
 1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork del repository, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
 
-  > [AZURE.NOTE] Le librerie client PHP per Azure hanno dipendenze dai pacchetti [PEAR HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) . Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [PEAR package manager].(http://pear.php.net/manual/en/installation.php).
+	
+	> [AZURE.NOTE] Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
 
 
-2. Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione.
+2. Copiare la directory  `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione.
 
 Per altre informazioni sull'installazione delle librerie client PHP per Azure, comprese informazioni sull'installazione di un pacchetto PEAR, vedere [Download di Azure SDK per PHP][download-SDK-PHP].
 
@@ -44,4 +46,4 @@ Per altre informazioni sull'installazione delle librerie client PHP per Azure, c
 [download-SDK-PHP]: ../php-download-sdk/
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

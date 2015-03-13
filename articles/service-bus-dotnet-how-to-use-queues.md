@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="Come usare le code del Bus di servizio (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Come usare le code del Bus di servizio (.NET) - Azure" 
+	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -230,7 +244,9 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Code, argomenti e sottoscrizioni.]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367516.aspx
-  [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/it-it/library/windowsazure/hh367512.aspx
+  [Code, argomenti e sottoscrizioni.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

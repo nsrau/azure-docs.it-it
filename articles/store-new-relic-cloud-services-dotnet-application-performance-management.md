@@ -35,7 +35,7 @@ New Relic a un prezzo speciale tramite Azure Store
 New Relic Standard è gratuito per gli utenti di Azure
 New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi cloud di Azure
 
-Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://www.windowsazure.com/it-it/gallery/store/new-relic/new-relic/).
+Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 

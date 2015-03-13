@@ -32,7 +32,7 @@ Per accedere alla macchina virtuale, è necessario installare un client SSH nel 
 
 In questa procedura viene illustrato come usare il programma PuTTY per accedere alla macchina virtuale.
 
-1. Individuare le informazioni su **Host Name** e **Port information** nel [portale di gestione](http://manage.windowsazure.com). È possibile rilevare le informazioni necessarie dal dashboard della macchina virtuale. Fare clic sul nome della macchina virtuale e individuare **SSH Details** nella sezione **Quick Glance** del dashboard.
+1. Individuare le informazioni **Host Name** e **Port information** nel [portale di gestione](http://manage.windowsazure.com). È possibile rilevare le informazioni necessarie dal dashboard della macchina virtuale. Fare clic sul nome della macchina virtuale e individuare **SSH Details** nella sezione **Quick Glance** del dashboard.
 
 	![Obtain SSH details](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
 
@@ -42,7 +42,7 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Per altre informazioni su come creare una macchina virtuale con un nome utente e una password, vedere [Creazione di una macchina virtuale che esegue Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). 
+4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Per altre informazioni su come creare una macchina virtuale con un nome utente e una password, vedere [Come accedere alla macchina virtuale dopo averla creata](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
@@ -53,4 +53,7 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

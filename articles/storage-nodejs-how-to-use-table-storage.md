@@ -434,15 +434,14 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [How To: Delete a Table]: #delete-table
 
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Archiviazione]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Sito Web con WebMatrix]: /it-it/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js Cloud Service with Storage]: /it-it/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Applicazione Web Node.js con archiviazione]: /it-it/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: /it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
 <!--HONumber=42-->

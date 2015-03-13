@@ -29,7 +29,7 @@
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 
-Per iniziare, è necessario creare un account di archiviazione di Azure e quindi creare uno o più contenitori nell'archiviazione. Ad esempio, è possibile creare una risorsa di archiviazione denominata "Scrapbook", quindi creare contenitori nella risorsa di archiviazione denominati "images" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET").
+Per iniziare, è necessario creare un account di archiviazione di Azure e quindi creare uno o più contenitori nell'archiviazione. Ad esempio, è possibile creare una risorsa di archiviazione denominata "Scrapbook", quindi creare contenitori nella risorsa di archiviazione denominati "images" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET").
 
 Per accedere ai BLOB a livello di codice in progetti ASP.NET 5, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
 
@@ -123,7 +123,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
             }
         } while (token != null);
 
-È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
+È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
 
 ##### Scaricare un BLOB
 Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo **DownloadToStreamAsync()**. L'esempio seguente usa il metodo **DownloadToStreamAsync()** per trasferire i contenuti del BLOB a un oggetto stream che è quindi possibile salvare come file locale.
@@ -137,7 +137,7 @@ Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
+È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
 
 ##### Eliminare un BLOB
 Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo **DeleteAsync()**.
@@ -149,5 +149,5 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 	await blockBlob.DeleteAsync();
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
-<!--HONumber=42-->
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+\<!--HONumber=42-->

@@ -1,0 +1,59 @@
+﻿<properties 
+	pageTitle="Aggiungere paging ai dati (JavaScript) - Servizi mobili di Azure" 
+	description="Informazioni su come usare il paging per gestire la quantità di dati restituiti all'app JavaScript per Windows Store da Servizi mobili." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
+
+
+# Usare il paging per ridefinire le query di Servizi mobili
+
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
+
+
+Questo argomento descrive come usare il paging per gestire la quantità di dati restituiti all'app di Windows Store da Servizi mobili di Azure. In questa esercitazione verranno usati i metodi di query **Take** e **Skip** sul client per richiedere "pagine" di dati specifiche.
+
+>[AZURE.NOTE]Per evitare l'overflow dei dati nei client dei dispositivi mobili, Servizi mobili implementa un limite di pagina automatico, che per impostazione predefinita prevede un massimo di 50 elementi in una risposta. Specificando la dimensione della pagina, è possibile richiedere in modo esplicito fino a un massimo di 1.000 elementi nella risposta.
+
+Questa esercitazione è basata sulle procedure e sull'app di esempio creata nell'esercitazione precedente [Introduzione ai dati]. Prima di iniziare questa esercitazione, è necessario completare almeno la prima esercitazione della serie relativa all'uso dei dati, [Introduzione ai dati]. 
+
+[AZURE.INCLUDE [mobile-services-javascript-paging](../includes/mobile-services-javascript-paging.md)]
+
+## <a name="next-steps"> </a>Passaggi successivi
+
+Il set di esercitazioni relative alle nozioni di base dell'uso dei dati in Servizi mobili è concluso. Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
+
+* [Introduzione all'autenticazione]
+  <br/>Informazioni sull'autenticazione degli utenti dell'app con un account Windows.
+
+* [Introduzione alle notifiche push] 
+  <br/>Informazioni sull'invio di una notifica push di base all'app.
+
+<!-- Anchors. -->
+
+[Passaggi successivi]:#next-steps
+
+<!-- Images. -->
+
+
+<!-- URLs. -->
+[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-get-started/
+[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+
+[Portale di gestione]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

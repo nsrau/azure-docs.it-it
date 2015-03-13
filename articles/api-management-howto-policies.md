@@ -1,6 +1,20 @@
-<properties pageTitle="Policies in Azure API Management" metaKeywords="" description="Learn how to create, edit, and configure policies in API Management." metaCanonical="" services="" documentationCenter="API Management" title="Policies in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Criteri in Gestione API di Azure" 
+	description="Informazioni su come creare, modificare e configurare criteri in Gestione API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="sdanie"/>
 
 # Criteri in Gestione API di Azure
 
@@ -99,3 +113,5 @@ Nota: un criterio globale policy non ha un criterio di livello superiore. L'elem
   [Edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
   [Restriction policies]: ./media/api-management-howto-policies/api-management-policies-restrict.png
   [Save]: ./media/api-management-howto-policies/api-management-policies-save.png
+
+<!--HONumber=46--> 

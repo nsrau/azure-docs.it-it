@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione alle notifiche push (push legacy) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript di Windows Store (push legacy)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introduzione alle notifiche push (push legacy) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript di Windows Store (push legacy)." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili (push legacy)
 

@@ -68,7 +68,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ###Per ottenere le credenziali di gestione da Esplora server
 
-Per ottenere le informazioni sulla connessione con Visual Studio invece del portale di gestione, attenersi alla procedura descritta [qui](http://http://msdn.microsoft.com/it-it/library/windowsazure/ff687127.aspx), nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Bus di servizio** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio. 
+Per ottenere le informazioni sulla connessione con Visual Studio invece del portale di gestione, attenersi alla procedura descritta [qui](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), nella sezione **Per connettersi ad Azure da Visual Studio**. Quando si accede ad Azure, il nodo **Bus di servizio** nell'albero **Microsoft Azure** in Esplora server viene automaticamente popolato con gli eventuali spazi dei nomi creati. Fare clic con il pulsante destro del mouse su uno spazio dei nomi, quindi scegliere **Proprietà** per visualizzare la stringa di connessione e altri metadati associati allo spazio dei nomi nel riquadro **Proprietà** di Visual Studio. 
 
 Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
@@ -78,5 +78,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
   [Portale di gestione di Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
-
 <!--HONumber=42-->

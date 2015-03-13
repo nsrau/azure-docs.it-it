@@ -11,7 +11,7 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://www.windowsazure.com/it-it/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Creazione di un sito Web nel portale
 
@@ -79,7 +79,6 @@ Dopo aver fatto clic su **Completa**, in Azure verranno avviate le operazioni di
 [11]: ./media/website-from-gallery/wordpressgallery-07.png
 [12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
 
 
 

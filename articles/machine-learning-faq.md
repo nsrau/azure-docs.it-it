@@ -1,6 +1,20 @@
-<properties title="Domande frequenti su Microsoft Azure Machine Learning" pageTitle="Domande frequenti su Azure Machine Learning | Azure" description="Domande frequenti su Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Domande frequenti su Azure Machine Learning | Azure" 
+	description="Domande frequenti su Microsoft Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pablissima" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="paulettm"/>
 
 # Domande frequenti su Microsoft Azure Machine Learning
 
@@ -36,11 +50,11 @@ Gli addebiti vengono aggregati per area di lavoro della sottoscrizione. In ogni 
 -   Ore stima servizio API: questo misuratore include gli addebiti di calcolo accumulati dai servizi Web in esecuzione nell'ambiente di produzione.
 -   Stime servizio API (in millesimi): questo misuratore include gli addebiti accumulati per ogni chiamata al servizio Web nell'ambiente di produzione.
 
-Per i dettagli sui prezzi, vedere la pagina Prezzi all'indirizzo [http://azure.microsoft.com/it-it/pricing/details/machine-learning/][http://azure.microsoft.com/it-it/pricing/details/machine-learning/].
+Per i dettagli sui prezzi, vedere la pagina Prezzi all'indirizzo [http://azure.microsoft.com/pricing/details/machine-learning/][http://azure.microsoft.com/pricing/details/machine-learning/].
 
 **6. È disponibile una versione di valutazione di Azure Machine Learning?**
 
-Azure ML fa parte della versione di valutazione gratuita di Azure. Quando si effettua l'iscrizione alla versione di valutazione gratuita di Azure, è possibile provare tutti i servizi di Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [http://azure.microsoft.com/it-it/pricing/free-trial-faq/][http://azure.microsoft.com/it-it/pricing/free-trial-faq/].
+Azure ML fa parte della versione di valutazione gratuita di Azure. Quando si effettua l'iscrizione alla versione di valutazione gratuita di Azure, è possibile provare tutti i servizi di Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [http://azure.microsoft.com/pricing/free-trial-faq/][http://azure.microsoft.com/pricing/free-trial-faq/].
 
 ### MACHINE LEARNING STUDIO
 
@@ -108,15 +122,17 @@ Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. �
 
 **18. Come è possibile richiedere supporto per Azure ML?**
 
-Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per richiedere supporto tecnico per Azure ML, selezionare il servizio 'Machine Learning'. Scegliere una delle categorie di argomenti per inviare il ticket di supporto. Per altre informazioni sull'offerta di supporto di Azure, vedere [http://azure.microsoft.com/it-it/support/options/][http://azure.microsoft.com/it-it/support/options/]
+Il supporto per Azure ML è incluso nell'offerta di supporto per Azure. Per richiedere supporto tecnico per Azure ML, selezionare il servizio 'Machine Learning'. Scegliere una delle categorie di argomenti per inviare il ticket di supporto. Per altre informazioni sull'offerta di supporto di Azure, vedere [http://azure.microsoft.com/support/options/][http://azure.microsoft.com/support/options/]
 
 È inoltre disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure ML. Il forum è monitorato dal team di Azure ML. Visitare il [forum di Azure][forum di Azure].
 
   [introduzione]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure Machine Learning Center]: http://azure.microsoft.com/it-it/documentation/services/machine-learning/
-  [http://azure.microsoft.com/it-it/pricing/details/machine-learning/]: http://azure.microsoft.com/it-it/pricing/details/machine-learning/
-  [http://azure.microsoft.com/it-it/pricing/free-trial-faq/]: http://azure.microsoft.com/it-it/pricing/free-trial-faq/
+  [Azure Machine Learning Center]: http://azure.microsoft.com/documentation/services/machine-learning/
+  [http://azure.microsoft.com/pricing/details/machine-learning/]: http://azure.microsoft.com/pricing/details/machine-learning/
+  [http://azure.microsoft.com/pricing/free-trial-faq/]: http://azure.microsoft.com/pricing/free-trial-faq/
   [forum con i commenti e suggerimenti degli utenti]: http://go.microsoft.com/fwlink/?LinkId=404231
   [forum dei commenti e suggerimenti degli utenti]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [http://azure.microsoft.com/it-it/support/options/]: http://azure.microsoft.com/it-it/support/options/
+  [http://azure.microsoft.com/support/options/]: http://azure.microsoft.com/support/options/
   [forum di Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/it-it/home?forum=MachineLearning
+
+<!--HONumber=46--> 

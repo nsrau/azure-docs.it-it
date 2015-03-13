@@ -20,7 +20,7 @@
 
 	L'hub di notifica usato dal servizio mobile viene aggiornato con la registrazione di Servizi notifica Push Windows (WNS). È ora possibile usare Hub di notifica di Azure per inviare notifiche da Servizi mobili all'app mediante WNS. 
 
-	>[AZURE.NOTE]Questa esercitazione illustra l'invio di notifiche da un back-end del servizio mobile. È possibile usare la stessa registrazione dell'hub di notifica per inviare notifiche da ogni servizio back-end. Per altre informazioni, vedere [Panoramica degli hub notifiche](http://msdn.microsoft.com/it-it/library/azure/jj927170.aspx).
+	>[AZURE.NOTE]Questa esercitazione illustra l'invio di notifiche da un back-end del servizio mobile. È possibile usare la stessa registrazione dell'hub di notifica per inviare notifiche da ogni servizio back-end. Per altre informazioni, vedere [Panoramica degli hub notifiche](http://msdn.microsoft.com/library/azure/jj927170.aspx).
 
 5. Al completamento della procedura guidata, viene aperta una nuova pagina ****in Visual Studio con l'indicazione che la configurazione push è quasi completata. In questa pagina vengono fornite informazioni dettagliate su un metodo alternativo per configurare il progetto di servizio mobile per l'invio di notifiche, diverso da quello illustrato in questa esercitazione. 
 
@@ -30,5 +30,4 @@
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Importare il file di impostazioni di pubblicazione in Visual Studio 2013]: /it-it/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-
 <!--HONumber=42-->

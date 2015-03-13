@@ -18,5 +18,4 @@
 
 	Al termine della configurazione, il nome di dominio personalizzato sarà elencato nella sezione **nomi di dominio** della pagina **Configura** del sito Web.
 
-A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento al Web di Azure avvenga correttamente. 
-<!--HONumber=42-->
+A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento al Web di Azure avvenga correttamente. <!--HONumber=42-->

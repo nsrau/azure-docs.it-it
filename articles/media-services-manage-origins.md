@@ -1,30 +1,50 @@
-﻿<properties pageTitle="Come gestire le origini in un account di Servizi multimediali" description="" services="media-services" documentationCenter="" authors="juliako" writer="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come gestire gli endpoint di streaming in un account di Servizi multimediali" 
+	description="Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di gestione di Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	writer="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/29/2015" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/15/2015" 
+	ms.author="juliako"/>
 
 
 # <a id="managemediaservicesorigins"></a>Come gestire gli endpoint di streaming in un account di Servizi multimediali
 
-Servizi multimediali consente di aggiungere più endpoint di streaming all'account e di configurare gli endpoint di streaming. Ogni account di Servizi multimediali ha associato almeno un endpoint di streaming **predefinito**.
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
 
->[AZURE.NOTE] Gli endpoint di streaming erano noti in passato come Origini. 
+
+In Servizi multimediali, un endpoint di streaming rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN per la successiva distribuzione. Servizi multimediali di Microsoft Azure non offre attualmente un'integrazione CDN completa, è tuttavia possibile usare uno dei provider CDN disponibili sul mercato, ad esempio Azure CDN o Akamai. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. 
+
+È possibile inoltre controllare la capacità del servizio endpoint di streaming in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità di scala (note anche come unità di streaming). Si consiglia di allocare una o più unità di scala per le applicazioni nell'ambiente di produzione. Le unità di scala forniscono capacità di uscita dedicata acquistabile in incrementi di 200 Mbps e una funzionalità aggiuntiva che attualmente include l'uso della creazione dinamica dei pacchetti. 
+
+Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di gestione di Azure.
 
 
 ## Aggiunta ed eliminazione degli endpoint di streaming 
 
 1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
-2. Selezionare la pagina ENDPOINT DI STREAMING. 
+2. Selezionare la pagina **ENDPOINT DI STREAMING**. 
 3. Fare clic sul pulsante AGGIUNGI o ELIMINA nella parte inferiore della pagina. Gli endpoint di streaming predefiniti non possono essere eliminati. 
 4. Fare clic sul pulsante AVVIA per avviare l'endpoint di streaming. 
 5. Fare clic sul nome dell'endpoint di streaming per configurarlo.   
 
 	![Origin page][origin-page]
 
-## Ridimensionare l'endpoint di Streaming
+## <a id="scale_streaming_endpoints"></a>Ridimensionare l'endpoint di Streaming
 
-Le unità di streaming forniscono sia capacità in uscita dedicata che può essere acquistata in incrementi di 200 Mbps che  funzionalità aggiuntive che attualmente includono [funzionalità di creazione dinamica dei pacchetti](http://go.microsoft.com/fwlink/?LinkId=276874). Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità di streaming. 
+Le unità di streaming offrono sia capacità in uscita dedicata, acquistabile in incrementi di 200 Mbps, sia funzionalità aggiuntive che attualmente comprendono la [creazione dinamica dei pacchetti](http://go.microsoft.com/fwlink/?LinkId=276874). Per impostazione predefinita, lo streaming è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming, si consiglia di acquistare unità di streaming. 
 
-Per modificare il numero di unità di streaming, eseguire le operazioni seguenti:
+Per modificare il numero di unità di streaming, seguire questa procedura:
 
 1. Per specificare il numero di unità di streaming, selezionare la scheda RIDIMENSIONA e spostare il dispositivo di scorrimento **capacità riservata**.
 
@@ -60,10 +80,8 @@ La scheda CONFIGURA consente di eseguire le configurazioni, come illustrato nell
 
 
 
-
 [origin-page]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -33,7 +33,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Per creare un sito Web di Azure, attenersi alla procedura seguente.
 
-> [AZURE.NOTE] Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. <br /> Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
+> [AZURE.NOTE] Per completare questa esercitazione, è necessario disporre di un account Azure in cui sia abilitata la funzionalità Siti Web di Azure. <br /> Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Avvio di WebMatrix
@@ -102,7 +102,7 @@ Modificare e ripubblicare l'applicazione è facile. Ora verrà effettuata una se
 
 Per informazioni sulle versioni di Node.js fornite con Azure e su come specificare la versione da usare con l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure]/it-it/documentation/articles/nodejs-specify-node-version-azure-apps/)..
 
-Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/Debug-Website/) per informazioni su come diagnosticare l'errore.
+Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/) per informazioni su come diagnosticare l'errore.
 
 
 [Portale di gestione di Azure]: http://manage.windowsazure.com

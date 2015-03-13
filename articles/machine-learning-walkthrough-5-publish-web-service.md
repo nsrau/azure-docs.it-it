@@ -1,6 +1,20 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Azure" description="Passaggio 5: Pubblicazione di un esperimento di punteggio in Azure Machine Learning Studio come servizio Web API ML" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Passaggio 5: Pubblicare il servizio Web di Machine Learning | Azure" 
+	description="Passaggio 5 della procedura dettagliata della soluzione: Pubblicare un esperimento di punteggio in Azure Machine Learning Studio come servizio Web di Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Questo è il quinto passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning][sviluppare]:
@@ -144,3 +158,5 @@ Nella scheda **CONFIGURAZIONE** fare clic su "SÌ" accanto a **PASSARE ALL'AMBIE
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+
+<!--HONumber=46--> 

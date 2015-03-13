@@ -1,6 +1,20 @@
-<properties pageTitle="How to use the API Inspector to trace calls in Azure API Management" metaKeywords="" description="Learn how to trace calls using the API Inspector in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to use the API Inspector to trace calls in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure" 
+	description="Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 
@@ -196,3 +210,5 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
   [Open console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
   [GET HTTP]: ./media/api-management-howto-api-inspector/api-management-http-get.png
   [Introduzione alla configurazione API avanzata]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

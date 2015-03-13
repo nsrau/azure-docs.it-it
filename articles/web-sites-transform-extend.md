@@ -19,7 +19,7 @@
 
 # Trasformazione ed estensione del sito
 
-Le dichiarazioni XDT ([XML Document Transformation](http://msdn.microsoft.com/it-it/library/dd465326.aspx)) consentono di trasformare il file [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) in Siti Web di Microsoft Azure. È inoltre possibile usare le dichiarazioni XDT per aggiungere estensioni private al sito, in modo da consentire azioni di amministrazione del sito personalizzate. In questo articolo è disponibile un'estensione del sito PHP Manager di esempio, che consente la gestione di impostazioni PHP mediante un'interfaccia Web.
+Le dichiarazioni XDT ([XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx)) consentono di trasformare il file [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) in Siti Web di Microsoft Azure. È inoltre possibile usare le dichiarazioni XDT per aggiungere estensioni private al sito, in modo da consentire azioni di amministrazione del sito personalizzate. In questo articolo è disponibile un'estensione del sito PHP Manager di esempio, che consente la gestione di impostazioni PHP mediante un'interfaccia Web.
 
 
 <!-- MINI TOC -->

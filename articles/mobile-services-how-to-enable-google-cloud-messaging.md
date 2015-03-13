@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Come abilitare Google Cloud Messaging" description="Questa esercitazione consente di creare un nuovo servizio usando Servizi mobili di Azure." services="mobile-services, notification-hubs" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come abilitare Google Cloud Messaging" 
+	description="Questa esercitazione consente di creare un nuovo servizio usando Servizi mobili di Azure." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Come abilitare Google Cloud Messaging
 

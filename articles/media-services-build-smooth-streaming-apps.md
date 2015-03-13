@@ -1,10 +1,24 @@
-<properties pageTitle="Applicazione Windows Store Smooth Streaming - Esercitazioni di Azure .NET" description="Informazioni su come usare Servizi multimediali di Azure per creare un'applicazione Windows Store C# con un controllo XML MediaElement per riprodurre contenuto Smooth Streaming." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Applicazione Windows Store Smooth Streaming - Esercitazioni di Azure .NET" 
+	description="Informazioni su come usare Servizi multimediali di Azure per creare un'applicazione Windows Store C# con un controllo XML MediaElement per riprodurre contenuto Smooth Streaming." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
-# Come creare un'applicazione Windows Store Smooth Streaming
+#Come creare un'applicazione Windows Store Smooth Streaming
 
 Smooth Streaming Client SDK per Windows 8 consente agli sviluppatori di creare app di Windows Store in grado di riprodurre contenuto Smooth Streaming in diretta e su richiesta. Oltre a fornire le funzionalità di riproduzione di base del contenuto Smooth Streaming, l'SDK offre inoltre funzionalità avanzate, ad esempio protezione Microsoft PlayReady, limitazione del livello di qualità, DVR in diretta, commutazione del flusso audio, ascolto per aggiornamenti di stato (ad esempio variazioni del livello di qualità) ed eventi di errore, e così via. Per altre informazioni sulle funzionalità supportate, vedere le [note sulla versione](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
 
@@ -17,19 +31,19 @@ In questa esercitazione vengono presentate quattro lezioni:
 3. Selezionare flussi Smooth Streaming
 4. Selezionare tracce Smooth Streaming
 
-# Prerequisiti
-- Windows 8 a 32 o 64 bit. È possibile scaricare la [versione di valutazione di Windows 8 Enterprise](http://msdn.microsoft.com/it-it/evalcenter/jj554510.aspx) da MSDN.
+#Prerequisiti
+- Windows 8 a 32 o 64 bit. È possibile scaricare la [versione di valutazione di Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) da MSDN.
 - Visual Studio 2012 o Visual Studio Express 2012 per Windows 8 installato in un sistema Windows 8. Per scaricare la versione di valutazione, fare clic [qui](http://www.microsoft.com/visualstudio/11/it-it/downloads).
 - [Microsoft Smooth Streaming Client SDK per Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 La soluzione completata per ogni lezione può essere scaricata dagli esempi di esempi di codice per sviluppatori in MSDN. [Lezione 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Lezione 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Lezione 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection") e [Lezione 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
 
-# Lezione 1: Creare un'applicazione Windows Store Smooth Streaming di base
+#Lezione 1: Creare un'applicazione Windows Store Smooth Streaming di base
 In questa lezione verrà creata un'applicazione Windows Store con un controllo MediaElement per riprodurre contenuto Smooth Streaming.  L'applicazione in esecuzione avrà un aspetto simile al seguente:
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
  
-Per altre informazioni sullo sviluppo di app di Windows Store, vedere il sito dedicato allo [sviluppo di app per Windows 8](http://msdn.microsoft.com/it-it/windows/apps/br229512.aspx). 
+Per altre informazioni sullo sviluppo di app di Windows Store, vedere il sito dedicato allo [sviluppo di app per Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). 
 In questa lezione sono incluse le procedure seguenti:
 
 1.	Creare un progetto Windows Store
@@ -41,7 +55,7 @@ In questa lezione sono incluse le procedure seguenti:
 
 1.	Eseguire Visual Studio 2012 o versione successiva.
 2.	Scegliere **Nuovo** dal menu **FILE**, quindi fare clic su **Progetto**.
-3.	Nella finestra di dialogo Nuovo progetto digitare o selezionare  i valori seguenti:
+3.	Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
 	<table border="1">
 	<tr>
@@ -234,7 +248,7 @@ Il file code-behind finito avrà un aspetto simile al seguente:
 La lezione 1 è stata completata.  In questa lezione è stato usato un controllo MediaElement per riprodurre contenuto multimediale Smooth Streaming.  Nella lezione successiva verrà aggiunto un dispositivo di scorrimento per controllare l'avanzamento del contenuto multimediale Smooth Streaming.
 
 
-# Lezione 2: Aggiungere una barra del dispositivo scorrimento per controllare l'avanzamento del file multimediale
+#Lezione 2: Aggiungere una barra del dispositivo scorrimento per controllare l'avanzamento del file multimediale
 Nella lezione 1 è stata creata un'applicazione Windows Store con un controllo XAML MediaElement per riprodurre contenuto multimediale Smooth Streaming,  che include alcune funzionalità multimediali di base, come l'avvio, l'arresto e la sospensione della riproduzione.  In questa lezione verrà aggiunto un controllo per la barra del dispositivo di scorrimento all'applicazione.
 
 In questa esercitazione verrà usato un timer per l'aggiornamento della posizione del dispositivo di scorrimento in base alla posizione corrente del controllo MediaElement.  Sarà inoltre necessario aggiornare l'ora di inizio e di fine del dispositivo di scorrimento in caso di contenuto live.  È possibile gestire questo scenario nell'evento di aggiornamento dell'origine adattiva.
@@ -307,7 +321,7 @@ In questa lezione sono incluse le procedure seguenti:
 
 4.	Alla fine del costruttore **MainPage** aggiungere la riga seguente per effettuare la sottoscrizione all'evento di apertura dell'origine adattiva:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
+		adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
 	    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
 
 5.	Premere **CTRL+S** per salvare il file.
@@ -478,7 +492,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
 		}
 		#endregion sliderMediaPlayer
 
-	**Nota:** per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CodeDispatcher. In caso di colli di bottiglia nel thread del dispatcher, gli sviluppatori possono scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intendono aggiornare.  Ad esempio:
+	**Nota:** per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CodeDispatcher. In caso di colli di bottiglia nel thread del dispatcher, gli sviluppatori possono scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intendono aggiornare. Ad esempio:
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -493,9 +507,9 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
 
 7.	Alla fine del metodo **MediaOpened** aggiungere il codice seguente:
 	
-	sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
-	sliderProgress.Width = mediaElement.Width;
-	setupTimer();
+		sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+		sliderProgress.Width = mediaElement.Width;
+		setupTimer();
 
 8.	Premere **CTRL+S** per salvare il file.
 
@@ -509,7 +523,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
 
 La lezione 2 è stata completata.  In questa lezione è stato aggiunto un dispositivo di scorrimento all'applicazione. 
 
-# Lezione 3: Selezionare flussi Smooth Streaming
+#Lezione 3: Selezionare flussi Smooth Streaming
 Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio in più lingue selezionabili dagli utenti.  In questa lezione verrà illustrato come abilitare gli utenti per la selezione dei flussi. In questa lezione sono incluse le procedure seguenti:
 
 1. Modificare il file XAML
@@ -783,7 +797,7 @@ Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio
 
 La lezione 3 è stata completata.  In questa lezione è stata aggiunta la funzionalità per la selezione dei flussi.
 
-# Lezione 4: Selezionare tracce Smooth Streaming
+#Lezione 4: Selezionare tracce Smooth Streaming
 Una presentazione Smooth Streaming può contenere più file video codificati con livelli di qualità (velocità in bit) e risoluzioni diversi. In questa lezione verrà illustrato come abilitare gli utenti per la selezione delle tracce. In questa lezione sono incluse le procedure seguenti:
 
 1. Modificare il file XAML
@@ -987,12 +1001,11 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
 La lezione 4 è stata completata.  In questa lezione è stata aggiunta la funzionalità per la selezione delle tracce.
 
 
-# Altre risorse:
+#Altre risorse:
 - [Come creare un'applicazione Smooth Streaming per Windows 8 in JavaScript con funzionalità avanzate](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Panoramica tecnica relativa a Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

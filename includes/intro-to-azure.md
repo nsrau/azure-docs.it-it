@@ -37,7 +37,7 @@ I commenti degli utenti sono importanti. Questo articolo dovrebbe fornire una pa
  
 <h2><a id="components"></a>Componenti di Azure</h2>
 
-Azure raggruppa i servizi in categorie nel portale di gestione e in vari supporti visivi come l'[infografica su Microsoft Azure](http://azure.microsoft.com/it-it/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). Il portale di gestione è il portale usato per gestire la maggior parte dei servizi in Azure (ma non tutti). 
+Azure raggruppa i servizi in categorie nel portale di gestione e in vari supporti visivi come l'[infografica su Microsoft Azure](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). Il portale di gestione è il portale usato per gestire la maggior parte dei servizi in Azure (ma non tutti). 
 
 In questo documento verrà usata un'**organizzazione diversa** per descrivere i servizi in base a una funzione simili e per richiamare sottoservizi che fanno parte dei servizi di maggiori dimensioni.  
 
@@ -121,7 +121,7 @@ Quando si crea un'istanza, sono disponibili due ruoli, entrambi basati su Window
 I servizi cloud sono ideali per supportare un livello avanzato di scalabilità orizzontale quando occorre esercitare un controllo maggiore sulla piattaforma rispetto a quello fornito da Siti Web di Azure ma non sul sistema operativo sottostante. 
 
 ####Scelta di un modello di calcolo####
-La pagina di confronto tra Siti Web Azure, Servizi cloud e Macchine virtuali (http://azure.microsoft.com/it-it/documentation/articles/choose-web-site-cloud-service-vm/ ) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
+La pagina di confronto tra Siti Web Azure, Servizi cloud e Macchine virtuali (http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/ ) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
 
 
 
@@ -246,7 +246,7 @@ Se è necessaria ulteriore larghezza di banda o sicurezza rispetto a quelle che 
 
 L'impostazione di una connessione ExpressRoute richiede una maggiore quantità di tempo e di pianificazione, pertanto potrebbe essere necessario iniziare con una VPN da sito a sito ed effettuare quindi la migrazione a una connessione ExpressRoute.
 
-Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](http://msdn.microsoft.com/it-it/library/azure/dn606309.aspx).
+Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](http://msdn.microsoft.com/library/azure/dn606309.aspx).
 
 ###Gestione traffico###
 
@@ -268,7 +268,7 @@ Azure offre numerosi strumenti che aiutano gli sviluppatori e i professionisti I
 ###Azure SDK###
 Nel 2008 la prima versione non definitiva di Azure supportava solo lo sviluppo in .NET. Oggi è invece possibile creare applicazioni Azure in qualsiasi linguaggio. Attualmente Microsoft fornisce SDK specifici per linguaggio per .NET, Java, PHP, Node.js, Ruby e Python. È inoltre disponibile un SDK di Azure generale che offre il supporto di base per qualsiasi linguaggio, ad esempio C++.  
 
-Questi SDK supportano l'utente nelle attività di creazione, distribuzione e gestione di applicazioni Azure. È possibile scaricarli da [www.microsoftazure.com](http://azure.microsoft.com/it-it/downloads/) o GitHub e possono essere usati con Visual Studio ed Eclipse. Azure offre inoltre strumenti da riga di comando che gli sviluppatori possono usare con qualsiasi editor di testo o ambiente di sviluppo, inclusi gli strumenti per la distribuzione di applicazioni Azure da sistemi Linux e Macintosh. 
+Questi SDK supportano l'utente nelle attività di creazione, distribuzione e gestione di applicazioni Azure. È possibile scaricarli da [www.microsoftazure.com](http://azure.microsoft.com/downloads/) o GitHub e possono essere usati con Visual Studio ed Eclipse. Azure offre inoltre strumenti da riga di comando che gli sviluppatori possono usare con qualsiasi editor di testo o ambiente di sviluppo, inclusi gli strumenti per la distribuzione di applicazioni Azure da sistemi Linux e Macintosh. 
 
 Questi SDK, oltre a supportare gli utenti per la creazione di applicazioni Azure, forniscono librerie client che consentono di creare software che usa tali servizi di Azure. Ad esempio, è possibile creare un'applicazione che legga e scriva i BLOB di Azure oppure creare uno strumento che distribuisca applicazioni Azure tramite l'interfaccia di gestione di Azure. 
 
@@ -418,7 +418,7 @@ La protezione dei dati aumenta perché i backup vengono crittografati prima dell
 
 **Scenari per Backup di Azure**
 
-Se si usa già Windows Server o System Center, Backup di Azure è una scelta naturale per eseguire il backup del file system del server, di macchine virtuali e di database SQL Server.  Backup di Azure funziona con file crittografati, sparse e compressi. Sono presenti alcune limitazioni, quindi si consiglia di [controllare prima i prerequisiti di Backup di Azure](http://technet.microsoft.com/it-it/library/dn296608.aspx). 
+Se si usa già Windows Server o System Center, Backup di Azure è una scelta naturale per eseguire il backup del file system del server, di macchine virtuali e di database SQL Server.  Backup di Azure funziona con file crittografati, sparse e compressi. Sono presenti alcune limitazioni, quindi si consiglia di [controllare prima i prerequisiti di Backup di Azure](http://technet.microsoft.com/library/dn296608.aspx). 
 
 
 
@@ -619,7 +619,6 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 
 
-[Azure Media Services Poster]: http://azure.microsoft.com/it-it/documentation/infographics/media-services/
-
+[Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 <!--HONumber=42-->

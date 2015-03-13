@@ -15,7 +15,7 @@
 	ms.date="01/13/2015" 
 	ms.author="danlep,kathydav,rasquill"/>
 
-<!---Il flusso di lavoro può generare confusione, in quanto è necessario selezionare le dimensioni corrette scegliendo **Esplora tutti i livelli di prezzo** e quindi fare clic su Seleziona in tale riquadro e il riquadro **Livelli di prezzo consigliati** per applicarle. Ma anche dopo quest'operazione l'account di archiviazione Premium non viene selezionato e viene mostrato come "Standard-GRS" quando l'utente verifica quale tipo di account di archiviazione verrà usato per la macchina virtuale. 
+<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
 -->
 
 <!-- Preview portal screenshots getting a little out of date. Please refresh at next update.
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà:
 Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 
-## <a id="createvirtualmachine"> </a>Come creare la macchina virtuale ##
+##<a id="createvirtualmachine"> </a>Come creare la macchina virtuale##
 
 Questa sezione mostra come usare il portale di anteprima per creare una macchina virtuale usando Windows Server 2012 R2 Datacenter come esempio. È possibile usare le impostazioni predefinite per quasi tutto il processo di configurazione e creare la macchina virtuale in pochi minuti.
 
@@ -54,7 +54,7 @@ Questa sezione mostra come usare il portale di anteprima per creare una macchina
 
 	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
 	
-4. Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.  
+4. Nel pannello **Crea macchina virtuale** inserire il **Nome host** scelto per la macchina virtuale, il **Nome utente** amministrativo e una **Password** complessa.
 
 	>[AZURE.NOTE] **Nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
 	
@@ -108,11 +108,11 @@ Questa sezione descrive come accedere alla macchina virtuale per gestirne le imp
 
 	È ora possibile lavorare con la macchina virtuale nello stesso modo in cui lo si farebbe con qualsiasi altro server.
 
-## Passaggi successivi 
+##Passaggi successivi 
 
 Per altre informazioni sulla configurazione di macchine virtuali Windows in Azure, vedere gli articoli seguenti:
 
-[Come connettere macchine virtuali in un servizio cloud](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
 [Come creare e caricare un disco rigido virtuale che contiene il sistema operativo Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
@@ -125,4 +125,5 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 [Come creare la macchina virtuale]: #custommachine
 [Come accedere alla macchina virtuale dopo averla creata]: #logon
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

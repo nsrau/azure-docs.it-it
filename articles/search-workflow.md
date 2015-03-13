@@ -1,6 +1,20 @@
-﻿<properties title="Search Service: workflow for developers" pageTitle=":Servizio di ricerca: flusso di lavoro per gli sviluppatori" description="Servizio di ricerca: flusso di lavoro per sviluppatori" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Servizio di ricerca: flusso di lavoro per sviluppatori" 
+	description="Servizio di ricerca: flusso di lavoro per sviluppatori" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Ricerca di Azure: flusso di lavoro per lo sviluppo
 
@@ -21,7 +35,7 @@ Si suppone che sia già stato effettuato il provisioning del servizio. In caso c
 
 Le query sono mirate a un indice di ricerca contenente dati e attributi di ricerca. Il primo passaggio dopo il provisioning del servizio consiste quindi nel definire lo schema dell'indice in formato JSON e nell'eseguire una richiesta PUT HTTPS per creare l'indice nel servizio. 
 
-Gli indici vengono creati dal codice dell'applicazione. Non sono disponibili strumenti o editor predefiniti per la definizione di un indice in un'interfaccia utente. Per esempi relativi ad alcuni modi per creare l'indice, vedere [Creare la prima soluzione di ricerca con Ricerca di Azure](../search-create-first-solution/), in cui si specifica lo schema nel file Program.cs, e [Introduzione all'assegnazione di punteggi per i profili in Ricerca di Azure](../search-get-started-scoring-profiles), che fornisce un indice in un file di schema JSON autonomo. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure)](http://msdn.microsoft.com/it-it/library/dn798941.aspx) su MSDN.
+Gli indici vengono creati dal codice dell'applicazione. Non sono disponibili strumenti o editor predefiniti per la definizione di un indice in un'interfaccia utente. Per esempi relativi ad alcuni modi per creare l'indice, vedere [Creare la prima soluzione di ricerca con Ricerca di Azure](../search-create-first-solution/), in cui si specifica lo schema nel file Program.cs, e [Introduzione all'assegnazione di punteggi per i profili in Ricerca di Azure](../search-get-started-scoring-profiles), che fornisce un indice in un file di schema JSON autonomo. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/dn798941.aspx) su MSDN.
 
 <h2 id="sub-2">Passaggio 2: Aggiungere i documenti</h2>
 
@@ -40,8 +54,8 @@ Con un carico pesante non è raro riscontrare alcuni errori di caricamento. Qual
 
 Dopo aver indicizzato i documenti è possibile eseguire le query di ricerca. Si può interrogare un indice per volta, usando OData o una semplice sintassi di query:
 
-+	[Sintassi dell'espressione OData per la Ricerca di Azure](http://msdn.microsoft.com/it-it/library/dn798921.aspx)
-+	[Semplice sintassi di query nella Ricerca di Azure](http://msdn.microsoft.com/it-it/library/dn798920.aspx)
++	[Sintassi dell'espressione OData per la Ricerca di Azure](http://msdn.microsoft.com/library/dn798921.aspx)
++	[Semplice sintassi di query nella Ricerca di Azure](http://msdn.microsoft.com/library/dn798920.aspx)
 
 <h2 id="sub-4">Passaggio 4: Aggiornare o eliminare gli indici e i documenti</h2>
 
@@ -55,7 +69,7 @@ Ricerca di Azure usa le risorse di archiviazione interne per gli indici e i docu
 
 Non tutti i campi di un documento sono disponibili per la ricerca. Ad esempio, se l'applicazione è un catalogo online per musica o video, è consigliabile archiviare i file binari nel servizio BLOB di Azure o in risorse di archiviazione con altri formati. Gli stessi file binari non sono disponibili per la ricerca, quindi non è necessario salvarli in modo permanente nell'archiviazione della Ricerca di Azure. Benché sia opportuno archiviare file immagine, video e audio in altri servizi o percorsi, è consigliabile includere un campo che associ l'URL al percorso del file. In questo modo sarà possibile restituire i dati esterni come parte dei risultati di ricerca. 
 
-Per altre informazioni sulla creazione di indici o documenti, vedere [API REST del servizio di ricerca di Azure](http://msdn.microsoft.com/it-it/library/dn798935.aspx).
+Per altre informazioni sulla creazione di indici o documenti, vedere [API REST del servizio di ricerca di Azure](http://msdn.microsoft.com/library/dn798935.aspx).
 
 
 <!--Anchors-->
@@ -73,3 +87,5 @@ Per altre informazioni sulla creazione di indici o documenti, vedere [API REST d
 [Gestire il servizio di ricerca in Microsoft Azure]: ../search-manage/
 [Creare la prima soluzione di ricerca con Ricerca di Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

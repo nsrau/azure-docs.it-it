@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analisi della varianza dei clienti con Machine Learning di Microsoft | Azure" description="Case study sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Analisi della varianza dei clienti con Machine Learning di Microsoft | Azure" 
+	description="Case study sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="barga"/>
 
 # Analisi della varianza dei clienti con Machine Learning di Microsoft Azure
 
@@ -211,3 +225,5 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+
+<!--HONumber=46--> 

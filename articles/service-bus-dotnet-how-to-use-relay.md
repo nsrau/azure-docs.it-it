@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Come usare Inoltro del bus di servizio (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Informazioni su come usare il servizio di inoltro del bus di servizio di Azure per connettere due applicazioni ospitate in località diverse." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Come usare il servizio Inoltro del bus di servizio (.NET) - Azure" 
+	description="Informazioni sull'uso del servizio di inoltro di Bus di servizio di Azure per connettere due applicazioni ospitate in posizioni diverse." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -258,9 +272,11 @@ A questo punto, dopo aver appreso le nozioni di base del servizio **Inoltro** de
   [Ottenere il pacchetto NuGet del bus di servizio]: #get_nuget_package
   [Procedura: Esporre e usare un servizio Web SOAP con TCP tramite il bus di servizio]: #how_soap
   [Portale di gestione di Azure]: http://manage.windowsazure.com
-  [Autenticazione della firma di accesso condiviso con il bus di servizio]: http://msdn.microsoft.com/it-it/library/dn170477.aspx
-  [Creazione di un servizio per il bus di servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee173564.aspx
-  [Creazione di un'applicazione client del bus di servizio]: http://msdn.microsoft.com/it-it/library/windowsazure/ee173543.aspx
+  [Autenticazione della firma di accesso condiviso con il bus di servizio]: http://msdn.microsoft.com/library/dn170477.aspx
+  [Creazione di un servizio per il bus di servizio]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
+  [Creazione di un'applicazione client del bus di servizio]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
   [Esempi di Azure]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

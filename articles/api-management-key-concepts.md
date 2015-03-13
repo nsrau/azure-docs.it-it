@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Concetti chiave di Gestione API" metaKeywords="" description="Informazioni su API, prodotti, ruoli, gruppi e altri concetti chiave di Gestione API." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Concetti chiave di Gestione API" 
+	description="Informazioni su API, prodotti, ruoli, gruppi e altri concetti chiave di Gestione API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #Concetti chiave di Gestione API
 
@@ -90,3 +104,5 @@ Il portale per sviluppatori consente agli sviluppatori di visualizzare informazi
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

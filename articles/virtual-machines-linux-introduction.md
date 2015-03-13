@@ -36,7 +36,7 @@ In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell
 
 ## <a id="authentication"></a>Autenticazione: nomi utente, password e chiavi SSH
 
-Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password e, facoltativamente, una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
+Quando si crea una macchina virtuale Linux usando il portale di gestione di Azure viene richiesto di inserire un nome utente, una password e, facoltativamente, una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account  'root', non sono consentiti.
 
  - Vedere [Come usare SSH con Linux in Azure](../linux-use-ssh-key/)
 
@@ -67,7 +67,7 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
 	La prima volta che si effettua l'accesso, verrà richiesto di accettare l'ID digitale della chiave pubblica dell'host.
 
-6. Facoltativamente, è possibile copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client openssh possa automaticamente prelevare la chiave senza usare l'opzione -i.
+6. Se si preferisce, si può copiare `myPrivateKey.key` in `~/.ssh/id_rsa` in modo che il client openssh possa automaticamente selezionarlo senza che venga usata l'opzione -i.
    In alternativa, è possibile modificare `~/.ssh/config` per includere una sezione per la macchina virtuale:
 
         Host servicename.cloudapp.net
@@ -75,9 +75,9 @@ La versione corrente del portale di gestione accetta solo chiavi pubbliche SSH i
 
 
 ### Generare una chiave da una chiave esistente compatibile con OpenSSH
-Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Microsoft Azure. In alcuni casi, è possibile che gli utenti dispongano già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e desiderino usare le stesse chiavi con Microsoft Azure.
+Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Azure. In alcuni casi, è possibile che gli utenti dispongano già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e desiderino usare le stesse chiavi con Azure.
 
-Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente:
+Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il seguente comando verrà creata la chiave pubblica  `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -137,7 +137,7 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 
 ## <a id="attachingdisks"></a>Collegamento di dischi
 
-Ogni macchina virtuale ha un *resource disk* temporaneo locale collegato. Poiché è possibile che i dati su un disco risorse non vengano mantenuti tra un riavvio e l'altro, questo tipo di disco viene spesso usato da applicazioni e processi in esecuzione nella macchina virtuale per l'archiviazione **temporanea** di dati. È anche usato per archiviare file di paging o di scambio per il sistema operativo.
+Ogni macchina virtuale ha un *disco risorse* temporaneo locale collegato. Poiché è possibile che i dati su un disco risorse non vengano mantenuti tra un riavvio e l'altro, questo tipo di disco viene spesso usato da applicazioni e processi in esecuzione nella macchina virtuale per l'archiviazione **temporanea** di dati. È anche usato per archiviare file di paging o di scambio per il sistema operativo.
 
 In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu).
 
@@ -148,4 +148,7 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
  - Vedere anche la pagina relativa alla [Configurare RAID software in Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

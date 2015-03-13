@@ -28,5 +28,4 @@ Per impostazione predefinita, tutte le richieste alle risorse del servizio mobil
 
 6. Pubblicare di nuovo il progetto di servizio.
 
-
 <!--HONumber=42-->

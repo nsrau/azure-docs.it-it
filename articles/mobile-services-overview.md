@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Panoramica di Servizi mobili | Mobile Dev Center" description="Informazioni su Servizi mobili." documentationCenter="" authors="mattchenderson" manager="dwrede" services="mobile-services" editor=""/>
+﻿<properties 
+	pageTitle="Panoramica di Servizi mobili | Mobile Dev Center" 
+	description="Informazioni su Servizi mobili." 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Panoramica su Servizi mobili
 

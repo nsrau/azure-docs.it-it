@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>Monitorare un account di archiviazione nel portale di gestione di Azure
 
-È possibile monitorare l'account di archiviazione nel portale di gestione di Azure. Quando si configura l'account di archiviazione per il monitoraggio attraverso il portale, Archiviazione di Azure usa [Analisi archiviazione](http://msdn.microsoft.com/it-it/library/azure/hh343270.aspx) per tenere traccia delle metriche relative all'account e registrare i dati delle richieste. 
+È possibile monitorare l'account di archiviazione nel portale di gestione di Azure. Quando si configura l'account di archiviazione per il monitoraggio attraverso il portale, Archiviazione di Azure usa [Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx) per tenere traccia delle metriche relative all'account e registrare i dati delle richieste. 
 
-> [AZURE.NOTE] All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
+> [AZURE.NOTE] All'esame dei dati di monitoraggio nel portale di gestione sono associati costi aggiuntivi. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
 
 > Il servizio File di Azure attualmente non supporta Analisi archiviazione.
 
@@ -65,7 +65,7 @@ Finché non viene configurato il monitoraggio per un account di archiviazione, n
 
 Dopo aver impostato i livelli di monitoraggio e i criteri di conservazione, è possibile scegliere quali metriche monitorare nel portale di gestione e quali tracciare sui grafici delle metriche. Per ogni livello di monitoraggio viene visualizzato un set predefinito di metriche. È possibile usare **Aggiungi metriche** per aggiungere o rimuovere metriche nell'elenco.
 
-Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per altre informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh343258.aspx).
+Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle denominate $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Per altre informazioni, vedere [Informazioni sulle metriche di Analisi archiviazione](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx).
 
 
 <h2><a id="customizestoragemonitoring"></a>Procedura: Personalizzare il dashboard per il monitoraggio</h2>
@@ -109,7 +109,7 @@ Usare le procedure seguenti per scegliere le metriche di archiviazione da visual
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh360997.aspx).
+	> [AZURE.NOTE] Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx).
 
 3. Fare clic su **Aggiungi metriche**. 
 
@@ -161,6 +161,5 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 4. Fare clic su **Salva**.
 
-I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh343262.aspx).
-
+I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx).
 <!--HONumber=42-->

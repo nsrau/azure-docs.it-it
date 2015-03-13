@@ -1,4 +1,4 @@
-## <a name="setup-connection-string"> </a>Configurare una stringa di connessione di archiviazione
+﻿## <a name="setup-connection-string"> </a>Configurare una stringa di connessione di archiviazione
 
 Nella libreria del client di archiviazione di Azure per .NET è possibile usare una stringa di connessione di archiviazione per configurare gli endpoint e le credenziali per l'accesso ai servizi di archiviazione. Si consiglia di gestire la stringa di connessione di archiviazione in un file di configurazione, invece di impostarla come hardcoded nell'applicazione. Sono disponibili due opzioni per salvare la stringa di connessione:
 
@@ -56,12 +56,10 @@ Per altre informazioni sulle stringhe di connessione di archiviazione, vedere [C
 	
 È ora possibile eseguire le procedure di questa guida.
 
-[connection-string1]: ./media/storage-configure-connection-string-include/connection-string1.png
-[connection-string2]: ./media/storage-configure-connection-string-include/connection-string2.png
-[connection-string3]: ./media/storage-configure-connection-string-include/connection-string3.png
-[connection-string4]: ./media/storage-configure-connection-string-include/connection-string4.png
-[connection-string5]: ./media/storage-configure-connection-string-include/connection-string5.png
+[connection-string1]: ./media/storage-configure-connection-string/connection-string1.png
+[connection-string2]: ./media/storage-configure-connection-string/connection-string2.png
+[connection-string3]: ./media/storage-configure-connection-string/connection-string3.png
+[connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
+[connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758697.aspx
-
-<!--HONumber=42-->
+[Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx<!--HONumber=42-->

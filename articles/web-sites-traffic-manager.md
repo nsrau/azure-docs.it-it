@@ -33,7 +33,7 @@ Gestione traffico di Azure usa tre metodi diversi per il bilanciamento del caric
 	
 * **Prestazioni**: il metodo Prestazioni consente di distribuire il traffico in base al tempo di round trip più breve per il raggiungimento dei client. Questo metodo può essere usato sia per siti Web all'interno della stessa area che per siti in aree diverse. 
 
-Per altre informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/dn339010.aspx).
+Per altre informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 ##Siti Web di Azure e profili di Gestione traffico 
 Per configurare il controllo del traffico dei siti Web, è possibile creare un profilo in Gestione traffico di Azure che usi uno dei tre metodi di bilanciamento del carico descritti in precedenza e quindi aggiunga gli endpoint (in questo caso i siti Web) per i quali si vuole controllare il traffico tramite il profilo. Lo stato dei siti Web (in esecuzione, arrestato o eliminato) viene comunicato regolarmente al profilo in modo che Gestione traffico di Azure possa instradare correttamente il traffico.
@@ -56,11 +56,11 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 
 ## Passaggi successivi
 
-Per informazioni generali di carattere concettuale e tecnico su Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/hh744833.aspx). 
+Per informazioni generali di carattere concettuale e tecnico su Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx). 
 
-Per informazioni sulla configurazione di Gestione traffico di Azure, anche per l'uso con Siti Web di Azure, vedere [Attività di configurazione di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/hh744830.aspx).
+Per informazioni sulla configurazione di Gestione traffico di Azure, anche per l'uso con Siti Web di Azure, vedere [Attività di configurazione di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
-Per altre informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/it-it/library/windowsazure/dn339010.aspx).
+Per altre informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Per altre informazioni sull'uso di Gestione traffico con Siti Web di Azure, vedere i post di blog relativi all' 
 [uso di Gestione traffico di Azure con Siti Web di Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e all'[integrazione di Gestione traffico di Azure con Siti Web di Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

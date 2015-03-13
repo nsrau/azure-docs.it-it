@@ -61,7 +61,7 @@ Per determinare il livello di impatto di un sito Web sulle quote di uso delle ri
 	-	**Archiviazione file system**: quando si raggiunge questa quota, le risorse di archiviazione del file system rimangono accessibili per operazioni in lettura, ma tutte le operazioni in scrittura, incluse quelle necessarie per la normale attività del sito Web, risultano bloccate. Le operazioni in scrittura riprenderanno quando si riduce l'uso dei file o si sposta il sito Web in un piano di hosting Web con una quota maggiore.
 	-	**Risorse collegate**: sono visualizzate qui anche le quote relative a qualsiasi risorsa collegata, come database o archiviazione.   
 
-	È possibile applicare alcune quote per ogni piano di hosting Web, mentre è possibile applicarne altre per ogni sito. Per informazioni dettagliate sulle quote di uso per ogni piano di hosting Web, vedere i [Limiti relativi ai siti Web](http://azure.microsoft.com/it-it/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	È possibile applicare alcune quote per ogni piano di hosting Web, mentre è possibile applicarne altre per ogni sito. Per informazioni dettagliate sulle quote di uso per ogni piano di hosting Web, vedere i [Limiti relativi ai siti Web](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>Procedura: Evitare di superare le quote
@@ -106,7 +106,7 @@ Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di 
 
 > [AZURE.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**.
 > 
-> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione Azure, vedere l'argomento relativo all'[uso di Azure PowerShell](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione Azure, vedere l'argomento relativo all'[uso di Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo usato per generare le informazioni di log e il formato delle informazioni sono specifici del linguaggio in cui è scritta l'applicazione. Per informazioni specifiche del linguaggio per l'uso della registrazione delle applicazioni, vedere gli articoli seguenti:
 > 
@@ -173,7 +173,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 1. Dalla **schermata Start** o dal **menu Start** cercare **Azure PowerShell**. Fare clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
 
-	> [AZURE.NOTE] Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
+	> [AZURE.NOTE] Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
 
 2. Dal prompt di Azure PowerShell, usare i comandi seguenti per scaricare i file di log:
 
@@ -201,7 +201,7 @@ Verranno scaricati i file di log per il sito Web specificato da **nomesitoWeb** 
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-> [AZURE.NOTE] Se il comando **azure** non è installato, vedere [Come usare gli strumenti da riga di comando di Azure](http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
+> [AZURE.NOTE] Se il comando **azure** non è installato, vedere [Come usare gli strumenti da riga di comando di Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/) per informazioni sull'installazione e la configurazione.
 
 ###Lettura dei file di log###
 
@@ -276,9 +276,9 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 
 Per altre informazioni sul monitoraggio degli endpoint del sito Web, vedere i video seguenti:
 
-- [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint](http://www.windowsazure.com/it-it/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie: Introduzione a Siti Web di Azure e configurazione del monitoraggio degli endpoint](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](http://www.windowsazure.com/it-it/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

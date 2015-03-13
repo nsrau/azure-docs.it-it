@@ -1,6 +1,20 @@
-<properties title="Sviluppare una soluzione predittiva con Azure Machine Learning" pageTitle="Sviluppare una soluzione predittiva con Machine Learning | Azure" description="Procedura dettagliata per creare un semplice esperimento di analisi predittiva in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Sviluppare una soluzione predittiva con Machine Learning | Azure" 
+	description="Procedura dettagliata per creare un semplice esperimento di analisi predittiva in Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Sviluppare una soluzione predittiva con Azure Machine Learning
 
@@ -29,3 +43,5 @@ Questa procedura dettagliata è basata su una versione semplificata dell'
   [Pubblicare il servizio Web]: ../machine-learning-walkthrough-5-publish-web-service/
   [Accedere al servizio Web]: ../machine-learning-walkthrough-6-access-web-service/
   [esperimento di esempio per la predizione del rischio di credito]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

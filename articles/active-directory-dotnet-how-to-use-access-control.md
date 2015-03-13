@@ -1,6 +1,20 @@
-<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
+﻿<properties 
+	pageTitle="Come usare Controllo di accesso (.NET) - Guida alle funzionalità di Azure" 
+	description="Informazioni su come usare Servizio di controllo di accesso (ACS) nell'applicazione Azure per autenticare gli utenti quando provano a ottenere l'accesso a un'app Web." 
+	services="active-directory" 
+	documentationCenter=".net" 
+	authors="msmbaldwin" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mbaldwin"/>
 
 # Come autenticare gli utenti Web con Microsoft Azure AD Access Control
 
@@ -389,7 +403,7 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [13]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png
   [14]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png
   [15]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png
-  [documentazione di Windows Identity Foundation]: http://msdn.microsoft.com/it-it/library/hh377151.aspx
+  [documentazione di Windows Identity Foundation]: http://msdn.microsoft.com/library/hh377151.aspx
   [16]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png
   [17]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png
@@ -399,3 +413,5 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [22]: ./media/active-directory-dotnet-how-to-use-access-control/acsSave-Google.png
   [23]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndA-after.png
   [24]: ./media/active-directory-dotnet-how-to-use-access-control/acsSignIn.png
+
+<!--HONumber=46--> 

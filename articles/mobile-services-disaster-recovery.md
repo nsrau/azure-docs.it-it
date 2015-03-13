@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Ripristinare il servizio mobile in caso di emergenza - Servizi mobili di Azure" description="Informazioni su come ripristinare il servizio mobile in caso di emergenza." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Ripristinare il servizio mobile in caso di emergenza - Servizi mobili di Azure" 
+	description="Informazioni su come ripristinare il servizio mobile in caso di emergenza." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Ripristinare il servizio mobile in caso di emergenza
 
@@ -73,14 +87,14 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 <!-- Images. -->
 
 <!-- URLs. -->
-[Linee guida sulla continuità aziendale del database SQL di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh852669.aspx
+[Linee guida sulla continuità aziendale del database SQL di Azure]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[funzionalità di controllo del codice sorgente]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/store-scripts-in-source-control/
-[uso dello strumento da riga di comando di Azure]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/
+[funzionalità di controllo del codice sorgente]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[uso dello strumento da riga di comando di Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [Portale di Azure]: http://manage.windowsazure.com/
-[Dashboard servizi di Azure]: http://www.windowsazure.com/it-it/support/service-dashboard/
-[Automatizzare i servizi mobili con gli strumenti da riga di comando]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/command-line-administration/
+[Dashboard servizi di Azure]: http://azure.microsoft.com/support/service-dashboard/
+[Automatizzare i servizi mobili con gli strumenti da riga di comando]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 
 
 <!--HONumber=42-->

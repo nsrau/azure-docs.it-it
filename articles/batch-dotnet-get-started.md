@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Esercitazione - Introduzione alla libreria di Azure Batch per .NET" description="obbligatorio" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Esercitazione - Introduzione alla libreria di Azure Batch per .NET" 
+	description="Informazioni sui concetti di base di Azure Batch e su come usare il servizio Batch con uno scenario semplice." 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="12/03/2014" 
+	ms.author="yidingz, kabatta"/>
 
 #Introduzione alla libreria di Azure Batch per .NET  
 
@@ -10,14 +24,14 @@ Questo articolo contiene le due esercitazioni seguenti che consentono di iniziar
 -	[Esercitazione 2: Libreria di Azure Batch Apps per .NET](#tutorial2)  
 
 
-Per informazioni generali e scenari per Azure Batch, vedere [Panoramica tecnica di Azure Batch](http://azure.microsoft.com/it-it/documentation/articles/batch-technical-overview/).
+Per informazioni generali e scenari per Azure Batch, vedere [Panoramica tecnica di Azure Batch](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).
 
 ##<a name="tutorial1"></a>Esercitazione 1: Libreria di Azure Batch per .NET
   	
 In questa esercitazione verrà illustrato come creare un'applicazione console che consente di impostare il calcolo distribuito in un pool di macchine virtuali usando il servizio Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C# e usano la libreria di Azure Batch per .NET.
 
 
->[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/). 
+>[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). 
 >
 >È necessario usare NuGet per ottenere l'assembly **Microsoft.Azure.Batch.dll**. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **Azure.Batch** e fare clic su Installa per installare il pacchetto Azure Batch e le relative dipendenze.
 >
@@ -42,7 +56,7 @@ Il servizio Batch consente di pianificare attività di calcolo scalabili e distr
 Verranno ora esaminati i casi di utilizzo più comuni.
 
 ###Creare un account Azure Batch
-Per creare un account Batch è possibile usare il portale di gestione di Azure. Dopo la creazione dell'account, all'utente viene fornita una chiave. Per altre informazioni, vedere [Panoramica tecnica di Azure Batch](http://azure.microsoft.com/it-it/documentation/articles/batch-technical-overview/).  
+Per creare un account Batch è possibile usare il portale di gestione di Azure. Dopo la creazione dell'account, all'utente viene fornita una chiave. Per altre informazioni, vedere [Panoramica tecnica di Azure Batch](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).  
 
 ###Procedura: Aggiungere un pool a un account
 Un pool di macchine virtuali di attività è il primo set di risorse che è necessario creare per eseguire attività.  
@@ -406,7 +420,7 @@ Prima di eseguire il codice di questa esercitazione, è necessario eseguire l'ac
 6.	Facoltativamente, è possibile abilitare la replica geografica.
 7.	Fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**.  
 
-Per altre informazioni sul servizio di archiviazione di Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET](http://www.windowsazure.com/it-it/develop/net/how-to-guides/blob-storage/).  
+Per altre informazioni sul servizio di archiviazione di Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).  
 
 
 ##<a name="tutorial2"></a>Esercitazione 2: Libreria di Azure Batch Apps per .NET
@@ -416,7 +430,7 @@ Batch Apps è una funzionalità di Azure Batch che offre una modalità incentrat
 
 Nello scenario di Batch Apps si scrive il codice usando Batch Apps Cloud SDK per partizionare i processi in attività parallele, descrivere le eventuali dipendenze tra le attività e specificare la modalità di esecuzione di ogni attività.  Questo codice viene distribuito all'account Batch.  I client possono quindi eseguire i processi semplicemente specificando il tipo di processo e i file di input per un'API REST.
 
->[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/). Per ottenere gli assembly <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> e <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> è possibile usare NuGet. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. È inoltre possibile scaricare l'estensione di Visual Studio per Batch Apps, in cui è incluso un modello di progetto per abilitare le applicazioni per il cloud e per distribuire un'applicazione. Per effettuare questa operazione, accedere <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">qui</a> o eseguire la ricerca di **Batch Apps** in Visual Studio tramite la voce di menu Estensioni e aggiornamenti.  Sono inoltre disponibili <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi end-to-end su MSDN.</a>
+>[WACOM.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). Per ottenere gli assembly <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> e <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> è possibile usare NuGet. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. È inoltre possibile scaricare l'estensione di Visual Studio per Batch Apps, in cui è incluso un modello di progetto per abilitare le applicazioni per il cloud e per distribuire un'applicazione. Per effettuare questa operazione, accedere <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">qui</a> o eseguire la ricerca di **Batch Apps** in Visual Studio tramite la voce di menu Estensioni e aggiornamenti.  Sono inoltre disponibili <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">esempi end-to-end su MSDN.</a>
 >
 
 ###Dati fondamentali di Azure Batch Apps 
@@ -597,3 +611,5 @@ Un processo descrive un carico di lavoro da eseguire e deve includere tutte le i
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

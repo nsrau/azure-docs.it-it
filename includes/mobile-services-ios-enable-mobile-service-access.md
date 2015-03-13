@@ -131,5 +131,4 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
 
 Una volta aggiornata l'app per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
-
 <!--HONumber=42-->

@@ -1,39 +1,53 @@
-<properties pageTitle="Introduzione a Media Services SDK per .NET- Azure" description="Questa esercitazione illustra il processo di implementazione di un'applicazione di invio di contenuti Video-on-Demand (VoD) con Servizi multimediali di Azure tramite .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introduzione all'SDK di Servizi multimediali per .NET - Azure" 
+	description="Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) con Servizi multimediali di Azure tramite .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="juliako"/>
 
 
-# Invio di Video-on-Demand con Media Services SDK per .NET 
+# Distribuzione di Video on Demand con l'SDK di Servizi multimediali per .NET 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare una versione di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+> Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
-Questa esercitazione illustra il processo di implementazione di un'applicazione di invio di contenuti Video-on-Demand (VoD) usando Azure Media Services (AMS) SDK per .NET. 
+Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando l'SDK di Servizi multimediali di Azure per .NET. 
 
 L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.  
 
-Per implementare un'applicazione di invio di contenuti VoD è possibile usare diverse tecnologie (ad esempio, .NET, REST o Java), strumenti (portale di gestione di Azure o Azure Media Services Explorer) o una combinazione di entrambi. 
+Per implementare un'applicazione di distribuzione di contenuti VoD è possibile usare diverse tecnologie (ad esempio, .NET, REST o Java), strumenti (portale di gestione di Azure o Azure Media Services Explorer) o una combinazione di entrambi. 
 
-Questa esercitazione usa il portale di gestione di Azure e Media Services SDK per .NET per le seguenti attività:     
+Questa esercitazione usa il portale di gestione di Azure e l'SDK di Servizi multimediali per .NET per le seguenti attività:     
 
 
 1.  [Creare un account di Servizi multimediali usando il portale](#create_ams).
 2.  [Configurare le unità di streaming usando il portale](#configure_streaming_units).
 3.  [Creare e configurare un progetto di Visual Studio](#configure_VS)
-4.  [Usare .NET per caricare, codificare e inviare il contenuto](#use_dotnet)
+4.  [Usare .NET per caricare, codificare e distribuire i contenuti](#use_dotnet)
 	5.  [Connettersi all'account di Servizi multimediali](#connect).
 	1.  [Creare un nuovo asset e caricare un file video](#upload).
 	1.  [Codificare il file di origine in un set di file MP4 a velocità in bit adattiva](#encode).
-	1.  [Configurare i criteri di invio per l'asset codificato](#configure_delivery_method).
+	1.  [Configurare i criteri di distribuzione per l'asset codificato](#configure_delivery_method).
 	2.  [Facoltativamente, configurare la protezione dei contenuti dinamici](#configure_content_protection). 
 	1.  [Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo](#publish_get_urls). 
-1.  [Riprodurre il contenuto](#play). 
+1.  [Riprodurre i contenuti](#play). 
 
 ## Prerequisiti
-I seguenti prerequisiti sono necessari per avviare lo sviluppo con Media Services SDK per .NET.
+Per iniziare l'attività di sviluppo con l'SDK di Servizi multimediali per .NET sono previsti i seguenti prerequisiti.
 
 - Sistemi operativi: Windows 7, Windows 2008 R2, Windows 8 o versioni successive.
 - .NET Framework 4.5 o .NET Framework 4.0
@@ -44,13 +58,13 @@ I seguenti prerequisiti sono necessari per avviare lo sviluppo con Media Service
 
 1. Nel [portale di gestione][] fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
    
-	![Creazione rapida di Servizi multimediali](./media/media-services-create-account/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. In **NOME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri. 
 
 3. In **AREA** selezionare l'area geografica che verrà usata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
 
-4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
+4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account per l'archiviazione BLOB dei contenuti multimediali dall'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
 
 5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
@@ -65,26 +79,26 @@ I seguenti prerequisiti sono necessari per avviare lo sviluppo con Media Service
 	
 	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Quick Start. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENT.
+	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Avvio rapido. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENUTO.
 
 	 
 ## <a id="configure_streaming_units"></a>Configurare le unità di streaming usando il portale
 
-Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti è l'invio di streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
 
-Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti che consente di inviare il contenuto codificato in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS) senza dover ricreare i pacchetti con questi formati di streaming. 
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti che consente di distribuire il contenuto codificato in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS) senza dover ricreare i pacchetti con questi formati di streaming. 
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario eseguire la procedura seguente:
 
-- codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione),  
-- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica l'invio del contenuto.
+- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
+- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti.
 
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
 
-Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming su richiesta offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
+Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming su richiesta offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming su richiesta è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming su richiesta, si consiglia di acquistare unità riservate di streaming su richiesta.
 
 
-Per modificare il numero di unità riservate di streaming on demand, eseguire le operazioni seguenti:
+Per modificare il numero di unità riservate di streaming su richiesta, effettuare le seguenti operazioni:
 
 1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
@@ -96,7 +110,7 @@ Per modificare il numero di unità riservate di streaming on demand, eseguire le
 
 4. Fare clic sul pulsante SALVA per salvare le modifiche apportate.
 
-	Il completamento dell'allocazione di nuove unità di streaming on demand richiede circa 20 minuti. 
+	Il completamento dell'allocazione di nuove unità di streaming su richiesta richiede circa 20 minuti. 
 
 	 
 	>[AZURE.NOTE] Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming su richiesta, è possibile che lo streaming su richiesta venga disattivato per un periodo che può durare fino a un'ora.
@@ -109,7 +123,7 @@ Per modificare il numero di unità riservate di streaming on demand, eseguire le
 
 1. Creare una nuova applicazione console C# in Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK. 
 
-2. Usare il pacchetto Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare **Azure Media Services .NET SDK Extensions**.  Media Services .NET SDK Extensions è un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze richieste.
+2. Usare il pacchetto Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare le **estensioni dell'SDK di Servizi multimediali di Azure per .NET**,  un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche l'**SDK di Servizi multimediali per .NET** e vengono aggiunte tutte le altre dipendenze richieste.
  
 3. Aggiungere un riferimento all'assembly System.Configuration. Questo assembly contiene la classe System.Configuration.ConfigurationManager usata per accedere ai file di configurazione (ad esempio, App.config). 
 
@@ -141,14 +155,14 @@ Per modificare il numero di unità riservate di streaming on demand, eseguire le
 
 6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles". 
 
-## <a id="use_dotnet"></a>Usare .NET per caricare, codificare e inviare il contenuto 
+## <a id="use_dotnet"></a>Usare .NET per caricare, codificare e distribuire i contenuti 
 
 Il codice in questa sezione mostra come eseguire le seguenti attività:
 
 1. Connettersi all'account di Servizi multimediali.
 1. Creare un nuovo asset e caricare un file video.
 1. Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
-1. Configurare i criteri di invio per l'asset codificato.
+1. Configurare i criteri di distribuzione per l'asset codificato.
 2. Facoltativamente, configurare la protezione dei contenuti dinamici.
 1. Pubblicare l'asset e ottenere gli URL. 
 
@@ -157,7 +171,7 @@ Il codice in questa sezione mostra come eseguire le seguenti attività:
 
 Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via. 
  
-Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessone dal file App.config e come creare l'oggetto CloudMediaContext per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/azure/jj129571.aspx).
+Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessone dal file App.config e come creare l'oggetto CloudMediaContext per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con l'SDK di Servizi multimediali per .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La funzione **Main** chiama dei metodi definiti più in dettaglio in questa sezione.
 	
@@ -214,13 +228,13 @@ La funzione **Main** chiama dei metodi definiti più in dettaglio in questa sezi
 
 In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
 
-Il metodo **UploadFile** definito di seguito chiama **CreateFromFile** (definito nelle estensioni di SDK per .NET). **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato. 
+Il metodo **UploadFile** definito di seguito chiama **CreateFromFile** (definito nelle estensioni dell'SDK per .NET). **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato. 
 
 Il metodo **CreateFromFile** acquisisce **AssetCreationOptions** che consente di specificare una delle seguenti opzioni di creazione:
  
 - **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
 Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
-- **StorageEncrypted**: crittografa il contenuto non crittografato localmente usando la crittografia a 256 bit AES, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+- **StorageEncrypted**: crittografa il contenuto non crittografato localmente usando la crittografia a 256 bit AES, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si desidera proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 - **CommonEncryption**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 - **EnvelopeEncrypted**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
@@ -228,7 +242,7 @@ Il metodo **CreateFromFile** consente anche di specificare un callback per visua
 
 Nel seguente esempio è specificato **None** per le opzioni dell'asset.
 
-Aggiungere il metodo seguente alla classe Program.
+Aggiungere il seguente metodo alla classe Program.
 
 	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
 	{
@@ -250,20 +264,20 @@ Aggiungere il metodo seguente alla classe Program.
 
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate Processi e ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset. 
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti è l'invio di streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di una licenza Adobe PrimeTime/Access). 
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario eseguire la procedura seguente:
 
 - codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,  
-- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica l'invio del contenuto. 
+- ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. 
 
-Nel codice seguente viene illustrato come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Il codice invia il processo e ne attende il completamento. 
+Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Azure Media Encoder**. Il codice invia il processo e ne attende il completamento. 
 
 Al termine, è possibile eseguire lo streaming dell'asset o il download progressivo dei file MP4 creati con la transcodifica.
 Non è necessario ottenere le unità di streaming su richiesta per poter eseguire il download progressivo dei file MP4. 
 
 
-Aggiungere il metodo seguente alla classe Program.
+Aggiungere il seguente metodo alla classe Program.
 
 	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
 	{
@@ -303,17 +317,17 @@ Aggiungere il metodo seguente alla classe Program.
 
 Per informazioni su come configurare la protezione dei contenuti, vedere gli articoli seguenti:
 
-- [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](http://msdn.microsoft.com/it-it/library/azure/dn783457.aspx)
-- [Uso della crittografia dinamica PlayReady e del servizio di distribuzione delle licenze](http://msdn.microsoft.com/it-it/library/azure/dn783467.aspx)
-- [Invio di contenuto crittografato di archiviazione](http://msdn.microsoft.com/it-it/library/azure/dn783451.aspx)
+- [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](http://msdn.microsoft.com/library/azure/dn783457.aspx)
+- [Uso della crittografia dinamica PlayReady e del servizio di distribuzione delle licenze](http://msdn.microsoft.com/library/azure/dn783467.aspx)
+- [Distribuzione di contenuto crittografato di archiviazione](http://msdn.microsoft.com/library/azure/dn783451.aspx)
 
-### <a id="configure_delivery_method"></a>Configurare i criteri di invio per l'asset codificato
+### <a id="configure_delivery_method"></a>Configurare i criteri di distribuzione per l'asset codificato
 
-Uno dei passaggi del flusso di lavoro di invio dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di invio degli asset. La configurazione dei criteri di invio degli asset include: i protocolli da usare per inviare l'asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), se crittografare dinamicamente l'asset e le eventuali modalità di crittografia (crittografia Envelope o Common). 
+Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset. La configurazione dei criteri di distribuzione degli asset include: i protocolli da usare per distribuire l'asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), se crittografare dinamicamente l'asset e le eventuali modalità di crittografia (crittografia envelope o common). 
 
-Il seguente metodo **ConfigureClearAssetDeliveryPolicy** specifica di non applicare la crittografia dinamica e di inviare il flusso in uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. 
+Il seguente metodo **ConfigureClearAssetDeliveryPolicy** specifica di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. 
   
-Aggiungere il metodo seguente alla classe Program.
+Aggiungere il seguente metodo alla classe Program.
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -325,13 +339,13 @@ Aggiungere il metodo seguente alla classe Program.
         asset.DeliveryPolicies.Add(policy);
     }
 
-Dopo questo invio, dovrebbe essere possibile richiedere un flusso Smooth, HLS o MPEG DASH usando i seguenti formati:
+Dopo questa operazione, dovrebbe essere possibile richiedere un flusso Smooth, HLS o MPEG DASH usando i seguenti formati:
 
-Smooth Streaming:
+Smooth Streaming
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-HLS:
+HLS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
@@ -342,7 +356,7 @@ MPEG DASH
 
 ### <a id="publish_get_urls"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo
 
-Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: Localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatore SAS (firma di accesso condiviso), usati per scaricare i file multimediali.
+Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: Localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
 Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. 
 
@@ -359,15 +373,15 @@ Un URL su richiesta per MPEG DASH ha il seguente formato:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-Un URL SAS usato per scaricare i file ha il seguente formato:
+Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-Media Services .NET SDK Extensions fornisce dei pratici metodi di supporto che restituiscono URL formattati per l'asset pubblicato.
+Le estensioni dell'SDK di Servizi multimediali per .NET forniscono pratici metodi di supporto che restituiscono URL formattati per l'asset pubblicato.
  
-Il codice seguente usa .NET SDK Extensions per creare i localizzatori e ottenere URL per lo streaming e il download progressivo. Il codice mostra anche come scaricare i file in una cartella locale.
+Il codice seguente usa le estensioni dell'SDK per .NET per creare i localizzatori e ottenere URL per lo streaming e il download progressivo. Il codice mostra anche come scaricare i file in una cartella locale.
 
-Aggiungere il metodo seguente alla classe Program.
+Aggiungere il seguente metodo alla classe Program.
 
     static public void PublishAssetGetURLs(IAsset asset)
     {
@@ -434,7 +448,7 @@ Aggiungere il metodo seguente alla classe Program.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-## <a id="play"></a>Riprodurre il contenuto  
+## <a id="play"></a>Riprodurre i contenuti  
 
 Dopo aver eseguito il programma definito nella sezione precedente, nella finestra della console vengono visualizzati URL simili al seguente.
 
@@ -500,6 +514,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servizi multimediali di Azure 102 - Creazione dinamica dei pacchetti e dispositivi mobili</a>
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

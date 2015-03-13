@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="Come personalizzare il monitoraggio" description="Informazioni su come personalizzare i grafici di monitoraggio in Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Come personalizzare il monitoraggio" 
+	description="Informazioni su come personalizzare i grafici di monitoraggio in Azure." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # Personalizzazione del monitoraggio
 
@@ -53,3 +67,5 @@ Grazie alla notevole personalizzazione da parte dell'utente, nel portale di ante
 
 Si noti che il grafico relativo all'intervallo di tempo e le metriche selezionate verranno reimpostati nel momento in cui si lascia il portale.
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Passaggio 4: Addestrare e valutare i modelli analitici predittivi | Azure" description="Passaggio 4: Formazione, punteggio e valutazione di più modelli in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Passaggio 4: Addestrare e valutare i modelli analitici predittivi | Azure" 
+	description="Passaggio 4 della procedura dettagliata della soluzione: Addestrare, classificare e valutare più modelli in Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Questo è il quarto passaggio della procedura dettagliata, [Sviluppare una soluzione predittiva con Machine Learning di Azure][develop]:
@@ -117,3 +131,5 @@ Come ulteriore accorgimento per tenere traccia delle modifiche apportate ai para
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
 [3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
+
+<!--HONumber=46--> 

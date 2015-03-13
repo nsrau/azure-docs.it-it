@@ -1,6 +1,13 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introduzione ad Hub di notifica di Azure" metaKeywords="" description="Informazioni su come usare hub di notifica di Azure per inviare notifiche push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introduzione ad Hub di notifica di Azure" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." services="notification-hubs" documentationCenter="android" authors="piyushjo" manager="dwrede" editor=""/>
 
-<tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="10/03/2014" ms.author="piyushjo" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="" 
+	ms.workload="mobile" 
+	ms.date="10/03/2014" 
+	ms.author="piyushjo"/>
 
 # Introduzione ad Hub di notifica
 
@@ -8,32 +15,32 @@
 
 Baidu cloud push è un servizio cloud cinese che consente di inviare notifiche push ai dispositivi mobili. Questo servizio è particolarmente utile in Cina dove il recapito di notifiche push ad Android è complesso a causa della presenza di diversi archivi di app e servizi push e della disponibilità di dispositivi Android generalmente non connessi a GCM (Google Cloud Messaging). 
 
-Per completare questa esercitazione, è necessario disporre di:
+Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
 + Android SDK (si presuppone che verrà usato Eclipse), che è possibile scaricare facendo clic <a href="http://go.microsoft.com/fwlink/?LinkId=389797">qui</a>
 + [Mobile Services Android SDK]
 + [Baidu Push Android SDK]
 
->[WACOM.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
-* [Creazione di un account Baidu](#createBaiduAccount)
-* [Registrazione come sviluppatore Baidu](#registerBaiduDeveloper)
-* [Creazione di un progetto di Baidu cloud push](#createBaiduPushProject)
-* [Configurazione dell'hub di notifica](#configure-hub)
-* [Connessione dell'app all'hub di notifica](#connecting-app)
-* [Invio di notifiche all'app](#send)
+* [Creare un account Baidu](#createBaiduAccount)
+* [Registrarsi come sviluppatore Baidu](#registerBaiduDeveloper)
+* [Creare un progetto di Baidu cloud push](#createBaiduPushProject)
+* [Configurare l'hub di notifica](#configure-hub)
+* [Connettere l'app all'hub di notifica](#connecting-app)
+* [Inviare notifiche all'app](#send)
 
-##<a id="createBaiduAccount"></a>Creazione di un account Baidu
+## <a id="createBaiduAccount"></a>Creare un account Baidu
 
-Per usare Baidu, è necessario creare un account. Se si ha già un account, accedere al [portale di Baidu] con il proprio account e ignorare il prossimo passaggio. In caso contrario, vedere le istruzioni seguenti per creare un nuovo account Baidu.  
+Per usare Baidu, è necessario creare un account. Se si ha già un account, accedere al [portale di Baidu] con il proprio account e ignorare il prossimo passaggio. In caso contrario, vedere le seguenti istruzioni per creare un nuovo account Baidu.  
 
 1. Passare al [portale di Baidu] e fare clic sul collegamento 登录 (Accedi). Fare clic su 立即注册 per avviare il processo di registrazione di un nuovo account. 
 
    	![][1]
 
-2. Immettere i dettagli richiesti: telefono o indirizzo di posta elettronica, password e codice di verifica, quindi fare clic sul pulsante per l'iscrizione.
+2. Immettere i dettagli richiesti: telefono/indirizzo e-mail, password e codice di verifica, quindi fare clic sul pulsante di iscrizione.
 
    	![][2]
 
@@ -47,9 +54,9 @@ Per usare Baidu, è necessario creare un account. Se si ha già un account, acce
 
 Una volta attivato l'account Baidu, accedere al [portale di Baidu]. 
 
-##<a id="registerBaiduDeveloper"></a>Registrazione come sviluppatore Baidu
+## <a id="registerBaiduDeveloper"></a>Registrarsi come sviluppatore Baidu
 
-1. Dopo aver eseguito l'accesso al [portale di Baidu], fare clic su **更多>> (Altre informazioni)**.
+1. Dopo avere eseguito l'accesso al [portale di Baidu], fare clic su **更多>> (Altre informazioni)**.
 
   	![][5]
 
@@ -61,7 +68,7 @@ Una volta attivato l'account Baidu, accedere al [portale di Baidu].
 
   	![][7]
 
-4. Nella pagina successiva selezionare **注册开发者 (Sviluppatori registrati)** dal menu nell'angolo superiore destro. 
+4. Nella pagina successiva fare clic su **注册开发者 (Sviluppatori registrati)** nel menu nell'angolo superiore destro. 
 
   	![][8]
 
@@ -69,21 +76,21 @@ Una volta attivato l'account Baidu, accedere al [portale di Baidu].
 
   	![][9]
 
-6. Si dovrebbe quindi ricevere un messaggio di testo con un numero di verifica, come illustrato nell'esempio seguente:
+6. Si dovrebbe quindi ricevere un messaggio di testo con un numero di verifica, come illustrato nel seguente esempio:
 
   	![][10] 
 
 7. Immettere il numero di verifica del messaggio nel campo **验证码 (Codice di conferma)**. 
 
-8. Infine, completare la registrazione come sviluppatore accettando il contratto di Baidu e facendo clic su **提交 (Invia)**. Al termine della registrazione, si visualizzerà la seguente pagina:
+8. Infine, completare la registrazione come sviluppatore accettando il contratto di Baidu e facendo clic su **提交 (Invia)**. Al termine della registrazione viene visualizzata la seguente pagina:
 
   	![][11] 
 
-##<a id="createBaiduPushProject"></a>Creazione di un progetto di Baidu cloud push
+## <a id="createBaiduPushProject"></a>Creare un progetto di Baidu cloud push
 
 Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la chiave API e la chiave privata.
 
-1. Dopo avere effettuato l'accesso al [portale di Baidu], fare clic su **更多>> (Altre informazioni)**.
+1. Dopo avere eseguito l'accesso al [portale di Baidu], fare clic su **更多>> (Altre informazioni)**.
 
   	![][5]
 
@@ -95,11 +102,11 @@ Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la ch
 
   	![][7]
 
-4. Nella pagina successiva fare clic su **云推送 (Cloud push)** nella sezione **云服务 (Servizi cloud)**. 
+4. Nella pagina successiva fare clic su **云推送 (Push cloud)** nella sezione **云服务 (Servizi cloud)**. 
 
   	![][12]
 
-5. Al termine della registrazione come sviluppatore, si visualizzerà **管理控制台 (Console di gestione)** nel menu superiore. Fare clic su **开发者服务管理 (Gestione dei servizi per gli sviluppatori)**. 
+5. Al termine della registrazione come sviluppatore viene visualizzato **管理控制台 (Console di gestione)** nel menu superiore. FAre clic su **开发者服务管理 (Gestione dei servizi per gli sviluppatori)**. 
 
   	![][13]
 
@@ -111,11 +118,11 @@ Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la ch
 
   	![][15]
 
-8. Al termine della creazione del progetto, si visualizzerà una pagina con l'**ID dell'app**, la **chiave API** e la **chiave privata**. Prendere nota della **chiave API** e della **chiave privata**, che si useranno in seguito. 
+8. Al termine della creazione del progetto verrà visualizzata una pagina con l'**ID dell'app**, la **chiave API** e la **chiave privata**. Prendere nota della **chiave API** e della **chiave privata**, che si useranno in seguito. 
 
   	![][16]
 
-9. Configurare il progetto per le notifiche push facendo clic su **云推送 (Cloud push)** nel riquadro sinistro. 
+9. Configurare il progetto per le notifiche push facendo clic su **云推送 (Push cloud)** nel riquadro a sinistra. 
 
   	![][31]
 
@@ -123,13 +130,13 @@ Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la ch
 
 	![][32]  
 
-11. On the configuration page, add the package name that you will be using in your Android project in the **应用包名 (Application package)** field and click **保存设置 (Save)**  
+11. Nella pagina di configurazione aggiungere il nome che verrà usato nel progetto Android nel campo **应用包名 (Pacchetto applicazione)**, quindi fare clic su **保存设置 (Salva)**  
 
 	![][33]
 
-Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
+Verrà visualizzato il messaggio **保存成功！(Salvataggio eseguito correttamente)**.
 
-##<a id="configure-hub"></a>Configurazione dell'hub di notifica
+## <a id="configure-hub"></a>Configurare l'hub di notifica
 
 1. Accedere al [portale di gestione di Azure] e fare clic su **+NUOVO** nella parte inferiore della schermata.
 
@@ -159,7 +166,7 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 
     ![][22]
 
-##<a id="connecting-app"></a>Connessione dell'app all'hub di notifica
+## <a id="connecting-app"></a>Connettere l'app all'hub di notifica
 
 1. Nel plug-in ADT per Eclipse, creare un nuovo progetto Android (File -> New -> Android Application).
 
@@ -179,7 +186,7 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 
 5. Scaricare e decomprimere [Mobile Services Android SDK], aprire la cartella **notificationhubs**, copiare il file **notification-hubs-x.y.jar** nella cartella *libs* del progetto Eclipse, quindi aggiornare la cartella *libs*.
 
-6. Scaricare e decomprimere [Baidu Push Android SDK], aprire la cartella **libs**, copiare il file jar *pushservice-x.y.z* e le cartelle *armeabi* e *mips* nella cartella **libs** dell'applicazione Android. 
+6. Scaricare e decomprimere [Baidu Push Android SDK], aprire la cartella **libs** e copiare il file JAR *pushservice-x.y.z* e le cartelle *armeabi* e *mips* nella cartella **libs** dell'applicazione Android. 
 
 7. Aprire il file **AndroidManifest.xml** del progetto Android e aggiungere le autorizzazioni richieste da Baidu SDK.
 
@@ -196,11 +203,11 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. Aggiungere la proprietà *android:name* all'elemento *application* nel file **AndroidManifest.xml** sostituendo *yourprojectname*, ad esempio **com.example.BaiduTest**. Assicurarsi che il nome del progetto corrisponda a quello configurato nella console di Baidu. 
+8. Aggiungere la proprietà *android:name* all'elemento *application* in **AndroidManifest.xml** sostituendo  *yourprojectname*, ad esempio **com.example.BaiduTest**. Assicurarsi che il nome del progetto corrisponda a quello configurato nella console di Baidu. 
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. Aggiungere la configurazione seguente all'interno dell'elemento dell'applicazione, dopo l'elemento dell'attività .MainActivity, sostituendo *yourprojectname*, ad esempio **com.example.BaiduTest**:
+9. Aggiungere la seguente configurazione all'interno dell'elemento dell'applicazione dopo l'elemento dell'attività .MainActivity, sostituendo *yourprojectname*, ad esempio **com.example.BaiduTest**:
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -246,7 +253,7 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 
     ![][29]
 
-10. Aggiungere alla classe il codice seguente:
+10. Aggiungere alla classe il seguente codice:
 
 		public class ConfigurationSettings {
 		        public static String API_KEY = "...";
@@ -254,9 +261,9 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 				public static String NotificationHubConnectionString = "...";
 			}
 	
-	Impostare *API_KEY * sul valore recuperato in precedenza dal progetto di Baidu cloud push, *NotificationHubName* sul nome dell'hub di notifica ottenuto dal portale di Azure e *NotificationHubConnectionString* sul valore di DefaultListenSharedAccessSignature ottenuto dal portale di Azure. 
+	Impostare *API_KEY* sul valore recuperato in precedenza dal progetto cloud Baidu, *NotificationHubName* sul nome dell'hub di notifica ottenuto dal portale di Azure e *NotificationHubConnectionString* sul valore DefaultListenSharedAccessSignature ottenuto dal portale di Azure. 
 
-11. Aggiungere una nuova classe denominata **DemoApplication.java** e aggiungere alla classe il codice seguente:
+11. Aggiungere una nuova classe denominata **DemoApplication.java** e aggiungere alla classe il seguente codice:
 
 		import com.baidu.frontia.FrontiaApplication;
 		
@@ -376,18 +383,18 @@ Si visualizzerà il messaggio **保存成功！ (Salvataggio riuscito)**.
 		    }
 		}
 
-13. Aprire **MainActivity.java** e aggiungere al metodo **onCreate** il codice seguente:
+13. Aprire **MainActivity.java** e aggiungere al metodo **onCreate** il seguente codice:
 
 	        PushManager.startWork(getApplicationContext(),
 	                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
 
-Aggiungere quindi le istruzioni import seguenti all'inizio del file:
+e aggiungere le istruzioni import seguenti nella parte superiore:
 			import com.baidu.android.pushservice.PushConstants;
 			import com.baidu.android.pushservice.PushManager;
 
-##<a id="send"></a>Invio di notifiche all'app
+## <a id="send"></a>Inviare notifiche all'app
 
-È possibile usare Hub di notifica per inviare notifiche da qualsiasi back-end che usa <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx">l'interfaccia REST</a>. In questa esercitazione verrà illustrato l'utilizzo di un'app console .NET. 
+È possibile usare Hub di notifica per inviare notifiche da qualsiasi back-end che usa <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">l'interfaccia REST</a>. In questa esercitazione verrà illustrato l'uso di un'app console .NET. 
 
 1. Creare una nuova applicazione console in Visual C#:
 
@@ -397,11 +404,11 @@ Aggiungere quindi le istruzioni import seguenti all'inizio del file:
 
         Install-Package WindowsAzure.ServiceBus
 
-3. Aprire il file Program.cs e aggiungere l'istruzione using seguente:
+3. Aprire il file Program.cs e aggiungere la seguente istruzione using:
 
         using Microsoft.ServiceBus.Notifications;
 
-4. Aggiungere il metodo seguente nella classe `Program` e sostituire *DefaultFullSharedAccessSignatureSASConnectionString* e *NotificationHubName* con i valori disponibili. 
+4. Nella classe `Program` aggiungere il seguente metodo e sostituire *DefaultFullSharedAccessSignatureSASConnectionString* e *NotificationHubName* con i valori di cui si dispone. 
 
 		private static async void SendNotificationAsync()
 		{
@@ -410,12 +417,12 @@ Aggiungere quindi le istruzioni import seguenti all'inizio del file:
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
-5. Aggiungere quindi le righe seguenti nel metodo Main:
+5. Aggiungere quindi le seguenti righe nel metodo Main:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-##<a name="test-app"></a>Test dell'app
+## <a name="test-app"></a>Test dell'app
 
 Per testare l'app con un telefono effettivo, collegare il telefono al computer con un cavo USB.
 
@@ -425,7 +432,7 @@ Per testare l'app con l'emulatore:
 
 2. L'app verrà caricata nel telefono collegato oppure verrà avviato l'emulatore che caricherà ed eseguirà l'app.
 
-3. L'app recupera le proprietà 'userId' e 'channelId' dal servizio di notifiche push di Baidu ed esegue la registrazione con l'hub di notifica.
+3. L'app recupera i valori 'userId' e 'channelId' dal servizio di notifica push Baidu ed esegue la registrazione con l'hub di notifica.
 	
 4.	Per inviare una notifica di prova quando si usa l'applicazione console .NET, premere il tasto F5 in Visual Studio per eseguire l'applicazione. Verrà inviata una notifica che sarà visualizzata nell'area di notifica posta nella parte superiore del dispositivo o dell'emulatore. 
 
@@ -469,7 +476,8 @@ Per testare l'app con l'emulatore:
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Portale di Baidu]: http://www.baidu.com/
+[portale di Baidu]: http://www.baidu.com/
 
 
-<!--HONumber=35.2-->
+
+<!--HONumber=45--> 

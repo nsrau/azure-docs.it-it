@@ -552,9 +552,9 @@ In questa esercitazione è stato illustrato come trasformare un set di dati Json
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/it-it/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/it-it/library/ee176961.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -566,5 +566,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati Json
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
-
 <!--HONumber=42-->

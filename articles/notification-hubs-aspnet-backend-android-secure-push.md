@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Push sicuro degli hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica di Azure, push sicuro" description="Informazioni su come inviare notifiche push protette a un'app Android da Azure. Esempi di codice scritti in Java e C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties 
+	pageTitle="Push sicuro degli hub di notifica di Azure" 
+	description="Informazioni su come inviare notifiche push sicure a un'app per Android da Azure. Gli esempi di codice sono scritti in Java e C#." 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
 #Push sicuro degli hub di notifica di Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows universale</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
 		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
@@ -24,25 +38,25 @@ A livello generale, il flusso è il seguente:
 
 È importante notare che nel flusso precedente (e in questa esercitazione) si presume che il dispositivo archivi un token di autenticazione nell'archiviazione locale, dopo che l'utente ha eseguito l'accesso. Ciò garantisce un'esperienza del tutto uniforme, in quanto il dispositivo può recuperare il payload sicuro della notifica usando questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
-In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione **Utilizzo di Hub di notifica per inviare notifiche agli utenti** sarà prima necessario completare i passaggi di tale esercitazione.
+In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione relativa all'**invio di notifiche agli utenti con Hub di notifica**, sarà prima necessario completare i passaggi di tale esercitazione.
 
-> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-android-get-started/).
+> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Android)](http://azure.microsoft.com/ documentation/articles/notification-hubs-android-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## Modifica del progetto Android
+## Modificare il progetto Android
 
-Ora che è stato modificato il back-end dell'app in modo da inviare solo l'*ID* di una notifica, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
+Ora che è stato modificato il back-end dell'app in modo da inviare solo l' *id* di una notifica, è necessario modificare l'app per Android in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
 Per conseguire questo obiettivo, è necessario assicurarsi che l'app per Android sia in grado di eseguire l'autenticazione con il back-end quando riceve le notifiche push.
 
-Ora si modificherà il flusso di *accesso* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app dovrà usare senza richiedere le credenziali dell'utente.
+Ora si modificherà il flusso di *login* per salvare il valore dell'intestazione di autenticazione nelle preferenze condivise dell'app. Un meccanismo analogo può essere usato per archiviare eventuali token di autenticazione (ad esempio token OAuth) che l'app dovrà usare senza richiedere le credenziali dell'utente.
 
-1. Nel progetto di app per Android, aggiungere le costanti seguenti all'inizio della classe **MainActivity**:
+1. Nel progetto di app per Android, aggiungere le seguenti costanti all'inizio della classe **MainActivity**:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. Sempre nella classe **MainActivity** aggiornare il metodo `getAuthorizationHeader()` in modo che contenga il codice seguente:
+2. Sempre nella classe **MainActivity** aggiornare il metodo `getAuthorizationHeader()` in modo che contenga il seguente codice:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,7 +70,7 @@ Ora si modificherà il flusso di *accesso* per salvare il valore dell'intestazio
     		return basicAuthHeader;
 		}
 
-3. Aggiungere le istruzioni `import` seguenti all'inizio del file **MainActivity**:
+3. Aggiungere le seguenti istruzioni `import` all'inizio del file **MainActivity**:
 
 		import android.content.SharedPreferences;
 
@@ -106,7 +120,7 @@ Notare che è preferibile gestire i casi in cui manca la proprietà dell'intesta
 
 ## Esecuzione dell'applicazione
 
-Per eseguire l'applicazione, eseguire le operazioni seguenti:
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. Assicurarsi che il progetto **AppBackend** sia distribuito in Azure. Se si usa Visual Studio, eseguire l'applicazione API Web **AppBackend**. Verrà visualizzata una pagina Web ASP.NET.
 
@@ -116,4 +130,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare quindi clic su **Send push**.
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

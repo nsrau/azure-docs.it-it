@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Introduzione alle notifiche push (iOS) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="Introduzione alle notifiche push (iOS) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per iOS." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per iOS usando APNS (Apple Push Notification Service). In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel [progetto di guida introduttiva](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-ios-get-started/). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per iOS usando APNS (Apple Push Notification Service). In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel [progetto di guida introduttiva](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 

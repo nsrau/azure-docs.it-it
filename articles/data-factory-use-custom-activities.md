@@ -1,6 +1,20 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Usare attività personalizzate in una pipeline di Data factory di Azure" description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Usare attività personalizzate in una pipeline di Data factory di Azure" 
+	description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
 Data factory di Azure supporta attività predefinite come **l'attività di copia** e **l'attività HDInsight** da usare nelle pipeline per spostare ed elaborare i dati. È anche possibile creare un'attività personalizzata con la propria logica di trasformazione/elaborazione e usare l'attività in una pipeline. L'attività personalizzata viene eseguita come processo solo di mapping in un cluster HDInsight, quindi è necessario collegare un cluster HDInsight per l'attività personalizzata nella pipeline.
@@ -488,7 +502,7 @@ Articolo | Descrizione
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/it-it/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +516,5 @@ Articolo | Descrizione
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

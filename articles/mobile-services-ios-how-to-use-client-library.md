@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Come usare la libreria client iOS - Servizi mobili di Azure" description="Informazioni su come usare la libreria client iOS per Servizi mobili di Azure." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come usare la libreria client iOS - Servizi mobili di Azure" 
+	description="Informazioni su come usare la libreria client iOS per Servizi mobili di Azure." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 
@@ -176,7 +190,8 @@ Nell'esempio seguente una funzione semplice richiede 20 record al server e quind
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+		query.fetchOffset = self.loadedIte
+	ms.count;
 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
@@ -184,7 +199,8 @@ Nell'esempio seguente una funzione semplice richiede 20 record al server e quind
 				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
+				self.moreResults = (self.loadedIte
+	ms.count < totalCount);
 			}
 		}];
 	}
@@ -504,14 +520,14 @@ Per altre informazioni vedere il nuovo argomento sull'elaborazione delle intesta
 
 [Gestione dei token scaduti]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Autorizzazioni]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193161.aspx
+[Autorizzazioni]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Usare gli script per autorizzare gli utenti]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Schema dinamico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [Come accedere ai parametri personalizzati]: /it-it/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Creare una tabella]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193162.aspx
+[Creare una tabella]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [Oggetti NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [Codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI per la gestione delle tabelle di Servizi mobili]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

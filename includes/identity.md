@@ -49,7 +49,7 @@ L'esecuzione di Windows Server AD nelle macchine virtuali di Azure può risultar
 
 - Un'organizzazione che usa Azure per il ripristino di emergenza potrebbe mantenere un set di macchine virtuali attive ridotto nel cloud, incluso un controller di dominio. Sarà quindi predisposta per espandere il sito in base alle esigenze per intervenire in caso di errori altrove.
 
-Sono inoltre disponibili altre possibilità. Non è ad esempio necessario connettere Windows Server AD nel cloud a un data center locale. Per eseguire una farm SharePoint per servire un determinato set di utenti che possono eseguire l'accesso esclusivamente con identità basate sul cloud, sarebbe necessario creare una foresta autonoma in Azure. Il modo in cui si usa questa tecnologia dipende dagli obiettivi. Per informazioni dettagliate sull'utilizzo di Windows Server AD con Azure, [vedere qui](http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx).
+Sono inoltre disponibili altre possibilità. Non è ad esempio necessario connettere Windows Server AD nel cloud a un data center locale. Per eseguire una farm SharePoint per servire un determinato set di utenti che possono eseguire l'accesso esclusivamente con identità basate sul cloud, sarebbe necessario creare una foresta autonoma in Azure. Il modo in cui si usa questa tecnologia dipende dagli obiettivi. Per informazioni dettagliate sull'utilizzo di Windows Server AD con Azure, [vedere qui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 ## <a name="ad"></a>Uso di Azure Active Directory
 
@@ -121,5 +121,4 @@ L'utilizzo delle identità è importante per la maggior parte delle applicazioni
 ##Informazioni sull'autore
 
 David Chappell è il titolare della società Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) di San Francisco, California. Attraverso le conferenze, gli scritti e le consulenze
-
 <!--HONumber=42-->

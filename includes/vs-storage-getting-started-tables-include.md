@@ -134,7 +134,6 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx).
-
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

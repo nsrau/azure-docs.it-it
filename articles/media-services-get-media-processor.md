@@ -1,15 +1,29 @@
-﻿<properties pageTitle="Come creare un processore di contenuti multimediali - Azure" description="Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come creare un processore di contenuti multimediali - Azure" 
+	description="Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="juliako"/>
 
 
+# Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
 
+## Informazioni generali
 
-<h1>Procedura: Ottenere un'istanza del processore di contenuti multimediali</h1>
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Creare e caricare un asset crittografato nell'archiviazione](.../ media-services-create-encrypted-asset-upload-storage/).
-
-In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuto multimediale. Un processore di contenuti multimediali viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
+In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore di contenuti multimediali viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
 Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori di contenuti multimediali disponibili.
 
@@ -25,17 +39,17 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
     <tr>
        <td>Azure Media Encoder</td>
        <td>Consente di eseguire attività di codifica usando il codificatore multimediale.</td>
-       <td><a href="http://msdn.microsoft.com/it-it/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
         <td>Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).</td>
-		<td><a href="http://msdn.microsoft.com/it-it/library/hh973635.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>Consente di crittografare asset di file multimediali usando PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/it-it/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Indexer</td>
@@ -51,26 +65,25 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 
 <br />
 
+## Ottenere un'istanza di MediaProcessor
+
 Il metodo seguente illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice].
 
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
 
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-</code></pre>
-
-<h2>Passaggi successivi</h2>
+## Passaggi successivi
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset][] che illustra come usare Azure Media Encoder per codificare un asset.
 
 [Come codificare un asset]: ../media-services-encode-asset/
-[Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/it-it/library/jj129582.aspx
+[Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

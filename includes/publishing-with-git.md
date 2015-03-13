@@ -308,11 +308,11 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 * [Documentazione su Git]
 * [Progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Centro per sviluppatori di Azure]: http://www.windowsazure.com/it-it/develop/overview/
+[Centro per sviluppatori di Azure]: http://azure.microsoft.com/develop/overview/
 [Portale di Azure]: http://manage.windowsazure.com
 [Sito Web Git]: http://git-scm.com
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Come usare PowerShell per Azure]: http://www.windowsazure.com/it-it/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Come usare PowerShell per Azure]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: /it-it/develop/nodejs/how-to-guides/command-line-tools/
 [Documentazione su Git]: http://git-scm.com/documentation
 
@@ -333,6 +333,5 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [Creare un repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Guida introduttiva - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso di Dropbox per condividere i repository Git]: https://gist.github.com/trey/2722927
-[Recapito continuo in Azure usando Visual Studio Online]: http://www.windowsazure.com/it-it/develop/net/common-tasks/publishing-with-tfs/
-
+[Recapito continuo in Azure usando Visual Studio Online]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
 <!--HONumber=42-->

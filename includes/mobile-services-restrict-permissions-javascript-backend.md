@@ -8,5 +8,4 @@
 
    	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
 
-
 <!--HONumber=42-->

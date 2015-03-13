@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,38 +13,38 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/11/2015" 
+	ms.date="10/21/2014" 
 	ms.author="rasquill"/>
-<!--The next line, with one pound sign at the beginning, is the page title--> 
+
 # Uso dell'estensione della VM Docker con il portale di Azure
 
-[Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l'[Agente Linux di Azure] per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure. 
+[Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l' [Agente Linux di Azure] per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure. 
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+
 Contenuto della sezione
 
 + [Creare una nuova VM dalla Raccolta immagini]
 + [Creare i certificati Docker]
-+ [Aggiungere l'estensione della VM Docker]
++ [Aggiungere l'estensione della macchina virtuale Docker]
 + [Testare il client Docker e l'host Docker di Azure]
 + [Passaggi successivi]
 
-> [AZURE.NOTE] Questo argomento descrive come creare una VM Docker dal portale di Azure. Per scoprire come creare una VM Docker nella riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione generale sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
+> [AZURE.NOTE] In questo argomento viene descritto come creare una VM Docker nel portale di Azure. Per scoprire come creare una VM Docker nella riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
 ## <a id='createvm'>Creare una nuova VM dalla Raccolta immagini</a>
-Il primo passaggio richiede una VM di Azure da un'immagine Linux che supporti l'estensione della VM Docker, usando un'immagine di Ubuntu 14.04 LTS dalla Raccolta immagini come immagine del server di esempio e Ubuntu 14.04 Desktop come client. Nel portale, fare clic su **+ Nuovo** in basso a sinistra per creare una nuova istanza di VM, quindi selezionare un'immagine di Ubuntu 14.04 LTS dalle opzioni disponibili oppure dalla Raccolta immagini completa, come illustrato di seguito. 
+Il primo passaggio richiede una VM di Azure da un'immagine Linux che supporti l'estensione della VM Docker, usando un'immagine di Ubuntu 14.04 LTS dalla Raccolta immagini come immagine del server di esempio e Ubuntu 14.04 Desktop come client. Nel portale, fare clic su **+ Nuovo** n basso a sinistra per creare una nuova istanza di VM, quindi selezionare un'immagine di Ubuntu 14.04 LTS dalle opzioni disponibili oppure dalla Raccolta immagini completa, come illustrato di seguito. 
 
 > [AZURE.NOTE] Attualmente, solo le immagini di Ubuntu 14.04 LTS successive al mese di luglio 2014 supportano l'estensione della VM Docker.
 
-![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
+![Creare una nuova immagine Ubuntu](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
 ## <a id'dockercerts'>Creare i certificati Docker</a>
 
-Dopo aver creato la VM, assicurarsi di aver installato Docker sul computer client (per informazioni dettagliate, vedere le [istruzioni di installazione di Docker](https://docs.docker.com/installation/#installation)). 
+Dopo aver creato la VM, assicurarsi di aver installato Docker sul computer client (per informazioni dettagliate, vedere le [istruzioni di installazione di Docker](https://docs.docker.com/installation/#installation).) 
 
-Creare il certificato e i file di chiave per la comunicazione Docker seguendo le istruzioni relative all'[esecuzione di Docker con https], quindi inserirli nella directory **`~/.docker`** nel computer client. 
+Creare il certificato e i file di chiave per la comunicazione Docker seguendo le istruzioni di [esecuzione di Docker con https] , quindi inserirli nella directory  **`~/.docker`** sul computer client. 
 
-> [AZURE.NOTE] L'estensione della VM Docker nel portale attualmente richiede credenziali con codifica Base 64.
+> [AZURE.NOTE]  L'estensione della VM Docker nel portale attualmente richiede credenziali con codifica Base 64.
 
 Nella riga di comando, usare **`base64`** o un altro strumento di codifica preferito per creare argomenti con codifica Base 64. L'esecuzione di questa operazione con un semplice set di file di chiave e certificati potrebbe avere un aspetto simile al seguente:
 
@@ -59,9 +59,8 @@ Nella riga di comando, usare **`base64`** o un altro strumento di codifica prefe
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## <a id'adddockerextension'>Aggiungere l'estensione della VM Docker</a>
+## <a id'adddockerextension'>Aggiungere l'estensione della macchina virtuale Docker</a>
 Per aggiungere l'estensione della VM Docker, individuare l'istanza della VM creata e scorrere verso il basso fino a **Estensioni**, quindi fare clic per visualizzare le estensioni della VM, come illustrato di seguito.
-> [AZURE.NOTE] Questa funzionalità è supportata solo nel portale di anteprima: https://portal.azure.com/
 
 ![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
 ### Aggiungere un'estensione
@@ -87,13 +86,13 @@ Quando si visualizza la VM nel gruppo di risorse creato, scorrere verso il basso
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-Fare clic su **+** Aggiungi per aggiungere un altro endpoint e, in caso di impostazione predefinita, immettere un nome per l'endpoint (in questo esempio, **docker**) e 4243 per entrambe le porte (privata e pubblica). Lasciare invariato il valore del protocollo **TCP** e fare clic su **OK** per creare l'endpoint.
+Fare clic su **+ Aggiungi** per aggiungere un altro endpoint e, in caso di impostazione predefinita, immettere un nome per l'endpoint (in questo esempio, **docker**) e 4243 per entrambe le porte (privata e pubblica). Lasciare invariato il valore del protocollo **TCP** e fare clic su **OK** per creare l'endpoint..
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## <a id='testclientandserver'>Testare il client Docker e l'host Docker di Azure</a>
-Individuare e copiare il nome del dominio della VM e, nella riga di comando del computer client, digitare `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (dove *dockerextension* viene sostituito con il sottodominio della propria VM). 
+Individuare e copiare il nome del dominio della VM e, nella riga di comando del computer client, digitare `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (dove *dockerextension*  verrà sostituito con il sottodominio della propria VM). 
 
 Il risultato sarà simile al seguente:
 
@@ -116,17 +115,15 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
-Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docker completamente funzionante eseguito in una macchina virtuale di Azure e configurato per accettare connessioni remote da altri client.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-È ora possibile passare alla [guida dell'utente di Docker] e usare la VM Docker. Per automatizzare la creazione di host Docker in macchine virtuali di Azure tramite l'interfaccia della riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]
+È ora possibile passare alla [guida dell'utente di Docker] e usare la VM Docker. Per iniziare a creare le VM Docker in maniera rapida e frequente, vedere [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]
 
 <!--Anchors-->
 [Creare una nuova VM dalla Raccolta immagini]: #createvm
 [Creare i certificati Docker]: #dockercerts
-[Aggiungere l'estensione della VM Docker]: #adddockerextension
+[Aggiungere l'estensione della macchina virtuale Docker]: #adddockerextension
 [Testare il client Docker e l'host Docker di Azure]: #testclientandserver
 [Passaggi successivi]: #next-steps
 
@@ -146,9 +143,12 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 <!--Link references-->
 [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Agente Linux di Azure]: ../virtual-machines-linux-agent-user-guide/
-[Collegamento 3 a un altro argomento della documentazione di azure.microsoft.com]: ../storage-whatis-account/
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
 
 [esecuzione di Docker con https]: http://docs.docker.com/articles/https/
-[Guida dell'utente di Docker]: https://docs.docker.com/userguide/
+[guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

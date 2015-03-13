@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" 
+	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Pianificare processi ricorrenti in Servizi mobili 
 
@@ -185,11 +199,11 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 
 <!-- URLs. -->
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Registrare le app per l'autenticazione di Twitter con Servizi mobili]: /it-it/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

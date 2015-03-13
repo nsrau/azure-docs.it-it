@@ -108,10 +108,10 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 > [AZURE.NOTE] Questa esercitazione usa una singola istanza di [EventProcessorHost]. Per aumentare la velocità effettiva, è consigliabile eseguire più istanze di [EventProcessorHost], come illustrato nell'[esempio di elaborazione di eventi scalata orizzontalmente]. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno di più ricevitori elabori *all* gli eventi, è necessario usare il concetto **ConsumerGroup**. Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di [EventProcessorHost] in base alle macchine (o ai ruoli) in cui sono distribuite. Per altre informazioni su questi argomenti, vedere [Panoramica di Hub eventi] e [Guida alla programmazione di Hub eventi].
 
 <!-- Links -->
-[Panoramica di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn821413.aspx
+[Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Esempio di elaborazione di eventi scalata orizzontalmente]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Account di archiviazione di Azure]: http://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/it-it/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[Account di archiviazione di Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,5 +120,4 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/it-it/library/azure/dn789972.aspx
-<!--HONumber=42-->
+[Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->

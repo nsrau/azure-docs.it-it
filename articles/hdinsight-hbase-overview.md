@@ -82,18 +82,17 @@ Le applicazioni possono essere eseguite su HBase, usato come archivio dati. Alcu
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-[hbase-get-started]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-get-started/
+[hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
 [apache-hadoop]: http://hadoop.apache.org/
-
 
 
 

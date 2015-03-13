@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" 
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="hero-article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
@@ -20,7 +34,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app HTML. 
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
 ###Requisiti aggiuntivi
 
@@ -66,7 +80,7 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
   	![][9]
 
-	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Condivisione risorse tra le origini](http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Condivisione risorse tra le origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 ## Ospitare ed eseguire l'app HTML
 
@@ -146,7 +160,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Installazione guidata piattaforma Web Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [ultima versione di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
-[Condivisione di risorse tra le origini]: http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx
+[Condivisione di risorse tra le origini]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 <!--HONumber=42-->

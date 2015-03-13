@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Nozioni di base delle API per Azure Batch" description="Concetti per introdurre gli sviluppatori al servizio Batch e alle API di Batch di Azure" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Nozioni di base delle API per Azure Batch" 
+	description="Concetti per introdurre gli sviluppatori al servizio Batch e alle API di Batch di Azure" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@ Un account di Batch è un'entità identificata in modo univoco all'interno del s
 
 ### <a name="taskvm"></a>Macchina virtuale delle attività
 
-Una macchina virtuale delle attività (TVM) è una macchina virtuale di Azure dedicata a un carico di lavoro specifico per l'applicazione. La dimensione di una TVM determina il numero di core CPU, la capacità di memoria e la dimensione del file system locale allocati alla TVM. Una TVM può essere una macchina virtuale di piccole dimensioni, grandi o grandissime dimensioni, come descritto in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/dn197896.aspx).
+Una macchina virtuale delle attività (TVM) è una macchina virtuale di Azure dedicata a un carico di lavoro specifico per l'applicazione. La dimensione di una TVM determina il numero di core CPU, la capacità di memoria e la dimensione del file system locale allocati alla TVM. Una TVM può essere una macchina virtuale di piccole dimensioni, grandi o grandissime dimensioni, come descritto in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 I tipi di programmi che una TVM può eseguire includono file eseguibili (.exe), file di comando (.cmd), file batch (.bat) e file script. Una TVM presenta inoltre gli attributi seguenti:
 
@@ -340,3 +353,5 @@ Per ogni attività pianificata in un processo, un set specifico di variabili di 
 Non è possibile sovrascrivere queste variabili definite dal sistema.
 
 È possibile recuperare il valore delle impostazioni di ambiente mediante l'operazione di ottenimento dell'attività.
+
+<!--HONumber=46--> 

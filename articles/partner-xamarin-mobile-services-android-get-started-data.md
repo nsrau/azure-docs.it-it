@@ -32,7 +32,7 @@ In questa esercitazione vengono descritte le operazioni di base seguenti:
 4. [Aggiornamento dell'app per l'uso di Servizi mobili]
 5. [Test dell'app in Servizi mobili]
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 Per completare questa esercitazione, è necessario disporre del [componente Servizi mobili di Azure], [Xamarin.Android] e di Android SDK 4.2 o versione successiva. 
 

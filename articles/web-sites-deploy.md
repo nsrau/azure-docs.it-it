@@ -103,7 +103,7 @@ Per informazioni su come eseguire la distribuzione in Siti Web di Azure da Visua
 * [Introduzione ad Azure e ASP.NET](../web-sites-dotnet-get-started/). Come creare e distribuire un semplice progetto Web MVC ASP.NET usando Visual Studio e Distribuzione Web.
 * [Come distribuire i processi Web di Azure ai siti Web di Azure](../websites-dotnet-deploy-webjobs/). Come configurare i progetti di applicazioni console in modo da distribuirli come processi Web.  
 * [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Come creare e distribuire un progetto Web MVC ASP.NET con un database SQL usando Visual Studio, Distribuzione Web e Migrazioni Code First di Entity Framework.
-* [Informazioni generali sulla distribuzione Web per Visual Studio e ASP.NET](http://msdn.microsoft.com/it-it/library/dd394698.aspx). Presentazione di base della distribuzione Web con Visual Studio. È un articolo datato, che però include informazioni ancora rilevanti, tra cui una panoramica delle opzioni di distribuzione di un database assieme all'applicazione Web e un elenco delle ulteriori attività di distribuzione che potrebbe essere necessario eseguire oppure far eseguire a Visual Studio configurandolo manualmente. Questo argomento riguarda la distribuzione in generale, non solo la distribuzione in Siti Web di Azure.
+* [Informazioni generali sulla distribuzione Web per Visual Studio e ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Presentazione di base della distribuzione Web con Visual Studio. È un articolo datato, che però include informazioni ancora rilevanti, tra cui una panoramica delle opzioni di distribuzione di un database assieme all'applicazione Web e un elenco delle ulteriori attività di distribuzione che potrebbe essere necessario eseguire oppure far eseguire a Visual Studio configurandolo manualmente. Questo argomento riguarda la distribuzione in generale, non solo la distribuzione in Siti Web di Azure.
 * [Distribuzione Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco. Dopo che l'esercitazione è stata scritta, sono state inserite alcune funzionalità di distribuzione di Azure, ma le note aggiunte successivamente illustrano gli elementi mancanti. 
 * [Distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, usando il plug-in Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto di Git è incorporato e non richiede l'installazione di un plug-in.
 
@@ -111,9 +111,9 @@ Per informazioni su come eseguire la distribuzione in Siti Web di Azure da Visua
 
 Per informazioni su come eseguire la distribuzione in Siti Web di Azure da WebMatrix, vedere le risorse seguenti:
 
-* [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-dotnet-using-webmatrix/). Come creare un semplice sito Web di ASP.NET usando un modello di WebMatrix e distribuendolo in un sito Web di Azure tramite WebMatrix e Distribuzione Web.
-* [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [Creazione e distribuzione di un sito Web di Azure PHP-MySQL tramite WebMatrix](http://www.windowsazure.com/it-it/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/). Come creare un semplice sito Web di ASP.NET usando un modello di WebMatrix e distribuendolo in un sito Web di Azure tramite WebMatrix e Distribuzione Web.
+* [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [Creazione e distribuzione di un sito Web di Azure PHP-MySQL tramite WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: Git integrato e distribuzione in Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Come usare WebMatrix per eseguire la distribuzione da un repository Git di controllo del codice sorgente.
 
 ##<a name="ftp"></a>Distribuzione mediante un'utilità FTP
@@ -186,12 +186,12 @@ Per ulteriori informazioni, vedere la seguente risorsa:
 
 ###<a name="powershell"></a>Windows PowerShell
 
-In [Windows PowerShell](http://msdn.microsoft.com/it-it/library/dd835506.aspx) è possibile eseguire funzioni di distribuzione MSBuild o FTP. In tal caso, è inoltre possibile usare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione REST di Azure.
+In [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) è possibile eseguire funzioni di distribuzione MSBuild o FTP. In tal caso, è inoltre possibile usare una raccolta di cmdlet di Windows PowerShell che facilitano la chiamata dell'API di gestione REST di Azure.
 
 Per ulteriori informazioni, vedere la seguente risorsa:
 
 * [Capitolo relativo a come automatizzare tutto e creare app per cloud reali con Azure](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capitolo che spiega in che modo l'applicazione di esempio illustrata nell'e-book usa gli script di Windows PowerShell per creare un ambiente di testing Azure ed eseguirvi la distribuzione. Per ottenere collegamenti ad altra documentazione su Azure PowerShell, vedere la sezione relativa alle [risorse](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources).
-* [Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/it-it/library/dn642480.aspx). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
+* [Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/library/dn642480.aspx). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
 
 ###<a name="api"></a>API di gestione .NET
 
@@ -216,7 +216,7 @@ Per ulteriori informazioni, vedere la seguente risorsa:
 Per ulteriori informazioni, vedere la seguente risorsa:
 
 * [Blog sui siti Web di Azure semplici: distribuzione](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog di David Ebbo relativo a uno strumento che ha creato per semplificare l'uso di Distribuzione Web.
-* [Documentazione ufficiale sullo strumento di distribuzione Web](http://technet.microsoft.com/it-it/library/dd568996) sul sito Microsoft TechNet. Articolo datato, ma è ancora un buon punto di partenza.
+* [Documentazione ufficiale sullo strumento di distribuzione Web](http://technet.microsoft.com/library/dd568996) sul sito Microsoft TechNet. Articolo datato, ma è ancora un buon punto di partenza.
 * [Documentazione ufficiale sull'uso di Distribuzione Web](http://www.iis.net/learn/publish/using-web-deploy) sul sito Microsoft IIS.NET. Anche questo articolo è datato, ma è un buon punto di partenza.
 * [StackOverflow](http://www.stackoverflow.com). La migliore fonte di informazioni aggiornate su come utilizzare Distribuzione Web dalla riga di comando.
 * [Distribuzione Web ASP.NET con Visual Studio: Distribuzione da riga di comando](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild è il motore di compilazione usato da Visual Studio e può inoltre essere usato dalla riga di comando per la distribuzione di applicazioni Web in Siti Web di Azure. Questa esercitazione fa parte di una serie dedicata principalmente alla distribuzione con Visual Studio.

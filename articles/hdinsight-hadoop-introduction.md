@@ -123,7 +123,7 @@ Questi strumenti BI sono utili per l'analisi dei Big Data:
 * <a target="_blank" href="http://www.microsoft.com/it-it/download/details.aspx?id=39379">Scaricare Microsoft Power Query per Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/it-it/download/details.aspx?id=40886">Scaricare Microsoft Hive ODBC Driver</a>
 * <a target="_blank" href="http://www.microsoft.com/it-it/server-cloud/solutions/business-intelligence/analysis.aspx">Altre informazioni su SQL Server Analysis Services</a>
-* <a target="_blank" href="http://msdn.microsoft.com/it-it/library/ms159106.aspx">Informazioni su SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Informazioni su SQL Server Reporting Services</a>
 
 ## <a name="advantage"></a>Vantaggi di Hadoop nel cloud
 
@@ -166,9 +166,9 @@ Per provare Hadoop in HDInsight, vedere gli articoli in "Informazioni di base" n
 
 ### Database SQL in Azure	
 		
-* [Database SQL di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/ee336279.aspx): documentazione MSDN relativa a database SQL.
+* [Database SQL di Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): documentazione MSDN relativa a database SQL.
 	
-* [Portale di gestione per database SQL](http://msdn.microsoft.com/it-it/library/windowsazure/gg442309.aspx): uno strumento semplificato e di facile utilizzo per la gestione di database, che consente di gestire database SQL nel cloud.
+* [Portale di gestione per database SQL](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): uno strumento semplificato e di facile utilizzo per la gestione di database, che consente di gestire database SQL nel cloud.
 
 * [Adventure Works per database SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): pagina per il download del database di esempio per database SQL.	
 
@@ -194,5 +194,4 @@ Per provare Hadoop in HDInsight, vedere gli articoli in "Informazioni di base" n
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

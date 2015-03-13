@@ -1,6 +1,20 @@
-﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning di Azure | Azure" description="Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning di Azure | Azure" 
+	description="Soluzioni per problemi comuni di creazione e connessione a un'area di lavoro di Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2014" 
+	ms.author="garye"/>
 
 
 #Guida per la risoluzione dei problemi: Creazione e connessione a un'area di lavoro di Machine Learning di Azure
@@ -53,3 +67,5 @@ Microsoft desidera semplificare al massimo l'esperienza di Machine Learning di A
 [screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
+
+<!--HONumber=46--> 

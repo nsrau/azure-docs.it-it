@@ -1,6 +1,20 @@
-﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Data factory di Azure - Domande frequenti" description="Domande frequenti su Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Data factory di Azure - Domande frequenti" 
+	description="Domande frequenti su Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Data factory di Azure - Domande frequenti
 
@@ -93,6 +107,8 @@ Il cluster HDInsight su richiesta viene creato nella stessa area geografica in c
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/it-it/pricing/details/hdinsight/
+[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

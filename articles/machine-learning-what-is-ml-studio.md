@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="Cos'è Machine Learning Studio? | Azure" description="Informazioni generali su Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Cos'è Azure Machine Learning Studio? | Azure" 
+	description="Panoramica di Azure Machine Learning Studio e dei relativi componenti di base." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # Cos'è Azure Machine Learning Studio?
 
@@ -39,8 +53,8 @@ Un esperimento è costituito da set di dati che forniscono i dati ai moduli di a
 - Tutte le porte di input per i moduli devono avere un collegamento al flusso di dati. 
 - Tutti i parametri necessari per un modulo devono essere impostati. 
 
-Per un esempio di creazione di un esperimento semplice, vedere [Creare un semplice esperimento in Azure Machine Learning Studio](http://azure.microsoft.com/it-it/documentation/articles/machine-learning-create-experiment/). 
-Per una procedura dettagliata più completa della creazione di una soluzione di analisi predittiva, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning](http://azure.microsoft.com/it-it/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Per un esempio di creazione di un esperimento semplice, vedere [Creare un semplice esperimento in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+Per una procedura dettagliata più completa della creazione di una soluzione di analisi predittiva, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Set di dati
 
@@ -67,3 +81,5 @@ Un modulo può avere un set di parametri che è possibile usare per configurare 
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

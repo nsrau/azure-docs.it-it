@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="Modello di test di carico delle applicazioni - Modelli di architettura di Azure" metaKeywords="" description="Informazioni di carattere generale sull'architettura e sui modelli di progettazione che illustrano come implementare un sistema di test di carico in Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Modello di test di carico delle applicazioni - Modelli di architettura di Azure" 
+	description="Informazioni generali sull'architettura e modelli di progettazione che descrivono come implementare un sistema di test di carico in Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Test di carico in Azure
 
@@ -9,8 +23,8 @@ Per eseguire test di carico sulle applicazioni Web, è possibile usare l'apposit
 <!--links-->
 
 [Azure e Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Esecuzione di test di carico in ambienti misti]: http://msdn.microsoft.com/it-it/library/windowsazure/hh966776.aspx
-[Uso dei test di carico di Visual Studio nei ruoli Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh674491.aspx
+[Esecuzione di test di carico in ambienti misti]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Uso dei test di carico di Visual Studio nei ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
@@ -18,3 +32,5 @@ Per eseguire test di carico sulle applicazioni Web, è possibile usare l'apposit
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

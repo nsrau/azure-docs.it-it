@@ -77,7 +77,7 @@ Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un reco
 
 1.	Accedere al [portale di gestione di Azure](https://manage.windowsazure.com) dal browser.
 2.	Nella scheda **Siti Web** fare clic sul nome del sito e selezionare **Dashboard**.
-3.	Selezionare **Gestisci domini** nella parte inferiore della pagina. Se questa opzione è disabilitata, assicurarsi di usare la modalità condivisa, base o standard. Per altre informazioni, vedere [Come scalare siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/). 
+3.	Selezionare **Gestisci domini** nella parte inferiore della pagina. Se questa opzione è disabilitata, assicurarsi di usare la modalità condivisa, base o standard. Per altre informazioni, vedere [Come scalare siti Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 

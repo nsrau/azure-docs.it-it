@@ -16,7 +16,7 @@
 	ms.date="09/30/2014" 
 	ms.author="larryfr"/>
 
-#Analizzare i dati del sensore usando Hive con HDInsight
+#Analisi dei dati del sensore usando Hive con HDInsight
 
 Informazioni su come analizzare i dati del sensore usando Hive con HDInsight (Hadoop), quindi visualizzare i dati in Microsoft Excel usando Power View.
 
@@ -35,7 +35,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE] Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/it-it/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-it&rs=it-it&ad=US), attualmente disponibile solo in Windows.
+	> [AZURE.NOTE] Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), attualmente disponibile solo in Windows.
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/it-it/download/details.aspx?id=40886)
 
@@ -51,4 +51,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

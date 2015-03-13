@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Throttling" pageTitle="Limitazione delle soglie nei servizi BizTalk | Azure" metaKeywords="BizTalk Services, throttling, Azure" description="Informazioni sulle soglie di limitazione delle richieste e sui relativi comportamenti di runtime per i Servizi BizTalk. La limitazione delle richieste è basata sull'utilizzo della memoria e sul numero di messaggi simultanei." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Throttling" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties 
+	pageTitle="Limitazione delle soglie nei servizi BizTalk | Azure" 
+	description="Informazioni sulle soglie di limitazione delle richieste e sui relativi comportamenti di runtime per i Servizi BizTalk. La limitazione delle richieste è basata sull'utilizzo della memoria e sul numero di messaggi. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -76,3 +90,4 @@ Una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza 
 - [Servizi BizTalk: schede Dashboard, Monitor e Scale](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Servizi BizTalk: Backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+<!--HONumber=46--> 

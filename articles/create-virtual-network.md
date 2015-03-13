@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Esercitazione: Creare una rete virtuale cloud-only" metaKeywords="" description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Esercitazione: Creare una rete virtuale cloud-only" 
+	description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Esercitazione: Creare una rete virtuale solo cloud in Azure</h1>
 
@@ -25,7 +39,7 @@ In questa esercitazione si apprenderà come configurare una rete virtuale solo c
 
 ##  Prerequisiti
 
-*  Account Microsoft con almeno una sottoscrizione di Azure valida attiva. Se non si ha già una sottoscrizione di Azure, è possibile iscriversi per ottenere una versione di valutazione gratuita in [Prova Azure](http://www.windowsazure.com/pricing/free-trial/). Se si ha un abbonamento a MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/).
+*  Account Microsoft con almeno una sottoscrizione di Azure valida attiva. Se non si ha già una sottoscrizione di Azure, è possibile iscriversi per ottenere una versione di valutazione gratuita in [Prova Azure](http://www.windowsazure.com/pricing/free-trial/). Se si ha un abbonamento a MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##  Creare la rete virtuale per questa esercitazione
 
@@ -71,9 +85,9 @@ Si noti che lo spazio di indirizzi per una rete virtuale deve derivare dagli spa
 
 Per altre informazioni sui servizi di infrastruttura di Azure, vedere le risorse seguenti:
 
-- [Come creare una macchina virtuale personalizzata](http://www.windowsazure.com/it-it/manage/windows/how-to-guides/custom-create-a-vm/) Usare questo argomento per installare una macchina virtuale nella rete virtuale. Per altre informazioni sulle macchine virtuali e sulle opzioni di installazione, vedere [Macchine virtuali di Azure](http://www.windowsazure.com/it-it/manage/windows/).
+- [Come creare una macchina virtuale personalizzata](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) Usare questo argomento per installare una macchina virtuale nella rete virtuale. Per altre informazioni sulle macchine virtuali e sulle opzioni di installazione, vedere [Macchine virtuali di Azure](http://azure.microsoft.com/manage/windows/).
 
-- [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](http://www.windowsazure.com/it-it/manage/services/networking/active-directory-forest/) Usare questo argomento per installare una nuova foresta Active Directory (AD) di Windows Server senza connettività con altre reti. Nell'esercitazione viene illustrata la procedura specifica necessaria per la creazione di una macchina virtuale per l'installazione di una nuova foresta. Se si desidera svolgere questa esercitazione, non creare macchine virtuali usando il portale di gestione. Per altre informazioni, vedere [Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx).
+- [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) Usare questo argomento per installare una nuova foresta Active Directory (AD) di Windows Server senza connettività con altre reti. Nell'esercitazione viene illustrata la procedura specifica necessaria per la creazione di una macchina virtuale per l'installazione di una nuova foresta. Se si desidera svolgere questa esercitazione, non creare macchine virtuali usando il portale di gestione. Per altre informazioni, vedere [Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Per rimuovere questa rete virtuale, selezionarla, fare clic su **Elimina** e quindi su **Sì**.
 
@@ -90,7 +104,7 @@ Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [A
 
 -  [Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Configurare una rete virtuale usando file di configurazione di rete](http://msdn.microsoft.com/it-it/library/windowsazure/jj156097.aspx)
+-  [Configurare una rete virtuale usando file di configurazione di rete](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Risoluzione dei nomi](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@ Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [A
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

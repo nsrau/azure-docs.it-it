@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
+﻿<properties 
+	pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Java) - Azure" 
+	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Java." 
+	services="" 
+	documentationCenter="java" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # Come usare Twilio per le funzionalità voce ed SMS in Java
 
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
 
 ## Sommario
 * [Informazioni su Twilio](#WhatIs)
@@ -155,7 +169,7 @@ La schermata seguente illustra come inviare un messaggio SMS tramite la classe *
 Per altre informazioni sui parametri passati al metodo **SmsFactory.create**, vedere [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 <h2><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web</h2>
-Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallFactory.create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url]. Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message][twimlet_message_url] per visualizzare un elemento **&lt;Response&gt;** vuoto oppure fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un elemento **&lt;Response&gt;** contenente un elemento **&lt;Say&gt;**.
+Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallFactory.create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url]. Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message][twimlet_message_url] per visualizzare un elemento **&lt;Response&gt;** vuoto oppure fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un elemento **&lt;Response&gt;** che contiene un elemento **&lt;Say&gt;**.
 
 Anziché usare l'URL fornito da Twilio, è possibile creare un sito URL personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato in una pagina JSP.
 
@@ -212,7 +226,7 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti s
 [twilio_api_service]: https://api.twilio.com
 [add_ca_cert]: ../java-add-certificate-ca-store
 [howto_phonecall_java]: ../partner-twilio-java-phone-call-example
-[misc_role_config_settings]: http://msdn.microsoft.com/it-it/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -232,4 +246,4 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti s
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!--HONumber=35.2-->
+<!--HONumber=45-->

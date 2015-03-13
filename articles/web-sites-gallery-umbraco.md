@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Creare un sito Web Umbraco dalla raccolta in Microsoft Azure" description="obbligatorio" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creare un sito Web Umbraco dalla raccolta in Microsoft Azure" 
+	description="obbligatorio" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Creare un sito Web Umbraco dalla raccolta in Microsoft Azure#
 
@@ -88,13 +102,13 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
 
 [Esercitazioni video di Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Panoramica del portale di anteprima di Microsoft Azure](http://azure.microsoft.com/it-it/overview/preview-portal/)
+[Panoramica del portale di anteprima di Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
-[Documentazione sul portale di anteprima di Microsoft Azure](http://azure.microsoft.com/it-it/documentation/preview-portal/)
+[Documentazione sul portale di anteprima di Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Portale di anteprima di Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Documentazione su Siti Web di Microsoft Azure](http://azure.microsoft.com/it-it/documentation/services/web-sites/)
+[Documentazione su Siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

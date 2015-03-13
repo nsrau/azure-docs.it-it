@@ -10,5 +10,4 @@
 4. (Facoltativo) Ripetere i passaggi da 1 a 3 in un dispositivo client diverso e usare un account diverso per eseguire l'accesso.  
 
 	Verificare che la notifica venga ricevuta su questo dispositivo, perché il dispositivo precedente non è stato contrassegnato con l'ID utente corrente. 
-
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿1. Nel [portale di gestione di Azure] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina delle informazioni generali.
+﻿1. Nel [portale di gestione di Azure] fare clic sul nuovo servizio mobile o sulla scheda della relativa icona per passare alla pagina di panoramica.
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png)
 
@@ -27,4 +27,4 @@
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

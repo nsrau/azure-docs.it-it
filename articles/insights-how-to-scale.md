@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="Come scalare un sito Web" description="Informazioni su come ridimensionare il piano di hosting in Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Come scalare un sito Web" 
+	description="Informazioni su come ridimensionare il piano di hosting in Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Come scalare un sito Web
 
@@ -70,3 +84,5 @@ Le regole multiple di scalabilità consentono di agire con maggiore decisione ne
 2. Aumentare di 3 istanze se la percentuale CPU supera l'85%
 
 Con questa regola aggiuntiva, se il carico supera l'85% prima che si verifichi un ridimensionamento, si otterranno non una ma due istanze aggiuntive. 
+
+<!--HONumber=46--> 

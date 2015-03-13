@@ -1,6 +1,20 @@
-<properties pageTitle="Registrazione per l'autenticazione Microsoft - Servizi mobili" description="Informazioni su come registrarsi per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Registrazione per l'autenticazione Microsoft - Servizi mobili" 
+	description="Informazioni su come registrarsi per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registrazione delle app per l'uso delle credenziali di accesso di un account Microsoft
 

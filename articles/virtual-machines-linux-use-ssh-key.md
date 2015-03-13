@@ -20,7 +20,7 @@
 
 La versione corrente del portale di gestione di Azure accetta solo chiavi pubbliche SSH incapsulate in un certificato X509. Per generare e usare chiavi SSH con Azure, attenersi alla procedura seguente.
 
-## Generare chiavi compatibili con Microsoft Azure in Linux ##
+## Generare chiavi compatibili con Azure in Linux ##
 
 1. Installare l'utilità `openssl`, se necessario:
 
@@ -53,16 +53,16 @@ La versione corrente del portale di gestione di Azure accetta solo chiavi pubbli
 
 
 ## Generare una chiave da una chiave esistente compatibile con OpenSSH
-Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Microsoft Azure. In alcuni casi, è possibile che si disponga già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e si voglia usare le stesse chiavi con Microsoft Azure.
+Nell'esempio precedente è stato illustrato come creare una nuova chiave da usare con Azure. In alcuni casi, è possibile che si disponga già di una coppia di chiavi pubblica e privata compatibili con OpenSSH e si voglia usare le stesse chiavi con Microsoft Azure.
 
-Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il comando seguente verrà creata la chiave pubblica `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente:
+Le chiavi private OpenSSH possono essere lette direttamente dall'utilità `openssl`. Con il seguente comando verrà creata la chiave pubblica  `.pem` necessaria per Microsoft Azure da una chiave privata SSH esistente (id_rsa nell'esempio):
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
 Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in seguito usata per il provisioning di una macchina virtuale Linux in Microsoft Azure. Durante il provisioning, il file `.pem` verrà convertito in una chiave pubblica compatibile con `openssh` e inserito in `~/.ssh/authorized_keys`.
 
 
-## Connettersi a una macchina virtuale di Microsoft Azure da Linux
+## Connettersi a una macchina virtuale di Azure da Linux
 
 1. In alcuni casi l'endpoint SSH per una macchina virtuale Linux può essere configurato per una porta diversa da quella predefinita 22. Il numero di porta corretto è indicato nel dashboard per la macchina virtuale nel portale di gestione (in "Dettagli su SSH").
 
@@ -151,4 +151,7 @@ Il file **myCert.pem** corrisponde alla chiave pubblica che può essere in segui
 
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

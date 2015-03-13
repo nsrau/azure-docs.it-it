@@ -53,7 +53,7 @@ Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui s
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da usare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **Nome utente**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno usati per l'accesso in remoto alla macchina virtuale.
-    4. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account amministratore.
+    4. Immettere una password nel campo **Nuova password** e reimmetterla nel campo **Conferma**. Si tratta della password dell'account dell'amministratore.
     5. Fare clic su **Avanti**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
     1. Per **Servizio cloud** usare l'impostazione predefinita di **Crea un nuovo servizio cloud**.
@@ -74,22 +74,20 @@ Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui s
 4. Fare clic su **Connetti**.
 5. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, usare i valori specificati durante la creazione della macchina virtuale.
 
-Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
+Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE, vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
 
 ## Come creare uno spazio dei nomi del bus di servizio
 
-Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario
-creare uno spazio dei nomi servizio, che fornisce un contenitore
-di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
 Per creare uno spazio dei nomi servizio:
 
 1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
-2.  Nel pannello di navigazione in basso a sinistra nel portale di gestione fare clic su **Bus di servizio, controllo di accesso e caching**.
+2.  Nel pannello di navigazione in basso a sinistra nel portale di gestione fare clic su **Bus di servizio, controllo di accesso e memorizzazione nella cache**.
 3.  Nel riquadro superiore sinistro del portale di gestione fare clic sul nodo **Service
     Bus**, quindi fare clic sul pulsante **Nuovo**.  
     ![Service Bus Node screenshot][svc_bus_node]
-4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi del servizio** immettere uno
+4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi del servizio** immettere uno 
     **spazio dei nomi del servizio** quindi, per assicurarsi che sia univoco, fare clic sul pulsante
     **Verifica disponibilità**.  
     ![Create a New Namespace screenshot][create_namespace]
@@ -101,29 +99,25 @@ Per creare uno spazio dei nomi servizio:
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel
-nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per
-lo spazio dei nomi.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
 
 1.  Nel pannello di navigazione sinistro fare clic sul nodo **Service Bus** per
     visualizzare l'elenco degli spazi dei nomi disponibili:   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:   
     ![Namespace List screenshot][namespace_list]
-3.  Nel riquadro **Proprietà** a destra verranno elencate le proprietà relative al
-    nuovo spazio dei nomi:   
+3.  Nel riquadro **Proprietà** a destra verranno elencate le proprietà relative al nuovo spazio dei nomi:   
     ![Properties Pane screenshot][properties_pane]
-4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzare
-    le credenziali di sicurezza:   
+4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzarle:
     ![Default Key screenshot][default_key]
 5.  Prendere nota dei valori indicati in **Autorità di certificazione predefinita** e **Chiave predefinita**, in quanto
-    dovranno essere usati per eseguire operazioni con
+    dovranno essere utilizzati per eseguire operazioni con
     lo spazio dei nomi. 
 
 ## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
 1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per Java](http://azure.microsoft.com/develop/java/).
-2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **namespace**, **Default Issuer** e **Default Key** del bus di servizio.
+2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per utilizzare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà usato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
 <p/>
@@ -434,8 +428,8 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 ### Come eseguire l'applicazione a elevato utilizzo di calcolo
 
 1. Accedere alla macchina virtuale.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPSolver.jar** in **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
+3. Copiare **TSPSolver.jar** in **c:\TSP**,
 4. Creare un file denominato **c:\TSP\cities.txt** con il seguente contenuto:
 
 		City_1, 1002.81, -1841.35
@@ -506,8 +500,8 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
  
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPClient.jar** in **c:\TSP**.
+2. Creare una cartella in cui eseguire l'applicazione, Ad esempio, **c:\TSP**.
+3. Copiare **TSPClient.jar** in **c:\TSP**,
 4. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
 5. Al prompt dei comandi passare alla directory c:\TSP.
 6. Eseguire il comando seguente:
@@ -540,4 +534,5 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

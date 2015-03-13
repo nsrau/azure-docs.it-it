@@ -18,7 +18,7 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 ![Blob1][Blob1]
 
--   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente con un account di archiviazione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/dn249410.aspx) per informazioni sulla capacità dell'account di archiviazione.
+-   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente con un account di archiviazione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/dn249410.aspx) per informazioni sulla capacità dell'account di archiviazione.
 
 -   **Contenitore:** un contenitore è il raggruppamento di un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. Un account può contenere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
 
@@ -34,4 +34,4 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

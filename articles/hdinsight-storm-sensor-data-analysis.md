@@ -26,7 +26,7 @@ Informazioni su come compilare una soluzione che usa un cluster Storm in HDInsig
 
 * Una sottoscrizione di Azure
 
-* Visual Studio con [Microsoft Azure SDK per .NET](http://azure.microsoft.com/it-it/downloads/archive-net-downloads/)
+* Visual Studio con [Microsoft Azure SDK per .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
 * [Java e JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -1347,7 +1347,7 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 * Per altre informazioni su Apache Storm, vedere [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* Per altre informazioni su HBase con HDInsight, vedere la [panoramica su HBase con HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-hbase-overview/)
+* Per altre informazioni su HBase con HDInsight, vedere la [panoramica su HBase con HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/)
 
 * Per altre informazioni su SignalR, vedere [ASP.NET SignalR](http://signalr.net/)
 
@@ -1356,5 +1356,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 * Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](/it-it/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azureportal]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

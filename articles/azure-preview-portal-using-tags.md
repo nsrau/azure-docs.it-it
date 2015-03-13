@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="Uso dei tag per organizzare le risorse di Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="Uso dei tag per organizzare le risorse di Azure" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Uso dei tag per organizzare le risorse di Azure
 
 Il portale di anteprima di Azure e il componente Gestione risorse sottostante consentono di organizzare le risorse e personalizzare le proprie modalità di utilizzo adattandole alle esigenze personali. 
 
-Nel portale di Azure completo le sottoscrizioni rappresentano l'unico metodo per classificare e raggruppare le proprie risorse. Con il portale di anteprima, [sono stati introdotti i gruppi di risorse](http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups), che consentono il raggruppamento di entità correlate. Questa funzionalità si è rivelata ancora più utile quando [è stato introdotto l'accesso basato sui ruoli](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-configure). Adesso, secondo lo stesso principio, è possibile aggiungere alle proprie risorse tag con coppie chiave-valore in modo da poterle ulteriormente classificare e visualizzare anche se sparse tra vari gruppi di risorse e, all'interno del portale, tra varie sottoscrizioni.
+Nel portale di Azure completo le sottoscrizioni rappresentano l'unico metodo per classificare e raggruppare le proprie risorse. Con il portale di anteprima, [sono stati introdotti i gruppi di risorse](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), che consentono il raggruppamento di entità correlate. Questa funzionalità si è rivelata ancora più utile quando [è stato introdotto l'accesso basato sui ruoli](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Adesso, secondo lo stesso principio, è possibile aggiungere alle proprie risorse tag con coppie chiave-valore in modo da poterle ulteriormente classificare e visualizzare anche se sparse tra vari gruppi di risorse e, all'interno del portale, tra varie sottoscrizioni.
 
 Sarà così possibile raggruppare risorse per team, progetto o anche per ambiente per concentrarsi esattamente su ciò che più interessa al momento più opportuno. 
 
@@ -27,9 +42,9 @@ A questo punto, è possibile fare clic su ogni singolo tag per visualizzare un e
 
 ## Assegnazione di tag tramite PowerShell
 
-Per prima cosa, procurarsi il [Modulo di Azure PowerShell](http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/) più recente. Se questa è la prima volta che si usa il modulo di Azure PowerShell, [leggere la documentazione](http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell) per acquisirvi dimestichezza. Ai fini di questo articolo, si presupporrà che sia già stato aggiunto un account e selezionata una sottoscrizione con le risorse che si vogliono contrassegnare.
+Per prima cosa, procurarsi il [Modulo di Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) più recente. Se questa è la prima volta che si usa il modulo di Azure PowerShell, [leggere la documentazione](http://azure.microsoft.com/documentation/articles/install-configure-powershell) per acquisirvi dimestichezza. Ai fini di questo articolo, si presupporrà che sia già stato aggiunto un account e selezionata una sottoscrizione con le risorse che si vogliono contrassegnare.
 
-L'aggiunta di tag è disponibile solo per risorse e gruppi di risorse presenti in [Gestione risorse](http://msdn.microsoft.com/it-it/library/azure/dn790568.aspx), quindi la prossima operazione da eseguire è passare a Gestione risorse. Per altre informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse](http://azure.microsoft.com/it-it/documentation/articles/powershell-azure-resource-manager/).
+L'aggiunta di tag è disponibile solo per risorse e gruppi di risorse presenti in [Gestione risorse](http://msdn.microsoft.com/library/azure/dn790568.aspx), quindi la prossima operazione da eseguire è passare a Gestione risorse. Per altre informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ Il processo è lo stesso per le risorse, ad eccezione del fatto che si useranno 
 
 ## Assegnazione di tag con Gestione risorse
 
-Sia il portale di anteprima che PowerShell usano l'[API REST di gestione risorse](http://msdn.microsoft.com/it-it/library/azure/dn790568.aspx) dietro le quinte. Se è necessario integrare l'assegnazione di tag in un altro ambiente, è possibile ottenere i tag con un'operazione GET sull'ID di risorsa e aggiornare il set di tag con una chiamata PATCH.
+Sia il portale di anteprima che PowerShell usano l'[API REST di gestione risorse](http://msdn.microsoft.com/library/azure/dn790568.aspx) dietro le quinte. Se è necessario integrare l'assegnazione di tag in un altro ambiente, è possibile ottenere i tag con un'operazione GET sull'ID di risorsa e aggiornare il set di tag con una chiamata PATCH.
 
 
 ## Gestire la tassonomia
@@ -74,3 +89,5 @@ Aggiungere i tag più importanti alla propria schermata iniziale per accedervi v
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Come distribuire contenuti Apple HTTP Live Streaming (HLS) - Azure" description="Informazioni su come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come distribuire contenuti Apple HTTP Live Streaming (HLS) - Azure" 
+	description="Informazioni su come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -8,7 +22,7 @@
 
 <h1>Procedura: Distribuire contenuti in streaming Apple HLS</h1>
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire contenuti in Streaming](../media-services-deliver-streaming-content/).
+Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire contenuti in streaming](../media-services-deliver-streaming-content/).
 
 Questo argomento descrive come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Questo approccio consente di creare un URL per il contenuto Apple HLS e fornirlo ai dispositivi Apple iOS. L'approccio di base alla creazione dell'URL del localizzatore è lo stesso. Creare un localizzatore del percorso dell'asset Apple Live Streaming (HLS) in un server di origine e quindi l'URL completo che punta al manifesto per i contenuti in streaming.
 
@@ -65,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Per altre informazioni sulla distribuzione di asset, vedere:
 <ul>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129575.aspx">Distribuzione di asset con Media Services SDK per .NET</a></li>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129578.aspx">Distribuzione di asset con l'API REST di Servizi multimediali</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Distribuzione di asset con l'SDK di Servizi multimediali per .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Distribuzione di asset con l'API REST di Servizi multimediali</a></li>
 </ul>
 
 <h2>Passaggi successivi</h2>
@@ -74,18 +88,17 @@ Per altre informazioni sulla distribuzione di asset, vedere:
 Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di Azure. È stato illustrato come configurare il computer per lo sviluppo di Servizi multimediali e per l'esecuzione di attività di programmazione comuni. Per altre informazioni sulla programmazione di Servizi multimediali, vedere le risorse seguenti:
 
 -   [Documentazione di Servizi multimediali di Azure][]
--   [Introduzione a Media Services SDK per .NET][]
--   [Creazione di applicazioni con Media Services SDK per .NET][]
+-   [Introduzione all'SDK di Servizi multimediali per .NET][]
+-   [Creazione di applicazioni con l'SDK di Servizi multimediali per .NET][]
 -   [Creazione di applicazioni con l'API REST di Servizi multimediali][]
 -   [Forum su Servizi multimediali][]
 -	[Come monitorare un account di Servizi multimediali](../media-services-monitor-services-account/)
 -	[Come gestire il contenuto in Servizi multimediali](../media-services-manage-content/)
 
 [Documentazione di Servizi multimediali di Azure]: http://go.microsoft.com/fwlink/?linkid=245437
-[Introduzione a Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=252966
+[Introduzione all'SDK di Servizi multimediali per .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Creazione di applicazioni con l'API REST di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=252967
-[Creazione di applicazioni con Media Services SDK per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/it-it/MediaServices/threads
+[Creazione di applicazioni con l'SDK di Servizi multimediali per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
+[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

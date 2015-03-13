@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Configurare tabelle HBase su cui eseguire query usando Hive in HDInsight | Azure" 
 	description="Introduzione all'uso di HBase con Hadoop in HDInsight. Informazioni sulla creazione di tabelle HBase e sull'esecuzione di query sulle tabelle mediante Hive." 
 	services="hdinsight" 
@@ -44,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure** Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 - **Un account di archiviazione di Azure** Per le istruzioni, vedere [Come creare un account di archiviazione][azure-create-storageaccount].
-- **Una workstation** in cui sia stato installato Visual Studio 2013. Per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/it-it/library/e2h7fzkw.aspx).
+- **Una workstation** in cui sia stato installato Visual Studio 2013. Per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="create-hbase-cluster"></a>Eseguire il provisioning di un cluster HBase nel portale di Azure
 
@@ -75,7 +75,7 @@ Presuppone che sia già stata completata la procedura descritta nella prima sezi
 1. Nel portale di gestione fare clic su **HDINSIGHT** a sinistra per visualizzare l'elenco dei cluster esistenti.
 2. Fare clic sul cluster HBase in cui si vuole aprire la shell di HBase.
 3. Fare clic su **CONFIGURAZIONE** nella parte superiore.
-4. Fare clic su **ABILITA MODALIÀ REMOTA** nella parte inferiore.
+4. Fare clic su **ABILITA MODALITÀ REMOTA** nella parte inferiore.
 5. Immettere il nome utente e la password RDP.  Il nome utente deve essere diverso dal nome utente del cluster usato per il provisioning del cluster. Per la **DATA DI SCADENZA** è possibile impostare una data non oltre sette giorni a partire dalla data odierna.
 6. Fare clic sul segno di spunta nella parte inferiore destra per abilitare Desktop remoto.
 7. Dopo avere abilitato RPD, fare clic su **CONNETTI** nella parte inferiore della scheda **CONFIGURAZIONE**, quindi seguire le istruzioni.
@@ -322,14 +322,21 @@ istruzioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.or
 [hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/ 
+[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/ 
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-hive-editor.png
 [img-hdinsight-hbase-file-browser]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-file-browser.png
+
+
+
+
+
+
+
 
 <!--HONumber=42-->

@@ -11,8 +11,7 @@
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.devlang="na" ms.topic="article" 
 	ms.date="01/20/2015" 
 	ms.author="kathydav"/>
 
@@ -35,7 +34,7 @@ In questa esercitazione si apprenderà:
 Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 
-## <a id="createvirtualmachine"> </a>Come creare la macchina virtuale ##
+##<a id="createvirtualmachine"> </a>Come creare la macchina virtuale##
 
 Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gestione per la creazione di una macchina virtuale. Questa opzione offre un maggior numero di scelte di configurazione rispetto all'opzione **Creazione rapida**. Ad esempio, se si vuole aggiungere una macchina virtuale a una rete virtuale, sarà necessario usare l'opzione **Da raccolta**.
 
@@ -53,7 +52,7 @@ Questa sezione descrive come accedere alla macchina virtuale per gestirne le imp
 
 Questa sezione descrive come collegare un disco dati vuoto alla macchina virtuale. Per altre informazioni, incluse informazioni su come collegare dischi esistenti, vedere l'esercitazione [Collegamento di un disco dati](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/).
 
-1. Accedere al [portale di gestione](http://manage.windowsazure.com) di Azure.
+1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali** e quindi selezionare la macchina virtuale **MyTestVM**.
 
@@ -92,7 +91,7 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
 	![Expand File and Storage Services in Server Manager](./media/virtual-machines-windows-tutorial/selectdisks.png)	
 	
-10.	Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Disco 0 è il disco del sistema operativo, disco 1 è un disco di risorse temporaneo (che non deve essere usato per l'archiviazione dei dati) e disco 2 è il disco dati connesso alla macchina virtuale. Il disco dati ha una capacità di 5 GB, come specificato quando il disco è stato collegato. Fare clic con il pulsante destro del mouse sul disco 2 e scegliere **Inizializza**.
+10.	Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2.  Disco 0 è il disco del sistema operativo, disco 1 è un disco di risorse temporaneo (che non deve essere usato per l'archiviazione dei dati) e disco 2 è il disco dati connesso alla macchina virtuale. Il disco dati ha una capacità di 5 GB, come specificato quando il disco è stato collegato. Fare clic con il pulsante destro del mouse sul disco 2 e scegliere **Inizializza**.
 
 	![Start initialization](./media/virtual-machines-windows-tutorial/initializedisk.png)
 
@@ -108,7 +107,7 @@ Questa sezione descrive come collegare un disco dati vuoto alla macchina virtual
 
 	![Create the volume](./media/virtual-machines-windows-tutorial/newvolumecreated.png)
 	
-## Passaggi successivi 
+##Passaggi successivi 
 
 Per altre informazioni sulla configurazione di macchine virtuali Windows in Azure, vedere:
 
@@ -140,4 +139,5 @@ Per altre informazioni sulla configurazione di macchine virtuali Windows in Azur
 [Come collegare un disco dati alla nuova macchina virtuale]: #attachdisk
 [Come configurare la comunicazione con la macchina virtuale]: #endpoints
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

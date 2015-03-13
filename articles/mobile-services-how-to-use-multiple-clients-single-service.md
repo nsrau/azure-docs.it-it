@@ -1,5 +1,19 @@
-<properties pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Servizi mobili di Azure" description="Informazioni su come usare un singolo back-end del servizio mobile da più app client per diverse piattaforme mobili, ad esempio Windows Store e Windows Phone." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor="mollybos"/>
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga"/>
+<properties 
+	pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Servizi mobili di Azure" 
+	description="Informazioni su come usare un singolo back-end del servizio mobile da più app client per diverse piattaforme mobili, ad esempio Windows Store e Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/15/2014" 
+	ms.author="glenga"/>
 
 # Supporto di piattaforme per più dispositivi da un singolo servizio mobile
  
@@ -36,11 +50,11 @@ Le tabelle riportate nelle sezioni seguenti forniscono collegamenti a esercitazi
 
 ###Back-end .NET
 
-In un servizio mobile back-end .NET le notifiche vengono inviate chiamando il metodo [SendAsync] sull'oggetto [PushClient](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) ottenuto dalla proprietà [ApiServices.Push](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notifica push inviata (nativa o modello) dipende dallo specifico oggetto derivato da [IPushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object che viene passato al metodo [SendAsync] come mostrato nella tabella seguente: 
+In un servizio mobile back-end .NET le notifiche vengono inviate chiamando il metodo [SendAsync] sull'oggetto [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) ottenuto dalla proprietà [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notifica push inviata (nativa o modello) dipende dallo specifico oggetto derivato da [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object che viene passato al metodo [SendAsync] come mostrato nella tabella seguente: 
 
 |Piattaforma |[APNS](/it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
-|Nativa|[ApplePushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
+|Nativa|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
 Il codice seguente invia una notifica push da un servizio back-end .NET a tutte le registrazioni di dispositivi iOS e Windows Store: 
 
@@ -75,7 +89,7 @@ In un servizio mobile back-end JavaScript le notifiche vengono inviate chiamando
 
 |Piattaforma |[APNS](/it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/it-it/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
-|Nativa|[apns object](http://msdn.microsoft.com/it-it/library/azure/jj839711.aspx)   |[gcm object](http://msdn.microsoft.com/it-it/library/azure/dn126137.aspx)     |[wns object](http://msdn.microsoft.com/it-it/library/azure/jj860484.aspx) | [mpns object](http://msdn.microsoft.com/it-it/library/azure/jj871025.aspx) |
+|Nativa|[apns object](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm object](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns object](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns object](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
 Il codice seguente invia una notifica push a tutte le registrazioni Android e Windows Phone: 
 
@@ -133,23 +147,23 @@ Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per
  
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (una distribuzione del progetto Apache Cordova) è un framework gratuito e open source che consente di usare API Web standardizzate, HTML e JavaScript per sviluppare una singola app eseguibile su dispositivi Android, iOS e Windows. PhoneGap fornisce un'interfaccia utente basata su visualizzazione Web, ma con un'esperienza d'uso avanzata grazie alla possibilità di accesso alle risorse native del dispositivo, ad esempio le notifiche push, l'accelerometro, la fotocamera, gli spazi di archiviazione, la georilevazione e il browser integrato nell'app. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa a PhoneGap][PhoneGap]. 
 	
-	Visual Studio consente ora di realizzare app Cordova multipiattaforma usando l'estensione Multi-Device Hybrid Apps per Visual Studio, un software in versione non definitiva. Per altre informazioni, vedere [Introduzione alle app ibride per più dispositivi con HTML e JavaScript](http://msdn.microsoft.com/it-it/library/dn771545.aspx). 
+	Visual Studio consente ora di realizzare app Cordova multipiattaforma usando l'estensione Multi-Device Hybrid Apps per Visual Studio, un software in versione non definitiva. Per altre informazioni, vedere [Introduzione alle app ibride per più dispositivi con HTML e JavaScript](http://msdn.microsoft.com/library/dn771545.aspx). 
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch offre un insieme di controlli, ottimizzati per touch-screen, che consentono di offrire un'esperienza utente simile a quella delle app native su un'ampia gamma di dispositivi mobili partendo da un'unica base di codice HTML e JavaScript. È possibile usare Sencha Touch in combinazione con le librerie di PhoneGap o Cordova per consentire agli utenti di accedere alle risorse native dei dispositivi. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa a Sencha Touch][Sencha].
 
 + [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin consente di creare app completamente native per dispositivi sia iOS sia Android, con un'interfaccia utente completamente nativa e accesso a tutte le risorse del dispositivo. Le app di Xamarin sono sviluppate in C# anziché in Objective-C e Java. Questo consente agli sviluppatori .NET di pubblicare app per iOS e Android e di condividere il codice di progetti Windows. Xamarin offre agli utenti l'esperienza di app completamente native su dispositivi sia iOS sia Android partendo da codice C#. Questo consente di riutilizzare parte del codice di Servizi mobili derivante da app per Windows su dispositivi sia iOS che Android. Per altre informazioni, vedere la sezione [Sviluppo con Xamarin](#xamarin) più avanti. 
 
 	È possibile creare app di Xamarin usando Xamarin Studio o Visual Studio 2013. Per altre informazioni, vedere [ 
-Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/it-it/library/dn771552.aspx).
+Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
 
 
 ##<a id="shared-vs"></a>Condividere e riutilizzare il codice nei progetti di Visual Studio
 
 Servizi mobili include una libreria client .NET, ovvero una PCL (Portable Class Library) di NET Framework che supporta lo sviluppo su tutte le piattaforme Windows. Per altre informazioni, vedere l'argomento relativo all'[uso di un client .NET con Servizi mobili]. Questo facilita il riutilizzo di parte del codice di Servizi mobili, ad esempio per l'accesso ai dati o l'autenticazione, in più progetti C#.
 
-Un approccio generale per la condivisione e il riutilizzo di codice C# tra diversi progetti consiste nell'implementare un modello MVVM (Model-View-ViewModel) e condividere assembly su più piattaforme. È possibile implementare le classi di questo modello in un progetto di libreria di classi portabile in Visual Studio, quindi creare viste personalizzate per piattaforme diverse. Il codice del modello, comune per tutte le piattaforme, può ad esempio recuperare i dati da un'origine, ad esempio il servizio mobile in uso, in modo indipendente dalla piattaforma. MSDN Library include una <a href="http://msdn.microsoft.com/it-it/library/gg597391(v=vs.110)">panoramica e un esempio</a>, una descrizione delle <a href="http://msdn.microsoft.com/it-it/library/gg597392(v=vs.110)">differenze tra le API</a>, un esempio di <a href="http://msdn.microsoft.com/it-it/library/hh563947(v=vs.110)">uso della libreria di classi portabile con MVVM (Model-View-View Model)</a>, ulteriori <a href="http://msdn.microsoft.com/it-it/library/windowsphone/develop/jj714086(v=vs.105).aspx">istruzioni</a> e informazioni sulla <a href="http://msdn.microsoft.com/it-it/library/hh871422(v=vs.110)">gestione delle risorse</a> nei progetti di libreria di classi portabile.
+Un approccio generale per la condivisione e il riutilizzo di codice C# tra diversi progetti consiste nell'implementare un modello MVVM (Model-View-ViewModel) e condividere assembly su più piattaforme. È possibile implementare le classi di questo modello in un progetto di libreria di classi portabile in Visual Studio, quindi creare viste personalizzate per piattaforme diverse. Il codice del modello, comune per tutte le piattaforme, può ad esempio recuperare i dati da un'origine, ad esempio il servizio mobile in uso, in modo indipendente dalla piattaforma. MSDN Library include una <a href="http://msdn.microsoft.com/library/gg597391(v=vs.110)">panoramica e un esempio</a>, una descrizione delle <a href="http://msdn.microsoft.com/library/gg597392(v=vs.110)">differenze tra le API</a>, un esempio di <a href="http://msdn.microsoft.com/library/hh563947(v=vs.110)">uso della libreria di classi portabile con MVVM (Model-View-View Model)</a>, ulteriori <a href="http://msdn.microsoft.com/library/windowsphone/develop/jj714086(v=vs.105).aspx">istruzioni</a> e informazioni sulla <a href="http://msdn.microsoft.com/library/hh871422(v=vs.110)">gestione delle risorse</a> nei progetti di libreria di classi portabile.
 
-Oltre a queste istruzioni di carattere generale, Visual Studio fornisce anche funzionalità specifiche per il riutilizzo del codice di Servizi mobili su diversi progetti di app client, argomento che verrà discusso nelle sezioni seguenti. Per informazioni più generali sull'uso di Visual Studio 2013 per la creazione di app multipiattaforma, vedere [Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/it-it/library/dn771552.aspx).  
+Oltre a queste istruzioni di carattere generale, Visual Studio fornisce anche funzionalità specifiche per il riutilizzo del codice di Servizi mobili su diversi progetti di app client, argomento che verrà discusso nelle sezioni seguenti. Per informazioni più generali sull'uso di Visual Studio 2013 per la creazione di app multipiattaforma, vedere [Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).  
 
 ### App Windows universali
 
@@ -162,7 +176,7 @@ Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di
 ###<a id="xamarin"></a>Sviluppo con Xamarin
 
 È possibile sfruttare al massimo l'esperienza di sviluppo in Visual Studio e C# usando Xamarin e Visual Studio o Xamarin Studio per creare app per iOS e Android. Xamarin usa un'implementazione multipiattaforma di .NET Framework che permette di usare codice C# per sviluppare app per iOS e Android. Con Xamarin è possibile riutilizzare il codice esistente di progetti Windows in cui la libreria client .NET di Servizi mobili viene usata per accedere al servizio mobile in uso.  Per altre informazioni, vedere [ 
-Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/it-it/library/dn771552.aspx).
+Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
 
 Per iniziare a creare applicazioni di Xamarin che usano Servizi mobili, vedere le esercitazioni delle Guide rapide di Xamarin ([iOS](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
 
@@ -189,15 +203,15 @@ La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Stor
 [Introduzione alle notifiche push - Windows Phone]: /it-it/develop/mobile/tutorials/get-started-with-push-wp8/
 [Introduzione alle notifiche push - iOS]: /it-it/develop/mobile/tutorials/get-started-with-push-ios/
 [Introduzione alle notifiche push - Android]: /it-it/develop/mobile/tutorials/get-started-with-push-android/
-[Schema dinamico]: http://msdn.microsoft.com/it-it/library/windowsazure/jj193175.aspx
+[Schema dinamico]: http://msdn.microsoft.com/library/windowsazure/jj193175.aspx
 [uso di un client .NET con Servizi mobili]: it-it/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-[oggetto push]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx
-[TemplatePushMessage]:http://msdn.microsoft.com/it-it/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
+[oggetto push]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[TemplatePushMessage]:http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: /it-it/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
 [Sencha]: /it-it/documentation/articles/partner-sencha-mobile-services-get-started/
 [Appcelerator]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[SendAsync]: http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
-[novità di Windows Phone 8 per gli sviluppatori]: http://msdn.microsoft.com/it-it/library/windows/apps/dn655121(v=vs.105).aspx
+[SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
+[novità di Windows Phone 8 per gli sviluppatori]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Creazione di app di Windows universali per tutti i dispositivi Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Progetto di app di Windows universale per Servizi mobili di Azure tramite MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 

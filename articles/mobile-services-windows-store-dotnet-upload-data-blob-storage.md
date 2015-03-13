@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso di Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Store) | Servizi mobili" description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure e accedere alle immagini dall'app per Windows Store." services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Uso di Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Store) | Servizi mobili" 
+	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure e accedere alle immagini dall'app per Windows Store." 
+	services="mobile-services, storage" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Caricare immagini in Archiviazione di Azure usando Servizi mobili
 
@@ -89,7 +103,7 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Come creare un account di archiviazione]: /it-it/manage/services/storage/how-to-create-a-storage-account
 [Libreria client di archiviazione di Azure per app di Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
-[Impostazioni app]: http://msdn.microsoft.com/it-it/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

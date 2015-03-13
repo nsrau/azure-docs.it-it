@@ -21,7 +21,7 @@
 #Gestione delle prestazioni delle app con New Relic in Siti Web di Azure
 
 Questa guida descrive come aggiungere New Relic al sito Web di Azure per un monitoraggio di qualità superiore. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno presentate
-alcune delle funzionalità. Per altre informazioni sull'uso di New Relic, vedere [Uso di New Relic].(#using-new-relic).
+alcune delle funzionalità. Per altre informazioni sull'uso di New Relic, vedere [Uso di New Relic)]#using-new-relic).
 
 Informazioni su New Relic
 --
@@ -36,7 +36,7 @@ New Relic a un prezzo speciale tramite Azure Store
 New Relic Standard è gratuito per gli utenti di Azure.
 New Relic Pro viene offerto in più pacchetti in base alla modalità del sito in uso e alle dimensioni delle istanze se si usa la modalità riservata.
 
-Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://www.windowsazure.com/it-it/gallery/store/new-relic/new-relic/).
+Per informazioni sui prezzi, vedere la pagina dedicata a [New Relic in Azure Store](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 
@@ -238,8 +238,8 @@ panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei 
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/it-it/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/it-it/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

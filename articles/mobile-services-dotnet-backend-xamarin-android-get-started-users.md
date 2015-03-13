@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione all'autenticazione in Servizi mobili per app per Xamarin Android - Servizi mobili di Azure" description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Xamarin Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Introduzione all'autenticazione in Servizi mobili per app per Xamarin Android - Servizi mobili di Azure" 
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Xamarin Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
 # Introduzione all'autenticazione in Servizi mobili
 

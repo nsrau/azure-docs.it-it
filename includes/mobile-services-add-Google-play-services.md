@@ -1,33 +1,30 @@
+﻿1. Aprire Android SDK Manager facendo clic sull'icona all'estremità destra della barra degli strumenti di Android Studio (in caso di dubbio, passare il puntatore del mouse sull'icona). Individuare la versione di destinazione di Android SDK usata nel progetto, aprirla, quindi scegliere **Google APIs**, se non è già installato.
 
-
-1. Aprire Android SDK Manager facendo clic su **Window** sulla barra degli strumenti nella parte superiore della schermata di Eclipse. Individuare la versione di destinazione di Android SDK specificata nelle proprietà del progetto, aprirla, quindi scegliere **Google APIs**.
-
-2. Scorrere verso il basso fino all'opzione **Extras**, espanderla, quindi scegliere **Google Play Services** come illustrato di seguito. Fare clic su **Install Packages**. Prendere nota del percorso dell'SDK per l'uso nel prossimo passaggio. Riavviare Eclipse.
+2. Scorrere verso il basso fino all'opzione **Extras**, espanderla, quindi scegliere **Google Play Services** come illustrato di seguito. Fare clic su **Install Packages**. Prendere nota del percorso dell'SDK per l'uso nel prossimo passaggio. 
 
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
 
-3. Installare Google Play Services SDK nel progetto. In Eclipse fare clic su **File**, quindi su **Import**. Selezionare **Android**, quindi **Existing Android Code into Workspace** e fare clic su **Next**. Fare clic su **Sfoglia**, passare al percorso di Android SDK (di solito in una cartella denominata `adt-bundle-windows-x86_64`), quindi passare alla sottocartella `\extras\google\) quindi passare alla sottocartella google_play_services\libproject`, selezionare la cartella google-play-services-lib e infine scegliere **OK**. Selezionare la casella di controllo **Copy projects into workspace**, quindi fare clic su **Finish**.
+3. Aprire il file **build.gradle** nella directory dell'applicazione.
 
-	![](./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png)
+	![](./media/mobile-services-android-get-started-push/android-studio-push-build-gradle.png)
 
-4. È quindi necessario fare riferimento dal progetto alla libreria Google Play Services SDK importata in precedenza. 
+4. Aggiungere questa riga sotto *dependencies*: 
 
-5. In **Package Explorer** fare clic con il pulsante destro del mouse sul progetto e scegliere  *Properties*.
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
+
+5. In *defaultConfig* impostare *minSdkVersion* su 9.
  
-6. Nella parte sinistra della finestra Proprietà scegliere Android.
+6. Fare clic sul pulsante **Sync Project with Gradle Files** nella barra degli strumenti.
 
-	![](./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png)
+7. Aprire **AndroidManifest.xml** e aggiungere il seguente tag per il tag *application*.
 
-
-7. In **Project Build Target**, assicurarsi che  `Google APIs x86` (or `Google APIs`, a seconda della piattaforma di sviluppo, sia selezionata per il livello appropriato di SDK.
-
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
  
-8. Nella sezione **Library** scegliere **Add**, quindi selezionare il progetto Google Play Services (*google-play-services-lib*) e fare clic su **OK**.
-
-9. Fare clic su **Apply** e quindi su **OK**.
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

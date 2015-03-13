@@ -51,7 +51,7 @@
 		    await dialog.ShowAsync();
 		}
 
-	Questo metodo gestisce l'evento **Click** per il nuovo pulsante. Nel client viene chiamato il metodo [InvokeApiAsync](http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx), che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori.
+	Questo metodo gestisce l'evento **Click** per il nuovo pulsante. Nel client viene chiamato il metodo [InvokeApiAsync](http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx), che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori.
 
 ## <a name="test-app"></a>Testare l'app
 
@@ -66,5 +66,4 @@
   	![](./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
-
 <!--HONumber=42-->

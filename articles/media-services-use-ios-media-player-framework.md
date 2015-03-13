@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Usare Media Player Framework per iOS con Servizi multimediali di Azure" description="Informazioni su come usare la libreria Media Player Framework per iOS di Servizi multimediali di Azure per creare app complesse e dinamiche." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Usare Media Player Framework per iOS con Servizi multimediali di Azure" 
+	description="Informazioni su come usare la libreria Media Player Framework per iOS di Servizi multimediali di Azure per creare app complesse e dinamiche." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -59,7 +73,7 @@ L'interfaccia del lettore è definita tramite due file con estensione xib. Nella
 
 * Il controllo **Player time** visualizza due tempi (`Label:playerTime`), ad esempio 00:23/02:10. In questo caso, 00:23 indica il tempo di riproduzione corrente e 02:10 indica la durata totale del contenuto multimediale. 
 
-* I pulsanti **SkipFroward e SkipBackward**  attualmente non funzionano come previsto. Verrà rilasciata a breve una versione aggiornata.
+* I pulsanti **SkipFroward e SkipBackward** al momento non funzionano come previsto. A breve verrà rilasciata una versione aggiornata.
 
 * Se si preme il pulsante **Schedule Now** mentre è in corso la riproduzione del contenuto principale, viene inserito un annuncio (è possibile definire l'URL di origine dell'annuncio nel code-behind). Nota: nella versione corrente non è possibile programmare un annuncio mentre è in corso la riproduzione di un altro annuncio. 
 
@@ -100,7 +114,7 @@ Nel codice di esempio precedente:
         [self logFrameworkError];
     }
 
-Questa operazione consente di programmare due flussi di contenuto sulla sequenza temporale del contenuto principale. Il primo flusso è pianificato in base a  `URLWithString:url` e il secondo contenuto è pianificato in base a  `URLWithString:secondContent`. La riproduzione del secondo contenuto inizia a 30 secondi del flusso video e termina a 80 secondi. 
+Questa operazione consente di programmare due flussi di contenuto sulla sequenza temporale del contenuto principale. Il primo flusso è pianificato in base a `URLWithString:url` e il secondo contenuto è pianificato in base a `URLWithString:secondContent`. La riproduzione del secondo contenuto inizia a 30 secondi del flusso video e termina a 80 secondi. 
 
 ## Programmazione di annunci 
 Nella versione corrente è supportato solo un annuncio **pauseTimeline=false**, pertanto al termine dell'annuncio il lettore riprenderà dal punto in cui è stato lasciato il contenuto principale. 
@@ -203,7 +217,6 @@ Prendere nota delle informazioni seguenti:
     oneTimeInfo.deleteAfterPlay = YES;
 
 Come illustrato nell'esempio di codice precedente, se si imposta **deleteAfterPlay** su **YES**, l'annuncio viene riprodotto solo una volta. Se invece si imposta **deleteAfterPlay** su **NO**, l'annuncio viene riprodotto in modo continuo, ovvero "a più riproduzioni".
-### Per altre informazioni, fare riferimento al wiki di [Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
+### Per altre informazioni, fare riferimento al [wiki di Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -88,7 +88,7 @@ Giraph non viene fornito nel cluster HDInsight e quindi deve essere compilato da
 
 	Una volta completato il comando, il file JAR risulterà caricato in wasb:///example/jars/giraph.jar.
 
-	> [AZURE.NOTE] Per un elenco di utilità che è possibile usare per caricare file in HDInsight, vedere [Caricare dati per processi Hadoop in HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] Per un elenco di utilità che è possibile usare per caricare file in HDInsight, vedere [Caricare dati per processi Hadoop in HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/).
 
 ##<a id="run"></a>Eseguire l'esempio
 
@@ -204,7 +204,7 @@ Per connettersi al cluster HDInsight, eseguire la procedura seguente:
 
 ###Versioni precedenti di HDInsight
 
-Se si vuole usare Giraph con versioni precedenti di HDInsight, è necessario compilarlo per la versione di Hadoop specifica supportata. Per determinare la versione di Hadoop corrispondente alla versione di HDInsight in uso, vedere [Novità delle versioni del cluster HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/).
+Se si vuole usare Giraph con versioni precedenti di HDInsight, è necessario compilarlo per la versione di Hadoop specifica supportata. Per determinare la versione di Hadoop corrispondente alla versione di HDInsight in uso, vedere [Novità delle versioni del cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 Con versioni precedenti di HDInsight potrebbe inoltre essere necessario eseguire il processo Giraph dalla riga di comando di Hadoop. Se si ricevono errori durante l'esecuzione del processo da PowerShell, provare a eseguirlo dalla [riga di comando di Hadoop](#cmd).
 
@@ -214,8 +214,7 @@ A questo punto, dopo aver appreso come usare Giraph con HDInsight, provare a usa
 
 [giraph]: http://giraph.apache.org
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/
-[Pig]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-pig/
-[Hive]: http://azure.microsoft.com/it-it/documentation/articles/hdinsight-use-hive/
-
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Pig]: http://azure.microsoft.com/documentation/articles/hdinsight-use-pig/
+[Hive]: http://azure.microsoft.com/documentation/articles/hdinsight-use-hive/
 <!--HONumber=42-->

@@ -23,7 +23,7 @@
 
 Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure. Per altre informazioni su Socket.IO, vedere [http://socket.io/][socketio].
 
-> [AZURE.NOTE] Le procedure descritte in questa attività si applicano ai siti Web di Azure. Per Servizi cloud, vedere <a href="http://www.windowsazure.com/it-it/develop/nodejs/tutorials/app-using-socketio/">Creare un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure</a>.
+> [AZURE.NOTE] Le procedure descritte in questa attività si applicano ai siti Web di Azure. Per Servizi cloud, vedere <a href="http://azure.microsoft.com/develop/nodejs/tutorials/app-using-socketio/">Creare un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure</a>.
 
 
 ## <a id="Download"></a>Scaricare l'esempio di chat
@@ -96,7 +96,7 @@ installare i moduli necessari:
 
 Per creare un sito Web di Azure, abilitare la pubblicazione Git e quindi abilitare il supporto WebSocket per il sito Web, seguire questa procedura.
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 1. Dalla riga di comando passare alla directory **\\node\chat** e usare il seguente comando per creare un nuovo sito Web di Azure e abilitare un repository Git per il sito Web e la directory locale. Verrà creato anche un repository Git remoto denominato 'azure'.
 

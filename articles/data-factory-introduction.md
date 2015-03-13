@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Azure Data Factory" pageTitle="Introduzione a Data factory di Azure" description="Informazioni su come usare il servizio Azure Data Factory per comporre i servizi di elaborazione dei dati, archiviazione dei dati e spostamento dei dati al fine di creare pipeline che producono informazioni attendibili." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Introduzione a Data factory di Azure" 
+	description="Informazioni su come usare il servizio Data factory di Azure per comporre l'elaborazione dei dati, l'archiviazione dei dati e servizi di spostamento dei dati al fine di creare pipeline che producono informazioni attendibili." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Introduzione al servizio Data factory di Azure
 **Data factory di Azure** è un servizio completamente gestito per la composizione di servizi per l'archiviazione, l'elaborazione e lo spostamento dei dati in pipeline di produzione dei dati ottimizzate, scalabili e affidabili.  Gli sviluppatori possono usare Data factory per trasformare dati semistrutturati, non strutturati e strutturati da origini locali e cloud in informazioni attendibili. Gli sviluppatori creano flussi di lavoro basati sui dati (pipeline) che uniscono, aggregano e trasformano i dati acquisiti dai servizi locali, basati su cloud e Internet e configurano elaborazioni di dati complesse mediante un semplice script JSON. Il servizio Data factory di Azure fornisce il monitoraggio e la gestione immediati delle pipeline grazie a una ricca esperienza visiva offerta dal portale di anteprima di Azure. Le informazioni generate dalle pipeline possono essere utilizzate facilmente con gli strumenti di analisi e BI e con altre applicazioni per ottenere importanti informazioni aziendali accurate e prendere decisioni in modo affidabile.
@@ -175,3 +189,5 @@ Il Gateway di gestione dati di Microsoft è un software che connette le origini 
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

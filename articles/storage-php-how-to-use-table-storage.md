@@ -123,7 +123,7 @@ Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
 		// Error codes and messages can be found here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 	}
 
 Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][table-data-model].
@@ -157,7 +157,7 @@ Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e pa
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
@@ -198,7 +198,7 @@ La classe **TableRestProxy** offre due metodi alternativi per l'inserimento dell
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@ Il metodo **TableRestProxy->getEntity** consente di recuperare una singola entit
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -253,7 +253,7 @@ Le query di entità vengono create usando filtri (per altre informazioni, vedere
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -285,7 +285,7 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -319,7 +319,7 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@ Lo stesso modello applicato nell'esempio precedente può essere usato per recupe
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -390,7 +390,7 @@ Per eliminare un'entità, passare il nome della tabella e le chiavi `PartitionKe
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -446,7 +446,7 @@ Nell'esempio seguente viene illustrato come eseguire le operazioni **insertEntit
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -473,7 +473,7 @@ Infine, per eliminare una tabella, passare il nome della tabella al metodo **Tab
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -487,12 +487,11 @@ A questo punto, dopo avere appreso le nozioni di base del Servizio tabelle di Az
 - Blog del team di Archiviazione di Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+[Archiviazione]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894042.aspx
+[table-service-timeouts]: http://msdn.microsoft.com/library/windowsazure/dd894042.aspx
 
-[table-data-model]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894038.aspx
-
+[table-data-model]: http://msdn.microsoft.com/library/windowsazure/dd179338.aspx
+[filters]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
+[entity-group-transactions]: http://msdn.microsoft.com/library/windowsazure/dd894038.aspx
 <!--HONumber=42-->

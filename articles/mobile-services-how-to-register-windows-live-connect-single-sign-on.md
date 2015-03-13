@@ -1,6 +1,20 @@
-<properties pageTitle="Registrazione per l'accesso Single Sign-On - Servizi mobili di Azure" description="Informazioni su come registrarsi per l'autenticazione Single Sign-On nell'applicazione Servizi mobili di Azure." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Registrazione per l'accesso Single Sign-On - Servizi mobili di Azure" 
+	description="Informazioni su come registrarsi per l'autenticazione Single Sign-On nell'applicazione Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registrazione delle app di Windows Store per l'uso dell'accesso Single Sign-On di Windows Live Connect
 

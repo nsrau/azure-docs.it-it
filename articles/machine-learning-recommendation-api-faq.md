@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning | Azure" description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning | Azure" 
+	description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
 Versione 1.0
@@ -88,7 +102,7 @@ Processo per l'aggiornamento di una sottoscrizione
 
 IMPORTANTE: esaminare attentamente la finestra di dialogo prima di eseguire l'aggiornamento, che prevede implicazioni a livello di fatturazione e utilizzo.
 
-Per altre informazioni sulle sottoscrizioni, fare clic [qui](http://msdn.microsoft.com/it-it/library/gg312164.aspx).
+Per altre informazioni sulle sottoscrizioni, fare clic [qui](http://msdn.microsoft.com/library/gg312164.aspx).
 
 ###Quando scade la sottoscrizione a RECOMMENDATIONS?
 La sottoscrizione avrà termine quando la si annulla. Per annullare le sottoscrizioni, vedere le istruzioni seguenti.
@@ -143,3 +157,5 @@ Il presente documento non fornisce all'utente alcun diritto legale rispetto a qu
 (c) 2014 Microsoft. Tutti i diritti sono riservati. 
 
 
+
+<!--HONumber=46--> 

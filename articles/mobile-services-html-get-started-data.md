@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione ai dati (HTML 5) | Mobile Dev Center" description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introduzione ai dati (HTML 5) | Mobile Dev Center" 
+	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app HTML." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
 
@@ -18,7 +32,7 @@ Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 4. [Aggiornamento dell'app per l'uso di Servizi mobili]
 5. [Testare l'app in Servizi mobili]
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Requisiti aggiuntivi
 
@@ -126,7 +140,7 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
   	![][11]
 
-	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Condivisione risorse tra le origini](http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Condivisione risorse tra le origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 È ora possibile usare il nuovo servizio mobile come archivio dati per l'app.
 
@@ -197,8 +211,10 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 						.append($('<div>').append($('<input class="item-text">').val(item.text)));
 				});
 					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+				$('#todo-items').empty().append(listItems).toggle(listIte
+	ms.length > 0);
+				$('#summary').html('<strong>' + todoIte
+	ms.length + '</strong> item(s)');
 			});
 		}
 	   
@@ -308,7 +324,7 @@ Dopo avere completato la serie di esercitazioni relative ai dati, è possibile p
 
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Condivisione di risorse tra le origini]: http://msdn.microsoft.com/it-it/library/windowsazure/dn155871.aspx
+[Condivisione di risorse tra le origini]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Get started with notification hubs" pageTitle="Introduzione ad Hub di notifica di Azure" metaKeywords="" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
+﻿<properties 
+	pageTitle="Introduzione ad Hub di notifica di Azure" 
+	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="dwrede"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # Introduzione ad Hub di notifica
 
@@ -16,31 +30,31 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 3. [Connettere l'app all'hub di notifica]
 4. [Inviare notifiche dal back-end]
 
-Questa esercitazione illustra uno scenario di trasmissione semplice tramite Hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici. Per completare questa esercitazione, è necessario disporre di:
+Questa esercitazione illustra uno scenario di trasmissione semplice tramite Hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici. Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
 
-+ Microsoft Visual Studio Express 2013 per Windows con Update 2<br/>Per creare un progetto di app universale è necessaria questa versione di Visual Studio. Se si desidera solo creare un'app di Windows Store, è necessario Visual Studio Express 2012 per Windows 8.
++ Microsoft Visual Studio Express 2013 per Windows con Update 2<br/>Questa versione di Visual Studio è necessaria per creare un progetto di app universale. Se si desidera solo creare un'app di Windows Store, è necessario Visual Studio Express 2012 per Windows 8.
 
 + Account di Windows Store attivo
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub di notifica relative ad app di Windows Store. 
 
-##<a name="register"></a>Registrare l'app di Windows Store
+##<a name="register"></a>Registrazione dell'app di Windows Store
 
 Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessario inviare l'app a Windows Store, quindi configurare l'hub di notifica per l'integrazione con Servizi notifica Push Windows.
 
-1. Se l'app non è ancora stata registrata, passare alla pagina di <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">invio di app</a> nel Dev Center per le app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
+1. Se l'app non è ancora stata registrata, passare alla <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">pagina di invio di app</a> nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
    	![][0]
 
-2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
+2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome dell'app** e quindi su **Salva**.
 
    	![][1]
 
    	Verrà creata una nuova registrazione a Windows Store per l'app.
 
-3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C# usando il modello **Applicazione vuota** template.
+3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C# usando il modello **Applicazione vuota**.
 
    	![][2]
 
@@ -50,7 +64,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    	Viene visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
 
-5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft.
+5. Nella procedura guidata fare clic su **Accedi**, quindi accedere con il proprio account Microsoft.
 
 6. Fare clic sull'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
 
@@ -64,23 +78,22 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    	![][5] 
 
-8. Nella pagina **Servizi** fare clic su **Sito di servizi Live** in **Servizi mobili di Microsoft Azure**.
+8. Nella pagina **Servizi** fare clic su **Sito di servizi Live** nel paragrafo **Servizi mobili di Microsoft Azure**.
 
    	![][17]
 
-9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**.. 
+9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**. 
 
    	![][6]
 
- 	<div class="dev-callout"><b>Nota sulla sicurezza</b>
-	<p>Il segreto client e il SID di pacchetto sono credenziali di sicurezza importanti. Non condividere questi valori con altre persone e non distribuirli con l'app.</p>
-    </div>
+ 	> [AZURE.NOTE] **Nota sulla sicurezza**
+	Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
 
 ##<a name="configure-hub"></a>Configurare l'hub di notifica
 
-1. Accedere al [portale di gestione di Azure] e fare clic su **+NUOVO** nella parte inferiore della schermata.
+1. Accedere al portale di gestione di [Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
-2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub di notifica** e infine **Creazione rapida**.
+2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, **Hub di notifica**, quindi **Creazione rapida**.
 
    	![][7]
 
@@ -88,7 +101,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    	![][8]
 
-4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic sulla scheda **Configura** nella parte superiore.
+4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub di notifica*-ns**), quindi fare clic su **Configura** nella parte superiore.
 
    	![][9]
 
@@ -96,11 +109,11 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
    	![][10]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore, immettere i valori **Chiave privata client** e **SID pacchetto** ottenuti da Servizi notifica Push Windows nella sezione precedente, quindi fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore, immettere i valori di **Chiave privata client** e **SID pacchetto**  ottenuti da Servizi notifica Push Windows nella sezione precedente, quindi fare clic su **Salva**.
 
    	![][11]
 
-7. Selezionare la scheda **Dashboard** nella parte superiore e quindi fare clic su **Informazioni di connessione**. Prendere nota delle due stringhe di connessione.
+7. Selezionare la scheda **Dashboard** nella parte superiore, quindi fare clic su **Informazioni di connessione**. Prendere nota delle due stringhe di connessione.
 
    	![][12]
 
@@ -112,21 +125,21 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
 
 	Verrà visualizzata la finestra di dialogo Gestisci pacchetti NuGet.
 
-2. Cercare `WindowsAzure.Messaging.Managed` e fare clic su **Installa**, selezionare tutti i progetti inclusi nella soluzione e accettare le condizioni per l'uso. 
+2. Cercare  `WindowsAzure.Messaging.Managed` e fare clic su **Installa**, selezionare tutti i progetti inclusi nella soluzione e accettare le condizioni per l'uso. 
 
 	![][20]
 
-	In tutti i progetti viene scaricato, installato e aggiunto un riferimento alla libreria di messaggistica di Azure usando il <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">pacchetto WindowsAzure.Messaging.Managed NuGet</a>. 
+	In tutti i progetti viene scaricato, installato e aggiunto un riferimento alla libreria di messaggistica di Azure usando il pacchetto <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet</a>. 
 
-3. Aprire il file di progetto App.xaml.cs e aggiungere le istruzioni 'using' seguenti:
+3. Aprire il file di progetto App.xaml.cs e aggiungere le seguenti istruzioni  `using`:
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-	In un progetto universale questo file si trova nella cartella `<project_name>.Shared`.
+	In un progetto universale, questo file si trova nella cartella  `<project_name>.Shared`.
 
-4. In App.xaml.cs aggiungere inoltre alla classe **InitNotificationsAsync** la definizione del metodo **App** seguente:
+4. In App.xaml.cs aggiungere inoltre alla classe **App** la seguente definizione del metodo **InitNotificationsAsync**:
 	
 	    private async void InitNotificationsAsync()
         {
@@ -147,9 +160,9 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
 	
     Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'hub di notifica.
 
-    >[WACOM.NOTE]Assicurarsi di sostituire il segnaposto relativo al nome dell'hub con il nome dell'hub di notifica visualizzato nella scheda**Hub di notifica** del portale, ad esempio **mynotificationhub2** nell'esempio precedente. Sostituire inoltre il segnaposto relativo alla stringa di connessione con la stringa di connessione **DefaultListenSharedAccessSignature** ottenuta nella sezione precedente.
+    >[AZURE.NOTE]Assicurarsi di sostituire il segnaposto "nome hub" con il nome dell'hub di notifica visualizzato nel portale nella scheda **Hub di notifica** (ad esempio, **mynotificationhub2** nell'esempio precedente). Sostituire inoltre il segnaposto relativo alla stringa di connessione con la stringa di connessione **DefaultListenSharedAccessSignature** ottenuta nella sezione precedente.
     
-5. All'inizio del gestore eventi **OnLaunched** aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**:
+5. All'inizio del gestore eventi **OnLaunched** in App.xaml.cs, aggiungere la seguente chiamata al nuovo metodo **InitNotificationsAsync**:
 
         InitNotificationsAsync();
 
@@ -159,7 +172,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
 
    	![][18]
 
-   	Scegliere **Salva tutto** dal menu**File**.
+   	Scegliere **Salva tutto** dal menu **File**.
 
 7. (Facoltativo) Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
 
@@ -173,29 +186,29 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 ##<a name="send"></a>Inviare notifiche dal back-end
 
-È possibile inviare notifiche usando gli hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio relativo all'invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** ([Back-end .NET](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/) | [Back-end JavaScript](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)).  Per un esempio relativo all'invio di notifiche tramite le API REST, vedere **Come usare Hub di notifica da Java/PHP** ([Java](/it-it/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/it-it/documentation/articles/notification-hubs-php-backend-how-to/)).
+È possibile inviare notifiche usando gli hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio relativo all'invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** ([back-end .NET](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/) | back-end [JavaScript](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)).  Per un esempio relativo all'invio di notifiche tramite le API REST, vedere **Come usare Hub di notifica da Java/PHP** ([Java](/it-it/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/it-it/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine su **OK**. 
+1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console**, infine su **OK**. 
 
    	![][13]
 
-	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata. 
+	Una nuova applicazione console Visual C# verrà aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata. 
 
-4. Fare clic con il pulsante destro del mouse su **Strumenti**, scegliere **Gestione pacchetti libreria**, quindi fare clic su **Console di Gestione pacchetti**.. 
+4. Fare clic su **Strumenti**, **Gestione pacchetti di librerie** e infine su **Console di Gestione pacchetti**. 
 
 	Verrà visualizzata la Console Gestione pacchetti.
 
-6. Nella finestra della console impostare **Progetto predefinito** sul nuovo progetto di applicazione console, quindi eseguire il comando seguente nella finestra della console:
+6. Nella finestra della console impostare **Progetto predefinito** sul nuovo progetto di applicazione console, quindi eseguire il seguente comando nella finestra della console:
 
         Install-Package WindowsAzure.ServiceBus
     
 	Verrà aggiunto un riferimento ad Azure Service Bus SDK con il <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacchetto WindowsAzure.ServiceBus NuGet</a>. 
 
-5. Aprire il file Program.cs e aggiungere l'istruzione 'using' seguente:
+5. Aprire il file Program.cs e aggiungere la seguente istruzione `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
-6. Nella classe **Program** aggiungere il metodo seguente:
+6. Nella classe **Program** aggiungere il seguente metodo:
 
         private static async void SendNotificationAsync()
         {
@@ -207,9 +220,9 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
    	Assicurarsi di sostituire il segnaposto relativo al nome dell'hub con il nome dell'hub di notifica visualizzato nella scheda **Hub di notifica** del portale. Sostituire anche il segnaposto relativo alla stringa di connessione con la stringa di connessione denominata **DefaultFullSharedAccessSignature** ottenuta nella sezione "Configurare l'hub di notifica". 
 
-	>[WACOM.NOTE]Assicurarsi di usare la stringa di connessione con accesso **Full**, non con accesso **Listen**. La stringa con accesso di tipo Listen non è autorizzata all'invio di notifiche.
+	>[AZURE.NOTE]Assicurarsi di usare la stringa di connessione con accesso **Full**, non con accesso **Listen**. La stringa con accesso di tipo Listen non è autorizzata all'invio di notifiche.
 
-7. Aggiungere quindi le righe seguenti nel metodo **Main**:
+7. Aggiungere quindi le seguenti righe nel metodo **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -224,7 +237,7 @@ Per trovare tutti i payload supportati, è possibile consultare gli argomenti re
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows. Per rivolgersi a utenti specifici, fare riferimento all'esercitazione [Usare Hub di notifica per inviare notifiche push agli utenti]. Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Usare Hub di notifica per inviare le ultime notizie]. Per altre informazioni sull'uso di Hub di notifica, vedere la pagina delle [linee guida su Hub di notifica].
+In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows. Per rivolgersi a utenti specifici, fare riferimento all'esercitazione [Uso di Hub di notifica per inviare notifiche push agli utenti]. Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Uso di Hub di notifica per inviare le ultime notizie]. Per altre informazioni sull'uso di Hub di notifica, vedere la [pagina delle linee guida su Hub di notifica].
 
 <!-- Anchors. -->
 [Registrare l'app per le notifiche push]: #register
@@ -257,7 +270,7 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
@@ -269,12 +282,14 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-push-js
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Linee guida su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
+[Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Usare Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet
-[Usare Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet
+[Uso di Hub di notifica per inviare notifiche push agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet
+[Uso di Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet
 
-[catalogo degli avvisi popup]: http://msdn.microsoft.com/it-it/library/windows/apps/hh761494.aspx
-[catalogo dei riquadri]: http://msdn.microsoft.com/it-it/library/windows/apps/hh761491.aspx
-[panoramica dei badge]: http://msdn.microsoft.com/it-it/library/windows/apps/hh779719.aspx
+[catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[panoramica dei badge]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Error During Authentication Detection" pageTitle="Errore durante il rilevamento dell'autenticazione" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Errore durante il rilevamento dell'autenticazione" 
+	description="La procedura guidata di connessione di Active Directory ha rilevato un tipo di autenticazione incompatibile." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###Errore durante il rilevamento dell'autenticazione 
 Durante il rilevamento di codice di autenticazione precedente, la procedura guidata ha rilevato un tipo di autenticazione non compatibile.   
@@ -78,3 +92,5 @@ Per rilevare una precedente forma di autenticazione di tipo account aziendale, l
 Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed eseguire di nuovo la procedura guidata.
 
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+
+<!--HONumber=46--> 

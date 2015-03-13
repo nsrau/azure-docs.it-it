@@ -1,6 +1,20 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Usare i set di dati di esempio in Machine Learning Studio | Azure" description="Usare i set di dati di esempio in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Usare i set di dati di esempio in Machine Learning Studio | Azure" 
+	description="Descrizioni dei set di dati di esempio inclusi in Azure Machine Learning Studio." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
 
 
 # Usare i set di dati di esempio in Azure Machine Learning Studio
@@ -338,3 +352,5 @@ Versione serializzata del contenitore primario passato tra moduli in ML Studio (
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

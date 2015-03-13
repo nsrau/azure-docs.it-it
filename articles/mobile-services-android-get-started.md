@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione a Servizi mobili di Azure per le app per Android" description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Android." services="" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introduzione a Servizi mobili di Azure per le app per Android" 
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Android." 
+	services="" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="hero-article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -20,7 +34,7 @@ Per completare questa esercitazione, è necessario disporre di [Android Develope
 
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili per Android. Questo progetto richiede Android 4.2 o versione successiva, invece l'SDK di Servizi mobili richiede solo Android 2.2 o versione successiva.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 >[AZURE.NOTE] Per visualizzare il codice sorgente dell'app completata, fare clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">qui</a>.
 
@@ -75,7 +89,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 	- 	Trovare il metodo **OnCreate** in **TodoActivity.java** e individuare il codice che crea un'istanza del client di Servizi mobili. Il codice è visibile nell'immagine precedente.
 	- 	Sostituire "MobileServiceUrl" con l'URL effettivo del servizio mobile.
 	- 	Sostituire "AppKey" con la chiave del servizio mobile.
-	- 	Per informazioni dettagliate, vedere l'esercitazione <a href="http://azure.microsoft.com/it-it/documentation/articles/mobile-services-android-get-started-data/">Aggiungere Servizi mobili a un'app esistente</a>. 
+	- 	Per informazioni dettagliate, vedere l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Aggiungere Servizi mobili a un'app esistente</a>. 
 
 
 

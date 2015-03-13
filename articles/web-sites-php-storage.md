@@ -123,7 +123,7 @@ Prima di poter memorizzare i dati è necessario aver creato il relativo contenit
 		}
 		?>
 
-	I codici di errore e la scansione dei messaggi sono disponibili all'indirizzo: [http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx][msdn-errors]
+	I codici di errore e la scansione dei messaggi sono disponibili all'indirizzo: [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##Query di una tabella
@@ -441,11 +441,11 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
 
-[msdn-errors]: http://msdn.microsoft.com/it-it/library/windowsazure/dd179438.aspx
+[msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 
 
 
-[msdn-table-query-syntax]: http://msdn.microsoft.com/it-it/library/windowsazure/dd894031.aspx
+[msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg

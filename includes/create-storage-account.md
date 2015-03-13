@@ -16,12 +16,12 @@ Per usare il servizio di archiviazione di Azure, è necessario un account di arc
 
 5.  Scegliere un'area o un gruppo di affinità per l'archiviazione. Se si userà l'archiviazione dalla propria applicazione Azure, selezionare la stessa area in cui verrà distribuita l'applicazione.
 
-6. Facoltativamente, è possibile scegliere il tipo di replica desiderato per l'account. Per impostazione predefinita, è selezionata la replica con ridondanza geografica che offre la massima durabilità. Per informazioni dettagliate sulle opzioni di replica, vedere [Opzioni di ridondanza di Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/azure/dn727290.aspx) e il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+6. Facoltativamente, è possibile scegliere il tipo di replica desiderato per l'account. Per impostazione predefinita, è selezionata la replica con ridondanza geografica che offre la massima durabilità. Per informazioni dettagliate sulle opzioni di replica, vedere [Opzioni di ridondanza di Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx) e il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**.
 
-[Uso dell'API REST]: http://msdn.microsoft.com/it-it/library/windowsazure/hh264518.aspx
+[Uso dell'API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portale di gestione di Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=41-->
+<!--HONumber=42-->

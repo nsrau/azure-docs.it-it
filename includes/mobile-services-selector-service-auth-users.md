@@ -13,5 +13,4 @@
 - [(Xamarin iOS | JavaScript)](/it-it/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/)
 dati/)
 - [(Xamarin Android | JavaScript)](/it-it/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts/)
-
 <!--HONumber=42-->

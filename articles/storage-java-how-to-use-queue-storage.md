@@ -401,11 +401,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 - [API REST di Archiviazione di Azure]
 - [Blog del team di Archiviazione di Azure]
 
-[Azure SDK per Java]: http://www.windowsazure.com/it-it/develop/java/
+[Azure SDK per Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Android]: https://github.com/azure/azure-storage-android
 [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API REST di Archiviazione di Azure]: http://msdn.microsoft.com/it-it/library/azure/gg433040.aspx
+[API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

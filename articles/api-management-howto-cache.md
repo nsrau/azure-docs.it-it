@@ -1,6 +1,20 @@
-<properties pageTitle="How to cache operation results in Azure API Management" metaKeywords="" description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." metaCanonical="" services="" documentationCenter="API Management" title="How to cache operation results in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come memorizzare nella cache i risultati dell'operazione in Gestione API di Azure" 
+	description="Informazioni su come migliorare la latenza, il consumo della larghezza di banda e il carico del servizio Web per le chiamate del servizio Gestione API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come memorizzare nella cache i risultati dell'operazione in Gestione API di Azure
 
@@ -138,3 +152,5 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
   [Introduzione alla configurazione API avanzata]: ../api-management-get-started-advanced
   [Criteri di memorizzazione nella cache]: ../api-management-policy-reference/#caching-policies
   [riferimento ai criteri di Gestione API]: ../api-management-policy-reference
+
+<!--HONumber=46--> 

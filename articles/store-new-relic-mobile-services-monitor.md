@@ -139,7 +139,7 @@ Sarà quindi necessario abilitare il monitoraggio di New Relic del servizio mobi
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[Controllo codice sorgente]: http://msdn.microsoft.com/it-it/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Controllo codice sorgente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Uso degli script del server in Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/

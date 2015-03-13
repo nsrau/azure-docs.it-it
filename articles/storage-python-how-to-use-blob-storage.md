@@ -114,7 +114,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   [Procedura: Scaricare BLOB]: #download-blobs
   [Procedura: Eliminare un BLOB]: #delete-blobs
   [Procedura: Caricare e scaricare BLOB di grandi dimensioni]: #large-blobs
-  [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Archiviazione]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

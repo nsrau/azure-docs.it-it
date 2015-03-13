@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma di Azure" metaKeywords="ResourceManager, interfaccia della riga di comando multipiattaforma di Azure, riga di comando di Azure, riga di comando di azure, interfaccia della riga di comando di azure, controllo di accesso basato sui ruoli" description="Gestione del controllo degli accessi basato su ruoli con l'interfaccia della riga di comando multipiattaforma" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma di Azure" 
+	description="Gestione del controllo degli accessi basato su ruoli con l'interfaccia della riga di comando multipiattaforma" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="guayan"/>
 
 # Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando multipiattaforma #
 
@@ -16,8 +30,8 @@ In questa esercitazione verrà illustrato come usare l'interfaccia della riga di
 
 Per usare xplat-cli per la gestione del controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
 
-- Azure Cross-Platform Command-Line Interface versione 0.8.8 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/).
-- Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'utilizzo di Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure: [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/)
+- Azure Cross-Platform Command-Line Interface versione 0.8.8 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+- Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'utilizzo di Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure: [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## Contenuto dell'esercitazione ##
 
@@ -33,7 +47,7 @@ Poiché RBAC funziona solo con Gestione risorse di Azure, occorre innanzitutto p
 
     azure config mode arm
 
-Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/)
+Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 Per connettersi alle proprie sottoscrizioni di Azure, digitare:
 
@@ -48,7 +62,7 @@ Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/).
+Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
 
 ## <a id="check"></a>Controllare le assegnazioni di ruoli esistenti ##
 
@@ -125,7 +139,9 @@ Quando si tenta di eseguire altri cmdlet come `azure group create`, viene restit
 
 Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con xplat-cli e per gli argomenti correlati:
 
-- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/)
-- [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups): Informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
+- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Informazioni su come creare e gestire i gruppi di risorse nel portale di gestione di Azure.
 - [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
+
+<!--HONumber=46--> 

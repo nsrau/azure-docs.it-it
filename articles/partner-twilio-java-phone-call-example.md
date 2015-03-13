@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="Come effettuare una chiamata telefonica da Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Informazioni su come effettuare una chiamata da una pagina Web tramite Twilio in un'applicazione Java in Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
+﻿<properties 
+	pageTitle="Come effettuare una chiamata telefonica da Twilio (Java) - Azure" 
+	description="Informazioni su come effettuare una chiamata telefonica da una pagina Web usando Twilio con un'applicazione Java in Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure 
 
@@ -149,7 +163,7 @@ Oltre ad eseguire la chiamata, makecall.jsp visualizza l'endpoint Twilio, la ver
 
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
-## Esecuzione dell'applicazione
+## Eseguire l'applicazione
 Di seguito è riportata la procedura generale per eseguire l'applicazione. Per istruzioni dettagliate, vedere [Creazione di un'applicazione Hello World usando il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world].
 
 1. Esportare il file WAR TwilioCloud nella cartella **approot** di Azure. 
@@ -159,7 +173,7 @@ Di seguito è riportata la procedura generale per eseguire l'applicazione. Per i
 5. Aprire un browser ed eseguire **http://localhost:8080/TwilioCloud/callform.jsp**.
 6. Immettere i valori nel modulo, fare clic su **Make this call** e quindi visualizzare i risultati in makecall.jsp.
 
-Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo *your_hosted_name* con il proprio valore.
+Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo  *your_hosted_name* con il proprio valore.
 
 ## Passaggi successivi
 Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:
@@ -184,11 +198,11 @@ Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_do
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [add_ca_cert]: ../java-add-certificate-ca-store
-[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/it-it/library/windowsazure/hh690944.aspx
+[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
 [howto_twilio_voice_sms_java]: ../partner-twilio-java-how-to-use-voice-sms
-[howto_blob_storage_java]: http://www.windowsazure.com/it-it/develop/java/how-to-guides/blob-storage/
-[howto_sql_azure_java]: http://msdn.microsoft.com/it-it/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: http://msdn.microsoft.com/it-it/library/windowsazure/hh690948.aspx
+[howto_blob_storage_java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+[howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
+[azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
@@ -196,4 +210,4 @@ Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_do
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

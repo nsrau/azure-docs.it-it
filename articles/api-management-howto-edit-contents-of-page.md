@@ -1,6 +1,20 @@
-<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come modificare i contenuti di una pagina in Gestione API di Azure" 
+	description="Informazioni su come modificare i contenuti di una pagina in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come modificare i contenuti di una pagina in Gestione API di Azure
 
@@ -15,3 +29,5 @@ Fare clic nella pagina di benvenuto per modificare gli elementi visualizzati nel
 > Per la home page viene usato un layout speciale che consente di visualizzare un banner nella parte superiore. Questo banner non è modificabile dalla sezione Contenuto. Per modificare il banner, scegliere **Widget** dal menu **Portale per sviluppatori**, quindi selezionare **Home page** dal menu a discesa **Livello corrente** e quindi aprire l'elemento **Banner** nella sezione In primo piano. I contenuti di questo banner sono modificabili come quelli di ogni altra pagina.
 
   [Gestione del contenuto]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+
+<!--HONumber=46--> 

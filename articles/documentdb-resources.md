@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="Modello di risorse e concetti relativi a DocumentDB | Azure" description="Il database di documenti NoSQL DocumentDB gestisce risorse, identificate in modo univoco da URI logici, con cui gli sviluppatori possono interagire mediante verbi HTTP, intestazioni di richiesta/risposta e codici di stato." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modello di risorse e concetti relativi a DocumentDB | Azure" 
+	description="Microsoft Azure DocumentDB è un database di documenti NoSQL completamente gestito che usa un modello gerarchico degli account di database, dei database, delle raccolte, delle stored procedure, dei trigger, delle funzioni definite dall'utente, dei documenti, degli allegati, degli elementi multimediali, degli utenti e delle autorizzazioni per la gestione delle risorse."   
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Modello di risorse e concetti relativi a DocumentDB
 
@@ -460,3 +474,5 @@ Analogamente a tutte le altre risorse, le autorizzazioni in DocumentDB possono e
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

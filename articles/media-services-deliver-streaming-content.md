@@ -1,83 +1,154 @@
-﻿<properties pageTitle="Come distribuire contenuti in streaming da Servizi multimediali - Azure" description="Informazioni su come distribuire contenuti in streaming da Servizi multimediali usando un URL diretto. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." authors="juliako" manager="dwrede" editor="" services="media-services" documentationCenter=""/>
+<properties 
+	pageTitle="Come distribuire contenuti in streaming da Servizi multimediali - Azure" 
+	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	authors="juliako" 
+	manager="dwrede" 
+	editor="" 
+	services="media-services" 
+	documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="juliako"/>
 
 
 # Procedura: Distribuire contenuti in streaming
 
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Distribuire un asset mediante download 
-](../media-services-deliver-asset-download/).
 
-Oltre al download di contenuti multimediali da Servizi multimediali, è possibile usare lo streaming a velocità in bit adattiva per distribuire contenuti. Ad esempio, è possibile creare un URL diretto, denominato localizzatore, per i contenuti in streaming su un server di origine di Servizi multimediali. Le applicazioni client come Microsoft Silverlight possono riprodurre i contenuti in streaming direttamente dal localizzatore.
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
 
-Nell'esempio seguente viene illustrato come creare un localizzatore di origine per un asset di output generato da un processo. Nell'esempio si suppone che sia già stato ottenuto un riferimento a un asset contenente file Smooth Streaming e nel codice viene fatto riferimento alla variabile denominata **assetToStream**. 
+## Informazioni generali
 
-Per creare un localizzatore di origine per contenuti in streaming:
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](../media-services-encode-asset) mostra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](../media-services-dotnet-configure-asset-delivery-policy) argomento. 
 
-   1. Ottenere un riferimento al file manifesto di streaming (file con estensione ism) nell'asset 
-   2. Definire un criterio di accesso
-   3. Creare il localizzatore di origine mediante una chiamata al metodo CreateLocator 
-   4. Creare un URL del file manifesto 
+È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
 
-Il codice seguente illustra come implementare i passaggi:
-<pre><code>
-private static ILocator GetStreamingOriginLocator( string targetAssetID)
-{
-    // Get a reference to the asset you want to stream.
-    IAsset assetToStream = GetAsset(targetAssetID);
+Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo. 
+  	 
+## Creare un localizzatore di streaming OnDemand
 
-    // Get a reference to the streaming manifest file from the  
-    // collection of files in the asset. 
-    var theManifest =
-                        from f in assetToStream.AssetFiles
-                        where f.Name.EndsWith(".ism")
-                        select f;
+Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
-    // Cast the reference to a true IAssetFile type. 
-    IAssetFile manifestFile = theManifest.First();
-    IAccessPolicy policy = null;
-    ILocator originLocator = null;
-            
-    // Create a 30-day readonly access policy. 
-    policy = _context.AccessPolicies.Create("Streaming policy",
-        TimeSpan.FromDays(30),
-        AccessPermissions.Read);
+   1. Definire i criteri di accesso.
+   2. Creare un localizzatore di streaming OnDemand.
+   3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset. 
+   		
+	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.  
+   4. Creare URL che puntano al file manifesto o ai file MP4. 
+   
 
-    // Create an OnDemandOrigin locator to the asset. 
-    originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
-        policy,
-        DateTime.UtcNow.AddMinutes(-5));
-            
-    // Display some useful values based on the locator.
-    Console.WriteLine("Streaming asset base path on origin: ");
-    Console.WriteLine(originLocator.Path);
-    Console.WriteLine();
-    
-    // Create a full URL to the manifest file. Use this for playback
-    // in streaming media clients. 
-    string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
-    Console.WriteLine("URL to manifest for client streaming: ");
-    Console.WriteLine(urlForClientStreaming);
-    Console.WriteLine();
-    
-    // Display the ID of the origin locator, the access policy, and the asset.
-    Console.WriteLine("Origin locator Id: " + originLocator.Id);
-    Console.WriteLine("Access policy Id: " + policy.Id);
-    Console.WriteLine("Streaming asset Id: " + assetToStream.Id);
+### Usare l'SDK di Servizi multimediali per .NET 
 
-    // Return the locator. 
-    return originLocator;
-}
-</code></pre>
+Creare URL di streaming 
 
-Per altre informazioni sulla distribuzione di asset, vedere:
-<ul>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129575.aspx">Distribuzione di asset con Media Services SDK per .NET</a></li>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129578.aspx">Distribuzione di asset con l'API REST di Servizi multimediali</a></li>
-</ul>
+	private static void BuildStreamingURLs(IAsset asset)
+	{
+	
+	    // Create a 30-day readonly access policy. 
+	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
+	        TimeSpan.FromDays(30),
+	        AccessPermissions.Read);
+	
+	    // Create a locator to the streaming content on an origin. 
+	    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+	        policy,
+	        DateTime.UtcNow.AddMinutes(-5));
+	
+	    // Display some useful values based on the locator.
+	    Console.WriteLine("Streaming asset base path on origin: ");
+	    Console.WriteLine(originLocator.Path);
+	    Console.WriteLine();
+	
+	    // Get a reference to the streaming manifest file from the  
+	    // collection of files in the asset. 
+	    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+	                                EndsWith(".ism")).
+	                                FirstOrDefault();
+	    
+	    // Create a full URL to the manifest file. Use this for playback
+	    // in streaming media clients. 
+	    string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
+	    Console.WriteLine("URL to manifest for client streaming using Smooth Streaming protocol: ");
+	    Console.WriteLine(urlForClientStreaming);
+	    Console.WriteLine("URL to manifest for client streaming using HLS protocol: ");
+	    Console.WriteLine(urlForClientStreaming + "(format=m3u8-aapl)");
+	    Console.WriteLine("URL to manifest for client streaming using MPEG DASH protocol: ");
+	    Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
+	    Console.WriteLine();
+	}
 
-<h2>Passaggi successivi</h2>
-Finora è stata illustrata la distribuzione di contenuti multimediali eseguendo il download da Archiviazione di Azure e usando Smooth Streaming. Nell'argomento successivo dedicato alla [distribuzione di contenuti HLS](../media-services-deliver-http-live-streaming-content/) viene illustrata la distribuzione di contenuti in streaming mediante Apple HTTP Live Streaming (HLS).
+Output del codice:
+	
+	URL to manifest for client streaming using Smooth Streaming protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
+	URL to manifest for client streaming using HLS protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+	URL to manifest for client streaming using MPEG DASH protocol:
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+	
 
+Creare URL di download progressivo 
 
-<!--HONumber=42-->
+	private static void BuildProgressiveDownloadURLs(IAsset asset)
+	{
+	    // Create a 30-day readonly access policy. 
+	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
+	        TimeSpan.FromDays(30),
+	        AccessPermissions.Read);
+	
+	    // Create an OnDemandOrigin locator to the asset. 
+	    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+	        policy,
+	        DateTime.UtcNow.AddMinutes(-5));
+	
+	    // Display some useful values based on the locator.
+	    Console.WriteLine("Streaming asset base path on origin: ");
+	    Console.WriteLine(originLocator.Path);
+	    Console.WriteLine();
+	
+	    // Get MP4 files.
+	    IEnumerable<IAssetFile> mp4AssetFiles = asset
+	        .AssetFiles
+	        .ToList()
+	        .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+	            
+	    // Create a full URL to the MP4 files. Use this to progressively download files.
+	    foreach (var pd in mp4AssetFiles)
+	        Console.WriteLine(originLocator.Path + pd.Name);
+	}
+
+Output del codice:
+	
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4
+	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4
+	
+	. . . 
+
+### Usare le estensioni dell'SDK di Servizi multimediali per .NET
+
+Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
+
+	// Create a loctor.
+	_context.Locators.Create(
+	    LocatorType.OnDemandOrigin,
+	    inputAsset,
+	    AccessPermissions.Read,
+	    TimeSpan.FromDays(30));
+	
+	// Get the streaming URLs.
+	Uri smoothStreamingUri = inputAsset.GetSmoothStreamingUri();
+	Uri hlsUri = inputAsset.GetHlsUri();
+	Uri mpegDashUri = inputAsset.GetMpegDashUri();
+	
+	Console.WriteLine(smoothStreamingUri);
+	Console.WriteLine(hlsUri);
+	Console.WriteLine(mpegDashUri);
+
+<!--HONumber=45--> 

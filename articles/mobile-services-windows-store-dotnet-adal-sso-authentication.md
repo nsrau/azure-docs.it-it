@@ -1,17 +1,31 @@
-﻿<properties pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Mobile Dev Center" description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Mobile Dev Center" 
+	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Windows Store." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva con Active Directory Authentication Library per supportare [operazioni di accesso dirette dal client](http://msdn.microsoft.com/it-it/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/it-it/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva con Active Directory Authentication Library per supportare [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
 
 Per poter autenticare gli utenti è necessario registrare l'app in Azure Active Directory. Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio mobile ed esporre le registrazioni sul servizio. In secondo luogo, è necessario registrare l'app di Windows Store e concederle accesso alle autorizzazioni.
 
 
->[AZURE.NOTE] In questa esercitazione viene descritto come usare Servizi mobili per eseguire l'autenticazione con Single Sign-On di Azure Active Directory per le app di Windows Store con un'[operazione di accesso diretta dal client](http://msdn.microsoft.com/it-it/library/azure/jj710106.aspx). Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
+>[AZURE.NOTE] In questa esercitazione viene descritto come usare Servizi mobili per eseguire l'autenticazione con Single Sign-On di Azure Active Directory per le app di Windows Store con un'[operazione di accesso diretta dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx). Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
 Questa esercitazione spiega come eseguire le operazioni di base seguenti:
 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" description="Informazioni su come usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Compilazione di app in tempo reale tramite Pusher (iOS) - Servizi mobili" 
+	description="Informazioni su come usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." 
+	services="" 
+	documentationCenter="ios" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="donnam"/>
 
 
 # Compilazione di app in tempo reale tramite Servizi mobili e Pusher

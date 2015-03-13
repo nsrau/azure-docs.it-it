@@ -158,6 +158,5 @@ Ad esempio, è possibile usare l'URI seguente per accedere a un Web Form tramite
 
 ## Risorse aggiuntive
 
--   <a href="http://msdn.microsoft.com/it-it/library/windowsazure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
-
+-   <a href="http://msdn.microsoft.com/library/windowsazure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
 <!--HONumber=42-->

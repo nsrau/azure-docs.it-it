@@ -1,6 +1,20 @@
-<properties pageTitle="Utilizzo di Windows PowerShell con Gestione risorse" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Utilizzare Windows PowerShell per creare un gruppo di risorse" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
+﻿<properties 
+	pageTitle="Uso di Windows PowerShell con Gestione risorse" 
+	description="Informazioni su come usare Windows PowerShell per creare un gruppo di risorse" 
+	services="" 
+	documentationCenter="" 
+	authors="sdkaczmarek" 
+	manager="stevenka" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/02/2014" 
+	ms.author="stevenka"/>
 
 # Utilizzo di Windows PowerShell con Gestione risorse
 
@@ -474,20 +488,22 @@ Per altre informazioni sull'utilizzo di Windows PowerShell con Gestione risorse:
 
   [Windows Management Framework 3.0]: http://www.microsoft.com/it-it/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/it-it/download/details.aspx?id=40855
-  [Come installare e configurare Azure PowerShell]: http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/
-  [Introduzione a Windows PowerShell]: http://technet.microsoft.com/it-it/library/hh857337.aspx
+  [Come installare e configurare Azure PowerShell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+  [Introduzione a Windows PowerShell]: http://technet.microsoft.com/library/hh857337.aspx
   [Informazioni sui moduli di Azure Powershell]: #about
   [Creare un gruppo di risorse]: #create
   [Gestione di un gruppo di risorse]: #manage
   [Risoluzione dei problemi relativi a un gruppo di risorse]: #troubleshoot
   [Passaggi successivi]: #next
-  [cmdlet di Gestione servizi di Azure]: http://msdn.microsoft.com/it-it/library/jj152841.aspx
+  [cmdlet di Gestione servizi di Azure]: http://msdn.microsoft.com/library/jj152841.aspx
   [cmdlet di Gestione risorse di Azure]: http://go.microsoft.com/fwlink/?LinkID=394765
   [cmdlet del profilo di Azure]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
   [Cmdlet di Gestione risorse di Azure]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
-  [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups
-  [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse]: http://www.windowsazure.com/it-it/documentation/articles/xplat-cli-azure-resource-manager/
+  [Utilizzo dei gruppi di risorse per la gestione delle risorse di Azure]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups
+  [Utilizzo dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse]: http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
   [Blog di Azure]: http://blogs.msdn.com/windowsazure
   [Blog di Windows PowerShell]: http://blogs.msdn.com/powershell
   [Blog "Hey, Scripting Guy!":]: http://blogs.technet.com/b/heyscriptingguy/
+
+<!--HONumber=46--> 

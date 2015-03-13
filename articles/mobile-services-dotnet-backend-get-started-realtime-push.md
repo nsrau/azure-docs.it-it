@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione alle notifiche push in tempo reale tramite SignalR e Servizi mobili | Mobile Dev Center" description="Informazioni su come iniziare a usare notifiche push in tempo reale tramite SignalR e Servizi mobili" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Introduzione alle notifiche push in tempo reale tramite SignalR e Servizi mobili | Mobile Dev Center" 
+	description="Informazioni su come iniziare a usare notifiche push in tempo reale tramite SignalR e Servizi mobili" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Introduzione alle notifiche push in tempo reale tramite SignalR e Servizi mobili
 

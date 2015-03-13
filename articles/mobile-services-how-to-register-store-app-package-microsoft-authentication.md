@@ -1,6 +1,20 @@
-<properties pageTitle="Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft" description="Informazioni su come registrare l'app di Windows Store per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft" 
+	description="Informazioni su come registrare l'app di Windows Store per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft
 

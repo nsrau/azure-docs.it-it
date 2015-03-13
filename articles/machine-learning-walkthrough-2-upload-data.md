@@ -1,6 +1,20 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Azure" description="Passaggio 2: Caricamento di dati pubblici esistenti in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Azure" 
+	description="Passaggio 2 della procedura dettagliata della soluzione: Caricare dati pubblici esistenti in Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Machine Learning di Azure][develop]:
 
@@ -70,3 +84,5 @@ I dati vengono caricati in un modulo Set di dati che è possibile usare in un es
 **Passaggi successivi: [Creare un nuovo esperimento][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

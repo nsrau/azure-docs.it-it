@@ -200,7 +200,7 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'uso di Twi
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
 
 <!--HONumber=42-->

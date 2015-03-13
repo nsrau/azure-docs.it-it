@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Spostare ed elaborare i file di log con Data factory di Azure" description="Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Spostare ed elaborare i file di log con Data factory di Azure" 
+	description="Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="spelluru"/>
 
 # Esercitazione: Spostare ed elaborare i file di log con Data factory
 Questo articolo fornisce una procedura dettagliata end-to-end per uno scenario canonico di elaborazione dei log con Data factory di Azure per trasformare i dati da file di log a informazioni. 
@@ -589,14 +603,14 @@ Articolo | Descrizione
 [usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/it-it/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/it-it/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
@@ -675,3 +689,5 @@ Articolo | Descrizione
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
+
+<!--HONumber=46--> 

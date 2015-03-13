@@ -401,9 +401,8 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
 
 	L'eliminazione del servizio può richiedere diversi minuti. Al termine dell'eliminazione del servizio, verrà visualizzato un messaggio di conferma dell'eliminazione.
 
-  [Creazione di un'applicazione Node.js con Express]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/web-app-with-express/
-  [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/it-it/develop/nodejs/tutorials/getting-started/
+  [Creazione di un'applicazione Node.js con Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
-
 <!--HONumber=42-->

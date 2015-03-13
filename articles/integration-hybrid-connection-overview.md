@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Panoramica delle connessioni ibride | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Informazioni sulle connessioni ibride, inclusa la sicurezza." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Panoramica delle connessioni ibride | Azure" 
+	description="Informazioni sulle connessioni ibride, inclusa la sicurezza, le porte TCP e le configurazioni supportate. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@ La funzionalità Connessioni ibride usa l'autorizzazione con firma di accesso co
 
 La funzionalità Connessioni ibride garantisce la distribuzione sicura delle chiavi alle applicazioni e a Gestione connessioni ibride locale. 
 
-Vedere [Creare e gestire connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/integration-hybrid-connection-create-manage). 
+Vedere [Creare e gestire connessioni ibride](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage). 
 
 **L'autorizzazione dell'applicazione è separata dalla connessione ibrida**. È possibile usare qualsiasi metodo di autorizzazione appropriato. Il metodo di autorizzazione dipende dai metodi di autorizzazione end-to-end supportati nel cloud di Azure e nei componenti locali. Si supponga, ad esempio, che l'applicazione Azure acceda a un'istanza di SQL Server locale. In questo scenario l'autorizzazione SQL potrebbe costituire il metodo di autorizzazione end-to-end supportato.
 
@@ -97,10 +111,10 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 
 ## Passaggi successivi
 
-- [Creare e gestire connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/integration-hybrid-connection-create-manage)
+- [Creare e gestire connessioni ibride](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [Connettere un sito Web di Azure a una risorsa locale](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Procedura dettagliata relativa a Connessioni ibride: Connettersi a un'istanza di SQL Server locale da un sito Web di Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Servizi mobili di Azure e Connessioni ibride](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Servizi mobili di Azure e Connessioni ibride](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## Vedere anche
@@ -114,3 +128,5 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

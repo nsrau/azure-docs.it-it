@@ -13,8 +13,7 @@ Prima di poter archiviare dati nel nuovo servizio mobile, è necessario creare u
 
 	Nel server verrà creata la tabella TodoItem, a cui potrà accedere e di cui potrà modificare i dati chiunque disponga della chiave dell'applicazione, senza prima eseguire l'autenticazione. 
 
-	>[AZURE.NOTE]La chiave dell'applicazione viene distribuita con l'applicazione. Poiché la distribuzione non è sicura, la chiave non può essere considerata un token di sicurezza. Per proteggere l'accesso ai dati del servizio mobile, è necessario autenticare gli utenti prima dell'accesso. Per altre informazioni, vedere [Autorizzazioni](http://msdn.microsoft.com/it-it/library/windowsazure/jj193161.aspx).
-
+	>[AZURE.NOTE]La chiave dell'applicazione viene distribuita con l'applicazione. Poiché la distribuzione non è sicura, la chiave non può essere considerata un token di sicurezza. Per proteggere l'accesso ai dati del servizio mobile, è necessario autenticare gli utenti prima dell'accesso. Per altre informazioni, vedere [Autorizzazioni](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 
 
 

@@ -8,5 +8,4 @@
    Si noti che al termine dell'inserimento l'app riceve una notifica push da GCM.
 
 4. (Facoltativo) Ripetere i passaggi da 1 a 3 su un altro dispositivo client e accedere con un account diverso. Verificare che solo i dispositivi che si autenticano con lo stesso account utente ricevano la notifica. 
-
 <!--HONumber=42-->

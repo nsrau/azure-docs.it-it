@@ -298,7 +298,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 	> [AZURE.IMPORTANT] È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo.
 
-- Durante la spedizione dei pacchetti, attenersi alle condizioni riportate nella pagina relativa alle [condizioni per l'uso dei servizi di Microsoft Azure](http://azure.microsoft.com/it-it/support/legal/services-terms/). 
+- Durante la spedizione dei pacchetti, attenersi alle condizioni riportate nella pagina relativa alle [condizioni per l'uso dei servizi di Microsoft Azure](http://azure.microsoft.com/support/legal/services-terms/). 
 
 **È possibile acquistare da Microsoft unità per i processi di importazione/esportazione?**
 
@@ -313,5 +313,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
 <!--HONumber=42-->

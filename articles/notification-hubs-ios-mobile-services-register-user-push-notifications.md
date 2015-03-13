@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Registrazione dell'utente corrente per le notifiche push mediante un servizio mobile - Hub di notifica" description="Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante Servizi mobili di Azure." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registrazione dell'utente corrente per le notifiche push mediante un servizio mobile - Hub di notifica" 
+	description="Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante Servizi mobili di Azure." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # Registrazione dell'utente corrente per le notifiche push mediante un servizio mobile
 

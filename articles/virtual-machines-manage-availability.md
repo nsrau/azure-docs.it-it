@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Gestire la disponibilità delle macchine virtuali - Azure" 
 	description="Informazioni su come usare più macchine virtuali per garantire la disponibilità per l'applicazione Azure." 
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="11/26/2014" 
 	ms.author="kenazk"/>
 
-# Gestire la disponibilità delle macchine virtuali
+#Gestire la disponibilità delle macchine virtuali
 
 ## Confronto tra manutenzione pianificata e manutenzione non pianificata
 Esistono due tipi di eventi della piattaforma Azure che possono incidere sulla disponibilità delle macchine virtuali: la manutenzione pianificata e la manutenzione non pianificata.
@@ -73,4 +73,7 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

@@ -36,7 +36,7 @@ Il codice seguente ottiene un riferimento a una tabella contenente i dati per To
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Per il corretto funzionamento di questi esempio, le autorizzazioni della tabella devono essere impostate su **Chiunque con la chiave applicazione**. È possibile configurare l'autenticazione in un secondo momento. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-html-get-started-users/).
+Per il corretto funzionamento di questi esempio, le autorizzazioni della tabella devono essere impostate su **Chiunque con la chiave applicazione**. È possibile configurare l'autenticazione in un secondo momento. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Aggiungere una voce 
 

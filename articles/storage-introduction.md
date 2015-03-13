@@ -49,7 +49,7 @@ Un account di archiviazione di Azure è un account sicuro che consente di accede
 - Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file.
 - Un account di archiviazione premium attualmente supporta solo dischi di macchine virtuali di Azure. L'archiviazione premium di Azure è disponibile su richiesta tramite la [pagina Anteprima di Azure](/it-it/services/preview/).
 
-Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione. Vedere la pagina dei [dettagli sui prezzi di Archiviazione](http://www.windowsazure.com/it-it/pricing/details/storage/) per informazioni sui prezzi in base al volume.
+Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione. Vedere la pagina dei [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
 Per iniziare a usare Azure, è possibile scaricare una [versione di valutazione gratuita](/it-it/pricing/free-trial/). Se si decide di acquistare un piano, è possibile scegliere una delle numerose [opzioni di acquisto](/it-it/pricing/purchase-options/).. Gli [abbonati MSDN](/it-it/pricing/member-offers/msdn-benefits-details/) ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure.
 
@@ -164,7 +164,7 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 ### Download
 
 - [Pacchetto NuGet per l'Archiviazione di Azure - Librerie client per .NET, Windows Phone e Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK e strumenti](http://azure.microsoft.com/it-it/downloads/)
+- [Azure SDK e strumenti](http://azure.microsoft.com/downloads/)
 - [Emulatore di archiviazione di Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Codice sorgente
@@ -174,15 +174,15 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 ### Documentazione
 
 - [Documentazione di Archiviazione di Azure](/it-it/documentation/services/storage/)
-- [Informazioni di riferimento sulle API REST dei servizi di archiviazione](http://msdn.microsoft.com/it-it/library/dd179355.aspx)
-- [Introduzione all'utilità della riga di comando AzCopy](http://azure.microsoft.com/it-it/documentation/articles/storage-use-azcopy/)
+- [Informazioni di riferimento sulle API REST dei servizi di archiviazione](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Introduzione all'utilità della riga di comando AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>Per gli utenti PowerShell</h3>
-- [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/azure/dn806401.aspx)
+- [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>Per gli sviluppatori .NET</h3>
 
-- [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/it-it/library/wa_storage_30_reference_home.aspx)
+- [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [Come usare l'archiviazione BLOB da .NET](../storage-dotnet-how-to-use-blobs/)
 - [Come usare l'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables/)
 - [Come usare l'archiviazione di accodamento da .NET](../storage-dotnet-how-to-use-queues/)
@@ -217,5 +217,4 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione BLOB da Python](../storage-python-how-to-use-blob-storage/)
 - [Come usare l'archiviazione tabelle da Python](../storage-python-how-to-use-table-storage/)
 - [Come usare l'archiviazione di accodamento da Python](../storage-python-how-to-use-queue-storage/)
-
 <!--HONumber=42-->

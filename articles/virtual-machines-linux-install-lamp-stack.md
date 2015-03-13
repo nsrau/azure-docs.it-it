@@ -42,7 +42,7 @@ Dopo aver eseguito `apt-get update` per aggiornare l'elenco locale di pacchetti,
 	# sudo apt-get update
 	# sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare e seguire eventuali altri comandi per impostare una password amministrativa per MySQL.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' e quindi 'Enter' per continuare e seguire eventuali altri comandi per impostare una password amministrativa per MySQL.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -63,7 +63,7 @@ Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP
 
 	# sudo yum install httpd mysql mysql-server php php-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' e quindi 'Enter' per continuare.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -83,7 +83,7 @@ Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP
 
 	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' and then 'Enter' per continuare.
+Dopo l'esecuzione del comando riportato sopra verrà chiesto di installare questi pacchetti e altre dipendenze.  Premere 'y' e quindi 'Enter' per continuare.
 
 Verranno così installate le estensioni PHP minime obbligatorie per l'uso di PHP con MySQL. Eseguire il comando seguente per visualizzare altre estensioni PHP disponibili come pacchetti:
 
@@ -97,13 +97,13 @@ Configurazione
 
 	- Avviare il comando seguente per verificare se il server Web Apache è stato avviato:
 
-		- Ubuntu e SLES: `sudo service apache2 restart`
+		- Ubuntu & SLES: `sudo service apache2 restart`
 
-		- CentOS e Oracle: `sudo service httpd restart`
+		- CentOS & Oracle: `sudo service httpd restart`
 
 	- Per impostazione predefinita, Apache è in attesa sulla porta 80. Per accedere al server Apache in remoto, può essere necessario aprire un endpoint.  Per istruzioni più dettagliate, vedere la documentazione relativa alla [configurazione degli endpoint](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
-	- A questo punto, è possibile verificare se Apache è ora in esecuzione e se rende disponibili contenuti. Nel browser fare riferimento a `http://[MYSERVICE].cloudapp.net`, dove **[MYSERVICE]** è il nome del servizio cloud in cui si trova la macchina virtuale. In alcune distribuzioni è possibile che si riceva un messaggio da una pagina Web predefinita con la conferma del funzionamento del server. In altre è possibile che venga visualizzata una pagina Web più complessa con collegamenti a pagine di documentazione e contenuti aggiuntivi per la configurazione del server Apache.
+	- A questo punto, è possibile verificare se Apache è ora in esecuzione e se rende disponibili contenuti. Puntare il browser a `http://[MYSERVICE].cloudapp.net`, dove **[MYSERVICE]** è il nome del servizio cloud in cui si trova la macchina virtuale. In alcune distribuzioni è possibile che si riceva un messaggio da una pagina Web predefinita con la conferma del funzionamento del server. In altre è possibile che venga visualizzata una pagina Web più complessa con collegamenti a pagine di documentazione e contenuti aggiuntivi per la configurazione del server Apache.
 
 2. Configurare **MySQL**
 
@@ -116,10 +116,13 @@ Configurazione
 	- È quindi possibile gestire MySQL usando le utilità `mysql` o `mysqladmin`.
 
 
-##Altre informazioni
+##Ulteriori informazioni
 
 Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

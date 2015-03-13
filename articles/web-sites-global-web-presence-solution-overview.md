@@ -28,7 +28,7 @@ Di seguito è riportato un esempio di un sito Web .COM in esecuzione in Siti Web
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> Questa guida illustra alcune delle aree e delle attività più comuni relative all'esecuzione di un sito .COM in Siti Web di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare in Siti Web di Azure. Per informazioni dettagliate su tali soluzioni, vedere le guide relative alle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a> e alle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">applicazioni business</a>.
+> Questa guida illustra alcune delle aree e delle attività più comuni relative all'esecuzione di un sito .COM in Siti Web di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare in Siti Web di Azure. Per informazioni dettagliate su tali soluzioni, vedere le guide relative alle <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a> e alle <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">applicazioni business</a>.
 
 ### Creare siti da zero o recuperare asset esistenti
 
@@ -122,8 +122,8 @@ Con il piano di hosting **Standard** è possibile monitorare i tempi di risposta
 
 [scalabilità verticale e orizzontale]:/it-it/manage/services/web-sites/how-to-scale-websites/
 [Portale di gestione di Azure]:http://manage.windowsazure.com/
-[API di gestione del servizio]:http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
-[Script di PowerShell]:http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
+[API di gestione del servizio]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Script di PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [Le 10 cose che ho imparato sulla scalabilità rapida dei siti Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis di Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

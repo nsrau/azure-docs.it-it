@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Active Directory Authentication - What Happened" pageTitle="Introduzione all'autenticazione di Active Directory - Risultati" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Introduzione all'autenticazione di Active Directory - Risultati" 
+	description="Illustra cosa è successo al progetto Azure Active Directory in Visual Studio." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Per iniziare](/documentation/articles/vs-active-directory-dotnet-getting-started/)
@@ -60,3 +74,5 @@ Sono state aggiunte le voci di configurazione seguenti.
 Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD. 
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+<!--HONumber=46--> 

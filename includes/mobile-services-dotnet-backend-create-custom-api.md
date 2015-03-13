@@ -58,11 +58,10 @@
 
 	Nel codice precedente sostituire  `todolistContext` con il nome dell'oggetto DbContext del modello di dati, che deve essere costituito dal nome del servizio mobile a cui viene aggiunto  `Context`. Sostituire inoltre il nome dello schema nell'istruzione UPDATE con il nome del servizio mobile. 
 
-	In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/it-it/library/system.data.entity.database.aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
+	In questo codice viene utilizzata la [classe di database](http://msdn.microsoft.com/library/system.data.entity.database.aspx) per accedere direttamente alla tabella **TodoItems** e impostare il contrassegno di completamento su tutti gli elementi. Questo metodo supporta una richiesta POST e al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
 	> [AZURE.NOTE] Poiché vengono impostate autorizzazioni predefinite, qualsiasi utente dell'app può chiamare l'API personalizzata. Tuttavia, la chiave dell'applicazione non viene distribuita né archiviata in modo sicuro e non può essere considerata una credenziale di sicurezza. Per questo motivo, è consigliabile limitare l'accesso solo agli utenti autenticati per le operazioni che modificano dati o hanno effetto sul servizio mobile. 
 
 In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
-
 
 <!--HONumber=42-->

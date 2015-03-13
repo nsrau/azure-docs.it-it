@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Come scalare un servizio cloud - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Come scalare un servizio cloud - Azure" 
+	description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 
-#Come scalare un'applicazione
+# Come scalare un'applicazione
 
 
 Nella pagina Scale del portale di gestione di Azure è possibile scalare manualmente l'applicazione o impostare parametri per la scalabilità automatica. È possibile scalare le applicazioni che eseguono ruoli Web, ruoli di lavoro o macchine virtuali. Per scalare un'applicazione che esegue istanze di ruoli Web o ruoli di lavoro, vengono aggiunte o rimosse istanze dei ruoli per supportare il carico di lavoro.
@@ -15,10 +29,10 @@ Quando si scala un'applicazione che esegue macchine virtuali, non vengono create
 
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:
 
-- Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le usa. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali](http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-manage-availability/).
-- La scalabilità è influenzata dall'uso di core. Le istanze del ruolo o le macchine virtuali più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità usate per scalare un'applicazione devono avere le stesse dimensioni. Per altre informazioni sull'uso di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/it-it/library/dn197896.aspx).
-- È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come usare il servizio di archiviazione di accodamento](http://www.windowsazure.com/it-it/develop/net/how-to-guides/queue-service).
-- È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](http://www.windowsazure.com/it-it/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
+- Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le usa. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/).
+- La scalabilità è influenzata dall'uso di core. Le istanze del ruolo o le macchine virtuali più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità usate per scalare un'applicazione devono avere le stesse dimensioni. Per altre informazioni sull'uso di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/dn197896.aspx).
+- È necessario creare una coda e associarla a un ruolo o set di disponibilità prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Introduzione all'archiviazione di code](http://azure.microsoft.com/develop/net/how-to-guides/queue-service).
+- È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
 - Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo o macchine virtuali. Per altre informazioni, vedere [Contratti di servizio](https://www.windowsazure.com/it-it/support/legal/sla/).
 
 È possibile eseguire le seguenti azioni di scalabilità per un servizio cloud:
@@ -29,11 +43,11 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 - [Pianificare il ridimensionamento dell'applicazione](#schedule)
 
 
-<h2><a id="manualscale"></a>Scalare manualmente un'applicazione che esegue ruoli Web o ruoli di lavoro</h2>
+<h2><a id="manualscale"></a>Ridimensionare manualmente un'applicazione che esegue ruoli Web o ruoli di lavoro</h2>
 
 Nella pagina Scale è possibile aumentare o diminuire manualmente il numero delle istanze in esecuzione in un servizio di cloud.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard.
 
 2. Fare clic su **Ridimensiona**. La scalabilità automatica è disattivata per impostazione predefinita per tutti i ruoli, ovvero è possibile modificare manualmente il numero di istanze usate dall'applicazione.
 
@@ -53,16 +67,16 @@ Nella pagina Scale è possibile aumentare o diminuire manualmente il numero dell
 
 4. Fare clic su **Salva**. Verranno aggiunte o rimosse istanze del ruolo in base alle selezioni effettuate.
 
-<h2><a id="autoscale"></a>Scalare automaticamente un'applicazione che esegue ruoli Web, ruoli di lavoro o macchine virtuali</h2>
+<h2><a id="autoscale"></a>Ridimensionare automaticamente un'applicazione che esegue ruoli Web, ruoli di lavoro o macchine virtuali</h2>
 
-Nella pagina Scale è possibile configurare il servizio cloud in modo da aumentare o ridurre automaticamente il numero di istanze o macchine virtuali usate dall'applicazione. La scalabilità può essere configurata in base ai parametri seguenti:
+Nella pagina Scale è possibile configurare il servizio cloud in modo da aumentare o ridurre automaticamente il numero di istanze o macchine virtuali usate dall'applicazione. La scalabilità può essere configurata in base ai seguenti parametri:
 
-- [Utilizzo medio della CPU]:(#averagecpu) se la percentuale media di uso della CPU sale o scende oltre le soglie specificate, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
-- [Messaggi in coda]:(#queuemessages) se il numero di messaggi in una coda sale o scende oltre una soglia specificata, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
+- [Utilizzo medio della CPU](#averagecpu): se la percentuale media di uso della CPU sale o scende oltre le soglie specificate, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
+- [Messaggi in coda](#queuemessages): se il numero di messaggi in una coda sale o scende oltre una soglia specificata, vengono create o eliminate istanze del ruolo o vengono attivate o disattivate macchine virtuali da un set di disponibilità.
 
 <h3><a id="averagecpu"></a>Utilizzo medio della CPU</h3>
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Ridimensiona**.
 3. Scorrere fino alla sezione relativa al ruolo o al set di disponibilità, quindi fare clic su **CPU**. In questo modo viene abilitata la scalabilità automatica dell'applicazione in base alla percentuale media di uso delle risorse di CPU.
 
@@ -109,7 +123,7 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 <h3><a id="queuemessages"></a>Messaggi in coda</h3>
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Ridimensiona**.
 3. Scorrere fino alla sezione relativa al ruolo o al set di disponibilità, quindi fare clic su **Coda**. In questo modo viene abilitata la scalabilità automatica dell'applicazione in base a un determinato numero di messaggi in coda.
 
@@ -159,11 +173,11 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
 
 12. Fare clic su **Salva**. Per completare l'azione di ridimensionamento possono essere necessari fino a cinque minuti.
 
-<h2><a id="scalelink"></a>Scalare risorse collegate</h2>
+<h2><a id="scalelink"></a>Ridimensionare risorse collegate</h2>
 
 Quando si scala un ruolo, spesso risulta utile scalare anche il database usato dall'applicazione. Se si collega il database al servizio cloud, nella pagina Scale viene modificata l'edizione del database SQL e viene ridimensionato il database.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Ridimensiona**.
 3. Nella sezione Linked Resources selezionare l'edizione da usare per il database.
 
@@ -172,17 +186,17 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 4. Selezionare le dimensioni del database.
 5. Fare clic su **Salva** per aggiornare le risorse collegate.
 
-<h2><a id="schedule"></a>Pianificare la scalabilità dell'applicazione</h2>
+<h2><a id="schedule"></a>Pianificare il ridimensionamento dell'applicazione</h2>
 
-È possibile pianificare la scalabilità automatica dell'applicazione configurando pianificazioni per orari diversi. Per la scalabilità automatica sono disponibili le opzioni seguenti:
+È possibile pianificare la scalabilità automatica dell'applicazione configurando pianificazioni per orari diversi. Per la scalabilità automatica sono disponibili le seguenti opzioni:
 
-- **Nessuna pianificazione**: opzione predefinita che consente di ridimensionare automaticamente l'applicazione sempre nello stesso modo.
+- **No schedule**: opzione predefinita che consente di scalare automaticamente l'applicazione sempre nello stesso modo.
 
-- **Giorno e notte**: questa opzione consente di specificare il ridimensionamento per determinati orari del giorno e della notte.
+- **Day and night**: opzione che consente di specificare la scalabilità per determinati orari del giorno e della notte.
 
 **Nota**: le pianificazioni non sono attualmente disponibili per le applicazioni che usano Macchine virtuali.
 
-1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
+1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi cloud**, quindi sul nome del servizio cloud per aprire il dashboard.
 2. Fare clic su **Ridimensiona**.
 3. Nella pagina Ridimensiona fare clic su **Imposta ore di pianificazione**.
 
@@ -213,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="Come creare una raccolta RemoteApp nel cloud" description="Informazioni su come creare una distribuzione di RemoteApp che salva i dati nel cloud Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Come creare una raccolta RemoteApp nel cloud" 
+	description="Informazioni su come creare una distribuzione di RemoteApp che salva i dati nel cloud Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Come creare una raccolta RemoteApp nel cloud
 
@@ -20,10 +34,10 @@ Questa esercitazione illustra il processo di creazione di una raccolta nel cloud
 
 Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
-- Iscriversi a RemoteApp. È possibile effettuare tale iscrizione all'indirizzo [http://azure.microsoft.com/it-it/services/remoteapp/](http://azure.microsoft.com/it-it/services/remoteapp/).
+- Iscriversi a RemoteApp. È possibile effettuare tale iscrizione all'indirizzo [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Raccogliere informazioni sugli utenti a cui concedere l'accesso. Le informazioni possono essere relative all'account Microsoft o all'account di lavoro Active Directory per gli utenti.
 - Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **Carica un'immagine modello** e seguire i passaggi della procedura guidata. 
-- Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine modello personalizzata](http://azure.microsoft.com/it-it/documentation/articles/remoteapp-create-custom-image/) e usarla nella distribuzione cloud.
+- Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine modello personalizzata](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) e usarla nella distribuzione cloud.
 
 ## **Passaggio 1: Creare una raccolta RemoteApp** ##
 
@@ -36,7 +50,7 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 4. Scegliere il piano che da usare: standard o di base.
 5. Scegliere il modello da usare per questa raccolta. 
 
-	**Suggerimento:** la sottoscrizione a RemoteApp viene fornita con [immagini modello](http://azure.microsoft.com/it-it/documentation/articles/remoteapp-images/) che contengono Office 365 o programmi di Office 2013 (per l'uso in valutazione), alcuni pubblicati (ad esempio Word) e altri pronti per la pubblicazione. È anche possibile creare una nuova [immagine modello personalizzata](http://azure.microsoft.com/it-it/documentation/articles/remoteapp-create-custom-image/) e usarla nella raccolta nel cloud.
+	**Suggerimento:** la sottoscrizione a RemoteApp viene fornita con [immagini modello](http://azure.microsoft.com/documentation/articles/remoteapp-images/) che contengono Office 365 o programmi di Office 2013 (per l'uso in valutazione), alcuni pubblicati (ad esempio Word) e altri pronti per la pubblicazione. È anche possibile creare una nuova [immagine modello personalizzata](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) e usarla nella raccolta nel cloud.
 
 
 1. Fare clic su **Crea raccolta RemoteApp**.
@@ -48,7 +62,7 @@ Dopo la creazione del servizio RemoteApp, passare alla pagina **Avvio rapido** p
 
 ## **Passaggio 2: Configurare la sincronizzazione della directory (facoltativo)** ##
 
-Se si vuole usare Active Directory, RemoteApp richiede la sincronizzazione della directory tra Azure Active Directory e l'istanza locale di Active Directory in modo da sincronizzare utenti, contatti e password con il tenant di Azure Active Directory. Per informazioni sulla pianificazione, vedere la pagina relativa alla [configurazione di Active Directory per Azure RemoteApp](http://azure.microsoft.com/it-it/documentation/articles/remoteapp-ad/).
+Se si vuole usare Active Directory, RemoteApp richiede la sincronizzazione della directory tra Azure Active Directory e l'istanza locale di Active Directory in modo da sincronizzare utenti, contatti e password con il tenant di Azure Active Directory. Per informazioni sulla pianificazione, vedere la pagina relativa alla [configurazione di Active Directory per Azure RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/).
 
 ## **Passaggio 3: Pubblicare app di RemoteApp** ##
 
@@ -80,3 +94,5 @@ La procedura è stata completata e la raccolta RemoteApp nel cloud è stata crea
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

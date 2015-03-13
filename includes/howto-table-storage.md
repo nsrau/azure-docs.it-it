@@ -19,7 +19,7 @@ Il servizio tabelle contiene i componenti seguenti:
     http://`<storage account>`.table.core.windows.net/`<table>`     
     È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][]
 
--   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/dn249410.aspx).
+-   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/dn249410.aspx).
 
 -   **Tabella**: una tabella è una raccolta di entità. Le tabelle non impongono uno schema sulle entità, pertanto una singola tabella può contenere entità che presentano set di proprietà diversi. Il numero di tabelle che un 
 	account di archiviazione può contenere è limitato solo in base al limite di capacità dell'account di archiviazione.
@@ -32,4 +32,4 @@ Il servizio tabelle contiene i componenti seguenti:
   
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-<!--HONumber=41-->
+<!--HONumber=42-->

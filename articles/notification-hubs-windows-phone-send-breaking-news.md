@@ -1,15 +1,29 @@
-<properties pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Phone)" metaKeywords="" description="Informazioni su come usare hub di notifica di Azure per inserire tag nelle registrazioni per inviare le ultime notizie a un'app di Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Phone)" 
+	description="Usare Hub di notifica di Azure con i tag nelle registrazioni per inviare le ultime notizie a un'app per Windows Phone." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/03/2014" 
+	ms.author="glenga"/>
 
-# Usare Hub di notifica per inviare le ultime notizie
+# Uso di Hub di notifica per inviare le ultime notizie
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/it-it/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Questo argomento descrive come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Windows Phone 8.0/8.1 Silverlight. Se si sviluppano app per Windows Store o Windows Phone 8.1, fare riferimento alla versione [Windows Universal](/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via.
+Questo argomento descrive come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Windows Phone 8.0/8.1 Silverlight. Se si usa un'app Windows Store o Windows Phone 8.1, fare riferimento alla versione [Windows Universal](/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via. 
 
-È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. For more information about tags, refer to [Informazioni aggiuntive su Hub di notifica]. 
+È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per altre informazioni sui tag, vedere le [informazioni aggiuntive su Hub di notifica]. 
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare questo scenario:
 
@@ -20,11 +34,11 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare qu
 
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica].
 
-## <a name="adding-categories"></a>Aggiunta della selezione delle categorie all'app
+##<a name="adding-categories"></a>Aggiungere la selezione delle categorie all'app
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente alla pagina principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag. 
 
-1. Aprire il file di progetto MainPage.xaml e sostituire gli elementi **Grid** denominati `TitlePanel` e `ContentPanel` con il codice seguente:
+1. Aprire il file di progetto MainPage.xaml e sostituire gli elementi **Grid** denominati  `TitlePanel` e  `ContentPanel` con il seguente codice:
 			
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -51,13 +65,13 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
 
-2. Nel progetto creare una nuova classe denominata **Notifications**, aggiungere il modificatore **public** alla definizione della classe e quindi aggiungere le istruzioni **using** seguenti al nuovo file di codice:
+2. Nel progetto creare una nuova classe denominata **Notifications**, aggiungere il modificatore **public** alla definizione della classe e quindi aggiungere le seguenti istruzioni **using** al nuovo file di codice:
 
 		using Microsoft.Phone.Notification;
 		using Microsoft.WindowsAzure.Messaging;
 		using System.IO.IsolatedStorage;
 
-3. Copiare il codice seguente nella nuova classe **Notifications**:
+3. Copiare il seguente codice nella nuova classe **Notifications**:
 
 		private NotificationHub hub;
 
@@ -99,23 +113,21 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     Questa classe usa l'archiviazione locale per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi per effettuare la registrazione per queste categorie.
 
-4. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
+4. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per  *DefaultListenSharedAccessSignature* ottenuta in precedenza.
 
-	<div class="dev-callout"><strong>Nota</strong> 
-		<p>Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.</p>
-	</div> 
+	> [AZURE.NOTE] Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
-4. Nel file di progetto App.xaml.cs aggiungere la proprietà seguente alla classe **App**:
+4. Nel file di progetto App.xaml.cs aggiungere la seguente proprietà alla classe **App**:
 
 		public Notifications notifications = new Notifications();
 
 	Questa proprietà viene usata per creare un'istanza **Notifications** e accedervi.
 
-5. Aggiungere quindi la riga seguente nel file MainPage.xaml.cs:
+5. Aggiungere quindi la seguente riga nel file MainPage.xaml.cs:
 
 		using Windows.UI.Popups;
 
-6. Aggiungere quindi il metodo seguente nel file di progetto MainPage.xaml.cs:
+6. Aggiungere quindi il seguente metodo nel file di progetto MainPage.xaml.cs:
 
 		private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 		{
@@ -136,15 +148,13 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie. 
 
-## <a name="register"></a>Registrarsi per le notifiche
+##<a name="register"></a>Registrarsi per le notifiche
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale. 
 
-<div class="dev-callout"><strong>Nota</strong> 
-	<p>Poiché l'URI di canale assegnato dal Servizio di notifica Push di Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.</p>
-</div>  
+> [AZURE.NOTE] Poiché l'URI di canale assegnato dal Servizio di notifica Push di Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
-1. Aggiungere il codice seguente alla classe **Notifications**:
+1. Aggiungere il seguente codice alla classe **Notifications**:
 
 		public IEnumerable<string> RetrieveCategories()
 		{
@@ -156,13 +166,13 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 
 1. Aprire il file App.xaml.cs file e aggiungere il modificatore **async** al metodo **Application_Launching**.
 
-2. Nel metodo **Application_Launching** individuare e sostituire il codice di registrazione di Hub di notifica aggiunto in [Introduzione ad Hub di notifica] con la riga di codice seguente:
+2. Nel metodo **Application_Launching** individuare e sostituire il codice di registrazione di Hub di notifica aggiunto in [Introduzione ad Hub di notifica] con la seguente riga di codice:
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
 	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per queste categorie. 
 
-3. Nel file di progetto MainPage.xaml.cs aggiungere il codice seguente che implementa il metodo **OnNavigatedTo**:
+3. Nel file di progetto MainPage.xaml.cs aggiungere il seguente codice che implementa il metodo **OnNavigatedTo**:
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
@@ -182,9 +192,9 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 <h2><a name="send"></a>Inviare notifiche dal back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-## <a name="test-app"></a>Eseguire l'app e generare notifiche
+##<a name="test-app"></a>Eseguire l'app e generare notifiche
 
 1. In Visual Studio premere F5 per compilare e avviare l'app.
 
@@ -198,7 +208,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 	![][2]
 
-4. Inviare una nuova notifica dal back-end in uno dei modi seguenti:
+4. Inviare una nuova notifica dal back-end in uno dei seguenti modi:
 
 	+ **App console:** avviare l'app console.
 
@@ -212,13 +222,13 @@ L'argomento è stato completato.
 
 <!--## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione si è appreso a trasmettere le ultime novità per categoria. Per informazioni su altri scenari avanzati di Hub di notifica, provare a completare le esercitazioni seguenti:
+In questa esercitazione si è appreso a trasmettere le ultime novità per categoria. Per informazioni su altri scenari avanzati di Hub di notifica, provare a completare le seguenti esercitazioni:
 
-+ [Usare Hub di notifica per la trasmissione di notizie localizzate]
++ [Uso di Hub di notifica per la trasmissione di notizie localizzate]
 
-	Altre informazioni su come espandere l'app relativa alle ultime novità per abilitare l'invio di notifiche localizzate. 
+	Informazioni su come espandere l'app relativa alle ultime novità per abilitare l'invio di notifiche localizzate. 
 
-+ [Usare hub di notifica per inviare notifiche agli utenti]
++ [Uso di Hub di notifica per inviare notifiche agli utenti]
 
 	Informazioni su come eseguire il push di notifiche a utenti autenticati specifici. Si tratta di un'ottima soluzione per inviare le notifiche solo a determinati utenti.
 -->
@@ -239,10 +249,10 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 <!-- URLs.-->
 [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Usare Hub di notifica per la trasmissione di notizie localizzate]: ./breakingnews-localized-wp8.md 
-[Usare hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users/
+[Uso di Hub di notifica per la trasmissione di notizie localizzate]: ./breakingnews-localized-wp8.md 
+[Uso di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users/
 [Servizio mobile]: /it-it/develop/mobile/tutorials/get-started
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
+[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per Windows Store]: ??
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
@@ -251,4 +261,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

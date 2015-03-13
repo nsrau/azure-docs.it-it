@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="Come usare Cache nel ruolo (.NET) - Guida alle funzionalità di Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Come usare Cache nel ruolo (.NET) - Guida alle funzionalità di Azure" 
+	description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -394,27 +408,29 @@ seguire i collegamenti seguenti per informazioni su come eseguire attività di m
   
 <!-- LINKS -->
 [Configurare le dimensioni dei servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Procedura: configurare un client della cache a livello di codice]: http://msdn.microsoft.com/it-it/library/windowsazure/gg618003.aspx
-[Procedura: impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/it-it/library/z852zf6b.aspx
-[Procedura: impostare la possibilità di inserire una pagina ASP.NET nella cache in modo dichiarativo]: http://msdn.microsoft.com/it-it/library/zd1ysf1y.aspx
+[Procedura: configurare un client della cache a livello di codice]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Procedura: impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Procedura: impostare la possibilità di inserire una pagina ASP.NET nella cache in modo dichiarativo]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Pianificazione della capacità per il Servizio cache gestito di Azure]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Esempi di Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/jj189876.aspx
+[Esempi di Cache nel ruolo]: http://msdn.microsoft.com/library/jj189876.aspx
 [Cache nel ruolo]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Cache nel ruolo]: http://www.microsoft.com/it-it/showcase/Search.aspx?phrase=azure+caching
 [come ottenere le massime prestazioni accelerando le applicazioni di Servizi cloud con Cache di Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Eseguire la migrazione a Cache nel ruolo per Cache di Azure]: http://msdn.microsoft.com/it-it/library/hh914163.aspx
+[Eseguire la migrazione a Cache nel ruolo per Cache di Azure]: http://msdn.microsoft.com/library/hh914163.aspx
 [Installazione di gestione pacchetti NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Provider di cache di output per Cache di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185662.aspx
+[Provider di cache di output per Cache di Azure]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Direttiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Panoramica di Cache nel ruolo]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Provider di stato della sessione per Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185668.aspx
-[Provider di stato della sessione per Cache di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg185668.aspx
+[Provider di stato della sessione per Cache nel ruolo]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Provider di stato della sessione per Cache di Azure]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog del team]: http://blogs.msdn.com/b/windowsazure/
-[Diagnostica e risoluzione dei problemi di Cache nel ruolo]: http://msdn.microsoft.com/it-it/library/windowsazure/hh914135.aspx
+[Diagnostica e risoluzione dei problemi di Cache nel ruolo]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Cache di Azure AppFabric: stato della sessione di memorizzazione nella cache]: http://www.microsoft.com/it-it/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Portale di gestione di Azure]: http://windows.azure.com/
-[Memorizzazione nella cache condivisa di Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg278356.aspx
+[Memorizzazione nella cache condivisa di Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/it-it/library/azure/dn766201.aspx
+[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

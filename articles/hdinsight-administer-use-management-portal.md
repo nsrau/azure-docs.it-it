@@ -229,15 +229,15 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-support]: http://azure.microsoft.com/it-it/support/options/
-[makecert-info]: http://msdn.microsoft.com/it-it/library/bfsktky3(v=vs.110).aspx
+[hdinsight-support]: http://azure.microsoft.com/support/options/
+[makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hadoop-command-reference]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html
@@ -247,5 +247,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
-
 <!--HONumber=42-->

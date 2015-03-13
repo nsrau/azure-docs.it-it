@@ -1,4 +1,4 @@
-Per usare questa e le altre nuove funzionalità di Azure, effettuare l'iscrizione per l'[anteprima gratuita](https://account.windowsazure.com/PreviewFeatures).
+﻿Per usare questa e le altre nuove funzionalità di Azure, eseguire l'iscrizione per l'[anteprima gratuita](https://account.windowsazure.com/PreviewFeatures).
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

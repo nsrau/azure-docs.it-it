@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="Informazioni su Azure Active Directory" metaKeywords="" description="Usare Azure Active Directory per estendere le identità locali esistenti nel cloud per una migliore esperienza di amministrazione e degli utenti finali, mentre Microsoft mantiene Active Directory in esecuzione nel cloud con scalabilità e disponibilità elevate e il ripristino di emergenza integrato. In alternativa, sviluppare applicazioni Azure AD integrate per l'organizzazione o per altre organizzazioni." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+<properties 
+	pageTitle="Informazioni su Azure Active Directory" 
+	description="Usare Azure Active Directory per estendere le identità locali esistenti nel cloud per una migliore esperienza di amministrazione e degli utenti finali, mentre Microsoft mantiene Active Directory in esecuzione nel cloud con scalabilità e disponibilità elevate e il ripristino di emergenza integrato. In alternativa, sviluppare applicazioni Azure AD integrate per l'organizzazione o per altre organizzazioni." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
 
 
 
@@ -28,3 +42,5 @@ Gli sviluppatori di applicazioni possono integrare le applicazioni con Azure AD 
 * [Iscrizione ad Azure come organizzazione](/it-it/manage/services/identity/organizational-account/)
 * [Identità di Azure](/it-it/manage/windows/fundamentals/identity/)
 * [Documentazione di Azure AD su MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

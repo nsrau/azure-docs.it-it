@@ -36,14 +36,14 @@ Contenuto dell'esercitazione:
 In Azure una macchina virtuale è un server disponibile nel cloud che è possibile controllare e gestire. Dopo aver creato una macchina virtuale in Azure, è possibile eliminarla e ricrearla ogni volta che è necessario ed è possibile accedervi con le stesse modalità con cui si accederebbe a un server nel proprio ufficio. Per creare una macchina virtuale, vengono usati file VHD (Virtual Hard Disk, disco rigido virtuale). Per una macchina virtuale, vengono usati i seguenti tipi di dischi rigidi virtuali:
 
 - **Immagine** - Un disco rigido virtuale usato come modello per creare una nuova macchina virtuale. Un'immagine è un modello perché non dispone di impostazioni specifiche come nel caso di una macchina virtuale in esecuzione, ad esempio il nome del computer e le impostazioni dell'account utente. Se si crea una macchina virtuale usando un'immagine, viene creato automaticamente un disco del sistema operativo per la nuova macchina.
-- **Disco** - Per disco si intende un disco rigido virtuale che è possibile avviare e montare come versione in esecuzione di un sistema operativo. Una volta eseguito il provisioning, un'immagine diventa un disco. Viene sempre creato un disco quando si usa un'immagine per creare una macchina virtuale. Qualsiasi disco rigido virtuale collegato all'hardware virtualizzato e in esecuzione come parte di un servizio è un disco.
+- **Disco** - Un disco rigido virtuale che è possibile avviare e montare come versione in esecuzione di un sistema operativo. Una volta eseguito il provisioning, un'immagine diventa un disco. Viene sempre creato un disco quando si usa un'immagine per creare una macchina virtuale. Qualsiasi disco rigido virtuale collegato all'hardware virtualizzato e in esecuzione come parte di un servizio è un disco.
 
 Per la creazione di una macchina virtuale tramite immagini sono disponibili le opzioni seguenti:
 
 - Creare una macchina virtuale usando un'immagine fornita nella raccolta immagini del portale di gestione di Azure.
 - Creare e caricare in Azure un file .vhd contenente un'immagine, quindi creare una macchina virtuale usando l'immagine. Per altre informazioni sulla creazione e il caricamento di un'immagine personalizzata, vedere [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](/it-it/manage/linux/common-tasks/upload-a-vhd/).
 
-Ogni macchina virtuale risiede in un servizio cloud, da sola oppure insieme ad altre macchine virtuali. È possibile inserire le macchine virtuali nello stesso servizio cloud per consentire loro di comunicare, per bilanciare il carico del traffico di rete tra le macchine virtuali e per garantire una disponibilità elevata delle macchine. Per altre informazioni sui servizi cloud e sulle macchine virtuali, vedere la sezione relativa ai modelli di esecuzione in [Introduzione ad Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
+Ogni macchina virtuale risiede in un servizio cloud, da sola oppure insieme ad altre macchine virtuali. È possibile inserire le macchine virtuali nello stesso servizio cloud per consentire loro di comunicare, per bilanciare il carico del traffico di rete tra le macchine virtuali e per garantire una disponibilità elevata delle macchine. Per altre informazioni sui servizi cloud e sulle macchine virtuali, vedere la sezione relativa ai modelli di esecuzione nell'[introduzione ad Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
 
 ## <a id="custommachine"> </a>Come creare la macchina virtuale ##
 
@@ -74,4 +74,7 @@ Per altre informazioni su Linux in Azure, vedere gli articoli seguenti:
 [Come accedere alla macchina virtuale dopo averla creata]: #logon
 [Come collegare un disco dati alla nuova macchina virtuale]: #attachdisk
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

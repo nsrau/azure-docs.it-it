@@ -1,15 +1,29 @@
-<properties urlDisplayName="Breaking News" pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android" metaKeywords="" description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android" 
+	description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android." 
+	services="notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="ricksal"/>
 
 
-# Utilizzo di Hub di notifica per inviare le ultime notizie
+# Uso di Hub di notifica per inviare le ultime notizie
 <div class="dev-center-tutorial-selector sublanding">     	
 	<a href="/it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/it-it/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
 	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
-In questo argomento viene illustrato come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Android. Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via. 
+Questo argomento illustra come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Android. Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app che prevedono l'invio di notifiche a gruppi di utenti che hanno in precedenza manifestato il proprio interesse verso tali app, ad esempio lettori di feed RSS, app per fan di musica e così via. 
 
 È possibile abilitare gli scenari di trasmissione includendo uno o più _tags_ durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per altre informazioni sui tag, vedere le [informazioni aggiuntive su Hub di notifica]. 
 
@@ -22,7 +36,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare qu
 
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
-## <a name="adding-categories"></a>Aggiunta della selezione delle categorie all'app
+##<a name="adding-categories"></a>Aggiungere la selezione delle categorie all'app
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag. 
 
@@ -76,7 +90,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 			        android:text="@string/button_subscribe" />
 		</LinearLayout>
 
-2. Aprire il file res/values/strings.xml e aggiungere le righe seguenti:
+2. Aprire il file res/values/strings.xml e aggiungere le seguenti righe:
 
 	    <string name="button_subscribe">Subscribe</string>
 	    <string name="label_world">World</string>
@@ -153,11 +167,9 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 	Questa classe usa l'archiviazione locale per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi per effettuare la registrazione per queste categorie.
 
-4. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
+4. Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per  *DefaultListenSharedAccessSignature* ottenuta in precedenza.
 
-	<div class="dev-callout"><strong>Nota</strong> 
-		<p>Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.</p>
-	</div> 
+	> [AZURE.NOTE] Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
 4. Nella classe **MainActivity** rimuovere i campi privati per **NotificationHub** e **GoogleCloudMessaging** e aggiungere un campo per **Notifications**:
 
@@ -165,7 +177,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 		// private NotificationHub hub;
 		private Notifications notifications;
  
-5. A questo punto, nel metodo **onCreate** rimuovere l'inizializzazione del campo **hub** e il metodo **registerWithNotificationHubs**. Aggiungere quindi le righe seguenti, che inizializzano un'istanza della classe **Notifications**. Il metodo deve contenere le righe seguenti:
+5. A questo punto, nel metodo **onCreate** rimuovere l'inizializzazione del campo **hub** e il metodo **registerWithNotificationHubs**. Aggiungere quindi le seguenti righe, che inizializzano un'istanza della classe **Notifications**. Il metodo deve contenere le seguenti righe:
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +190,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 			notifications = new Notifications(this, SENDER_ID);
 		}
 
-6. Aggiungere quindi il metodo seguente:
+6. Aggiungere quindi il seguente metodo:
 	
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
@@ -209,15 +221,13 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie. 
 
-## <a name="register"></a>Registrazione per le notifiche
+##<a name="register"></a>Registrarsi per le notifiche
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale. 
 
-<div class="dev-callout"><strong>Nota</strong> 
-	<p>Poiché il valore di registrationId assegnato da Google Cloud Messaging (GCM) può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.</p>
-</div> 
+> [AZURE.NOTE] Poiché il valore di registrationId assegnato da Google Cloud Messaging (GCM) può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
-1. Aggiungere il codice seguente alla classe **Notifications**:
+1. Aggiungere il seguente codice alla classe **Notifications**:
 
 		public Set<String> retrieveCategories() {
 			SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
@@ -232,7 +242,7 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 
 	In questo modo, ogni volta che l'app viene avviata vengono recuperate le categorie dall'archiviazione locale e viene richiesta una registrazione per queste categorie. Il metodo **InitNotificationsAsync** è stato creato nell'ambito dell'esercitazione [Introduzione ad Hub di notifica], ma non è necessario in questo argomento.
 
-3. Aggiungere quindi il metodo seguente a **MainActivity**:
+3. Aggiungere quindi il seguente metodo a **MainActivity**:
 
 		@Override
 		protected void onStart() {
@@ -260,9 +270,9 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 <h2><a name="send"></a>Inviare notifiche dal back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-## <a name="test-app"></a>Esecuzione dell'app e generazione di notifiche
+##<a name="test-app"></a>Eseguire l'app e generare notifiche
 
 1. In Eclipse compilare l'app e avviarla in un dispositivo o emulatore.
 	
@@ -272,7 +282,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 	L'app converte le categorie selezionate in tag e richiede una nuova registrazione del dispositivo per i tag selezionati dall'hub di notifica. Le categorie registrate vengono restituite e visualizzate in una finestra di dialogo.
 
-4. Inviare una nuova notifica dal back-end in uno dei modi seguenti:
+4. Inviare una nuova notifica dal back-end in uno dei seguenti modi:
 
 	+ **App console .NET:** avviare l'app console.
 
@@ -282,13 +292,13 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione si è appreso a trasmettere le ultime novità per categoria. Per informazioni su altri scenari avanzati di Hub di notifica, provare a completare le esercitazioni seguenti:
+In questa esercitazione si è appreso a trasmettere le ultime novità per categoria. Per informazioni su altri scenari avanzati di Hub di notifica, provare a completare le seguenti esercitazioni:
 
-+ [Usare Hub di notifica per la trasmissione di notizie localizzate]
++ [Uso di Hub di notifica per la trasmissione di notizie localizzate]
 
-	Altre informazioni su come espandere l'app relativa alle ultime novità per abilitare l'invio di notifiche localizzate. 
+	Informazioni su come espandere l'app relativa alle ultime novità per abilitare l'invio di notifiche localizzate. 
 
-+ [Usare hub di notifica per inviare notifiche agli utenti]
++ [Uso di Hub di notifica per inviare notifiche agli utenti]
 
 	Informazioni su come eseguire il push di notifiche a utenti autenticati specifici. Si tratta di un'ottima soluzione per inviare le notifiche solo a determinati utenti.
 
@@ -305,11 +315,11 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 <!-- URLs.-->
 [get-started]: /it-it/documentation/articles/notification-hubs-android-get-started/
-[Usare Hub di notifica per la trasmissione di notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
-[Usare hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users
+[Uso di Hub di notifica per la trasmissione di notizie localizzate]: /it-it/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
+[Uso di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users
 [Servizio mobile]: /it-it/develop/mobile/tutorials/get-started/
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/it-it/library/jj927170.aspx
-[Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/it-it/library/jj927172.aspx
+[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -317,4 +327,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

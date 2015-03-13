@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito" metaKeywords="" description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito" 
+	description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 Questa esercitazione descrive le procedure da seguire per creare una rete virtuale cross-premise di esempio con una connessione da sito a sito. 
 
-Se si desidera creare una rete virtuale solo cloud, vedere [Esercitazione: Creare una rete virtuale solo cloud in Azure](http://azure.microsoft.com/it-it/documentation/articles/create-virtual-network/). Se si desidera creare una rete VPN da punto a sito usando certificati e un client VPN, vedere [Configurare una VPN da punto a sito usando la procedura guidata del portale di gestione](http://go.microsoft.com/fwlink/?LinkId=296653).
+Se si desidera creare una rete virtuale solo cloud, vedere [Esercitazione: Creare una rete virtuale solo cloud in Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). Se si desidera creare una rete VPN da punto a sito usando certificati e un client VPN, vedere [Configurare una VPN da punto a sito usando la procedura guidata del portale di gestione](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. L'utente avrà quindi la possibilità di acquisire familiarità con le procedure necessarie per creare una rete virtuale cross-premise di esempio. Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere le [informazioni generali su Rete virtuale di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx).
+In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. L'utente avrà quindi la possibilità di acquisire familiarità con le procedure necessarie per creare una rete virtuale cross-premise di esempio. Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere le [informazioni generali su Rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 Al termine di questa esercitazione, si disporrà di una rete virtuale cross-premise di esempio. La figura seguente mostra i dettagli, in base alle impostazioni di esempio in questa esercitazione.
 
@@ -28,7 +42,7 @@ Per informazioni su come aggiungere una macchina virtuale ed estendere Active Di
 
 -  [Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Per le linee guida sulla distribuzione di Servizi di dominio Active Directory in Macchine virtuali di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in Macchine virtuali di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx).
+Per le linee guida sulla distribuzione di Servizi di dominio Active Directory in Macchine virtuali di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -42,7 +56,7 @@ In questa esercitazione si apprenderà come:
 
 ##  Prerequisiti
 
--  Account Microsoft con almeno una sottoscrizione di Azure valida attiva.  Se non si dispone di una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). Se si ha un abbonamento a MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/).
+-  Account Microsoft con almeno una sottoscrizione di Azure valida attiva.  Se non si dispone di una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). Se si ha un abbonamento a MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 Se si intende usare questa esercitazione per configurare una rete virtuale cross-premise funzionante e personalizzata per la propria organizzazione, sono previsti i seguenti prerequisiti:
 
@@ -103,7 +117,7 @@ Per creare una rete virtuale di esempio per la connessione a una rete aziendale:
 
 	-  **NOME:** per l'esempio in questa esercitazione digitare **YourCorpHQ**.
 
-	-  **INDIRIZZO IP DISPOSITIVO VPN:** per l'esempio in questa esercitazione, digitare **3.2.1.1**. Altrimenti, immettere l'indirizzo IP pubblico del dispositivo VPN. Se non si dispone di questa informazione, sarà necessario ottenerla prima di passare alle fasi successive della procedura guidata. Si noti che il dispositivo VPN non può essere protetto tramite NAT. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://msdn.microsoft.com/it-it/library/windowsazure/jj156075.aspx).
+	-  **INDIRIZZO IP DISPOSITIVO VPN:** per l'esempio in questa esercitazione, digitare **3.2.1.1**. Altrimenti, immettere l'indirizzo IP pubblico del dispositivo VPN. Se non si dispone di questa informazione, sarà necessario ottenerla prima di passare alle fasi successive della procedura guidata. Si noti che il dispositivo VPN non può essere protetto tramite NAT. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx).
 
 	-  **SPAZIO DI INDIRIZZI:** per l'esempio in questa esercitazione digitare **10.1.0.0/16**.
 	-  **Aggiungi spazio di indirizzi:** per questa esercitazione non è richiesto uno spazio di indirizzi aggiuntivo.
@@ -244,15 +258,15 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 
 ## Vedere anche
 
--  [Rete virtuale di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx)
+-  [Rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [Domande frequenti su Rete virtuale](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configurare una rete virtuale usando file di configurazione di rete](http://msdn.microsoft.com/it-it/library/windowsazure/jj156097.aspx)
+-  [Configurare una rete virtuale usando file di configurazione di rete](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Aggiungere una macchina virtuale a Rete virtuale](http://www.windowsazure.com/it-it/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Aggiungere una macchina virtuale a Rete virtuale](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Informazioni sui dispositivi VPN per Rete virtuale](http://msdn.microsoft.com/it-it/library/windowsazure/jj156075.aspx)
+-  [Informazioni sui dispositivi VPN per Rete virtuale](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [Panoramica sulla risoluzione dei nomi di Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 
 
 
+
+<!--HONumber=46--> 

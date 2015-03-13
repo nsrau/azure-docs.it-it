@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introduzione a Gestione API di Azure" metaKeywords="" description="Informazioni su come creare API e operazioni e su come iniziare a usare Gestione API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introduzione a Gestione API di Azure" 
+	description="Informazioni su come creare API e operazioni e su come iniziare a usare Gestione API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Introduzione a Gestione API di Azure
 
@@ -156,7 +170,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 -   Personalizzare il portale per sviluppatori
 -   Tenere traccia delle chiamate usando Controllo API
 
-[Versione di valutazione gratuita di Azure]: http://www.windowsazure.com/it-it/pricing/free-trial/
+[Versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/
 
 [Creare un'istanza di Gestione API]: #create-service-instance
 [Creare un'API]: #create-api
@@ -203,3 +217,5 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

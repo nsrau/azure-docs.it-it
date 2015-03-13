@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Gestire un'area di lavoro di Machine Learning | Azure" description="Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestire un'area di lavoro di Machine Learning | Azure" 
+	description="Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="garye"/>
 
 
 # Gestire un'area di lavoro di Machine Learning di Azure 
@@ -27,3 +41,5 @@ Per informazioni su come distribuire i servizi Web di produzione, vedere il coll
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
+<!--HONumber=46--> 

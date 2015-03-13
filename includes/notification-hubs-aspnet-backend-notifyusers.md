@@ -1,19 +1,19 @@
 ﻿## Creare il progetto di API Web
 
-Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autenticare i client e generare le notifiche o modificare un back-end esistente da progetti precedenti o dall'esercitazione [Inviare notifiche push agli utenti autenticati](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autenticare i client e generare le notifiche o modificare un back-end esistente da progetti precedenti o dall'esercitazione [Inviare notifiche push agli utenti autenticati](http://azure.microsoft.com/ documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
 
 > [AZURE.NOTE] **Importante**: prima di procedere con l'esercitazione, verificare di aver installato l'ultima versione di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Nel menu **Strumenti** fare clic su **Estensioni e aggiornamenti**. Cercare **Gestione pacchetti NuGet per Visual Studio 2013** e verificare che sia installata la versione 2.8.50313.46 o successiva. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
 > 
 > ![][4]
 
-> [AZURE.NOTE] Assicurarsi che sia installato Visual Studio [Azure SDK](http://azure.microsoft.com/it-it/downloads/) per la distribuzione del sito Web.
+> [AZURE.NOTE] Assicurarsi che sia installato Visual Studio [Azure SDK](http://azure.microsoft.com/ downloads/) per la distribuzione del sito Web.
 
 1. Avviare Visual Studio o Visual Studio Express.
 2. In Visual Studio fare clic su **File**, su **Nuovo** e quindi su **Progetto**, espandere **Modelli**, **Visual C#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**. 
 	
 	![][1]
 
-3. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **API Web** e quindi su **OK**.
+3. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **API Web**, quindi su **OK**.
 
 	![][2]
 
@@ -33,11 +33,11 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 	![][6]
 
-9. In Notifications.cs aggiungere l'istruzione  `using` all'inizio del file:
+9. In Notifications.cs aggiungere l'istruzione `using` all'inizio del file:
 
         using Microsoft.ServiceBus.Notifications;
 
-10. Sostituire la definizione della classe  `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)):
+10. Sostituire la definizione della classe `Notifications` con il seguente codice e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -52,7 +52,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 11. Verrà quindi creata una nuova classe **AuthenticationTestHandler.cs**. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, quindi scegliere **Aggiungi** e infine **Classe**. Assegnare alla nuova classe il nome **AuthenticationTestHandler.cs**, quindi fare clic su **Aggiungi** per generarla. Questa classe viene usata per autenticare gli utenti mediante l' *Basic Authentication*. Tenere presente che l'app può usare qualsiasi schema di autenticazione.
 
-12. In AuthenticationTestHandler.cs aggiungere le istruzioni `using` seguenti:
+12. In AuthenticationTestHandler.cs aggiungere le seguenti istruzioni `using`:
 
         using System.Net.Http;
         using System.Threading.Tasks;
@@ -61,7 +61,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
         using System.Security.Principal;
         using System.Net;
 
-13. In AuthenticationTestHandler.cs sostituire la classe `AuthenticationTestHandler` con il codice seguente:
+13. In AuthenticationTestHandler.cs sostituire la classe `AuthenticationTestHandler` con il seguente codice:
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -112,7 +112,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 	> [AZURE.NOTE] **Nota sulla sicurezza**: la classe `AuthenticationTestHandler` non fornisce un'effettiva autenticazione. Viene usata solo per imitare l'autenticazione di base e non è sicura. È necessario implementare un meccanismo di autenticazione sicuro nelle applicazioni e nei servizi di produzione.				
 
-14. Aggiungere il codice seguente alla fine del metodo `Register` nella classe **App_Start/WebApiConfig.cs**:
+14. Aggiungere il seguente codice alla fine del metodo `Register` nella classe **App_Start/WebApiConfig.cs**:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -122,7 +122,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 	![][8]
 
-16. In RegisterController.cs aggiungere le istruzioni `using` seguenti:
+16. In RegisterController.cs aggiungere le seguenti istruzioni `using`:
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +130,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Aggiungere il codice seguente all'interno della definizione della classe `RegisterController`. Notare che in questo codice è stato aggiunto il tag per l'utente autenticato dal gestore. È anche possibile aggiungere controlli facoltativi per verificare che l'utente disponga dei diritti per la registrazione per i tag richiesti.
+17. Aggiungere il seguente codice all'interno della definizione della classe `RegisterController`. Notare che in questo codice è stato aggiunto il tag per l'utente autenticato dal gestore. È anche possibile aggiungere controlli facoltativi per verificare che l'utente disponga dei diritti per la registrazione per i tag richiesti.
 
 		private NotificationHubClient hub;
 
@@ -237,13 +237,13 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 18. Creare un nuovo controller **NotificationsController**, seguendo la procedura per la creazione di **RegisterController**. Questo componente espone un metodo per il recupero sicuro della notifica da parte del dispositivo e fornisce un metodo che consente all'utente di avviare un'operazione di push sicuro ai dispositivi. Notare che a Hub di notifica verrà inviata una notifica non elaborata, che contiene solo l'ID della notifica senza alcun messaggio.
 
-19. In NotificationsController.cs aggiungere le istruzioni `using` seguenti:
+19. In NotificationsController.cs aggiungere le seguenti istruzioni `using`:
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. Aggiungere il codice seguente all'interno della definizione della classe **NotificationsController** e assicurarsi di impostare come commento i frammenti di codice relativi alle piattaforme che non si stanno usando.
+20. Aggiungere il seguente codice all'interno della definizione della classe **NotificationsController** e assicurarsi di impostare come commento i frammenti di codice relativi alle piattaforme che non si stanno usando.
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -299,4 +299,4 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

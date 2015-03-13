@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Farm di SharePoint Server" 
 	description="Descrive la nuova funzionalità Farm di SharePoint Server disponibile nel portale di anteprima di Azure." 
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="1/26/2015" 
 	ms.author="josephd"/>
 
-# Farm di SharePoint Server #
+#Farm di SharePoint Server#
 
 Farm di SharePoint Server è una funzionalità del portale di anteprima di Microsoft Azure che crea automaticamente una farm di SharePoint Server 2013 preconfigurata. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
 
@@ -34,11 +34,11 @@ La farm di SharePoint a disponibilità elevata è costituita da nove macchine vi
  
 Per le informazioni di configurazione dettagliate di entrambe queste farm, vedere [Dettagli di configurazione della farm di SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
-## Procedura per la configurazione ##
+##Procedura per la configurazione##
 
 Per creare la farm di SharePoint con il modello Farm di SharePoint Server, eseguire le operazioni seguenti:
 
-1. Nel [portale di anteprima di Microsoft Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Farm di SharePoint Server**.
+1. Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Farm di SharePoint Server**.
 2. Nel riquadro **Crea una farm di SharePoint** digitare il nome di un gruppo di risorse.
 3. Digitare il nome utente e la password per l'account amministratore locale in ogni macchina virtuale della farm. Scegliere un nome e una password difficili da indovinare e trascriverli in un luogo sicuro.
 4. Per abilitare la farm con disponibilità elevata, fare clic su **Abilita disponibilità elevata**.
@@ -49,7 +49,7 @@ Per creare la farm di SharePoint con il modello Farm di SharePoint Server, esegu
 9. Per specificare la sottoscrizione, fare clic sulla freccia.
 10. Al termine dell'operazione, scegliere **Crea**.
 
-## Eseguire l'accesso e gestire le farm di SharePoint ##
+##Eseguire l'accesso e gestire le farm di SharePoint##
 
 Le farm di SharePoint includono un endpoint preconfigurato per consentire il traffico Web non autenticato (porta TCP 80) al server Web SharePoint per un computer client connesso a Internet. Questo endpoint indirizza a un sito del team preconfigurato. Per accedere al sito del team, eseguire le operazioni seguenti:
 
@@ -79,14 +79,15 @@ Note:
 - È possibile amministrare questi server tramite connessioni Desktop remoto.
 
 
-## Gestione risorse di Azure ##
+##Gestione risorse di Azure##
 
 La funzionalità Farm di SharePoint Server usa Gestione risorse di Azure e script per creare automaticamente le configurazioni dell'infrastruttura e dei server per le farm di SharePoint. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
-## Risorse aggiuntive
+##Risorse aggiuntive
 
 [SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Configurare una farm Intranet di SharePoint in un cloud ibrido per i test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido a scopo di test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

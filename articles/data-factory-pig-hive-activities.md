@@ -1,6 +1,20 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Usare Pig e Hive con Data factory di Azure" description="Informazioni su come elaborare dati eseguendo script Pig e Hive in un cluster HDInsight di Azure da una data factory di Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Usare Pig e Hive con Data factory di Azure" 
+	description="Informazioni su come elaborare i dati eseguendo script Pig e Hive in un cluster HDInsight di Azure da un'istanza di Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Usare Pig e Hive con Data factory
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. 
@@ -418,3 +432,5 @@ Articolo | Descrizione
 [Portale di Azure]: http://portal.azure.com
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

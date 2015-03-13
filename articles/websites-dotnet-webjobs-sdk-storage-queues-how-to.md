@@ -69,7 +69,7 @@ Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevut
 
 ### Messaggi stringa in coda
 
-Nel seguente esempio la coda contiene un messaggio stringa in modo che l'attributo  `QueueTrigger` venga applicato a un parametro di stringa denominato  `logMessage` che include il contenuto del messaggio di coda. La funzione [scrive un messaggio di log nel dashboard].(#logs).
+Nel seguente esempio la coda contiene un messaggio stringa in modo che l'attributo  `QueueTrigger` venga applicato a un parametro di stringa denominato  `logMessage` che include il contenuto del messaggio di coda. La funzione [scrive un messaggio di log nel dashboard)]#logs).
  
 
 		public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -96,7 +96,7 @@ L'SDK usa il [pacchetto Newtonsoft.Json NuGet](http://www.nuget.org/packages/New
 
 ### Funzioni asincrone
 
-La seguente funzione asincrona [scrive un log nel dashboard].(#logs).
+La seguente funzione asincrona [scrive un log nel dashboard)]#logs).
 
 		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
 		{

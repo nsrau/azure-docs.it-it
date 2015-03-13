@@ -1,6 +1,21 @@
-<properties pageTitle="Introduzione agli hub di notifica push tramite i servizi mobili di runtime .NET" description="Informazioni su come usare i servizi mobili di runtime .NET di Azure e Hub di notifica per inviare notifiche push all'app per Windows Phone." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introduzione agli hub di notifica push tramite i servizi mobili di runtime .NET" 
+	description="Informazioni su come usare i servizi mobili di runtime .NET di Azure e Hub di notifica per inviare notifiche push all'app per Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
@@ -131,7 +146,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
    	![][4]
 
-	>[AZURE.NOTE] In questa esercitazione verrà usato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su <strong>Upload</strong> e selezionando il certificato. Per altre informazioni sulla generazione del certificato, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone</a>.
+	>[AZURE.NOTE] In questa esercitazione verrà usato il Servizio di notifica Push di Microsoft in modalità senza autenticazione. In tale modalità, il Servizio di notifica Push di Microsoft limita il numero di notifiche che è possibile inviare a un canale di dispositivo. Per rimuovere questa restrizione è necessario generare e caricare un certificato facendo clic su <strong>Upload</strong> e selezionando il certificato. Per altre informazioni sulla generazione del certificato, vedere <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configurazione di un servizio Web autenticato per l'invio di notifiche push per Windows Phone</a>.
 
 In questo modo il servizio mobile verrà abilitato per la connessione al Servizio di notifica Push di Microsoft in modalità senza autenticazione per l'invio di notifiche push.
 
@@ -210,7 +225,7 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 
 
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
-[app di Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/it-it/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[app di Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 

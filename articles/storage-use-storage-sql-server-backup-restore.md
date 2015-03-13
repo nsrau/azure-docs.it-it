@@ -44,12 +44,12 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 ## Componenti del servizio di archiviazione BLOB di Azure 
 
 * Account di archiviazione: l'account di archiviazione è il punto di partenza per tutti i servizi di archiviazione. Per accedere a un servizio di archiviazione BLOB di Azure, è innanzitutto necessario creare un account di archiviazione di Azure. Il nome dell'account di archiviazione e le proprietà della relativa chiave di accesso sono elementi necessari per l'autenticazione con il servizio di archiviazione BLOB di Azure e con i relativi componenti. 
-Per altre informazioni sul servizio di archiviazione BLOB di Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure](http://www.windowsazure.com/it-it/develop/net/how-to-guides/blob-storage/)
+Per altre informazioni sul servizio di archiviazione BLOB di Azure, vedere [Come usare il servizio di archiviazione BLOB di Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Contenitore: un contenitore fornisce il raggruppamento di un set di BLOB ed è in grado di archiviare un numero di BLOB illimitato. Per scrivere un backup di SQL Server in un servizio BLOB di Azure, deve prima essere stato creato almeno il contenitore radice. 
 
 * BLOB: file di qualsiasi tipo o dimensione. Vi sono due tipi di BLOB che possono essere archiviati nel servizio di archiviazione BLOB di Azure: BLOB di pagine e BLOB in blocchi.  Il tipo usato per il backup di SQL Server è il BLOB di pagine. I BLOB sono indirizzabili usando il formato di URL seguente: `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/it-it/library/windowsazure/ee691964.aspx)
+Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)
 
 ## Componenti di SQL Server
 
@@ -61,7 +61,7 @@ Di seguito è riportato un esempio di URL che verrebbe specificato in un comando
 <b>Importante</b>
 se si sceglie di copiare e caricare un file di backup nel servizio di archiviazione BLOB di Azure, e si prevede di usarlo per operazioni di ripristino, è necessario usare il tipo di BLOB di pagine. Il comando RESTORE da un tipo di BLOB in blocchi non riuscirà e restituirà un errore. 
 
-* Credenziale: le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale.  Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Nella credenziale viene archiviato il nome dell'account di archiviazione e la relativa chiave di accesso.  Una volta creata la credenziale, è necessario specificarla mediante l'opzione WITH CREDENTIAL quando si eseguono le istruzioni BACKUP e RESTORE. Per altre informazioni su come visualizzare, copiare o rigenerare le chiavi di accesso per un account di archiviazione, vedere [Chiavi di accesso per account di archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/hh531566.aspx).
+* Credenziale: le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale.  Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Nella credenziale viene archiviato il nome dell'account di archiviazione e la relativa chiave di accesso.  Una volta creata la credenziale, è necessario specificarla mediante l'opzione WITH CREDENTIAL quando si eseguono le istruzioni BACKUP e RESTORE. Per altre informazioni su come visualizzare, copiare o rigenerare le chiavi di accesso per un account di archiviazione, vedere [Chiavi di accesso per account di archiviazione](http://msdn.microsoft.com/library/windowsazure/hh531566.aspx).
 Per istruzioni dettagliate su come creare una credenziale di SQL Server, vedere [Introduzione al servizio di archiviazione di Azure per il backup e ripristino di SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
 ## Backup e ripristino di database di SQL Server con BLOB di Azure - Concetti e attività
@@ -82,7 +82,6 @@ Per istruzioni dettagliate su come creare una credenziale di SQL Server, vedere 
 
 
 	
-
 
 
 

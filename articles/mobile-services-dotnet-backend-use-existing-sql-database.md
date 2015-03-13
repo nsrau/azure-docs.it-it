@@ -1,6 +1,20 @@
-<properties pageTitle="Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili - Servizi mobili di Azure" description="Informazioni su come usare un database SQL esistente, locale o in cloud, con il servizio mobile basato su .NET" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili - Servizi mobili di Azure" 
+	description="Informazioni su come usare un database SQL esistente, locale o in cloud, con il servizio mobile basato su .NET" 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili

@@ -1,6 +1,18 @@
-﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web" description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
+<properties 
+	pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web" 
+	description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-27" 
+	ms.author="awills"/>
  
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
 
@@ -192,3 +204,5 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 
 [azurewebtest]: ../insights-create-web-tests/
+
+<!--HONumber=46--> 

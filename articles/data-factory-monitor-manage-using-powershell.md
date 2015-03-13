@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitorare e gestire Data factory di Azure con Azure PowerShell" description="Informazioni su come usare Azure PowerShell per monitorare e gestire le data factory di Azure create." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Monitorare e gestire Data factory di Azure con Azure PowerShell" 
+	description="Informazioni su come usare Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure create." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Monitorare e gestire Data factory di Azure con Azure PowerShell
 La seguente tabella elenca i cmdlet che è possibile usare per monitorare e gestire le istanze di Data factory di Azure con Azure PowerShell. 
@@ -411,3 +425,5 @@ Articolo | Descrizione
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

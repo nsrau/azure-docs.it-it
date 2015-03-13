@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Come delegare la registrazione utente e la sottoscrizione ai prodotti" metaKeywords="" description="Informazioni su come delegare la registrazione dell'utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Come delegare la registrazione utente e la sottoscrizione ai prodotti" 
+	description="Informazioni su come delegare la registrazione dell'utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/14/2015" 
+	ms.author="antonba"/>
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
@@ -150,3 +164,5 @@ I codici di esempio seguenti illustrano come usare la *chiave di convalida della
 [codice di esempio fornito di seguito]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+
+<!--HONumber=46--> 

@@ -51,5 +51,4 @@
    	Si noti che il metodo  `Skip(3)` è stato convertito nell'opzione di query `$skip=3` nell'URI della query.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
-<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride - Servizi mobili di Azure" description="Informazioni su come connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride - Servizi mobili di Azure" 
+	description="Informazioni su come connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride 
@@ -156,9 +170,9 @@ Il servizio mobile ha eseguito il push delle modifiche generate nell'app nel dat
 
 ##Vedere anche##
  
-+ [Sito web delle connessioni ibride](http://azure.microsoft.com/it-it/services/biztalk-services/)
++ [Sito web delle connessioni ibride](http://azure.microsoft.com/services/biztalk-services/)
 + [Panoramica delle connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scala, Configura e Connessione ibrida](http://azure.microsoft.com/it-it/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scala, Configura e Connessione ibrida](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

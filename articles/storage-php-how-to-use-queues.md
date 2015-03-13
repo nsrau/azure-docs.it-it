@@ -126,7 +126,7 @@ Un oggetto **QueueRestProxy**consente di creare una coda usando il metodo **crea
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -157,7 +157,7 @@ Per aggiungere un messaggio a una coda, usare **QueueRestProxy->createMessage**.
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -186,7 +186,7 @@ Per aggiungere un messaggio a una coda, usare **QueueRestProxy->createMessage**.
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -240,7 +240,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -282,7 +282,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -329,7 +329,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -355,7 +355,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -382,7 +382,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/it-it/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -399,6 +399,5 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portale di gestione di Azure]: http://manage.windowsazure.com/
-[Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
-
+[Archiviazione]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 <!--HONumber=42-->

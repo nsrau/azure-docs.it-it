@@ -96,7 +96,7 @@ La sezione "[Appendici]" include informazioni sull'uso di altri strumenti quali 
 
 ## <a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
 
-Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di Archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere <a href="http://msdn.microsoft.com/it-it/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN. È possibile specificare se si desidera che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica</a> su MSDN.
+Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di Archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN. È possibile specificare se si desidera che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica</a> su MSDN.
 
 È possibile scegliere quali metriche orarie visualizzare nel portale di Azure e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure</a>. Il servizio di archiviazione raccoglie le metriche usando l'approccio  migliore, ma è possibile che  non registri tutte le operazioni di archiviazione.
 
@@ -130,7 +130,7 @@ Benché il portale raccolga le informazioni sullo stato dall'interno dei data ce
 
 ### <a name="monitoring-capacity"></a>Monitoraggio della capacità
 
-Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Lo strumento Metriche di archiviazione registra i dati una volta al giorno ed è possibile usare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per altre informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/it-it/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
+Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Lo strumento Metriche di archiviazione registra i dati una volta al giorno ed è possibile usare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per altre informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
 
 > [AZURE.NOTE] È necessario monitorare questi valori per essere avvisati tempestivamente quando si stanno raggiungendo i limiti di capacità dell'account di archiviazione. Nel portale di Azure, nella pagina **Monitoraggio** dell'account di archiviazione, è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui l'archiviazione degli aggregati superi o sia inferiore alle soglie specificate.
 
@@ -140,7 +140,7 @@ Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esem
 
 Per verificare la disponibilità dei servizi di archiviazione nel proprio account di archiviazione, è necessario monitorare il valore della colonna della **disponibilità** nelle tabelle delle metriche orarie o al minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonna della **disponibilità** contiene un valore percentuale che indica la disponibilità del servizio o dell'operazione API rappresentata dalla riga. Il valore **RowKey** indica se la riga contiene metriche per il servizio nel suo insieme o per un'operazione API specifica. 
 
-Tutti i valori inferiori al 100% indicano che alcune richieste di archiviazione hanno esito negativo. È possibile vedere perché le richieste hanno esito negativo esaminando le altre colonne di dati della metrica che indicano il numero di richieste con tipi diversi di errore, ad esempio **ServerTimeoutError**. La **disponibilità** può scendere momentaneamente al di sotto del 100% per diversi motivi, ad esempio per un timeout temporaneo del server mentre il servizio sposta le partizioni per bilanciare meglio il carico della richiesta. La logica di ripetizione dell'applicazione client dovrebbe gestire tali condizioni intermittenti. La pagina <a href="http://msdn.microsoft.com/it-it/library/azure/hh343260.aspx" target="_blank"></a> contiene i tipi di transazione che le metriche di archiviazione includono nel calcolo della **disponibilità**.
+Tutti i valori inferiori al 100% indicano che alcune richieste di archiviazione hanno esito negativo. È possibile vedere perché le richieste hanno esito negativo esaminando le altre colonne di dati della metrica che indicano il numero di richieste con tipi diversi di errore, ad esempio **ServerTimeoutError**. La **disponibilità** può scendere momentaneamente al di sotto del 100% per diversi motivi, ad esempio per un timeout temporaneo del server mentre il servizio sposta le partizioni per bilanciare meglio il carico della richiesta. La logica di ripetizione dell'applicazione client dovrebbe gestire tali condizioni intermittenti. La pagina <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> contiene i tipi di transazione che le metriche di archiviazione includono nel calcolo della **disponibilità**.
 
 Nel portale di Azure, nella pagina **Monitoraggio** dell'account di archiviazione, è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui la **disponibilità** di un servizio scenda al di sotto di una soglia specificata.
 
@@ -199,10 +199,10 @@ Gli utenti dell'applicazione possono notificare gli errori segnalati dall'applic
 
 Le seguenti risorse su MSDN sono utili per l'interpretazione dei codici di errore e di stato correlati all'archiviazione:
 
-- <a href="http://msdn.microsoft.com/it-it/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>
-- <a href="http://msdn.microsoft.com/it-it/library/azure/dd179439.aspx" target="_blank">Codici di errore del servizio BLOB</a>
-- <a href="http://msdn.microsoft.com/it-it/library/azure/dd179446.aspx" target="_blank">Codici di errore del servizio di accodamento</a>
-- <a href="http://msdn.microsoft.com/it-it/library/azure/dd179438.aspx" target="_blank">Codici di errore del servizio tabelle</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Codici di errore del servizio BLOB</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Codici di errore del servizio di accodamento</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Codici di errore del servizio tabelle</a>
 
 ### <a name="storage-emulator-issues"></a>Problemi dell'emulatore di archiviazione
 
@@ -375,7 +375,7 @@ Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare l
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-Controllare i file di log lato client per vedere quante richieste vengono inviate dall'applicazione client e verificare se sono presenti colli di bottiglia delle prestazioni generali di .NET, tra cui CPU, garbage collection, uso della rete o memoria. Come punto di partenza per la risoluzione dei problemi delle applicazioni client .NET, vedere <a href="http://msdn.microsoft.com/it-it/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Debug, traccia e profilatura</a> su MSDN.
+Controllare i file di log lato client per vedere quante richieste vengono inviate dall'applicazione client e verificare se sono presenti colli di bottiglia delle prestazioni generali di .NET, tra cui CPU, garbage collection, uso della rete o memoria. Come punto di partenza per la risoluzione dei problemi delle applicazioni client .NET, vedere <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Debug, traccia e profilatura</a> su MSDN.
 
 #### Analisi dei problemi di latenza di rete
 
@@ -431,7 +431,7 @@ Un aumento di **PercentThrottlingError** spesso si verifica contemporaneamente a
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento temporaneo di PercentThrottlingError
 
-Se si notano picchi del valore di **PercentThrottlingError** che coincidono con periodi di intensa attività dell'applicazione, è necessario implementare una strategia di interruzione esponenziale (non lineare) per le ripetizioni dei tentativi nel client:questa operazione ridurrà il carico immediato sulla partizione e consentirà all'applicazione di contenere i picchi di traffico. Per altre informazioni sulle modalità di implementazione dei criteri di ripetizione con la libreria del client di archiviazione, vedere la sezione relativa allo <a href="http://msdn.microsoft.com/it-it/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">spazio dei nomi Microsoft.WindowsAzure.Storage.RetryPolicies</a> su MSDN.
+Se si notano picchi del valore di **PercentThrottlingError** che coincidono con periodi di intensa attività dell'applicazione, è necessario implementare una strategia di interruzione esponenziale (non lineare) per le ripetizioni dei tentativi nel client:questa operazione ridurrà il carico immediato sulla partizione e consentirà all'applicazione di contenere i picchi di traffico. Per altre informazioni sulle modalità di implementazione dei criteri di ripetizione con la libreria del client di archiviazione, vedere la sezione relativa allo <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">spazio dei nomi Microsoft.WindowsAzure.Storage.RetryPolicies</a> su MSDN.
 
 > [AZURE.NOTE] Si possono verificare anche picchi del valore di **PercentThrottlingError** che non coincidono con periodi di attività intensa dell'applicazione: la causa più probabile è che il servizio di archiviazione sposti le partizioni in modo da migliorare il bilanciamento del carico.
 
@@ -611,7 +611,7 @@ In questo scenario, è necessario verificare perché il token SAS scade prima ch
 - Il parametro della versione nella chiave della firma di accesso condiviso (ad esempio **sv=2012-02-12**) deve corrispondere alla versione della libreria del client di archiviazione in uso. Usare sempre la versione più recente della libreria del client di archiviazione. Per altre informazioni sul controllo della versione del token della firma di accesso condiviso e delle dipendenze nella versione della libreria dei client, vedere <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank"></a>. 
 - Se si rigenerano le chiavi di accesso all'archiviazione (fare clic su **Gestisci chiavi di accesso** in qualsiasi pagina dell'account di archiviazione sul portale di Azure), i token della firma di accesso condiviso già esistenti possono essere invalidati. Questo può essere un problema se si generano token SAS con tempo di scadenza lungo per le applicazioni client da memorizzare nella cache.
 
-Se si usa la libreria del client di archiviazione per generare i token della firma di accesso condiviso, sarà semplice creare un token valido. Tuttavia, se si usa l'API REST di archiviazione e si creano i token della firma di accesso condiviso manualmente, si consiglia di leggere con attenzione l'argomento <a href="http://msdn.microsoft.com/it-it/library/azure/ee395415.aspx" target="_blank">Delega dell'accesso con una firma di accesso condiviso</a> su MSDN.
+Se si usa la libreria del client di archiviazione per generare i token della firma di accesso condiviso, sarà semplice creare un token valido. Tuttavia, se si usa l'API REST di archiviazione e si creano i token della firma di accesso condiviso manualmente, si consiglia di leggere con attenzione l'argomento <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delega dell'accesso con una firma di accesso condiviso</a> su MSDN.
 
 ### <a name="the-client-is-receiving-404-messages"></a>Il client sta ricevendo messaggi HTTP 404 (Non trovato)
 Se l'applicazione client riceve un messaggio HTTP 404 (Non trovato) dal server, significa che l'oggetto che il client sta tentando di usare (ad esempio un oggetto entità, tabella, BLOB, contenitore o coda) non esiste nel servizio di archiviazione. I motivi possono essere diversi, ad esempio:
@@ -893,7 +893,7 @@ Se si usa un client JavaScript e il servizio di archiviazione restituisce messag
 
 Tali errori si verificano perché il browser Web implementa come restrizione di sicurezza la <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">regola della stessa origine</a> che impedisce che una pagina Web esegua una chiamata a un'API in un dominio diverso da quello da cui proviene la pagina. 
 
-Per evitare il problema di JavaScript, è possibile configurare il servizio CORS (Cross Origin Resource Sharing) per il servizio di archiviazione a cui accede il client. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn535601.aspx" target="_blank">Supporto della condivisione delle risorse tra le origini (CORS) per il servizio Archiviazione di Azure</a> su MSDN.
+Per evitare il problema di JavaScript, è possibile configurare il servizio CORS (Cross Origin Resource Sharing) per il servizio di archiviazione a cui accede il client. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/dn535601.aspx" target="_blank">Supporto della condivisione delle risorse tra le origini (CORS) per il servizio Archiviazione di Azure</a> su MSDN.
 
 L'esempio di codice che segue indica come configurare il servizio BLOB per consentire l'esecuzione di JavaScript nel dominio Contoso in modo da poter accedere a un BLOB nel servizio di archiviazione BLOB:
 
@@ -988,7 +988,7 @@ La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite c
 - **ResouceAlreadyExists** (Conflitto 409), ad esempio da un'operazione **CreateIfNotExist** quando la risorsa esiste già.
 - **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale come quando un client invia un valore **ETag** e un'intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
 
-Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina <a href="http://msdn.microsoft.com/it-it/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>. 
+Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>. 
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Le metriche della capacità indicano un aumento imprevisto dell'uso della capacità di archiviazione
 
@@ -999,7 +999,7 @@ Se si riscontrano cambiamenti improvvisi e imprevisti dell'uso della capacità n
 
 Se una macchina virtuale contiene numerosi dischi rigidi virtuali (VHD, Virtual Hard Disk) allegati nello stesso account di archiviazione, è possibile che vengano superati gli obiettivi di scalabilità dell'account di archiviazione determinando un errore della macchina virtuale. Controllare le metriche al minuto per l'account di archiviazione (**TotalRequests**/**TotalIngress**/**TotalEgress**) per verificare se esistono picchi che superino gli obiettivi di scalabilità previsti per un account di archiviazione. Vedere la sezione "[Le metriche indicano un aumento di PercentThrottlingError]" per sapere come si stabilisce se si è verificata una limitazione nell'account di archiviazione. 
 
-In generale, ogni singola operazione di input o output eseguita su un VHD da una macchina virtuale viene trasformata in un'operazione **Get Page** o **Put Page** nel BLOB di pagine sottostante. Di conseguenza, è possibile usare le IOPS previste per l'ambiente per stabilire quanti VHD si possono avere in un singolo account di archiviazione in base al comportamento specifico dell'applicazione. Non è consigliabile usare più di 40 dischi virtuali in un unico account di archiviazione. Vedere <a href="http://msdn.microsoft.com/it-it/library/azure/dn249410.aspx" target="_blank">Obiettivi di scalabilità e prestazioni di Azure</a> per i dettagli relativi agli attuali obiettivi di scalabilità per gli account di archiviazione, in particolare la velocità totale delle richieste e la larghezza di banda totale per il tipo di account di archiviazione in uso. 
+In generale, ogni singola operazione di input o output eseguita su un VHD da una macchina virtuale viene trasformata in un'operazione **Get Page** o **Put Page** nel BLOB di pagine sottostante. Di conseguenza, è possibile usare le IOPS previste per l'ambiente per stabilire quanti VHD si possono avere in un singolo account di archiviazione in base al comportamento specifico dell'applicazione. Non è consigliabile usare più di 40 dischi virtuali in un unico account di archiviazione. Vedere <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Obiettivi di scalabilità e prestazioni di Azure</a> per i dettagli relativi agli attuali obiettivi di scalabilità per gli account di archiviazione, in particolare la velocità totale delle richieste e la larghezza di banda totale per il tipo di account di archiviazione in uso. 
 Se si superano gli obiettivi di scalabilità per il proprio account di archiviazione, sarà necessario inserire i VHD in più account diversi per ridurre l'attività in ogni singolo account.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test
@@ -1012,7 +1012,7 @@ L'emulatore di archiviazione normalmente si usa durante lo sviluppo e i test per
 
 #### <a name="feature-X-is-not-working"></a>La funzionalità "X" non funziona nell'emulatore di archiviazione
 
-L'emulatore di archiviazione non supporta tutte le funzioni del servizio Archiviazione di Azure, ad esempio il servizio file. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/gg433135.aspx" target="_blank">Differenze tra l'emulatore di archiviazione e i servizi di archiviazione di Azure</a> su MSDN.
+L'emulatore di archiviazione non supporta tutte le funzioni del servizio Archiviazione di Azure, ad esempio il servizio file. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/gg433135.aspx" target="_blank">Differenze tra l'emulatore di archiviazione e i servizi di archiviazione di Azure</a> su MSDN.
 
 Per le funzioni non supportate dall'emulatore di archiviazione, usare il servizio Archiviazione di Azure nel cloud.
 
@@ -1028,7 +1028,7 @@ Questa situazione di solito si verifica quando si installa e si usa la versione 
 
 Vengono richieste le credenziali di amministratore quando si esegue l'emulatore di archiviazione. Questo si verifica solo quando si inizializza l'emulatore di archiviazione per la prima volta. Una volta inizializzato l'emulatore di archiviazione, non saranno necessari privilegi amministrativi per eseguirlo di nuovo. 
 
-Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/gg433132.aspx" target="_blank">Inizializzare l'emulatore di archiviazione tramite lo strumento da riga di comando</a> su MSDN. È possibile inizializzare l'emulatore di archiviazione anche in Visual Studio, che richiede comunque privilegi amministrativi.
+Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/gg433132.aspx" target="_blank">Inizializzare l'emulatore di archiviazione tramite lo strumento da riga di comando</a> su MSDN. È possibile inizializzare l'emulatore di archiviazione anche in Visual Studio, che richiede comunque privilegi amministrativi.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Si stanno verificando problemi di installazione di Microsoft Azure SDK per .NET
 
@@ -1122,7 +1122,7 @@ Per configurare una sessione di traccia Web per il traffico HTTP e HTTPS usando 
 
 Quando si è pronti a iniziare a raccogliere i dati di traccia, fare clic sul pulsante **Start With**.
 
-Per altre informazioni sulla traccia **Web Proxy** di Microsoft Message Analyzer, vedere <a href="http://technet.microsoft.com/it-it/library/jj674814.aspx" target="_blank">PEF-WebProxy Provider</a> su TechNet.
+Per altre informazioni sulla traccia **Web Proxy** di Microsoft Message Analyzer, vedere <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy Provider</a> su TechNet.
 
 La traccia **Web Proxy** integrata in Microsoft Message Analyzer è basata su Fiddler ed è in grado di acquisire il traffico HTTPS lato client e di visualizzare i messaggi HTTPS non crittografati. **Web Proxy** funziona mediante la configurazione di un proxy locale per tutto il traffico HTTP e HTTPS che fornisce l'accesso ai messaggi non crittografati.
 
@@ -1138,11 +1138,11 @@ Quando si crea la sessione di traccia in Microsoft Message Analyzer, è possibil
 
 ![][10]
 
-Per altre informazioni sulla traccia Local Link Layer di Microsoft Message Analyzer, vedere l'argomento <a href="http://technet.microsoft.com/it-it/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> su TechNet.
+Per altre informazioni sulla traccia Local Link Layer di Microsoft Message Analyzer, vedere l'argomento <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> su TechNet.
 
 ### <a name="appendix-4"></a>Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log
 
-Molti strumenti consentono di scaricare i dati di Metriche di archiviazione dalle tabelle di archiviazione di Azure in un formato delimitato che semplifica il caricamento dei dati in Excel per la visualizzazione e l'analisi. I dati della registrazione dell'archiviazione provenienti dai BLOB di Azure sono già in un formato delimitato che può essere caricato in Excel. Tuttavia, sarà necessario aggiungere le intestazioni di colonna appropriate in base alle informazioni disponibili in <a href="http://msdn.microsoft.com/it-it/library/hh343259.aspx" target="_blank">Formato del log di Analisi archiviazione</a> e <a href="http://msdn.microsoft.com/it-it/library/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi archiviazione</a>.
+Molti strumenti consentono di scaricare i dati di Metriche di archiviazione dalle tabelle di archiviazione di Azure in un formato delimitato che semplifica il caricamento dei dati in Excel per la visualizzazione e l'analisi. I dati della registrazione dell'archiviazione provenienti dai BLOB di Azure sono già in un formato delimitato che può essere caricato in Excel. Tuttavia, sarà necessario aggiungere le intestazioni di colonna appropriate in base alle informazioni disponibili in <a href="http://msdn.microsoft.com/library/hh343259.aspx" target="_blank">Formato del log di Analisi archiviazione</a> e <a href="http://msdn.microsoft.com/library/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi archiviazione</a>.
 
 Per importare i dati della registrazione dell'archiviazione in Excel dopo il download dall'archiviazione BLOB:
 
@@ -1159,7 +1159,7 @@ Nel passaggio 1 dell'**Importazione guidata testo** selezionare **Punto e virgol
 - Assicurarsi che il servizio Web sia disponibile e reattivo. Sia che l'applicazione sia un sito Web o un'app per dispositivo che usa un servizio Web, è in grado di testare l'URL a intervalli di pochi minuti da postazioni situate in tutto il mondo e indicare se è presente un problema. 
 - Diagnosticare rapidamente eventuali problemi di prestazioni o eccezioni del servizio Web. Sapere se la CPU o altre risorse vengono estese, ricavare analisi dello stack dalle eccezioni ed eseguire facilmente la ricerca delle tracce nei log. Se le prestazioni dell'app scendono al di sotto di limiti accettabili, verrà inviato un messaggio di posta elettronica. L'utente può monitorare i servizi Web sia .NET che Java.
 
-Al momento della redazione di questo documento Application Insights è disponibile in anteprima. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/dn481095.aspx" target="_blank">Application Insights per Visual Studio Online</a>.
+Al momento della redazione di questo documento Application Insights è disponibile in anteprima. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/dn481095.aspx" target="_blank">Application Insights per Visual Studio Online</a>.
 
 
 <!--Anchors-->
@@ -1234,5 +1234,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
 <!--HONumber=42-->

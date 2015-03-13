@@ -137,7 +137,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda]: #advanced-get
   [Procedura: Recuperare la lunghezza della coda]: #get-queue-length
   [Procedura: Eliminare una coda]: #delete-queue
-  [Archiviazione]: http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx
+  [Archiviazione]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

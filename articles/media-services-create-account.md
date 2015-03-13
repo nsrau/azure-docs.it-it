@@ -1,11 +1,26 @@
-<properties pageTitle="Creare un account di Servizi multimediali - Azure" description="Spiega come creare un nuovo account di Servizi multimediali in Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Creare un account di Servizi multimediali - Azure" 
+	description="Spiega come creare un nuovo account di Servizi multimediali in Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
-
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/15/2015" 
+	ms.author="juliako"/>
 
 
 
 # Come creare un account di Servizi multimediali
+
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
 
 Nel portale di gestione di Azure è possibile creare rapidamente un account di Servizi multimediali di Azure. È possibile usare l'account per accedere ai servizi multimediali che consentono di archiviare, crittografare, codificare, gestire e distribuire in streaming contenuti multimediali in Azure. Durante la creazione di un account di Servizi multimediali, viene creato l'account di archiviazione associato (se non si vuole usarne uno esistente) nella stessa area geografica dell'account di Servizi multimediali. 
 
@@ -13,8 +28,8 @@ Questo argomento descrive come usare il metodo di creazione rapida per creare un
 
 ## Sommario
 
--  [Concetti]( #concepts)
--  [Procedura: Creare un account di Servizi multimediali tramite Creazione rapida]( #quick)
+-  [Concetti][]
+-  [Procedura: Creare un account di Servizi multimediali tramite Creazione rapida][]
 
 
 <h2><a id="concepts"></a>Concetti</h2>
@@ -35,7 +50,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 3. In **AREA** selezionare l'area geografica che verrà usata per archiviare i record dei metadati per l'account di Servizi multimediali. Nell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
 
-4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
+4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account per l'archiviazione BLOB dei contenuti multimediali dall'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. 
 
 5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
@@ -43,13 +58,13 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
 
-	Verrà visualizzata la pagina **servizi multimediali** con il nuovo account. Quando lo stato passa a Active, significa che la creazione dell'account è stata completata.
+	Verrà visualizzata la pagina **servizi multimediali** con il nuovo account. Quando lo stato passa ad Attivo, significa che la creazione dell'account è stata completata.
 
 	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Quick Start. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENT.
+	Quando si fa doppio clic sul nome dell'account, per impostazione predefinita viene visualizzata la pagina Avvio rapido. Questa pagina consente di eseguire alcune attività di gestione disponibili anche in altre pagine del portale. È ad esempio possibile caricare un file video sia da questa pagina sia dalla pagina CONTENUTO.
 
-	È inoltre possibile visualizzare il codice usato da Azure Media Services SDK per eseguire le attività seguenti: caricare, codificare e pubblicare video. È possibile fare clic su uno dei collegamenti nella sezione SCRIVI CODICE, copiare il codice  e usarlo nell'applicazione. 
+	È inoltre possibile visualizzare il codice usato dall'SDK di Servizi multimediali di Azure per eseguire le attività seguenti: caricare, codificare e pubblicare video. È inoltre possibile fare clic su uno dei collegamenti disponibili nella sezione SCRIVI CODICE, copiare il codice e usarlo nella propria applicazione. 
 
 
 <!-- Reusable paths. -->
@@ -66,5 +81,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

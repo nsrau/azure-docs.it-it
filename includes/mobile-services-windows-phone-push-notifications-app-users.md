@@ -14,5 +14,4 @@
             RefreshTodoItems();
         }
 
-
 <!--HONumber=42-->

@@ -21,7 +21,7 @@
 La funzionalità di backup e ripristino di Siti Web di Azure consente di creare con facilità backup dei siti Web in modalità manuale o automatica. È possibile ripristinare lo stato precedente di un sito Web oppure creare un nuovo sito Web basato su uno dei backup del sito originale. 
 
 
-Per informazioni sul ripristino di un sito Web di Azure dal backup, vedere [Ripristinare un sito Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-restore/).
+Per informazioni sul ripristino di un sito Web di Azure dal backup, vedere [Ripristinare un sito Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Contenuto dell'articolo
 
@@ -57,7 +57,7 @@ Il backup delle informazioni viene eseguito nell'account di archiviazione di Azu
 <a name="requirements"></a>
 ##Requisiti e restrizioni
 
-* Per usufruire della funzionalità di backup e ripristino è necessario che il sito si trovi in un livello Standard. Per altre informazioni su come scalare il sito Web per passare a un livello Standard, vedere [Come scalare siti Web](http://www.windowsazure.com/it-it/documentation/articles/web-sites-scale/). 
+* Per usufruire della funzionalità di backup e ripristino è necessario che il sito si trovi in un livello Standard. Per altre informazioni su come scalare il sito Web per passare a un livello Standard, vedere [Come scalare siti Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 * Per usufruire della funzionalità di backup e ripristino è necessario un account di archiviazione di Azure che appartenga alla stessa sottoscrizione del sito Web di cui eseguire il backup. Se non si dispone ancora di un account di archiviazione, è possibile crearne uno facendo clic sul pulsante **Archiviazione** (icona griglia) nel riquadro sinistro del portale Azure, quindi scegliere **Nuovo** sulla barra dei comandi nella parte inferiore. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) alla fine di questo articolo.
 
@@ -134,9 +134,9 @@ I nomi dei file ZIP e XML del backup sono composti dal nome del sito Web seguito
 
 Il file XML archiviato con il file ZIP indica il nome del file di database in *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-Il file di backup del database stesso è archiviato nella radice del file .ZIP. Per un database SQL può essere un file BACPAC (nessuna estensione di file) e può essere importato. Per creare un nuovo database SQL basato sull'esportazione BACPAC, attenersi alla procedura riportata nell'articolo relativo all'[importazione di un file BACPAC per creare un nuovo database utente](http://technet.microsoft.com/it-it/library/hh710052.aspx).
+Il file di backup del database stesso è archiviato nella radice del file .ZIP. Per un database SQL può essere un file BACPAC (nessuna estensione di file) e può essere importato. Per creare un nuovo database SQL basato sull'esportazione BACPAC, attenersi alla procedura riportata nell'articolo relativo all'[importazione di un file BACPAC per creare un nuovo database utente](http://technet.microsoft.com/library/hh710052.aspx).
 
-Per informazioni sul ripristino di un sito Web di Azure (inclusi i database) mediante il portale di gestione di Azure, vedere [Ripristinare un sito Web di Microsoft Azure]( http://azure.microsoft.com/it-it/documentation/articles/web-sites-restore/).
+Per informazioni sul ripristino di un sito Web di Azure (inclusi i database) mediante il portale di gestione di Azure, vedere [Ripristinare un sito Web di Microsoft Azure]( http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 > [AZURE.NOTE] La modifica di qualsiasi file nel contenitore **websitebackups** può danneggiare il backup rendendolo non valido e dunque non ripristinabile.
 
@@ -150,19 +150,19 @@ Per informazioni sul ripristino di un sito Web di Azure (inclusi i database) med
 
 <a name="nextsteps"></a>
 ## Passaggi successivi
-Per informazioni sul ripristino di un sito Web di Azure dal backup, vedere [Ripristinare un sito Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-restore/).
+Per informazioni sul ripristino di un sito Web di Azure dal backup, vedere [Ripristinare un sito Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
-Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/it-it/pricing/free-trial/).
+Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### Altre informazioni sugli account di archiviazione
 
-[Informazioni sugli account di archiviazione di Azure](http://www.windowsazure.com/it-it/documentation/articles/storage-whatis-account/)
+[Informazioni sugli account di archiviazione di Azure](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[Procedura: Creare un account di archiviazione](http://www.windowsazure.com/it-it/documentation/articles/storage-create-storage-account/)
+[Procedura: Creare un account di archiviazione](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[Monitorare un account di archiviazione nel portale di gestione di Azure](http://www.windowsazure.com/it-it/documentation/articles/storage-monitor-storage-account/)
+[Monitorare un account di archiviazione nel portale di gestione di Azure](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [Informazioni sulla fatturazione dell'archiviazione di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

@@ -1,7 +1,20 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="Creare un'app Web con Python e Flask tramite DocumentDB | Azure" 
+    description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    ms.service="documentdb" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="02/12/2015" 
+    ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">Creare un'applicazione Web con Python e Flask (MVC) usando DocumentDB</a>
 ===========================================================================================================================================
@@ -473,7 +486,7 @@ menzionati in precedenza
   [fare clic qui]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [Fare clic qui per accedere alle esercitazioni per Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/it-it/products/visual-studio-express-vs.aspx
   [qui]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
@@ -674,7 +687,9 @@ packages as mentioned above)
   [click here]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [Click here to access Flask tutorials]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/it-it/products/visual-studio-express-vs.aspx
   [here]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

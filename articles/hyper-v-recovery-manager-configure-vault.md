@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Introduzione ad Azure Site Recovery: protezione da sito VMM locale a sito VMM locale con replica Hyper-V" metaKeywords="Azure Site Recovery, VMM, cloud, ripristino di emergenza" description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali Hyper-V tra siti VMM locali." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="Esercitazione: Configurare la protezione tra siti VMM locali" 
+	description="Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali Hyper-V tra siti VMM locali." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # Introduzione ad Azure Site Recovery:  protezione da sito VMM locale a sito VMM locale con replica Hyper-V
@@ -241,3 +255,5 @@ Eseguire il test della distribuzione per verificare che il failover delle macchi
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

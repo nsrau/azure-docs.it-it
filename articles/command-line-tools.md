@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Strumenti da riga di comando di Azure per Mac e Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Informazioni sull'uso dello strumento da riga di comando per Mac e Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties 
+	pageTitle="Strumenti da riga di comando di Azure per Mac e Linux" 
+	description="Informazioni sull'uso dello strumento da riga di comando per Mac e Linux in Azure." 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #Strumenti da riga di comando di Azure per Mac e Linux
 
@@ -659,7 +673,7 @@ Per forzare l'eliminazione, usare il parametro `-q`.
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Comandi per la gestione dei certificati di Azure
 
-I certificati di servizio di Azure sono certificati SSL collegati all'account Azure. Per altre informazioni sui certificati di Azure, vedere [Gestione certificati](http://msdn.microsoft.com/it-it/library/azure/gg981929.aspx).
+I certificati di servizio di Azure sono certificati SSL collegati all'account Azure. Per altre informazioni sui certificati di Azure, vedere [Gestione certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [opzioni]**
 
@@ -1467,7 +1481,7 @@ Questo comando rimuove tutte le righe di dati dalla tabella.
 
 ###<a name="Mobile_Scripts"></a>Comandi per la gestione degli script
 
-I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per altre informazioni, vedere [Utilizzo degli script del server in Servizi mobili.](http://www.windowsazure.com/it-it/develop/mobile/how-to-guides/work-with-server-scripts/).
+I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per altre informazioni, vedere [Utilizzo degli script del server in Servizi mobili.](http://azure.microsoft.com/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [opzioni] [nome_servizio]**
 
@@ -1526,7 +1540,7 @@ Questo comando rimuove lo script insert esistente dalla tabella TodoItem.
 
 ###<a name="Mobile_Jobs"></a>Comandi per la gestione dei processi pianificati
 
-I comandi in questa sezione vengono usati per gestire i processi pianificati appartenenti a un servizio mobile. Per altre informazioni, vedere [Pianificare i processi](http://msdn.microsoft.com/it-it/library/windowsazure/jj860528.aspx).
+I comandi in questa sezione vengono usati per gestire i processi pianificati appartenenti a un servizio mobile. Per altre informazioni, vedere [Pianificare i processi](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [opzioni] [nome_servizio]**
 
@@ -1600,7 +1614,7 @@ Questo comando rimuove il processo pianificato getUpdates dal server TodoList.
 
 ###<a name="Mobile_Scale"></a>Comandi per il ridimensionamento di un servizio mobile
 
-I comandi in questa sezione vengono usati per ridimensionare un servizio mobile. Per altre informazioni, vedere [Ridimensionamento di un servizio mobile](http://msdn.microsoft.com/it-it/library/windowsazure/jj193178.aspx).
+I comandi in questa sezione vengono usati per ridimensionare un servizio mobile. Per altre informazioni, vedere [Ridimensionamento di un servizio mobile](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [opzioni] [nome_servizio]**
 
@@ -2377,3 +2391,5 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
+<!--HONumber=46--> 

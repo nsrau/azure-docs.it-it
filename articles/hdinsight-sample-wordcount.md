@@ -29,7 +29,7 @@ Questa esercitazione mostra come eseguire un esempio MapReduce relativo al conte
 
 **Prerequisiti**:	
 
-- È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/it-it/pricing/free-trial/).
+- È necessario disporre di un account Azure. Per le opzioni di iscrizione per ottenere un account, vedere la pagina [Abbonamento di prova gratuito di un mese](http://azure.microsoft.com/pricing/free-trial/).
 
 - È necessario avere completato il provisioning di un cluster HDInsight. Per informazioni sui vari metodi di creazione di tali cluster e per le relative istruzioni, vedere [Introduzione all'uso di Azure HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight](../hdinsight-provision-clusters/).
 
@@ -223,7 +223,6 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
 [powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
-
 
 
 <!--HONumber=42-->

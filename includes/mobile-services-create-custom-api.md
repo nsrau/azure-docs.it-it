@@ -39,7 +39,7 @@
    In questo codice viene usato l'[oggetto mssql] per accedere direttamente alla tabella **todoitem** e impostare il contrassegno di completamento su tutti gli elementi. Poiché viene usata la funzione **exports.post**, i client inviano una richiesta POST per eseguire l'operazione. Al client viene restituito un valore intero corrispondente al numero di righe modificate.
 
 > [AZURE.NOTE]
-> Gli oggetti <a href="http://msdn.microsoft.com/it-it/library/windowsazure/jj554218.aspx" target="_blank">request</a> e <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn303373.aspx" target="_blank">response</a> forniti a funzioni API personalizzate vengono implementati dalla <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">libreria Express.js</a>. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/dn280974.aspx" target="_blank">API personalizzata</a>. 
+> Gli oggetti <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> e <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> forniti a funzioni API personalizzate vengono implementati dalla <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">libreria Express.js</a>. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">API personalizzata</a>. 
 
 In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un pulsante New e il codice che chiama in modo asincrono la nuova API personalizzata.
 
@@ -49,6 +49,5 @@ In seguito, l'app della Guida introduttiva verrà modificata per aggiungere un p
 
 <!-- URLs. -->
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[oggetto mssql]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554212.aspx
-
+[oggetto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

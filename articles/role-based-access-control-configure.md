@@ -1,6 +1,20 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Controllo di accesso basato sui ruoli nel portale di anteprima di Azure" description="Descrive le modalità di configurazione e utilizzo del controllo di accesso basato sui ruoli" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties 
+	pageTitle="Controllo di accesso basato sui ruoli nel portale di anteprima di Azure" 
+	description="Descrive le modalità di configurazione e utilizzo del controllo di accesso basato sui ruoli" 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/06/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -124,7 +138,7 @@ Le assegnazioni dei ruoli possono essere gestite anche usando il modulo Microsof
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Per altre informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo di accesso basato sui ruoli con Windows PowerShell](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-powershell/). 
+Per altre informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo di accesso basato sui ruoli con Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
 <h3><a id="remove"></a>Rimozione dell'accesso</h2>
 
@@ -165,7 +179,7 @@ Quando si aggiunge un utente esterno, nella directory viene creato un utente gue
  
 <h2><a id="knownissues"></a>Problemi noti del controllo di accesso basato sui ruoli</h2>
 
-In caso di problemi durante l'uso della funzionalità di controllo di accesso basato sui ruoli in modalità di anteprima, vedere la sezione [Risoluzione dei problemi di controllo di accesso basato sui ruoli](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-troubleshooting/) per consultare tutti i problemi noti in tale ambito.
+In caso di problemi durante l'uso della funzionalità di controllo di accesso basato sui ruoli in modalità di anteprima, vedere la sezione [Risoluzione dei problemi di controllo di accesso basato sui ruoli](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/) per consultare tutti i problemi noti in tale ambito.
 
 
 <h2><a id="feedback"></a>Invio di commenti</h2>
@@ -177,12 +191,12 @@ Provare il controllo di accesso basato sui ruoli in Azure e inviare [feedback](h
 
 Di seguito sono riportate altre risorse utili per l'uso del controllo di accesso basato sui ruoli: 
 
-+ [Gestione del controllo di accesso basato sui ruoli con Windows PowerShell](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-powershell/)
-+ [Gestione del controllo di accesso basato sui ruoli con XPLAT CLI](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Risoluzione dei problemi di controllo di accesso basato sui ruoli](http://azure.microsoft.com/it-it/documentation/articles/role-based-access-control-troubleshooting/)
++ [Gestione del controllo di accesso basato sui ruoli con Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [Gestione del controllo di accesso basato sui ruoli con XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [Risoluzione dei problemi di controllo di accesso basato sui ruoli](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/it-it/library/azure/dn532272.aspx)
-+ [Come vengono associate le sottoscrizioni di Azure e Azure AD](http://msdn.microsoft.com/it-it/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [Come vengono associate le sottoscrizioni di Azure e Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + Per un'introduzione alla gestione self-service dei gruppi di sicurezza, vedere il [blog del team di Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 
@@ -200,3 +214,5 @@ Di seguito sono riportate altre risorse utili per l'uso del controllo di accesso
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
+
+<!--HONumber=46--> 

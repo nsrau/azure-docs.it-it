@@ -175,7 +175,7 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: ../install-configure-powershell/
-[powershell-script]: http://technet.microsoft.com/it-it/library/ee176949.aspx 
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
@@ -185,6 +185,5 @@ In questa esercitazione si è appreso come usare le chiamate API Ambari di monit
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-
 
 <!--HONumber=42-->

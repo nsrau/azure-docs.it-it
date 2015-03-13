@@ -83,7 +83,7 @@ Nel codice riportato sopra sostituire `AppUrl` e `AppKey` con l'URL del servizio
 
 <h2><a name="instantiating"></a>Procedura: Creare un riferimento alla tabella</h2>
 
-Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/it-it/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`. 
+Tutto il codice che accede ai dati nella tabella di Servizi mobili o li modifica chiama funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare la funzione [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) su un'istanza dell'oggetto `MobileServiceClient`. 
 
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
@@ -177,7 +177,7 @@ La query modificata riportata di seguito ignora i primi tre risultati e restitui
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-È anche possibile usare il metodo [IncludeTotalCount](http://msdn.microsoft.com/it-it/library/windowsazure/jj730933.aspx) per assicurarsi che la query consenta di ottenere il conteggio totale di <i>tutti</i> i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
+È anche possibile usare il metodo [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) per assicurarsi che la query consenta di ottenere il conteggio totale di <i>tutti</i> i record che sarebbero stati restituiti ignorando qualsiasi clausola di limite/paging specificata:
 
 	query = query.IncludeTotalCount();
 
@@ -498,11 +498,11 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Usare il paging per ridefinire le query per Android]: /it-it/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [Autorizzare gli utenti con gli script per iOS]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Autorizzare gli utenti con gli script per Android]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[Metodo LoginAsync]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/it-it/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[Metodo LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
 
 <!--HONumber=42-->

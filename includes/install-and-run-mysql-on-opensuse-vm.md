@@ -41,7 +41,7 @@
 
 	Si osservi che il punto e virgola (;) alla fine delle righe è essenziale per la conclusione dei comandi.
 
-8. Per creare un database e concedere le apposite autorizzazioni utente  `mysqluser` digitare i comandi seguenti:
+8. Per creare un database e concedere le apposite autorizzazioni utente `mysqluser`, digitare i comandi seguenti:
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	dove  `ip-address` è l'indirizzo IP del computer dal quale verrà effettuata la connessione a MySQL.
+	dove `ip-address` è l'indirizzo IP del computer dal quale verrà effettuata la connessione a MySQL.
 	
 10. Per uscire dall'utilità di amministrazione database MySQL, eseguire il comando seguente:
 
@@ -82,5 +82,4 @@
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

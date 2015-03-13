@@ -1,6 +1,20 @@
-<properties urlDisplayName="Install Python" pageTitle="Installare Python e l'SDK - Azure" metaKeywords="Azure Python SDK" description="Informazioni su come installare Python e l'SDK da usare con Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Installare Python e l'SDK - Azure" 
+	description="Informazioni su come installare Python e l'SDK da usare con Azure." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -183,3 +197,5 @@ Per informazioni su come configurare una VM Linux, vedere la sezione relativa al
 [Configurazione di una macchina virtuale Linux tramite il portale di Azure]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../../shared/chunks/crossplat-cmd-tools
 
+
+<!--HONumber=46--> 

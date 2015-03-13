@@ -34,7 +34,7 @@ Di seguito è riportato un esempio di un'applicazione line-of-business in esecuz
 
 <div class="dev-callout">
 <strong>Nota</strong>
-<p>Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere anche le altre guide relative alla <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e alle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a>.</p>
+<p>Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere anche le altre guide relative alla <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e alle <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a>.</p>
 </div>
 
 ### Trasferire le risorse esistenti
@@ -108,8 +108,8 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
 [scalabilità verticale e orizzontale]:/it-it/manage/services/web-sites/how-to-scale-websites/
 [Portale di gestione di Azure]:http://manage.windowsazure.com/
-[API di gestione del servizio]:http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
-[script di PowerShell]:http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
+[API di gestione del servizio]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[script di PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 elementi appresi per scalare rapidamente i siti Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis di Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

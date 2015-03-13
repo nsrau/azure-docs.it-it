@@ -1,6 +1,20 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Azure" description="Passaggio 1: Creazione di una nuova area di lavoro di Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Azure" 
+	description="Passaggio 1 della procedura dettagliata della soluzione: Creare una nuova area di lavoro di Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Questo è il primo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Machine Learning di Azure][develop]:
@@ -47,3 +61,5 @@ Dopo avere creato l'area di lavoro, questa sarà visualizzata nella pagina **mac
 **Passaggi successivi: [Caricare i dati esistenti][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

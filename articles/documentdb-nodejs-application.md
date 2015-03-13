@@ -1,6 +1,20 @@
-<properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
+﻿<properties 
+	pageTitle="Creare un'applicazione Node.js con DocumentDB | Azure" 
+	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare i dati e accedervi da un'applicazione Node.js ospitata in Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175">Creare un'applicazione Node.js con DocumentDB</a>
 
@@ -505,9 +519,9 @@ Il codice sorgente per l'applicazione di riferimento completa è disponibile per
   [Alt text]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/it-it/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
   [Strumenti Node.js per Visual Studio]: https://nodejstools.codeplex.com/
-  [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/it-it/documentation/articles/xplat-cli/
+  [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [portale di gestione di Azure]: http://portal.azure.com
   [1]: ./media/documentdb-nodejs-application/image2.png
   [2]: ./media/documentdb-nodejs-application/image3.png
@@ -530,3 +544,5 @@ Il codice sorgente per l'applicazione di riferimento completa è disponibile per
   [19]: ./media/documentdb-nodejs-application/image20.png
   [20]: ./media/documentdb-nodejs-application/image21.png
   [qui]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+
+<!--HONumber=46--> 

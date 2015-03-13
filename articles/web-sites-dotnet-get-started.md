@@ -304,11 +304,11 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 	Per informazioni su come usare SSL e il dominio personalizzato (ad esempio www.contoso.com  invece di contoso.azurewebsites.net), vedere le seguenti risorse:
 
 	* [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](/it-it/documentation/articles/web-sites-custom-domain-name/). 
-	* [Abilitare HTTPS per un sito Web di Azure](http://azure.microsoft.com/it-it/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Abilitare HTTPS per un sito Web di Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * Come evitare tempi di attesa per la riattivazione dopo timeout di inattività 
 
-	Per impostazione predefinita, i siti Web vengono scaricati se sono rimasti inattivi per un determinato periodo di tempo. La prima richiesta dopo tale periodo deve attendere il ricaricamento del sito. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare Siti Web](http://azure.microsoft.com/it-it/documentation/articles/web-sites-configure/).
+	Per impostazione predefinita, i siti Web vengono scaricati se sono rimasti inattivi per un determinato periodo di tempo. La prima richiesta dopo tale periodo deve attendere il ricaricamento del sito. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare Siti Web](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * Come aggiungere funzionalità in tempo reale come la chat
 

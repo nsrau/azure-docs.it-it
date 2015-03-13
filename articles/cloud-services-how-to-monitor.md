@@ -1,17 +1,31 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Come monitorare un servizio cloud - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Informazioni su come monitorare i servizi cloud usando il portale di gestione di Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties 
+	pageTitle="Come monitorare un servizio cloud - Azure" 
+	description="Informazioni su come monitorare i servizi cloud usando il portale di gestione di Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="robb"/>
 
 
-#Come monitorare i servizi cloud
+# Come monitorare i servizi cloud
 
-[WACOM.INCLUDE [Dichiarazione di non responsabilità](../includes/disclaimer.md)]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 È possibile monitorare le metriche delle prestazioni chiave per i servizi cloud nel portale di gestione di Azure. È possibile impostare il livello di monitoraggio da minimo a dettagliato per ogni ruolo del servizio e personalizzare le schermate di monitoraggio. I dati di monitoraggio dettagliati vengono memorizzati in un account di archiviazione, a cui è possibile accedere fuori dal portale. 
 
 Le schermate di monitoraggio nel portale di gestione sono altamente configurabili. È possibile scegliere la metrica che si desidera monitorare dall'elenco delle metriche nella pagina **Monitoraggio** e la metrica da riportare nei relativi grafici nella pagina **Monitoraggio** e nel dashboard. 
 
-##Sommario##
+## Sommario##
 * [Concetti](#concepts)
 * [Procedura: Configurare il monitoraggio per i servizi cloud](#verbose)
 * [Procedura: Ricevere avvisi per le metriche dei servizi cloud](#receivealerts)
@@ -23,8 +37,8 @@ Le schermate di monitoraggio nel portale di gestione sono altamente configurabil
 
 Per impostazione predefinita, per un nuovo servizio cloud è previsto un monitoraggio minimo, con contatori delle prestazioni raccolte dal sistema operativo per le istanze del ruolo (macchine virtuali). Le metriche minime si limitano a percentuale CPU, dati in entrata, dati in uscita, velocità effettiva di lettura dal disco e velocità effettiva di scrittura sul disco. Con la configurazione del monitoraggio dettagliato, è possibile ricevere ulteriori metriche in base ai dati delle prestazioni all'interno delle macchine virtuali (istanze del ruolo). Le metriche dettagliate consentono un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione.
 
-> [WACOM.NOTE]
-> Se si usa il monitoraggio dettagliato è possibile aggiungere altri contatori delle prestazioni all'avvio dell'istanza del ruolo attraverso un file di configurazione della diagnostica. Per monitorare queste metriche nel portale di gestione è necessario aggiungere i contatori delle prestazioni prima di configurare il monitoraggio dettagliato. Per altre informazioni, vedere <a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-dotnet-diagnostics/">Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure</a>.
+> [AZURE.NOTE]
+> Se si usa il monitoraggio dettagliato è possibile aggiungere altri contatori delle prestazioni all'avvio dell'istanza del ruolo attraverso un file di configurazione della diagnostica. Per monitorare queste metriche nel portale di gestione è necessario aggiungere i contatori delle prestazioni prima di configurare il monitoraggio dettagliato. Per altre informazioni, vedere <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/">Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure</a>.
 
 Per impostazione predefinita, i dati del contatore di prestazioni dalle istanze del ruolo sono campionati e trasferiti dall'istanza del ruolo a intervalli di 3 minuti. Quando viene abilitato il monitoraggio dettagliato, i dati non elaborati del contatore di prestazioni sono aggregati per ogni istanza del ruolo e per ogni ruolo tra istanze del ruolo a intervalli di 5 minuti, 1 ora e 12 ore. I dati aggregati vengono eliminati dopo 10 giorni.
 
@@ -35,9 +49,9 @@ Si noti che l'abilitazione del monitoraggio dettagliato comporta un aumento dei 
 
 <h2><a id="verbose"></a>Procedura: Configurare il monitoraggio per i servizi cloud</h2>
 
-Attenersi alle procedure seguenti per configurare il monitoraggio dettagliato o minimo nel portale di gestione. Per abilitare il monitoraggio dettagliato è necessario abilitare Diagnostica Azure e configurare le stringhe di connessione diagnostica, consentendo così a Diagnostica Azure di accedere agli account di archiviazione per archiviare i dati del monitoraggio dettagliato.
+Attenersi alle seguenti procedure per configurare il monitoraggio dettagliato o minimo nel portale di gestione. Per abilitare il monitoraggio dettagliato è necessario abilitare Diagnostica Azure e configurare le stringhe di connessione diagnostica, consentendo così a Diagnostica Azure di accedere agli account di archiviazione per archiviare i dati del monitoraggio dettagliato.
 
-###Operazioni preliminari###
+### Operazioni preliminari###
 
 - Creare un account di archiviazione per archiviare i dati di monitoraggio. È possibile usare account di archiviazione diversi per i diversi ruoli. Per altre informazioni, vedere gli argomenti **Account di archiviazione** o [Come creare un account di archiviazione](/it-it/manage/services/storage/how-to-create-a-storage-account/) nella Guida.
 
@@ -46,7 +60,7 @@ Attenersi alle procedure seguenti per configurare il monitoraggio dettagliato o 
 
 Nel portale di gestione è possibile aggiungere o modificare le stringhe di connessione diagnostica usate da Diagnostica Azure per accedere agli account di archiviazione in cui vengono archiviati i dati di monitoraggio dettagliati ed è possibile impostare il livello di monitoraggio dettagliato o minimo. Poiché il monitoraggio dettagliato archivia i dati in un account di archiviazione, è necessario configurare le stringhe di connessione diagnostica prima di impostare il livello di monitoraggio dettagliato.
 
-###Per configurare le stringhe di connessione diagnostica per il monitoraggio dettagliato###
+### Per configurare le stringhe di connessione diagnostica per il monitoraggio dettagliato###
 
 1. Copiare una chiave di accesso alle risorse di archiviazione per l'account di archiviazione da usare per l'archiviazione dei dati del monitoraggio dettagliato. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) è possibile usare **Gestisci chiavi** nella pagina **Account di archiviazione**. Per altre informazioni, vedere [Come gestire Servizi cloud](/it-it/documentation/articles/cloud-services-how-to-manage/) o la pagina **Account di archiviazione** della Guida. 
 
@@ -62,7 +76,7 @@ Nel portale di gestione è possibile aggiungere o modificare le stringhe di conn
 
 5. In **Stringhe di connessione di diagnostica** completare la stringa di connessione diagnostica per ogni ruolo per il quale si desidera il monitoraggio dettagliato.
 	
-	Le stringhe di connessione presentano il formato seguente. (L'esempio si riferisce a un servizio cloud che usa endpoint predefiniti). Per aggiornare una stringa di connessione, immettere un nome di account di archiviazione valido e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione che si desidera usare.
+	Le stringhe di connessione presentano il seguente formato. (L'esempio si riferisce a un servizio cloud che usa endpoint predefiniti). Per aggiornare una stringa di connessione, immettere un nome di account di archiviazione valido e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione che si desidera usare.
          
  	DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey  
 
@@ -71,7 +85,7 @@ Nel portale di gestione è possibile aggiungere o modificare le stringhe di conn
 Se si intende abilitare il monitoraggio dettagliato, eseguire la procedura successiva dopo aver configurato le stringhe di connessione diagnostica per i ruoli del servizio. 
 
 
-###Per cambiare il livello di monitoraggio a dettagliato o minimo###
+### Per cambiare il livello di monitoraggio a dettagliato o minimo###
 
 1. Nel [portale di gestione](https://manage.windowsazure.com/) aprire la pagina **Configura** per la distribuzione del servizio cloud.
 
@@ -110,10 +124,7 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
 
 	Nella tabella delle metriche è possibile visualizzare fino a 50 metriche.
 
-	<div class="dev-callout"> 
-	<b>Suggerimento</b> 
-	<p>Nel monitoraggio dettagliato l'elenco delle metriche può contenere decine di metriche. Per visualizzare una barra di scorrimento, passare il puntatore del mouse sul lato destro della finestra di dialogo. Per filtrare l'elenco, fare clic sull'icona di ricerca e immettere il testo nella casella di ricerca, come illustrato di seguito.</p> 
-</div>
+	> [AZURE.TIP] Nel monitoraggio dettagliato l'elenco delle metriche può contenere decine di metriche. Per visualizzare una barra di scorrimento, passare il puntatore del mouse sul lato destro della finestra di dialogo. Per filtrare l'elenco, fare clic sull'icona di ricerca e immettere il testo nella casella di ricerca, come illustrato di seguito.
  
 	![Add metrics search](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 
@@ -131,7 +142,7 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
 
 1. Nella tabella delle metriche selezionare fino a 6 metriche da tracciare nel relativo grafico. Per selezionare una metrica, fare clic sulla casella di controllo a sinistra. Per rimuovere una metrica dal grafico, deselezionare la casella di controllo nella tabella delle metriche.
 
-	Le metriche selezionate nella tabella vengono aggiunte al grafico. Su uno schermo stretto, un elenco a discesa relativo ad **altre metriche** riporta le intestazioni delle metriche che non rientrano nello schermo.
+	Le metriche selezionate nella tabella vengono aggiunte al grafico. Su uno schermo stretto, un elenco a discesa **n more** riporta le intestazioni delle metriche che non si adattano allo schermo.
 
  
 2. Per passare dalla visualizzazione di valori relativi (solo il valore finale per ogni metrica) e valori assoluti (asse Y visualizzato), selezionare Relative o Absolute nella parte superiore del grafico.
@@ -144,7 +155,7 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
 
 	Nel grafico delle metriche del dashboard le metriche vengono tracciate in modo diverso. È disponibile un set di metriche standard che vengono aggiunte o rimosse selezionandone l'intestazione.
 
-###Per personalizzare il grafico delle metriche sul dashboard###
+### Per personalizzare il grafico delle metriche sul dashboard###
 
 1. Aprire il dashboard per il servizio cloud.
 
@@ -162,13 +173,13 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
 
 I dati di monitoraggio dettagliati sono archiviati in tabelle negli account di archiviazione specificati per ogni ruolo. Per ogni distribuzione del servizio cloud, vengono create sei tabelle per il ruolo. Vengono create due tabelle per ogni intervallo di tempo (5 minuti, 1 ora e 12 ore). Una di queste tabelle archivia aggregazioni a livello di ruolo, mentre l'altra archivia le aggregazioni per le istanze del ruolo. 
 
-I nomi delle tabelle presentano il formato seguente:
+I nomi delle tabelle presentano il seguente formato:
 
 	WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
 
 dove:
 
-- deploymentID è il GUID assegnato alla distribuzione del servizio cloud
+- *deploymentID* è il GUID assegnato alla distribuzione del servizio cloud
 
 - *aggregation_interval* = 5M, 1H o 12H
 
@@ -183,4 +194,4 @@ Ad esempio, nelle seguenti tabelle sarebbero archiviati dati di monitoraggio det
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

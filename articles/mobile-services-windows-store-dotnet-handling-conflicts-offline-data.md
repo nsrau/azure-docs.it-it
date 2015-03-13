@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (Windows Store) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione per Windows Store" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (Windows Store) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione per Windows Store" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="wesmc"/>
 
 
 # Gestione dei conflitti relativi alla sincronizzazione dei dati offline in Servizi mobili

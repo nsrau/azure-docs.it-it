@@ -70,7 +70,7 @@ Dopo avere importato il file publishsettings è possibile usare il comando segue
 
 
 
-Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione, vedere [Creare, gestire o eliminare un account di archiviazione].(../storage-create-storage-account/).
+Per informazioni sulla creazione di un account di archiviazione di Azure mediante il portale di gestione, vedere [Creare, gestire o eliminare un account di archiviazione)]../storage-create-storage-account/).
 
 Se si dispone già di un account di archiviazione, ma non si conosce il nome account e la chiave dell'account, è possibile usare i comandi seguenti per recuperare le informazioni:
 
@@ -274,9 +274,9 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 * [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -290,12 +290,11 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/it-it/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
-
 
 
 <!--HONumber=42-->

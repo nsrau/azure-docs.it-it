@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Come usare un client HTML - Servizi mobili di Azure" description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come usare un client HTML - Servizi mobili di Azure" 
+	description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # Come usare un client HTML/JavaScript per Servizi mobili di Azure
@@ -261,7 +275,8 @@ Servizi mobili usa le convenzioni URI della query OData per la creazione e l'ese
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
 	        var itemElements = $.map(items, createUiForTodoItem);
 	        $("#todo-items").empty().append(itemElements);
-	        $("#no-items").toggle(items.length === 0);
+	        $("#no-items").toggle(ite
+	ms.length === 0);
 	    }, handleError);
 	}
 
@@ -380,12 +395,14 @@ In questa sezione viene illustrato come visualizzare gli oggetti dati restituiti
 			query.read().then(function (todoItems) {
 			   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
 			   var listOfItems = document.getElementById('placeToInsert');
-			   for (var i = 0; i < todoItems.length; i++) {
+			   for (var i = 0; i < todoIte
+	ms.length; i++) {
 			      var li = document.createElement('li');
 			      var div = document.createElement('div');
 			      div.innerText = todoItems[i].text;
 			      li.appendChild(div);
-			      listOfItems.appendChild(li);
+			      listOfIte
+	ms.appendChild(li);
 			   }
 			}).read().done(function (results) {
 			   alert(JSON.stringify(results));
@@ -616,32 +633,32 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-html
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Introduzione ai dati]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-html/
+[Introduzione ai dati]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-html
 [Introduzione all'autenticazione - Windows Store]: /it-it/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/it-it/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/it-it/library/windows/apps/hh701079.aspx
-[Altre informazioni sulle differenze tra then e done]: http://msdn.microsoft.com/it-it/library/windows/apps/hh700334.aspx
-[come gestire gli errori nelle promesse]: http://msdn.microsoft.com/it-it/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Altre informazioni sulle differenze tra then e done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[come gestire gli errori nelle promesse]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/it-it/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/it-it/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/it-it/library/windows/apps/br211837.aspx
-[Associazione dati (app di Windows Store con JavaScript e HTML)]: http://msdn.microsoft.com/it-it/library/windows/apps/hh758311.aspx
-[Guida introduttiva JavaScript per Windows Store]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started
-[Guida introduttiva HTML]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-html
-[Introduzione ai dati in JavaScript per Windows Store]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-js
-[Introduzione ai dati in HTML/JavaScript]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/get-started-with-data-html/
-[Un esempio completo di come configurare questo scenario è disponibile qui]: http://www.windowsazure.com/it-it/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Associazione dati (app di Windows Store con JavaScript e HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Guida introduttiva JavaScript per Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[Guida introduttiva HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Introduzione ai dati in JavaScript per Windows Store]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[Introduzione ai dati in HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[Un esempio completo di come configurare questo scenario è disponibile qui]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-html
 [Usare script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-html
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [Autenticare un'app con Single-Sign-On]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI per la gestione delle tabelle di Servizi mobili]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 

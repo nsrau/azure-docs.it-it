@@ -14,5 +14,4 @@ sono:
 - python-3.4
 
 L'eventuale microversione (terza cifra) specificata verrà ignorata.
-
 <!--HONumber=42-->

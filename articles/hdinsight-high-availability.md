@@ -84,5 +84,4 @@ Per l'SDK, la procedura è simile: la creazione e il provisioning di un cluster 
 
 
 
-
 <!--HONumber=42-->

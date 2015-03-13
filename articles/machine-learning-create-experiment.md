@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Creare un semplice esperimento in Machine Learning Studio | Azure" description="Come creare un esperimento per eseguire il training e il testing di un modello semplice in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creare un semplice esperimento in Machine Learning Studio | Azure" 
+	description="Come creare un esperimento per eseguire il training e il testing di un modello semplice in Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Creare un semplice esperimento in Azure Machine Learning Studio 
  
@@ -173,7 +187,7 @@ A questo punto, dopo aver configurato l'esperimento, è possibile ripeterlo e pr
 
 Una volta ottenuto il modello desiderato, è possibile pubblicarlo come servizio Web da usare per prevedere i prezzi delle automobili sulla base di dati nuovi. Per altri dettagli, vedere l'argomento della Guida di ML Studio sulla **pubblicazione di esperimenti**.
 
-Per informazioni più complete e dettagliate sulla creazione, il training, l'assegnazione di un punteggio e la pubblicazione di un modello predittivo, vedere [Procedura dettagliata: Sviluppare una soluzione predittiva con Machine Learning di Azure](http://azure.microsoft.com/it-it/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
+Per informazioni più complete e dettagliate sulla creazione, il training, l'assegnazione di un punteggio e la pubblicazione di un modello predittivo, vedere [Procedura dettagliata: Sviluppare una soluzione predittiva con Machine Learning di Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ Per informazioni più complete e dettagliate sulla creazione, il training, l'ass
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

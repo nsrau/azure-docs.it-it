@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso di dati offline in Servizi mobili (Windows Phone) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per sincronizzare i dati offline nell'applicazione per Windows Phone" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Uso di dati offline in Servizi mobili (Windows Phone) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili di Azure per sincronizzare i dati offline nell'applicazione per Windows Phone" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
@@ -30,7 +44,7 @@ Per completare questa esercitazione, è necessario soddisfare i seguenti requisi
 * [Azure Mobile Services SQLite Store versione 1.0.0 (o successiva)][Pacchetto NuGet SQLite store]
 * [SQLite per Windows Phone 8]
 
->[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
 

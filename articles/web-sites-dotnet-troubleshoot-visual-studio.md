@@ -288,18 +288,18 @@ Se la funzione [ha scritto dei log](../websites-dotnet-webjobs-sdk-storage-queue
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
-* Se il debugger non passa da un'istruzione all'altra del codice da sottoporre a debug, può essere necessario modificare l'impostazione di Just My Code.  Per altre informazioni, vedere [Limitare l'esecuzione di istruzioni a Just My Code](http://msdn.microsoft.com/it-it/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Se il debugger non passa da un'istruzione all'altra del codice da sottoporre a debug, può essere necessario modificare l'impostazione di Just My Code.  Per altre informazioni, vedere [Limitare l'esecuzione di istruzioni a Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 
 * Quando si abilita la funzionalità di debug remoto, sul server viene avviato un timer. Dopo 48 ore la funzionalità viene automaticamente disattivata. Questo limite di 48 ore viene impostato per motivi di sicurezza e prestazioni. È possibile riattivare facilmente la funzionalità tutte le volte che si desidera. È invece consigliabile lasciarla disabilitata quando non si esegue attivamente il debug.
 
-* È possibile collegare manualmente il debugger a qualsiasi processo, non solo al processo del sito Web (w3wp.exe). Per altre informazioni su come usare la modalità debug in Visual Studio, vedere [Debug in Visual Studio](http://msdn.microsoft.com/it-it/library/vstudio/sc65sadd.aspx).
+* È possibile collegare manualmente il debugger a qualsiasi processo, non solo al processo del sito Web (w3wp.exe). Per altre informazioni su come usare la modalità debug in Visual Studio, vedere [Debug in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 <h2><a name="logsoverview"></a>Informazioni generali sui log di diagnostica</h2>
 
 Un'applicazione ASP.NET in esecuzione in un sito Web di Azure può generare i seguenti tipi di log:
 
 * **Log di traccia dell'applicazione**<br/>
-  L'applicazione crea questi log chiamando i metodi della classe [System.Diagnostics.Trace](http://msdn.microsoft.com/it-it/library/system.diagnostics.trace.aspx).
+  L'applicazione crea questi log chiamando i metodi della classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Log del server Web**<br/>
   Il server Web crea una voce di log per ogni richiesta HTTP inviata al sito.
 * **Log dei messaggi di errore dettagliati**<br/>
@@ -394,7 +394,7 @@ Per informazioni su come creare i registri applicazioni nei processi Web, vedere
 
 	 `WebPageTraceListener` consente di visualizzare l'output di traccia passando a  `/trace.axd`.
 
-3. Aggiungere un <a href="http://msdn.microsoft.com/it-it/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> dopo '<system.web>' nel file Web.config, come illustrato nel seguente esempio:
+3. Aggiungere un <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> dopo '<system.web>' nel file Web.config, come illustrato nel seguente esempio:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -638,7 +638,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	Questa visualizzazione contiene campi aggiuntivi non disponibili nelle altre visualizzazioni. Consente inoltre di filtrare i log mediante una speciale interfaccia utente Generatore query. Per altre informazioni, vedere la sezione Usare le risorse tabella - Per filtrare le entità in [Esplorazione e gestione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/windowsazure/ff683677.aspx).
+	Questa visualizzazione contiene campi aggiuntivi non disponibili nelle altre visualizzazioni. Consente inoltre di filtrare i log mediante una speciale interfaccia utente Generatore query. Per altre informazioni, vedere la sezione Usare le risorse tabella - Per filtrare le entità in [Esplorazione e gestione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx).
 
 7. Per esaminare i dettagli relativi a una singola riga, fare doppio clic su una delle righe.
 
@@ -727,7 +727,7 @@ Per informazioni su specifiche domande relative alla risoluzione dei problemi, a
 
 ### Debug in Visual Studio 
 
-Per altre informazioni su come usare la modalità debug in Visual Studio, vedere l'argomento [Debug in Visual Studio](http://msdn.microsoft.com/it-it/library/vstudio/sc65sadd.aspx) in MSDN e la pagina relativa ai [suggerimenti sul debug con Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Per altre informazioni su come usare la modalità debug in Visual Studio, vedere l'argomento [Debug in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) in MSDN e la pagina relativa ai [suggerimenti sul debug con Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### Debug remoto in Azure
 
@@ -746,14 +746,14 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 
 * [Monitoraggio e telemetria (creazione di app per cloud funzionanti con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br> 
   Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
-* [Traccia in ASP.NET](http://msdn.microsoft.com/it-it/library/ms972204.aspx)<br/>
+* [Traccia in ASP.NET](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
-* [Listener di traccia](http://msdn.microsoft.com/it-it/library/4y5y10s7.aspx)<br/>
-  Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](http://msdn.microsoft.com/it-it/library/system.web.webpagetracelistener.aspx).
-* [Procedura dettagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics](http://msdn.microsoft.com/it-it/library/b0ectfxd.aspx)<br/>
+* [Listener di traccia](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
+* [Procedura dettagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   Contenuto meno recente anche in questo caso, ma con informazioni aggiuntive non trattate nell'articolo introduttivo.
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](http://msdn.microsoft.com/it-it/library/bb397417.aspx) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nel seguente esempio:
+  Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](http://msdn.microsoft.com/library/bb397417.aspx) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nel seguente esempio:
 
         try
         {
@@ -767,7 +767,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 
 * [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET. 
-* [Uso delle funzionalità di registrazione e diagnostica di Siti Web di Azure - con David Ebbo](http://www.windowsazure.com/it-it/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da Siti Web di Azure - con David Ebbo](http://www.windowsazure.com/it-it/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Uso delle funzionalità di registrazione e diagnostica di Siti Web di Azure - con David Ebbo](http://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da Siti Web di Azure - con David Ebbo](http://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video di Scott Hanselman e David Ebbo.
 
 Per la registrazione degli errori, in alternativa alla scrittura di codice di traccia personalizzato, è possibile usare un framework di registrazione open source come [ELMAH](http://nuget.org/packages/elmah/). Per altre informazioni, vedere i [post di blog di Scott Hanselman su ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
@@ -791,7 +791,7 @@ Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle r
 
 ### Debug di Servizi cloud
 
-Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un sito Web, vedere [Debug di Servizi cloud](http://msdn.microsoft.com/it-it/library/windowsazure/ee405479.aspx).
+Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un sito Web, vedere [Debug di Servizi cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 
 

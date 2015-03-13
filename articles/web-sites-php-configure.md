@@ -121,8 +121,8 @@ A questo punto, dopo aver appreso come configurare PHP in Siti Web di Azure, sel
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[Configurare, monitorare e scalare i siti Web in Azure]: http://www.windowsazure.com/it-it/manage/services/web-sites/
-[Download di Azure SDK per PHP]: http://www.windowsazure.com/it-it/develop/php/common-tasks/download-php-sdk/
+[Configurare, monitorare e scalare i siti Web in Azure]: http://azure.microsoft.com/manage/services/web-sites/
+[Download di Azure SDK per PHP]: http://azure.microsoft.com/develop/php/common-tasks/download-php-sdk/
 
 
 <!--HONumber=42-->

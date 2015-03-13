@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Importare il file delle impostazioni di pubblicazione in Visual Studio 2013 | Servizi mobili" description="Informazioni su come importare il file delle impostazioni di pubblicazione di una sottoscrizione per l'applicazione Servizi mobili di Azure in Visual Studio 2013." documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+﻿<properties 
+	pageTitle="Importare il file delle impostazioni di pubblicazione in Visual Studio 2013 | Servizi mobili" 
+	description="Informazioni su come importare il file delle impostazioni di pubblicazione di una sottoscrizione per l'applicazione Servizi mobili di Azure in Visual Studio 2013." 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Importazione del file delle impostazioni di pubblicazione della sottoscrizione in Visual Studio 2013
 

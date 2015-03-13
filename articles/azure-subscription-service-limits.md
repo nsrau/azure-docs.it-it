@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Sottoscrizione di Microsoft Azure e limiti dei servizi, quote e vincoli" metaKeywords ="Servizi cloud, Macchine virtuali, Siti Web, Rete virtuale, Database SQL, Sottoscrizione, Archiviazione" description="Fornisce un elenco dei limiti più comuni relativi alle sottoscrizioni e ai servizi di Azure insieme ai valori massimi" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+﻿<properties 
+	pageTitle="Sottoscrizione di Microsoft Azure e limiti dei servizi, quote e vincoli" 
+	description="Fornisce un elenco dei limiti più comuni relativi alle sottoscrizioni e ai servizi di Azure insieme ai valori massimi." 
+	services="" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti dei servizi, quote e vincoli
 
@@ -30,22 +44,22 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <th align="left" valign="middle">Limite massimo</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Core per <a href="http://msdn.microsoft.com/it-it/library/azure/hh531793.aspx">sottoscrizione</a><sup>1</sup></p></td>
+   <td valign="middle"><p>Core per <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">sottoscrizione</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10.000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/azure/gg456328.aspx">Coamministratori</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coamministratori</a> per sottoscrizione</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/storage-whatis-account/">Account di archiviazione</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">Account di archiviazione</a> per sottoscrizione</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -55,7 +69,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/jj157100.aspx">Reti locali</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Reti locali</a> per sottoscrizione</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -85,18 +99,18 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/azure/jj156085.aspx">Gruppi di affinità</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Gruppi di affinità</a> per sottoscrizione</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/azure-preview-portal-using-resource-groups/">Gruppi di risorse</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Gruppi di risorse</a> per sottoscrizione</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/services/batch/">Account dell'anteprima di Batch</a> per area per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Account dell'anteprima di Batch</a> per area per sottoscrizione</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -115,22 +129,22 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <th align="left" valign="middle">Limite massimo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/documentation/articles/cloud-services-what-is/">Ruoli di lavoro/Web per distribuzione<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Ruoli di lavoro/Web per distribuzione<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/gg557552.aspx#InstanceInputEndpoint">Endpoint di input dell'istanza</a> per distribuzione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Endpoint di input dell'istanza</a> per distribuzione</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/gg557552.aspx#InputEndpoint">Endpoint di input</a> per distribuzione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Endpoint di input</a> per distribuzione</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/it-it/library/gg557552.aspx#InternalEndpoint">Endpoint interni</a> per distribuzione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Endpoint interni</a> per distribuzione</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -147,7 +161,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <th align="left" valign="middle">Limite massimo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/it-it/documentation/services/virtual-machines/">Macchine virtuali</a> per servizio cloud<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Macchine virtuali</a> per servizio cloud<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -314,18 +328,20 @@ Per Azure Active Directory (AD), vedere l'argomento seguente:
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/it-it/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/it-it/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/it-it/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/it-it/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/it-it/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/it-it/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/it-it/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/it-it/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

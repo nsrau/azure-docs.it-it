@@ -214,7 +214,7 @@ Contenuto della sezione:
 ###<a id="howto3">Portale di anteprima di Azure: creare un account di Archiviazione Premium</a>
 Questa sezione illustra come creare un account di archiviazione Premium tramite il portale di anteprima di Azure.
 
-1.	Accedere al [portale di anteprima di Azure](https://portal.azure.com/). Se non si dispone ancora di una sottoscrizione, usare la [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). 
+1.	Accedere al [portale di anteprima di Azure](https://portal.azure.com/). Se non si dispone ancora di una sottoscrizione, usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). 
 
 
     >[AZURE.NOTE] Se si accede al portale di gestione di Azure, fare clic sul nome del proprio account utente nell'angolo superiore destro del portale. Fare clic su **Passa a nuovo portale**.
@@ -236,7 +236,7 @@ Per una procedura dettagliata completa in un ambiente Azure, vedere [Creare una 
 ###<a id="howto2">Azure PowerShell: creare un account di Archiviazione Premium e usarlo per le operazioni di base sulle macchine virtuali</a>
 Questa sezione illustra come creare un account di Archiviazione Premium e come usarlo durante la creazione di una macchina virtuale e il collegamento di un disco dati a una macchina virtuale tramite Azure PowerShell.
 
-1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](http://azure.microsoft.com/it-it/documentation/articles/install-configure-powershell/).
+1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 2. Avviare la console di PowerShell, connettersi alla sottoscrizione ed eseguire il seguente cmdlet di PowerShell nella finestra della console. Come illustrato in questa istruzione di PowerShell, quando si crea un account di Archiviazione Premium è necessario specificare il parametro **Type** come **Premium_LRS**.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -277,5 +277,4 @@ Questa sezione illustra come creare un account di Archiviazione Premium e come u
 [Riferimento in MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
-
 <!--HONumber=42-->

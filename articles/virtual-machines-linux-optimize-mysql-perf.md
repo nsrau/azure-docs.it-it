@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Ottimizzazione delle prestazioni di MySQL in macchine virtuali Linux di Azure" 
 	description="Informazioni su come ottimizzare MySQL in esecuzione su una macchina virtuale di Azure che esegue Linux." 
 	services="virtual-machines" 
@@ -23,13 +23,13 @@ Esistono molti fattori che influiscono sulle prestazioni di MySQL in Azure, sia 
 ##Usare RAID in una macchina virtuale di Azure 
 L'archiviazione è il fattore che influisce maggiormente sulle prestazioni del database negli ambienti cloud.  Rispetto a un singolo disco, RAID può fornire un accesso più rapido tramite la concorrenza.  Per altre informazioni, fare riferimento alla pagina relativa ai [livelli RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
 
-Tramite RAID è possibile migliorare notevolmente la velocità effettiva di I/O del disco e il tempo di risposta di I/O in Azure. I test di laboratorio indicano che in media la velocità effettiva di I/O del disco può essere raddoppiata e il tempo di risposta di I/O può essere dimezzato raddoppiando il numero di dischi RAID (da 2 a 4, da 4 a 8 e così via). Vedere l'[Appendice A](#AppendixA) per informazioni dettagliate.  
+Tramite RAID è possibile migliorare notevolmente la velocità effettiva di I/O del disco e il tempo di risposta di I/O in Azure. I test di laboratorio indicano che in media la velocità effettiva di I/O del disco può essere raddoppiata e il tempo di risposta di I/O può essere dimezzato raddoppiando il numero di dischi RAID (da 2 a 4, da 4 a 8 e così via). Per informazioni dettagliate, vedere l'[Appendice A](#AppendixA).  
 
-Oltre all'I/O del disco, aumentando il livello RAID migliorano anche le prestazioni di MySQL.  Vedere l'[Appendice B](#AppendixB) per informazioni dettagliate.  
+Oltre all'I/O del disco, aumentando il livello RAID migliorano anche le prestazioni di MySQL.  Per informazioni dettagliate, vedere l'[Appendice B](#AppendixB).  
 
-Può inoltre essere utile prendere in considerazione le dimensioni del blocco. In generale, con blocchi di dimensioni maggiori si avrà un sovraccarico ridotto, soprattutto per le scritture di grandi dimensioni. Tuttavia, blocchi di dimensioni troppo grandi potrebbero far aumentare il sovraccarico, rendendo impossibile l'uso del RAID. La dimensione predefinita corrente, dimostratasi ottimale per la maggior parte degli ambienti di produzione, è pari a 512 KB. Vedere l'[Appendice C](#AppendixC) per informazioni dettagliate.   
+Può inoltre essere utile prendere in considerazione le dimensioni del blocco. In generale, con blocchi di dimensioni maggiori si avrà un sovraccarico ridotto, soprattutto per le scritture di grandi dimensioni. Tuttavia, blocchi di dimensioni troppo grandi potrebbero far aumentare il sovraccarico, rendendo impossibile l'uso del RAID. La dimensione predefinita corrente, dimostratasi ottimale per la maggior parte degli ambienti di produzione, è pari a 512 KB. Per informazioni dettagliate, vedere l'[Appendice C](#AppendixC).   
 
-Si noti che esistono limiti al numero di dischi che è possibile aggiungere per i diversi tipi di macchine virtuali. Questi limiti sono descritti in dettaglio in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per l'esempio RAID proposto in questo articolo si dovrà disporre di 4 dischi dati collegati, anche se è possibile scegliere di configurare RAID con un numero di dischi inferiore.  
+Si noti che esistono limiti al numero di dischi che è possibile aggiungere per i diversi tipi di macchine virtuali. Tali limiti sono descritti in dettaglio in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per l'esempio RAID proposto in questo articolo si dovrà disporre di 4 dischi dati collegati, anche se è possibile scegliere di configurare RAID con un numero di dischi inferiore.  
 
 In questo articolo si presuppone che l'utente abbia già creato una macchina virtuale Linux e che MYSQL sia già stato installato e configurato. Per altre informazioni, fare riferimento alla documentazione sulle modalità di installazione di MySQL in Azure.  
   
@@ -39,7 +39,7 @@ In questo esempio verrà configurato RAID 0 con 4 dischi.
 
 ####Passaggio 1: Aggiungere un disco dati alla macchina virtuale  
 
-Nella pagina relativa alle macchine virtuali del portale di gestione di Azure selezionare la macchina virtuale a cui aggiungere un disco dati. In questo esempio la macchina virtuale è mysqlnode1.  
+Nella pagina relativa alle macchine virtuali del portale di gestione di Azure selezionare la macchina virtuale a cui si desidera aggiungere un disco dati. In questo esempio la macchina virtuale è mysqlnode1.  
 
 ![][1]
 
@@ -65,9 +65,9 @@ Verrà aggiunto un disco vuoto nella macchina virtuale. Ripetere questo passaggi
 	sudo grep SCSI /var/log/dmesg
 
 ####Passaggio 2: Creare RAID con i dischi aggiuntivi
-Per la procedura dettagliata di installazione di RAID, fare riferimento a questo articolo:  
+Per la procedura dettagliata di installazione di RAID, fare riferimento a questo articolo :  
 
-[http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] Se si usa il file system XFS, eseguire la seguente procedura dopo aver creato RAID.
 
@@ -114,7 +114,7 @@ Il seguente esempio mostra come controllare e impostare l'utilità di pianificaz
 
 Per il gruppo di distribuzione Debian:
 
-###Passaggio 1. Visualizzare l'utilità di pianificazione di I/O corrente.
+###Passaggio 1. Visualizzare l'unità di pianificazione di I/O corrente.
 Usare il seguente comando:  
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
@@ -154,7 +154,7 @@ Una delle procedure consigliate consiste nel disabilitare la funzionalità di re
  
 Per disattivare la registrazione dell'atime, è necessario modificare il file di configurazione del file system /etc/. fstab e aggiungere l'opzione **noatime**.  
 
-Modificare ad esempio  il file vim /etc/fstab aggiungendo l'opzione noatime come illustrato di seguito.  
+Modificare ad esempio il file vim /etc/fstab aggiungendo l'opzione noatime come illustrato di seguito.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -204,8 +204,8 @@ Per configurare MySQL in Azure è possibile usare la stessa strategia di ottimiz
 
 Le principali regole di ottimizzazione di I/O sono:   
 
--	Aumentare la dimensione della cache.
--	Ridurre il tempo di risposta di I/O.  
+-	Aumentare le dimensioni della cache.
+-	Ridurre i tempi di risposta I/O.
 
 Per ottimizzare le impostazioni del server MySQL, è possibile aggiornare il file my.cnf, ovvero il file di configurazione predefinito per i computer server e client.  
 
@@ -217,8 +217,8 @@ I seguenti elementi di configurazione sono i principali fattori che influiscono 
 -	**Innodb_file_per_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br>
 	Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
 -	**innodb_flush_log_at_trx_commit**: il valore predefinito è 1, con l'ambito impostato su 0~2. Il valore predefinito è l'opzione più adatta per il database MySQL come pacchetto autonomo. Se impostato su 2, il valore assicura la massima integrità dei dati ed è appropriato per il server Master nel cluster MySQL. Se impostato su 0, il valore tollera la perdita di dati e questo può influire sulla affidabilità, garantendo in alcuni casi prestazioni migliori. Il valore 0 è appropriato per il server Slave nel cluster MySQL.
--	**Innodb_log_buffer_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà usata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb_log_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
--	**query_cache_size**:  è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query_cache_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
+-	**Innodb_log_buffer_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà utilizzata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb_log_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
+-	**query_cache_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query_cache_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
   
 Vedere l'[Appendice D](AppendixD) per il confronto delle prestazioni dopo l'ottimizzazione.
 
@@ -226,7 +226,7 @@ Vedere l'[Appendice D](AppendixD) per il confronto delle prestazioni dopo l'otti
 ##Attivare il log di query lente di MySQL per l'analisi del collo di bottiglia delle prestazioni
 Il log di query lente di MySQL consente di identificare le query lente per MySQL. Dopo l'abilitazione del log di query lente di MySQL, è possibile usare strumenti di MySQL come **mysqldumpslow** per identificare il collo di bottiglia delle prestazioni.  
 
-Si noti che il log non è abilitato per impostazione predefinita. L'attivazione del log di query lente può usare alcune risorse della CPU. È pertanto consigliabile abilitarlo temporaneamente per la risoluzione dei colli di bottiglia delle prestazioni.
+Si noti che il log non è abilitato per impostazione predefinita. L'attivazione del log di query lente può utilizzare alcune risorse della CPU. È pertanto consigliabile abilitarlo temporaneamente per la risoluzione dei colli di bottiglia delle prestazioni.
 
 ###Passaggio 1: Modificare il file my.cnf aggiungendo alla fine del file le seguenti righe   
 
@@ -253,13 +253,12 @@ Come si può vedere, in questo esempio è stata attivata la funzionalità relati
 
 Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti nell'ambiente di destinazione, che forniscono informazioni generali sulla tendenza dei dati delle prestazioni con i diversi approcci di ottimizzazione delle prestazioni. I risultati possono tuttavia variare in ambienti o versioni di prodotto diverse. 
 
-<a name="AppendixA"></a>Appendice A:  
-**Prestazioni del disco (IOPS) con livelli RAID diversi** 
+<a name="AppendixA"></a>Appendice A: **Prestazioni del disco (IOPS) con livelli RAID diversi** 
 
 
 ![][9]
  
-**Comandi di test:**  
+**Comandi di test:**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
@@ -285,7 +284,7 @@ Di seguito sono riportati i dati di esempio dei test sulle prestazioni prodotti 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
 <a name="AppendixC"></a>Appendice C:   
-**Confronto delle prestazioni (IOPS) del disco per dimensioni del blocco diverse**  
+**Confronto delle prestazioni (IOPS) del disco per dimensioni del blocco diverse**
 (File system XFS)
 
  
@@ -300,7 +299,7 @@ Si noti che le dimensioni del file usato per il test sono pari rispettivamente a
 
 
 <a name="AppendixD"></a>Appendice D:  
-**Confronto delle prestazioni (velocità effettiva) di MySQL prima e dopo l'ottimizzazione**  
+**Confronto delle prestazioni (velocità effettiva) di MySQL prima e dopo l'ottimizzazione**
 (File system XFS)
 
   
@@ -314,7 +313,7 @@ Si noti che le dimensioni del file usato per il test sono pari rispettivamente a
 
 |Parametri	|Impostazione predefinita	|Ottimizzazione
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size**	|Nessuna	|7G
+|**innodb_buffer_pool_size**	|Nessuno	|7G
 |**innodb_log_file_size**	|5M	|512M
 |**max_connections**	|100	|5000
 |**innodb_file_per_table**	|0	|1
@@ -329,7 +328,7 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
-**Ambiente di test**  
+**Ambiente di test**
 
 |Hardware	|Dettagli
 |-----------|-------
@@ -355,4 +354,7 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Working with Node.js Modules" pageTitle="Uso di moduli Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Uso di moduli Node.js" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Using Node.js Modules with Azure applications" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -83,3 +98,5 @@ Dopo avere appreso a usare i moduli Node.js con Azure, per altre informazioni ve
 [Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: /it-it/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 
 
+
+<!--HONumber=46--> 

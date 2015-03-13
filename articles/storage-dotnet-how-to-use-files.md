@@ -58,7 +58,7 @@ L'archiviazione file contiene i seguenti componenti:
 ![files-concepts][files-concepts]
 
 
--   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni di Azure](http://msdn.microsoft.com/it-it/library/dn249410.aspx).
+-   **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni di Azure](http://msdn.microsoft.com/library/dn249410.aspx).
 
 -   **Condivisione:** una condivisione di archiviazione file è una condivisione file SMB 2.1 di Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
 
@@ -72,7 +72,7 @@ L'URL di esempio seguente può essere usato per indirizzare uno dei file nel dia
 
 
 
-Per dettagli su come denominare condivisioni, directory e file, vedere la pagina relativa a [denominazione e riferimento a condivisioni, directory, file e metadati](http://msdn.microsoft.com/it-it/library/azure/dn167011.aspx).
+Per dettagli su come denominare condivisioni, directory e file, vedere la pagina relativa a [denominazione e riferimento a condivisioni, directory, file e metadati](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ##<a name="create-account"></a>Creare un account di Archiviazione di Azure
 
@@ -155,7 +155,7 @@ Dopo aver stabilito una connessione remota alla macchina virtuale, è possibile 
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/it-it/library/gg145019(v=vs.110).aspx) in .NET Framework. 
+A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in .NET Framework. 
 
 La condivisione file può essere montata anche da un ruolo in esecuzione in un servizio cloud di Azure eseguendo l'accesso remoto al ruolo.
 
@@ -248,7 +248,7 @@ per informazioni più dettagliate.
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/it-it/library/azure/dn167006.aspx">API REST del servizio File</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">API REST del servizio File</a></li>
   </ul>
 </li>
 <li>Visualizzare i post del team di Archiviazione di Azure relativi al servizio file:
@@ -276,6 +276,5 @@ per informazioni più dettagliate.
 [Creare un'applicazione locale per accedere all'archiviazione file]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-
 
 <!--HONumber=42-->

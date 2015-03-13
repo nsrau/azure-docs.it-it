@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="Come usare la diagnostica" description="Informazioni su come configurare la diagnostica per le risorse in Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Come usare la diagnostica" 
+	description="Informazioni su come configurare la diagnostica per le risorse in Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Configurazione della diagnostica
 
@@ -66,3 +80,5 @@ Selezionare quindi una qualsiasi delle metriche che sono state abilitate per la 
 Nel grafico viene mostrata un'anteprima della soglia di avviso raffrontata alla metrica del giorno precedente. Pochi minuti dopo aver fatto clic su **Salva**, all'utente verrà comunicato se la metrica prescelta supera la soglia. 
 
 Si noti che le metriche visualizzate solo nel portale di anteprima non possono essere oggetto di avvisi nel portale completo. Di conseguenza, alcune regole relative agli avvisi del portale di anteprima non sono visibili nel portale completo.
+
+<!--HONumber=46--> 

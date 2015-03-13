@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="Domande frequenti su DocumentDB | Azure" description="Risposte alle domande frequenti sul servizio database di documenti NoSQL Azure DocumentDB. Informazioni sulle unità di capacità e richiesta e su come eseguire la scalabilità in base alle esigenze dell'applicazione." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Domande frequenti su DocumentDB | Azure" 
+	description="Risposte alle domande frequenti sul servizio database di documenti NoSQL Azure DocumentDB. Informazioni sulle unità di capacità e richiesta e su come eseguire la scalabilità in base alle esigenze dell'applicazione."
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Domande frequenti su DocumentDB
@@ -32,7 +46,7 @@ Sì, DocumentDB supporta le transazioni tra documenti espresse come trigger e st
 DocumentDB è un'ottima scelta per le nuove applicazioni Web e per dispositivi mobili in cui sono importanti scalabilità, prestazioni e query su dati privi di schema. DocumentDB si presta bene allo sviluppo rapido e al supporto dell'iterazione continua dei modelli di dati delle applicazioni. Le applicazioni che gestiscono contenuto e dati generati dall'utente rappresentano i casi di utilizzo comuni per DocumentDB.  
 
 ###Quali sono i limiti in termini di scalabilità e capacità?
-Ogni account DocumentDB Azure supporta un numero massimo di unità di capacità che è possibile configurare tramite il portale di Azure. Per aggiungere altre unità di capacità, contattare il supporto tecnico per richiedere l'aumento della quota dell'account.  Per altre informazioni sulle quote delle risorse, vedere l'articolo [Limiti per la versione preliminare di DocumentDB.](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 
+Ogni account DocumentDB Azure supporta un numero massimo di unità di capacità che è possibile configurare tramite il portale di Azure. Per aggiungere altre unità di capacità, contattare il supporto tecnico per richiedere l'aumento della quota dell'account.  Per altre informazioni sulle quote delle risorse, vedere l'articolo [Limiti per la versione preliminare di DocumentDB.](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 
 
 
 ###Quando costa Microsoft Azure DocumentDB?
@@ -87,3 +101,5 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 
 [portale di anteprima]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

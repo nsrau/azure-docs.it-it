@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" 
+	description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 # Definire un'API personalizzata che supporta le notifiche periodiche
 
 <div class="dev-center-tutorial-selector"> 
@@ -44,7 +58,8 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -81,7 +96,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 	Viene usata la funzione **exports.get** in quanto il client invierà una richiesta GET per accedere al modello di riquadro.
 
-   	> [AZURE.NOTE] Lo script di questa API personalizzata usa il [modulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) di Node.js, al quale viene fatto riferimento mediante la funzione **require**. Questo modulo è diverso rispetto all'[oggetto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) restituito dall'[oggetto push](http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx), che viene usato per l'invio di notifiche push da script del server.
+   	> [AZURE.NOTE] Lo script di questa API personalizzata usa il [modulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) di Node.js, al quale viene fatto riferimento mediante la funzione **require**. Questo modulo è diverso rispetto all'[oggetto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) restituito dall'[oggetto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), che viene usato per l'invio di notifiche push da script del server.
 
 Si procederà quindi alla modifica dell'app di guida introduttiva per avviare notifiche periodiche che aggiornano il riquadro animato richiedendo la nuova API personalizzata.
 
@@ -143,7 +158,7 @@ Dopo avere creato una notifica periodica, per altre informazioni vedere anche gl
 [Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Notifiche periodiche]: http://msdn.microsoft.com/it-it/library/windows/apps/jj150587.aspx
+[Notifiche periodiche]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 
 

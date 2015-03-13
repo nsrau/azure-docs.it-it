@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="Procedure consigliate per le prestazioni - Azure" metaKeywords="ottimizzazione Azure, procedure consigliate prestazioni Azure" description="Informazioni sulle procedure consigliate per le prestazioni in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Procedure consigliate per le prestazioni - Azure" 
+	description="Informazioni sulle procedure consigliate per le prestazioni in Azure." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Procedure consigliate per le prestazioni nelle applicazioni Azure  #
 
@@ -103,7 +117,7 @@ Un modello di progettazione comune in cui è possibile valutare l'uso di Archivi
 
 Per altre informazione su Archiviazione tabelle, vedere: 
 
-* [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/it-it/library/jj553018.aspx)
+* [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Considerazioni relative alle prestazioni di Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [Database SQL e Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Ottimizzazione delle prestazioni tramite l'invio in batch di inserimenti di Archiviazione tabelle di Azure](http://go.microsoft.com/fwlink/?LinkID=252665), in cui sono illustrati alcuni risultati relativi alle prestazioni. 
@@ -343,3 +357,5 @@ Altre risorse
 * [Pianificazione di Azure - Guida all'integrazione di Azure nell'ambiente](http://go.microsoft.com/fwlink/?LinkId=252884) 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

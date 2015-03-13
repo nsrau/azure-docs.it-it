@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Informazioni sui piani di hosting Web" description="Monitoraggio del piano di hosting Web" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties 
+	pageTitle="Informazioni sui piani di hosting Web" 
+	description="Monitoraggio del piano di hosting Web" 
+	services="web-sites" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="adamab"/>
 
 # Informazioni sui piani di hosting Web #
 
@@ -48,10 +62,12 @@ Quando si fa clic sul piano verrà avviato un pannello che consente di gestire i
 
 ### Passaggi successivi ###
 
-Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/it-it/pricing/free-trial/).
+Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
 [BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+<!--HONumber=46--> 

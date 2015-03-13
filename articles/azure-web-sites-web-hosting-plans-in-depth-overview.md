@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Informazioni dettagliate sui piani di hosting Web di Siti Web di Azure - Guida alle funzionalità di Microsoft Azure" description="Informazioni sul funzionamento dei piani di hosting Web per siti Web di Azure e sui vantaggi apportati in termini di esperienza di gestione." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Informazioni dettagliate sui piani di hosting Web di Siti Web di Azure - Guida alle funzionalità di Microsoft Azure" 
+	description="Informazioni sul funzionamento dei piani di hosting Web per Siti Web di Azure e sui vantaggi offerti all'esperienza di gestione." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Informazioni dettagliate sui piani di hosting Web di Siti Web di Azure#
 </br>
@@ -189,3 +203,5 @@ Queste metriche rappresentano l'utilizzo medio tra istanze appartenenti a un pia
 I piani di hosting Web rappresentano un set di funzionalità e capacità che è possibile condividere tra tutti i siti Web in uso.  Un piano di hosting Web garantisce la flessibilità per allocare siti specifici a un determinato set di risorse (macchine virtuali) e di ottimizzare ulteriormente l'allocazione e l'utilizzo delle risorse di Azure per i siti Web.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

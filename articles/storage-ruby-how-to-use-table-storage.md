@@ -176,8 +176,7 @@ Per eliminare una tabella, usare il metodo **delete\_table()** e passare il nome
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* Vedere le informazioni di riferimento in MSDN: [Archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
+* Vedere le informazioni di riferimento in MSDN: [Archiviazione](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Repository [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
-
 <!--HONumber=42-->

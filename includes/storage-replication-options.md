@@ -16,7 +16,7 @@
 
 - L'*archiviazione con ridondanza geografica e accesso in lettura* garantisce tutti i vantaggi dell'archiviazione con ridondanza geografica e consente inoltre l'accesso in lettura ai dati nell'area geografica secondaria in caso di non disponibilità dell'area geografica principale. Questo tipo di archiviazione è consigliato per ottenere la massima disponibilità oltre alla durabilità dei dati.  
 
-Per informazioni dettagliate sulle opzioni di replica, vedere il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/) e [Opzioni di ridondanza di Archiviazione di Azure](http://msdn.microsoft.com/it-it/library/azure/dn727290.aspx).
+Per informazioni dettagliate sulle opzioni di replica, vedere il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/) e [Opzioni di ridondanza di Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx).
 	
 Le differenze di prezzo tra le varie opzioni di archiviazione sono disponibili nella pagina [Prezzi di Archiviazione di Azures](/it-it/pricing/details/storage/).
-<!--HONumber=41-->
+<!--HONumber=42-->

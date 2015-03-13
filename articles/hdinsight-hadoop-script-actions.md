@@ -123,7 +123,7 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 - [Installare e usare Solr nei cluster HDInsight](../hdinsight-hadoop-solr-install)
 - [Installare e usare Giraph nei cluster HDInsight](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] Lo script di esempio funziona solo con il cluster HDInsight versione 3.1 o successiva. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Lo script di esempio funziona solo con il cluster HDInsight versione 3.1 o successiva. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>Come testare lo script personalizzato con HDInsight Emulator
 
@@ -131,7 +131,7 @@ Un modo semplice per testare uno script personalizzato prima di usarlo in un com
 
 Questa sezione descrive la procedura per usare HDInsight Emulator localmente per i test, che è simile alla procedura che prevede l'uso di una macchina virtuale.
 
-**Installare HDInsight Emulator**: per eseguire localmente le azioni script, è necessario che sia installato HDInsight Emulator. Per istruzioni su come installarlo, vedere [Introduzione all'uso di HDInsight Emulator](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-get-started-emulator/)
+**Installare HDInsight Emulator**: per eseguire localmente le azioni script, è necessario che sia installato HDInsight Emulator. Per istruzioni su come installarlo, vedere [Introduzione all'uso di HDInsight Emulator](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)
 
 **Impostare i criteri di esecuzione per Azure PowerShell:** aprire Microsoft Azure PowerShell ed eseguire come amministratore il seguente comando per impostare i criteri di esecuzione su  *LocalMachine* e su  *Unrestricted*.
  
@@ -214,4 +214,4 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

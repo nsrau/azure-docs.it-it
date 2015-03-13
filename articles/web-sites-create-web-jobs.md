@@ -21,7 +21,7 @@
 
 Siti Web di Azure consente di eseguire programmi o script nel sito Web in tre modi: su richiesta, in modo continuo o in base a una pianificazione. Non sono previsti costi aggiuntivi per l'uso di Processi Web di Microsoft Azure.
 
-Questo articolo descrive come distribuire Processi Web tramite il portale di gestione di Azure. Per informazioni su come eseguire la distribuzione usando Visual Studio o un processo di recapito continuo, vedere [Come distribuire i processi Web di Azure in Siti Web di Azure](http://azure.microsoft.com/it-it/documentation/articles/websites-dotnet-deploy-webjobs).
+Questo articolo descrive come distribuire Processi Web tramite il portale di gestione di Azure. Per informazioni su come eseguire la distribuzione usando Visual Studio o un processo di recapito continuo, vedere [Come distribuire i processi Web di Azure in Siti Web di Azure](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
 
 Azure WebJobs SDK semplifica molte attività di programmazione dei processi Web. Per altre informazioni, vedere [Cos'è Azure WebJobs SDK](../websites-dotnet-webjobs-sdk).
 

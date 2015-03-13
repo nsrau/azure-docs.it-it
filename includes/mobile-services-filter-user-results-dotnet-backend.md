@@ -41,4 +41,4 @@ Poiché l'autenticazione è necessaria per accedere ai dati della tabella TodoIt
    Questa query filtra gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente. 
 
 6. Ripubblicare il progetto di servizio mobile in Azure.
-<!--HONumber=41-->
+<!--HONumber=42-->

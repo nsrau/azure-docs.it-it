@@ -26,7 +26,7 @@ Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python 
 Verrà creata un'applicazione usando il framework Web di Django (vedere le versioni alternative di questa esercitazione per [Flask](../web-sites-python-create-deploy-flask-app) e [Bottle](../web-sites-python-create-deploy-bottle-app)).  Verrà creato il sito Web dalla raccolta di Azure, verrà configurata la distribuzione Git e verrà clonato l'archivio localmente.  Infine, verrà eseguita l'applicazione localmente, verranno apportate modifiche e ne verrà eseguito il commit e il push in Azure.  L'esercitazione illustra come eseguire queste operazioni da Windows o Mac/Linux.
 
 > [AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://azure.microsoft.com/it-it/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
+> Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://azure.microsoft.com/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
 > 
 > Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 

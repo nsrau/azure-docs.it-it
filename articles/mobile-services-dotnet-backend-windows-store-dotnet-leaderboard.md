@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure" description="Informazioni su come compilare un'app per Windows Store mediante Servizi mobili di Azure con un back-end .NET." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure" 
+	description="Informazioni su come compilare un'app per Windows Store mediante Servizi mobili di Azure con un back-end .NET." 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -80,7 +94,7 @@ Non sono necessari per questa esercitazione, quindi possono essere eliminati dal
 
 ## Aggiungere modelli di dati
 
-Si userà [Code First di Entity Framework](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) per definire le tabelle di dati. Nella cartella DataObjects aggiungere una classe denominata `Player`.
+Si userà [Code First di Entity Framework](http://msdn.microsoft.com/data/ee712907#codefirst) per definire le tabelle di dati. Nella cartella DataObjects aggiungere una classe denominata `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -109,9 +123,9 @@ Aggiungere un'altra classe denominata `PlayerRank`.
 	    }
 	}
 
-Si noti che entrambe le classi ereditano dalla classe **EntityData**. L'ereditarietà da **EntityData** semplifica l'uso dei dati da parte dell'app tramite la libreria client multipiattaforma per Servizi mobili di Azure. **EntityData** consente anche a un'app di [gestire i conflitti di scrittura nel database](http://azure.microsoft.com/it-it/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
+Si noti che entrambe le classi ereditano dalla classe **EntityData**. L'ereditarietà da **EntityData** semplifica l'uso dei dati da parte dell'app tramite la libreria client multipiattaforma per Servizi mobili di Azure. **EntityData** consente anche a un'app di [gestire i conflitti di scrittura nel database](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
 
-La classe `PlayerRank` incluse una [proprietà di navigazione](http://msdn.microsoft.com/it-it/data/jj713564.aspx) che punta all'entità `Player` correlata. L'attributo **[ForeignKey]** indica a EF che la proprietà `Player` rappresenta una chiave esterna.
+La classe `PlayerRank` incluse una [proprietà di navigazione](http://msdn.microsoft.com/data/jj713564.aspx) che punta all'entità `Player` correlata. L'attributo **[ForeignKey]** indica a EF che la proprietà `Player` rappresenta una chiave esterna.
 
 # Aggiungere controller API Web
 
@@ -139,7 +153,7 @@ Questo passaggio aggiunge un file denominato PlayerController.cs al progetto.
 
 Il controller deriva da **TableController<T>**. Questa classe eredita **ApiController** ma è specializzata per Servizi di mobili di Azure.
  
-- Routing: la route predefinita per un **TableController** è `/tables/{table_name}/{id}`, dove *table_name* corrisponde al nome dell'entità. Quindi, la route per il controller Player è */tables/player/{id}*. Questa convenzione di routing assicura la coerenza di **TableController** con l'[API REST](http://msdn.microsoft.com/it-it/library/azure/jj710104.aspx) di Servizi mobili.
+- Routing: la route predefinita per un **TableController** è `/tables/{table_name}/{id}`, dove *table_name* corrisponde al nome dell'entità. Quindi, la route per il controller Player è */tables/player/{id}*. Questa convenzione di routing assicura la coerenza di **TableController** con l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) di Servizi mobili.
 - Accesso ai dati: per le operazioni di database, la classe **TableController** usa l'interfaccia **IDomainManager**, che definisce un'astrazione per l'accesso ai dati.  Lo scaffolding usa **EntityDomainManager**, che è un'implementazione concreta di **IDomainManager** che esegue il wrapping di un contesto EF. 
 
 Aggiungere ora un secondo controller per le entità PlayerRank. Seguire la stessa procedura, ma scegliendo PlayerRank per la classe modello. Usare la stessa classe contesto dati. Non crearne una nuova. Assegnare al controller il nome "PlayerRankController"

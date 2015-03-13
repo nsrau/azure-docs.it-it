@@ -1,6 +1,20 @@
-<properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure" 
+	description="Informazioni su come configurare notifiche e modelli di posta elettronica in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 
@@ -94,3 +108,5 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
   [Modelli di posta elettronica]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
   [Elenco modelli di posta elettronica]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
   [Editor dei modelli di posta elettronica]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
+
+<!--HONumber=46--> 

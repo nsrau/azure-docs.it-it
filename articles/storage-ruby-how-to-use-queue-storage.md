@@ -168,10 +168,9 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-- Vedere le informazioni di riferimento in MSDN: [Archiviazione](http://msdn.microsoft.com/it-it/library/windowsazure/gg433040.aspx)
+- Vedere le informazioni di riferimento in MSDN: [Archiviazione](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repository [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-Per un confronto tra il servizio di accodamento di Azure descritto in questo articolo e le code del bus di servizio di Azure descritte nell'articolo [Come usare le code del bus di servizio](/it-it/develop/ruby/how-to-guides/service-bus-queues/), vedere [Analogie e differenze tra le code di Azure e le code di Service Bus](http://msdn.microsoft.com/it-it/library/windowsazure/hh767287.aspx)
-
+Per un confronto tra il servizio di accodamento di Azure descritto in questo articolo e le code del bus di servizio di Azure descritte nell'articolo [Come usare le code del bus di servizio](/it-it/develop/ruby/how-to-guides/service-bus-queues/), vedere [Analogie e differenze tra le code di Azure e le code di Service Bus](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
 <!--HONumber=42-->

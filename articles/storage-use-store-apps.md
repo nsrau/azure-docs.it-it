@@ -26,7 +26,7 @@ In questa guida viene illustrato come iniziare a sviluppare un'applicazione Wind
 
 ## Download degli strumenti richiesti ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/it-it/library/windows/apps/br211384) facilita le operazioni di compilazione, debug, localizzazione, creazione pacchetti e distribuzione delle app di Windows Store.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) facilita le operazioni di compilazione, debug, localizzazione, creazione pacchetti e distribuzione delle app di Windows Store.
 - La [libreria client di archiviazione di Microsoft Azure per Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fornisce una libreria di classi per usare l'archiviazione di Azure.
 - Gli [strumenti dei Servizi dati WCF per le app di Windows Store](http://www.microsoft.com/it-it/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio 2012.
 
@@ -49,7 +49,7 @@ A questo punto l'app è pronta per chiamare i servizi BLOB e di accodamento. Agg
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo del gestore eventi con la [parola chiave async](http://msdn.microsoft.com/it-it/library/vstudio/hh156513.aspx):
+Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo del gestore eventi con la [parola chiave async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -90,5 +90,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
 <!--HONumber=42-->

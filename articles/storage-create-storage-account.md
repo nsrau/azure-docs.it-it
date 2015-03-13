@@ -33,7 +33,7 @@ L'importo fatturato per l'uso di Archiviazione di Azure dipende dall'account di 
 - Le transazioni fanno riferimento a tutte le operazioni di lettura e scrittura in Archiviazione di Azure. 
 - L'uscita dati fa riferimento ai dati trasferiti all'esterno di un'area di Azure. Quando un'applicazione non in esecuzione nella stessa area geografica accede ai dati nell'account di archiviazione, indipendentemente dal fatto che l'applicazione sia un servizio cloud o un altro tipo di applicazione, verrà addebitato il trasferimento dei dati in uscita. Per i servizi di Azure è possibile raggruppare dati e servizi nello stesso data center per ridurre o evitare del tutto gli addebiti per il trasferimento dei dati in uscita.  
 
-Nella pagina [Prezzi di Archiviazione di Azure](http://www.windowsazure.com/it-it/pricing/details/#storage) vengono fornite informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](http://www.windowsazure.com/it-it/pricing/details/data-transfers/) vengono fornite informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita.
+Nella pagina [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/#storage) vengono fornite informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](http://azure.microsoft.com/pricing/details/data-transfers/) vengono fornite informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita.
 
 Per informazioni sugli obiettivi di capacità e prestazioni dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
@@ -101,7 +101,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
 
-> [AZURE.NOTE]  Per creare un gruppo di affinità, aprire l'area <b>Impostazioni</b> del portale di gestione, fare clic su <b>Gruppi di affinità</b> e quindi fare clic sul pulsante <b>Aggiungi un gruppo di affinità</b> o <b>Aggiungi</b>. È inoltre possibile creare e gestire gruppi di affinità mediante l'API Gestione servizi di Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/it-it/library/windowsazure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
+> [AZURE.NOTE]  Per creare un gruppo di affinità, aprire l'area <b>Impostazioni</b> del portale di gestione, fare clic su <b>Gruppi di affinità</b> e quindi fare clic sul pulsante <b>Aggiungi un gruppo di affinità</b> o <b>Aggiungi</b>. È inoltre possibile creare e gestire gruppi di affinità mediante l'API Gestione servizi di Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
 
 
 ### <a id="replication-options"></a>Opzioni di replica dell'account di archiviazione
@@ -119,7 +119,7 @@ Nel [portale di gestione](http://manage.windowsazure.com) usare **Gestisci chiav
 
 ### Copia di una chiave di accesso alle risorse di archiviazione ###
 
-È possibile usare **Gestisci chiavi** per copiare una chiave di accesso alle risorse di archiviazione da usare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da usare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/it-it/library/ee758697.aspx).
+È possibile usare **Gestisci chiavi** per copiare una chiave di accesso alle risorse di archiviazione da usare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da usare nell'autenticazione. Per informazioni sulla configurazione delle stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/library/ee758697.aspx).
 
 1. Nel [portale di gestione](http://manage.windowsazure.com) fare clic su **Archiviazione** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
@@ -171,10 +171,9 @@ Per rimuovere un account di archiviazione non più in uso, usare **Elimina** nel
 
 ## <a id="next"></a>Passaggi successivi
 
-- Per altre informazioni sull'archiviazione di Azure, vedere la relativa documentazione sul sito Web [azure.com](http://azure.microsoft.com/it-it/documentation/services/storage/) e su [MSDN](http://msdn.microsoft.com/it-it/library/gg433040.aspx). 
+- Per altre informazioni sull'archiviazione di Azure, vedere la relativa documentazione sul sito Web [azure.com](http://azure.microsoft.com/documentation/services/storage/) e su [MSDN](http://msdn.microsoft.com/library/gg433040.aspx). 
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
 
 
 

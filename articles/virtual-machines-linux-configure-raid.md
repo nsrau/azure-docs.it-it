@@ -4,7 +4,7 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
+	Writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -56,7 +56,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		AVVISO: DOS-compatible mode is deprecated. It's strongly recommended to
+		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
@@ -133,7 +133,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 		# sudo mkdir /data
 
-2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utilità `blkid` per determinare l'UUID del nuovo file system:
+2. Quando si modifica /etc/fstab è consigliabile usare l'**UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utility `blkid` per determinare l'UUID del nuovo file system:
 
 		# sudo /sbin/blkid
 		...........
@@ -174,4 +174,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 	Per informazioni sulla corretta modifica dei parametri del kernel, fare riferimento alla documentazione della distribuzione. Ad esempio, in molte distribuzioni (CentOS, Oracle Linux, SLES 11) è possibile aggiungere manualmente tali parametri al file "`/boot/grub/menu.lst`".  In Ubuntu è possibile aggiungere il parametro alla variabile `GRUB_CMDLINE_LINUX_DEFAULT` in "/etc/default/grub".
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

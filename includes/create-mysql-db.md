@@ -78,5 +78,4 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 [Azure Store]: /it-it/gallery/store/
 [portale]: http://manage.windowsazure.com
 [configure]: ../web-sites-configure/
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Aggiungere un certificato all'archivio CA Java - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Informazioni su come aggiungere un certificato dell'autorità di certificazione (CA) all'archivio certificati CA Java (cacerts) per il servizio Twilio o Bus di servizio di Azure." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Aggiungere un certificato all'archivio CA Java - Azure" 
+	description="Informazioni su come aggiungere un certificato dell'autorità di certificazione (CA) all'archivio certificati CA Java (cacerts) per il servizio Twilio o Bus di servizio di Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Aggiunta di un certificato all'archivio certificati CA Java
 Nella procedura seguente viene illustrato come aggiungere un certificato dell'Autorità di certificazione (CA) all'archivio certificati CA Java (cacerts). L'esempio usato è relativo al certificato CA necessario per il servizio Twilio. Più avanti in questo argomento vengono riportate le informazioni per installare il certificato CA per il bus di servizio di Azure. 
@@ -38,3 +52,5 @@ Se è necessario aggiungere Baltimore CyberTrust Root, il numero di serie è 02:
 
 Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo relativo alla [migrazione dei certificati radice di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
+
+<!--HONumber=46--> 

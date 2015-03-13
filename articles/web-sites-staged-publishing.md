@@ -72,7 +72,7 @@ Per abilitare l'uso di più slot di distribuzione è necessario che il sito Web 
 
 	-	 
 
-Non sono inclusi i contenuti. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti.  Ad esempio è possibile [pubblicare in questo slot con git](http://azure.microsoft.com/it-it/documentation/articles/web-sites-publish-source-control/).
+Non sono inclusi i contenuti. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti.  Ad esempio è possibile [pubblicare in questo slot con git](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ##Informazioni sulla configurazione degli slot di distribuzione##
@@ -147,7 +147,7 @@ Fare clic su **Elimina** nella barra dei comandi nella parte inferiore della pag
 
 Azure PowerShell è un modulo che fornisce cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione di Siti Web di Azure. 
 
-- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con la sottoscrizione Microsoft Azure, vedere [Come installare e configurare Azure PowerShell](http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell).  
+- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con la sottoscrizione Microsoft Azure, vedere [Come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell).  
 
 - Per elencare i cmdlet disponibili per Siti Web di Azure in PowerShell, chiamare `help AzureWebsite`. 
 
@@ -202,7 +202,7 @@ Se uno slot di distribuzione non è più necessario, è possibile eliminarlo usa
 
 L'interfaccia della riga di comando multipiattaforma (xplat-cli) di Azure fornisce comandi multipiattaforma per l'uso con Azure, incluso il supporto per la gestione degli slot di distribuzione su Siti Web di Azure. 
 
-- Per istruzioni sull'installazione e la configurazione dell'interfaccia xplat-cli, incluse le informazioni su come collegarla alla sottoscrizione Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure ](http://www.windowsazure.com/it-it/documentation/articles/xplat-cli). 
+- Per istruzioni sull'installazione e la configurazione dell'interfaccia xplat-cli, incluse le informazioni su come collegarla alla sottoscrizione Azure, vedere [Installazione e configurazione dell'interfaccia della riga di comando multipiattaforma di Azure ](http://azure.microsoft.com/documentation/articles/xplat-cli). 
 
 -  Per elencare i comandi disponibili per Siti Web nell'interfaccia xplat-cli, chiamare `azure site -h`. 
 
@@ -238,7 +238,7 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 ## Passaggi successivi ##
 [Blocco dell'accesso Web agli slot di distribuzione non di produzione in Siti Web di Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/it-it/pricing/free-trial/)
+[Versione di valutazione gratuita di Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

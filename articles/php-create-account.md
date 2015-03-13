@@ -1,7 +1,23 @@
-﻿<properties title="Create an Azure account" pageTitle="Creare un account Azure" description="Informazioni sulla creazione di un account." authors="tomfitz" manager="wpickett" editor="mollybos"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creare un account Azure" 
+	description="Creare un account" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos" 
+	services="" 
+	documentationCenter="php"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tomfitz"/>
 
 [WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

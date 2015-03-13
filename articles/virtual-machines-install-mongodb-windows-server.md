@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Installare MongoDB in una macchina virtuale con Windows Server" 
-	description="Informazioni su come installare MongoDB in una macchina virtuale di Azure che esegue Windows Server in Azure" 
+	description="Informazioni su come installare MongoDB in una macchina virtuale di Azure che esegue Windows Server." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -16,9 +16,9 @@
 	ms.date="11/24/2014" 
 	ms.author="kathydav"/>
 
-# Installare MongoDB in una macchina virtuale che esegue Windows Server
+#Installare MongoDB in una macchina virtuale che esegue Windows Server
 
-[MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate.  Dalla raccolta immagini del [portale di gestione di Azure][AzureManagementPortal] è possibile creare una macchina virtuale che esegue Windows Server.  Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
+[MongoDB][MongoDB] è un diffuso database NoSQL open source a prestazioni elevate. Dalla raccolta immagini del [portale di gestione di Azure][AzureManagementPortal] è possibile creare una macchina virtuale che esegue Windows Server. Su tale macchina virtuale sarà quindi possibile installare e configurare un database MongoDB.
 
 Questo articolo descrive come:
 
@@ -48,11 +48,14 @@ Per istruzioni sull'inizializzazione del disco, vedere la sezione "Procedura: In
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-## Riepilogo
+##Riepilogo
 In questa esercitazione è stato illustrato come creare una macchina virtuale Windows Server, come stabilire una connessione remota a quest'ultima e come collegare un disco dati.  È stato inoltre illustrato come installare e configurare MongoDB sulla macchina virtuale Windows. Per altre informazioni su MongoDB, vedere la [Documentazione di MongoDB][MongoDocs].
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

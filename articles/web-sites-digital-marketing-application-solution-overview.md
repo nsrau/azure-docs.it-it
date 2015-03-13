@@ -26,7 +26,7 @@ Di seguito è riportato un esempio di una campagna di marketing digitale multica
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> Questa guida presenta alcune delle aree e delle attività più comuni relative all'esecuzione di una campagna di marketing digitale in Siti Web di Azure. Tuttavia, sono disponibili altre soluzioni comuni che è possibile implementare in Siti Web di Azure. Per esaminare queste soluzioni, vedere le altre guide sulla <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e sulle <a href="http://www.windowsazure.com/it-it/manage/services/web-sites/business-application-solution-overview">applicazioni aziendali</a>.
+> Questa guida presenta alcune delle aree e delle attività più comuni relative all'esecuzione di una campagna di marketing digitale in Siti Web di Azure. Tuttavia, sono disponibili altre soluzioni comuni che è possibile implementare in Siti Web di Azure. Per esaminare queste soluzioni, vedere le altre guide sulla <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e sulle <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">applicazioni aziendali</a>.
 
 ### Creare i siti da zero o usare le risorse esistenti
 
@@ -124,8 +124,8 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
 [scalabilità verticale e orizzontale]:/it-it/manage/services/web-sites/how-to-scale-websites/
 [Portale di gestione di Azure]:http://manage.windowsazure.com/
-[API di gestione del servizio]:http://msdn.microsoft.com/it-it/library/windowsazure/ee460799.aspx
-[script di PowerShell]:http://msdn.microsoft.com/it-it/library/windowsazure/jj152841.aspx
+[API di gestione del servizio]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[script di PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 elementi appresi per scalare rapidamente i siti Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis di Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

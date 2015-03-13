@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Introduzione all'uso di Analisi dei flussi di Azure | Azure" metaKeywords="" description="Informazioni su come iniziare a usare Analisi dei flussi di Azure per elaborare e trasformare gli eventi in Hub eventi del bus di servizio di Azure e archiviare i risultati nel database SQL di Azure." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Introduzione all'uso di Analisi dei flussi di Azure | Azure" 
+	description="Informazioni su come iniziare a usare Analisi dei flussi di Azure per elaborare e trasformare gli eventi in Hub eventi del bus di servizio di Azure e archiviare i risultati nel database SQL di Azure." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # Introduzione all'uso di Analisi dei flussi di Azure
@@ -73,7 +87,7 @@ Se si dispone già di un database SQL di Azure da usare per questa esercitazione
 1.	Nel portale di gestione fare clic su **NUOVO**, **SERVIZI DATI**, **DATABASE SQL**, **CREAZIONE RAPIDA**.  Specificare un nome di database in un server esistente o in un nuovo server di database SQL.
 2.	Selezionare il database appena creato
 3.	Fare clic su **DASHBOARD**, quindi su **Mostra stringhe di connessione** nella parte destra della pagina, quindi copiare la stringa di connessione **ADO.NET**. Questa stringa verrà usata più avanti nell'esercitazione.  
-4.	Assicurarsi che le impostazioni del firewall a livello di server consentano di connettersi al database.  A tale scopo, è possibile aggiungere una nuova regola IP nella scheda Configurazione del Server. Per altri dettagli, comprese le informazioni sulla gestione degli IP dinamici, vedere [http://msdn.microsoft.com/it-it/library/azure/ee621782.aspx](http://msdn.microsoft.com/it-it/library/azure/ee621782.aspx).
+4.	Assicurarsi che le impostazioni del firewall a livello di server consentano di connettersi al database.  A tale scopo, è possibile aggiungere una nuova regola IP nella scheda Configurazione del Server. Per altri dettagli, comprese le informazioni sulla gestione degli IP dinamici, vedere [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ###Creare tabelle di output
 1.	Aprire Visual Studio o SQL Server Management Studio.
@@ -264,13 +278,13 @@ In questa esercitazione si è appreso a usare Analisi dei flussi per elaborare d
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/it-it/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/it-it/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/it-it/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/it-it/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/it-it/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/it-it/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ In questa esercitazione si è appreso a usare Analisi dei flussi per elaborare d
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

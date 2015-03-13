@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="Introduzione a Ricerca di Azure" description="Introduzione a Ricerca di Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Introduzione a Ricerca di Azure" 
+	description="Introduzione a Ricerca di Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure
 
@@ -292,7 +306,7 @@ Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe 
  
    ![][19]
 
-La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/it-it/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler. 
+La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler. 
 
 **Prima della sostituzione degli spazi:**
 
@@ -357,9 +371,9 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 
 - [Gestire la soluzione di ricerca in Microsoft Azure](../search-manage/) 
 
-- [Panoramica tecnica relativa a Ricerca di Azure](http://msdn.microsoft.com/it-it/library/dn798933.aspx)
+- [Panoramica tecnica relativa a Ricerca di Azure](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [API REST Ricerca di Azure](http://msdn.microsoft.com/it-it/library/dn798935.aspx)
+- [API REST Ricerca di Azure](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Video di Channel 9: Introduzione a Ricerca di Azure](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +416,5 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 [Creare un'app di ricerca geospaziale mediante Ricerca di Azure]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

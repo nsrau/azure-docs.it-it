@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Archiviazione del codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Archiviazione del codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" 
+	description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end JavaScript</a>
@@ -155,7 +169,7 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 
 <!-- URLs. -->
 [Sito Web di Git]: http://git-scm.com
-[Controllo del codice sorgente]: http://msdn.microsoft.com/it-it/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Controllo del codice sorgente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-ios-get-started/
 [Aggiungere Servizi mobili a un'app esistente]: /it-it/documentation/articles/mobile-services-ios-get-started-data/

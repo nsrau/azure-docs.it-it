@@ -66,7 +66,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
     	}
 	}
 
-È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
+È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
 
 #####Scaricare un BLOB
 Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo DownloadToStream(). L'esempio seguente usa il metodo DownloadToStream() per trasferire i contenuti del BLOB a un oggetto stream che è quindi possibile salvare come file locale.
@@ -80,7 +80,7 @@ Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
+È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
 
 #####Eliminare un BLOB
 Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo Delete().
@@ -92,7 +92,6 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 	blockBlob.Delete();
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/it-it/library/azure/ff683677.aspx).
-
+Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

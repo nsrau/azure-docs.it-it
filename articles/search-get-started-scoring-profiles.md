@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Introduzione ai profili di punteggio in Ricerca di Azure" description="Introduzione ai profili di punteggio in Ricerca di Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Come usare i profili di assegnazione dei punteggi in Ricerca di Azure" 
+	description="Introduzione ai profili di punteggio in Ricerca di Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Introduzione ai profili di punteggio in Ricerca di Azure
 
@@ -43,7 +57,7 @@ Al termine dell'aggiunta dell'URL e della 'chiave API' al file app.config, le im
 
 Si è quasi pronti per compilare ed eseguire l'app, ma prima di procedere è consigliabile esaminare i file JSON usati per creare e popolare l'indice.
 
-**Schema.json** definisce l'indice, inclusi i profili di punteggio evidenziati in questa demo. Si noti che lo schema definisce tutti i campi usati nell'indice, inclusi i campi che non supportano le ricerche, ad esempio 'margin', che possono essere usati in un profilo di punteggio. La sintassi dei profili di punteggio è illustrata in [Aggiungere un profilo di punteggio a un indice di Ricerca di Azure](http://msdn.microsoft.com/it-it/library/azure/dn798928.aspx).
+**Schema.json** definisce l'indice, inclusi i profili di punteggio evidenziati in questa demo. Si noti che lo schema definisce tutti i campi usati nell'indice, inclusi i campi che non supportano le ricerche, ad esempio 'margin', che possono essere usati in un profilo di punteggio. La sintassi dei profili di punteggio è illustrata in [Aggiungere un profilo di punteggio a un indice di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** fornisce i dati, 246 album di generi diversi. I dati sono costituiti da una combinazione di informazioni effettive su album e artisti e da campi fittizi come 'price' e 'margin', usati per illustrare le operazioni di ricerca. I file di dati sono conformi all'indice e vengono caricati nel servizio di ricerca di Azure. Dopo il caricamento e l'indicizzazione dei dati, sarà possibile eseguire query sui dati.
 
@@ -85,9 +99,9 @@ Dopo avere provato a usare i profili di punteggio, è possibile provare a modifi
 
 <h2 id="next-steps">Passaggi successivi</h2>
 
-Altre informazioni sui profili di punteggio. Per informazioni dettagliate, vedere [Aggiungere un profilo di punteggio a un indice di Ricerca di Azure](http://msdn.microsoft.com/it-it/library/azure/dn798928.aspx).
+Altre informazioni sui profili di punteggio. Per informazioni dettagliate, vedere [Aggiungere un profilo di punteggio a un indice di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-Altre informazioni sulla sintassi di ricerca e sui parametri di query. Per informazioni dettagliate, vedere [Eseguire ricerche nei documenti (API REST Ricerca di Azure)](http://msdn.microsoft.com/it-it/library/azure/dn798927.aspx).
+Altre informazioni sulla sintassi di ricerca e sui parametri di query. Per informazioni dettagliate, vedere [Eseguire ricerche nei documenti (API REST Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Per altre informazioni sulla creazione degli indici, [guardare questo video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) relativo alle nozioni di base.
 
@@ -104,3 +118,5 @@ Per altre informazioni sulla creazione degli indici, [guardare questo video](htt
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Uso delle libreria client Android per Servizi mobili" description="Informazioni su come usare un client Android per Servizi mobili di Azure." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Uso delle libreria client Android per Servizi mobili" 
+	description="Informazioni su come usare un client Android per Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="ricksal"/>
 
 # Come usare la libreria client Android per Servizi mobili
 
@@ -882,7 +896,7 @@ I riferimenti Javadocs per l'API del client Android sono disponibili all'indiriz
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-android/
 [Codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI per la gestione delle tabelle di Servizi mobili]: http://www.windowsazure.com/it-it/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="Servizi BizTalk: Backup e ripristino | Azure" metaKeywords="" description="I Servizi BizTalk includono funzionalità di backup e ripristino. Quando si crea un backup, viene eseguito uno snapshot della configurazione dei Servizi BizTalk." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Servizi BizTalk: Backup e ripristino | Azure" 
+	description="I Servizi BizTalk includono funzionalità di backup e ripristino. Informazioni su come creare e ripristinare un backup e determinare gli elementi di cui eseguire il backup. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Servizi BizTalk: backup e ripristino
@@ -16,7 +30,7 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. Questo arg
 
 ##<a name="beforebackup"></a>Operazioni preliminari
 
-- Le funzionalità di backup e ripristino potrebbero non essere disponibili per tutte le edizioni. Vedere [Servizi BizTalk: Grafico edizioni](http://azure.microsoft.com/it-it/documentation/articles/biztalk-editions-feature-chart/).
+- Le funzionalità di backup e ripristino potrebbero non essere disponibili per tutte le edizioni. Vedere [Servizi BizTalk: Grafico edizioni](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Nota** Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione.
 
@@ -227,3 +241,5 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Se
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

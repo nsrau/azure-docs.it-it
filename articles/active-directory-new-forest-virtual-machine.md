@@ -1,18 +1,33 @@
-﻿<properties urlDisplayName="Active Directory forest" pageTitle="Installazione di una foresta Active Directory in una rete virtuale di Azure" metaKeywords="" description="Esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale in una rete virtuale di Azure." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
+﻿<properties 
+	pageTitle="Installazione di una foresta Active Directory in una rete virtuale di Azure" 
+	description="Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="Justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="Justinha"/>
 
 
 
 
 #Installazione di una nuova foresta Active Directory in una rete virtuale di Azure
 
-Questo argomento descrive come creare un nuovo ambiente Windows Server Active Directory su una macchina virtuale (VM) in una [rete virtuale di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx). In questo caso, la rete virtuale di Azure non è connessa a una rete locale. 
+Questo argomento descrive come creare un nuovo ambiente Windows Server Active Directory su una macchina virtuale (VM) in una [rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). In questo caso, la rete virtuale di Azure non è connessa a una rete locale. 
 
 Altri argomenti di interesse:
 
-- Facoltativamente, è possibile [configurare una VPN da sito a sito usando la procedura guidata del portale di gestione](http://msdn.microsoft.com/it-it/library/windowsazure/dn133795.aspx) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica nelle reti virtuali di Azure](http://www.windowsazure.com/it-it/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
--  Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj156090.aspx).
+- Facoltativamente, è possibile [configurare una VPN da sito a sito usando la procedura guidata del portale di gestione](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica nelle reti virtuali di Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
+-  Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 -  Per istruzioni dettagliate sulla creazione di un ambiente di laboratorio di test in Azure che include Servizi di dominio Active Directory, vedere [Guida del laboratorio di testing: Configurazione di base di Windows Server 2012 R2 in Azure](http://www.microsoft.com/it-it/download/details.aspx?id=41684).
 
 
@@ -62,7 +77,7 @@ Configurazione  | Locale  | Rete virtuale di Azure
 	**Servizio cloud**  | <p>Servizio cloud: <b>Crea un nuovo servizio cloud</b></p><p>Nome servizio cloud: accettare il valore predefinito</p><p>Regione/Gruppo di affinità/Rete virtuale: selezionare la rete virtuale creata</p><p>Subnet della rete virtuale: selezionare la subnet creata. </p><p>Account di archiviazione: <b>Usa un account di archiviazione generato automaticamente</b></p><p>Set di disponibilità: <b>None</b></p><p>Endpoints: accettare i valori predefiniti</p>
 	**Agente di macchine virtuali**  | Selezionare **Installa l'agente di macchine virtuali**
 
-1. L'indirizzo IP dinamico assegnato alla VM per impostazione predefinita è valido per la durata del servizio cloud, ma se la VM viene arrestata verrà modificato. Assegnare un indirizzo IP statico [eseguendo il cmdlet Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/dn630228.aspx), in modo che l'indirizzo IP resti invariato anche se la VM viene arrestata. 
+1. L'indirizzo IP dinamico assegnato alla VM per impostazione predefinita è valido per la durata del servizio cloud, ma se la VM viene arrestata verrà modificato. Assegnare un indirizzo IP statico [eseguendo il cmdlet Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/dn630228.aspx), in modo che l'indirizzo IP resti invariato anche se la VM viene arrestata. 
 2. Collegare un disco aggiuntivo alla VM per l'archiviazione del database di Active Directory, dei log e di SYSVOL. 
   3. Fare clic su <b>VM</b> > <b>Allega</b> > <b>Attach Empty Disk</b>. 
   4. Specificare una dimensione, ad esempio 10 GB e accettare tutti gli altri valori predefiniti.
@@ -118,23 +133,23 @@ Se si esegue nuovamente lo script sarà necessario fornire un valore univoco per
 
 -  [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/it-it/library/dn631643.aspx)
+-  [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/library/dn631643.aspx)
 
--  [Configurare una VPN da sito a sito nel portale di gestione](http://msdn.microsoft.com/it-it/library/dn133795.aspx)
+-  [Configurare una VPN da sito a sito nel portale di gestione](http://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Installazione di un controller di dominio Active Directory di replica nelle reti virtuali di Azure](http://azure.microsoft.com/it-it/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Installazione di un controller di dominio Active Directory di replica nelle reti virtuali di Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
 -  [Microsoft Azure IT Pro IaaS: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
 -  [Microsoft Azure IT Pro IaaS: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
--  [Panoramica di Rete virtuale](http://msdn.microsoft.com/it-it/library/windowsazure/jj156007.aspx)
+-  [Panoramica di Rete virtuale](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Come installare e configurare Azure PowerShell](http://www.windowsazure.com/it-it/documentation/articles/install-configure-powershell/)
+-  [Come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
 
--  [Azure PowerShell](http://msdn.microsoft.com/it-it/library/windowsazure/jj156055.aspx)
+-  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
--  [Cmdlet di gestione di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/jj152841)
+-  [Cmdlet di gestione di Azure](http://msdn.microsoft.com/library/windowsazure/jj152841)
 
 -  [Impostazione dell'indirizzo IP statico per una VM di Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 
@@ -142,9 +157,11 @@ Se si esegue nuovamente lo script sarà necessario fornire un valore univoco per
 
 -  [Installazione di una nuova foresta Active Directory](http://technet.microsoft.com/library/jj574166.aspx)
 
--  [Introduzione alla virtualizzazione di Servizi di dominio Active Directory (livello 100)](http://technet.microsoft.com/it-it/library/hh831734.aspx)
+-  [Introduzione alla virtualizzazione di Servizi di dominio Active Directory (livello 100)](http://technet.microsoft.com/library/hh831734.aspx)
 
 -  [Guida del laboratorio di testing: Configurazione di base di Windows Server 2012 R2 in Azure](http://www.microsoft.com/it-it/download/details.aspx?id=41684)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

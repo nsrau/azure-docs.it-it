@@ -3,9 +3,9 @@
 	description="Creare una macchina virtuale per un sito Web" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="ghogen" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="09/24/2014" 
+	ms.author="ghogen"/>
 
 # Creazione di una macchina virtuale per un sito Web con Visual Studio
 
@@ -65,4 +65,7 @@ Per personalizzare gli script di pubblicazione creati, vedere le informazioni pi
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

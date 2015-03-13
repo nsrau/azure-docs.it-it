@@ -322,7 +322,7 @@ In questa esercitazione verrà creato un contenitore in un account di archiviazi
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	Il valore **$subscripionName** è associato alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName\_Data** e **$containerName\_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/it-it/library/windowsazure/dd135715.aspx). 
+	Il valore **$subscripionName** è associato alla sottoscrizione di Azure in uso. È necessario specificare un nome per **$storageAccountName\_Data** e **$containerName\_Data**. Per informazioni sulle limitazioni previste per i nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx). 
 
 3. Eseguire il comando seguente per creare un account di archiviazione e un contenitore di archiviazione BLOB nell'account.
 
@@ -586,9 +586,9 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 - [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query]
 - [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][hdinsight-ODBC]
 
-[azure-purchase-options]: http://azure.microsoft.com/it-it/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/it-it/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/it-it/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
@@ -613,6 +613,5 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
 
 <!--HONumber=42-->

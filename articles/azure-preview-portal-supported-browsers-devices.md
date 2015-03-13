@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Browser e dispositivi supportati" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties 
+	pageTitle="Browser e dispositivi supportati" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #Browser e dispositivi supportati
 Il portale Microsoft Azure Preview viene eseguito in tutti i moderni browser e dispositivi tablet e desktop.
@@ -20,3 +35,5 @@ Sono supportate le versioni più recenti dei browser seguenti:
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

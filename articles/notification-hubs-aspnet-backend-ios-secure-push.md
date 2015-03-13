@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Push sicuro degli hub di notifica di Azure" metaKeywords="notifiche push di Azure, hub di notifica di Azure, push sicuro" description="Informazioni su come inviare notifiche push protette a un'app iOS da Azure. Esempi di codice scritti in Objective-C e C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Push sicuro degli hub di notifica di Azure" 
+	description="Informazioni su come inviare notifiche push sicure a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Push sicuro degli hub di notifica di Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows universale</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -24,15 +38,15 @@ A livello generale, il flusso è il seguente:
 
 È importante notare che nel flusso precedente (e in questa esercitazione) si presume che il dispositivo archivi un token di autenticazione nell'archiviazione locale, dopo che l'utente ha eseguito l'accesso. Ciò garantisce un'esperienza del tutto uniforme, in quanto il dispositivo può recuperare il payload sicuro della notifica usando questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
-In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione **Utilizzo di Hub di notifica per inviare notifiche agli utenti** sarà prima necessario completare i passaggi di tale esercitazione.
+In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione relativa all'**invio di notifiche agli utenti con Hub di notifica**, sarà prima necessario completare i passaggi di tale esercitazione.
 
-> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/it-it/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] Questa esercitazione presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modifica del progetto iOS
 
-Ora che è stato modificato il back-end dell'app in modo da inviare solo l'*ID* di una notifica, è necessario modificare l'app per iOS in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
+Ora che è stato modificato il back-end dell'app in modo da inviare solo l' *id* di una notifica, è necessario modificare l'app per iOS in modo da gestire tale notifica e richiamare il back-end per recuperare il messaggio sicuro da visualizzare.
 
 Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare il contenuto sicuro dal back-end dell'app.
 
@@ -40,13 +54,13 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
-2. In **AppDelegate.m** aggiungere una sezione di implementazione in alto con la dichiarazione seguente:
+2. In **AppDelegate.m** aggiungere una sezione di implementazione in alto con la seguente dichiarazione:
 
 		@interface AppDelegate ()
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Aggiungere quindi la sezione di implementazione al codice seguente, sostituendo il segnaposto `{back-end endpoint}` con l'endpoint per il back-end ottenuto in precedenza:
+3. Aggiungere quindi la sezione di implementazione al seguente codice, sostituendo il segnaposto `{back-end endpoint}` con l'endpoint per il back-end ottenuto in precedenza:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -85,7 +99,7 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
 		            if (error)
 		                completion(nil, error);
-		            else {
+		            else{
 		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
 		            }
 		        }
@@ -102,7 +116,7 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 	![][IOS1]
 
 
-6. In **AppDelegate.m** aggiungere il metodo seguente per gestire le notifiche push:
+6. In **AppDelegate.m** aggiungere il seguente metodo per gestire le notifiche push:
 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
@@ -129,7 +143,7 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 
 ## Esecuzione dell'applicazione
 
-Per eseguire l'applicazione, eseguire le operazioni seguenti:
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. In XCode eseguire l'app su un dispositivo iOS fisico (le notifiche push non funzioneranno nel simulatore).
 
@@ -139,4 +153,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

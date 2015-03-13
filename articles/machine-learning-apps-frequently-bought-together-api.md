@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="App di esempio di Machine Learning: Frequently Bought Together | Azure" description="Un servizio Web di Machine Learning che esegue l'analisi dei carrelli acquisti online per offrire raccomandazioni sugli articoli spesso acquistati insieme ad altri in base alle transazioni cronologiche fornite dall'utente." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="App di esempio di Machine Learning: Frequently Bought Together | Azure" 
+	description="Un servizio Web di Machine Learning che esegue l'analisi dei carrelli acquisti online per offrire raccomandazioni sugli articoli spesso acquistati insieme ad altri in base alle transazioni cronologiche fornite dall'utente." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/>  
 
 # App di esempio di Machine Learning: Frequently Bought Together
  
@@ -13,3 +27,5 @@ Dopo aver sottoscritto il [servizio Web]( https://datamarket.azure.com/dataset/a
 
 Questo servizio contiene le API per creare modelli di Frequently Bought Together, caricare transazioni cronologiche e recuperare il gruppo di prodotti più spesso acquistati insieme per un determinato prodotto.  Esempi che illustrano come usare queste API sono disponibili nel [repository Azure-MachineLearning-DataScience di GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
+
+<!--HONumber=46--> 

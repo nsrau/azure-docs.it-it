@@ -83,7 +83,7 @@ Sezione **Riepilogo rapido** che include le seguenti informazioni di riepilogo e
 Nella pagina di gestione **Monitora** è disponibile un grafico in cui sono visualizzate le informazioni sull'uso per il sito Web. Per impostazione predefinita, questo grafico visualizza le stesse metriche del grafico nella pagina **Dashboard**, come descritto in precedenza nella sezione Dashboard. È inoltre possibile configurare il grafico per visualizzare metriche quali operazioni HTTP completate, reindirizzamenti HTTP, errori HTTP 401, errori HTTP 403, errori HTTP 404 ed errori HTTP 406. Per altre informazioni su queste metriche, vedere [Come monitorare i siti Web][Monitora].
 
 ##WebJobs##
-La pagina di gestione WebJobs consente di creare attività su richiesta, pianificate o con esecuzione continua per il sito Web. Per altre informazioni, vedere [Come usare la funzionalità WebJobs in Siti Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-create-web-jobs/).
+La pagina di gestione WebJobs consente di creare attività su richiesta, pianificate o con esecuzione continua per il sito Web. Per altre informazioni, vedere [Come usare la funzionalità WebJobs in Siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configura##
 È possibile usare la pagina di gestione **Configura** per configurare le impostazioni specifiche dell'applicazione.
@@ -102,7 +102,7 @@ Per altre informazioni sulla configurazione delle opzioni di scala per un sito W
 Nella pagina di gestione **Risorse collegate** è disponibile un elenco di risorse di Microsoft Azure in uso nel sito Web, tra cui database SQL, database MySQL e account di archiviazione di Azure. Fare clic sul nome della risorsa per gestirla.
 
 ##Backup##
-La pagina di gestione **Backup** consente di creare backup automatici o manuali per il sito Web, ripristinare il sito Web a uno stato precedente o creare un nuovo sito Web in base a uno dei backup esistenti. Per altre informazioni, vedere [Backup di siti Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-backup/) e [Ripristino di un sito Web di Microsoft Azure](http://www.windowsazure.com/it-it/documentation/articles/web-sites-restore/).
+La pagina di gestione **Backup** consente di creare backup automatici o manuali per il sito Web, ripristinare il sito Web a uno stato precedente o creare un nuovo sito Web in base a uno dei backup esistenti. Per altre informazioni, vedere [Backup di siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/) e [Ripristino di un sito Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Icone delle pagine di gestione##
 Le icone sono visualizzate nella parte inferiore delle pagine di gestione del sito Web. La maggior parte delle icone è visualizzata in più pagine mentre alcune sono visualizzate solo in pagine specifiche.  Nella parte inferiore della pagina di gestione **Dashboard** sono visualizzate le icone seguenti:
@@ -210,11 +210,11 @@ Per reimpostare la password, fare clic su **Reimpostare le proprie credenziali d
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[Configura]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-configure-websites
+[Configura]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[Monitora]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-monitor-websites/
+[Monitora]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[Scala]: http://www.windowsazure.com/it-it/manage/services/web-sites/how-to-scale-websites
+[Scala]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

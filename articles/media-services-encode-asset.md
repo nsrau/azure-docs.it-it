@@ -1,172 +1,219 @@
-<properties pageTitle="Come codificare un asset per Servizi multimediali - Azure" description="Informazioni su come usare il codificatore multimediale di Azure per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Come codificare un asset mediante Azure Media Encoder" 
+	description="Informazioni su come usare Azure Media Encoder per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="juliako"/>
 
 
-# Procedura: Codificare un asset
-Questo articolo fa parte di una serie di articoli dedicati alla programmazione in Servizi multimediali di Azure. L'argomento precedente è [Procedura: Ottenere un'istanza del processore di contenuti multimediali](../media-services-get-media-processor/).
+# Come codificare un asset mediante Azure Media Encoder
 
-È possibile codificare il contenuto multimediale nel server usando varie codifiche e formati multimediali disponibili in Azure Media Encoder. È anche possibile usare un codificatore fornito da un partner di Servizi multimediali: i codificatori di terze parti sono disponibili tramite [Azure Marketplace][]. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di [set di impostazioni per il codificatore][] oppure file di configurazione. 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
 
-## Codifica in un set MP4 velocità in bit adattiva
-È consigliabile codificare il file in formato intermedio in set MP4 velocità in bit adattiva e quindi usare funzionalità Dynamic Packaging per la distribuzione del contenuto. Per altre informazioni, vedere [Creazione di un processo di codifica con Media Services SDK per .NET](http://msdn.microsoft.com/it-it/library/azure/dn282273.aspx), [Creazione dinamica dei pacchetti](http://msdn.microsoft.com/it-it/library/azure/jj889436.aspx) e [Distribuzione di contenuto](http://msdn.microsoft.com/it-it/library/azure/hh973618.aspx).
+## Informazioni generali
+Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
-## Codifica in formato MP4
-Il metodo seguente consente di caricare un singolo asset e creare un processo per codificare l'asset in formato MP4 tramite il set di impostazioni "H264 Broadband 720p" che creerà un singolo file MP4 con la codifica H264 a una risoluzione di 720p:
-<pre><code>
-	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
-	{
-    	//Create an encrypted asset and upload to storage.
-		IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
-			inputMediaFilePath);
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere Set di impostazioni di attività per Servizi multimediali di Azure. Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/it-it/library/azure/dn750842.aspx).
 
-		// Declare a new job.
+Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/it-it/library/azure/jj889436.aspx).
 
-    	IJob job = _context.Jobs.Create("My encoding job");
-	
-		// Get a reference to the Azure Media Encoder
-		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-    
-		// Create a task with the encoding details, using a string preset.
-    	ITask task = job.Tasks.AddNew("My encoding task",
-        	processor,
-	        "H264 Broadband 720p",
-        	_protectedConfig);
-    
-		// Specify the input asset to be encoded.
-    	task.InputAssets.Add(asset);
-    
-		// Add an output asset to contain the results of the job. 
-    	// This output is specified as AssetCreationOptions.None, which 
-    	// means the output asset is in the clear (unencrypted). 
-    	task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
-    
-		// Use the following event handler to check job progress.  
-    	job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
-    
-		// Launch the job.
-    	job.Submit();
-    
-		// Optionally log job details. This displays basic job details
-    	// to the console and saves them to a JobDetails-JobId.txt file 
-    	// in your output folder.
-    	LogJobDetails(job.Id);
-    
-		// Check job execution and wait for job to finish. 
-    	Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-    	progressJobTask.Wait();
-    
-		// If job state is Error, the event handling 
-    	// method for job progress should log errors.  Here we check 
-    	// for error state and exit if needed.
-    	if (job.State == JobState.Error)
-    	{
-	        Console.WriteLine("\nExiting method due to job error.");
-        	return job;
-    	}
-    
-		// Perform other tasks. For example, access the assets that are the output of a job, 
-    	// either by creating URLs to the asset on the server, or by downloading. 
-    	return job;
-	}
 
-	private static void StateChanged(object sender, JobStateChangedEventArgs e)
-	{
-		Console.WriteLine("Job state changed event:");
-	    Console.WriteLine("  Previous state: " + e.PreviousState);
-	    Console.WriteLine("  Current state: " + e.CurrentState);
-	    switch (e.CurrentState)
-	    {
-        	case JobState.Finished:
-           	Console.WriteLine();
-           	Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-           	break;
-        	case JobState.Canceling:
-        	case JobState.Queued:
-        	case JobState.Scheduled:
-        	case JobState.Processing:
-	            Console.WriteLine("Please wait...\n");
-            	break;
-        	case JobState.Canceled:
-        	case JobState.Error:
+## Creare un processo con una singola attività di codifica 
 
-	            // Cast sender as a job.
-            	IJob job = (IJob)sender;
+Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/it-it/library/azure/dn619389.aspx).
 
-	            // Display or log error details as needed.
-            	LogJobStop(job.Id);
-            	break;
-        	default:
-	            break;
-    	}
-	}
-</code></pre>
-<h2>Codifica nel formato Smooth Streaming</h2>
-Se si desidera codificare un video in formato Smooth Streaming, sono disponibili due opzioni:
-<ul>
-<li> Eseguire la codifica direttamente nel formato Smooth Streaming </li>
-<li> Eseguire la codifica nel formato MP4 e quindi eseguire la conversione in formato Smooth Streaming</li>
-</ul>
+### Usare l'SDK di Servizi multimediali per .NET  
 
-Per eseguire la codifica direttamente nel formato Smooth Streaming, usare il codice riportato sopra con uno dei set di impostazioni del codificatore per Smooth Streaming. Per un elenco completo dei set di impostazioni del codificatore, vedere [Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/it-it/library/jj129582.aspx). 
+Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codifica e aggiunge una singola attività di codifica al processo. Nell'attività viene usato "Azure Media Encoder" per la codifica in "H264 Adaptive Bitrate MP4 Set 720p". 
 
-Per convertire un file MP4 in formato Smooth Streaming, usare Azure Media Packager. Azure Media Packager non supporta set di impostazioni in formato stringa. È quindi necessario specificare le opzioni di configurazione in XML. Il codice XML necessario per la conversione dal formato MP4 al formato Smooth Streaming è disponibile nel [set di impostazioni di attività per Azure Media Packager][]. Copiare e incollare il codice XML in un file denominato MediaPackager_MP4ToSmooth.xml nel progetto. Il codice seguente illustra come convertire un asset MP4 nel formato Smooth Streaming. Il metodo seguente accetta un asset esistente e lo converte. 
-<pre><code>
-private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
- {
-	// Declare a new job to contain the tasks
-    IJob job = _context.Jobs.Create("Convert to Smooth Streaming job");
-    // Set up the first Task to convert from MP4 to Smooth Streaming. 
-    // Read in task configuration XML
-    string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
-    // Get a media packager reference
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
-    // Create a task with the conversion details, using the configuration data
-    ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
-           processor,
-           configMp4ToSmooth,
-           TaskOptions.None);
-    // Specify the input asset to be converted.
-    task.InputAssets.Add(assetToConvert);
-    // Add an output asset to contain the results of the job.
-    task.OutputAssets.AddNew("Streaming output asset", AssetCreationOptions.None);
-    // Use the following event handler to check job progress. 
-	// The StateChange method is the same as the one in the previous sample
-    job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
-    // Launch the job.
-    job.Submit();
-    // Check job execution and wait for job to finish. 
-    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-    progressJobTask.Wait();
-    // Get a refreshed job reference after waiting on a thread.
-    job = GetJob(job.Id);
-    // Check for errors
-    if (job.State == JobState.Error)
+    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
     {
-        Console.WriteLine("\nExiting method due to job error.");
-    }
-    return job;
-}
-</code></pre>
+        var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
 
-Per altre informazioni sull'elaborazione di asset, vedere:
-<ul>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129580.aspx">Elaborazione di asset con Media Services SDK per .NET</a></li>
-<li><a href="http://msdn.microsoft.com/it-it/library/jj129574.aspx">Elaborazione di asset con l'API REST di Servizi multimediali</a></li>
-</ul>
+        IJob job = _context.Jobs.Create(String.Format("Encoding {0} into to {1}",
+                                inputAsset.Name,
+                                encodingPreset));
+
+        var mediaProcessors = GetLatestMediaProcessorByName("Azure Media Encoder");
+
+        ITask encodeTask = job.Tasks.AddNew("Encoding", mediaProcessors, encodingPreset, TaskOptions.None);
+        
+        encodeTask.InputAssets.Add(inputAsset);
+
+        // Specify the storage-encrypted output asset.
+        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 
+            AssetCreationOptions.StorageEncrypted);
+
+
+        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+        job.Submit();
+        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+        return job.OutputMediaAssets[0];
+    }
+
+    private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+    {
+        Console.WriteLine("Job state changed event:");
+        Console.WriteLine("  Previous state: " + e.PreviousState);
+        Console.WriteLine("  Current state: " + e.CurrentState);
+        switch (e.CurrentState)
+        {
+            case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                break;
+            case JobState.Canceling:
+            case JobState.Queued:
+            case JobState.Scheduled:
+            case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+            case JobState.Canceled:
+            case JobState.Error:
+
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+
+                // Display or log error details as needed.
+                break;
+            default:
+                break;
+        }
+    }
+
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+           ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+        return processor;
+    }
+
+### Usare le estensioni dell'SDK di Servizi multimediali per .NET
+
+    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+    {
+        // 1. Prepare a job with a single task to transcode the specified mezzanine asset
+        //    into a multi-bitrate asset.
+        IJob job = _context.Jobs.CreateWithSingleTask(
+            MediaProcessorNames.AzureMediaEncoder,
+            MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+            asset,
+            "Adaptive Bitrate MP4",
+            AssetCreationOptions.None);
+
+        Console.WriteLine("Submitting transcoding job...");
+
+        // 2. Submit the job and wait until it is completed.
+        job.Submit();
+        job = job.StartExecutionProgressTask(
+            j =>
+            {
+                Console.WriteLine("Job state: {0}", j.State);
+                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+            },
+            CancellationToken.None).Result;
+
+        Console.WriteLine("Transcoding job finished.");
+
+        IAsset outputAsset = job.OutputMediaAssets[0];
+
+        return outputAsset;
+    } 
+
+## Creare un processo con attività concatenate 
+
+In molti scenari di applicazione, gli sviluppatori desiderano creare una serie di attività di elaborazione. In Servizi multimediali è possibile creare una serie di attività concatenate. Ogni attività esegue diversi passaggi di elaborazione e può usare processori di contenuti multimediali differenti. Le attività concatenate possono trasferire un asset da un'attività a un'altra e consentono quindi l'esecuzione delle attività dell'asset in sequenza lineare. Tuttavia, non è necessario che le attività eseguite in un processo siano in sequenza. Quando si crea un'attività concatenata, gli oggetti **ITask** concatenati vengono creati in un singolo oggetto **IJob**.
+
+>[AZURE.NOTE] Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
+
+Il seguente metodo **CreateChainedTaskEncodingJob** crea un processo contenente due attività concatenate e restituisce come risultato un processo contenente due asset di output.
+
+	
+    public static IJob CreateChainedTaskEncodingJob(IAsset asset)
+    {
+        // Declare a new job.
+        IJob job = _context.Jobs.Create("My task-chained encoding job");
+
+        // Set up the first task to encode the input file.
+
+        // Get a media processor reference
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+
+        // Create a task with the encoding details, using a string preset.
+        ITask task = job.Tasks.AddNew("My encoding task",
+            processor,
+           "H264 Adaptive Bitrate MP4 Set 720p",
+            TaskOptions.ProtectedConfiguration);
+
+        // Specify the input asset to be encoded.
+        task.InputAssets.Add(asset);
+
+        // Specify the storage-encrypted output asset.
+        task.OutputAssets.AddNew("My storage-encrypted output asset",
+            AssetCreationOptions.StorageEncrypted);
+
+        // Set up the second task to decrypt the encoded output file from 
+        // the first task.
+
+        // Get another media processor instance
+        IMediaProcessor decryptProcessor = GetLatestMediaProcessorByName("Storage Decryption");
+
+        // Declare the decryption task. 
+        ITask decryptTask = job.Tasks.AddNew("My decryption task",
+            decryptProcessor,
+            string.Empty,
+            TaskOptions.None);
+
+        // Specify the input asset to be decrypted. This is the output 
+        // asset from the first task. 
+        decryptTask.InputAssets.Add(task.OutputAssets[0]);
+
+        // Specify an output asset to contain the results of the job. 
+        // This should have AssetCreationOptions.None. 
+        decryptTask.OutputAssets.AddNew("My decrypted output asset",
+            AssetCreationOptions.None);
+
+        // Use the following event handler to check job progress. 
+        job.StateChanged += new
+            EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+
+        // Launch the job.
+        job.Submit();
+
+        // Check job execution and wait for job to finish. 
+        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+        progressJobTask.Wait();
+
+        //return job that contains two output assets.
+        return job;
+    }
+
 
 ## Passaggi successivi
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Impostazioni per il codificatore]: http://msdn.microsoft.com/it-it/library/dn619392.aspx
-[set di impostazioni per il codificatore]: http://msdn.microsoft.com/it-it/library/dn619392.aspx
+[Set di impostazioni del codificatore]: http://msdn.microsoft.com/library/dn619392.aspx
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]:http://go.microsoft.com/fwlink/?LinkId=301732
 [Procedura: Caricare un asset crittografato]:http://go.microsoft.com/fwlink/?LinkId=301733
 [Procedura: Distribuire un asset mediante download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx
-[set di impostazioni di attività per Azure Media Packager]:http://msdn.microsoft.com/it-it/library/windowsazure/hh973635.aspx
+[Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

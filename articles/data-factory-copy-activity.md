@@ -1,6 +1,20 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copia di dati con Data factory di Azure" description="Informazioni su come usare la funzione di copia attività nella data factory di Azure per copiare dati da un'origine dati a un'altra origine dati." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Copia di dati con Data factory di Azure" 
+	description="Informazioni su come usare l'attività di copia in Data factory di Azure per copiare dati tra origini dati." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Copia di dati con Data factory di Azure (attività di copia)
 È possibile usare l'**attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. L'attività di copia può essere usata negli scenari seguenti:
@@ -724,3 +738,5 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

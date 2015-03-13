@@ -79,7 +79,7 @@ Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempi
 	        throw;
 	}  
 
-Il servizio di archiviazione include anche il supporto di altre intestazioni condizionale quali **If-Modified-Since**, **If-Unmodified-Since** e **If-None-Match**, nonché le relative combinazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio Blob](http://msdn.microsoft.com/it-it/library/dd179371.aspx) in MSDN.  
+Il servizio di archiviazione include anche il supporto di altre intestazioni condizionale quali **If-Modified-Since**, **If-Unmodified-Since** e **If-None-Match**, nonché le relative combinazioni. Per altre informazioni, vedere [Specifica di intestazioni condizionali per le operazioni del servizio Blob](http://msdn.microsoft.com/library/dd179371.aspx) in MSDN.  
 
 Nella tabella seguente sono riepilogate le operazioni contenitore che accettano intestazioni condizionali come **If-Match** nella richiesta e che restituiscono un valore ETag nella risposta.  
 
@@ -121,7 +121,7 @@ Get Page Ranges|	Sì|	Sì
 (*) Lease Blob non modifica l'ETag in un BLOB.  
 
 ##Concorrenza pessimistica per i BLOB
-Per bloccare un BLOB al fine di usarlo in modo esclusivo, è possibile acquisire un [lease](http://msdn.microsoft.com/it-it/library/azure/ee691972.aspx) su di esso. Quando si acquisisce un lease, specificarne la durata, che può essere inclusa tra 15 e 60 secondi o essere infinita, il che equivale a un blocco esclusivo. È possibile rinnovare un lease finito per estenderlo e rilasciare qualsiasi lease al termine dell'uso. Il servizio BLOB rilascia automaticamente i lease finiti alla scadenza.  
+Per bloccare un BLOB al fine di usarlo in modo esclusivo, è possibile acquisire un [lease](http://msdn.microsoft.com/library/azure/ee691972.aspx) su di esso. Quando si acquisisce un lease, specificarne la durata, che può essere inclusa tra 15 e 60 secondi o essere infinita, il che equivale a un blocco esclusivo. È possibile rinnovare un lease finito per estenderlo e rilasciare qualsiasi lease al termine dell'uso. Il servizio BLOB rilascia automaticamente i lease finiti alla scadenza.  
 
 I lease abilitano il supporto di strategie di sincronizzazione diverse, tra cui la scrittura esclusiva/la lettura condivisa, la scrittura esclusiva/la lettura esclusiva e la scrittura condivisa/la lettura esclusiva. In presenza di un lease il servizio di archiviazione applica scritture esclusive (operazioni Put, Set e Delete); tuttavia, garantire l'esclusività per le operazioni di lettura richiede allo sviluppatore di verificare che tutte le applicazioni client usino un ID lease e che un solo client alla volta disponga di un ID lease valido. Le operazioni di lettura che non includono un ID lease determinano letture condivise.  
 
@@ -152,7 +152,7 @@ Il frammento C# seguente mostra un esempio relativo all'acquisizione di un lease
 	        throw;
 	}  
 
-Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Si noti che la richiesta ha esito negativo con un errore **412** anche se il lease scade prima di chiamare il metodo **UploadText** ma si passa comunque l'ID. Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](http://msdn.microsoft.com/it-it/library/azure/ee691972.aspx).  
+Se si prova a effettuare un'operazione di scrittura su un BLOB con lease senza passare l'ID lease, la richiesta ha esito negativo con un errore 412. Si noti che la richiesta ha esito negativo con un errore **412** anche se il lease scade prima di chiamare il metodo **UploadText** ma si passa comunque l'ID. Per altre informazioni sulla gestione degli ID lease e dei tempi di scadenza del lease, vedere la documentazione REST [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx).  
 
 Le operazioni BLOB seguenti possono usare i lease per gestire la concorrenza pessimistica:  
 
@@ -189,9 +189,9 @@ Le operazioni contenitore seguenti possono usare i lease per gestire la concorre
 
 Per altre informazioni, vedere:  
 
-- [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](http://msdn.microsoft.com/it-it/library/azure/dd179371.aspx)
-- [Lease Container](http://msdn.microsoft.com/it-it/library/azure/jj159103.aspx)
-- [Lease Blob](http://msdn.microsoft.com/it-it/library/azure/ee691972.aspx) 
+- [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](http://msdn.microsoft.com/library/azure/dd179371.aspx)
+- [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
+- [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
 
 #Gestione della concorrenza nel servizio tabelle
 Il servizio tabelle usa i controlli della concorrenza ottimistica come comportamento predefinito quando si usano entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire controlli di concorrenza ottimistica. L'altra differenza tra il servizio tabelle e il servizio BLOB risiede nel fatto che con il primo è possibile gestire solo il comportamento di concorrenza delle entità, mentre con il servizio BLOB è possibile gestire la concorrenza sia dei contenitori sia dei BLOB.  
@@ -245,7 +245,7 @@ In generale gli sviluppatori che usano tabelle devono fare affidamento sulla con
 
 Per altre informazioni, vedere:  
 
-- [Operazioni sulle entità](http://msdn.microsoft.com/it-it/library/azure/dd179375.aspx)  
+- [Operazioni sulle entità](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 #Gestione della concorrenza nel servizio di accodamento
 Uno scenario in cui la concorrenza rappresenta un problema nel servizio di accodamento è quello in cui più client recuperano i messaggi da una coda. Quando un messaggio viene recuperato dalla coda, la risposta include il messaggio e un valore di ricezione POP, necessario per eliminare il messaggio. Il messaggio non viene eliminato automaticamente dalla coda, ma dopo essere stato recuperato non è visibile agli altri client per l'intervallo di tempo specificato dal parametro visibilitytimeout. Il client che recupera il messaggio lo elimina dopo che è stato elaborato e prima dell'ora specificata dall'elemento TimeNextVisible della risposta, calcolata in base al valore del parametro visibilitytimeout. Il valore di visibilitytimeout viene aggiunto all'ora in cui viene recuperato il messaggio per determinare il valore di TimeNextVisible.  
@@ -254,8 +254,8 @@ Il servizio di accodamento non offre il supporto della concorrenza ottimistica o
 
 Per altre informazioni, vedere:  
 
-- [API REST del servizio di accodamento](http://msdn.microsoft.com/it-it/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/it-it/library/azure/dd179474.aspx)  
+- [API REST del servizio di accodamento](http://msdn.microsoft.com/library/azure/dd179363.aspx)
+- [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 #Gestione della concorrenza nel servizio file
 È possibile accedere al servizio file usando due diversi endpoint di protocollo: SMB e REST. Il servizio REST non presenta il supporto per il blocco ottimistico o pessimistico e tutti gli aggiornamenti seguiranno una strategia basata sulla prevalenza dell'ultima scrittura. I client SMB che montano condivisioni file possono usare meccanismi di blocco del file system per gestire l'accesso ai file condivisi, inclusa la possibilità di eseguire il blocco pessimistico. Quando un client SMB apre un file, specifica sia l'accesso al file sia la modalità di condivisione. L'impostazione di un'opzione di accesso al file "in scrittura" o "in lettura/scrittura" insieme a una modalità di condivisione file impostata su "nessuna" determinerà il blocco del file da parte di un client SMB fino alla chiusura del file. Se si prova a eseguire l'operazione REST su un file in cui un client SMB ha applicato un blocco, il servizio REST restituirà il codice di stato 409 (Conflitto) con il codice errore SharingViolation.  
@@ -264,7 +264,7 @@ Quando un client SMB apre un file per eliminarlo, lo contrassegna come in attesa
 
 Per altre informazioni, vedere:  
 
-- [Managing File Locks](http://msdn.microsoft.com/it-it/library/azure/dn194265.aspx)  
+- [Managing File Locks](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 #Riepilogo e passaggi successivi
 Il servizio di archiviazione di Microsoft Azure è stato progettato per soddisfare le esigenze delle applicazioni online più complesse senza obbligare gli sviluppatori a scendere a compromessi o a ridefinire presupposti di progettazione chiave dati per scontate, come la concorrenza e la coerenza dei dati.  
@@ -275,10 +275,9 @@ Per l'applicazione di esempio completa alla quale si fa riferimento in questo bl
 
 Per altre informazioni sull'archiviazione di Azure, vedere:  
 
-- [Home page dell'archiviazione di Microsoft Azure](http://azure.microsoft.com/it-it/services/storage/)
-- [Introduzione ad Archiviazione di Azure](http://azure.microsoft.com/it-it/documentation/articles/storage-introduction/)
-- Introduzione all'archiviazione per [BLOB](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/), [tabelle](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-tables/) e [code](http://azure.microsoft.com/it-it/documentation/articles/storage-dotnet-how-to-use-queues/)
+- [Home page dell'archiviazione di Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Introduzione ad Archiviazione di Azure](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- Introduzione all'archiviazione per [BLOB](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/), [tabelle](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) e [code](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Architettura di archiviazione: [Archiviazione di Windows Azure: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 
 <!--HONumber=42-->

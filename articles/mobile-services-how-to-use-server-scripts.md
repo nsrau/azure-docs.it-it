@@ -1,6 +1,20 @@
-<properties pageTitle="Uso di un servizio mobile back-end JavaScript" description="Esempi su come definire, registrare e usare script del server in Servizi mobili di Azure." services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Uso di un servizio mobile back-end JavaScript" 
+	description="Esempi su come definire, registrare e usare script del server in Servizi mobili di Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 
 # Uso di un servizio mobile back-end JavaScript
@@ -231,7 +245,8 @@ Questi parametri di query personalizzati sono accessibili come valori JSON dalla
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
+		        if (existingIte
+	ms.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -945,34 +960,34 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Riferimento per gli script server di Servizi mobili]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554226.aspx
+[Riferimento per gli script server di Servizi mobili]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
 [Pianificare processi back-end in Servizi mobili]: /it-it/develop/mobile/tutorials/schedule-backend-tasks/
-[Oggetto request]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554218.aspx
-[Ogetto response]: http://msdn.microsoft.com/it-it/library/windowsazure/dn303373.aspx
-[Oggetto user]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554220.aspx
-[oggeto push]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554217.aspx
-[Funzione insert]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554229.aspx
-[Funzione update]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554214.aspx
-[Funzione delete]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554215.aspx
-[Funzione read]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554224.aspx
-[Oggetto query]: http://msdn.microsoft.com/it-it/library/windowsazure/jj613353.aspx
-[Oggetto apns]: http://msdn.microsoft.com/it-it/library/windowsazure/jj839711.aspx
-[Oggetto mpns]: http://msdn.microsoft.com/it-it/library/windowsazure/jj871025.aspx
-[Oggetto wns]: http://msdn.microsoft.com/it-it/library/windowsazure/jj860484.aspx
-[Oggetto table]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554210.aspx
-[Oggetto tables]: http://msdn.microsoft.com/it-it/library/windowsazure/jj614364.aspx
-[Oggetto mssql]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554212.aspx
-[Oggetto console]: http://msdn.microsoft.com/it-it/library/windowsazure/jj554209.aspx
-[Leggere e scrivere dati]: http://msdn.microsoft.com/it-it/library/windowsazure/jj631640.aspx
-[Convalidare i dati]: http://msdn.microsoft.com/it-it/library/windowsazure/jj631638.aspx
-[Modificare la richiesta]: http://msdn.microsoft.com/it-it/library/windowsazure/jj631635.aspx
-[Modificare la risposta]: http://msdn.microsoft.com/it-it/library/windowsazure/jj631631.aspx
+[Oggetto request]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[Ogetto response]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[Oggetto user]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[oggeto push]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[Funzione insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[Funzione update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[Funzione delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[Funzione read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[Oggetto query]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[Oggetto apns]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[Oggetto mpns]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[Oggetto wns]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[Oggetto table]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[Oggetto tables]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[Oggetto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[Oggetto console]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Leggere e scrivere dati]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Convalidare i dati]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Modificare la richiesta]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Modificare la risposta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Portale di gestione]: https://manage.windowsazure.com/
-[Pianificare i processi]: http://msdn.microsoft.com/it-it/library/windowsazure/jj860528.aspx
+[Pianificare i processi]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Convalidare e modificare i dati in Servizi mobili mediante script del server]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [comandi per gestire Servizi mobili di Azure]: /it-it/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Push di Windows Store]: /it-it/develop/mobile/tutorials/get-started-with-push-dotnet/
@@ -980,7 +995,7 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [Push di iOS]: /it-it/develop/mobile/tutorials/get-started-with-push-ios/
 [Push di Android]: /it-it/develop/mobile/tutorials/get-started-with-push-android/
 [Azure SDK per Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Inviare una richiesta HTTP]: http://msdn.microsoft.com/it-it/library/windowsazure/jj631641.aspx
+[Inviare una richiesta HTTP]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
 [Invio di posta elettronica da Servizi mobili con SendGrid]: /it-it/develop/mobile/tutorials/send-email-with-sendgrid/
 [Introduzione all'autenticazione]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [API crypto]: http://go.microsoft.com/fwlink/p/?LinkId=288802
@@ -989,16 +1004,16 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [API url]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [API util]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [API zlib]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[API personalizzata]: http://msdn.microsoft.com/it-it/library/windowsazure/dn280974.aspx
+[API personalizzata]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
 [Chiamare un'API personalizzata dal client]: /it-it/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [Libreria express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
 [Definizione di un'API personalizzata che supporta le notifiche periodiche]: /it-it/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [Oggetto express in express.js]: http://expressjs.com/api.html#express
 [Archiviare script del server nel controllo del codice sorgente]: /it-it/develop/mobile/tutorials/store-scripts-in-source-control/
 [Usare codice condiviso e moduli Node.js negli script del server]: /it-it/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[Oggetto service]: http://msdn.microsoft.com/it-it/library/windowsazure/dn303371.aspx
-[Impostazioni app]: http://msdn.microsoft.com/it-it/library/dn529070.aspx
-[Modulo di configurazione]: http://msdn.microsoft.com/it-it/library/dn508125.aspx
+[Oggetto service]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[Impostazioni app]: http://msdn.microsoft.com/library/dn529070.aspx
+[Modulo di configurazione]: http://msdn.microsoft.com/library/dn508125.aspx
 [Supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
 

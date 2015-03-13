@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure" 
+	description="Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come implementare il ripristino di emergenza utilizzando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -81,7 +95,9 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 -   Il **livello** del servizio in cui si effettua il ripristino **deve corrispondere** al livello del servizio sottoposto a backup da ripristinare.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
 
-  [Autenticazione delle richieste di Gestione risorse di Azure]: http://msdn.microsoft.com/it-it/library/dn790557.aspx
+  [Autenticazione delle richieste di Gestione risorse di Azure]: http://msdn.microsoft.com/library/dn790557.aspx
   [Backup di un servizio di Gestione API]: #step1
   [Ripristino di un servizio di Gestione API]: #step2
-  [API REST di Gestione API di Azure]: http://msdn.microsoft.com/it-it/library/azure/dn781421.aspx
+  [API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

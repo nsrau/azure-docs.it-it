@@ -34,7 +34,7 @@
 
 ### Novità 
  
-* [Versioni aggiornate dei componenti di Hadoop](http://azure.microsoft.com/it-it/documentation/articles/hdinsight-component-versioning/) corrispondenti alla versione 3.1 del servizio.  È incluso il supporto per Hive 0.13 e Tez.
+* [Versioni aggiornate dei componenti di Hadoop](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) corrispondenti alla versione 3.1 del servizio.  È incluso il supporto per Hive 0.13 e Tez.
 
 ## v1.0.0.0, rilasciata il 28/10/2013
 
@@ -92,7 +92,7 @@
  
 * Connessione a più cluster, compresa l'installazione locale e quelli in esecuzione in remoto mediante il servizio Azure HDInsight. 
  
-* Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/](http://azure.microsoft.com/it-it/documentation/services/hdinsight/).
+* Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
 
 * Configurare WASB in un cluster locale
 
@@ -283,6 +283,5 @@ Numeri di porta
 
 
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
-
 
 <!--HONumber=42-->

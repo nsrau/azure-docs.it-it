@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso dei dati offline in Servizi mobili (Windows Store) | Mobile Dev Center" description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Windows Store" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Uso dei dati offline in Servizi mobili (Windows Store) | Mobile Dev Center" 
+	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Windows Store" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
@@ -22,7 +36,7 @@ In questa esercitazione si aggiornerà il progetto di app universale creato nell
 
 >[AZURE.NOTE] Questa esercitazione è stata progettata per illustrare come Servizi mobili consente di usare Azure per archiviare e recuperare i dati di un'app di Windows Store. Se questa è la prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
 >
->Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
 >
 >L'esercitazione di Windows Phone 8 meno recente per Visual Studio 2012 è ancora disponibile qui, [Esercitazione di Windows Phone 8 per Visual Studio 2012].
 
@@ -41,7 +55,7 @@ Per completare questa esercitazione, è necessario soddisfare i seguenti requisi
 * [Azure Mobile Services SQLite Store versione 1.0.0 (o successiva)][Pacchetto NuGet SQLite store]
 * [SQLite per Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/it-it/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
 
@@ -125,7 +139,8 @@ Servizi mobili di Azure consente di interagire con un database locale quando si 
         private async Task InsertTodoItem(TodoItem todoItem)
         {
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);
+            ite
+	ms.Add(todoItem);
 
             await SyncAsync(); // offline sync
         }
@@ -133,8 +148,10 @@ Servizi mobili di Azure consente di interagire con un database locale quando si 
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
             await todoTable.UpdateAsync(item);
-            items.Remove(item);
-            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+            ite
+	ms.Remove(item);
+            ListIte
+	ms.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
             await SyncAsync(); // offline sync
         }

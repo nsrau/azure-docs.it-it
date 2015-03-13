@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="Come creare test Web" description="Informazioni su come creare test Web in Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Come creare test Web" 
+	description="Informazioni su come creare test Web in Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Test Web per Siti Web di Microsoft Azure
 Il sito Web di Azure è ancora in esecuzione? Risponde correttamente e con rapidità sufficiente? È possibile testare il proprio sito Web a intervalli regolari configurando un test Web. Se il sito è fuori uso oppure risponde in maniera lenta o errata, si riceverà un avviso di posta elettronica contenente i grafici in cui sono indicati i periodi di disponibilità e di velocità di risposta nel tempo.  
@@ -47,3 +59,5 @@ Se il sito Web non soddisfa i criteri di successo, il test verrà contrassegnato
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

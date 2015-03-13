@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and use groups to manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to manage developer accounts using groups in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How to create and use groups to manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure" 
+	description="Informazioni su come gestire gli account di sviluppatori tramite i gruppi in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 
@@ -90,3 +104,5 @@ Dopo che uno sviluppatore è stato associato a un gruppo, potrà visualizzare i 
   [Aggiungere uno sviluppatore a un gruppo]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
   [Sviluppatori]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
   [Come creare e pubblicare un prodotto in Gestione API di Azure]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

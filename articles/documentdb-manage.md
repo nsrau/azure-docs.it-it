@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gestire la capacità e le prestazioni di DocumentDB | Azure" description="Informazioni su come aumentare o ridurre in modo flessibile le dimensioni di DocumentDB per soddisfare le esigenze dell'applicazione in termini di prestazioni e archiviazione." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestire la capacità e le prestazioni di DocumentDB | Azure" 
+	description="Informazioni su come aumentare o ridurre in modo flessibile le dimensioni di DocumentDB per soddisfare le esigenze dell'applicazione in termini di prestazioni e archiviazione." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Gestire la capacità e le prestazioni di DocumentDB
 DocumentDB è un servizio database NoSQL orientato ai documenti a scalabilità elevata e completamente gestito.  Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software, monitorare database o preoccuparsi del ripristino di emergenza. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.  
@@ -66,3 +80,5 @@ A ogni acquisto di unità di capacità viene eseguito il provisioning dell'accou
 
 Per impostazione predefinita, tutti i documenti sono indicizzati automaticamente da DocumentDB. Se, tuttavia, si vuole ottimizzare il sovraccarico dell'indice, è possibile scegliere di rimuovere determinati documenti dall'indicizzazione al momento dell'inserimento o della sostituzione di un documento. È possibile configurare una raccolta di DocumentDB in modo da escludere dall'indicizzazione tutti i documenti nella raccolta. È anche possibile configurare una raccolta DocumentDB in modo che indicizzi in modo selettivo solo determinate proprietà o alcuni percorsi con caratteri jolly dei documenti JSON.  L'esclusione di proprietà o documenti migliora anche la velocità effettiva di scrittura, permettendo quindi di usare meno unità di richiesta.   
  
+
+<!--HONumber=46--> 

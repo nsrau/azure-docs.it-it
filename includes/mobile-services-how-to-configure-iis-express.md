@@ -38,5 +38,4 @@
 
 <!-- URLs. -->
 [Come aggiungere una nuova regola di porta in Windows Firewall]:  http://go.microsoft.com/fwlink/?LinkId=392240
-
 <!--HONumber=42-->

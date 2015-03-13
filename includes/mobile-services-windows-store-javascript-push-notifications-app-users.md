@@ -79,5 +79,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 		        });
 		    });
 		}  
-
 <!--HONumber=42-->

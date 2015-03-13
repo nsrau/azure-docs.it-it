@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Ruby) - Azure" metaKeywords="Azure Ruby Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi di codice scritti in Ruby." metaCanonical="" services="" documentationCenter="Ruby" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Ruby) - Azure" 
+	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Ruby." 
+	services="" 
+	documentationCenter="ruby" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
 
 
-# Come usare Twilio per le funzionalità voce ed SMS in Ruby
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
+# Come usare Twilio per le funzionalità voce e SMS in Ruby
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'uso delle funzionalità voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
 
 ## Sommario
 * [Informazioni su Twilio](#WhatIs)
@@ -27,7 +41,7 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali usando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 ## <a id="Pricing"></a>Prezzi Twilio e offerte speciali
-Per informazioni sui prezzi di Twilio, vedere la pagina relativa ai [prezzi di Twilio] [twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].  
+Per informazioni sui prezzi di Twilio, vedere la pagina relativa ai [prezzi di Twilio] [twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di chiamate in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].  
 
 ## <a id="Concepts"></a>Concetti
 L'API Twilio è un'API RESTful che fornisce funzionalità voce e SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere la pagina relativa alle [librerie dell'API Twilio] [twilio_libraries].
@@ -72,7 +86,7 @@ Oltre al numero assegnato da Twilio, è possibile verificare altri numeri di cui
 
 Per informazioni su come verificare un numero di telefono, vedere la sezione relativa alla [gestione dei numeri] [verify_phone].
 
-## <a id="create_app"></a>Creazione di un'applicazione Ruby
+## <a id="create_app"></a>Creare un'applicazione Ruby
 Un'applicazione Ruby che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione Ruby che usa il servizio Twilio. Benché i servizi Twilio siano di tipo RESTful e possano essere chiamati da Ruby in molti modi, in questo articolo verrà illustrato solo come usare i servizi Twilio con la [libreria Twilio per Ruby][twilio_ruby].
 
 In primo luogo, [configurare una nuova macchina virtuale Linux in Azure][azure_vm_setup] che funga da host per la nuova applicazione Web Ruby. Ignorare i passaggi relativi alla creazione di un'app Rails e configurare semplicemente la VM. Assicurarsi di creare un endpoint con porta esterna 80 e porta interna 5000.
@@ -85,7 +99,7 @@ Connettersi tramite SSH alla nuova macchina virtuale e creare una directory per 
     gem 'sinatra'
     gem 'thin'
 
-Nella riga di comando eseguire `bundle install`. Le dipendenze precedenti verranno installate. Creare quindi un file denominato `web.rb`, in cui risiederà il codice per l'app Web. Copiare nel file il codice seguente:
+Nella riga di comando eseguire `bundle install`. Le dipendenze precedenti verranno installate. Creare quindi un file denominato `web.rb`. in cui risiederà il codice per l'app Web. Copiare nel file il codice seguente:
 
     require 'sinatra'
 
@@ -139,7 +153,7 @@ Aggiungere a `web.md` la funzione seguente:
        </Response>"
     end
     
-Aprendo l'indirizzo `http://yourdomain.cloudapp.net/make_call` in un browser, verrà attivata la chiamata all'API Twilio per l'esecuzione della chiamata telefonica. I primi due parametri in `client.account.calls.create` sono facilmente comprensibili: il numero da cui proviene la chiamata (`from`) e il numero a cui è diretta (`to`). 
+Aprendo l'indirizzo `http://yourdomain.cloudapp.net/make_call` in un browser verrà attivata la chiamata all'API Twilio per l'esecuzione della chiamata telefonica. I primi due parametri in `client.account.calls.create` sono facilmente comprensibili: il numero da cui proviene la chiamata  (`from`) e il numero a cui è diretta (`to`). 
 
 Il terzo parametro (`url`) è l'URL usato da Twilio per richiedere istruzioni sulle operazioni da eseguire dopo la connessione della chiamata. In questo caso verrà configurato un URL (`http://yourdomain.cloudapp.net`) che restituisce un documento TwiML molto semplice e usa il verbo `<Say>` per effettuare la sintesi vocale del testo e pronunciare la frase "Hello Monkey" al destinatario della chiamata.
 
@@ -191,6 +205,6 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, usare i collegamenti s
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/it-it/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!--HONumber=35.2-->
+<!--HONumber=45-->
