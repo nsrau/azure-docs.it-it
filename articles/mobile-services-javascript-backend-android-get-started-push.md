@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione alle notifiche push (Android JavaScript) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript per Android." 
 	services="mobile-services, notification-hubs" 
@@ -221,7 +221,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche push agli utenti di app]: /it-it/develop/mobile/tutorials/push-notifications-to-users-js
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-push-js
-[Configurare Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
+[configurazione di Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Come usare la libreria client Android per Servizi mobili]: /it-it/documentation/articles/mobile-services-android-how-to-use-client-library
 

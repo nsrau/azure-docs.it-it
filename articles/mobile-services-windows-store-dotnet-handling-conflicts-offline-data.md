@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili (Windows Store) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione per Windows Store" 
 	documentationCenter="windows" 
@@ -144,7 +144,7 @@ Quando un push viene annullato,  `PushAsync` genererà un'eccezione  `MobileServ
 
 
 <!-- Anchors. -->
-[Scaricare il progetto dell'app di Windows Store]: #download-app
+[Download del progetto dell'app di Windows Store]: #download-app
 [Creazione del servizio mobile]: #create-service
 [Aggiungere una colonna di scadenza per il database]: #add-column
 [Aggiornamento del database per i servizi mobili back-end .NET]: #dotnet-backend  

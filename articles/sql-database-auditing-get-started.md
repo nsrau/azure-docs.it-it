@@ -1,13 +1,31 @@
-<properties title="Get started with SQL database auditing" pageTitle="Introduzione al controllo del database SQL | Azure" description="Introduzione al controllo del database SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+<properties 
+	title="Get started with SQL database auditing" 
+	pageTitle="Introduzione al controllo del database SQL | Azure" 
+	description="Introduzione al controllo del database SQL" 
+	metaKeywords="" 
+	services="sql-database" 
+	solutions="data-management" 
+	documentationCenter="" 
+	authors="jeffreyg" 
+	videoId="" 
+	scriptId="" 
+	manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/31/2015" 
+	ms.author="jeffreyg" />
  
 # Introduzione al controllo del database SQL 
 <p> Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo è disponibile in anteprima per i livelli di servizio Basic, Standard e Premium.
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. 
 
-Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il <a href="http://azure.microsoft.com/it-it/support/trust-center/compliance/" target="_blank">Centro protezione Azure</a>.
+Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro protezione Azure</a>.
 
 + [Nozioni di base sul controllo del database SQL di Azure] 
 + [Configurare il controllo per il database]

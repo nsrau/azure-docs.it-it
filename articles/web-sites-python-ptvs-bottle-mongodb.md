@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Bottle e MongoDB in Azure con Python Tools 2.1 per Visual Studio" 
 	description="Informazioni su come usare Python Tools per Visual Studio per creare un'applicazione Bottle che archivia i dati in un'istanza del database MongoDB e che può essere distribuita in un sito Web." 
 	services="web-sites" 
@@ -214,7 +214,7 @@ Usare i seguenti collegamenti per altre informazioni su Python Tools per Visual 
 
 
 <!--Link references-->
-[Centro per sviluppatori di Python]: /it-it/develop/python/
+[Centro per sviluppatori Python]: /it-it/develop/python/
 [Servizi cloud di Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
@@ -222,8 +222,8 @@ Usare i seguenti collegamenti per altre informazioni su Python Tools per Visual 
 [RoboMongo]: http://robomongo.org/
 [Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [VSIX di esempio di Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Strumenti di Azure SDK per Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Strumenti di Azure SDK per Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Strumenti di Azure SDK per VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Strumenti di Azure SDK per VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
