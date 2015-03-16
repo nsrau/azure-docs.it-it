@@ -4,11 +4,8 @@ Per poter autenticare gli utenti, è necessario registrare la propria app presso
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
-   	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
-
 2. Fare clic sulla scheda **Dashboard** e prendere nota del valore **URL servizio mobile**.
 
-   	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
 
     Potrebbe essere necessario fornire questo valore al provider di identità durante la registrazione dell'app.
 
