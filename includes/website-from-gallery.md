@@ -1,4 +1,4 @@
-﻿La raccolta rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le applicazioni Web create dalla raccolta non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al portale di gestione di Azure. 
+La raccolta rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le applicazioni Web create dalla raccolta non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al portale di gestione di Azure. 
 
 In questa esercitazione si apprenderà come:
 
@@ -53,11 +53,11 @@ Dopo aver fatto clic su **Completa**, in Azure verranno avviate le operazioni di
 
 2. Nella pagina di gestione **Dashboard** scorrere verso il basso e fare clic sul collegamento a sinistra, in **URL sito**, per aprire la pagina iniziale del sito.
 
-	![site URL][11] 
+
 
 3. Immettere le informazioni di configurazione appropriate richieste da WordPress e fare clic su **Installa WordPress** per finalizzare la configurazione e aprire la pagina di accesso del sito Web.
 
-	![login to WordPress][12]
+
 
 4. Accedere al nuovo sito Web WordPress immettendo il nome utente e la password specificati nella **pagina iniziale**.
 
@@ -76,8 +76,6 @@ Dopo aver fatto clic su **Completa**, in Azure verranno avviate le operazioni di
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

@@ -80,7 +80,7 @@ L'archiviazione file di Azure è attualmente in anteprima. Per richiedere l'acce
 
 > [AZURE.NOTE] L'archiviazione file è attualmente disponibile solo per i nuovi account di archiviazione. Dopo aver ottenuto l'accesso all'archiviazione file per la sottoscrizione, creare un nuovo account di archiviazione da usare con questa guida.
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>Usare PowerShell per creare una condivisione file
 

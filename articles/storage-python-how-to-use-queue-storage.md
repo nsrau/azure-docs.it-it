@@ -39,7 +39,7 @@ In questa guida viene illustrato come eseguire scenari comuni del servizio di ar
 [AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Creare un account di Archiviazione di Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 
 **Nota:** se è necessario installare Python o le librerie client, vedere la [guida all'installazione di Python](../python-how-to-install/).

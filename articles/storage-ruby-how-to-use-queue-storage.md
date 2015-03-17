@@ -47,7 +47,7 @@ Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il *
 
 ## <a id="CreateAccount"></a>Creare un account di archiviazione di Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a id="create-a-ruby-application"></a>Creare un'applicazione Ruby
 

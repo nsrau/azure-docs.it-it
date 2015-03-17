@@ -45,7 +45,7 @@ Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 
 <h2><a id="CreateAccount"></a>Creare un account di archiviazione di Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="CreateApplication"></a>Creare un'applicazione Java
 

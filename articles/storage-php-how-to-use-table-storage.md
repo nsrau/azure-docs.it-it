@@ -43,7 +43,7 @@ In questa guida verranno illustrati diversi scenari di uso comuni del Servizio t
 
 ##<a id="CreateAccount"></a>Creare un account di archiviazione di Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a id="CreateApplication"></a>Creare un'applicazione PHP
 

@@ -43,7 +43,7 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio t
 
 <h2><a name="create-account"></a>Creare un account di Archiviazione di Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Creare un'applicazione Node.js 
 

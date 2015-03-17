@@ -47,7 +47,7 @@ In questa guida verranno illustrati diversi scenari comuni di uso del servizio t
 
 ## <a id="create-a-windows-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a id="create-a-ruby-application"></a>Creare un'applicazione Ruby
 

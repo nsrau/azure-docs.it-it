@@ -20,8 +20,8 @@ Per usare il servizio di archiviazione di Azure, è necessario un account di arc
 
 6.  Fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**.
 
-[Uso dell'API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portale di gestione di Azure]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
 <!--HONumber=42-->
