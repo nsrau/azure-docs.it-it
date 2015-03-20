@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -28,15 +28,15 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o su Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 ## <a id="powershell"></a>Eseguire un processo MapReduce mediante PowerShell
 
-Azure PowerShell fornisce *cmdlets* che consentono di eseguire in modalità remota processi MapReduce in HDInsight. Internamente ciò avviene tramite chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (precedentemente denominato Templeton) in esecuzione nel cluster HDInsight.
+Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi MapReduce in HDInsight. Questo risultato viene ottenuto internamente usando chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (chiamato in precedenza Templeton,) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengono usati i seguenti cmdlet.
 
-* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione Azure.
+* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione di Azure.
 
 * **New-AzureHDInsightMapReduceJobDefinition**: crea una nuova *job definition* usando le informazioni MapReduce specificate
 
@@ -141,7 +141,7 @@ L'esempio seguente restituisce le informazioni di archiviazione, quindi scarica 
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] Questo esempio archivia i file scaricati nella cartella  **example/data/WordCountOutput** nella directory da cui viene eseguito lo script.
+> [AZURE.NOTE] Questo esempio permette di archiviare i file scaricati nella cartella **example/data/WordCountOutput** della  directory da cui è stato eseguito lo script.
 
 L'output del processo MapReduce è archiviato nei file con nome *part-r-#####*. Per vedere le parole e i numeri generati dal processo, aprire il file **example/data/WordCountOutput/part-r-00000** in un editor di testo.
 
@@ -172,4 +172,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

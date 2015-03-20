@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -30,7 +30,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Linux o su Windows)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/it-it/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/it-it/download/details.aspx?id=43721" target="_blank">Update 3</a> o <a href="http://www.microsoft.com/it-it/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">Update 3</a> o <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
 
 ## <a id="run"></a> Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
 
@@ -47,7 +47,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     Le istruzioni eseguono queste azioni:
 
     * **DROP TABLE**: elimina la tabella e il file di dati, nel caso in cui la tabella esista già.
-    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'external' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
+    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'esterna' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
 
         > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
         >
@@ -55,7 +55,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso i campi di ogni log sono separati da uno spazio.
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (directory example/data) e specifica che i dati sono archiviati come testo.
-    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
 3. Nella barra degli strumenti selezionare il **cluster HDInsight** che si desidera usare per la query, quindi fare clic su **Invia** per eseguire le istruzioni come processo Hive. Verrà visualizzata una finestra di **riepilogo del processo hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non si imposta su **Completato**.
 
@@ -99,20 +99,20 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 Per altre informazioni sugli strumenti di HDInsight per Visual Studio.
 
-* [Introduzione all'uso di HDInsight Tools per Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [Guida introduttiva agli strumenti di HDInsight per Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -134,4 +134,4 @@ Per altre informazioni sugli strumenti di HDInsight per Visual Studio.
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

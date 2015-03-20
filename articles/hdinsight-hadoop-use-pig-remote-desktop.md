@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -32,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ## <a id="connect"></a>Connettersi a Desktop remoto
 
-Abilitare Desktop remoto per il cluster HDInsight, quindi connettersi a esso seguendo le istruzioni riportate nella pagina relativa alla <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">connessione ai cluster HDInsight tramite RDP</a>.
+Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
 ## <a id="pig"></a>Usare il comando Pig
 
@@ -78,7 +78,7 @@ Abilitare Desktop remoto per il cluster HDInsight, quindi connettersi a esso seg
 	</tr>
 	</table>
 
-6. È inoltre possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
+6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -132,4 +132,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

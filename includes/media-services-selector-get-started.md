@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [.NET SDK](/it-it/documentation/articles/media-services-dotnet-get-started/)
-- [API REST](/it-it/documentation/articles/media-services-rest-get-started/)
+- [.NET SDK](/documentation/articles/media-services-dotnet-get-started/)
+- [API REST](/documentation/articles/media-services-rest-get-started/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

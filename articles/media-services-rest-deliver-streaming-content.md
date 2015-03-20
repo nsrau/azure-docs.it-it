@@ -19,7 +19,7 @@
 
 # Procedura: Distribuire contenuti in streaming
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) .  
 
 ## Informazioni generali
 
@@ -174,5 +174,4 @@ esempio:
         Sas = 1,
         OnDemandOrigin = 2,
     }
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

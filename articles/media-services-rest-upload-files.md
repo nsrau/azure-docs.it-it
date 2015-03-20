@@ -21,8 +21,21 @@
 # Caricamento di file in un account di Servizi multimediali mediante l'API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
 
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
+
+
+>[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i seguenti [caratteri percent-encoding-reserved](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+
+Il flusso di lavoro di base per l'inserimento degli asset si divide nelle seguenti sezioni:
+
+- Creare un asset
+- Crittografare un asset (facoltativo)
+- Caricare un file nell'archiviazione BLOB
+
+
+## Creare un asset
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
@@ -30,14 +43,6 @@ Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Serviz
 
 >Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](../media-services-rest-connect_programmatically/). 
  
-
-## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
-
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://msdn.microsoft.com/it-it/library/azure/hh974277.aspx) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
-
-
-### Creare un asset
-
 Un asset è un contenitore di più tipi o set di oggetti in Servizi multimediali, inclusi elementi video e audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
 
 Una delle proprietà che è possibile specificare quando si crea un asset è **Options**, **Options** un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione. 
@@ -51,7 +56,7 @@ Una delle proprietà che è possibile specificare quando si crea un asset è **O
 
 - **EnvelopeEncryptionProtected** = **4**: specificare se si desidera caricare file HLS con crittografia AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
-Se nell'asset verrà usata la crittografia, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nel seguente argomento: [Creare entità ContentKey mediante REST](../media-services-rest-create-contentkey). Si noti che, dopo il caricamento dei file nell'asset, è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset**. Effettuare questa operazione usando la richiesta HTTP **MERGE**. 
+>[AZURE.NOTE]Se nell'asset verrà usata la crittografia, è necessario creare un'entità **ContentKey** e collegarla all'asset, come descritto nel seguente argomento: [Creare entità ContentKey mediante REST](../media-services-rest-create-contentkey). Si noti che, dopo il caricamento dei file nell'asset, è necessario aggiornare le proprietà di crittografia nell'entità **AssetFile** con i valori ottenuti durante la crittografia dell'entità **Asset**. Effettuare questa operazione usando la richiesta HTTP **MERGE**. 
 
 
 Il seguente esempio mostra come creare un asset.
@@ -101,7 +106,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-### Creare un'entità AssetFile
+## Creare un'entità AssetFile
 
 L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
@@ -166,7 +171,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 	}
 
 
-### Creazione dell'entità AccessPolicy con autorizzazioni di scrittura 
+## Creazione dell'entità AccessPolicy con autorizzazioni di scrittura 
 
 Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà un messaggio di errore interno del server 500 in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
@@ -213,7 +218,7 @@ Il seguente esempio mostra come creare un'entità AccessPolicy:
 	   "Permissions":2
 	}
 
-### Ottenere l'URL di caricamento
+## Ottenere l'URL di caricamento
 
 Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso. I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
@@ -281,7 +286,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	   "Name":null
 	}
 
-### Caricare un file in un contenitore di archiviazione BLOB
+## Caricare un file in un contenitore di archiviazione BLOB
 	
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi. 
 
@@ -290,7 +295,7 @@ Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-### Aggiornare l'entità AssetFile 
+## Aggiornare l'entità AssetFile 
 
 Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. Ad esempio:
 	
@@ -359,10 +364,6 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	...
 
  
+[Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
 
-## Passaggi successivi
-Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
-
-[Procedura: Ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

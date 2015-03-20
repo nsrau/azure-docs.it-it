@@ -19,7 +19,7 @@
 
 # Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
 
 ## Informazioni generali
 
@@ -39,7 +39,7 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
     <tr>
        <td>Azure Media Encoder</td>
        <td>Consente di eseguire attività di codifica usando il codificatore multimediale.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
@@ -115,5 +115,4 @@ Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare
 [Come codificare un asset]: ../media-services-rest-encode-asset/
 [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-rest-connect_programmatically/
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,5 +1,5 @@
 ﻿<properties 
-	ageTitle="Introduzione a Microsoft Azure DocumentDB | Azure" 
+	pageTitle="Introduzione a Microsoft Azure DocumentDB | Azure" 
 	description="Informazioni su Azure DocumentDB, un account del database di documenti NoSQL, e su quali vantaggi può offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -18,7 +18,13 @@
 
 #Introduzione a Microsoft Azure DocumentDB
 
-Questo articolo fornisce un'introduzione a Microsoft Azure DocumentDB, un servizio di database di documenti NoSQL per sviluppatori, professionisti IT e decisori aziendali. Dopo la lettura di questo articolo si sarà in grado di rispondere alla domande seguenti:  
+Questo articolo fornisce un'introduzione a Microsoft Azure DocumentDB, un servizio di database di documenti NoSQL per sviluppatori, professionisti IT e decisori aziendali. 
+
+Si consiglia di iniziare guardando il video seguente, in cui Ryan CrawCour e Scott Hanselman presentano Azure DocumentDB. 
+
+> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
+
+Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
 
 -	[Che cos'è DocumentDB e che valore fornisce alle applicazioni cloud e mobili?](#what-is-docdb)
 -	[Come vengono gestiti i dati in DocumentDB e come è possibile accedervi?](#data-management)
@@ -37,7 +43,7 @@ Azure DocumentDB offre le funzionalità chiave e i vantaggi seguenti:
 
 -	**Query ad hoc con sintassi SQL familiare:** è possibile archiviare documenti JSON eterogenei in DocumentDB ed eseguire query su questi documenti tramite una sintassi SQL familiare. DocumentDB usa una tecnologia di indicizzazione a simultaneità elevata, priva di blocchi, strutturata con log per l'indicizzazione automatica dell'intero contenuto dei documenti. Ciò permette l'esecuzione di query avanzate in tempo reale, senza dovere specificare hint di schema, indici secondari o visualizzazioni.
 
--	**Esecuzione di JavaScript nel database:** è possibile esprimere la logica dell'applicazione sotto forma di stored procedure, trigger e UDF tramite JavaScript standard. Ciò permette alla logica dell'applicazione di operare sui dati JSON, senza preoccuparsi della mancata corrispondenza tra l'applicazione e lo schema di database. DocumentDB offre l'esecuzione transazionale completa della logica dell'applicazione JavaScript direttamente nel motore di database. La profonda integrazione di JavaScript permette l'esecuzione di operazioni INSERT, REPLACE, DELETE e SELECT da un programma JavaScript come transazione isolata. 
+-	**Esecuzione di JavaScript nel database:** è possibile esprimere la logica dell'applicazione sotto forma di stored procedure, trigger e UDF tramite JavaScript standard. Ciò permette alla logica dell'applicazione di operare sui dati JSON, senza preoccuparsi della mancata corrispondenza tra l'applicazione e lo schema del database. DocumentDB offre l'esecuzione transazionale completa della logica dell'applicazione JavaScript direttamente nel motore di database. La profonda integrazione di JavaScript permette l'esecuzione di operazioni INSERT, REPLACE, DELETE e SELECT da un programma JavaScript come transazione isolata. 
 
 -	**Livelli di coerenza perfezionabili:** è possibile scegliere tra quattro livelli di coerenza ben definiti per ottenere il compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, DocumentDB offre quattro livelli di coerenza distinti, ossia avanzata, con obsolescenza associata, sessione e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza, disponibilità e latenza. 
 
@@ -45,8 +51,7 @@ Azure DocumentDB offre le funzionalità chiave e i vantaggi seguenti:
 
 -	**Velocità effettiva e risorse di archiviazione a scalabilità flessibile:** è possibile aumentare o ridurre le dimensioni di DocumentDB in base alle esigenze dell'applicazione. La scalabilità è applicata tramite unità con granularità fine di archiviazione e velocità effettiva basate su SSD. È possibile aumentare o ridurre le dimensioni di DocumentDB in modo flessibile con prestazioni prevedibili tramite l'acquisto di altre unità di capacità, in base all'evoluzione dell'applicazione. 
 
--	**Progettazione aperta:** 
--	 è possibile iniziare subito a lavorare usando le competenze e gli strumenti esistenti. La programmazione per DocumentDB è semplice, intuitiva e non richiede l'adozione di nuovi strumenti o l'adesione a estensioni personalizzate per JSON o JavaScript. È possibile accedere a tutte le funzionalità del database, incluso CRUD, l'elaborazione di JavaScript e query in una semplice interfaccia HTTP RESTful. DocumentDB accetta i formati, i linguaggi e gli standard esistenti, offrendo al tempo stesso capacità di database di livello elevato.
+-	**Progettazione aperta:** è possibile iniziare subito a lavorare usando le competenze e gli strumenti esistenti. La programmazione rispetto a DocumentDB è semplice, intuitiva e non richiede l'adozione di nuovi strumenti o l'adesione a estensioni personalizzate per JSON o JavaScript. È possibile accedere a tutte le funzionalità del database, incluso CRUD, l'elaborazione di query e JavaScript in una semplice interfaccia HTTP RESTful. DocumentDB accetta i formati, i linguaggi e gli standard esistenti, offrendo al tempo stesso capacità di database di livello elevato.
 
 È possibile usare DocumentDB per archiviare set di dati flessibili, che richiedono il recupero di query e l'elaborazione transazionale. Gli scenari relativi alle applicazioni possono includere i dati utente per applicazioni Web e mobili interattive, oltre ad archiviazione, recupero ed elaborazione di dati JSON dell'applicazione. Un database può archiviare un numero qualsiasi di documenti JSON. DocumentDB è quindi ideale per applicazioni eseguite in modalità scalabile su Internet.
 
@@ -96,6 +101,4 @@ Per iniziare a usare Azure DocumentDB, vedere le risorse seguenti:
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

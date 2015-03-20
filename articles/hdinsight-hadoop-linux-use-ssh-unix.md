@@ -1,5 +1,5 @@
-<properties
-   pageTitle="Usare chiavi SSH con Hadoop in HDInsight basato su Linux da Linux, Unix o OS X | Aure"
+﻿<properties
+   pageTitle="Usare chiavi SSH con Hadoop in HDInsight basato su Linux da Linux, Unix, or OS X | Aure"
    description="Informazioni su come creare e usare chiavi SSH per l'autenticazione nei cluster HDInsight basati su Linux."
    services="hdinsight"
    documentationCenter=""
@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -16,13 +16,13 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-## Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X (anteprima)
+##Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X (anteprima)
 
 I cluster HDInsight basati su Linux offrono la possibilità di proteggere l'accesso SSH usando una password o una chiave SSH. Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux.
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Anche se questi passaggi possono essere eseguiti in un client Windows se è stato installato un pacchetto che fornisce `ssh` e `ssh-keygen` (ad esempio Git per Windows), è consigliabile che i client Windows seguano la procedura descritta nell'articolo relativo all'[uso di SSH con HDInsight basato su Linux (Hadoop) da Windows](/it-it/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
+> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Sebbene questa procedura possa essere eseguita su un client Windows se è stato installato un pacchetto che fornisce `ssh` e `ssh-keygen`, ad esempio Git per Windows, per i client Windows è consigliabile eseguire la procedura descritta in [Usare SSH con HDInsight (Hadoop) basato su Linux da Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
 
-## Prerequisiti
+##Prerequisiti
 
 * **ssh-keygen** e **ssh** per i client Linux, Unix e OS X. Questa utilità viene in genere fornita con il sistema operativo o è disponibile tramite il sistema di gestione pacchetti.
 
@@ -30,13 +30,13 @@ I cluster HDInsight basati su Linux offrono la possibilità di proteggere l'acce
 
 OPPURE
 
-* Strumenti da riga di comando multipiattaforma di Azure.
+* Strumenti della riga di comando multipiattaforma di Azure
 
-## Che cos'è SSH?
+##Che cos'è SSH?
 
 SSH è un'utilità per accedere ed eseguire in modalità remota i comandi in un server remoto. Con HDInsight basato su Linux, SSH stabilisce una connessione sicura al nodo head del cluster e fornisce una riga di comando che consente di immettere i comandi. I comandi vengono quindi eseguiti direttamente sul server.
 
-## Creare una chiave SSH (facoltativo)
+##Creare una chiave SSH (facoltativo)
 
 Quando si crea un cluster HDInsight basato su Linux, è possibile usare una password o una chiave SSH per l'autenticazione nel server se è in uso il protocollo SSH. Le chiavi SSH vengono considerate più sicure perché sono basate su certificati. Se si prevede di usare chiavi SSH con il cluster, attenersi alle seguenti informazioni.
 
@@ -64,17 +64,17 @@ Quando si crea un cluster HDInsight basato su Linux, è possibile usare una pass
 
 	Al termine del comando, si disporrà di due nuovi file: la chiave privata (ad esempio **id\_rsa**) e la chiave pubblica (ad esempio **id\_rsa.pub**).
 
-## Creare un cluster HDInsight basato su Linux
+##Creare un cluster HDInsight basato su Linux
 
 Quando si crea un cluster HDInsight basato su Linux, è necessario fornire la **chiave pubblica** creata in precedenza. Da client Linux, Unix o OS X è possibile creare un cluster HDInsight in due modi:
 
 * **Portale di gestione di Azure**: viene usato un portale basato sul Web per creare il cluster.
 
-* **Interfaccia della riga di comando multipiattaforma di Azure (xplat-cli)**: vengono usati comandi della riga di comando per creare il cluster.
+* **Interfaccia della riga di comando multipiattaforma di Azure (xplat-cli)**: vengono usati comandi della riga di comando per creare il cluster
 
-Ognuno di questi metodi richiederà un **password** o una **chiave pubblica**. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo relativo al <a href="/it-it/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning di cluster HDInsight basati su Linux</a>.
+Ognuno di questi metodi richiederà un **password** o una **chiave pubblica**. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo relativo al <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning dei cluster HDInsight basati su Linux</a>.
 
-### Portale di gestione di Azure
+###Portale di gestione di Azure
 
 Quando si usa il portale per creare un cluster HDInsight basato su Linux, è necessario completare il campo **SSH User Name** e selezionare **Password** o **SSH Public Key**. Se si seleziona **SSH Public Key**, è necessario incollare la chiave pubblica (contenuta nel file con estensione **pub**) nel seguente modulo.
 
@@ -87,13 +87,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 Verrà creato un account di accesso per l'utente specificato, usando la password o la chiave pubblica fornita.
 
-### Interfaccia della riga di comando multipiattaforma di Azure
+###Interfaccia della riga di comando multipiattaforma di Azure
 
-È possibile usare <a href="../xplat-cli/" target="_brad">l'interfaccia della riga di comando multipiattaforma di Azure</a>per creare un nuovo cluster mediante il comando `azure hdinsight cluster create`.
+È possibile usare l'<a href="../xplat-cli/" target="_brad">interfaccia della riga di comando multipiattaforma di Azure</a> per creare un nuovo cluster usando il comando  `azure hdinsight cluster create`.
 
-Per altre informazioni sull'uso di questo comando, vedere l'articolo relativo al <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate.</a>
+Per altre informazioni sull'uso di questo comando, vedere l'articolo relativo al <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning dei cluster Hadoop Linux in HDInsight con opzioni personalizzate</a>
 
-## Connettersi a un cluster HDInsight basato su Linux
+##Connettersi a un cluster HDInsight basato su Linux
 
 Da una sessione terminal usare il comando SSH per la connessione al cluster specificando il nome utente e l'indirizzo del cluster.
 
@@ -109,11 +109,11 @@ Se è stata usata una **password** per l'account utente, verrà richiesto di imm
 
 Se è stata usata una **chiave SSH** protetta con una passphrase, verrà richiesto di immettere la passphrase. In caso contrario, SSH tenterà di eseguire automaticamente l'autenticazione usando una delle chiavi private locali nel client.
 
-> [AZURE.NOTE] Se SSH non esegue automaticamente l'autenticazione con la **chiave privata** corretta, usare il parametro **-i** e specificare il percorso della chiave privata. Il seguente esempio consentirà di caricare la **chiave privata** da `~/.ssh/id_rsa`.
+> [AZURE.NOTE] Se SSH non esegue automaticamente l'autenticazione con la **chiave privata** corretta, usare il parametro **-i** e specificare il percorso della chiave privata. Nell'esempio seguente la **chiave privata** verrà caricata da `~/.ssh/id_rsa`.
 > 
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-## Aggiungere altri account
+##Aggiungere altri account
 
 2. Generare una nuova **chiave pubblica** e una nuova **chiave privata** per il nuovo account utente come descritto nella sezione [Creare una chiave SSH](#create) .
 
@@ -141,7 +141,7 @@ Se è stata usata una **chiave SSH** protetta con una passphrase, verrà richies
 
 5. Sarà ora possibile eseguire l'autenticazione nel server con il nuovo account utente e la **chiave privata**.
 
-## <a id="tunnel"></a>Tunneling SSH
+##<a id="tunnel"></a>Tunneling SSH
 
 SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta verrà quindi instradata alla risorsa richiesta come se provenisse dal nodo head del cluster HDInsight.
 
@@ -171,7 +171,7 @@ Seguire questa procedura per creare un tunnel SSH e configurare il browser in mo
 
 	* **f**: effettua l'esecuzione in background
 
-	Se il cluster è stato configurato con una **chiave SSH**, potrebbe essere necessario usare il parametro `-i` e specificare il percorso della chiave privata SSH.
+	Se il cluster è stato configurato con una **chiave SSH**, potrebbe essere necessario usare il parametro`-i`  e specificare il percorso della chiave privata SSH.
 
 	Al termine del comando, il traffico inviato alla porta 9876 nel computer locale verrà instradato su SSL al nodo head del cluster e sembrerà provenire da tale nodo.
 
@@ -181,11 +181,11 @@ Seguire questa procedura per creare un tunnel SSH e configurare il browser in mo
 
 	> [AZURE.NOTE] Se si seleziona **Remote DNS**, le richieste DNS verranno risolte usando il cluster HDInsight. Se non si seleziona questa opzione, il DNS verrà risolto localmente.
 
-	È possibile verificare che il traffico venga instradato attraverso il tunnel visitando un sito come <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
+	È possibile verificare che il traffico sia instradato attraverso il tunnel visitando un sito come <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
 
-### Estensioni del browser
+###Estensioni del browser
 
-Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser come <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus) in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
+Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser, ad esempio <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>, supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus) in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
 
 Se è stato installato **FoxyProxy Standard**, seguire questa procedura per configurarlo in modo che inoltri tramite tunnel solo il traffico per HDInsight.
 
@@ -213,7 +213,7 @@ Se è stato installato **FoxyProxy Standard**, seguire questa procedura per conf
 
 	* **Pattern Name** - **headnode**: si tratta di un nome descrittivo per il criterio
 
-	* **URL pattern** - **\*headnode\*** : definisce un criterio che trova la corrispondenza con qualsiasi URL contenente la parola **headnode**.
+	* **URL pattern** - **\*headnode\***: definisce un criterio che trova la corrispondenza con qualsiasi URL contenente la parola **headnode**.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-unix/foxypattern.png)
 
@@ -225,14 +225,14 @@ Se è stato installato **FoxyProxy Standard**, seguire questa procedura per conf
 
 Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la stringa **headnode** verranno instradate attraverso il tunnel SSL.
 
-## Passaggi successivi
+##Passaggi successivi
 
 Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è possibile imparare a usare MapReduce con Hadoop in HDInsight.
 
-* [Usare Hive in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con HDInsight](../hdinsight-use-hive/)
 
-* [Usare Pig in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con HDInsight](../hdinsight-use-pig/)
 
-* [Usare processi MapReduce in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare processi MapReduce con HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

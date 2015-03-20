@@ -1,0 +1,328 @@
+﻿<properties 
+   pageTitle="Guide alle procedure di Azure Mobile Engagement" 
+   description="Guide alle procedure per Azure Mobile Engagement" 
+   services="mobile-engagement" 
+   documentationCenter="mobile" 
+   authors="v-micada" 
+   manager="dwrede" 
+   editor=""/>
+
+<tags
+   ms.service="mobile-engagement"
+   ms.devlang="Java"
+   ms.topic="article"
+   ms.tgt_pltfrm="mobile"
+   ms.workload="mobile" 
+   ms.date="02/17/2015"
+   ms.author="v-micada"/>
+
+# Azure Mobile Engagement - Guide alle procedure
+
+## Introduzione
+
+Le seguenti guide alle procedure per l'interfaccia utente di Azure Mobile Engagement presuppongono la familiarità con i [concetti] di base[Link 6] di Azure Mobile Engagement e potranno essere usate solo dopo aver integrato l'[SDK] per Azure Mobile Engagement[Link 5] nell'applicazione. Queste procedure dettagliate illustrano come gli utenti standard possano usare l'[interfaccia utente][Link 1] più che come gli utenti sviluppatori possano usare le [API] basate su HTTP REST[Link 4]. Se si incontrano difficoltà con queste [procedure dettagliate],[Link 3] consultare le [guide alla risoluzione dei problemi] di Azure Mobile Engagement[Link 2].
+
+## <a name="#First">Creare la prima campagna di notifica push</a>
+-    Verificare che la copertura sia integrata nell'app con l'SDK. 
+-    Selezionare l'applicazione.
+ 
+![First1][1]
+
+-    Andare alla sezione "Copertura" e fare clic su "Nuovo annuncio"
+ 
+![First2][2]
+
+-    Creare una nuova campagna e assegnarle un nome.
+ 
+ ![First3][3]
+
+-    Selezionare la modalità di recapito della notifica, ad esempio Solo in-app.
+ 
+![First4][4]
+
+-    Creare il messaggio di cui si desidera effettuare il push.
+ 
+![First5][5]
+
+-    È possibile scrivere un titolo nella notifica (facoltativo).
+-    Scrivere il contenuto del messaggio push.
+-    È possibile caricare un'immagine. Tenere presente che le dimensioni del file non possono superare i 32.768 byte.
+-    È anche possibile selezionare altre opzioni, ma, per l'obiettivo di questa esercitazione, se ne parlerà in un secondo momento.
+
+-    Selezionare il tipo di contenuto Solo notifica.
+ 
+![First6][6]
+
+-    Creare la campagna push che verrà visualizzata nell'elenco di campagne.
+ 
+![First7][7]
+
+## <a name="#Test">Testare la campagna di notifica push</a>
+ 
+![Test1][8]
+
+-    Registrare il dispositivo.
+-    Fare clic sulla casella di controllo del dispositivo di cui si vuole effettuare il push.
+-    Fare clic sul pulsante "Test" per inviare il push al dispositivo.
+ 
+![Test2][9]
+
+-    Attivare la campagna.
+ 
+![Test3][10]
+
+-    Ora che la campagna è stata creata, è sufficiente attivarla per effettuare il push della notifica agli utenti.
+ 
+## <a name="#Personalize">Inviare push personalizzati</a>
+-    Questo esempio crea un push in cui viene immesso un codice di sconto personalizzato nella notifica push.
+ 
+![Personalize1][11]
+
+La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info, quindi sarà necessario assicurarsi che prima siano stati definiti i valori app-info appropriati per l'utente. In questo esempio, per gli utenti di destinazione verrà definito un tag app info denominato rebate_code.
+Come si può vedere sopra, il contenuto della notifica push include il marker ${rebate_code} che indicherà che deve essere sostituito dal contenuto effettivo del tag app info.
+
+> Avviso: se il tag app info non è definito per l'utente, l'utente non riceverà il push.
+
+-    Risultato
+ 
+![Personalize2][12]
+
+### È possibile personalizzare ulteriormente il testo della notifica
+ 
+![Personalize3][13]
+
+-    Includendo il titolo della notifica
+-    e il contenuto del messaggio.
+-    Scegliere il tipo di annuncio (visualizzazione testo o Web)
+ 
+![Personalize4][14]
+
+### Il corpo di un annuncio può anche essere personalizzato con:
+-    L'URL di azione, nel caso in cui si voglia personalizzare la pagina di destinazione
+-    Il titolo
+-    Il corpo del messaggio
+ 
+ 
+## <a name="#Differentiate">Differenziare la notifica push (all'interno o all'esterno dell'app)</a>
+
+-    Scegliere il tipo di notifica di cui si effettuerà il push, selezionare l'applicazione, andare alla sezione "Copertura", selezionare o creare una campagna push e andare alla sezione "Notifica".
+ 
+-    Fare clic su "modalità di recapito" desiderata.
+-    Fare clic sulla casella di controllo "Limita attività" per inviare la notifica solo quando vengono eseguite attività specifiche (schermate).
+
+![Differentiate1][15]
+
+### Modalità di recapito "Solo all'esterno dell'app"
+ 
+![Differentiate2][16]
+
+La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push quando l'applicazione è chiusa. Questa è la notifica push standard.
+Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
+
+**Vedere anche:** 
+
+-  [Servizio APN - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html) 
+
+### Modalità di recapito "Solo in-app"
+ 
+![Differentiate3][17]
+
+La modalità di recapito "Solo in-app" fornisce la notifica push quando l'applicazione è in esecuzione.
+Per questa notifica, non è necessario passare attraverso il servizio APN e il sistema GCM.
+È possibile usare il sistema di recapito in-app per raggiungere gli utenti finali.
+È possibile personalizzare completamente la notifica e decidere in quale attività (schermata) visualizzare la notifica.
+
+### Modalità di recapito "Sempre"
+È possibile scegliere la modalità di recapito "Sempre", che consente di raggiungere l'utente finale indipendentemente dal fatto che l'applicazione sia in esecuzione o meno.
+Quando si seleziona "Sempre", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM). 
+ 
+## <a name="#Schedule">Pianificare una campagna push</a>
+ 
+### Pianificare l'inizio di una campagna
+ 
+![Shedule1][18]
+
+È il 21 marzo e si vuole diffondere un annuncio alla mezzanotte del 22 marzo. 
+Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui le notifiche verranno inviate.
+-    Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio 
+-    Scegliere la data e ora in cui avviare la campagna push.
+### Pianificare la fine di una campagna
+ 
+![Shedule2][19]
+
+Si vuole interrompere la campagna il 25 marzo alle 15, ma si sa che non si sarà presenti per poterlo fare.
+Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui la campagna verrà interrotta.
+-    Fare clic sulla casella di controllo "Nessuna" e selezionare un'ora di fine
+-    Scegliere la data e ora in cui terminare la campagna push.
+### Terminare manualmente una campagna
+ 
+![Shedule3][20]
+
+Per impostazione predefinita, le caselle di controllo "Nessuna" sono selezionate.
+La campagna inizierà non appena la si attiverà nella sezione della copertura e terminerà quando la si interromperà nella sezione della copertura.
+ 
+> Nota: nelle campagne create senza una data di fine il push viene archiviato localmente nel dispositivo e visualizzato alla successiva apertura dell'app, anche se la campagna viene terminata manualmente.
+
+## <a name="#TextView">Migliorare una notifica push con una visualizzazione testo</a>
+
+### Cos'è una visualizzazione testo?
+ 
+![TextView1][21]
+
+Una visualizzazione testo è un popup con contenuto testuale. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push.
+Una visualizzazione testo consente di presentare più contenuto all'utente finale. È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il passaggio a una pagina dell'app, il reindirizzamento a un archivio, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
+
+### Esempio: visualizzazione testo
+-    Creare la campagna di notifica push nella sezione "Copertura" e assegnare un nome alla campagna.
+ 
+![TextView2][22]
+
+-    Scrivere il messaggio che verrà visualizzato nella notifica.
+-    Selezionare "testo" come tipo di contenuto per l'annuncio.
+ 
+![TextView3][23]
+
+> Nota: quando si effettua il push di una visualizzazione testo, prima viene sempre visualizzata una notifica. 
+
+- Definire il testo. Dopo aver selezionato il contenuto dell'annuncio di testo, apparirà la sottosezione che consente di definire il testo da visualizzare.
+ 
+![TextView4][24]
+
+-    Scrivere il titolo che verrà visualizzato nella parte superiore del messaggio.
+-    Scrivere il contenuto principale della visualizzazione testo.
+-    Scrivere il contenuto che verrà visualizzato sul pulsante di azione. Un pulsante di azione consente all'applicazione di eseguire un'azione specifica, ad esempio l'apertura di una pagina dell'applicazione, il reindirizzamento a un archivio di app o a qualsiasi tipo di origine sia possibile fornire.
+-    Scrivere il contenuto che verrà visualizzato sul pulsante di uscita. Facendo clic sul pulsante di uscita, la visualizzazione testo scompare.
+ 
+-    Creare la campagna di notifica push che verrà visualizzata nell'elenco di campagne.
+ 
+![TextView5][25]
+
+-    Attivare la campagna di notifica push per inviare la visualizzazione testo agli utenti.
+ 
+![TextView6][26]
+
+-    Risultato
+ 
+![TextView7][27]
+
+-    L'utente riceve la notifica e fa clic su di essa.
+-    La visualizzazione testo appare come un popup con cui l'utente può interagire.
+
+## <a name="#WebView">Migliorare una notifica push con una visualizzazione Web</a>
+
+### Cos'è una visualizzazione Web?
+ 
+![WebView1][28]
+
+Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push.
+Una visualizzazione Web consente una maggiore interazione con l'utente finale.
+È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il reindirizzamento a un archivio di app, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
+
+### Esempio: visualizzazione Web
+
+-    Creare la campagna push nella sezione "Copertura" e assegnare un nome alla campagna.
+ 
+![WebView2][29]
+
+-    Scrivere il messaggio che verrà visualizzato nella notifica.
+-    Selezionare "Web" come tipo di contenuto per l'annuncio.
+ 
+![WebView3][30]
+
+**Informazioni sui tipi di annuncio:**
+
+- Solo notifica: è una semplice notifica standard. Se un utente vi fa clic, non appariranno altre visualizzazioni, ma verrà eseguita solo l'azione associata.
+- Annuncio di testo: è una notifica che invita l'utente a esaminare una visualizzazione testo.
+- Annuncio Web: è una notifica che invita l'utente a esaminare una visualizzazione Web.
+Selezionare il contenuto "Annuncio Web".
+
+> Nota: quando si effettua il push di una visualizzazione Web, prima viene sempre visualizzata una notifica.
+
+- Definire il contenuto Web. Dopo aver selezionato il contenuto dell'annuncio Web, apparirà la sottosezione che consente di definire il contenuto della visualizzazione Web da visualizzare.
+
+ 
+![WebView4][31]
+
+-    Scrivere il titolo che verrà visualizzato nella parte superiore del messaggio (facoltativo).
+-    Scrivere qui il codice HTML.
+-    Fare clic sul pulsante della modalità di modifica dell'origine per passare da un'edizione all'altra e verificarne l'aspetto.
+-    Scrivere il contenuto che verrà visualizzato sul pulsante di azione. Un pulsante di azione consente all'applicazione di eseguire un'azione specifica, ad esempio l'apertura di una pagina dell'applicazione, il reindirizzamento a un archivio o a qualsiasi tipo di origine sia possibile fornire.
+-    Scrivere il contenuto che verrà visualizzato sul pulsante di uscita. Facendo clic sul pulsante di uscita, la visualizzazione Web scompare.
+ 
+-    Risultato
+ 
+![WebView5][32]
+
+-    L'utente riceve la notifica e fa clic su di essa.
+-    La visualizzazione testo appare come un popup con cui l'utente può interagire.
+
+<!--Image references-->
+[1]: ./media/mobile-engagement-how-tos/First1.png
+[2]: ./media/mobile-engagement-how-tos/First2.png
+[3]: ./media/mobile-engagement-how-tos/First3.png
+[4]: ./media/mobile-engagement-how-tos/First4.png
+[5]: ./media/mobile-engagement-how-tos/First5.png
+[6]: ./media/mobile-engagement-how-tos/First6.png
+[7]: ./media/mobile-engagement-how-tos/First7.png
+[8]: ./media/mobile-engagement-how-tos/Test1.png
+[9]: ./media/mobile-engagement-how-tos/Test2.png
+[10]: ./media/mobile-engagement-how-tos/Test3.png
+[11]: ./media/mobile-engagement-how-tos/Personalize1.png
+[12]: ./media/mobile-engagement-how-tos/Personalize2.png
+[13]: ./media/mobile-engagement-how-tos/Personalize3.png
+[14]: ./media/mobile-engagement-how-tos/Personalize4.png
+[15]: ./media/mobile-engagement-how-tos/Differentiate1.png
+[16]: ./media/mobile-engagement-how-tos/Differentiate2.png
+[17]: ./media/mobile-engagement-how-tos/Differentiate3.png
+[18]: ./media/mobile-engagement-how-tos/Schedule1.png
+[19]: ./media/mobile-engagement-how-tos/Schedule2.png
+[20]: ./media/mobile-engagement-how-tos/Schedule3.png
+[21]: ./media/mobile-engagement-how-tos/TextView1.png
+[22]: ./media/mobile-engagement-how-tos/TextView2.png
+[23]: ./media/mobile-engagement-how-tos/TextView3.png
+[24]: ./media/mobile-engagement-how-tos/TextView4.png
+[25]: ./media/mobile-engagement-how-tos/TextView5.png
+[26]: ./media/mobile-engagement-how-tos/TextView6.png
+[27]: ./media/mobile-engagement-how-tos/TextView7.png
+[28]: ./media/mobile-engagement-how-tos/WebView1.png
+[29]: ./media/mobile-engagement-how-tos/WebView2.png
+[30]: ./media/mobile-engagement-how-tos/WebView3.png
+[31]: ./media/mobile-engagement-how-tos/WebView4.png
+[32]: ./media/mobile-engagement-how-tos/WebView5.png
+
+<!--Link references-->
+[Link 1]: ../mobile-engagement-user-interface/
+[Link 2]: ../mobile-engagement-troubleshooting-guide/
+[Link 3]: ../mobile-engagement-how-tos/
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/
+
+<!--HONumber=47-->

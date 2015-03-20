@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Usare Pig con Hadoop in HDInsight | Azure"
    description="Informazioni su come usare Pig con Hadoop in HDInsight mediante SSH."
    services="hdinsight"
@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -16,25 +16,25 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
  
-# Esecuzione di processi Pig usando il comando Pig (SSH)
+#Eseguire processi Pig usando il comando Pig (SSH)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-Questo documento illustra il processo di connessione a un cluster HDInsight basato su Linux tramite SSH e l'uso del comando Pig per eseguire istruzioni Pig Latin in modo interattivo o come processo batch.
+Questo documento illustra in dettaglio il processo di connessione a un cluster HDInsight di Azure basato su Linux usando Secure Shell (SSH), quindi usando il comando Pig per eseguire istruzioni Pig Latin in modo interattivo o come processo batch.
 
 Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere l'articolo relativo alle <a href="../hdinsight-hadoop-linux-information/" target="_blank">informazioni utili su Hadoop in HDInsight basato su Linux</a>.
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">informazioni utili su Hadoop in HDInsight basato su Linux</a>.
 
-## <a id="prereq"></a>Prerequisiti
+##<a id="prereq"></a>Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster HDInsight (Hadoop in HDInsight) basato su Linux.
+* Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
 
-* Un client SSH. I sistemi operativi Linux, Unix e Mac dovrebbero essere forniti con un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>
+* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
 
-## <a id="ssh"></a>Connettersi tramite SSH
+##<a id="ssh"></a>Connettersi tramite SSH
 
 Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**.
 
@@ -46,21 +46,21 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 **Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
 
-### PuTTY (client di Windows)
+###Putty (client basati su Windows)
 
-Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY **, disponibile per il download da <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+Windows non fornisce un client SSH incorporato. È consigliabile usare **Putty**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
-Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY per la connessione a un computer Linux** nella pagina relativa a <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">come usare SSH con Linux in Azure</a>.
+Per altre informazioni sull'uso di Putty, vedere la sezione sull'**uso di Putty per la connessione a un computer Linux** nella pagina relativa all' <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">uso di SSH con Linux in Azure</a>.
 
-> [AZURE.NOTE] Se è stato usato un certificato per l'autenticazione SSH per il cluster HDInsight, sarà necessario anche leggere la sezione sulla **creazione di una chiave privata PPK per PuTTY** nella pagina relativa a <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">come usare SSH con Linux in Azure.</a>
+> [AZURE.NOTE] Se è stato usato un certificato per l'autenticazione SSH per il cluster HDInsight, sarà necessario anche leggere la sezione sulla **creazione di una chiave privata PPK per Putty** nella pagina relativa all'<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">uso di SSH con Linux in Azure</a>
 
-## <a id="pig"></a>Usare il comando Pig
+##<a id="pig"></a>Usare il comando Pig
 
-2. Una volta connessi, avviare l'interfaccia della riga di comando di Pig usando il seguente comando.
+2. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) mediante il comando seguente.
 
         pig
 
-	Dopo qualche secondo, verrà visualizzato un prompt dei comandi `grunt>`.
+	Dopo qualche istante verrà visualizzato un `grunt>` prompt dei comandi.
 
 3. Immettere la seguente istruzione.
 
@@ -70,11 +70,11 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 
 		DUMP LOGS;
 
-4. Successivamente, trasformare i dati applicando un'espressione regolare per estrarre solo il livello di registrazione da ciascun record usando le seguenti operazioni.
+4. Successivamente, trasformare i dati applicando un'espressione regolare per estrarre solo il livello di registrazione da ogni record usando il comando seguente.
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	È possibile usare **DUMP** per visualizzare i dati dopo la trasformazione. In questo caso, `DUMP LEVELS;`.
+	È possibile usare **DUMP** per visualizzare i dati dopo la trasformazione. In questo caso, usare `DUMP LEVELS;`.
 
 5. Continuare ad applicare le trasformazioni usando le seguenti istruzioni. Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
 
@@ -89,14 +89,14 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Raggruppa le righe in base al livello di registrazione e memorizza i risultati in GROUPEDLEVELS.</td>
 	</tr>
 	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuovo set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. I risultati vengono memorizzati in FREQUENCIES</td>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuovo set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Viene archiviato in FREQUENCIES.</td>
 	</tr>
 	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in RESULT</td>
+	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione per conteggio (decrescente) e archivia li archivia in RESULT.</td>
 	</tr>
 	</table>
 
-6. È inoltre possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
+6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -106,7 +106,7 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 
 		QUIT;
 
-### File batch di Pig Latin
+###File batch di Pig Latin
 
 È inoltre possibile usare il comando Pig per eseguire processi Pig Latin contenuti in un file.
 
@@ -114,7 +114,7 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 
 		cat > ~/pigbatch.pig
 
-4. Digitare o incollare le seguenti righe, quindi usare CTRL+D al termine.
+4. Digitare o incollare le righe seguenti e quindi premere CTRL+D al termine.
 
 		LOGS = LOAD 'wasb:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -124,7 +124,7 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 		RESULT = order FREQUENCIES by COUNT desc;
 		DUMP RESULT;
 
-5. Usare quanto segue per eseguire il file **pigbatch.pig** usando il comando pig.
+5. Usare quanto segue per eseguire il file **pigbatch.pig** mediante il comando Pig.
 
 		pig ~/pigbatch.pig
 
@@ -137,11 +137,11 @@ Per altre informazioni sull'uso di PuTTY, vedere la sezione sull'**uso di PuTTY 
 		(ERROR,6)
 		(FATAL,2)
 
-## <a id="summary"></a>Riepilogo
+##<a id="summary"></a>Riepilogo
 
-Come si può notare, il comando Pig consente di eseguire in modo interattivo operazioni di MapReduce con Pig Latin, nonché eseguire istruzioni archiviate in un file batch.
+Come si può notare, il comando Pig consente di eseguire operazioni MapReduce in modo interattivo con Pig Latin, nonché di eseguire istruzioni archiviate in un file batch.
 
-## <a id="nextsteps"></a>Passaggi successivi
+##<a id="nextsteps"></a>Passaggi successivi
 
 Per informazioni generali su Pig in HDInsight.
 
@@ -152,4 +152,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+
+<!--HONumber=47-->

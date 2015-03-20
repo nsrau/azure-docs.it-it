@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestione di cluster HDInsight tramite Ambari | Azure"
+   pageTitle="Gestire i cluster HDInsight tramite Ambari | Azure"
    description="Informazioni sull'uso di Ambari per monitorare e gestire cluster HDInsight basati su Linux."
    services="hdinsight"
    documentationCenter=""
@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -34,13 +34,13 @@ Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati
 
 Per risolvere questo problema, usare un tunnel SSH per inoltrare il traffico Web al nodo head del cluster, che è in grado di risolvere i nomi di dominio interno. Usare i seguenti articoli per creare un tunnel SSH da una porta nel computer locale al cluster.
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:</a> procedura per la creazione di un tunnel SSH con il comando  `ssh`
+* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH tramite il comando `ssh`
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:</a> procedura per l'uso di PuTTY per la creazione di un tunnel SSH
+* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Windows</a>: passaggi relativi all'uso di PuTTY per creare un tunnel SSH
 
 ## Interfaccia utente Web Ambari
 
-L'interfaccia utente Web di Ambari è disponibile in ogni cluster HDInsight basato creato in **https://&lt;nomecluster>.azurehdinsight.net**. È anche possibile passare a questa pagina usando il pulsante **Ambari Web** nella parte inferiore del dashboard del cluster nel portale Azure.
+L'interfaccia utente Web di Ambari è disponibile in ogni cluster HDInsight basato su Linux creato in **https://&lt;clustername>.azurehdinsight.net**. È anche possibile passare a questa pagina usando il pulsante **Ambari Web** nella parte inferiore del dashboard del cluster nel portale Azure.
 
 ![ambari web icon](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
 
@@ -144,9 +144,9 @@ Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel brow
 > 
 > Per informazioni sull'uso di un tunnel SSL con HDInsight, vedere uno dei seguenti argomenti:
 > 
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:</a> procedura per la creazione di un tunnel SSH con il comando  `ssh`
+> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH tramite il comando `ssh`
 >
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:</a> procedura per l'uso di PuTTY per la creazione di un tunnel SSH
+>* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Windows</a>: passaggi relativi all'uso di PuTTY per creare un tunnel SSH
 
 ### Gestione
 
@@ -254,4 +254,4 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

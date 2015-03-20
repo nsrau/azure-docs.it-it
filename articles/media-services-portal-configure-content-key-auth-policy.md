@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante il portale" 
-	description="Informazioni su come configurare un criterio di autorizzazione per una chiave simmetrica." 
+	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="02/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 # Configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
 
 
 ## Informazioni generali
@@ -46,23 +46,29 @@ Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL 
 - Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
 
 
-## Procedura: Configurare i criteri di autorizzazione della chiave simmetrica 
+## Procedura: Configurare i criteri di autorizzazione della chiave simmetrica
 
 Per configurare i criteri di autorizzazione della chiave simmetrica, selezionare la pagina **PROTEZIONE DEL CONTENUTO**.
 	
 Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere restrizioni di autorizzazione di tipo **open**, **token** o **IP**. La restrizione **IP** può essere configurata con REST o con l'SDK per .NET. 
 
+### Restrizione Open
+
 Se si applica una restrizione **open**, il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
 
 ![OpenPolicy][open_policy]
 
-I criteri con restrizione **token** devono essere accompagnati da un token rilasciato da un servizio STS (**Secure Token Service**, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/it-it/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT). Attualmente, il **portale di gestione di Azure** supporta solo i token SWT (Simple Web Token). Per configurare il formato JWT, usare l'API REST o l'SDK per .NET.  Per informazioni, vedere [Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+### Restrizione Token
+
+Per scegliere il criterio con restrizione token, premere il pulsante **TOKEN**.
+
+I criteri con restrizione **token** devono essere accompagnati da un token rilasciato da un servizio STS (**Secure Token Service**, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT). Per informazioni, vedere [Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Servizi multimediali non fornisce **servizi token di sicurezza**. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica. Per altre informazioni, vedere l'articolo relativo all'[uso di Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
 Quando si configurano i criteri di restrizione **TOKEN**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.  
 
-![TokenPoicy][token_policy]
+### PlayReady
 
 Quando si proteggono i contenuti con **PlayReady**, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
 		
@@ -78,14 +84,14 @@ Quando si proteggono i contenuti con **PlayReady**, è necessario includere nei 
 	  </LicenseTemplates>
 	</PlayReadyLicenseResponseTemplate>
 
-È possibile fare clic sul pulsante **importa xml criteri** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/it-it/library/azure/dn783459.aspx).
+È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ## Passaggi successivi
-Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](../media-services-manage-content#encrypt/).
+Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](../media-services-manage-content#encrypt/) .
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

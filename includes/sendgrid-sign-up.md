@@ -1,4 +1,4 @@
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e [a tutte le API][] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina delle [funzionalità di SendGrid][].
+﻿I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e [a tutte le API][] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina relativa alle [funzionalità di SendGrid][].
 
 ### Per iscriversi a un account SendGrid
 
@@ -54,7 +54,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
-	Per altre informazioni introduttive su SendGrid, vedere la [guida introduttiva a SendGrid][].
+	Per ulteriori informazioni introduttive su SendGrid, vedere la [guida introduttiva di SendGrid][].
 
 <!--images-->
 
@@ -70,10 +70,11 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 <!--Links-->
 
-[funzionalità di SendGrid]: http://sendgrid.com/features
-[portale di gestione di Azure]: https://manage.windowsazure.com
-[guida introduttiva a SendGrid]: http://sendgrid.com/docs
-[Processo di provisioning di SendGrid]: https://support.sendgrid.com/hc/it-it/articles/200181628-Why-is-my-account-being-provisioned-
-[tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
+[Funzionalità di SendGrid]: http://sendgrid.com/features
+[Portale di gestione di Azure]: https://manage.windowsazure.com
+[Guida introduttiva di SendGrid]: http://sendgrid.com/docs
+[Processo di provisioning di SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[Tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

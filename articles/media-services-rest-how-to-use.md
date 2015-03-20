@@ -30,7 +30,7 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 <table border="1">
 <tr><th>Intestazione</th><th>Tipo</th><th>Valore</th></tr>
 <tr><td>Authorization</td><td>Bearer</td><td>Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Decimale</td><td>2.8</td></tr>
+<tr><td>x-ms-version</td><td>Decimale</td><td>2.9</td></tr>
 <tr><td>DataServiceVersion</td><td>Decimale</td><td>3.0</td></tr>
 <tr><td>MaxDataServiceVersion</td><td>Decimale</td><td>3.0</td></tr>
 </table><br/>
@@ -81,14 +81,14 @@ Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è poss
 <tr><td>GET</td><td>Restituisce il valore corrente di un oggetto.</td></tr>
 <tr><td>POST</td><td>Crea un oggetto in base ai dati forniti o invia un comando.</td></tr>
 <tr><td>PUT</td><td>Sostituisce un oggetto o ne crea uno nuovo con nome, se applicabile.</td></tr>
-<tr><td>DELETE</td><td>Elimina un oggetto.</td></tr>
+<tr><td>ELIMINA</td><td>Elimina un oggetto.</td></tr>
 <tr><td>MERGE</td><td>Aggiorna un oggetto esistente con le modifiche alle proprietà denominate.</td></tr>
 <tr><td>HEAD</td><td>Restituisce i metadati di un oggetto per una risposta GET.</td></tr>
 </table><br/>
 
 ## Individuazione del modello di Servizi multimediali
 
-Per rendere più facilmente individuabili le entità di Servizi multimediali, è possibile usare l'operazione $metadata, che consente di recuperare tutti i tipi validi di entità, le proprietà di entità, le associazioni, le funzioni, le azioni e così via. Il seguente esempio mostra come creare l'URI:: https://media.windows.net/API/$metadata.
+Per rendere più facilmente individuabili le entità di Servizi multimediali, è possibile usare l'operazione $metadata, che consente di recuperare tutti i tipi validi di entità, le proprietà di entità, le associazioni, le funzioni, le azioni e così via. Il seguente esempio illustra come costruire l'URI: https://media.windows.net/API/$metadata.
 
 Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i metadati in un browser o se nella richiesta non è stata inclusa l'intestazione x-ms-version.
 
@@ -103,4 +103,4 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

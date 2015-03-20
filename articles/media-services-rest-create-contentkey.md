@@ -19,11 +19,11 @@
 
 # Creare entità ContentKey mediante REST
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) .  
 
 Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare file](../media-services-rest-upload-files/)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](../media-services-rest-upload-files/)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
 Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](../media-services-rest-configure-asset-delivery-policy) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
@@ -34,7 +34,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione). 
 
 	Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia. 
-2.	Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/it-it/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/it-it/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
+2.	Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
 
 	L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
@@ -256,4 +256,4 @@ Richiesta:
 Risposta:
 
 	HTTP/1.1 204 No Content
-<!--HONumber=45--> 
+<!--HONumber=47-->

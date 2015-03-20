@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come controllare lo stato dei processi mediante l'API REST" 
 	description="Informazioni su come tenere traccia dello stato dei processi." 
 	services="media-services" 
@@ -18,9 +18,9 @@
 
 # Procedura: Controllare lo stato dei processi
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
 
-Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile trovare lo stato dell'entità Job mediante la relativa proprietà State. Per altre informazioni sulla proprietà State, vedere [Proprietà dell'entità Job](https://msdn.microsoft.com/it-it/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile trovare lo stato dell'entità Job mediante la relativa proprietà State. Per altre informazioni sulla proprietà State, vedere [Proprietà dell'entità Job](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
 
 Richiesta:
@@ -53,4 +53,4 @@ Risposta:
 	Date: Wed, 11 Feb 2015 01:46:39 GMT
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
-<!--HONumber=45--> 
+<!--HONumber=47-->

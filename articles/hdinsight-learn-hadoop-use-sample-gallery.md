@@ -16,7 +16,7 @@
    ms.date="1/29/2015" 
    ms.author="jgao"/>
 
-# Informazioni su Hadoop in HDInsight tramite la raccolta di introduzione HDInsight
+# Informazioni su Hadoop usando la raccolta di introduzione HDInsight
 
 La raccolta di introduzione di HDInsight fornisce un modo semplice e rapido per eseguire applicazioni di esempio Hadoop in HDInsight. Alcuni degli esempi sono forniti con dati di esempio. Per i rimanenti esempi, l'utente può fornire i propri dati. Attualmente sono disponibili 6 esempi. Altri verranno pubblicati a breve:
 
@@ -52,7 +52,7 @@ Il seguente video clip mostra come eseguire l'esempio relativo all'analisi delle
 Di seguito sono indicati altri modi e strumenti per l'apprendimento di HDInsight:
 
 - [Mappa di apprendimento per HDInsight][hdinsight.learning.map]
-- [Infografica di HDInsight][hdinsight.infographic]
+- [Infografica HDInsight][hdinsight.infographic]
 
 <!--Image references-->
 [hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png
@@ -62,4 +62,4 @@ Di seguito sono indicati altri modi e strumenti per l'apprendimento di HDInsight
 [hdinsight.learning.map]: ../hdinsight-learning-map/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

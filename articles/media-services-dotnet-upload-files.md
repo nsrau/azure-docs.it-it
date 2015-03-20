@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Caricamento di file in un account di Servizi multimediali mediante .NET" 
 	description="Informazioni su come ottenere contenuti multimediali in Servizi multimediali creando e caricando asset." 
 	services="media-services" 
@@ -21,7 +21,7 @@
 # Caricamento di file in un account di Servizi multimediali mediante .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
 
 In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
@@ -37,7 +37,7 @@ Se si pianifica la distribuzione di un file MP4 con il download progressivo, usa
 
 	Si noti che Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
 
-Se si specifica di crittografare l'asset con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a un'entità **ContentKey**. Per altre informazioni, vedere [Creare entità ContentKey mediante .NET](../media-services-dotnet-create-contentkey). 
+Se si specifica di crittografare l'asset con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a un'entità **ContentKey**. Per altre informazioni, vedere [come creare un'entità ContentKey](../media-services-dotnet-create-contentkey). 
 
 Se si specifica di crittografare l'asset con un'opzione **StorageEncrypted**, l'SDK di Servizi multimediali per .NET creerà un'entità **ContentKey** **StorageEncrypted** per l'asset.
 
@@ -303,8 +303,8 @@ Il seguente esempio esegue una chiamata alla funzione UploadFile e specifica la 
 
 
 ## Passaggi successivi
-Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
+Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Come ottenere un'istanza del processore di contenuti multimediali][].
 
-[Procedura: Ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
+[Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -19,11 +19,11 @@
 
 # Creare entità ContentKey mediante .NET
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) .  
 
 Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare file](../media-services-dotnet-upload-files/)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](../media-services-dotnet-upload-files/)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
 Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](../media-services-dotnet-configure-asset-delivery-policy) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
@@ -99,7 +99,7 @@ Il frammento di codice seguente crea una chiave simmetrica con tipo di crittogra
         return randomBytes;
     }
 
-call
+chiamare
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
@@ -139,8 +139,7 @@ Il frammento di codice seguente crea una chiave simmetrica con tipo di crittogra
 
         return returnValue;
     }
-call
+chiamare
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

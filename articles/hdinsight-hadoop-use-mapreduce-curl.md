@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -24,7 +24,7 @@ In questo documento si apprenderà come usare Curl per l'esecuzione di processi 
 
 Curl viene usato per illustrare come è possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire processi MapReduce. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere l'articolo relativo alle <a href="../hdinsight-hadoop-linux-information/" target="_blank">informazioni utili su Hadoop in HDInsight basato su Linux</a>.
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">informazioni utili su Hadoop in HDInsight basato su Linux</a>.
 
 ## <a id="prereq"></a>Prerequisiti
 
@@ -42,7 +42,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 > 
 > Per i comandi riportati in questa sezione, sostituire **USERNAME** con l'utente da autenticare nel cluster e **PASSWORD** con la password dell'account utente. Sostituire **CLUSTERNAME** con il nome del cluster.
 > 
-> L'API REST è protetta mediante <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticazione di base</a>. È necessario effettuare sempre le richieste usando il protocollo HTTPS per essere certi che le credenziali vengano inviate in modo sicuro al server.
+> L'API REST viene protetta tramite <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticazione di base</a>. È necessario effettuare sempre le richieste usando il protocollo HTTPS per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
 1. Da una riga di comando usare il seguente comando per verificare che sia possibile connettersi al cluster HDInsight. 
 
@@ -57,7 +57,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **-u**: il nome utente e la password usati per autenticare la richiesta.
     * **-G**: indica che si tratta di una richiesta GET.
 
-    L'inizio dell'URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà uguale per tutte le richieste. 
+    L'inizio dell'URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. 
 
 2. Per inviare un processo MapReduce, usare il seguente comando.
 
@@ -65,18 +65,18 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     La fine dell'URI (/mapreduce/jar) ndica a WebHCat che la richiesta avvierà un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
-	* **-d**: poiché non viene specificato il parametro `-G`, per la richiesta viene usato il metodo POST per impostazione predefinita. `-d`: specifica i valori di dati che vengono inviati con la richiesta.
+	* **-d**: poiché `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta
 
-        * **user.name**: l'utente che esegue il comando.
-        * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
-        * **class**: la classe che contiene la logica MapReduce.
+        * **user.name**: l'utente che esegue il comando
+        * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire
+        * **class**: la classe che contiene la logica MapReduce
         * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output.
 
     Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo.
 
         {"id":"job_1415651640909_0026"}
 
-3. Per verificare lo stato del processo, usare il seguente comando. Sostituire **JOBID** con il valore restituito nel passaggio precedente. Ad esempio, se il valore restituito è  `{"id":"job_1415651640909_0026"}`, JOBID sarà `job_1415651640909_0026`.
+3. Per verificare lo stato del processo, usare il seguente comando. Sostituire **JOBID** con il valore restituito nel passaggio precedente. Ad esempio, se il valore restituito è `{"id":"job_1415651640909_0026"}` JOBID sarà `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
@@ -86,7 +86,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasb:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
-È possibile elencare e scaricare questi file usando <a href="../xplat-cli/" target="_blank">l'interfaccia della riga di comando multipiattaforma di Azure</a>. Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando.
+È possibile elencare e scaricare questi file usando l'<a href="../xplat-cli/" target="_blank">interfaccia della riga di comando multipiattaforma di Azure (xplat-cli)</a>. Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando.
 
 	azure storage blob list <container-name> example/curl
 
@@ -94,7 +94,7 @@ Per scaricare un file, usare il seguente comando.
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Vedere <a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE] È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Per altre informazioni, vedere <a href="../hdinsight-upload-data/" target="_blank" .
 
 ## <a id="summary"></a>Riepilogo
 
@@ -113,4 +113,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -44,7 +44,7 @@ Per istruzioni su come eseguire questa operazione, vedere <a href="http://go.mic
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Accedere alla <a href="https://manage.windowsazure.com/" target="_blank">console di gestione di Azure</a>.
+1. Visitare la <a href="https://manage.windowsazure.com/" target="_blank">Console di gestione di Azure</a>.
 
 2. Dalla barra sinistra del portale, selezionare **Impostazioni**.
 
@@ -229,4 +229,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

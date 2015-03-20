@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -32,9 +32,9 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un Web browser moderno
 
-## <a id="run"></a> Eseguire query Hive mediante Query Console
+## <a id="run"></a> Eseguire query Hive usando Query Console
 
-1. Aprire il <a href="https://manage.windowsazure.com" target="_blank">Portale di gestione di Azure</a> e selezionare il cluster HDInsight. Nella parte inferiore della pagina selezionare **Query Console**. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
+1. Aprire il <a href="https://manage.windowsazure.com" target="_blank">portale di gestione di Azure</a> e selezionare il cluster HDInsight. Nella parte inferiore della pagina selezionare **Query Console**. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 
     > [AZURE.NOTE] È possibile accedere a Query Console anche immettendo **https://NOMECLUSTER.azurehdinsight.net** nel browser.
 
@@ -42,7 +42,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 	
 	![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 	
-	Sostituire il testo `Select * from hivesampletable` con le seguenti istruzioni HiveQL.
+	Sostituire il testo  `Select * from hivesampletable` con le seguenti istruzioni HiveQL.
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -53,7 +53,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     Le istruzioni eseguono queste azioni:
 
     * **DROP TABLE**: elimina la tabella e il file di dati, nel caso in cui la tabella esista già.
-    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'external' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
+    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'esterna' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
 
     > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     >
@@ -61,7 +61,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso i campi di ogni log sono separati da uno spazio.
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (directory example/data) e specifica che i dati sono archiviati come testo.
-    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
 2. Fare clic su **Submit**. L'opzione **Job Session** nella parte inferiore della pagina dovrebbe visualizzare i dettagli del processo.
 
@@ -88,17 +88,17 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -120,4 +120,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

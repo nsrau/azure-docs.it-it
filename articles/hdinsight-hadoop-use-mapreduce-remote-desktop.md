@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -32,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ## <a id="connect"></a>Connettersi a Desktop remoto
 
-Abilitare Desktop remoto per il cluster HDInsight, quindi connettersi a esso seguendo le istruzioni riportate nella pagina relativa alla <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">connessione ai cluster HDInsight tramite RDP</a>.
+Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
 ## <a id="hadoop"></a>Usare il comando Hadoop
 
@@ -48,7 +48,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
 	Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar** nella directory corrente. Come input, la classe usa il documento **wasb://example/data/gutenberg/davinci.txt** e l'output viene archiviato in **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] Per altre informazioni su questo processo MapReduce e sui dati di esempio, vedere <a href="../hdinsight-use-mapreduce/">Usare MapReduce in HDInsight Hadoop</a>.
+	> [AZURE.NOTE] Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere <a href="../hdinsight-use-mapreduce/">Usare Hadoop MapReduce in HDInsight</a>.
 
 2. Il processo genererà dettagli durante l'elaborazione, e al completamento restituirà informazioni simili alle seguenti.
 
@@ -94,4 +94,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

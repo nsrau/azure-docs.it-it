@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Temi di tendenza Twitter con Apache Storm in HDInsight | Azure"
    description="Informazioni su come usare Trident per creare una topologia Storm in grado di determinare i temi di tendenza in base agli hashtag."
    services="hdinsight"
@@ -16,15 +16,15 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-#Temi di tendenza Twitter con Apache Storm in HDInsight
+# Temi di tendenza Twitter con Apache Storm in HDInsight
 
 Informazioni su come usare Trident per creare una topologia Storm in grado di determinare i temi di tendenza (hashtag) in Twitter. 
 
-Trident è un'astrazione di alto livello che fornisce strumenti quali join, aggregazioni, raggruppamento, funzioni e filtri. Trident fornisce inoltre primitive per l'elaborazione incrementale e con informazioni sullo stato. Questo esempio illustra come creare una topologia usando uno spout e una funzione personalizzati, oltre a diverse funzioni predefinite fornite da Trident.
+Trident è un'astrazione generale che fornisce strumenti quali join, aggregazioni, raggruppamento, funzioni e filtri. Trident fornisce inoltre primitive per l'elaborazione incrementale e con informazioni sullo stato. Questo esempio illustra come creare una topologia usando uno spout e una funzione personalizzati, oltre a diverse funzioni predefinite fornite da Trident.
 
 > [AZURE.NOTE] L'articolo si basa in larga misura sull'esempio [Trident-Storm](https://github.com/jalonsoramos/trident-storm) di Juan Alonso.
 
-##Requisiti
+## Requisiti
 
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java e JDK 1.7</a>
 
@@ -34,13 +34,13 @@ Trident è un'astrazione di alto livello che fornisce strumenti quali join, aggr
 
 * Un account sviluppatore Twitter
 
-##Scaricare il progetto
+## Scaricare il progetto
 
 Usare il seguente codice per clonare il progetto in locale.
 
 	git clone https://github.com/Blackmist/TwitterTrending
 
-##Topologia
+## Topologia
 
 Di seguito è illustrata la topologia di questo esempio:
 
@@ -78,19 +78,19 @@ Il codice effettua le seguenti operazioni:
 > 
 > * <a href="https://github.com/kstyrc/trident-redis" target="_blank">https://github.com/kstyrc/trident-redis</a>
 
-###Spout
+### Spout
 
-Lo spout **TwitterSpout** usa <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> per recuperare tweet da Twitter. Viene creato un filtro (amore, musica e caffè) e i tweet in ingresso (stato) che corrispondono al filtro vengono memorizzati in una  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Al termine, gli elementi vengono rimossi dalla coda e inseriti nella topologia.
+Lo spout, **TwitterSpout**, usa <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> per recuperare tweet da Twitter. Viene creato un filtro (amore, musica e caffè) e i tweet in ingresso (stato) che corrispondono al filtro vengono memorizzati in una <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Al termine, gli elementi vengono rimossi dalla coda e inseriti nella topologia.
 
-###HashtagExtractor
+### HashtagExtractor
 
-Per estrarre gli hashtag viene usato <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities,</a> in grado di recuperare tutti gli hashtag contenuti nel tweet. Gli hashtag vengono quindi indirizzati nel flusso.
+Per estrarre gli hashtag, usare <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> per recuperare tutti gli hashtag contenuti nel tweet. Gli hashtag vengono quindi indirizzati nel flusso.
 
-##Abilitare Twitter
+## Abilitare Twitter
 
 Per registrare una nuova applicazione Twitter e ottenere informazioni sull'utente e sul token di accesso necessarie per leggere da Twitter, effettuare le seguenti operazioni.
 
-1. Passare a  <a href="" target="_blank">https://apps.twitter.com/</a> e fare clic sul pulsante **Create new app**. Quando si compila il modulo, lasciare il campo **Callback URL** vuoto.
+1. Passare a <a href="" target="_blank">https://apps.twitter.com/</a> e usare il pulsante **Create new app**. Quando si compila il modulo, lasciare il campo **Callback URL** vuoto.
 
 2. Dopo aver creato l'app, selezionare la scheda **Keys and Access Tokens**.
 
@@ -100,14 +100,14 @@ Per registrare una nuova applicazione Twitter e ottenere informazioni sull'utent
 
 5. Nel progetto **TwitterSpoutTopology** clonato in precedenza aprire il file **resources/twitter4j.properties**, aggiungere le informazioni copiate nei passaggi precedenti e salvare il file.
 
-##Creare la topologia
+## Creare la topologia
 
 Per creare il progetto, usare il seguente codice.
 
 		cd [directoryname]
 		mvn compile
 
-##Testare la topologia
+## Testare la topologia
 
 Per testare la topologia in locale, usare il seguente comando.
 
@@ -125,7 +125,7 @@ Dopo l'avvio della topologia, vengono visualizzate informazioni di debug contene
 	DEBUG: [punk, 1]
 	DEBUG: [indonesiapunkrock, 1]
 
-##Passaggi successivi
+## Passaggi successivi
 
 Dopo aver eseguito il test della topologia in locale, è possibile apprendere come [distribuire la topologia a Storm in HDInsight](../hdinsight-storm-deploy-monitor-topology/).
 
@@ -134,4 +134,10 @@ Altri argomenti di interesse:
 * [Sviluppo di topologie Java per Storm in HDInsight con Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Sviluppo di topologie C# per Storm in HDInsight con Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
-<!--HONumber=45--> 
+
+Per altri esempi su Storm per HDinsight:
+
+* [Esempi di Storm in HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Analizzare i dati del sensore EventHub con Storm in HDInsight](../hdinsight-storm-sensor-data-analysis/)
+<!--HONumber=47-->

@@ -19,14 +19,14 @@
 
 # Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
 
 ## Informazioni generali
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
-I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere Set di impostazioni di attività per Servizi multimediali di Azure. Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/it-it/library/azure/dn750842.aspx).
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere Set di impostazioni di attività per Servizi multimediali di Azure. Se si usa un codificatore di terze parti, è necessario [convalidare i file](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/it-it/library/azure/jj889436.aspx).
+Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
 ## Creare un processo con una singola attività di codifica 
 
@@ -37,7 +37,7 @@ Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a 
 >Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](../media-services-rest-connect_programmatically/). 
 
 
-Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/it-it/library/azure/dn619389.aspx).
+Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 	
 Richiesta:
 
@@ -113,11 +113,11 @@ In molti scenari di applicazione, gli sviluppatori desiderano creare una serie d
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](../media-services-rest-check-job-progress/) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Set di impostazioni del codificatore]: http://msdn.microsoft.com/library/dn619392.aspx
+[Impostazioni per il codificatore]: http://msdn.microsoft.com/library/dn619392.aspx
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]:http://go.microsoft.com/fwlink/?LinkId=301732
 [Procedura: Caricare un asset crittografato]:http://go.microsoft.com/fwlink/?LinkId=301733
 [Procedura: Distribuire un asset mediante download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -31,20 +31,20 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o su Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ## <a id="powershell"></a>Eseguire query Hive usando PowerShell
 
-Azure PowerShell fornisce *cmdlets* che consentono di eseguire in modalità remota query Hive in HDInsight. Internamente ciò avviene tramite chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (precedentemente denominato Templeton) in esecuzione nel cluster HDInsight.
+Azure PowerShell fornisce *cmdlets* che consentono di eseguire in modalità remota query Hive in HDInsight. Questo risultato viene ottenuto internamente usando chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (chiamato in precedenza Templeton,) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati i seguenti cmdlet.
 
-* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione Azure.
+* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione di Azure.
 
-* **New-AzureHDInsightHiveJobDefinition**: crea una nuova *job definition* usando le istruzioni HiveQL specificate.
+* **New-AzureHDInsightHiveJobDefinition**: crea una nuova *definizione del processo* usando le istruzioni HiveQL specificate.
 
-* **Start-AzureHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *job* che può essere usato per verificare lo stato del processo.
+* **Start-AzureHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *processo* che può essere usato per verificare lo stato del processo.
 
 * **Wait-AzureHDInsightJob**: usa l'oggetto job per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
 
@@ -107,7 +107,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 		SELECT * FROM errorLogs;
 		"@
 
-	L'output sarà simile al seguente:
+	L'output sarà simile al seguente.
 
 		2012-02-03	18:35:34	SampleClass0	[ERROR]	incorrect	id	
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id	
@@ -117,7 +117,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 	>
 	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> Per altre informazioni sulle stringhe Here, vedere l'articolo relativo all' <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">uso di stringhe Here di Windows PowerShell</a>.
+	> Per altre informazioni sulle stringhe Here, vedere <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Uso delle stringhe Here di PowerShell</a>.
 
 ## <a id="troubleshooting"></a>Risoluzione dei problemi
 
@@ -145,4 +145,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

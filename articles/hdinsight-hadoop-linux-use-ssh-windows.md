@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -20,13 +20,13 @@
 
 I cluster HDInsight basati su Linux offrono la possibilità di proteggere l'accesso SSH usando una password o una chiave SSH. Questo documento fornisce informazioni sulla connessione a HDInsight da client Windows mediante il client SSH PuTTY.
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Windows. Se si usa un client Linux, Unix o OS X, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](/it-it/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Windows. Se si usa un client Linux, Unix o OS X, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
 
 ## Prerequisiti
 
 * **PuTTY** e **PuTTYGen** per client Windows. Queste utilità sono disponibili nella pagina Web <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
-* Un moderno Web browser che supporta HTML5
+* Un moderno Web browser che supporta HTML5.
 
 OPPURE
 
@@ -34,7 +34,7 @@ OPPURE
 
 OPPURE
 
-* Strumenti da riga di comando multipiattaforma di Azure
+* Strumenti della riga di comando multipiattaforma di Azure
 
 ## Che cos'è SSH?
 
@@ -76,9 +76,9 @@ Quando si crea un cluster HDInsight basato su Linux, è necessario fornire la **
 
 * **Portale di gestione di Azure**: viene usato un portale basato sul Web per creare il cluster.
 
-* **Interfaccia della riga di comando multipiattaforma di Azure (xplat-cli)**: vengono usati comandi della riga di comando per creare il cluster.
+* **Interfaccia della riga di comando multipiattaforma di Azure (xplat-cli)**: vengono usati comandi della riga di comando per creare il cluster
 
-Ognuno di questi metodi richiede la **chiave pubblica**. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo relativo al <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning di cluster HDInsight basati su Linux</a>.
+Ognuno di questi metodi richiede la **chiave pubblica**. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo relativo al <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning dei cluster HDInsight basati su Linux</a>.
 
 ### Portale di gestione di Azure
 
@@ -90,9 +90,9 @@ Viene creato un account di accesso per l'utente specificato ed è possibile eseg
 
 ### Interfaccia della riga di comando multipiattaforma di Azure
 
-È possibile usare <a href="../xplat-cli/" target="_brad">l'interfaccia della riga di comando multipiattaforma di Azure</a>per creare un nuovo cluster mediante il comando `azure hdinsight cluzter create`.
+È possibile usare l'<a href="../xplat-cli/" target="_brad">interfaccia della riga di comando multipiattaforma di Azure</a>, per creare un nuovo cluster usando il comando  `azure hdinsight cluster create`.
 
-Per altre informazioni sull'uso di questo comando, vedere l'articolo relativo al <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate.</a>
+Per altre informazioni sull'uso di questo comando, vedere l'articolo relativo al <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">provisioning dei cluster Linux Hadoop in HDInsight con opzioni personalizzate</a>
 
 ## <a id="connect"></a>Connettersi a un cluster HDInsight basato su Linux
 
@@ -176,11 +176,11 @@ Seguire questa procedura per creare un tunnel SSH e configurare il browser in mo
 
 	> [AZURE.NOTE] Se si seleziona **Remote DNS**, le richieste DNS verranno risolte usando il cluster HDInsight. Se non si seleziona questa opzione, il DNS verrà risolto localmente.
 
-	È possibile verificare che il traffico venga instradato attraverso il tunnel visitando un sito come <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
+	È possibile verificare che il traffico sia instradato attraverso il tunnel visitando un sito come <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
 
 ### Estensioni del browser
 
-Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser come <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus) in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
+Quando si configura il browser per l'uso del tunnel, in genere non è opportuno instradare tutto il traffico attraverso il tunnel. Le estensioni del browser, ad esempio <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>, supportano i criteri di ricerca per le richieste URL (solo FoxyProxy Standard o Plus) in modo che vengano inviate tramite tunnel solo le richieste relative a URL specifici.
 
 Se è stato installato **FoxyProxy Standard**, seguire questa procedura per configurarlo in modo che inoltri tramite tunnel solo il traffico per HDInsight.
 
@@ -208,7 +208,7 @@ Se è stato installato **FoxyProxy Standard**, seguire questa procedura per conf
 
 	* **Pattern Name** - **headnode**: si tratta di un nome descrittivo per il criterio
 
-	* **URL pattern** - **\*headnode\*** : definisce un criterio che trova la corrispondenza con qualsiasi URL contenente la parola **headnode**.
+	* **URL pattern** - **\*headnode\***: definisce un criterio che trova la corrispondenza con qualsiasi URL contenente la parola **headnode**.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-windows/foxypattern.png)
 
@@ -224,10 +224,10 @@ Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la
 
 Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è possibile imparare a usare MapReduce con Hadoop in HDInsight.
 
-* [Usare Hive in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
-* [Usare Pig in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con HDInsight](../hdinsight-use-pig/)
 
-* [Usare processi MapReduce in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare processi MapReduce con HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

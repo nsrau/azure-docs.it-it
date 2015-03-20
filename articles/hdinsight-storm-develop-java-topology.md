@@ -26,9 +26,9 @@ Dopo aver completato i passaggi descritti in questo documento, si disporrà di u
 
 * <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Java Developer Kit (JDK) versione 7</a>
 
-* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven:</a>  un sistema di compilazione per progetti Java
+* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a>: Maven è un sistema di compilazione per progetti Java
 
-* Un editor di testo, ad esempio <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>o il blocco note. In alternativa, un ambiente di sviluppo integrato (IDE), ad esempio <a href="https://eclipse.org/" target="_blank">Eclipse</a> (versione Luna o successiva).
+* Un editor di testo quale <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> o Blocco note. Un ambiente di sviluppo integrato (IDE) quale <a href="https://eclipse.org/" target="_blank">Eclipse</a> (Luna o versioni successive).
 
 	> [AZURE.NOTE] È possibile che l'editor di testo o l'ambiente IDE offra funzionalità specifiche per l'uso di Eclipse non descritte in questo documento. Per informazioni sulle funzionalità dell'ambiente di modifica, vedere la documentazione del prodotto usato.
 
@@ -36,7 +36,7 @@ Dopo aver completato i passaggi descritti in questo documento, si disporrà di u
 
 Le seguenti variabili di ambiente possono essere impostate tramite l'installazione di Java e JDK. È tuttavia necessario verificare che tali variabili esistano e che contengano i valori corretti per il sistema in uso.
 
-* **JAVA_HOME**: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). In una distribuzione Unix o Linux, ad esempio, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows si avrà un valore simile a `c:\Programmi (x86)\Java\jre1.7`
+* **JAVA_HOME**: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). In una distribuzione Unix o Linux, ad esempio, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows si avrà un valore simile a "c:\Programmi (x86)\Java\jre1.7".
 
 * **PATH**: deve contenere i seguenti percorsi:
 
@@ -88,7 +88,7 @@ In fase di compilazione, Maven usa queste informazioni per cercare **storm-core*
 
 ##Configurare la compilazione
 
-I plug-in Maven consentono di personalizzare le fasi di compilazione di un progetto, ad esempio il modo in cui tale progetto viene compilato o inserito come pacchetto in un file jar. Aprire il file **pom.xml** e aggiungere quanto segue direttamente sopra la riga `</project>`.
+I plug-in Maven consentono di personalizzare le fasi di compilazione di un progetto, ad esempio il modo in cui tale progetto viene compilato o inserito come pacchetto in un file jar. Aprire il file **pom.xml** e aggiungere quanto segue direttamente sopra la riga `</project>` .
 
 	<build>
 	  <plugins>
@@ -99,7 +99,7 @@ Questa sezione verrà usata per aggiungere plug-in e altre opzioni di configuraz
 
 ###Aggiungere plug-in
 
-Per le topologie Storm, il plug-in <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Exec</a> risulta particolarmente utile in quanto consente di eseguire facilmente la topologia nell'ambiente di sviluppo in uso. Aggiungere quanto segue alla sezione `<plugins>` del file **pom.xml** per includere il plug-in exec.
+Per le topologie Storm, il <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">plug-in Exec</a> risulta particolarmente utile in quanto consente di eseguire facilmente la topologia nell'ambiente di sviluppo in uso. Aggiungere quanto segue alla sezione `<plugins>` del file **pom.xml** per includere il plug-in exec.
 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
@@ -120,9 +120,9 @@ Per le topologie Storm, il plug-in <a href="http://mojo.codehaus.org/exec-maven-
       </configuration>
     </plugin>
 
-Un altro plug-in utile è <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">compiler,</a>usato per modificare le opzioni di compilazione. Questo plug-in è necessario innanzitutto perché consente di modificare la versione di Java usata da Maven come versione di origine e destinazione dell'applicazione. La versione richiesta è la 1.7.
+Anche il <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">plug-in Compiler</a>, usato per modificare le opzioni di compilazione, è molto utile. Questo plug-in è necessario innanzitutto perché consente di modificare la versione di Java usata da Maven come versione di origine e destinazione dell'applicazione. La versione richiesta è la 1.7.
 
-Aggiungere quanto segue alla sezione `<plugins>` del file **pom.xml** per includere il plug-in compiler e impostare la versione di origine e destinazione su 1.7.
+Aggiungere quanto segue alla sezione `<plugins>` del file **pom.xml** per includere il plug-in compiler e impostare la versione di origine e destinazione su 1.7
 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
@@ -149,9 +149,9 @@ Per ridurre i requisiti relativi all'impostazione di origini dati esterne, il se
 
 > [AZURE.NOTE] Per uno spout in grado di leggere da un'origine dati esterna, vedere uno dei seguenti esempi.
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout:</a> spout di esempio che legge da Twitter
+> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>: spout di esempio che legge da Twitter
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka:</a> spout che legge da Kafka
+> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a>: spout che legge da Kafka
 
 Per lo spout, creare un nuovo file denominato **RandomSentenceSpout.java** nella directory **src\main\java\com\microsoft\example** e usare come contenuto quanto riportato di seguito.
 
@@ -444,15 +444,15 @@ Come si vede dall'output, si è verificato quanto segue:
 
 3. Il bolt WordCount inizia a generare le singole parole e le relative occorrenze.
 
-Guardando i dati di output del bolt WordCount, si nota che la parola  'apple' è stata generata 53 volte. Il conteggio continuerà a essere incrementato per tutto il tempo per cui la topologia è in esecuzione, dal momento che le stesse frasi vengono generate più volte in modo casuale e il conteggio non viene mai reimpostato.
+Guardando i dati di output del bolt WordCount, si nota che la parola 'apple' è stata generata 53 volte. Il conteggio continuerà a essere incrementato per tutto il tempo per cui la topologia è in esecuzione, dal momento che le stesse frasi vengono generate più volte in modo casuale e il conteggio non viene mai reimpostato.
 
 ##Trident
 
-Trident è un'astrazione di alto livello fornita da Storm che supporta l'elaborazione con informazioni sullo stato. Il principale vantaggio offerto da Trident è la garanzia che ogni messaggio introdotto nella topologia viene elaborato una sola volta. Questo risultato è difficile da ottenere in una topologia Java di tipo raw, che garantisce che i messaggi verranno elaborati almeno una volta. Esistono altre differenze, ad esempio la disponibilità di componenti predefiniti che possono essere usati, senza che sia necessario creare bolt. I bolt sono infatti sostituiti da componenti meno generici, ad esempio filtri, proiezioni e funzioni.
+Trident è un'astrazione generale fornita da Storm che supporta l'elaborazione con informazioni sullo stato. Il principale vantaggio offerto da Trident è la garanzia che ogni messaggio introdotto nella topologia viene elaborato una sola volta. Questo risultato è difficile da ottenere in una topologia Java di tipo raw, che garantisce che i messaggi verranno elaborati almeno una volta. Esistono altre differenze, ad esempio la disponibilità di componenti predefiniti che possono essere usati, senza che sia necessario creare bolt. I bolt sono infatti sostituiti da componenti meno generici, ad esempio filtri, proiezioni e funzioni.
 
 È possibile creare applicazioni Trident mediante progetti Maven che usano gli stessi passaggi di base descritti in precedenza. L'unica differenza consiste nel codice.
 
-Per altre informazioni su Trident, vedere le <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">informazioni generali sull'API Trident</a>.
+Per altre informazioni su Trident, vedere la <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">panoramica dell'API Trident</a>.
 
 Per un'applicazione Trident di esempio, vedere [Temi di tendenza Twitter con Apache Storm in HDInsight](../hdinsight-storm-twitter-trending/)
 
@@ -462,8 +462,8 @@ A questo punto, dopo aver appreso come creare una topologia Storm con Java, è p
 
 * [Distribuzione e gestione di topologie Apache Storm in HDInsight](../hdinsight-storm-deploy-monitor-topology/)
 
-* [Sviluppo di topologie C# per Apache Storm in HDInsight mediante Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
 
 * [Analisi dei tempi di tendenza Twitter con Apache Storm in HDInsight](../hdinsight-storm-twitter-trending)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

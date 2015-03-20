@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Esecuzione di processi Pig mediante PowerShell
+# Eseguire processi Pig mediante PowerShell
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -30,20 +30,20 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o su Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ## <a id="powershell"></a>Eseguire processi Pig mediante PowerShell
 
-Azure PowerShell fornisce *cmdlets* che consentono di eseguire in modalità remota processi Pig in HDInsight. Internamente ciò avviene tramite chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (precedentemente denominato Templeton) in esecuzione nel cluster HDInsight.
+Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi Pig in HDInsight. Questo risultato viene ottenuto internamente usando chiamate REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (chiamato in precedenza Templeton,) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di processi Pig in un cluster HDInsight remoto, vengono usati i seguenti cmdlet.
 
-* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione Azure.
+* **Add-AzureAccount**: autentica PowerShell nella sottoscrizione di Azure.
 
-* **New-AzureHDInsightPigJobDefinition**: crea una nuova *job definition* usando le istruzioni Pig Latin specificate.
+* **New-AzureHDInsightPigJobDefinition**: crea una nuova *definizione del processo* usando le istruzioni Pig Latin specificate
 
-* **Start-AzureHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *job* che può essere usato per verificare lo stato del processo.
+* **Start-AzureHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *processo* che può essere usato per verificare lo stato del processo.
 
 * **Wait-AzureHDInsightJob**: usa l'oggetto job per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
 
@@ -141,4 +141,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
 
 * [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

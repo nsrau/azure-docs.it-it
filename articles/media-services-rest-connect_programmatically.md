@@ -19,7 +19,7 @@
 
 # Connessione a un account di Servizi multimediali mediante l'API REST
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
 
 Questo argomento descrive come ottenere una connessione a Servizi multimediali di Microsoft Azure a livello di codice quando si programma con l'API REST di Servizi multimediali.
 
@@ -40,7 +40,7 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Si consiglia di pubblicare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ## Recupero di un token di accesso
 
@@ -169,4 +169,4 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

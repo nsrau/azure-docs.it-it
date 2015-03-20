@@ -16,122 +16,93 @@
 	ms.date="01/13/2015" 
 	ms.author="mimig"/>
 
-# Monitorare un account DocumentDB
+#Monitorare un account DocumentDB  
 
-È possibile monitorare gli account di DocumentDB nel [portale di anteprima di Azure][portale di anteprima di Azure]. Per ogni account DocumentDB sono disponibili le metriche delle prestazioni (errori delle richieste e del server) e le metriche di utilizzo (utilizzo dell'archiviazione).
+È possibile monitorare gli account di DocumentDB nel [portale di anteprima di Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili le metriche delle prestazioni (errori delle richieste e del server) e le metriche di utilizzo (utilizzo dell'archiviazione).
 
-## Contenuto dell'articolo
+## <a id="metrics"></a>  Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB
+1.	Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
+2.	Per impostazione predefinita, nella sezione **Monitoraggio** è possibile visualizzare:
+	*	Richieste totali per il giorno corrente.
+	*	Media delle richieste al secondo per il giorno corrente. 
+	
+	![](./media/documentdb-monitor-accounts/madocdb1.png)
 
--   [Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB][Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB]
--   [Procedura: Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB][Procedura: Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB]
--   [Procedura: Creare grafici di metriche delle prestazioni affiancati][Procedura: Creare grafici di metriche delle prestazioni affiancati]
--   [Procedura: Visualizzare le metriche di utilizzo per un account DocumentDB][Procedura: Visualizzare le metriche di utilizzo per un account DocumentDB]
--   [Procedura: Configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB][Procedura: Configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB]
--   [Passaggi successivi][Passaggi successivi]
 
-## <span id="metrics"></span></a>Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB
+3.	Se si fa clic sulla parte **Richieste totali** o **Media richieste al secondo**, verrà visualizzato il pannello **Metrica** dettagliato.
+4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate.  Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio media, minimo e massimo.  Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
 
-1.  Nel [portale di anteprima di Azure][portale di anteprima di Azure], fare clic su **Sfoglia**, su **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
-2.  Per impostazione predefinita, nella sezione **Monitoraggio** è possibile visualizzare:
+	![](./media/documentdb-monitor-accounts/madocdb2.png)
 
-    -   Richieste totali per il giorno corrente.
-    -   Media delle richieste al secondo per il giorno corrente.
 
-    ![][0]
+## <a id="custom"></a>Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB
 
-3.  Se si fa clic sulla parte **Richieste totali o Media richieste al secondo**, verrà visualizzato il pannello **Metrica** dettagliato.
-4.  Il pannello Metrica mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio media, minimo e massimo. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.
+1.	Per personalizzare le metriche visualizzate in una parte specifica, fare clic con il pulsante destro del mouse sul grafico della metrica e quindi scegliere **Modifica grafico**.  
+	![](./media/documentdb-monitor-accounts/madocdb3.png)
 
-    ![][1]
+2.	Nel pannello **Modifica grafico** sono disponibili le opzioni per modificare le metriche visualizzate nella parte, nonché il relativo intervallo di tempo.  
+	![](./media/documentdb-monitor-accounts/madocdb4.png)
 
-## <span id="custom"></span></a>Procedura: Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB
+3.	Per modificare le metriche visualizzate nella parte, selezionare/deselezionare le metriche delle prestazioni disponibili e quindi fare clic su **Salva** nella parte inferiore del pannello.  
+4.	Per apportare cambiamenti all'intervallo di tempo è sufficiente scegliere un intervallo diverso, ad esempio **Ora precedente** e fare clic su **Salva** nella parte inferiore del pannello.  
 
-1.  Per personalizzare le metriche visualizzate in una parte specifica, fare clic con il pulsante destro del mouse sul grafico della metrica e quindi scegliere **Modifica grafico**.
-    ![][2]
+	![](./media/documentdb-monitor-accounts/madocdb5.png) 
 
-2.  Nel pannello **Modifica grafico** sono disponibili le opzioni per modificare le metriche visualizzate nella parte, nonché il relativo intervallo di tempo.
-    ![][3]
 
-3.  Per modificare le metriche visualizzate nella parte, selezionare/deselezionare le metriche delle prestazioni disponibili e quindi fare clic su **Salva** nella parte inferiore del pannello.
-4.  Per apportare cambiamenti all'intervallo di tempo è sufficiente scegliere un intervallo diverso, ad esempio **Ora precedente** e fare clic su **Salva** nella parte inferiore del pannello.
-    ![][4]
+## <a id="create"></a>Creare grafici di metriche delle prestazioni affiancati
+Il portale di anteprima di Azure consente di creare grafici di metriche affiancati.  
 
-5.  L'intervallo di tempo personalizzato consente di scegliere un periodo di tempo qualsiasi nelle ultime due settimane.
-6.  Facendo clic su **Salva**, le modifiche verranno salvate fino all'uscita dal pannello dell'account di DocumentDB. All'accesso successivo al pannello, verranno visualizzate le metriche e l'intervallo di tempo originali.
+1.	Fare prima di tutto clic con il pulsante destro del mouse sul grafico da clonare e modificare e quindi scegliere **Personalizza**. 
 
-## <span id="create"></span></a>Procedura: Creare grafici affiancati
+	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
-Il portale di anteprima di Azure consente di creare grafici di metriche affiancati.
+2.	Scegliere **Clona** dal menu per copiare la parte e quindi fare clic su **Personalizzazione completata**. 
 
-1.  Innanzitutto, fare clic con il pulsante destro del mouse sul grafico dal quale si intende iniziare e scegliere **Personalizza**.
-    ![][5]
+	![](./media/documentdb-monitor-accounts/madocdb7.png)  
 
-2.  Quindi fare clic su **Clone** nel menu per copiare la parte.
 
-    ![][6]
+Sarà possibile considerare questa parte come tutte le altre parti delle metriche e personalizzare le metriche e l'intervallo di tempo in essa visualizzato.  Questa operazione consente di visualizzare contemporaneamente due grafici di metriche affiancati.  
+	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-3.  Infine, sulla barra degli strumenti nella parte superiore della schermata fare clic su **Fine**. Sarà possibile considerare questa parte come tutte le altre parti delle metriche e personalizzare le metriche e l'intervallo di tempo in essa visualizzato. Questa operazione consente di visualizzare contemporaneamente due grafici di metriche affiancati.
-    ![][7]
+## <a id="view"></a>Visualizzare le metriche di utilizzo per un account DocumentDB
+1.	Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche di utilizzo.
+2.	Per impostazione predefinita, nella sezione **Utilizzo** è possibile visualizzare:
+	*	Costo stimato.
+	*	Spazio di archiviazione utilizzato nell'account.
+	*	Spazio di archiviazione disponibile massimo dell'account.
+	*	Utilizzo di utenti e autorizzazioni.
+	*	Allocazione di unità di capacità.
+	*	Utilizzo di allegati.
 
-> Si noti che l'intervallo di tempo del grafico e le metriche selezionate vengono reimpostati sui valori predefiniti della parte all'uscita dal portale di anteprima di Azure.
+	![](./media/documentdb-monitor-accounts/madocdb9.png)
+ 
+## <a id="setup"></a>Configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB
+1.	Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
+2.	Nella sezione **Operazioni** fare clic sulla parte **Regole di avviso**.  
+	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
-## <span id="view"></span></a>Procedura: Visualizzare le metriche di utilizzo per un account DocumentDB
+3.	Nel pannello Regole di avviso fare clic su **Aggiungi avviso**.  
+	![](./media/documentdb-monitor-accounts/madocdb11.png)
 
-1.  Nel [portale di anteprima di Azure][portale di anteprima di Azure], fare clic su **Sfoglia**, su **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche di utilizzo.
-2.  Per impostazione predefinita, nella sezione **Utilizzo** è possibile visualizzare:
+4.	Nel pannello **Aggiungi una regola di avviso** specificare:
+	*	Il nome della regola di avviso che si sta configurando.
+	*	Una descrizione della nuova regola di avviso.
+	*	La metrica per la regola di avviso.
+	*	Condizione, soglia e periodo per l'attivazione della regola. Ad esempio, un numero di errori del server maggiore di 5 negli ultimi 15 minuti.
+	*	Se deve essere inviato un messaggio di posta elettronica all'amministratore del servizio e ai coamministratori quando viene attivata la regola.
+	*	Indirizzi di posta elettronica aggiuntivi per le notifiche degli avvisi.  
+	![](./media/documentdb-monitor-accounts/madocdb12.png)
 
-    -   Spazio di archiviazione utilizzato nell'account
-    -   Spazio di archiviazione disponibile massimo dell'account
-    -   Utilizzo di allegati
-    -   Utilizzo di utenti e autorizzazioni
-    -   Allocazione di unità di capacità
-    -   Utilizzo di allegati all'interno dell'account
-        ![][8]
-
-## <span id="setup"></span></a>Procedura: Configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB
-
-1.  Nel [portale di anteprima di Azure][portale di anteprima di Azure], fare clic su **Sfoglia**, su **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono configurare gli avvisi delle metriche delle prestazioni.
-2.  Nella sezione **Operazioni** fare clic sulla parte **Regole di avviso**.
-    ![][9]
-
-3.  Nel pannello Regole di avviso fare clic su **Aggiungi avviso**.
-    ![][10]
-
-4.  Nel pannello **Aggiungi una regola di avviso** specificare:
-
-    -   Il nome della regola di avviso che si sta configurando.
-    -   Una descrizione della nuova regola di avviso.
-    -   La metrica per la regola di avviso.
-    -   Condizione, soglia e periodo per l'attivazione della regola. Ad esempio, un numero di errori del server maggiore di 5 negli ultimi 15 minuti.
-    -   Se deve essere inviato un messaggio di posta elettronica all'amministratore del servizio e ai coamministratori quando viene attivata la regola.
-    -   Indirizzi di posta elettronica aggiuntivi per le notifiche degli avvisi.
-        ![][11]
-
-## <span id="next"></span></a>Passaggi successivi
-
--   Per altre informazioni su DocumentDB, vedere la documentazione di Azure DocumentDB su [azure.com][azure.com]
+ 
+## <a id="next"></a>Passaggi successivi
+Per altre informazioni sulla capacità e sulle prestazioni di DocumentDB, vedere [Gestire la capacità e le prestazioni di DocumentDB](../documentdb-manage/). 
 
 <!--Anchors-->
+[Come visualizzare le metriche delle prestazioni per un account DocumentDB]: #How-to-view-performance-metrics-for-a-DocumentDB-account
+[Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB]: #Customize-performance-metric-views-for-a-DocumentDB-account
+[Come creare grafici di metriche delle prestazioni affiancati]: #How-to-create-side-by-side-performance-metric-charts
+[Come visualizzare le metriche di utilizzo per un account DocumentDB]: #How-to-view-usage-metrics-for-a-DocumentDB-account
+[Come configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
+[Passaggi successivi]: #Next-steps
 
-  [portale di anteprima di Azure]: https://portal.azure.com/
-  [Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB]: #metrics
-  [Procedura: Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB]: #custom
-  [Procedura: Creare grafici di metriche delle prestazioni affiancati]: #create
-  [Procedura: Visualizzare le metriche di utilizzo per un account DocumentDB]: #view
-  [Procedura: Configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB]: #setup
-  [Passaggi successivi]: #next
-  [0]: http://i.imgur.com/y7pigTT.png
-  [1]: http://i.imgur.com/6rBNPBL.png
-  [2]: http://i.imgur.com/tRZEHk1.png
-  [3]: http://i.imgur.com/G4UTi5U.png
-  [4]: ./media/documentdb-monitor-accounts/madocdb5.png
-  [5]: http://i.imgur.com/vLXWftF.png
-  [6]: ./media/documentdb-monitor-accounts/madocdb7.png
-  [7]: ./media/documentdb-monitor-accounts/madocdb8.png
-  [8]: http://i.imgur.com/sL5inOu.png
-  [9]: ./media/documentdb-monitor-accounts/madocdb10.png
-  [10]: ./media/documentdb-monitor-accounts/madocdb11.png
-  [11]: http://i.imgur.com/Inra4Po.png
-  [azure.com]: http://go.microsoft.com/fwlink/p/?LinkID=402319
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

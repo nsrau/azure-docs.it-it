@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Scalabilità del cluster in HDInsight | Azure"
    description="Modificare il numero di nodi dati in un cluster in esecuzione in HDInsight senza eliminare e ricreare il cluster."
    services="hdinsight"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="bradsev"/>
 
-#Scalabilità del cluster in HDInsight
+# Scalabilità del cluster in HDInsight
 
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi dati usato da un cluster, in esecuzione in HDInsight, senza dover eliminare e ricreare il cluster. L'operazione può essere eseguita tramite PowerShell, HDInsight SDK o dal portale Azure.
 
@@ -59,14 +59,14 @@ Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la to
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-##HBase
+## HBase
 L'operazione di scalabilità del cluster non è attualmente supportata per i cluster di tipo HBase.
 
 ## Prerequisiti:
 
-* Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è sicuri della versione del cluster, è possibile verificarla dal portale Azure facendo clic sul nome del cluster HDInsight o eseguendo il comando `Get-AzureHDInsightCluster -name <clustername>` da Azure PowerShell.
+* Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è sicuri della versione del cluster, è possibile verificarla dal portale di Azure facendo clic sul nome del cluster HDInsight o eseguendo il comando  `Get-AzureHDInsightCluster -name <clustername>` da Azure PowerShell.
 
-* Per eseguire l'operazione da PowerShell, è necessario Azure PowerShell versione 0.8.14 o successive. È possibile scaricare la versione più recente di PowerShell dalla sezione degli strumenti da riga di comando nel sito Web dei [download di Azure](http://azure.microsoft.com/ downloads/). È possibile verificare la versione di Azure PowerShell installata con il seguente comando da una finestra di PowerShell: `(get-module Azure).Version`
+* Per eseguire l'operazione da PowerShell, è necessario Azure PowerShell versione 0.8.14 o successive. È possibile scaricare la versione più recente di PowerShell dalla sezione degli strumenti da riga di comando nel sito Web dei [download di Azure](http://azure.microsoft.com/downloads/). È possibile verificare la versione di Azure PowerShell installata con il seguente comando da una finestra di PowerShell: `(get-module Azure).Version`
 
 ## Come usare la scalabilità del cluster
 
@@ -87,7 +87,7 @@ Per modificare la dimensione del cluster Hadoop usando HDInsight SDK, usare uno 
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
 
-o 
+oppure 
 
 	ChangeClusterSizeAsync(string dnsName, string location, int newSize) 
 
@@ -140,5 +140,5 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 	}
 
 
-Per altre informazioni sull'uso di HDInsight .NET SDK, fare riferimento all'argomento relativo al [provision di cluster Hadoop in HDInsight con opzioni personalizzate](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/).
-<!--HONumber=45--> 
+Per altre informazioni sull'uso di HDInsight .NET SDK, fare riferimento all'argomento relativo al [provision di cluster Hadoop in HDInsight con opzioni personalizzate](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/).
+<!--HONumber=47-->

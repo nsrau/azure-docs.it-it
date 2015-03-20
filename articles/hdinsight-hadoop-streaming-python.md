@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -28,7 +28,7 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 
 * Un editor di testo
 
-* Per i client Windows, PuTTY e PSCP, utilità disponibili nella pagina Web <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+* Per i client Windows, PuTTY e PSCP, Queste utilità sono disponibili nella pagina Web <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
 ## Conteggio di parole
 
@@ -54,7 +54,7 @@ Hadoop consente di specificare un file che contiene la logica di mapping e riduz
 
 * **Formato dati**: i dati usati e prodotti devono essere una coppia chiave/valore, separati da un carattere di tabulazione
 
-Python è in grado di gestire facilmente questi requisiti usando il modulo **sys** per leggere da STDIN e **print** per stampare in STDOUT. Il resto consiste semplicemente nella formattazione dei dati con un carattere di tabulazione (`\t`) tra la chiave e il valore.
+Python è in grado di gestire facilmente questi requisiti usando il modulo **sys** per leggere da STDIN e **print** per stampare in STDOUT. Il resto consiste semplicemente nella formattazione dei dati con un carattere di tabulazione (`\t`)  tra la chiave e il valore.
 
 ## Creare il mapper e il reducer
 
@@ -147,7 +147,7 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata. Ad esempio,  `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+	> [AZURE.NOTE] Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i`e il percorso della chiave privata. Ad esempio, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 2. Usare il seguente comando per avviare il processo MapReduce.
 
@@ -196,7 +196,8 @@ Verrà visualizzato un elenco di parole con l'indicazione del numero di occorren
 
 Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, vedere i seguenti collegamenti per esplorare altri modi di uso di Azure HDInsight.
 
-* [Usare Hive in HDInsight](../hdinsight-use-hive/)
-* [Usare Pig in HDInsight](../hdinsight-use-pig/)
-* [Usare processi MapReduce in HDInsight](../hdinsight-use-mapreduce)
-<!--HONumber=45--> 
+* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
+* [Usare Pig con HDInsight](../hdinsight-use-pig/)
+* [Usare processi MapReduce con HDInsight](../hdinsight-use-mapreduce)
+
+<!--HONumber=47-->

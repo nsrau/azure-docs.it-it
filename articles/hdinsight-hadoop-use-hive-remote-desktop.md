@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
+<tags
    ms.service="hdinsight"
    ms.devlang=""
    ms.topic="article"
@@ -34,7 +34,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ## <a id="connect"></a>Connettersi a Desktop remoto
 
-Abilitare Desktop remoto per il cluster HDInsight, quindi connettersi a esso seguendo le istruzioni riportate nella pagina relativa alla <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">connessione ai cluster HDInsight tramite RDP</a>.
+Abilitare Desktop remoto per il cluster HDInsight e quindi effettuare la connessione seguendo le istruzioni fornite in <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
 ## <a id="hive"></a>Usare il comando Hive
 
@@ -46,7 +46,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
         %hive_home%\bin\hive
 
-    Una volta avviata l'interfaccia della riga di comando, verrà visualizzato il prompt dell'interfaccia della riga di comando di Hive - `hive>`.
+    Dopo l'avvio dell'interfaccia della riga di comando, verrà visualizzato il prompt dell'interfaccia della riga di comando di Hive - `hive>`.
 
 3. Usando l'interfaccia della riga di comando, immettere le seguenti istruzioni per creare una nuova tabella denominata **log4jLogs** con i dati di esempio.
 
@@ -60,7 +60,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
     * **DROP TABLE**: elimina la tabella e il file di dati, nel caso in cui la tabella esista già.
     
-    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'external' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
+    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'esterna' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
 
 		> [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     	>
@@ -70,10 +70,10 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 	
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (directory example/data) e specifica che i dati sono archiviati come testo.
     
-    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
 
-4. Usare le seguenti istruzioni per creare una nuova tabella  'internal' denominata **errorLogs**.
+4. Usare le seguenti istruzioni per creare una nuova tabella  'interna' denominata **errorLogs**.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -88,7 +88,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
     
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
 
-    Per verificare che solo le righe contenenti **[ERROR]** nella colonna t4 vengano archiviate nella tabella **errorLogs**, usare la seguente istruzione per restituire tutte le righe da **errorLogs**.
+    Per verificare che solo le righe contenenti **[ERROR]** nella colonna t4 siano state archiviate nella tabella **errorLogs**, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**.
 
         SELECT * from errorLogs;
 
@@ -108,22 +108,22 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
 
-* [Usare Hadoop MapReduce in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/it-it/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->
