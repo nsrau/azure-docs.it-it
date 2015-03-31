@@ -1,17 +1,50 @@
-﻿<properties title="Splitting and Merging with Elastic Scale" pageTitle="Suddivisione e unione con Scalabilità elastica" description="Illustra come gestire sottopartizioni e spostare dati tramite un servizio self-hosted usando API Elastic Scale." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	title="Splitting and Merging with Elastic Scale" 
+	pageTitle="Suddivisione e unione con Scalabilità elastica" 
+	description="Illustra come gestire sottopartizioni e spostare dati tramite un servizio self-hosted usando API Elastic Scale." 
+	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	services="sql-database" documentationCenter=""
+	manager="jhubbard" 
+	authors="torsteng"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/05/2015" 
+	ms.author="torsteng" />
 
 # Suddivisione e unione con Scalabilità elastica
 
-Le applicazioni basate sul database SQL di Azure si trovano in difficoltà quando le esigenze relative ai dati o all'elaborazione superano le capacità di una singola unità di scala del database SQL di Azure. Ciò può ad esempio verificarsi per applicazioni che ottengono una straordinaria diffusione o in cui un set specifico di tenant supera i limiti di un singolo database SQL di Azure. Il **servizio di suddivisione e unione** di Scalabilità elastica riduce notevolmente queste difficoltà. 
+Le applicazioni basate sul database SQL di Azure si trovano in difficoltà quando le esigenze relative ai dati o all'elaborazione superano le capacità di una singola unità di scala del database SQL di Azure. Ciò può ad esempio verificarsi per applicazioni che ottengono una straordinaria diffusione o in cui un set specifico di tenant supera i limiti di un singolo database SQL di Azure. Il **servizio di suddivisione/unione** della scalabilità elastica riduce notevolmente tali difficoltà. 
 
-Questa descrizione del servizio di suddivisione e unione esamina la riduzione e l'aumento delle dimensioni tramite la modifica del numero di database di Azure e il bilanciamento della distribuzione di **shardlet** tra i database. Per le definizioni dei termini, vedere il [Glossario di Scalabilità elastica](./sql-database-elastic-scale-glossary.md). 
+Questa descrizione del servizio di suddivisione/unione esamina la riduzione e l'aumento delle dimensioni tramite la modifica del numero di database di Azure e il bilanciamento della distribuzione di **shardlet** tra i database. (Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](./sql-database-elastic-scale-glossary.md)). 
 
-Considerate le possibilità di scelta attuali tra le edizioni del database SQL di Azure, è anche possibile gestire la capacità aumentando o riducendo la capacità di un singolo database SQL di Azure. L'aspetto della gestione della capacità elastica relativo alla riduzione o all'aumento delle dimensioni non è affrontato dalla suddivisione e unione. Per informazioni, vedere invece [Elasticità di partizionamento di Scalabilità elastica](./sql-database-elastic-scale-elasticity.md). 
+Considerate le possibilità di scelta attuali tra le edizioni del database SQL di Azure, è anche possibile gestire la capacità aumentando o riducendo la capacità di un singolo database SQL di Azure. L'aspetto della gestione della capacità elastica relativo alla riduzione o all'aumento delle dimensioni non viene affrontato dalla suddivisione e unione. Per informazioni, vedere invece [Elasticità di partizionamento della scalabilità elastica](./sql-database-elastic-scale-elasticity.md)). 
+ 
+## Novità del servizio suddivisione/unione
+
+La versione più recente del servizio di suddivisione/unione offre i seguenti miglioramenti:
+* Ora sono supportate le mappe partizioni di tipo elenco.
+* I limiti dell'intervallo nelle richieste possono corrispondere più facilmente agli intervalli archiviati nella mappa partizioni.
+* Per migliorare la disponibilità ora sono supportate più istanze del ruolo di lavoro.
+* Le credenziali archiviate come parte dell'operazione di suddivisione/unione ora vengono crittografate in locale.
+
+## Come eseguire l'aggiornamento
+
+Per eseguire l'aggiornamento alla versione più recente del servizio di suddivisione/unione, seguire questa procedura:
+
+1. Scaricare la versione più recente del pacchetto di suddivisione/unione da NuGet, come descritto nella sezione dell'esercitazione introduttiva del servizio di suddivisione/unione intitolata "Scaricare i pacchetti di suddivisione/unione".
+2. Modificare il file di configurazione del servizio cloud per la distribuzione di suddivisione/unione in modo da riflettere i nuovi parametri di configurazione. È richiesto un nuovo parametro con le informazioni relative al certificato usato per la crittografia. Per semplificare questa operazione, è possibile confrontare il file del nuovo modello di configurazione dal download con la configurazione esistente. Assicurarsi di aggiungere le impostazioni per "DataEncryptionPrimaryCertificateThumbprint" e "DataEncryptionPrimary" per il ruolo Web e il ruolo di lavoro.
+3. Prima di distribuire l'aggiornamento in Azure, assicurarsi che tutte le operazioni di suddivisione/unione in esecuzione siano state completate. A tale scopo, è possibile eseguire una query nelle tabelle RequestStatus e PendingWorkflows nel database dei metadati di suddivisione/unione per le richieste in corso.
+4. Aggiornare la distribuzione del servizio cloud esistente per il servizio di suddivisione/unione nella sottoscrizione di Azure con il nuovo pacchetto e con il file di configurazione del servizio aggiornato.
+
+Non è necessario eseguire il provisioning di un nuovo database dei metadati per la suddivisione/unione da aggiornare. Il database dei metadati esistente verrà aggiornato automaticamente alla nuova versione. 
 
 ## Scenari per la suddivisione/unione 
-Le applicazioni devono essere sufficientemente flessibili per superare i limiti di un singolo database SQL di Azure, come illustrato dagli scenari seguenti: 
+Le applicazioni devono essere sufficientemente flessibili per superare i limiti di un singolo database SQL di Azure, come illustrato dai seguenti scenari: 
 
 * **Aumento della capacità - Suddivisione di intervalli**: La possibilità di aumentare la capacità aggregata a livello di dati permette di risolvere le esigenze crescenti relative alla capacità. In questo scenario l'applicazione fornisce la capacità aggiuntiva tramite il partizionamento orizzontale dei dati e la distribuzione dei dati in un numero incrementale di database, fino alla soddisfazione delle esigenze relative alla capacità. La funzionalità di suddivisione del servizio di suddivisione/unione di Scalabilità elastica è ideale per questo scenario. 
 
@@ -19,7 +52,7 @@ Le applicazioni devono essere sufficientemente flessibili per superare i limiti 
 
 * **Gestione di hotspot - Spostamento di shardlet**: A causa della presenza di più tenant per ogni database, l'allocazione di shardlet alle partizioni può provocare colli di bottiglia di capacità in alcune partizioni. Sarà quindi necessario riallocare gli shardlet o spostare gli shardlet occupati in partizioni nuove o meno usate. 
 
-Le attività di elaborazione nel servizio relative a queste capacità saranno definite in questo documento come richieste di **suddivisione/unione/spostamento**. 
+Le attività di elaborazione nel servizio relative a tali capacità saranno definite in questo documento come richieste di **suddivisione/unione/spostamento**. 
 
 
 Figura 1: Panoramica concettuale del servizio di suddivisione/unione
@@ -32,27 +65,27 @@ Figura 1: Panoramica concettuale del servizio di suddivisione/unione
 
 ## Concetti e funzionalità principali
 
-**Servizi ospitati presso il cliente**: Il servizio di suddivisione/unione viene fornito come servizio ospitato presso il cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Vedere l'[esercitazione relativa al servizio di suddivisione/unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) per informazioni dettagliate. Poiché il servizio è in esecuzione nella sottoscrizione di Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni necessarie per configurare SSL, l'autenticazione client basata su certificato, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel documento seguente, relativo alle [configurazioni della sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md).
+**Servizi ospitati dal cliente**: Il servizio di suddivisione/unione viene fornito come servizio ospitato presso il cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Vedere l'[esercitazione relativa alla suddivisione e all'unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) per informazioni dettagliate. Poiché il servizio è in esecuzione nella sottoscrizione Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni necessarie per configurare SSL, l'autenticazione client basata su certificato, la crittografia per le credenziali archiviate, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel seguente documento, relativo alle [configurazioni di sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md).
 
 Il servizio distribuito predefinito viene eseguito con un ruolo di lavoro e un ruolo Web. Ogni ruolo usa la dimensione di VM A1 in Servizi cloud di Azure. Benché non sia possibile modificare queste impostazioni durante la distribuzione del pacchetto, è possibile modificarle dopo una distribuzione corretta nel servizio cloud in esecuzione, tramite il portale di Azure. Si noti che per motivi tecnici il ruolo di lavoro deve essere configurato solo per un'istanza. 
 
-**Integrazione delle mappe partizioni**: il servizio di suddivisione/unione interagisce con la mappa partizioni dell'applicazione. Quando si usa il servizio di suddivisione/unione per suddividere o unire intervalli o per spostare shardlet tra le diverse partizioni, il servizio manterrà automaticamente aggiornata la mappa partizioni. Per ottenere questo risultato, il servizio si connette al database di gestione delle mappe partizioni dell'applicazione e gestisce gli intervalli e i mapping durante lo svolgimento delle richieste di suddivisione/unione/spostamento. Ciò garantisce che la mappa partizioni presenti sempre una visualizzazione aggiornata durante l'esecuzione delle operazioni di suddivisione/unione. Le operazioni di suddivisione, unione e spostamento di shardlet vengono implementate tramite lo spostamento di un batch di shardlet dalla partizione di origine alla partizione di destinazione. Durante l'operazione di spostamento di shardlet, gli shardlet inclusi nel batch corrente verranno contrassegnati come offline nella mappa partizioni e non saranno disponibili per connessioni di routing dipendenti dai dati tramite l'API **OpenConnectionForKey**. 
+**Integrazione della mappa partizioni**: il servizio di suddivisione/unione interagisce con la mappa partizioni dell'applicazione. Quando si usa il servizio di suddivisione/unione per suddividere o unire intervalli o per spostare shardlet tra le diverse partizioni, il servizio manterrà automaticamente aggiornata la mappa partizioni. Per ottenere questo risultato, il servizio si connette al database di gestione delle mappe partizioni dell'applicazione e gestisce gli intervalli e i mapping durante lo svolgimento delle richieste di suddivisione/unione/spostamento. Ciò garantisce che la mappa partizioni presenti sempre una visualizzazione aggiornata durante l'esecuzione delle operazioni di suddivisione/unione. Le operazioni di suddivisione, unione e spostamento di shardlet vengono implementate tramite lo spostamento di un batch di shardlet dalla partizione di origine alla partizione di destinazione. Durante l'operazione di spostamento di shardlet, gli shardlet inclusi nel batch corrente verranno contrassegnati come offline nella mappa partizioni e non saranno disponibili per connessioni di routing dipendenti dai dati tramite l'API **OpenConnectionForKey**. 
 
 **Connessioni a shardlet coerenti**: All'avvio dello spostamento di dati per un nuovo batch di shardlet, eventuali connessioni di routing dipendenti dai dati e fornite dalla mappa partizioni per la partizione in cui sono archiviati gli shardlet verranno terminate e le connessioni successive dalle API della mappa partizioni a questi shardlet verranno bloccate durante lo spostamento dei dati, in modo da evitare incoerenze. Verranno terminate anche le connessioni ad altri shardlet nella stessa partizione, ma queste connessioni avranno esito positivo immediato al tentativo successivo. Al termine dello spostamento del batch, gli shardlet verranno contrassegnati di nuovo come online per la partizione di destinazione e i dati di origine verranno rimossi dalla partizione di origine. Il servizio esegue questi passaggi per ogni batch, fino al completamento dello spostamento di tutti gli shardlet. Si verificheranno quindi alcune operazioni di interruzione delle connessioni durante il completamento dell'operazione di suddivisione/unione/spostamento.   
 
 **Gestione della disponibilità di shardlet**: la limitazione dell'interruzione delle connessioni al batch attuale di shardlet, come illustrato in precedenza, limita anche l'ambito di non disponibilità a un unico batch di shardlet alla volta. Questo approccio è preferibile a un approccio in cui la partizione completa rimane offline per tutti gli shardlet corrispondenti durante l'esecuzione di un'operazione di suddivisione/unione. La dimensione di un batch, definita come il numero di shardlet distinti da muovere in un determinato momento, è un parametro di configurazione. Può essere definita per ogni operazione di suddivisione/unione, in base alle esigenze di disponibilità e prestazioni dell'applicazione. Si noti che l'intervallo bloccato nella mappa partizioni potrebbe avere dimensioni superiori rispetto a quelle del batch specificato. Ciò è dovuto al fatto che il servizio definisce una dimensione di intervallo in modo che il numero effettivo di valori di chiave di partizionamento orizzontale nei dati corrisponda in modo approssimativo alla dimensione del batch. È importante ricordare questo aspetto, in particolare per le chiavi di partizionamento orizzontale popolate in modo sparse. 
 
-**Archiviazione di metadati**: Il servizio di suddivisione/unione usa un database per la gestione del proprio stato e per la creazione di log durante l'elaborazione delle richieste. L'utente crea questo database nella propria sottoscrizione e fornisce la stringa di connessione corrispondente nel file di configurazione per la distribuzione del servizio. Gli amministratori dell'organizzazione dell'utente possono anche connettersi a questo database per esaminare lo stato della richiesta e per analizzare le informazioni dettagliate su potenziali errori.
+**Archiviazione dei metadati**: Il servizio di suddivisione/unione usa un database per la gestione del proprio stato e per la creazione di log durante l'elaborazione delle richieste. L'utente crea questo database nella propria sottoscrizione e fornisce la stringa di connessione corrispondente nel file di configurazione per la distribuzione del servizio. Gli amministratori dell'organizzazione dell'utente possono anche connettersi a questo database per esaminare lo stato della richiesta e per analizzare le informazioni dettagliate su potenziali errori.
 
-**Riconoscimento del partizionamento orizzontale**: Il servizio di suddivisione/unione riconosce le differenze tra (1) tabelle partizionate, (2) tabelle di riferimento e (3) tabelle normali. La semantica di un'operazione di suddivisione/unione/spostamento dipende dal tipo di tabella usata e viene definita nel modo seguente: 
+**Riconoscimento del tipo di partizionamento**: Il servizio di suddivisione/unione riconosce le differenze tra (1) tabelle partizionate, (2) tabelle di riferimento e (3) tabelle normali. La semantica di un'operazione di suddivisione/unione/spostamento dipende dal tipo di tabella usata e viene definita nel seguente modo: 
 
 * **Tabelle partizionate**: le operazioni di suddivisione/unione/spostamento spostano gli shardlet dalla partizione di origine a quella di destinazione. Dopo il completamento corretto della richiesta complessiva, questi shardlet non saranno più presenti nell'origine. Si noti che le tabelle di destinazione devono esistere nella partizione di destinazione e non devono includere dati nell'intervallo di destinazione prima dell'elaborazione dell'operazione. 
 
--    **Tabelle di riferimento**: per le tabelle di riferimento, le operazioni di suddivisione, unione e spostamento copiano i dati dalla partizione di origine a quella di destinazione. Si noti tuttavia che nella partizione di destinazione per una determinata tabella non vengono applicate modifiche se questa tabella nella partizione di destinazione include già alcune righe. Per permettere l'elaborazione dell'operazione di copia di tabelle di riferimento, è necessario che la tabella sia vuota.
+* **Tabelle di riferimento**: per le tabelle di riferimento, le operazioni di suddivisione, unione e spostamento copiano i dati dalla partizione di origine a quella di destinazione. Si noti tuttavia che nella partizione di destinazione per una determinata tabella non vengono applicate modifiche se questa tabella nella partizione di destinazione include già alcune righe. Per permettere l'elaborazione dell'operazione di copia di tabelle di riferimento, è necessario che la tabella sia vuota.
 
--    **Altre tabelle**: nell'origine o nella destinazione di un'operazione di suddivisione/unione possono essere presenti altre tabelle. Il servizio di suddivisione/unione ignora tali tabelle per eventuali operazioni di spostamento o copia di dati. Si noti, tuttavia, che in caso di vincoli queste tabelle possono interferire con le operazioni.
+* **Altre tabelle**: nell'origine o nella destinazione di un'operazione di suddivisione/unione possono essere presenti altre tabelle. Il servizio di suddivisione/unione ignora tali tabelle per eventuali operazioni di spostamento o copia di dati. Si noti, tuttavia, che in caso di vincoli queste tabelle possono interferire con le operazioni.
 
-Le informazioni relative al confronto tra tabelle di riferimento e tabelle partizionate vengono fornite dalle API **SchemaInfo** nella mappa partizioni. L'esempio seguente illustra l'uso di queste API in un determinato oggetto smm del gestore delle mappe partizioni: 
+Le informazioni relative al confronto tra tabelle di riferimento e tabelle partizionate vengono fornite dalle API **SchemaInfo** nella mappa partizioni. Il seguente esempio illustra l'uso di queste API in un determinato oggetto smm del gestore delle mappe partizioni: 
 
     // Create the schema annotations 
     SchemaInfo schemaInfo = new SchemaInfo(); 
@@ -70,7 +103,7 @@ Le informazioni relative al confronto tra tabelle di riferimento e tabelle parti
 
 Le tabelle 'region' e 'nation' sono definite come tabelle di riferimento e verranno copiate tramite le operazioni di suddivisione/unione/spostamento. Le tabelle 'customer' e 'orders' sono invece definite come tabelle partizionate. C_CUSTKEY e O_CUSTKEY fungono da chiave di partizionamento orizzontale. 
 
-**Integrità referenziale**: Il servizio di suddivisione/unione analizza le dipendenze tra le tabelle e usa relazioni di tipo chiave esterna-chiave primaria per la gestione temporanea delle operazioni per lo spostamento di tabelle di riferimento e shardlet. Le tabelle di riferimento vengono in genere copiate per prime in ordine di dipendenza, quindi vengono copiati gli shardlet, in base al rispettivo ordine di dipendenza in ogni batch. Ciò è necessario per permettere il rispetto dei vincoli di chiave esterna-chiave primaria nella partizione di destinazione all'arrivo di nuovi dati. 
+**Integrità dei riferimenti**: Il servizio di suddivisione/unione analizza le dipendenze tra le tabelle e usa relazioni di tipo chiave esterna-chiave primaria per la gestione temporanea delle operazioni per lo spostamento di tabelle di riferimento e shardlet. Le tabelle di riferimento vengono in genere copiate per prime in ordine di dipendenza, quindi vengono copiati gli shardlet, in base al rispettivo ordine di dipendenza in ogni batch. Ciò è necessario per permettere il rispetto dei vincoli di chiave esterna-chiave primaria nella partizione di destinazione all'arrivo di nuovi dati. 
 
 **Coerenza della mappa partizioni ed eventuale completamento**: In caso di errori, il servizio di suddivisione/unione riprende le operazioni dopo eventuali interruzioni e cerca di completare eventuali richieste in corso. È tuttavia possibile che si verifichino situazioni irreversibili, ad esempio nel caso in cui la partizione di destinazione vada persa o sia danneggiata in modo irreparabile. In queste circostanze è possibile che alcuni shardlet che dovevano essere spostati si trovino ancora nella partizione di origine. Il servizio assicura che i mapping di shardlet vengano aggiornati solo dopo il completamento corretto della copia dei dati necessari nella destinazione. Gli shardlet vengono eliminati dall'origine solo dopo la copia di tutti i rispettivi dati nella destinazione e dopo l'aggiornamento corretto dei mapping corrispondenti. L'operazione di eliminazione si verifica in background, mentre l'intervallo risulta già online nella partizione di destinazione. Il servizio di suddivisione/unione assicura sempre la correttezza dei mapping archiviati nella mappa partizioni.
 
@@ -82,11 +115,11 @@ I file binari per il servizio di suddivisione/unione vengono forniti tramite [Nu
 
 Oltre al ruolo di lavoro, il pacchetto del servizio di suddivisione/unione include anche il ruolo Web che può essere usato per inviare richieste di suddivisione/unione in modo interattivo. I componenti principali dell'interfaccia utente sono i seguenti:
 
--    Tipo di operazione: il tipo di operazione è un pulsante di opzione che controlla il tipo di operazione eseguita dal servizio per questa richiesta. È possibile scegliere tra gli scenari di suddivisione, unione e spostamento illustrati in Concetti e funzionalità principali. È anche possibile annullare un'operazione inviata in precedenza.
+-    Tipo di operazione: il tipo di operazione è un pulsante di opzione che controlla il tipo di operazione eseguita dal servizio per questa richiesta. È possibile scegliere tra gli scenari di suddivisione, unione e spostamento illustrati in Concetti e funzionalità principali. È anche possibile annullare un'operazione inviata in precedenza.  È possibile usare richieste di suddivisione, unione e spostamento per le mappe partizioni di tipo intervallo. Le mappe partizioni di tipo elenco supportano solo operazioni di spostamento.
 
 -    Mappa partizioni: la sezione successiva dei parametri della richiesta include informazioni sulla mappa partizioni e sul database che la ospita. È in particolare necessario specificare il nome del server di database SQL di Azure e del database che ospita la mappa partizioni, le credenziali per la connessione al database di mappe partizioni e infine il nome della mappa partizioni. L'operazione accetta attualmente solo un singolo set di credenziali. È necessario che le credenziali abbiano autorizzazioni sufficienti per apportare le modifiche alla mappa partizioni oltre che i dati utente nelle partizioni.
 
--    Intervallo di origine (suddivisione/unione): per un'operazione di suddivisione e unione è necessario che una richiesta includa la chiave inferiore e superiore dell'intervallo di origine nella partizione di origine. È attualmente necessario specificare le chiavi nel modo esatto in cui sono indicate nei mapping nella mappa partizioni. Per recuperare i mapping attuali in una determinata mappa partizioni, è possibile usare lo script GetMappings.ps1 di PowerShell.
+-    Intervallo di origine (suddivisione/unione): Un'operazione di suddivisione e unione elabora un intervallo usando le relative chiavi superiore e inferiore. Per specificare un'operazione con un valore di chiave superiore non associato, selezionare la casella di controllo "Chiave superiore massima" e lasciare vuoto il campo della chiave superiore. Non è necessario che i valori dell'intervallo di chiavi specificati corrispondano esattamente a un mapping e ai relativi limiti nella mappa partizioni. Se non si specifica alcun limite dell'intervallo, il servizio dedurrà automaticamente l'intervallo più vicino. Per recuperare i mapping attuali in una determinata mappa partizioni, è possibile usare lo script GetMappings.ps1 di PowerShell.
 
 -    Chiave di suddivisione e comportamento (suddivisione): per le operazioni di suddivisioni è necessario definire anche il punto in cui si vuole suddividere l'intervallo di origine. Per ottenere questo risultato, si specifica la chiave di partizionamento orizzontale nel punto in cui si deve verificare la suddivisione. Usare quindi il pulsante di opzione per indicare se si vuole spostare la parte inferiore dell'intervallo (escludendo la chiave di suddivisione) oppure se si vuole spostare la parte superiore (inclusa la chiave di suddivisione).
 
@@ -103,7 +136,7 @@ Oltre al ruolo di lavoro, il pacchetto del servizio di suddivisione/unione inclu
 
 ## Requisiti e limitazioni 
 
-L'implementazione corrente del servizio di suddivisione/unione deve rispettare i requisiti e le limitazioni seguenti: 
+L'implementazione corrente del servizio di suddivisione/unione deve rispettare i requisiti e le seguenti limitazioni: 
 
 * È attualmente necessario che le partizioni esistano e siano registrate nella mappa partizioni prima dell'esecuzione di un'operazione di suddivisione/unione in tali partizioni. 
 
@@ -111,9 +144,9 @@ L'implementazione corrente del servizio di suddivisione/unione deve rispettare i
 
 * Il servizio si basa attualmente sull'identità di riga definita da un indice univoco o da una chiave che include la chiave di partizionamento orizzontale per migliorare le prestazioni e l'affidabilità per shardlet di grandi dimensioni. Ciò permette al servizio di spostare i dati con un livello di granularità maggiore rispetto al solo valore di chiave di partizionamento orizzontale, contribuendo quindi a ridurre la quantità massima di spazio di log e i blocchi necessari durante l'operazione. È consigliabile creare un indice univoco o una chiave primaria che include la chiave di partizionamento orizzontale in una determinata tabella se si vuole usare quella tabella con le richieste di suddivisione/unione/spostamento. Per motivi di prestazioni, è consigliabile che la chiave di partizionamento orizzontale costituisca la colonna iniziale nella chiave o nell'indice.
 
-* Durante l'elaborazione delle richieste è possibile che alcuni dati di shardlet siano presenti sia nella partizione di origine che nella partizione di destinazione. Ciò è attualmente necessario per la protezione da errori durante lo spostamento di shardlet. Come illustrato in precedenza, l'integrazione del servizio di suddivisione/unione con la mappa partizioni di Scalabilità elastica assicura che le connessioni tramite le API di routing dipendenti dai dati che usano il metodo **OpenConnectionForKey** sulla mappa partizioni non rilevino alcuno stato intermedio incoerente. Quando ci si connette alle partizioni di origine o di destinazione senza usare il metodo **OpenConnectionForKey**, tuttavia, è possibile che stati intermedi incoerenti risultino visibili durante l'esecuzione di richieste di suddivisione/unione/spostamento. È possibile che queste connessioni mostrino risultati parziali o duplicati, in base all'intervallo o alla partizione sottostante per la connessione. Questa limitazione include attualmente le connessioni effettuate dalle query su più partizioni di Scalabilità elastica.
+* Durante l'elaborazione delle richieste è possibile che alcuni dati di shardlet siano presenti sia nella partizione di origine che nella partizione di destinazione. Ciò è attualmente necessario per la protezione da errori durante lo spostamento di shardlet. Come illustrato in precedenza, l'integrazione del servizio di suddivisione/unione con la mappa partizioni per la scalabilità elastica assicura che le connessioni tramite le API di routing dipendenti dai dati che usano il metodo **OpenConnectionForKey** sulla mappa partizioni non rilevino alcuno stato intermedio incoerente. Quando ci si connette alle partizioni di origine o di destinazione senza usare il metodo **OpenConnectionForKey**, è tuttavia possibile che stati intermedi incoerenti risultino visibili durante l'esecuzione di richieste di suddivisione/unione/spostamento. È possibile che queste connessioni mostrino risultati parziali o duplicati, in base all'intervallo o alla partizione sottostante per la connessione. Questa limitazione include attualmente le connessioni effettuate dalle query su più partizioni di Scalabilità elastica.
 
-* Il servizio di suddivisione/unione non supporta attualmente più istanze del ruolo per il ruolo di lavoro. Ciò impedisce alle configurazioni a disponibilità elevata in Azure di usare domini di errore o di aggiornamento, che dipendono dalla possibilità di eseguire più istanze del ruolo. Il database di metadati per il servizio di suddivisione/unione non deve essere inoltre condiviso tra istanze diverse. Ad esempio, un'istanza del servizio di suddivisione/unione in esecuzione in gestione temporanea deve fare riferimento a un database di metadati diverso rispetto all'istanza in esecuzione in produzione.
+* Il database dei metadati per il servizio di suddivisione/unione non deve essere condiviso tra ruoli diversi. Ad esempio, un ruolo del servizio di suddivisione/unione in esecuzione in gestione temporanea deve fare riferimento a un database dei metadati diverso rispetto al ruolo di produzione.
  
 
 ## Fatturazione 
@@ -123,7 +156,7 @@ Poiché il servizio di suddivisione/unione viene eseguito come servizio cloud ne
 ## Monitoraggio 
 ### Tabelle di stato 
 
-Il servizio di suddivisione/unione fornisce la tabella **RequestStatus** nel database archivio di metadati per il monitoraggio delle richieste completate e in corso. La tabella include una riga per ogni richiesta di suddivisione/unione inviata a questa istanza del servizio di suddivisione/unione. Fornisce le informazioni seguenti per ogni richiesta:
+Il servizio di suddivisione/unione fornisce la tabella **RequestStatus** nel database archivio di metadati per il monitoraggio delle richieste completate e in corso. La tabella include una riga per ogni richiesta di suddivisione/unione inviata a questa istanza del servizio di suddivisione/unione. Fornisce le seguenti informazioni per ogni richiesta:
 
 * **Timestamp**: ora e data di inizio della richiesta.
 
@@ -140,7 +173,7 @@ Il servizio di suddivisione/unione fornisce la tabella **RequestStatus** nel dat
 
 ### Diagnostica Azure 
 
-Il modello di servizio per il servizio di suddivisione/unione è preconfigurato per l'uso dell'archiviazione di Diagnostica Azure per una registrazione dettagliata aggiuntiva e per l'archiviazione di informazioni di diagnostica. È possibile controllare la configurazione di Diagnostica Azure, ad esempio l'account di archiviazione e le credenziali, tramite il file di configurazione del servizio per il servizio di suddivisione/unione. La configurazione di Diagnostica Azure per il servizio segue le informazioni aggiuntive disponibili nella pagina relativa ai [dati fondamentali sul servizio cloud](http://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Include le definizioni per la registrazione di contatori delle prestazioni, per log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione/unione. È possibile accedere con facilità a questi log da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione:
+Il modello di servizio per il servizio di suddivisione/unione è preconfigurato per l'uso dell'archiviazione di Diagnostica di Microsoft Azure per una registrazione dettagliata aggiuntiva e per l'archiviazione di informazioni di diagnostica. È possibile controllare la configurazione di Diagnostica Azure, ad esempio l'account di archiviazione e le credenziali, tramite il file di configurazione del servizio per il servizio di suddivisione/unione. La configurazione di Diagnostica di Microsoft Azure per il servizio segue le informazioni aggiuntive disponibili nella pagina relativa ai [dati fondamentali sul servizio cloud](http://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Include le definizioni per la registrazione di contatori delle prestazioni, per log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione/unione. È possibile accedere con facilità a questi log da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione:
 
 ![Azure Diagnostics][2]   
 
@@ -150,7 +183,7 @@ La tabella WADLogsTable evidenziata nella figura precedente include gli eventi d
 
 
 Le diverse schede della finestra di dialogo controllano i diversi tipi di log, per ognuno dei quali è stata specificata un'impostazione relativa al periodo di trasferimento. 
-La visibilità dei log e dei contatori in Diagnostica Azure sarà in genere necessaria per i team Microsoft in caso di errori della distribuzione del servizio di suddivisione/unione. È possibile usare strumenti quali [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) per esportare i log di Diagnostica Azure in file con estensione CSV, che possono essere condivisi con facilità. 
+La visibilità dei log e dei contatori in Diagnostica Azure sarà in genere necessaria per i team Microsoft in caso di errori della distribuzione del servizio di suddivisione/unione. È possibile usare strumenti come lo [strumento di esplorazione di archiviazione di Azure](http://azurestorageexplorer.codeplex.com/) per esportare i log di Diagnostica di Microsoft Azure in file con estensione CSV, che possono essere condivisi con facilità. 
 
 ## Prestazioni
 
@@ -171,9 +204,9 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 
 ## Riferimenti 
 
-* [Esercitazione relativa al servizio di suddivisione/unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Esercitazione relativa alla suddivisione e unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Considerazioni sulla sicurezza di Scalabilità elastica](./sql-database-elastic-scale-configure-security.md)  
+* [Configurazioni di sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->
@@ -181,3 +214,5 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 [1]:./media/sql-database-elastic-scale-split-and-merge/split-merge-overview.png
 [2]:./media/sql-database-elastic-scale-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-split-and-merge/diagnostics-config.png
+
+<!--HONumber=47-->

@@ -1,6 +1,21 @@
-﻿<properties writer="ricksal" pageTitle="Chiamare un'API personalizzata da un client Android | Mobile Dev Center" description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Android che usa Servizi mobili di Microsoft Azure." services="mobile-services" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	writer="ricksal" 
+	pageTitle="Chiamata di un'API personalizzata da un client Android | Mobile Dev Center" 
+	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Android che usa Servizi mobili di Microsoft Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Chiamare un'API personalizzata dal client
 
@@ -10,13 +25,9 @@ Questo argomento descrive come chiamare un'API personalizzata da un'app per Andr
 
 L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag *completed* su `true` per tutti gli elementi todo nella tabella del servizio mobile. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata mediante l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione di [introduzione a Servizi mobili] o di [introduzione ai dati]. 
 
-1. [Definire l'API personalizzata]
-2. [Aggiornare l'app per chiamare l'API personalizzata]
-3. [Testare l'app] 
-
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili]. 
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate nell'[introduzione a Servizi mobili]. 
 
 ## <a name="define-custom-api"></a>Definire l'API personalizzata
 
@@ -26,7 +37,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ## Passaggi successivi
 
-Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, per altre informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
+Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, per altre informazioni, vedere anche i seguenti argomenti relativi a Servizi mobili:
 
 * [Informazioni di riferimento sugli script del server di Servizi mobili]
   <br/>Altre informazioni sulla creazione di API personalizzate.
@@ -37,7 +48,7 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
 <!-- Anchors. -->
 [Definire l'API personalizzata]: #define-custom-api
 [Aggiornare l'app per chiamare l'API personalizzata]: #update-app
-[Testare l'app]: #test-app
+[Test dell'app]: #test-app
 [Passaggi successivi]: #next-steps
 
 <!-- Images. -->
@@ -46,12 +57,11 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Dashboard App personali]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Introduzione a Servizi mobili]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Introduzione ai dati]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Introduzione all'autenticazione]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introduzione alle notifiche push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
-[Archiviare script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control
+[Archiviare script del server nel controllo del codice sorgente]: /documentation/articles/mobile-services-store-scripts-source-control
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

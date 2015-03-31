@@ -18,7 +18,7 @@
 
 # Test di carico in Azure
 
-Per eseguire test di carico sulle applicazioni Web, è possibile usare l'apposito servizio basato sul cloud. In genere viene usato Visual Studio per creare un test di carico che consenta di determinare la capacità e le prestazioni dell'applicazione Web senza coinvolgere le macchine virtuali di Azure. È invece possibile effettuare questa operazione automaticamente usando il [servizio di test di carico basato su cloud](http://tfs.visualstudio.com/it-it/learn/load-testing).
+Per eseguire test di carico sulle applicazioni Web, è possibile usare l'apposito servizio basato sul cloud. In genere viene usato Visual Studio per creare un test di carico che consenta di determinare la capacità e le prestazioni dell'applicazione Web senza coinvolgere le macchine virtuali di Azure. È invece possibile effettuare questa operazione automaticamente usando il [servizio di test di carico basato su cloud](http://tfs.visualstudio.com/learn/load-testing).
 
 <!--links-->
 
@@ -29,8 +29,6 @@ Per eseguire test di carico sulle applicazioni Web, è possibile usare l'apposit
 <!--images-->
 
 
- 
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

@@ -1,5 +1,5 @@
 ﻿
-In alternativa, è possibile testare le notifiche push con il servizio mobile in esecuzione nel computer locale o nella macchina virtuale prima di pubblicarlo in Azure. Per eseguire questa operazione, è necessario impostare le informazioni relative all'hub di notifica usato dall'app nel file web.config. Queste informazioni vengono usate solo quando il servizio viene eseguito in locale per connettersi all'hub di notifica, ma vengono ignorate quando il servizio è pubblicato in Azure.
+In alternativa, è possibile testare le notifiche push con il servizio mobile in esecuzione nel computer locale o nella macchina virtuale prima di pubblicarlo in Azure. Per eseguire questa operazione, è necessario impostare le informazioni relative all'hub di notifica usato dall'app nel file web.config. Queste informazioni vengono usate solo quando il servizio viene eseguito in locale per connettersi all'hub di notifica e vengono ignorate quando il servizio è pubblicato in Azure.
 
 1. Nella scheda **Push** del servizio mobile fare clic sul collegamento **Hub di notifica**.
 
@@ -20,4 +20,4 @@ In alternativa, è possibile testare le notifiche push con il servizio mobile in
 5. In **appSettings** sostituire il valore dell'impostazione dell'app **MS_NotificationHubName** con il nome dell'hub di notifica.
 
 A questo punto, il progetto di servizio mobile è configurato per connettersi all'hub di notifica in Azure quando viene eseguito in locale. Si noti che è importante che il nome e la stringa di connessione dell'hub di notifica corrispondano a quelli del portale, perché le impostazioni del progetto Web.config vengono sovrascritte dalle impostazioni del portale quando il servizio è eseguito in Azure.
-<!--HONumber=45--> 
+<!--HONumber=47-->

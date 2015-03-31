@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Come usare AMQP 1.0 con l'API .NET del bus di servizio - Azure" 
-	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protodol) 1.0 con API .NET di Bus di servizio di Azure." 
+	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 con API .NET di Bus di servizio di Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -23,7 +23,7 @@
 
 # Come usare AMQP 1.0 con l'API .NET del bus di servizio
 
-<h2>Introduzione</h2>
+## Introduzione
 
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere usato per creare potenti applicazioni di messaggistica multipiattaforma.
 
@@ -31,31 +31,31 @@ Grazie al supporto per AMQP 1.0 nel bus di servizio, è ora possibile usare le f
 
 Questa guida dettagliata illustra come usare le funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite l'API .NET di Service Bus. È disponibile una guida complementare in cui viene illustrato come eseguire le stesse procedure usando l'API Java Message Service (JMS) standard. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
 
-<h2>Attività iniziali per il bus di servizio</h2>
+## Introduzione al bus di servizio
 
-In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere la guida dettagliata dal titolo "[Come usare le code del bus di servizio](https://www.windowsazure.com/it-it/develop/net/how-to-guides/service-bus-queues/)".
+In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata "queue1". In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di gestione di Azure](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere la guida dettagliata dal titolo "[Come usare le code del bus di servizio.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)"
 
-<h2>Download di Service Bus SDK.</h2>
+## Download di Service Bus SDK
 
 Il supporto per AMQP 1.0 è disponibile nell'SDK del bus di servizio versione 2.1 o successiva. È possibile scaricare la versione più recente dell'SDK da NuGet all'indirizzo [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
-<h2>Codifica di applicazioni .NET</h2>
+## Codifica di applicazioni .NET
 
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane essenzialmente invariato durante l'uso di AMQP 1.0.
 
-Nella versione corrente alcune funzionalità API non sono supportate con l'uso di AMQP. Tali funzionalità sono elencate più avanti nella sezione "Funzionalità non supportate e restrizioni". Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si usa AMQP. In questa breve guida queste impostazioni non vengono usate, ma altri dettagli sono disponibili nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
+Nella versione corrente alcune funzionalità API non sono supportate con l'uso di AMQP. Tali funzionalità sono elencate più avanti nella sezione "Funzionalità non supportate e restrizioni". Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si usa AMQP. In questa breve guida queste impostazioni non vengono usate, ma altri dettagli sono disponibili nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ### Configurazione tramite App.config
 
-È consigliabile usare il file di configurazione App.config per l'archiviazione delle impostazioni delle applicazioni. Per le applicazioni del bus di servizio, è possibile usare App.config per archiviare le impostazioni di **ConnectionString** del bus di servizio. Inoltre, in questa applicazione di esempio viene archiviato il nome dell'entità di messaggistica del bus di servizio usata.
+È consigliabile usare il file di configurazione App.config per l'archiviazione delle impostazioni delle applicazioni. Per le applicazioni del bus di servizio, è possibile usare App.config per archiviare la stringa **ConnectionString**. Questa applicazione di esempio usa App.config anche per archiviare il nome dell'entità di messaggistica del bus di servizio usata.
 
 Di seguito è riportato un file App.config di esempio:
 
-	?xml version="1.0" encoding="utf-8" ?
+	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 	  	<appSettings>
 		    <add key="Microsoft.ServiceBus.ConnectionString"
-        	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp" />
+        	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
 	    	<add key="EntityName" value="queue1" />
   		</appSettings>
 	</configuration>
@@ -64,9 +64,9 @@ Di seguito è riportato un file App.config di esempio:
 
 Il valore dell'impostazione **Microsoft.ServiceBus.ConnectionString** corrisponde alla stringa di connessione usata per configurare la connessione con il bus di servizio:
 
-	Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
+	Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Dove [namespace], [issuer name] e [issuer key] si ottengono dal portale di gestione di Azure. Per altre informazioni, vedere [Come usare le code del bus di servizio][].
+Dove [namespace] e [chiave SAS] si ottengono dal portale di gestione di Azure. Per altre informazioni, vedere la pagina che illustra [come usare le code del bus di servizio][].
 
 Quando si usa AMQP, la stringa di connessione viene aggiunta alla fine di ";TransportType=Amqp", che indica alla libreria client di effettuare questa connessione con il bus di servizio tramite AMQP 1.0.
 
@@ -76,7 +76,7 @@ In questa applicazione di esempio viene usata l'impostazione "EntityName" della 
 
 ### Semplice applicazione .NET che usa la coda del bus di servizio
 
-Nell'esempio seguente vengono scambiati messaggi con una coda del bus di servizio:
+Nel seguente esempio vengono scambiati messaggi con una coda del bus di servizio:
 
 	// SimpleSenderReceiver.cs
 	
@@ -206,7 +206,7 @@ Nell'esempio seguente vengono scambiati messaggi con una coda del bus di servizi
 
 ### Esecuzione dell'applicazione
 
-L'esecuzione dell'applicazione produce un output nel formato seguente:
+L'esecuzione dell'applicazione produce un output nel seguente formato:
 
 	> SimpleSenderReceiver.exe
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -221,24 +221,24 @@ L'esecuzione dell'applicazione produce un output nel formato seguente:
 	Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
 	exit
 
-<h2>Messaggistica multipiattaforma tra JMS e .NET</h2>
+## Messaggistica multipiattaforma tra JMS e .NET
 
 In questa guida è stato illustrato come inviare messaggi al bus di sevizio e come riceverne tramite .NET. Tuttavia, uno dei principali vantaggi di AMQP 1.0 è che consente di creare applicazioni da componenti scritti in linguaggi diversi, con i messaggi scambiati in modo affidabile e con la massima fedeltà.
 
 Usando l'applicazione .NET di esempio descritta in precedenza e un'applicazione Java simile presa dalla guida complementare, [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](http://aka.ms/ll1fm3), è possibile scambiare messaggi tra .NET e Java. 
 
-Per altre informazioni sulla messaggistica multipiattaforma con il bus di servizio e AMQP 1.0, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
+Per altre informazioni sulla messaggistica multipiattaforma con il bus di servizio e AMQP 1.0, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ### Da JMS a .NET
 
-Per verificare la messaggistica da JMS a .NET, eseguire la procedura seguente:
+Per verificare la messaggistica da JMS a .NET, eseguire la seguente procedura:
 
 * Avviare l'applicazione di esempio .NET senza argomenti della riga di comando.
 * Avviare l'applicazione di esempio Java con l'argomento della riga di comando "sendonly". In questa modalità l'applicazione non riceverà messaggi dalla coda, ma potrà solo inviarne.
 * Premere alcune volte **INVIO** nella console dell'applicazione Java per generare l'invio di messaggi.
 * Questi messaggi vengono ricevuti dall'applicazione .NET.
 
-#### Output dell'applicazione JMS
+### Output dell'applicazione JMS
 
 	> java SimpleSenderReceiver sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -247,7 +247,7 @@ Per verificare la messaggistica da JMS a .NET, eseguire la procedura seguente:
 	Sent message with JMSMessageID = ID:1565011046230456854
 	exit
 
-#### Output dell'applicazione .NET
+### Output dell'applicazione .NET
 
 	> SimpleSenderReceiver.exe	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -256,9 +256,9 @@ Per verificare la messaggistica da JMS a .NET, eseguire la procedura seguente:
 	Received message with MessageID = 1565011046230456854
 	exit
 
-### Da .NET a JMS
+## Da .NET a JMS
 
-Per verificare la messaggistica da .NET a JMS, eseguire la procedura seguente:
+Per verificare la messaggistica da .NET a JMS, eseguire la seguente procedura:
 
 * Avviare l'applicazione di esempio .NET con l'argomento "sendonly" della riga di comando. In questa modalità l'applicazione non riceverà messaggi dalla coda, ma potrà solo inviarne.
 * Avviare l'applicazione di esempio Java senza argomenti della riga di comando.
@@ -299,21 +299,21 @@ Le seguenti funzionalità dell'API .NET di Service Bus non sono al momento suppo
 * Rinnovo del blocco della sessione
 * Alcune piccole differenze nel comportamento
 
-Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx). In questo argomento è riportato un elenco dettagliato delle API non supportate.
+Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx). In questo argomento è riportato un elenco dettagliato delle API non supportate.
 
 <h2>Riepilogo</h2>
 
 In questa guida dettagliata è stato illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP1.0 e l'API .NET del bus di servizio.
 
-È anche possibile usare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
+È anche possibile usare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 <h2>Altre informazioni</h2>
 
 * [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](http://aka.ms/pgr3dp)
 * [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](http://aka.ms/ll1fm3)
-* [AMQP 1.0 per bus di servizio - Guida per sviluppatori](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx)
+* [AMQP 1.0 per bus di servizio - Guida per sviluppatori](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Come usare le code del bus di servizio](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 [Come usare le code del bus di servizio]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

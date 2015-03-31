@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="" 
+	description="Informazioni su come iniziare a usare il servizio di archiviazione di accodamento di Azure in un progetto ASP.NET in Visual Studio." 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -44,4 +44,4 @@ Prima di eseguire operazioni relative a una coda, è necessario ottenere la stri
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
-\<!--HONumber=42-->
+<!--HONumber=47-->

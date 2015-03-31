@@ -1,41 +1,41 @@
-<properties 
-   pageTitle="Creare e caricare un disco rigido virtuale con FreeBSD in Azure" 
-   description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene il sistema operativo FreeBSD." 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+﻿<properties 
+ pageTitle="Creare e caricare un disco rigido virtuale con FreeBSD in Azure" 
+ description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene il sistema operativo FreeBSD." 
+ services="virtual-machines" 
+ documentationCenter="" 
+ authors="KylieLiang" 
+ manager="timlt" 
+ editor=""/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
-   ms.date="02/05/2015"
-   ms.author="kyliel"/>
+ ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-linux"
+ ms.workload="infrastructure-services" 
+ ms.date="02/05/2015"
+ ms.author="kyliel"/>
 
 # Creare e caricare un disco rigido virtuale con FreeBSD in Azure 
 
 Questo articolo illustra come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo FreeBSD in modo da usarlo come immagine per la creazione di macchine virtuali in Azure. 
 
-## Prerequisiti##
+##Prerequisiti##
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 - **Una sottoscrizione di Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
 
 - **Strumenti di Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Azure](http://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale si userà il cmdlet [Download di Azure](http://azure.microsoft.com/downloads/).
 
-- **Sistema operativo FreeBSD installato in un file VHD**  : l'utente deve aver installato un sistema operativo FreeBSD supportato in un disco rigido virtuale. Sono disponibili diversi strumenti per creare file VHD, ad esempio per creare il file VHD e installare il sistema operativo, è possibile usare una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Sistema operativo FreeBSD installato in un file VHD**: l'utente ha installato un sistema operativo FreeBSD supportato in un disco rigido virtuale. Sono disponibili diversi strumenti per creare file VHD, ad esempio per creare il file VHD e installare il sistema operativo, è possibile usare una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet [convert-vhd](https://technet.microsoft.com/it-it/library/hh848454.aspx).
+> [AZURE.NOTE] Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet [convert-vhdhttps://technet.microsoft.com/library/hh848454.aspx).
 
 Questa attività include i cinque passaggi illustrati di seguito.
 
 ## Passaggio 1: Preparare l'immagine da caricare ##
 
-Per l'installazione di FreeBSD in Hyper-v, un'esercitazione è disponibile [qui](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
+Per l'installazione di FreeBSD in Hyper-V, un'esercitazione è disponibile [quihttp://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
 
 Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD, completare le procedure seguenti:
 
@@ -46,7 +46,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 2. **Abilitare SSH**
 
-    SSH è abilitato per impostazione predefinita dopo l'installazione da disco. In caso contrario o se si usa direttamente il disco rigido virtuale con FreeBSD, digitare:
+ SSH è abilitato per impostazione predefinita dopo l'installazione da disco. In caso contrario o se si usa direttamente il disco rigido virtuale con FreeBSD, digitare:
 
 		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
 		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
@@ -60,41 +60,41 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 4. **Installare sudo**
 
-    In Azure l'account radice è disabilitato, quindi per eseguire comandi con privilegi elevati da un account utente senza privilegi è necessario usare sudo.
+ In Azure l'account radice è disabilitato, quindi per eseguire comandi con privilegi elevati da un account utente senza privilegi è necessario usare sudo.
 
 		# pkg install sudo
 
 5. Prerequisiti per l'agente di Azure
 
-    5.1 **Installare python**
+ 5.1 **Installare python**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2 **Installare wget**
+ 5.2 **Installare wget**
 
 		# pkg install wget 
 
 6. **Installare l'agente di Azure**
 
-    L'ultima versione dell'agente di Azure è sempre disponibile su [github](https://github.com/Azure/WALinuxAgent/releases). Dalla versione 2.0.10, supporta ufficialmente FreeBSD 10 e versioni successive.
+ L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). Dalla versione 2.0.10, supporta ufficialmente FreeBSD 10 e versioni successive.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **Importante**: Dopo l'installazione, verificare che sia in esecuzione.
+ **Important**: After installation, please double check it is running.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-    Ora è possibile **arrestare** la macchina virtuale. È anche possibile eseguire il passaggio 7 prima dell'arresto, ma è facoltativo.
+ Ora è possibile **arrestare** la macchina virtuale. È anche possibile eseguire il passaggio 7 prima dell'arresto, ma è facoltativo.
 
 7. Il deprovisioning è facoltativo. Serve per pulire il sistema e renderlo nuovamente idoneo al provisioning.
 
-    Il comando seguente elimina anche l'ultimo account utente di cui è stato effettuato il provisioning e i dati associati.
+ Il comando seguente elimina anche l'ultimo account utente di cui è stato effettuato il provisioning e i dati associati.
 
 		# waagent -deprovision+user
 
@@ -137,7 +137,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 	![Container name](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE] Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione "BLOB pubblico". Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione "Contenitore pubblico".
+ > [AZURE.NOTE] Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione "BLOB pubblico". Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione "Contenitore pubblico".
 
 ## Passaggio 3: Preparare la connessione a Microsoft Azure ##
 
@@ -147,7 +147,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 1. Aprire la console di Azure PowerShell.
 
-2. Digitare il comando seguente:  
+2. Digitare il comando seguente: 
 	`Add-AzureAccount`
 	
 	Questo comando consente di aprire una finestra in cui è possibile eseguire l'accesso con l'account di lavoro e scuola.
@@ -171,12 +171,12 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 4. Digitare: 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
+	
 	Dove `<PathToFile>` è il percorso completo del file .publishsettings. 
 
-   Per altre informazioni, vedere [Iniziare a usare i cmdlet di Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
+ Per ulteriori informazioni, vedere [Iniziare a utilizzare i cmdlet di Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   Per altre informazioni sull'installazione e la configurazione di PowerShell, vedere [Come installare e configurare Microsoft Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). 
+ Per ulteriori informazioni sull'installazione e la configurazione di PowerShell, vedere [Come installare e configurare Microsoft Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
 
 ## Passaggio 4: Caricare il file VHD ##
 
@@ -194,11 +194,11 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Importante**: Per ora usare Linux come tipo di sistema operativo, in quanto la versione corrente di Azure PowerShell accetta solo i parametri "Linux" o "Windows".
+ **Importante**: Per ora usare Linux come tipo di sistema operativo, in quanto la versione corrente di Azure PowerShell accetta solo i parametri "Linux" o "Windows".
 
-2. Una volta completati i passaggi precedenti, quando si seleziona la scheda **Immagini** nel portale di gestione di Azure, la nuova immagine risulta inclusa nell'elenco.  
+2. Una volta completati i passaggi precedenti, quando si seleziona la scheda **Immagini** nel portale di gestione di Azure, la nuova immagine risulta inclusa nell'elenco. 
 
-    ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
+ ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
 3. Creare una macchina virtuale dalla raccolta. La nuova immagine è ora disponibile in **Immagini personali**. Selezionare la nuova immagine e seguire le istruzioni visualizzate per configurare nome host, password/chiave SSH e così via. 
 
@@ -208,4 +208,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-## Ricevere messaggi con Apache Storm
+﻿## Ricevere messaggi con Apache Storm
 
 [**Apache Storm**](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout dell'hub eventi per ricevere eventi dall'hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione degli hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 
@@ -10,7 +10,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 
-3. Usare il comando seguente per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
+3. Usare il seguente comando per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
@@ -24,7 +24,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 7. Inserire un **GroupId** e un **ArtifactId**, quindi fare clic su **Fine**.
 
-8. In **pom.xml** aggiungere le dipendenze seguenti nel nodo `<dependency>`.
+8. In **pom.xml** aggiungere le seguenti dipendenze nel nodo `<dependency>`.
 		
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -54,7 +54,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 			<scope>provided</scope>
 		</dependency>
 
-9. Nella cartella **src**, creare un file denominato **Config.properties** e copiarvi il contenuto seguente, sostituendo i valori seguenti:
+9. Nella cartella **src**, creare un file denominato **Config.properties** e copiarvi il seguente contenuto, sostituendo i seguenti valori:
 
 		eventhubspout.username = ReceiveRule
 		
@@ -75,7 +75,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 	Il valore per **eventhub.receiver.credits** determina quanti eventi vengono inseriti in batch prima del loro rilascio nella pipeline di Storm. Per semplicità, questo esempio imposta il valore su 10. In produzione dovrebbe essere impostato su valori superiori, ad esempio 1024.
 
-10. Creare una nuova classe denominata **LoggerBolt** con il codice seguente:
+10. Creare una nuova classe denominata **LoggerBolt** con il seguente codice:
 
 		import java.util.Map;
 		import org.slf4j.Logger;
@@ -114,7 +114,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 	Questo Bolt Storm registra il contenuto degli eventi ricevuti. Può essere facilmente esteso per archiviare tuple in un servizio di archiviazione. L'[esercitazione di analisi dei sensori con HDInsight] usa lo stesso approccio per archiviare dati in HBase.
 
-11. Creare una classe denominata **LogTopology** con il codice seguente:
+11. Creare una classe denominata **LogTopology** con il seguente codice:
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -216,7 +216,8 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 			}
 		}
 
-  La classe crea un nuovo Spout degli hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
+
+	La classe crea un nuovo Spout degli hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
 
 <!-- Links -->
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn821413.aspx
@@ -227,4 +228,5 @@ Questa esercitazione usa un'installazione di [HDInsight Storm], fornita con lo S
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack" 
 	description="Informazioni su come usare Microsoft HPC Pack e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni (HPC) ibrido" 
 	services="cloud-services" 
@@ -19,27 +19,27 @@
 # Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack
 In questa esercitazione viene illustrato come usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni (HPC) ibrido. Il cluster sarà composto da un nodo head locale (un computer che esegue il sistema operativo Windows Server e HPC Pack) e alcuni nodi di calcolo distribuiti su richiesta come istanze del ruolo di lavoro in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
  
-![Hybrid HPC cluster][Overview] 
+![Hybrid HPC cluster][Informazioni generali] 
 
 L'approccio descritto in questa esercitazione, denominato anche "potenziamento nel cloud", consente di usare risorse di calcolo su richiesta in Azure per eseguire applicazioni a elevato utilizzo di calcolo.
 
-Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure per la distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione, vedere le [informazioni aggiuntive dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per configurare un cluster HPC Pack interamente in Azure, vedere [Microsoft HPC Pack nelle macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?linkid=330375). 
+Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure per la distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione, vedere le [informazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per configurare un cluster HPC Pack interamente in Azure, vedere l'argomento relativo a [Microsoft HPC Pack nelle macchine virtuali di Azure](http://go.microsoft.com/fwlink/p/?linkid=330375). 
 
 >[AZURE.NOTE] Azure offre una [gamma di dimensioni](http://go.microsoft.com/fwlink/p/?LinkId=389844) per le risorse di calcolo, adatta a diversi carichi di lavoro. Le istanze A8 e A9, ad esempio, combinano prestazioni elevate e accesso a una rete di applicazioni a bassa latenza e velocità effettiva elevata necessaria per determinate applicazioni HPC. Per informazioni, vedere [Informazioni sulle istanze A8 e A9 a elevato utilizzo di calcolo](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 <h2 id="BKMK_Prereq">Prerequisiti</h2>
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare una versione di valutazione gratuita in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere l'argomento relativo alla [creazione di un account Azure](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 Per completare l'esercitazione, è necessario anche quanto segue.
 
 * Un computer locale che esegue un'edizione di Windows Server 2012 R2 o Windows Server 2012. Questo computer sarà il nodo head del cluster HPC. Se Windows Server non è già in esecuzione, è possibile scaricare e installare una [versione di valutazione](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
-	* Il computer deve essere aggiunto a un dominio Active Directory.
+	* Il computer deve essere aggiunto a un dominio di Active Directory.
 
 	* Verificare che non siano installati ulteriori ruoli server o servizi di ruolo.
 
-	* Per supportare HPC Pack, è necessario che il sistema operativo sia installato in una delle lingue seguenti: inglese, giapponese o cinese (semplificato).
+	* Per supportare HPC Pack, è necessario che il sistema operativo sia installato in una delle seguenti lingue: inglese, giapponese o cinese (semplificato).
 
 	* Verificare che siano installati gli aggiornamenti importanti.
 	
@@ -84,7 +84,7 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 	![Finish][install_hpc7]
 
 <h2 id="BKMK_Prepare">Preparazione della sottoscrizione di Azure</h2>
-Usare il [portale di gestione](https://manage.windowsazure.com) per eseguire le operazioni seguenti con la sottoscrizione di Azure. Queste operazioni sono necessarie per poter successivamente distribuire i nodi di Azure dal nodo head locale. 
+Usare il [portale di gestione](https://manage.windowsazure.com) per effettuare le seguenti operazioni con la sottoscrizione di Azure. Queste operazioni sono necessarie per poter successivamente distribuire i nodi di Azure dal nodo head locale. 
 
 - Caricamento del certificato di gestione (necessario per le connessioni sicure tra il nodo head e i servizi di Azure)
  
@@ -92,7 +92,7 @@ Usare il [portale di gestione](https://manage.windowsazure.com) per eseguire le 
 
 - Creare un account di archiviazione di Azure
 	
-	>[AZURE.NOTE]Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. Questo ID è reperibile nelle informazioni <a href="[https://account.windowsazure.com/Subscriptions">account di Azure</a>.
+	>[AZURE.NOTE]Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. L'ID è disponibile nelle <a href="[https://account.windowsazure.com/Subscriptions">informazioni dell'account</a> di Azure.
 
 <h3>Caricare il certificato di gestione predefinito</h3>
 HPC Pack installa un certificato autofirmato nel nodo head, denominato Default Microsoft HPC Azure Management, che è possibile caricare come certificato di gestione di Azure. Questo certificato viene fornito a scopo di test e per distribuzioni di prova.
@@ -109,7 +109,7 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 
 	![Upload Certificate][install_hpc10]
 
-Nell'elenco dei certificati di gestione verrà visualizzato il **certificato Default HPC Azure Management**.
+Nell'elenco dei certificati di gestione verrà visualizzato il certificato **Default HPC Azure Management**.
 
 <h3>Creare un servizio cloud di Azure</h3> 
 
@@ -169,7 +169,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 	  
 9. In **Deployment To-do List** fare clic su **Create a node template**. Verrà usato il modello di nodo per aggiungere nodi di Azure al cluster.
 
-10. Nella creazione guidata modello di nodo eseguire le operazioni seguenti:
+10. Nella creazione guidata modello di nodo, seguire questa procedura:
 
 	a. Nella pagina **Choose Node Template Type** fare clic su **Azure node template**, quindi su **Next**.
 
@@ -177,7 +177,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	b. Fare clic su **Next** per accettare il nome di modello predefinito.
 
-	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure (disponibile nelle proprie informazioni <a href="[https://account.windowsazure.com/Subscriptions">account di Azure</a>). Quindi, in **Management certificate** fare clic su **Browse** e selezionare **Default HPC Azure Management**. Fare clic su **Next**.
+	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure (disponibile nelle proprie <a href="[https://account.windowsazure.com/Subscriptions">informazioni account</a> di Azure). Quindi, in **Management certificate** fare clic su **Browse** e selezionare **Default HPC Azure Management.** Fare clic su **Next**.
 
 	![Node Template][config_hpc12]
 
@@ -249,7 +249,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 1. Aprire il prompt dei comandi nel nodo head.
 
-2. Digitare il comando seguente:
+2. Digitare il seguente comando:
 
 	`clusrun /nodes:azurecn* ipconfig`
 
@@ -295,7 +295,7 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 
 	![Not Deployed Nodes][stop_node4]
 
-4. Per verificare che le istanze del ruolo non siano più in esecuzione in Azure, nel [portale di gestione](https://manage.windowsazure.com) fare clic su **Cloud Services**, fare clic sul nome del servizio cloud e quindi su **Instances**. Nessuna istanza verrà distribuita nell'ambiente di produzione.
+4. Per verificare che le istanze del ruolo non siano più in esecuzione in Azure, nel [portale di gestione](https://manage.windowsazure.com) fare clic su **Servizi cloud**, fare clic sul nome del servizio cloud, quindi su **Istanze**. Nessuna istanza verrà distribuita nell'ambiente di produzione.
 
 	![No Instances][view_instances2]
 
@@ -309,7 +309,7 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 * [Azure Big Compute: HPC e Batch](http://azure.microsoft.com/solutions/big-compute/)
 
 
-[Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
+[Informazioni generali]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
 [install_hpc1]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc1.png
 [install_hpc2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc2.png
 [install_hpc3]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc3.png
@@ -346,5 +346,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node4.png
 [view_instances2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/view_instances2.png
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -16,17 +16,17 @@
 	ms.date="01/15/2015" 
 	ms.author="kathydav"/>
 
-#Come modificare la lettera di unità del disco temporaneo di Windows
+# Come modificare la lettera di unità del disco temporaneo di Windows
 
-Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per utilizzare un'unità diversa per il disco temporaneo. Non usare mai l'unità temporanea per archiviare i dati che si intende conservare.
+Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare un'unità diversa per il disco temporaneo. Non usare mai l'unità temporanea per archiviare i dati che si intende conservare.
 
 Prima di iniziare è necessario disporre di un disco dati collegato alla macchina virtuale da usare per l'archiviazione del file di paging di Windows (pagefile.sys) durante la procedura. Se non si dispone di un disco dati collegato, vedere [Come collegare un disco dati a una macchina virtuale Windows]. Per istruzioni sul modo in cui è possibile individuare i dischi collegati, vedere "Gestire i dischi" in [Informazioni sui dischi delle macchine virtuali in Azure].
 
-Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere caricato anche il disco rigido virtuale nell'account di archiviazione. Per le istruzioni, vedere i passaggi 3 e 4 in [Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure].
+Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere caricato anche il disco rigido virtuale nell'account di archiviazione. Per le istruzioni, vedere i passaggi 3 e 4 in [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azuree].
 
 > [AZURE.WARNING] Se si ridimensiona una macchina virtuale e questa viene di conseguenza spostata in un host diverso, l'unità D diventa nuovamente l'unità temporanea.
 
-##Modificare la lettera di unità
+## Modificare la lettera di unità
 
 1. Accedere alla macchina virtuale. 
 
@@ -44,7 +44,7 @@ Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere
 
 8.	Spostare pagefile.sys dall'altra unità all'unità E.
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 [Come accedere a una macchina virtuale che esegue Windows Server]
 
 [Come scollegare un disco dati da una macchina virtuale]
@@ -54,12 +54,11 @@ Se si desidera usare un disco dati esistente nell'unità D, assicurarsi di avere
 <!--Link references-->
 [Come collegare un disco dati a una macchina virtuale Windows]: ../storage-windows-attach-disk
 [Informazioni sui dischi delle macchine virtuali in Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
-[Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure]: ../virtual-machines-create-upload-vhd-windows-server/
+[Creazione e caricamento di un disco rigido virtuale con Windows Server in Azuree]: ../virtual-machines-create-upload-vhd-windows-server/
 [Come accedere a una macchina virtuale che esegue Windows Server]: ../virtual-machines-log-on-windows-server/
 [Come scollegare un disco dati da una macchina virtuale]: ../storage-windows-detach-disk/
 [Informazioni sugli account di archiviazione di Azure]: ../storage-whatis-account/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

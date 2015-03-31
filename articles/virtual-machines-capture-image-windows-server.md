@@ -16,35 +16,35 @@
 	ms.date="11/24/2014" 
 	ms.author="kathydav"/>
 
-#Come acquisire una macchina virtuale Windows da usare come modello#
+# Come acquisire una macchina virtuale Windows da usare come modello#
 
 Questo articolo illustra come acquisire una macchina virtuale Linux che esegue Windows in modo da usarla come modello per creare altre macchine virtuali. Questo modello include il disco del sistema operativo e gli eventuali dischi dati connessi alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali che usano il modello.
 
-Azure gestisce questo modello come immagine e la archivia in **Immagini personali**, che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][].
+Azure gestisce questo modello come immagine e la archivia in **Immagini personali**, che è anche la posizione in cui vengono archiviate le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure] [].
 
-##Prima di iniziare##
+## Prima di iniziare##
 
 Questa procedura presuppone che sia stata creata una macchina virtuale di Azure e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se non si sono ancora effettuate queste operazioni, vedere le istruzioni seguenti:
 
-- [Come creare una macchina virtuale personalizzata][]
-- [Come collegare un disco dati a una macchina virtuale][]
+- [Come creare una macchina virtuale personalizzata] []
+- [Come collegare un disco dati a una macchina virtuale] []
 
-##Acquisizione della macchina virtuale##
+## Acquisizione della macchina virtuale##
 
 1. Connettere la macchina virtuale facendo clic su **Connetti** sulla barra dei comandi. Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Windows Server] [].
 
 2.	Aprire una finestra del Prompt dei comandi come amministratore.
 
 
-3.	Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
+3.	Impostare la directory su `%windir%\system32\sysprep`, quindi eseguire sysprep.exe.
 
 
-4. 	Verrà visualizzata la finestra di dialogo **Utilità preparazione sistema**. Eseguire le operazioni seguenti:
+4. 	Verrà visualizzata la finestra di dialogo **Utilità preparazione sistema**. Seguire questa procedura:
 
 
-	- In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: all'uso di SysPrep][].
+	- In **Azione pulizia sistema** selezionare **Passare alla Configurazione guidata** e verificare che l'opzione **Generalizza** sia selezionata. Per altre informazioni sull'uso di Sysprep, vedere l'articolo relativo all'[introduzione all'uso di SysPrep][].
 
-	- In **Opzioni di arresto** del sistema selezionare **Arresta il sistema**.
+	- In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
 
 	- Fare clic su **OK**.
 
@@ -67,21 +67,20 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 12.	Fare clic sul segno di spunta per acquisire l'immagine. 
 
-  **NOTE: When you capture an image of a generalized virtual machine, the virtual machine is deleted.**
+  **NOTA: quando si acquisisce un'immagine di una macchina virtuale generalizzata, quest'ultima viene eliminata.**
 
-	La nuova immagine è ora disponibile in **Immagini**.
+ La nuova immagine è ora disponibile in **Immagini**.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
-
-##Passaggi successivi##
+## Passaggi successivi##
 L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. Per effettuare questa operazione, creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionare l'immagine creata. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata] [].
 
 	
 [Informazioni sulle immagini di macchine virtuali in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Come creare una macchina virtuale personalizzata]: ../virtual-machines-create-custom/
 [Come collegare un disco dati a una macchina virtuale]: ../storage-windows-attach-disk/
-[Come accedere a una macchina virtuale che esegue Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
-[How to Use Sysprep: all'uso di SysPrep]:http://technet.microsoft.com/library/bb457073.aspx
+[Come accedere a una macchina virtuale che esegue Windows Server]:http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
+[introduzione all'uso di SysPrep]:http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
@@ -90,7 +89,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

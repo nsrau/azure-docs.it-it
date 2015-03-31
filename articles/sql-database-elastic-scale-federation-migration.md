@@ -1,10 +1,24 @@
-﻿<properties title="Federations Migration" pageTitle="Migrazione di federazioni" description="Illustra i passaggi per eseguire la migrazione di un'app esistente, compilata con la funzionalità Federazioni, al modello di scalabilità elastica." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
+﻿<properties 
+	pageTitle="Migrazione di federazioni" 
+	description="Illustra i passaggi per eseguire la migrazione di un'app esistente compilata con la funzionalità Federazioni al modello di scalabilità elastica." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Migrazione di federazioni 
+# Migrazione di federazioni 
 
-La funzionalità Federazioni del database SQL di Azure verrà ritirata insieme alle edizioni Web/Business nel settembre 2015. Dopo il ritiro, le applicazioni che usano la funzionalità Federazioni cesseranno di funzionare. Per garantire una migrazione corretta, è fortemente consigliabile avviare le iniziative di migrazione al più presto, in modo da disporre di tempo sufficiente per la pianificazione e l'esecuzione. Questo documento fornisce il contesto, esempi e un'introduzione all'utilità di migrazione federazioni che illustra come eseguire correttamente la migrazione di un'applicazione corrente con federazioni alle [API della versione di anteprima di Scalabilità elastica del database SQL di Azure](http://go.microsoft.com/?linkid=9862592). Vengono illustrate in dettaglio le procedure suggerite per eseguire la migrazione di un'applicazione con federazioni senza alcuno spostamento dei dati.
+La funzionalità Federazioni del database SQL di Azure verrà ritirata insieme alle edizioni Web/Business nel settembre 2015. Dopo il ritiro, le applicazioni che usano la funzionalità Federazioni cesseranno di funzionare. Per garantire una migrazione corretta, è fortemente consigliabile avviare le iniziative di migrazione al più presto, in modo da disporre di tempo sufficiente per la pianificazione e l'esecuzione. Questo documento fornisce il contesto, gli esempi e un'introduzione all'utilità di migrazione federazioni che illustra come eseguire correttamente la migrazione di un'applicazione corrente con federazioni alle [API della versione di anteprima di Scalabilità elastica del database SQL di Azure](http://go.microsoft.com/?linkid=9862592). Vengono illustrate in dettaglio le procedure suggerite per eseguire la migrazione di un'applicazione con federazioni senza alcuno spostamento dei dati.
 
 La migrazione di un'applicazione con federazioni esistente a una che usa le API di Scalabilità elastica comporta tre passaggi principali.
 
@@ -51,7 +65,7 @@ Con le federazioni, la connessione a uno specifico membro di federazione viene s
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Con le API di Scalabilità elastica, la connessione a una specifica partizione viene stabilita mediante il [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con il metodo **OpenConnectionForKey** sulla classe **RangeShardMap**. 
+Con le API di scalabilità elastica, viene stabilita una connessione a una specifica partizione mediante il [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con il metodo **OpenConnectionForKey** per la classe **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -68,13 +82,13 @@ Con le API di Scalabilità elastica, la connessione a una specifica partizione v
         } 
     }
 
-I passaggi descritti in questa sezione sono necessari, ma potrebbero non affrontare tutti i possibili scenari di migrazione. Per altre informazioni, vedere la [panoramica su Scalabilità elastica[(./sql-database-elastic-scale-introduction.md) e il [riferimento dell'API](http://go.microsoft.com/?linkid=9862604).
+I passaggi descritti in questa sezione sono necessari, ma potrebbero non affrontare tutti i possibili scenari di migrazione. Per altre informazioni, vedere la [panoramica concettuale sulla scalabilità elastica](./sql-database-elastic-scale-introduction.md) e la [guida di riferimento sulle API](http://go.microsoft.com/?linkid=9862604).
 
 ## Disattivare i membri di federazione esistenti 
 
 ![Switch out the federation members for the shards][3]
 
-Dopo aver modificato l'applicazione con l'inclusione delle API di Scalabilità elastica, l'ultimo passaggio per la migrazione di un'applicazione con federazioni consiste nel disattivare i membri di federazione usando il comando **SWITCH OUT**. Per altre informazioni, vedere il riferimento in MSDN su [ALTER FEDERATION (Database SQL di Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx). Il risultato finale dell'esecuzione del comando **SWITCH OUT** su uno specifico membro di federazione è la rimozione di tutti i metadati e i vincoli della federazione. Il membro di federazione diventerà un normale database SQL di Azure, non diverso da qualsiasi altro.  
+Dopo aver modificato l'applicazione con l'inclusione delle API di scalabilità elastica, l'ultimo passaggio per la migrazione di un'applicazione con federazioni consiste nel disattivare i membri di federazione usando il comando **SWITCH OUT**. Per altre informazioni, vedere in MSDN la documentazione di riferimento su [ALTER FEDERATION (database SQL di Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx). Il risultato finale dell'esecuzione del comando **SWITCH OUT** su uno specifico membro di federazione è la rimozione di tutti i metadati e i vincoli della federazione. Il membro di federazione diventerà un normale database SQL di Azure, non diverso da qualsiasi altro.  
 
 Si noti che l'esecuzione del comando **SWITCH OUT** su un membro di federazione è un'operazione a senso unico e non può essere annullata. Dopo l'esecuzione non sarà più possibile aggiungere il database risultante a una federazione, né usare i comandi USING FEDERATION su di esso. 
 
@@ -87,8 +101,8 @@ L'utilità di migrazione federazioni offre la possibilità di:
 2.    Eseguire il comando SWITCH OUT su tutti i membri di una federazione.
 
 
-##Confronto delle funzionalità  
-Anche se Scalabilità elastica offre molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](./sql-database-elastic-scale-multishard-querying.md), [suddivisione e unione di partizioni](./sql-database-elastic-scale-overview-split-and-merge.md), [elasticità di partizionamento](./sql-database-elastic-scale-elasticity.md), [memorizzazione nella cache lato client](./sql-database-elastic-scale-shard-map-management.md) e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate in Scalabilità elastica.
+## Confronto delle funzionalità  
+Anche se la scalabilità elastica offre molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](./sql-database-elastic-scale-multishard-querying.md), [divisione e unione di partizioni](./sql-database-elastic-scale-overview-split-and-merge.md), [elasticità di partizionamento](./sql-database-elastic-scale-elasticity.md), [memorizzazione nella cache sul lato client](./sql-database-elastic-scale-shard-map-management.md)e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate in Scalabilità elastica.
   
 
 - L'uso di **FILTERING=ON**. Attualmente Scalabilità elastica non supporta i filtri a livello di riga. Una possibile soluzione consiste nell'inserire la logica di filtro nella query eseguita sulla partizione, come illustrato di seguito: 
@@ -125,4 +139,4 @@ Restituisce lo stesso risultato di:
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

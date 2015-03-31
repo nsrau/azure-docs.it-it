@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Sottoscrizione di Microsoft Azure e limiti dei servizi, quote e vincoli" 
-	description="Fornisce un elenco dei limiti più comuni relativi alle sottoscrizioni e ai servizi di Azure insieme ai valori massimi." 
+	pageTitle="Limiti quote e vincoli delle sottoscrizioni e dei servizi di Azure" 
+	description="Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi."
 	services="" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/20/2015" 
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti dei servizi, quote e vincoli
 
-Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Microsoft Azure. Si noti che al momento nel documento non vengono trattati tutti i servizi di Azure. Nel tempo questi limiti verranno ampliati e aggiornati in modo da coprire un maggior numero di servizi della piattaforma.
+## Informazioni generali
 
-- [Limiti relativi alle sottoscrizioni](#subscription)
-- [Limiti relativi ai servizi cloud](#webworkerlimits)
-- [Limiti relativi alle macchine virtuali](#vmlimits)
-- [Limiti relativi ai siti Web](#websiteslimits)
-- [Limiti relativi alle funzionalità di rete](#networkinglimits)
-- [Limiti relativi all'archiviazione](#storagelimits)
-- [Limiti relativi all'anteprima di Batch](#batchlimits)
-- [Limiti relativi all'anteprima di DocumentDB](#documentdblimits)
-- [Limiti relativi al database SQL](#sqldblimits)
-- [Limiti relativi ai servizi multimediali](#mediaserviceslimits)
-- [Limiti relativi al bus di servizio](#servicebuslimits)
-- [Limiti relativi ad Active Directory](#adlimits)
+Questo documento illustra alcuni dei limiti più comuni di Microsoft Azure. Si noti che nel documento non vengono trattati tutti i servizi di Azure. Nel tempo questi limiti verranno ampliati e aggiornati in modo da coprire un maggior numero di servizi della piattaforma.
 
-> [WACOM.NOTE] Per aumentare il limite oltre quello **predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito][azurelimitsblogpost]. I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente alcuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
+> [AZURE.NOTE] Per aumentare il limite oltre quello **predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito][azurelimitsblogpost]. I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente alcuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
 
-##<a name="subscription"></a>Limiti relativi alle sottoscrizioni
+## Limiti relativi alle sottoscrizioni
 
 <table cellspacing="0" border="1">
 <tr>
@@ -54,7 +43,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">Account di archiviazione</a> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Account di archiviazione</a> per sottoscrizione</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -110,7 +99,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Account dell'anteprima di Batch</a> per area per sottoscrizione</p></td>
+   <td valign="middle"><p><a hrefAccount ="http://azure.microsoft.com/services/batch/">anteprima batch</a> per regione per sottoscrizione</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -120,7 +109,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 
 <sup>2</sup>Ogni rete virtuale supporta un solo gateway di rete virtuale.
 
-##<a name="webworkerlimits"></a>Limiti relativi ai servizi cloud
+## Limiti relativi ai servizi cloud
 
 <table cellspacing="0" border="1">
 <tr>
@@ -134,7 +123,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Endpoint di input dell'istanza</a> per distribuzione</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Endpoint di input istanza</a> per distribuzione</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -152,7 +141,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 
 <sup>1</sup>Per ogni servizio cloud con ruoli di lavoro/Web ci possono essere due distribuzioni, una per la produzione e l'altra per la gestione temporanea. Si noti, inoltre, che questo limite si riferisce al numero di ruoli distinti (configurazione) e non al numero di istanze per ruolo (scalabilità). 
 
-##<a name="vmlimits"></a>Limiti relativi alle macchine virtuali
+## Limiti relativi alle macchine virtuali
 
 <table cellspacing="0" border="1">
 <tr>
@@ -176,11 +165,11 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 
 <sup>2</sup>Gli endpoint di input vengono usati per consentire le comunicazioni con le macchine virtuali esterne al servizio cloud contenitore. Le macchine virtuali nello stesso servizio cloud consentono automaticamente le comunicazioni tra tutte le porte UDP e TCP per le comunicazioni interne.
 
-##<a name="websiteslimits"></a>Limiti relativi ai siti Web
+## Limiti relativi ai siti Web
 
-[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-##<a name="networkinglimits"></a>Limiti relativi alle funzionalità di rete
+## Limiti relativi alle funzionalità di rete
 
 <table cellspacing="0" border="1">
 <tr>
@@ -189,7 +178,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
    <th align="left" valign="middle">Limite massimo</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Totale computer<sup>1</sup> per <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Rete virtuale</a><sup>2</sup></p></td>
+   <td valign="middle"><p>Totale computer<sup>1</sup> per <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">rete virtuale</a><sup>2</sup></p></td>
    <td valign="middle"><p>2048</p></td>
    <td valign="middle"><p>2048</p></td>
 </tr>
@@ -216,7 +205,7 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 
 <sup>3</sup>L'elenco di controllo di accesso (ACL) è supportato negli endpoint di input per le macchine virtuali. Per i ruoli di lavoro/Web è supportato negli endpoint di input e di input dell'istanza.
 
-##<a name="storagelimits"></a>Limiti relativi all'archiviazione
+## Limiti relativi all'archiviazione
 
 <table cellspacing="0" border="1">
 <tr>
@@ -261,11 +250,11 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 </tr>
 <tr>
    <td valign="middle"><p>Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB)</p></td>
-   <td valign="middle"><p>Fino a 2000 messaggi al secondo</p></td>
+   <td valign="middle"><p>Fino a 2.000 messaggi al secondo</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB)</p></td>
-   <td valign="middle"><p>Fino a 2000 entità al secondo</p></td>
+   <td valign="middle"><p>Fino a 2.000 entità al secondo</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Numero massimo in entrata per account di archiviazione (aree US)</p></td>
@@ -287,61 +276,59 @@ Nel seguente documento vengono illustrati alcuni dei limiti più comuni di Micro
 
 <sup>1</sup>Per altre informazioni su questi limiti, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure][storagelimits]. 
 
-<sup>2</sup>Per le macchine virtuali del livello Basic, non posizionare oltre 66 VHD (20.000/300) a uso intensivo in un account di archiviazione per evitare il limite della frequenza di richiesta totale, pari a 20.000. Per le macchine virtuali del livello Standard, non posizionare oltre 40 VHD (20.000/500) a uso intensivo in un account di archiviazione. Per altre informazioni, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]. 
+<sup>2</sup>Per le macchine virtuali del livello Basic, non posizionare oltre 66 VHD (20.000/300) a uso intensivo in un account di archiviazione per evitare il limite della frequenza di richiesta totale, pari a 20.000. Per le macchine virtuali del livello Standard, non posizionare oltre 40 VHD (20.000/500) a uso intensivo in un account di archiviazione. Per altre informazioni, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]. 
 
 <sup>3</sup>GRS è l'acronimo di [Geo Redundant Storage][georedundantstorage]. LRS è l'acronimo di [Locally Redundant Storage][locallyredundantstorage]. Si noti che l'archiviazione con ridondanza geografica è anche localmente ridondante.
 
-##<a name="batchlimits"></a>Limiti relativi all'anteprima di Batch
+## Limiti relativi all'anteprima di Batch
 
-[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-##<a name="documentdblimits"></a>Limiti relativi all'anteprima di DocumentDB
+## Limiti relativi all'anteprima di DocumentDB
 
-[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-##<a name="sqldblimits"></a>Limiti relativi al database SQL
+## Limiti relativi al database SQL
 
 Per i limiti relativi al database SQL, vedere i seguenti argomenti:
 
  - [Livelli di servizio (edizioni) del database SQL di Azure][sqltiers]
  - [Livelli di servizio e livelli di prestazioni del database SQL di Azure][sqltiersperflevels]
  - [Quote DTU (Database Throughput Unit)][sqlDTU]
- - [Limiti delle risorse del database SQL][sqldblimits]
+ - [Limiti delle risorse di Database SQL][sqldblimits]
 
-##<a name="mediaserviceslimits"></a>Limiti relativi ai servizi multimediali
+## Limiti relativi ai servizi multimediali
 
-[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-##<a name="servicebuslimits"></a>Limiti relativi al bus di servizio
+## Limiti relativi al bus di servizio
 
-[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
-##<a name="adlimits"></a>Limiti relativi ad Active Directory
+## Limiti relativi ad Active Directory
 
 Per Azure Active Directory (AD), vedere l'argomento seguente:
 
  - [Restrizioni e limiti del servizio Azure AD][adlimitsandrestrictions]
 
-##<a name="seealso"></a>Vedere anche
+## Vedere anche
 
 [Informazioni sui limiti e sugli aumenti di Azure][azurelimitsblogpost]
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/support/faq/
-  [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[customersupportfaq]: http://azure.microsoft.com/support/faq/
+[azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
+[gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
+[storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+[sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+[sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+[sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+[vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
   [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

@@ -1,12 +1,12 @@
-﻿Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macchina virtuale che esegue Windows Server.
+Seguire questa procedura per installare ed eseguire MongoDB in una macchina virtuale che esegue Windows Server.
 
 > [AZURE.IMPORTANT] Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e il binding di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione.  Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start**.
-2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**.  In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere *http://\*.mongodb.org* all'elenco dei siti attendibili.
+2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**.  In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere <i>http://*.mongodb.org</i> all'elenco di siti attendibili.
 3. Passare alla pagina dei [download di MongoDB] [MongoDownloads].
 4. Individuare la versione più recente nella sezione **Production Release (Recommended)** e fare clic sul collegamento ***2008+** nella colonna relativa a Windows a 64 bit.  Fare clic su **Salva con nome** e salvare il file con estensione zip sul desktop.
-5. Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto**.  Specificare "C:\" e fare clic su **Estrai**.  Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo,  come ad esempio "MongoDB".
+5. Fare clic con il pulsante destro del mouse sul file zip e scegliere **Estrai tutto**  Specificare "C:\" e fare clic su **Estrai**.  Dopo avere estratto i file, è possibile rinominare la cartella di installazione assegnandole un nome più intuitivo,  come ad esempio "MongoDB".
 6. Creare le directory dei dati e dei log di MongoDB nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Nel menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi.  Digitare:
 
 		C:\> F:
@@ -21,7 +21,7 @@
 
 	Tutti i messaggi di log verranno indirizzati al file  *F:\MongoLogs\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
 
-8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le informazioni seguenti:
+8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le seguenti informazioni:
 
 		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
@@ -37,7 +37,7 @@
 		> help  
 
 	Il database viene creato dall'istruzione insert.
-9. (Facoltativo) In mongod.exe è disponibile il supporto per l'installazione e l'esecuzione come servizio di Windows. Per installare mongod.exe come servizio, dal prompt dei comandi eseguire i comandi seguenti:
+9. (Facoltativo) In mongod.exe è disponibile il supporto per l'installazione e l'esecuzione come servizio di Windows. Per installare mongod.exe come servizio, dal prompt dei comandi attivare i seguenti comandi:
 
 		C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
@@ -93,4 +93,5 @@
 [Image7]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
-<!--HONumber=42-->
+
+<!--HONumber=47-->

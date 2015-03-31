@@ -1,8 +1,8 @@
-﻿## Ricevere messaggi con EventProcessorHost
+## Ricevere messaggi con EventProcessorHost
 
 **EventProcessorHost** è una classe .NET che semplifica la ricezione di messaggi da hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele dagli hub eventi. Usando **EventProcessorHost**, è possibile suddividere eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare **EventProcessorHost** per un ricevitore singolo. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare **EventProcessorHost** con più ricevitori.
 
-Per altre informazioni sui modelli di ricezione degli hub eventi, vedere la [Guida per gli sviluppatori di Hub eventi di Azure].
+Per altre informazioni sui modelli di ricezione degli hub eventi, vedere la [Guida per gli sviluppatori di Hub eventi di Azure][Guida alla programmazione di Hub eventi].
 
 [EventProcessorHost] è una classe .NET che semplifica la ricezione di messaggi da hub eventi mediante la gestione di checkpoint persistenti e ricezioni parallele da tali hub eventi. Usando [EventProcessorHost], è possibile suddividere eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare [EventProcessorHost] per un ricevitore singolo. L'[esempio di elaborazione di eventi scalata orizzontalmente] mostra come usare [EventProcessorHost] con più ricevitori.
 
@@ -28,13 +28,13 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 
 	Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
-6. Cercare  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, quindi fare clic su **Installa** e accettare le condizioni per l'utilizzo. 
+6. Cercare  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, quindi fare clic su **Installa** e accettare le condizioni per l'uso. 
 
 	![][13]
 
 	Viene scaricato e installato il <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost</a>, con tutte le relative dipendenze e vi viene aggiunto un riferimento.
 
-7. Creare una nuova classe denominata **SimpleEventProcessor** e aggiungere le istruzioni seguenti all'inizio del file:
+7. Creare una nuova classe denominata **SimpleEventProcessor** e aggiungere le seguenti istruzioni all'inizio del file:
 
 		using Microsoft.ServiceBus.Messaging;
 		using System.Diagnostics;
@@ -89,7 +89,7 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 		using Microsoft.ServiceBus.Messaging;
 		using System.Threading.Tasks;
 	
-	Aggiungere quindi il codice seguente nel metodo **Main**, sostituendo il nome dell'hub eventi, la stringa di connessione, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti:
+	Aggiungere quindi il seguente codice nel metodo **Main**, sostituendo il nome dell'hub eventi, la stringa di connessione, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti:
 
 		string eventHubConnectionString = "{event hub connection string}";
         string eventHubName = "{event hub name}";
@@ -121,4 +121,4 @@ Per poter usare [EventProcessorHost],è necessario avere un [account di archivia
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [Guida alla programmazione di Hub eventi]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-<!--HONumber=42-->
+<!--HONumber=47-->

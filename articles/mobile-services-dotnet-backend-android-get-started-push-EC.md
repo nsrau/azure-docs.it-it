@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Introduzione alle notifiche push (Android) | Mobile Developer Center" 
+	pageTitle="Introduzione al push (Android) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app .Net per Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -16,7 +16,7 @@
 	ms.date="02/06/2015" 
 	ms.author="ricksal"/>
 
-# Aggiunta di notifiche push all'app di Servizi mobili
+# Aggiungere notifiche push all'app Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push-EC.md)]
 
@@ -34,23 +34,23 @@ Questa esercitazione descrive come:
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Introduzione ai dati] per collegare il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013. 
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>. 
 
 
-## <a id="register"></a>Abilitare Google Cloud Messaging
+##<Abilitare Google Cloud Messaging
 
 [AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-## <a id="configure"></a>Configurare Servizi mobili per l'invio di richieste push
+##<Configurare Servizi mobili per l'invio di richieste push
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
 
-   	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
+ 	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
 
 2. Fare clic sulla scheda **Push** e immettere il valore **Chiave API** ottenuto da GCM nella procedura precedente, quindi fare clic su **Salva**.
 
-   	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
+ 	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
 > [AZURE.IMPORTANT] Le credenziali GCM per le notifiche push avanzate configurate nella scheda Push del portale vengono condivise con Hub di notifica per configurare l'hub di notifica con l'app.
 
@@ -66,39 +66,39 @@ Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-## <a id="update-server"></a>Aggiornare il server per l'invio di notifiche push
+##<a id="update-server"></a>Aggiornare il server per l'invio di notifiche push
 
-1. In Esplora soluzioni di Visual Studio espandere la cartella **Controller** nel progetto del servizio mobile. Open TodoItemController.cs. Nella parte superiore del file, aggiungere le seguenti istruzioni `using`:
+1. In Esplora soluzioni di Visual Studio espandere la cartella **Controller** nel progetto del servizio mobile. Open TodoItemController.cs. Aggiungere le istruzioni `using` seguenti all'inizio del file:
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. Aggiornare la definizione del metodo `PostTodoItem` con il codice seguente:  
+2. Aggiornare la definizione del metodo  `PostTodoItem` con il codice seguente: 
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
+ public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+ {
+ TodoItem current = await InsertAsync(item);
 
-            Dictionary<string, string> data = new Dictionary<string, string>()
-            {
-                { "message", item.Text}
-            };
-            GooglePushMessage message = new GooglePushMessage(data, TimeSpan.FromHours(1));
+ Dictionary<string, string> data = new Dictionary<string, string>()
+ {
+ { "message", item.Text}
+ };
+ GooglePushMessage message = new GooglePushMessage(data, TimeSpan.FromHours(1));
 
-            try
-            {
-                var result = await Services.Push.SendAsync(message);
-                Services.Log.Info(result.State.ToString());
-            }
-            catch (System.Exception ex)
-            {
-                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+ try
+ {
+ var result = await Services.Push.SendAsync(message);
+ Services.Log.Info(result.State.ToString());
+ }
+ catch (System.Exception ex)
+ {
+ Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+ }
+ return CreatedAtRoute("Tables", new { id = current.Id }, current);
+ }
 
-    Questo codice invierà una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
+ Questo codice invierà una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
 
 
 <h2><a name="publish-the-service"></a>Pubblicare il servizio mobile in Azure</h2>
@@ -106,9 +106,9 @@ Il servizio mobile è ora configurato per funzionare con GCM e Hub di notifica.
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-## <a name="update-app"></a>Aggiungere notifiche push all'app
+##<a name="update-app"></a>Aggiungere notifiche push all'app
 
-### Verificare la versione di Android SDK
+###Verificare la versione di Android SDK
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
@@ -117,11 +117,11 @@ Il passaggio successivo comporta l'installazione di Google Play Services. Google
 
 Se i test verranno eseguiti con un dispositivo meno recente, fare riferimento alla pagina relativa alla [configurazione di Google Play Services SDK] per determinare il livello minimo su cui è possibile impostare tale valore.
 
-### Aggiungere Google Play Services al progetto
+###Aggiungere Google Play Services al progetto
 
 [AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services-EC.md)]
 
-### Aggiungere codice
+###Aggiungere codice
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
@@ -129,7 +129,7 @@ Se i test verranno eseguiti con un dispositivo meno recente, fare riferimento al
 
 È possibile testare l'app collegando direttamente un telefono Android con un cavo USB oppure usando un dispositivo virtuale nell'emulatore.
 
-### Uso dell'emulatore per il test
+###Uso dell'emulatore per il test
 
 Assicurarsi di usare un emulatore Android Virtual Device (AVD) con il supporto per Google APIs.
 
@@ -137,23 +137,23 @@ Assicurarsi di usare un emulatore Android Virtual Device (AVD) con il supporto p
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-2. Selezionare **Google APIs** (o **Google APIs x86**)  in **Destinazione**, quindi fare clic su OK.
+2. Selezionare **Google APIs** (o **Google APIs x86**) in **Target**, quindi fare clic su OK.
 
-   	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
+ 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
 	AVD sarà quindi configurato per l'uso di Google APIs. Se sono installate diverse versioni di Android SDK, assicurarsi che il livello dell'API corrisponda a quello impostato in precedenza nelle impostazioni del progetto.
 
-### <a id="local-testing"></a> Abilitare le notifiche push per test locali
+###<a id="local-testing"></a> Abilitare le notifiche push per test locali
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-### Esecuzione del test
+###Esecuzione del test
 
 1. Dal menu **Run** di Eclipse scegliere **Run** per avviare l'app.
 
 2. Digitare testo significativo nell'app, ad esempio _Nuova attività Servizi mobili_ e quindi fare clic sul pulsante **Add**.
 
-  	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
+ 	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
 3. Scorrere verso il basso dalla parte superiore della schermata per aprire Notification Center per il dispositivo e visualizzare la notifica.
 
@@ -161,37 +161,37 @@ Assicurarsi di usare un emulatore Android Virtual Device (AVD) con il supporto p
 L'esercitazione è stata completata.
 
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-<!---In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per Android di usare Servizi mobili e Hub di notifica per inviare notifiche push. In seguito, provare a eseguire l'esercitazione [Inviare notifiche push agli utenti autenticati], che illustra come usare i tag per inviare notifiche push da un servizio mobile a un solo utente autenticato.
+<!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 
-+ [Inviare notifiche push agli utenti autenticati]
-	<br/>Informazioni su come usare i tag per inviare notifiche push da un servizio mobile a un solo utente autenticato.
++ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori]
-	<br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Inviare notifiche basate su modelli ai sottoscrittori]
-	<br/>Informazioni su come usare i modelli per inviare notifiche push da un servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
 * [Introduzione ai dati]
-  <br/>Informazioni su archiviazione ed esecuzione di query sui dati tramite Servizi mobili.
+ <br/>Ulteriori informazioni sull'archiviazione e le query dei dati tramite Servizi mobili.
 
 * [Introduzione all'autenticazione]
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante servizi mobili.
+ <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante servizi mobili.
 
 * [Informazioni su Hub di notifica]
-  <br/>Informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
+ <br/>Ulteriori informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
 * [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni Hub di notifica. 
+ </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni Hub di notifica. 
 
 * [Come usare la libreria client Android per Servizi mobili]
-  <br/>Informazioni su come usare Servizi mobili con Android.  
-  
+ <br/>Ulteriori informazioni sull'uso di Servizi mobili con Android. 
+ 
 <!-- Anchors. -->
 
 [Creare un nuovo servizio mobile]: #create-service
@@ -235,27 +235,27 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 <!-- URLs. -->
-[Usare script per la convalida e la modifica di dati]: /it-it/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Usare il paging per ridefinire le query]: /it-it/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-data-js
-[Versione back-end di JavaScript]: /it-it/develop/mobile/tutorials/get-started-with-data-android
+[Usare script per la convalida e la modifica di dati]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Usare il paging per ridefinire le query]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introduzione a Servizi mobili]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
+[Introduzione ai dati]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Introduzione all'autenticazione]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Versione per back-end JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Sito di esempi di codice per sviluppatori]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
+[Sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[Come usare la libreria client Android per Servizi mobili]: /it-it/documentation/articles/mobile-services-android-how-to-use-client-library
+[Come usare la libreria client Android per Servizi mobili]: /documentation/articles/mobile-services-android-how-to-use-client-library
 
-[Inviare notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Inviare notifiche push agli utenti autenticati]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
 
-[Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/
-[Inviare notifiche di trasmissione ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Inviare notifiche basate su modelli ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Informazioni su Hub di notifica]: /documentation/articles/notification-hubs-overview/
+[Inviare notifiche di trasmissione ai sottoscrittori]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Inviare notifiche basate su modelli ai sottoscrittori]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

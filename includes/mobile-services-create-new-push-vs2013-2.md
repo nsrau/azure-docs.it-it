@@ -3,14 +3,14 @@
 		sendNotifications(item.channelUri);
 
 		function sendNotifications(uri) {
-		    console.log("Uri: ", uri);
-		    push.wns.sendToastText01(uri, {
-		        text1: "Sample toast from sample insert"
-		    }, {
-		        success: function (pushResponse) {
-		            console.log("Sent push:", pushResponse);
-		        }
-		    });
+		 console.log("Uri: ", uri);
+		 push.wns.sendToastText01(uri, {
+		 text1: "Sample toast from sample insert"
+		 }, {
+		 success: function (pushRisposta) {
+		 console.log("Sent push:", pushRisposta);
+		 }
+		 });
 		}
 		
 	Quando si salvano le modifiche apportate al file insert.js, nel servizio mobile viene caricata una nuova versione dello script.
@@ -33,8 +33,8 @@
 							push.wns.sendToastText04(device.channelUri, {
 								text1: item.text
 							}, {
-								success: function(pushResponse) {
-									console.log("Sent push:", pushResponse);
+								success: function(pushRisposta) {
+									console.log("Sent push:", pushRisposta);
 								}
 							});
 						});
@@ -44,4 +44,5 @@
 		}
 		
 	A questo punto, quando si inserisce un nuovo elemento TodoItem, verrà inviata una notifica push a tutti i dispositivi registrati.
-<!--HONumber=42-->
+
+<!--HONumber=47-->

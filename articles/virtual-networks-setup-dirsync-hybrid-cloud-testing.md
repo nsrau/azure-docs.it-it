@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Configurare la sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per i test" 
+	pageTitle="Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test" 
 	description="Informazioni su come configurare un server di sincronizzazione delle directory di Office 365 (DirSync) in un cloud ibrido per IT pro o test di sviluppo." 
 	services="virtual-network" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Configurare la sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per i test
+# Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test
 
 I passaggi in questo argomento illustrano la creazione di un ambiente di cloud ibrido per il test della sincronizzazione delle directory di Office 365 (DirSync) con sincronizzazione della password ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -35,23 +35,23 @@ Questa configurazione rappresenta una base e un punto di partenza comune da cui 
 - Sviluppare e testare applicazioni per Office 365 basate sulla sincronizzazione con un dominio di Active Directory locale tramite la sincronizzazione delle password.
 - Eseguire il test di questo carico di lavoro IT basato sul cloud.
 
-L'impostazione di un ambiente di test del cloud ibrido comporta tre fasi principali:
+La configurazione di questo ambiente di test cloud ibrido prevede tre fasi principali:
 
-1.	Configurare l'ambiente di cloud ibrido per il test.
+1.	Configurare l'ambiente cloud ibrido per l'esecuzione di test.
 2.	Configurare la versione di valutazione di Office 365 FastTrack.
 3.	Configurare il server DirSync (DS1).
 
-Se non si dispone di una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si dispone di una sottoscrizione Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Fase 1: Configurare l'ambiente di cloud ibrido
+## Fase 1: Configurare l'ambiente cloud ibrido
 
-Usare le istruzioni nell'argomento [Configurare l'ambiente di cloud ibrido per il test](../virtual-networks-setup-hybrid-cloud-environment-testing/). Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo temporaneamente.
+Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
 
 Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_1.png)
 
-##Fase 2: Configurare la versione di valutazione di Office 365 FastTrack.
+## Fase 2: Configurare la versione di valutazione di Office 365 FastTrack.
 
 Per avviare la versione di valutazione di Office 365 FastTrack, sono necessari il nome di una società fittizia e un account Microsoft. È consigliabile usare una variante del nome dell'azienda Contoso per il nome della società, cioè una società fittizia usata nei contenuti di esempio di Microsoft, ma non è obbligatorio.
 
@@ -74,13 +74,13 @@ Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_2.png)
 
-##Fase 3: Configurare il server DirSync (DS1)
+## Fase 3: Configurare il server DirSync (DS1)
 
 Innanzitutto, creare una macchina virtuale di Azure per DS1 con questi comandi al prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri < e >.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -104,7 +104,7 @@ Configurare quindi una regola di Windows Firewall per permettere il traffico per
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-Il comando ping dovrebbe generare quattro risposte dall'indirizzo IP 10.0.0.1.
+Il comando ping dovrebbe restituire quattro risposte dall'indirizzo IP 10.0.0.1.
 
 Quindi, installare .NET 3.5 in DS1 con questo comando al prompt dei comandi di Windows PowerShell.
 
@@ -128,7 +128,7 @@ Successivamente, abilitare la sincronizzazione delle directory per la versione d
 4.	Quando viene visualizzato il messaggio **Attivare la sincronizzazione di Active Directory?**, fare clic su **Attiva**. Al termine, viene visualizzato il messaggio **Sincronizzazione di Active Directory attivata** al passaggio 3.
 5.	Lasciare la pagina **Impostazione e gestione della sincronizzazione di Active Directory** aperta in CLIENT1.
 
-Quindi, accedere a DC1 con l'account CORP\User1 e aprire un prompt dei comandi di Windows PowerShell a livello di amministratore. Eseguire questi comandi per creare una nuova unità organizzativa denominata contoso_users e aggiungere due nuovi account utente per Marci Kaufman e Lynda Meyer.
+Quindi, accedere a DC1 con l'account CORP\User1 e aprire un prompt dei comandi di Windows PowerShell a livello di amministratore. Eseguire questi comandi uno alla volta per creare una nuova unità organizzativa denominata contoso_users e aggiungere due nuovi account utente per Marci Kaufman e Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -142,7 +142,7 @@ Successivamente, configurare Directory Sync in DS1.
 2.	Nella schermata **Start** digitare **Directory Sync**.
 3.	Fare clic con il pulsante destro del mouse su **Configurazione sincronizzazione della directory**, quindi fare clic su **Esegui come amministratore**. Verrà avviata la configurazione guidata.
 4.	Nella pagina iniziale fare clic su **Avanti**.
-5.	Nella pagina Credenziali Windows Azure Active Directory, digitare l'indirizzo di posta elettronica e la password dell'account inizialmente creato durante la configurazione della versione di valutazione di Office 365 FastTrack nella fase 2. Fare clic su Avanti. 
+5.	Nella pagina delle credenziali di Microsoft Azure Active Directory, digitare l'indirizzo di posta elettronica e la password dell'account inizialmente creato durante la configurazione della versione di valutazione di Office 365 FastTrack nella fase 2. Fare clic su Avanti. 
 6.	Nella pagina Credenziali Active Directory, digitare **CORP\User1** in **Nome utente** e la password dell'account User1 in **Password**. Fare clic su **Avanti**.
 7.	Nella pagina Distribuzione ibrida, selezionare **Abilita Distribuzione ibrida**, quindi fare clic su **Avanti**.
 8.	Nella pagina Sincronizzazione password, selezionare **Abilita Sincronizzazione password**, quindi fare clic su **Avanti**.
@@ -174,17 +174,18 @@ Questa è la configurazione corrente.
  
 Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 365 che si basano sulla funzionalità DirSync di Office 365 o il test della funzionalità e delle prestazioni di DirSync da DS1.
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 
 [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
 [Soluzioni con server Office e il cloud](http://technet.microsoft.com/library/dn262744.aspx)
 
-[Configurare un ambiente cloud ibrido per i test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
-[Configurare una farm Intranet di SharePoint in un cloud ibrido per i test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per il test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

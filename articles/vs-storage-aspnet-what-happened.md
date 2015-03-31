@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="" 
+	description="Descrive i risultati ottenuti durante la creazione di una risorsa di archiviazione di Azure in un progetto ASP.NET di Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Guida introduttiva](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [Risultati](/documentation/articles/vs-storage-aspnet-what-happened/)
 
-### <span id="whathappened">Che cosa è successo al progetto?</span>
+###<span id="whathappened">Che cosa è successo al progetto?</span>
 
 ##### Aggiunta di riferimenti
 
 Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto al progetto di Visual Studio.  
-Il pacchetto aggiunge i riferimenti a .NET seguenti:
+Il pacchetto aggiunge i seguenti riferimenti a .NET:
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -36,8 +36,8 @@ Il pacchetto aggiunge i riferimenti a .NET seguenti:
 - `System.Data`
 - `System.Spatial`
 
-##### Aggiunta di stringa di connessione per l'Archiviazione di Azure 
+#####Aggiunta di stringa di connessione per l'Archiviazione di Azure 
 Nel file web.config del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
 Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
-\<!--HONumber=42-->
+<!--HONumber=47-->

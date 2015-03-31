@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="Come distribuire un database SQL - Azure" metaKeywords="" description="Informazioni su come distribuire un database di SQL Server in Azure. Per caricare un database di esempio si userà la procedura guidata di distribuzione del database al database SQL." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties 
+	pageTitle="Come distribuire un database SQL - Azure" 
+	description="Informazioni su come distribuire un database di SQL Server in Azure. Per caricare un database di esempio si userà la procedura guidata di distribuzione del database al database SQL." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -9,24 +23,20 @@
 
 <h1><a id="howtodeploySQLdb"></a>Come distribuire un database in Azure</h1>
 
-È possibile spostare un database SQL Server locale su Azure in molti modi diversi. In questa attività, si userà la procedura guidata di distribuzione del database al database SQL per il caricamento di un database di esempio.
+È possibile spostare un database SQL Server locale su Azure in molti modi diversi. In questa attività si userà la procedura guidata di distribuzione del database al database SQL per il caricamento di un database di esempio.
 
 Il database di esempio School è convenientemente semplice. Tutti i relativi oggetti sono compatibili con il database SQL, eliminando la necessità di modificare o preparare un database per la migrazione. In qualità di nuovo amministratore, prima di iniziare a usare i propri database provare innanzitutto a distribuire un database semplice in modo da apprendere la procedura corretta. 
 
 **Nota:** per istruzioni dettagliate su come preparare un database locale per la migrazione in Azure, rivedere la guida alla migrazione dei database SQL. Provare anche a scaricare il Kit di formazione di Azure, che include un lab in cui è illustrato un approccio alternativo alla migrazione di un database locale.
 
-##Sommario##
-* [Procedura: Creare il database school su un server locale](#schooldb)
-* [Procedura: Distribuire nel database SQL](#deploydb)
-* [Procedura: Verificare la distribuzione del database](#verify)
 
 <h2><a id="schooldb"></a>Procedura: Creare il database school su un server locale</h2>
 
-Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL][]. In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
+Gli script per la creazione di questo database sono reperibili nella [guida introduttiva all'amministrazione dei database SQL][Introduzione all'amministrazione del database SQL]. In questa guida gli script verranno eseguiti in Management Studio allo scopo di creare una versione locale del database school.
 
-1. In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Nuovo database**, infine immettere *school*.
+1. In Management Studio connettersi a un server locale. Fare clic con il pulsante destro del mouse su **Database**, quindi selezionare **Nuovo database** e infine immettere *school*.
 
-2. Fare clic con il pulsante destro del mouse su *school* e quindi fare clic su **Nuova query**. 
+2. Fare clic con il pulsante destro del mouse su *school*, quindi fare clic su **Nuova query**. 
 
 3. Copiare e quindi eseguire lo script Create Schema dall'esercitazione. 
 
@@ -522,14 +532,14 @@ Quindi, copiare ed eseguire lo script Insert Data.
 	GO
 </pre></div>
 
-   Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file .bacpac, caricarlo in Azure e importarlo nel database SQL.
+   Il database locale appena creato può essere esportato in Azure. In seguito, una procedura guidata consentirà di creare un file con estensione bacpac, caricarlo in Azure e importarlo nel database SQL.
 
 
 <h2><a id="deploydb"></a>Procedura: Distribuire nel database SQL</h2>
 
 1. In Management Studio connettersi a un'istanza di SQL Server locale che dispone di un database di cui si desidera eseguire la migrazione.
 
-2. Fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Attività** e quindi fare clic su **Distribuisci database in SQL Azure**.
+2. Fare clic con il pulsante destro del mouse sul database school appena creato, selezionare **Attività**, quindi fare clic su **Distribuisci database in SQL Azure**.
 
 3. In Impostazioni di distribuzione immettere un nome per il database, ad esempio *school*. 
 
@@ -543,23 +553,23 @@ Quindi, copiare ed eseguire lo script Insert Data.
 
 8. Fare clic su **Opzioni**.
 
-9. Nella sezione Proprietà connessione, in Connetti al database, digitare **master**.
+9. Nella sezione Proprietà connessione, in **Connetti al database**, digitare **master**.
 
 10. Fare clic su **Connetti**. Con questo passaggio si concludono le specifiche di connessione e l'utente viene riportato alla procedura guidata.
 
 
-11. Per eseguire la procedura guidata, fare clic su **Avanti** e quindi fare clic su **Fine**.
+11. Per eseguire la procedura guidata, fare clic su **Avanti** e quindi su **Fine**.
 
 
 <h2><a id="verify"></a>Procedura: Verificare la distribuzione del database</h2>
 
-1. Nella sezione Object Explorer di Management Studio aggiornare l'elenco dei database per visualizzare quello appena creato.
+1. Nella sezione Esplora oggetti di Management Studio aggiornare l'elenco dei database per visualizzare quello appena creato.
 
-2. Espandere la cartella Databases. Verrà visualizzato il database **school** nell'elenco.
+2. Espandere la cartella **Database**. Verrà visualizzato il database **school** nell'elenco.
 
-3. Fare clic con il pulsante destro del mouse sul database school e quindi fare clic su **Nuova query**.
+3. Fare clic con il pulsante destro del mouse sul database school e quindi selezionare **Nuova query**.
 
-4. Eseguire la query seguente per verificare l'accessibilità dei dati.
+4. Inoltrare la seguente query per verificare l'accessibilità dei dati.
 
 <div style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT
@@ -581,7 +591,7 @@ Quindi, copiare ed eseguire lo script Insert Data.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Introduzione all'amministrazione del database SQL]: /it-it/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Introduzione all'amministrazione del database SQL]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

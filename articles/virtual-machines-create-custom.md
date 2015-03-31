@@ -16,9 +16,9 @@
 	ms.date="11/12/2014" 
 	ms.author="kathydav"/>
 
-#Come creare una macchina virtuale personalizzata
+# Come creare una macchina virtuale personalizzata
 
-Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando **Da raccolta**, che offre più opzioni di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
+Una macchina virtuale *custom* indica semplicemente una macchina virtuale creata usando l'opzione **Da raccolta**, che offre più opzioni di configurazione rispetto all'opzione **Creazione rapida**. Tali opzioni includono:
 
 - Connessione della macchina virtuale a una rete virtuale
 - Installazione dell'agente VM e di estensioni, ad esempio di tipo antimalware 
@@ -31,7 +31,4 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

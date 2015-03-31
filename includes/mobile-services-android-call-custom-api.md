@@ -1,9 +1,9 @@
-﻿
-##<a name="update-app"></a>Aggiornamento dell'app per chiamare l'API personalizzata
 
-1. Verrà aggiunto un pulsante denominato "Complete All" accanto al pulsante esistente ed entrambi i pulsanti verranno spostati di una riga verso il basso. In Eclipse aprire il file  *res\layout\activity_to_do.xml* nel progetto di guida introduttiva e individuare l'elemento **LinearLayout** che contiene l'elemento **Button** denominato  `buttonAddToDo`. Copiare l'elemento **LinearLayout** e incollarlo immediatamente dopo l'originale. Eliminare l'elemento **Button** dal primo elemento **LinearLayout**.
+## <a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
-2. Nel secondo elemento **LinearLayout** eliminare l'elemento **EditText** e aggiungere il codice seguente immediatamente dopo l'elemento **Button** esistente: 
+1. Verrà aggiunto un pulsante denominato "Complete All" accanto al pulsante esistente ed entrambi i pulsanti verranno spostati di una riga verso il basso. In Android Studio aprire il file *res\layout\activity_to_do.xml* nel progetto di guida introduttiva e individuare l'elemento **LinearLayout** che contiene l'elemento **Button** denominato `buttonAddToDo`. Copiare l'elemento **LinearLayout** e incollarlo immediatamente dopo l'originale. Eliminare l'elemento **Button** dal primo elemento **LinearLayout**.
+
+2. Nel secondo elemento **LinearLayout** eliminare l'elemento **EditText** e aggiungere il seguente codice immediatamente dopo l'elemento **Button** esistente: 
 
         <Button
             android:id="@+id/buttonCompleteItem"
@@ -14,7 +14,7 @@
 
 	Verrà aggiunto un nuovo pulsante nella pagina, in una riga distinta, accanto al pulsante esistente.
 
-3. Il secondo elemento **LinearLayout** avrà ora l'aspetto seguente:
+3. Il secondo elemento **LinearLayout** avrà ora il seguente aspetto:
 
 	     <LinearLayout
 	        android:layout_width="match_parent" 
@@ -36,13 +36,13 @@
 	    </LinearLayout>
 	
 
-4. Aprire il file res\values\string.xml e aggiungere la riga di codice seguente:
+4. Aprire il file res\values\string.xml e aggiungere la seguente riga di codice:
 
     	<string name="complete_button_text">Complete All</string>
 
 
 
-5. In Package Explorer fare clic con il pulsante destro del mouse sul nome del progetto nella cartella  *src* (`com.example.{your projects name}`), scegliere **New** e quindi **Class**. Nella finestra di dialogo immettere **MarkAllResult** nel campo del nome della classe, scegliere OK e sostituire la definizione della classe risultante con il codice seguente:
+5. In Package Explorer fare clic con il pulsante destro del mouse sul nome del progetto nella cartella *src* (`com.example.{your projects name}`), scegliere **New** e quindi **Class**. Nella finestra di dialogo immettere **MarkAllResult** nel campo del nome della classe, scegliere OK e sostituire la definizione della classe risultante con il seguente codice:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -61,21 +61,21 @@
 
 	Questa classe viene utilizzata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
 
-6. Individuare il metodo **refreshItemsFromTable** nel file **ToDoActivity.java** e assicurarsi che la prima riga di codice del blocco  `try` inizi come indicato di seguito:
+6. Individuare il metodo **refreshItemsFromTable** nel file **ToDoActivity.java** e assicurarsi che la prima riga di codice del blocco `try` inizi come indicato di seguito:
 
         final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
 
 	Gli elementi verranno filtrati in modo che quelli completati non vengano restituiti dalla query.
 
-7. Assicurarsi che all'inizio del file **ToDoActivity.java** siano riportate le istruzioni import seguenti:
+7. Assicurarsi che all'inizio del file **ToDoActivity.java** siano riportate le seguenti istruzioni import:
 
 		import com.google.common.util.concurrent.FutureCallback;
 		import com.google.common.util.concurrent.Futures;
 		import com.google.common.util.concurrent.ListenableFuture;
 
-8. Nel file **ToDoActivity.java** aggiungere il metodo seguente:
+8. Nel file **ToDoActivity.java** aggiungere il seguente metodo:
 
-	public void completeItem(View view) {
+		public void completeItem(View view) {
 	    
 	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
 	    	
@@ -95,9 +95,9 @@
 	
 	Questo metodo gestisce l'evento **Click** per il nuovo pulsante. Il metodo **invokeApi** viene chiamato sul client che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori.
 
-## Testare l'app
+## Test dell'app
 
-1. Dal menu **Run** scegliere **Run** per avviare il progetto nell'emulatore di Android.
+1. Nel menu **Run** scegliere **Run app** per avviare il progetto nell'emulatore di Android o in un dispositivo Android connesso.
 
 	L'app, compilata tramite Android SDK che usa la libreria client per inviare una query che restituisce gli elementi per il servizio mobile, verrà eseguita.
 
@@ -111,4 +111,4 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
-\<!--HONumber=42-->
+<!--HONumber=47-->

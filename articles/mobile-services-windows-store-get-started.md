@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="12/03/2014" 
@@ -19,8 +19,7 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-Questo argomento non è più supportato. Non è più disponibile per il download dal portale un progetto Windows Store autonomo. È invece possibile scaricare un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+Questo argomento non è più supportato. Non è più disponibile per il download dal portale un progetto Windows Store autonomo. È invece possibile scaricare un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-Per istruzioni sull'aggiunta di Servizi mobili a un'app di Windows Store esistente, vedere [Aggiungere Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
-
-<!--HONumber=42-->
+Per istruzioni sull'aggiunta di Servizi mobili a un'app Windows Store esistente, vedere [Aggiungere Servizi mobili a un'app esistente](/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
+<!--HONumber=47-->

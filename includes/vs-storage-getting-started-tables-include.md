@@ -1,4 +1,4 @@
-﻿#####Creare una tabella
+﻿##### Creare una tabella
 Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di usarlo per creare una nuova tabella. Il codice tenta di fare riferimento a una tabella denominata "people". Se non è in grado di trovare una tabella con tale nome, ne crea una.
 
 **NOTA:** in tutto il codice incluso in questa guida si presuppone che l'applicazione da compilare sia un progetto di Servizi cloud di Azure e che usi una stringa di connessione di archiviazione archiviata nella configurazione dei servizi dell'applicazione Azure.
@@ -10,7 +10,7 @@ Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare u
 	CloudTable table = tableClient.GetTableReference("people");
 	table.CreateIfNotExists();
 
-#####Aggiungere un'entità a una tabella
+##### Aggiungere un'entità a una tabella
 Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
 	public class CustomerEntity : TableEntity
@@ -44,7 +44,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the insert operation.
 	table.Execute(insertOperation);
 
-#####Inserire un batch di entità
+##### Inserire un batch di entità
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** usando il metodo Insert e quindi avvia l'operazione chiamando CloudTable.Execute.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -70,7 +70,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene usato l'ogg
 	// Execute the batch operation.
 	table.ExecuteBatch(batchOperation);
 
-#####Ottenere tutte le entità di una partizione
+##### Ottenere tutte le entità di una partizione
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -86,7 +86,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	        entity.Email, entity.PhoneNumber);
 	}
 
-#####Ottenere una singola entità
+##### Ottenere una singola entità
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in TableResult.Result è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **Tabelle**.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -104,7 +104,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####Eliminare un'entità
+##### Eliminare un'entità
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
 
 	// Create the CloudTable that represents the "people" table.
@@ -135,5 +135,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 [Altre informazioni sull'Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 Vedere anche [Esplorazione delle risorse di archiviazione con Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx).
-
-<!--HONumber=42-->
+<!--HONumber=47-->

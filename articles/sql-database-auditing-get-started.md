@@ -1,15 +1,11 @@
 <properties 
-	title="Get started with SQL database auditing" 
 	pageTitle="Introduzione al controllo del database SQL | Azure" 
 	description="Introduzione al controllo del database SQL" 
-	metaKeywords="" 
 	services="sql-database" 
-	solutions="data-management" 
 	documentationCenter="" 
-	authors="jeffreyg" 
-	videoId="" 
-	scriptId="" 
-	manager="jeffreyg" />
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
 <tags 
 	ms.service="sql-database" 
@@ -17,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/31/2015" 
-	ms.author="jeffreyg" />
+	ms.date="02/23/2015" 
+	ms.author="jeffreyg"/>
  
 # Introduzione al controllo del database SQL 
-<p> Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo è disponibile in anteprima per i livelli di servizio Basic, Standard e Premium.
+<p> Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo in genere è disponibile per i livelli di servizio Basic, Standard e Premium.
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. 
 
 Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro protezione Azure</a>.
 
-+ [Nozioni di base sul controllo del database SQL di Azure] 
++ [Nozioni di base sul controllo del database SQL di Azure]  
 + [Configurare il controllo per il database]
 + [Analizzare i log di controllo e i report]
 
-## <a id="subheading-1">Nozioni di base sul controllo del database SQL di Azure</a>
+## <a id="subheading-1"></a>Nozioni di base sul controllo del database SQL di Azure
 
 Il controllo si configura nel portale di anteprima di Azure e non fa differenza se il database è stato creato usando il portale di Azure o il portale di anteprima di Azure. Il controllo del database SQL consente di:
 
@@ -39,7 +35,7 @@ Il controllo si configura nel portale di anteprima di Azure e non fa differenza 
 - **Creare report** sulle attività del database. I report preconfigurati e il dashboard consentono di iniziare rapidamente a usare il monitoraggio degli eventi e delle attività.
 - **Analizzare** i report. Individuare eventi sospetti, attività insolite e tendenze.
 
-È possibile controllare le attività e gli eventi seguenti:
+È possibile controllare le attività e i seguenti eventi:
 
 - **Accesso ai dati**
 - **Modifiche dello schema (DDL)**
@@ -84,15 +80,15 @@ Stringa di connessione con sicurezza abilitata: <*nome server*>.database.**secur
 
 
 
-## <a id="subheading-3">Analizzare i log di controllo e i report</a>
+## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 
-I log di controllo vengono aggregati in un'unica tabella di Azure Store denominata **AuditLogs** nell'account di archiviazione di Azure selezionato durante la configurazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
+I log di controllo vengono aggregati in un'unica tabella di Azure Store denominata **AuditLogs** nell'account di archiviazione di Azure selezionato durante la configurazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Esplora archivi Azure</a>.
 
-È possibile scaricare un modello di report dashboard preconfigurato in formato <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">foglio di calcolo di Excel</a>, che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download <a href="http://www.microsoft.com/it-it/download/details.aspx?id=39379">qui</a>. 
+È possibile scaricare un modello di report dashboard preconfigurato <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">n formato foglio di calcolo di Excel,</a> che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download <a href="http://www.microsoft.com/download/details.aspx?id=39379">qui</a>. 
 
 Il modello contiene dati di esempio fittizi ed è possibile configurare Power Query per l'importazione diretta del log di controllo dall'account di archiviazione di Azure. 
 
-Per istruzioni dettagliate sull'uso del modello di report, scaricare il <a href="http://go.microsoft.com/fwlink/?LinkId=506731">documento con la procedura</a>.
+Per istruzioni dettagliate sull'uso del modello di report, scaricare <a href="http://go.microsoft.com/fwlink/?LinkId=506731">il documento con la procedura</a>.
 
 ![][6]
 
@@ -103,24 +99,24 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il <a href=
 2. Fare clic sul database che si vuole controllare e quindi sulla scheda **Anteprima controllo e sicurezza**.
 3. Nella sezione controllo fare clic su "Abilita".
 
-![][7]
+	![][7]
 
 4. Modificare **TIPO EVENTO** se necessario.
 
-![][8]
+	![][8]
 
 5. Selezionare un **ACCOUNT DI ARCHIVIAZIONE**.
 6. Fare clic su **SALVA**.
 7. Fare clic su **Mostra stringa di connessione sicura** per la stringa di connessione.
 
 
-## <a id="subheading-3">Procedure per l'uso in produzione</a>
-La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
+## <a id="subheading-3"></a>Procedure per l'uso in produzione
+La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a> .
  
 
 ## <a id="subheading-4"></a>Accesso con sicurezza abilitata
 
-Durante la produzione è probabile che si renda necessario controllare tutto il traffico verso il database da tutte le applicazioni e gli strumenti. Modificare quindi **Accesso con sicurezza abilitata** da *Facoltativo* a *Obbligatorio* e salvare il criterio. Dopo aver configurato *Obbligatorio*, non è possibile accedere al database con la stringa di connessione originale, ma solo con la stringa di connessione con sicurezza abilitata.
+Durante la produzione è probabile che si renda necessario controllare tutto il traffico verso il database da tutte le applicazioni e gli strumenti. Modificare quindi **Accesso con sicurezza abilitata** da *Optional* a *Required* e salvare i criteri. Dopo aver configurato *Required*, non è possibile accedere al database con la stringa di connessione originale, ma solo con la stringa di connessione con sicurezza abilitata.
 
 
 ![][9]
@@ -131,18 +127,24 @@ Durante la produzione è probabile che si renda necessario controllare tutto il 
 Durante la produzione è probabile che si aggiornino periodicamente le chiavi di archiviazione. Il servizio di controllo non mantiene le chiavi dell'account di archiviazione. Quando si salva, viene prodotta una chiave di firma di accesso condiviso di sola scrittura per la tabella di controllo. Solo il cliente può leggere i log di controllo. A tale scopo, quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio. Il processo è il seguente:
 
 
-1. Nel pannello di configurazione di controllo (descritto sopra nella sezione sulla configurazione del controllo) cambiare **Chiave di accesso alle risorse di archiviazione** da *Primaria* a *Secondaria* e fare clic su **SALVA**.
-![][10]
-2. Passare al pannello di configurazione di archiviazione e **rigenerare** la *Chiave di accesso primaria*.
+1. Nel pannello di configurazione di controllo (descritto sopra nella sezione sulla configurazione del controllo) cambiare **Chiave di accesso alle risorse di archiviazione** da *Primary* a *Secondary* e fare clic su **SALVA**.
 
-3. Tornare al pannello di configurazione di controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e premere **SALVA**.
+	![][10]
 
-4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
+2. Passare al pannello di configurazione di archiviazione e **rigenerare** la *Primary Access Key*.
+
+3. Tornare al pannello di configurazione di controllo, cambiare la **Chiave di accesso alle risorse di archiviazione** da *Secondary* a *Primary* a premere **SALVA**.
+
+4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Secondary Access Key* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
   
 ## <a id="subheading-4"></a>Automazione
-Per PowerShell fare riferimento a <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>.
+Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure. Per accedere ai cmdlet di controllo, è necessario che PowerShell sia in esecuzione in modalità Gestione risorse di Azure.
 
-Per l'API REST fare riferimento al documento relativo all'<a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">API REST del database SQL di Azure</a>
+> [AZURE.NOTE] Il modulo AzureResourceManager è attualmente in versione di anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.
+
+ È possibile accedere alla modalità [Gestione risorse di Azure](https://msdn.microsoft.com/library/dn654592.aspx) eseguendo il cmdlet Switch-AzureMode (`Switch-AzureMode AzureResourceManager`). Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command *AzureSql*` per visualizzare l'elenco dei cmdlet disponibili.
+
+
 
 
 
@@ -177,4 +179,4 @@ Per l'API REST fare riferimento al documento relativo all'<a href="http://downlo
 [Collegamento 3 a un altro argomento della documentazione di azure.microsoft.com]: ../storage-whatis-account/
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

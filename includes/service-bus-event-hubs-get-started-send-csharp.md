@@ -3,19 +3,19 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 
 1. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Sender**.
 
-   ![][7]
+   	![][7]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Gestisci pacchetti NuGet per la soluzione**. 
 
 	Verrà visualizzata la finestra di dialogo Gestisci pacchetti NuGet.
 
-3. Cercare  `Microsoft Azure Service Bus`, quindi fare clic su **Installa** e accettare le condizioni per l'utilizzo. 
+3. Cercare  `Microsoft Azure Service Bus`, quindi fare clic su **Installa** e accettare le condizioni per l'uso. 
 
 	![][8]
 
 	Verrà quindi scaricato e installato il <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacchetto NuGet Azure Service Bus library</a> e verrà aggiunto un riferimento a tale pacchetto.
 
-4. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs**:
+4. Aggiungere la seguente istruzione `using` all'inizio del file **Program.cs**:
 
 		using Microsoft.ServiceBus.Messaging;
 
@@ -24,7 +24,7 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
-6. Aggiungere il metodo seguente alla classe **Program**:
+6. Aggiungere il seguente metodo alla classe **Program**:
 
 		static async Task SendingRandomMessages()
         {
@@ -50,7 +50,7 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 
 	Questo metodo invierà continuamente gli eventi all'hub eventi con un ritardo di 200 ms.
 
-7. Aggiungere infine le righe seguenti al metodo **Main**:
+7. Aggiungere infine le seguenti righe al metodo **Main**:
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
@@ -61,4 +61,4 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=42-->
+<!--HONumber=47-->

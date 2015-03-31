@@ -1,8 +1,22 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glossario di Scalabilità elastica di Azure" description="Spiegazione dei termini usati per la funzionalità Scalabilità elastica del database SQL di Azure" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Glossario di Scalabilità elastica di Azure" 
+	description="Spiegazione dei termini usati per la funzionalità di scalabilità elastica del database SQL di Azure" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="sidneyh@microsoft.com"/>
 
-#Glossario di Scalabilità elastica
+# Glossario di Scalabilità elastica
 Di seguito sono elencate le definizioni dei termini usati nella funzionalità Scalabilità elastica del database SQL di Azure.
 
 ![Elastic Scale terms][1]
@@ -18,7 +32,7 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 **Mappa di partizione locale**: archiviata in una partizione, la mappa locale partizioni contiene i mapping per gli shardlet che risiedono nella partizione.
 
 
-**Query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
+**Esecuzione di query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
 
 **Mappa partizioni di tipo intervallo**: una mappa partizioni in cui la strategia di distribuzione delle partizioni è basata su più intervalli di valori contigui. 
 
@@ -44,7 +58,7 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 ![Mappings][2]
 
 
-##Verbi
+## Verbi
 
 **Scalare orizzontalmente**: aumentare o ridurre le dimensioni di una raccolta di partizioni aggiungendo o rimuovendo partizioni a una mappa partizioni.
 
@@ -66,4 +80,4 @@ Di seguito sono elencate le definizioni dei termini usati nella funzionalità Sc
 
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

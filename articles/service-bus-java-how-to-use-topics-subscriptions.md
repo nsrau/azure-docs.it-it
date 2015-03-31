@@ -1,34 +1,30 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Come usare gli argomenti del bus di servizio (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="Come usare gli argomenti del bus di servizio (Java) - Azure" 
+	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Java." 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
-Questa guida mostra come usare gli argomenti e le sottoscrizioni
-del bus di servizio. Gli esempi sono scritti in Java e usano [Azure SDK per Java][]. Gli scenari presentati includono **creazione di argomenti
-e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio
-di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed
-**eliminazione di argomenti e sottoscrizioni**.
+Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Java e usano [Azure SDK per Java][]. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**.
 
-## Sommario
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
--   [Informazioni su argomenti e sottoscrizioni del bus di servizio][]
--   [Creare uno spazio dei nomi servizio][]
--   [Recuperare le credenziali di gestione predefinite per lo spazio dei nomi][]
--   [Configurare l'applicazione per l'uso del bus di servizio][]
--   [Procedura: Creare un argomento][]
--   [Procedura: Creare sottoscrizioni][]
--   [Procedura: Inviare messaggi a un argomento][]
--   [Procedura: Ricevere messaggi da una sottoscrizione][]
--   [Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione][]
--   [Procedura: Eliminare argomenti e sottoscrizioni][]
--   [Passaggi successivi][]
+## Configurare l'applicazione per l'uso del bus di servizio
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
-
-## <a name="bkmk_ConfigYourApp"> </a>Configurare l'applicazione per l'uso del bus di servizio
-
-Aggiungere le istruzioni import seguenti all'inizio del file Java:
+Aggiungere le seguenti istruzioni import all'inizio del file Java:
 
     // Include the following imports to use service bus APIs
     import com.microsoft.windowsazure.services.serviceBus.*;
@@ -38,17 +34,11 @@ Aggiungere le istruzioni import seguenti all'inizio del file Java:
 
 Aggiungere le librerie di Azure per Java al percorso di compilazione e includerlo nell'assembly di distribuzione del progetto.
 
-## <a name="bkmk_HowToCreateTopic"> </a>Come creare un argomento
+## Come creare un argomento
 
-Per eseguire operazioni di gestione per le code del bus di servizio, è possibile usare la classe
-**ServiceBusContract**. Un oggetto **ServiceBusContract** è
-costruito con una configurazione appropriata che incapsula le autorizzazioni dei
-token necessarie a gestirlo. La classe **ServiceBusContract** rappresenta
-l'unico punto di comunicazione con Azure.
+Per eseguire operazioni di gestione per le code del bus di servizio, è possibile usare la classe **ServiceBusContract**. Un oggetto **ServiceBusContract** è costruito con una configurazione appropriata che incapsula le autorizzazioni dei token necessarie a gestirlo. La classe **ServiceBusContract** rappresenta l'unico punto di comunicazione con Azure.
 
-La classe **ServiceBusService** fornisce i metodi per creare, enumerare
-ed eliminare le code. Nell'esempio seguente viene illustrato il modo in cui è possibile usare un oggetto **ServiceBusService** 
-per creare un argomento denominato "TestTopic" con uno spazio dei nomi denominato "HowToSample":
+La classe **ServiceBusService** fornisce i metodi per creare, enumerare ed eliminare gli argomenti. Il seguente esempio illustra come usare un oggetto **ServiceBusService** per creare un argomento denominato "TestTopic" con uno spazio dei nomi denominato "HowToSample":
 
     Configuration config = 
     	ServiceBusConfiguration.configureWithWrapAuthentication(
@@ -70,35 +60,22 @@ per creare un argomento denominato "TestTopic" con uno spazio dei nomi denominat
 		System.exit(-1);
 	}
 
-Alcuni metodi di **TopicInfo** consentono di ottimizzare le
-proprietà dell'argomento, ad esempio impostando il valore di durata "TTL" da
-applicare i messaggi inviati all'argomento. Nell'esempio seguente viene illustrato come
-creare un argomento denominato "TestTopic" con una dimensione massima pari a 5 GB:
+In **TopicInfo** sono disponibili metodi che consentono di ottimizzare le proprietà dell'argomento, ad esempio per impostare il valore di durata TTL predefinito da applicare ai messaggi inviati all'argomento. Il seguente esempio illustra come creare un argomento denominato "TestTopic" con una dimensione massima pari a 5 GB:
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
     topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
     CreateTopicResult result = service.createTopic(topicInfo);
 
-Si noti che è possibile usare il metodo **listTopics** su
-oggetti **ServiceBusContract** per verificare se in uno spazio dei nomi servizio
-esiste già un argomento con il nome specificato.
+Si noti che è possibile usare il metodo **listTopics** sugli oggetti **ServiceBusContract** per verificare se in uno spazio dei nomi del servizio esiste già un argomento con il nome specificato.
 
-## <a name="bkmk_HowToCreateSubscrip"> </a>Come creare le sottoscrizioni
+## Come creare le sottoscrizioni
 
-È possibile creare le sottoscrizioni a un argomento tramite la classe **ServiceBusService**
-. Le sottoscrizioni sono denominate e possono includere un filtro
-facoltativo che limita l'insieme dei messaggi passati alla coda virtuale
-della sottoscrizione.
+Per creare sottoscrizioni di un argomento è possibile usare anche la classe **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
-Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri
-durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**
-,
-tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. L'esempio seguente crea una
-sottoscrizione denominata "AllMessages" e usa il filtro predefinito **MatchAll**
-.
+Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nel seguente esempio viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
     CreateSubscriptionResult result = 
@@ -106,18 +83,11 @@ sottoscrizione denominata "AllMessages" e usa il filtro predefinito **MatchAll**
 
 ### Creare sottoscrizioni con i filtri
 
-È anche possibile configurare filtri che consentono di specificare i messaggi inviati
-a un argomento da visualizzare in una sottoscrizione all'argomento specifica.
+È anche possibile configurare filtri che consentono di specificare i messaggi inviati a un argomento da visualizzare in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è
-**SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono
-sulle proprietà dei messaggi pubblicati nell'argomento. Per
-altri dettagli sulle espressioni che è possibile usare con un filtro SQL,
-esaminare la sintassi di SqlFilter.SqlExpression.
+Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altri dettagli sulle espressioni che è possibile usare con un filtro SQL, esaminare la sintassi di SqlFilter.SqlExpression.
 
-Nell'esempio seguente viene creata una sottoscrizione denominata 'HighMessages' con un filtro
-**SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata
-**MessageNumber** è maggiore di 3:
+Nel seguente esempio viene creata una sottoscrizione denominata "HighMessages" con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **messagenumber** è maggiore di 3:
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -130,11 +100,7 @@ Nell'esempio seguente viene creata una sottoscrizione denominata 'HighMessages' 
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-Analogamente, nell'esempio seguente viene creata una sottoscrizione denominata
-"LowMessages" con 
- un filtro SqlFilter che seleziona solo i messaggi in cui il valore della proprietà MessageNumber
-è inferiore 
- o uguale a 3:
+Analogamente, nel seguente esempio viene creata una sottoscrizione denominata "LowMessages" con un filtro SqlFilter che seleziona solo i messaggi in cui il valore della proprietà MessageNumber è minore o uguale a 3:
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -148,37 +114,20 @@ Analogamente, nell'esempio seguente viene creata una sottoscrizione denominata
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
 
-Un messaggio inviato a "TestTopic" verrà sempre
-recapitato ai ricevitori con sottoscrizione all'argomento "AllMessages" e
-recapitato selettivamente ai ricevitori con sottoscrizioni agli
-argomenti "HighMessages" e "LowMessages", a seconda del contenuto
-del messaggio.
+Un messaggio inviato a "TestTopic" verrà sempre recapitato ai ricevitori con sottoscrizione all'argomento "AllMessages" e recapitato selettivamente ai ricevitori con sottoscrizioni agli argomenti "HighMessages" e "LowMessages", a seconda del contenuto del messaggio.
 
-## <a name="bkmk_HowToSendMsgs"> </a>Come inviare messaggi a un argomento
+## Come inviare messaggi a un argomento
 
-Per inviare un messaggio a un argomento del bus di servizio, l'applicazione otterrà un oggetto
-**ServiceBusContract**. Il codice seguente illustra come inviare un
-messaggio per l'argomento "TestTopic" creato in precedenza all'interno dello spazio dei nomi servizio
+Per inviare un messaggio a una argomento del bus di servizio, l'applicazione otterrà un oggetto **ServiceBusContract**. Il seguente codice illustra come inviare un messaggio per l'argomento "TestTopic" creato in precedenza all'interno dello spazio dei nomi del servizio
 "HowToSample":
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-I messaggi inviati ad argomenti del bus di servizio sono istanze della classe
-**BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un insieme
-di metodi standard, ad esempio **setLabel** e **TimeToLive**, un dizionario
-usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo
-di dati arbitrari dell'applicazione. Per impostare il corpo del
-, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di
-**BrokeredMessage**. In tal caso, per serializzare l'oggetto verrà usato il serializzatore **DataContractSerializer** appropriato
-. In alternativa, è possibile fornire un oggetto
-**java.io.InputStream**.
+I messaggi inviati ad argomenti del bus di servizio sono istanze della classe **BrokeredMessage**. Gli oggetti **BrokeredMessage** includono un insieme di metodi standard, ad esempio **setLabel** e **TimeToLive**, un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di **BrokeredMessage**. In tal caso per serializzare l'oggetto, verrà usato l'oggetto **DataContractSerializer** appropriato. In alternativa, è possibile fornire un oggetto **java.io.InputStream**.
 
-Nell'esempio seguente viene illustrato come inviare cinque messaggi di prova all'oggetto
-"TestTopic" **MessageSender** "TestTopic" ottenuto nel frammento di codice sopra riportato.
-Si noti come il valore della proprietà **MessageNumber** di ciascun messaggio varia
-nell'iterazione del ciclo, determinando le sottoscrizioni che
-lo riceveranno:
+Il seguente esempio illustra come inviare cinque messaggi di prova all'oggetto **MessageSender** "TestTopic" ottenuto nel frammento di codice sopra riportato.
+Si noti come il valore della proprietà **MessageNumber** di ciascun messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -189,44 +138,17 @@ lo riceveranno:
 		service.sendTopicMessage("TestTopic", message);
 	}
 
-Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari a 256 MB, in cui la dimensione massima dell'intestazione,
-che include le proprietà standard e personalizzate dell'applicazione, non
-può superare 64 MB. Non esiste alcun limite al numero di messaggi
-mantenuti in un argomento, mentre è prevista una limitazione alla dimensione totale dei messaggi
-di un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un
-limite massimo di 5 GB.
+Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari a 256 MB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 MB. Non esiste alcun limite al numero di messaggi mantenuti in un argomento, mentre è prevista una limitazione alla dimensione totale dei messaggi di un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>Come ricevere messaggi da una sottoscrizione
+## Come ricevere messaggi da una sottoscrizione
 
-Il modo principale per ricevere i messaggi da una sottoscrizione consiste nell'usare un oggetto
-**ServiceBusContract**. È possibile usare i messaggi ricevuti in due
-diverse modalità: **ReceiveAndDelete** e **PeekLock**.
+Il modo principale per ricevere i messaggi da una sottoscrizione consiste nell'usare un oggetto **ServiceBusContract**. È possibile usare i messaggi ricevuti in due diverse modalità: **ReceiveAndDelete** e **PeekLock**.
 
-Quando si usa la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica
-fase. Quando infatti il bus di servizio riceve la richiesta di lettura relativa a un
-messaggio, lo contrassegna come usato e lo restituisce
-all'applicazione. La modalità **ReceiveAndDelete** costituisce il modello più semplice ed
-è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di
-un messaggio in caso di errore. Per comprendere meglio
-questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene
-arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il
-messaggio come usato, quando l'applicazione viene riavviata e inizia a usare
-nuovamente i messaggi, il messaggio usato prima dell'arresto
-anomalo risulterà perso.
+Quando si usa la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve la richiesta di lettura relativa a un messaggio, lo contrassegna come utilizzato e lo restituisce all'applicazione. **La modalità ReceiveAndDelete** costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come usato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo risulterà perso.
 
-Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da
-consentire il supporto di applicazioni che non possono
-tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, trova il
-messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo
-restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo
-archiviato in modo affidabile per una successiva elaborazione, esegue la
-seconda fase del processo di ricezione chiamando **Delete**
-sul messaggio ricevuto. Quando il bus di servizio vede la chiamata **Delete**, contrassegna
-il messaggio come usato e lo rimuove dall'argomento.
+Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando **Delete** sul messaggio ricevuto. Quando il bus di servizio vede la chiamata **Delete**, contrassegna il messaggio come utilizzato e lo rimuove dall'argomento.
 
-Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi usando la
-modalità **PeekLock** (non predefinita). Nell'esempio
-seguente viene eseguito un ciclo, vengono elaborati i messaggi nella sottoscrizione "HighMessages" e infine si esce quando non vi sono più messaggi (in alternativa, l'esempio può essere impostato per attendere l'arrivo di nuovi messaggi).
+Il seguente esempio mostra come ricevere ed elaborare messaggi usando la modalità **PeekLock** (non predefinita). Nel seguente esempio viene eseguito un ciclo, vengono elaborati i messaggi nella sottoscrizione "HighMessages" e infine si esce quando non vi sono più messaggi (in alternativa, l'esempio può essere impostato per attendere l'arrivo di nuovi messaggi).
 
 	try
 	{
@@ -279,39 +201,17 @@ seguente viene eseguito un ciclo, vengono elaborati i messaggi nella sottoscrizi
 	    System.exit(-1);
 	} 
 
-## <a name="bkmk_HowToHandleAppCrash"> </a>Come gestire arresti anomali e messaggi illeggibili dell'applicazione
+## Come gestire arresti anomali e messaggi illeggibili dell'applicazione
 
-Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso
-di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione
-ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo,
-può chiamare il metodo **unlockMessage**,
-anziché **deleteMessage**, sul messaggio ricevuto. In questo modo, il bus di servizio
-sbloccherà il messaggio nell'argomento rendendolo nuovamente disponibile per la ricezione
-da parte della stessa o da un'altra
-applicazione consumer.
+Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlockMessage**, anziché **deleteMessage**, sul messaggio ricevuto. In questo modo, il bus di servizio sbloccherà il messaggio nell'argomento rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
 
-Al messaggio bloccato nell'argomento è inoltre associato un timeout
-. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del
-timeout, ad esempio a causa di un arresto anomalo, il bus di
-servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile
-per la ricezione.
+Al messaggio bloccato nell'argomento è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio
-ma prima dell'invio della richiesta **deleteMessage**, il messaggio verrà nuovamente recapitato
-all'applicazione al riavvio del sistema. Questo processo di elaborazione
-viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà
-elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato
-una seconda volta. Se lo scenario non tollera la doppia elaborazione,
-gli sviluppatori dovranno aggiungere ulteriore logica
-all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso
-usato il metodo **getMessageId** del messaggio, che rimane costante in
-tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio del sistema. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usato il metodo **getMessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
-## <a name="bkmk_HowToDeleteTopics"> </a>Come eliminare argomenti e sottoscrizioni
+## Come eliminare argomenti e sottoscrizioni
 
-Il modo principale per eliminare argomenti e sottoscrizioni consiste nell'usare un oggetto
-**ServiceBusContract**. Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni
-registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente.
+Il modo principale per eliminare argomenti e sottoscrizioni consiste nell'usare un oggetto **ServiceBusContract**. Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente.
 
     // Delete subscriptions
     service.deleteSubscription("TestTopic", "AllMessages");
@@ -321,14 +221,13 @@ registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in 
     // Delete a topic
 	service.deleteTopic("TestTopic");
 
-# <a name="bkmk_NextSteps"> </a>Passaggi successivi
+## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere
-l'argomento [Code, argomenti e sottoscrizioni del bus di servizio][] su MSDN per altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere l'argomento [Code, argomenti e sottoscrizioni del bus di servizio][] su MSDN per altre informazioni.
 
-  [Azure SDK per Java]: http://www.windowsazure.com/it-it/develop/java/
+  [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
   [Informazioni su argomenti e sottoscrizioni del bus di servizio]: #what-are-service-bus-topics
-  [Creare uno spazio dei nomi servizio]: #create-a-service-namespace
+  [Creare uno spazio dei nomi del servizio]: #create-a-service-namespace
   [Recuperare le credenziali di gestione predefinite per lo spazio dei nomi]: #obtain-default-credentials
   [Configurare l'applicazione per l'uso del bus di servizio]: #bkmk_ConfigYourApp
   [Procedura: Creare un argomento]: #bkmk_HowToCreateTopic
@@ -345,4 +244,6 @@ l'argomento [Code, argomenti e sottoscrizioni del bus di servizio][] su MSDN per
   [Schermata relativa all'elenco degli spazi dei nomi]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Schermata pannello Proprietà]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Schermata Default Key]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Code, argomenti e sottoscrizioni del bus di servizio]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Code, argomenti e sottoscrizioni del bus di servizio]: http://msdn.microsoft.com/library/hh367516.aspx
+
+<!--HONumber=47-->

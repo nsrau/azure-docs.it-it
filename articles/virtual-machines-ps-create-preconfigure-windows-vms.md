@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows" 
+﻿<properties 
+	pageTitle="Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows" 
 	description="Informazioni su come usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-# Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows
+# Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows
 
 Questi passaggi mostrano come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows mediante un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Linux, vedere [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Linux, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
 
 ## Passaggio 1: Installare Azure PowerShell
 
-Se non è ancora stato installato, usare le istruzioni in [Come installare e configurare Azure PowerShell](../install-configure-powershell/) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell a livello di amministratore.
+Se non è ancora stato installato, usare le istruzioni nell'argomento che illustra [come installare e configurare Azure PowerShell](../install-configure-powershell/) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 ## Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
 
@@ -37,7 +37,7 @@ Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo ques
 	Select-AzureSubscription -SubscriptionName $subscr -Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un utilizzo futuro.
+È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un uso futuro.
 
 ## Passaggio 3: Determinare il valore ImageFamily
 
@@ -72,9 +72,9 @@ Se si trova l'immagine corretta con questo comando, aprire una nuova istanza del
 
 ## Passaggio 4: Compilare il set di comandi
 
-Compilare il resto del set di comandi copiando il set appropriato di blocchi seguente nel nuovo file di testo, quindi compilando i valori delle variabili e rimuovendo i caratteri < e >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
+Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo, quindi compilando i valori delle variabili e rimuovendo i caratteri < e >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
-Avviare il set di comandi scegliendo uno dei due blocchi di comandi seguenti (obbligatorio).
+Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
 
 
 Opzione 1: Specificare un nome di macchina virtuale e una dimensione.
@@ -98,7 +98,7 @@ Facoltativamente, per un computer Windows autonomo, specificare l'account ammini
 	$localadminpassword="<local administrator account password>"
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
 
-Facoltativamente, per aggiungere computer Windows a un dominio di Active Directory esistente, specificare l'account e la password di amministratore locale, il dominio e le credenziali dell'account di un account di dominio.
+Facoltativamente, per aggiungere il computer Windows a un dominio di Active Directory esistente, specificare l'account e la password di amministratore locale, il dominio e infine il nome e la password di un account di dominio.
 
 	$localadminusername="<local administrator account name>"
 	$localadminpassword="<local administrator account password>"
@@ -108,7 +108,7 @@ Facoltativamente, per aggiungere computer Windows a un dominio di Active Directo
 	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
-Questa operazione richiede di specificare il nome e la password di un account di dominio di Active Directory. Se si salva il set di comandi risultante come file, assicurarsi di archiviarlo in un percorso sicuro per proteggere il nome e la password dell'account di dominio.
+Si noti che per entrambe le opzioni è necessario specificare nomi e password di account. Se si salva il set di comandi risultante in un file, archiviarlo in un percorso sicuro per proteggere tali dati.
 
 Per altre opzioni di preconfigurazione per le macchine virtuali basate su Windows, vedere la sintassi per i set di parametri **Windows** e **WindowsDomain** in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -177,7 +177,7 @@ Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
 ## <a id="examples"></a>esempi
 
-Di seguito sono riportati due esempi di utilizzo dei passaggi precedenti per compilare i set di comandi di Azure PowerShell per la creazione di macchine virtuali Azure basate su Windows.
+Di seguito sono riportati due esempi d'uso dei passaggi precedenti per compilare i set di comandi di Azure PowerShell per la creazione di macchine virtuali Azure basate su Windows.
 
 ### Esempio 1
 
@@ -267,6 +267,6 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell/)
 
-[Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

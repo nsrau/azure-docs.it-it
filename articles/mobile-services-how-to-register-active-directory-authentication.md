@@ -10,18 +10,21 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
 # Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory
+## Informazioni generali
+
 
 Questo argomento descrive come registrare le app in modo da usare Azure Active Directory come provider di autenticazione per Servizi mobili di Azure. 
 
+## Registrazione dell'app
 
->[AZURE.NOTE] I passaggi descritti in questo argomento devono essere usati con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) se si vogliono usare [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con l'app. Se invece l'app richiede [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) per Azure Active Directory e un servizio mobile back-end .NET, sarà necessario eseguire prima di tutto l'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library](/it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] I passaggi descritti in questo argomento devono essere usati con l'esercitazione relativa all'[aggiunta dell'autenticazione all'app di Servizi mobili](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) se si vogliono usare [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con l'app. Se invece l'app richiede [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) per Azure Active Directory e un servizio mobile back-end .NET, sarà necessario eseguire prima di tutto l'esercitazione relativa all'[autenticazione dell'app tramite il Single Sign-On di Active Directory Authentication Library](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
@@ -38,7 +41,7 @@ Questo argomento descrive come registrare le app in modo da usare Azure Active D
 
 4. Passare a **Active Directory** nel portale di gestione, quindi fare clic sulla directory.
 
-    ![][4] 	
+    ![][4] 
 
 5. Fare clic sulla scheda **Applicazioni** nella parte superiore, quindi fare clic su **AGGIUNGI** per aggiungere un'app. 
 
@@ -46,7 +49,7 @@ Questo argomento descrive come registrare le app in modo da usare Azure Active D
 
 6. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-7. Nella procedura guidata di aggiunta applicazione immettere un nome per l'applicazione in **Name** e fare clic sul tipo **Web Application And/Or Web API**. Fare quindi clic per continuare.
+7. Nella procedura guidata di aggiunta applicazione immettere un nome per l'applicazione in **Nome** e fare clic sul tipo **Applicazione Web e/o API Web**. Fare quindi clic per continuare.
 
     ![][5]
 
@@ -99,5 +102,4 @@ Questo argomento descrive come registrare le app in modo da usare Azure Active D
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

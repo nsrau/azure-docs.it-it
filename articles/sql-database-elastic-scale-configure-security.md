@@ -1,17 +1,29 @@
-﻿<properties title="Elastic Scale Security Configurations" pageTitle="Configurazioni di sicurezza per Scalabilità elastica" description="Sicurezza per servizi di "split and merge" usando Elastic Scale per database SQL di Azure" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	title="Elastic Scale Security Configurations" 
+	pageTitle="Configurazioni di sicurezza per Scalabilità elastica" 
+	description="Sicurezza per servizi di "split and merge" usando Elastic Scale per database SQL di Azure" 
+	metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
+	services="sql-database" documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh@microsoft.com"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" ms.topic="article" ms.date="03/05/2015" 
+	ms.author="sidneyh" />
 
 # Configurazioni di sicurezza per Scalabilità elastica  
 
 Scalabilità elastica del database SQL di Azure include un servizio self-hosted. La distribuzione include un file di configurazione del servizio che contiene le impostazioni di sicurezza correlate da configurate.
 
-1. [Configurazione di certificati][] 
+1. [Configurazione dei certificati][] 
 2. [Indirizzi IP consentiti][]
 3. [Prevenzione di attacchi Denial of Service][]
 4. [Altre considerazioni sulla sicurezza][]
 
-## <a name="configuring-certificates"></a>Configuring Certificates
+## <a name="configuring-certificates"></a>Configurazione dei certificati
 
 I certificati vengono configurati in due modi. 
 
@@ -20,29 +32,29 @@ I certificati vengono configurati in due modi.
 
 ## <a name="obtain-certificates"></a>Per ottenere i certificati
 
-I certificati si possono ottenere da Autorità di certificazione (CA) pubbliche o dal servizio [Certificate Services di Windows](http://msdn.microsoft.com/it-it/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
+È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
 
-Se queste opzioni non sono disponibili, è possibile generare **certificati autofirmati**.
+Se tali opzioni non sono disponibili, è possibile generare **certificati autofirmati**.
  
 ## <a name="tools"></a>Strumenti per generare i certificati
 
-* [makecert.exe](http://msdn.microsoft.com/it-it/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/it-it/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-###Per eseguire gli strumenti
+### Per eseguire gli strumenti
 
-* Da un prompt dei comandi per gli sviluppatori per Visual Studio, vedere [Prompt dei comandi di Visual Studio](http://msdn.microsoft.com/it-it/library/ms229859.aspx). 
+* Da un Prompt dei comandi per gli sviluppatori per Visual Studio, vedere l'articolo relativo al [prompt dei comandi di Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx). 
 
     Se installato, passare a:
 
-        %Programmi (x86)%\Windows Kits\x.y\bin\x86 
+        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Ottenere il WDK da [Windows 8.1: download di kit e strumenti](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers).
+* Ottenere il WDK dalla pagina Web [Windows 8.1: download di kit e strumenti](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers).
 
 ##    <a name="to-configure-ssl-cert"></a>Per configurare il certificato SSL
-Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre scenari seguenti ed eseguirne tutti i passaggi:
+Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
-###Creare un nuovo certificato autofirmato
+### Creare un nuovo certificato autofirmato
 
 1.    [Creare un certificato autofirmato][]
 2.    [Creare un file PFX per il certificato SSL autofirmato][]
@@ -50,25 +62,25 @@ Un certificato SSL è necessario per crittografare la comunicazione e autenticar
 4.    [Aggiornare il certificato SSL nel file di configurazione del servizio][]
 5.    [Importare l'Autorità di certificazione SSL][]
 
-#### Per usare un certificato esistente dall'archivio certificati
+### Per usare un certificato esistente dall'archivio certificati
 1. [Esportare il certificato SSL dall'archivio certificati][]
 2. [Caricare il certificato SSL nel servizio cloud][]
 3. [Aggiornare il certificato SSL nel file di configurazione del servizio][]
 
-#### Per usare un certificato esistente in un file PFX
+### Per usare un certificato esistente in un file PFX
 
 1. [Caricare il certificato SSL nel servizio cloud][]
 2. [Aggiornare il certificato SSL nel file di configurazione del servizio][]
 
 ## <a name="configuring-client-certs"></a>Per configurare i certificati client
-I certificati client sono necessari per autenticare le richieste al servizio. Scegliere il più appropriato dei tre scenari seguenti ed eseguirne tutti i passaggi:
+I certificati client sono necessari per autenticare le richieste al servizio. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
-###Disabilitare i certificati client
+### Disabilitare i certificati client
 1.    [Disabilitare l'autenticazione basata su certificati client][]
 
-###Rilasciare nuovi certificati autofirmati
-1.    [Creare un'autorità di certificazione autofirmata][]
-2.    [Caricare un certificato della CA nel servizio cloud][]
+### Rilasciare nuovi certificati autofirmati
+1.    [Creare un'Autorità di certificazione autofirmata][]
+2.    [Caricare il certificato della CA nel servizio cloud][]
 3.    [Aggiornare il certificato della CA nel file di configurazione del servizio][]
 4.    [Rilasciare certificati client][]
 5.    [Creare file PFX per i certificati client][]
@@ -76,36 +88,58 @@ I certificati client sono necessari per autenticare le richieste al servizio. Sc
 7.    [Copiare le identificazioni personali del certificato client][]
 8.    [Configurare i client consentiti nel file di configurazione del servizio][]
 
-###Usare i certificati client esistenti
+### Usare i certificati client esistenti
 1.    [Trovare la chiave pubblica CA][]
-2.    [Caricare un certificato della CA nel servizio cloud][]
+2.    [Caricare il certificato della CA nel servizio cloud][]
 3.    [Aggiornare il certificato della CA nel file di configurazione del servizio][]
 4.    [Copiare le identificazioni personali del certificato client][]
 5.    [Configurare i client consentiti nel file di configurazione del servizio][]
 6.    [Configurare il controllo della revoca del certificato client][]
 
-## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
+## <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
 
-Access to the service endpoints can be restricted to specific ranges of IP addresses.
- 
-## The Default Configuration
+L'accesso agli endpoint del servizio può essere limitato a intervalli specifici di indirizzi IP.
 
-The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
-The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
+## Per configurare la crittografia per l'archivio
 
-### Changing the Configuration
+È necessario un certificato per crittografare le credenziali archiviate nell'archivio di metadati. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+### Usare un nuovo certificato autofirmato
+
+1.	 [Creare un certificato autofirmato][]
+2.	 [Creare un file PFX per il certificato di crittografia autofirmato][]
+3.	 [Caricare il certificato di crittografia nel servizio cloud][]
+4.	 [Aggiornare il certificato di crittografia nel file di configurazione del servizio][]
+
+### Usare un certificato esistente dall'archivio certificati
+
+1.	 [Esportare il certificato di crittografia dall'archivio certificati][]
+2.	 [Caricare il certificato di crittografia nel servizio cloud][]
+3.	 [Aggiornare il certificato di crittografia nel file di configurazione del servizio][]
+
+### Usare un certificato esistente in un file PFX
+
+1.	 [Caricare il certificato di crittografia nel servizio cloud][]
+2.	 [Aggiornare il certificato di crittografia nel file di configurazione del servizio][]
+
+## Configurazione predefinita
+
+La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa è l'impostazione consigliata, in quanto le richieste inviate a tali endpoint posso includere dati sensibili come le credenziali di database.
+La configurazione predefinita consente qualunque accesso all'endpoint HTTPS. Tale impostazione può essere limitata ulteriormente.
+
+### Modifica della configurazione
+
+Il gruppo di regole di controllo di accesso applicabili a un endpoint viene configurato nella sezione **<EndpointAcls>** del **file di configurazione del servizio**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+Le regole incluse in un gruppo di controllo di accesso vengono configurate in una sezione <AccessControl name=""> del file di configurazione del servizio. 
 
-The format is explained in Network Access Control Lists documentation.
-For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
+Il formato è illustrato nella documentazione relativa agli elenchi di controllo di accesso di rete.
+Ad esempio, per consentire l'accesso all'endpoint HTTPS solo per gli indirizzi IP compresi nell'intervallo da 100.100.0.0 a 100.100.255.255, le regole saranno simili alle seguenti:
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -121,7 +155,7 @@ Per rilevare e impedire attacchi Denial of Service sono supportati due diversi m
 *    Limitare il numero di richieste simultanee per host remoto (opzione disattivata per impostazione predefinita).
 *    Limitare la frequenza di accesso per host remoto (opzione attivata per impostazione predefinita).
 
-Questi meccanismi si basano sulle funzionalità illustrate più estesamente nella documentazione relativa alla sicurezza degli IP dinamici in IIS. Quando si modifica questa configurazione, prestare attenzione ai fattori seguenti:
+Questi meccanismi si basano sulle funzionalità illustrate più estesamente nella documentazione relativa alla sicurezza degli IP dinamici in IIS. Quando si modifica questa configurazione, prestare attenzione ai seguenti fattori:
 
 * Comportamento del proxy e dei dispositivi NAT (Network Address Translation)rispetto alle informazioni sull'host remoto.
 * Viene considerata ogni richiesta a qualsiasi risorsa nel ruolo Web (ad esempio, caricamento di script, immagini e così via).
@@ -133,7 +167,7 @@ Le impostazioni che configurano questo comportamento sono le seguenti:
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
+Impostare DynamicIpRestrictionDenyByConcurrentRequests su true per abilitare questa protezione.
 
 ## Limitazione della frequenza di accesso
 
@@ -145,7 +179,7 @@ Le impostazioni che configurano questo comportamento sono le seguenti:
 
 ## Configurazione della risposta a una richiesta negata
 
-L'impostazione seguente configura la risposta a una richiesta negata:
+La seguente impostazione configura la risposta a una richiesta negata:
 
     <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
 Per altri valori supportati, vedere la documentazione relativa alla sicurezza degli IP dinamici in IIS.
@@ -169,7 +203,7 @@ Eseguire:
 Per personalizzare:
 
 *    -n con l'URL del servizio. Sono supportati caratteri jolly ("CN=*.cloudapp.net") e nomi alternativi ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
-*    -e con la data di scadenza del certificato.
+*    -e con la data di scadenza del certificato
 Creare una password complessa e specificarla quando richiesto.
 
 ## <a name="create-pfx-for-self-signed-cert"></a>Creare un file PFX per il certificato SSL autofirmato
@@ -199,13 +233,13 @@ Caricare il certificato con il file PFX esistente o generato con la coppia di ch
 
 ## <a name="update-ssl-in-csfg"></a>Aggiornare il certificato SSL nel file di configurazione del servizio
 
-Aggiornare il valore di identificazione personale dell'impostazione seguente nel file di configurazione del servizio con l'identificazione personale del certificato caricato nel servizio cloud:
+Aggiornare il valore di identificazione personale della seguente impostazione nel file di configurazione del servizio con l'identificazione personale del certificato caricato nel servizio cloud:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="import-ssl-ca"></a>Importare l'Autorità di certificazione SSL
 
-Attenersi alla procedura seguente in tutti gli account o i computer che comunicheranno con il servizio:
+Seguire questa procedura in tutti gli account o i computer che comunicheranno con il servizio:
 
 * Fare doppio clic sul file con estensione CER in Esplora risorse.
 * Nella finestra di dialogo Certificato fare clic su Installa certificato.
@@ -225,7 +259,7 @@ Copiare quindi la stessa identificazione personale del certificato SSL nell'impo
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="create-self-signed-ca"></a>Creare un'autorità di certificazione autofirmata
-Per creare un certificato autofirmato che funga da autorità di certificazione, eseguire la procedura seguente:
+Per creare un certificato autofirmato che funga da autorità di certificazione, seguire questa procedura:
 
     makecert ^
     -n "CN=MyCA" ^
@@ -237,7 +271,7 @@ Per creare un certificato autofirmato che funga da autorità di certificazione, 
 
 Per personalizzarlo
 
-*    -e con la data di scadenza del certificato.
+*    -e with the certification expiration date
 
 
 ## <a name="find-ca-public-key"></a>Trovare la chiave pubblica CA
@@ -261,17 +295,17 @@ Se il file con la chiave pubblica non è disponibile, esportarlo dall'archivio c
     * Se possibile, includi tutti i certificati nel percorso certificazione
     * Esporta tutte le proprietà estese
 
-## <a name="upload-ca-cert"></a>Caricare un certificato della CA nel servizio cloud
+## <a name="upload-ca-cert"></a>Caricare il certificato della CA nel servizio cloud
 
 Caricare il certificato con il file PFX esistente o generato con la coppia di chiavi SSL.
 
 ## <a name="update-ca-in-csft"></a>Aggiornare il certificato della CA nel file di configurazione del servizio
 
-Aggiornare il valore di identificazione personale dell'impostazione seguente nel file di configurazione del servizio con l'identificazione personale del certificato caricato nel servizio cloud:
+Aggiornare il valore di identificazione personale della seguente impostazione nel file di configurazione del servizio con l'identificazione personale del certificato caricato nel servizio cloud:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Aggiornare il valore dell'impostazione seguente con la stessa identificazione personale:
+Aggiornare il valore della seguente impostazione con la stessa identificazione personale:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
@@ -279,7 +313,7 @@ Aggiornare il valore dell'impostazione seguente con la stessa identificazione pe
 
 Ogni utente con l'autorizzazione di accesso al servizio deve avere un certificato client rilasciato per proprio uso esclusivo e scegliere una propria password complessa per proteggere la chiave privata. 
 
-Eseguire la procedura seguente nello stesso computer in cui è stato generato e archiviato il certificato CA autofirmato:
+Seguire questa procedura nello stesso computer in cui è stato generato e archiviato il certificato CA autofirmato:
 
     makecert ^
       -n "CN=My ID" ^
@@ -291,8 +325,8 @@ Eseguire la procedura seguente nello stesso computer in cui è stato generato e 
 
 Personalizzazione
 
-* -n con un ID per il client che verrà autenticato con il certificato.
-* -e con la data di scadenza del certificato.
+* -n con un ID per il client che verrà autenticato con il certificato
+* -e con la data di scadenza del certificato
 * MyID.pvk e MyID.cer con nomi file univoci per il certificato client
 
 Questo comando richiederà la creazione di una password che verrà quindi usata una sola volta. Usare una password complessa.
@@ -305,7 +339,7 @@ Per ogni certificato client generato, eseguire:
 
 Personalizzazione
 
-    •    MyID.pvk eMyID.cer con il nome file per il certificato client
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 Immettere la password e quindi esportare il certificato con queste opzioni:
 
@@ -321,8 +355,8 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà import
 * Importare il certificato nell'archivio personale con selezionata almeno questa opzione:
     * Includi tutte le proprietà estese.
 
-## <a name=copy-client-cert"> </a> Copiare le identificazioni personali del certificato client
-Ogni utente per il quale è stato rilasciato un certificato client dovrà attenersi alla procedura seguente per ottenere l'identificazione personale del proprio certificato, che verrà aggiunto al file di configurazione del servizio:
+## <a name="copy-client-cert"> </a> Copiare le identificazioni personali del certificato client
+Ogni utente per il quale è stato rilasciato un certificato client dovrà seguire questa procedura per ottenere l'identificazione personale del proprio certificato, che verrà aggiunto al file di configurazione del servizio:
 * Eseguire certmgr.exe.
 * Selezionare la scheda Personale.
 * Fare doppio clic sul certificato client da usare per l'autenticazione.
@@ -330,25 +364,61 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà attene
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
 * Copiare il valore dell'identificazione personale.
-** Eliminare i caratteri Unicode non visibili davanti alla prima cifra.
-** Eliminare tutti gli spazi.
+** Eliminare i caratteri Unicode non visibili davanti alla prima cifra
+** Eliminare tutti gli spazi
 
 ## <a name="configure-allowed-client"></a>Configurare i client consentiti nel file di configurazione del servizio
 
-Aggiornare il valore dell'impostazione seguente nel file di configurazione del servizio con un elenco delimitato da virgole delle identificazioni personali dei certificati client a cui è consentito accedere al servizio:
+Aggiornare il valore della seguente impostazione nel file di configurazione del servizio con un elenco delimitato da virgole delle identificazioni personali dei certificati client a cui è consentito accedere al servizio:
 
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## <a name="configure-client-revocation"></a>Configurare il controllo della revoca del certificato client
 
-Per impostazione predefinita,lo stato della revoca del certificato non viene verificato con l'Autorità di certificazione. Per abilitare i controlli, se l'Autorità di certificazione che ha rilasciato i certificati client li supporta, modificare l'impostazione seguente con uno dei valori definiti nell'enumerazione X509RevocationMode:
+Per impostazione predefinita,lo stato della revoca del certificato non viene verificato con l'Autorità di certificazione. Per abilitare i controlli, se l'Autorità di certificazione che ha rilasciato i certificati client li supporta, modificare la seguente impostazione con uno dei valori definiti nell'enumerazione X509RevocationMode:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
+## <a name="create-pfx-files-encryption"></a>Creare un file PFX per certificati di crittografia autofirmati
+
+Per un certificato di crittografia eseguire:
+
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+
+Personalizzazione
+
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
+
+Immettere la password e quindi esportare il certificato con queste opzioni:
+*	Sì, esporta la chiave privata
+*	Esporta tutte le proprietà estese
+*	Quando si carica il certificato nel servizio cloud, sarà necessaria la password.
+
+## <a name="export-encryption-from-store"></a>Esportare il certificato di crittografia dall'archivio certificati
+
+*	Trovare il certificato.
+*	Fare clic su Azioni -> Tutte le attività -> Esporta.
+*	Esportare il certificato in un file PFX con queste opzioni: 
+  *	Sì, esporta la chiave privata
+  *	Se possibile, includi tutti i certificati nel percorso certificazione 
+*	Esporta tutte le proprietà estese
+
+## <a name="upload-encryption-cert"></a> Caricare il certificato di crittografia nel servizio cloud
+
+Caricare il certificato con il file PFX esistente o generato con la coppia di chiavi di crittografia:
+
+* Immettere la password che protegge le informazioni sulla chiave privata.
+
+## <a name="update-encryption-in-csft"></a>Aggiornare il certificato di crittografia nel file di configurazione del servizio
+
+Aggiornare il valore di identificazione personale della seguente impostazione nel file di configurazione del servizio con l'identificazione personale del certificato caricato nel servizio cloud:
+
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 ## Operazioni comuni relative ai certificati
 
-•    Configurare il certificato SSL.
-•    Configurare i certificati client.
+* Configurare il certificato SSL.
+* Configurare i certificati client.
 
 ## Trovare il certificato.
 
@@ -415,15 +485,15 @@ Nel [portale di gestione di Azure](http://manage.windowsazure.com/)
 
 # <a name="other-security"></a> Altre considerazioni sulla sicurezza
  
-Le impostazioni SSL descritte in questo documento crittografano le comunicazioni tra il servizio e i relativi client quando si usa l'endpoint HTTPS. Questo aspetto è importante perché nella comunicazione sono contenute le credenziali per l'accesso al database e potenzialmente altre informazioni riservate. Si noti che il servizio mantiene lo stato interno, incluse le credenziali, nelle relative tabelle interne del database SQL di Microsoft Azure fornite per l'archiviazione dei metadati nella sottoscrizione di Microsoft Azure. Tale database è stato definito come parte dell'impostazione seguente nel file di configurazione del servizio (file CSCFG): 
+Le impostazioni SSL descritte in questo documento crittografano le comunicazioni tra il servizio e i relativi client quando si usa l'endpoint HTTPS. Questo aspetto è importante perché nella comunicazione sono contenute le credenziali per l'accesso al database e potenzialmente altre informazioni riservate. Si noti che il servizio mantiene lo stato interno, incluse le credenziali, nelle relative tabelle interne del database SQL di Microsoft Azure fornite per l'archiviazione dei metadati nella sottoscrizione di Microsoft Azure. Tale database è stato definito come parte della seguente impostazione nel file di configurazione del servizio (file CSCFG): 
 
     <Setting name="ElasticScaleMetadata" value="Server=..." />
 
-I dati archiviati nel database non sono crittografati. Per evitare di rivelare le credenziali o altre informazioni riservate incluse nelle richieste di servizio, proteggere il database e mantenerne l'accesso sempre protetto. Verificare anche che i ruoli Web e di lavoro delle distribuzioni del servizio siano mantenuti aggiornati e sicuri, in quanto entrambi hanno accesso al database dei metadati. 
+Le credenziali archiviate in questo database vengono crittografate. Come procedura consigliata è opportuno verificare tuttavia che i ruoli Web e di lavoro delle distribuzioni del servizio siano sempre aggiornati e protetti, in quanto dispongono dell'accesso al database di metadati e al certificato usati per la crittografia e decrittografia delle credenziali archiviate. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
-[Configurazione di certificati]:#configuring-certificates
+[Configurazione dei certificati]:#configuring-certificates
 [Indirizzi IP consentiti]:#allowed-ip-addresses
 [Per configurare i certificati client]:#configuring-client-certs
 [Creare un certificato autofirmato]:#create-self-signed-cert
@@ -433,9 +503,9 @@ I dati archiviati nel database non sono crittografati. Per evitare di rivelare l
 [Importare l'Autorità di certificazione SSL]: "import-ssl-ca"
 [Esportare il certificato SSL dall'archivio certificati]: #export-ssl-from-store
 [Disabilitare l'autenticazione basata su certificati client]: #turn-off-client-cert
-[Creare un'autorità di certificazione autofirmata]:#create-self-signed-ca
+[Creare un'Autorità di certificazione autofirmata]:#create-self-signed-ca
 [Copiare le identificazioni personali del certificato client]:#copy-client-cert
-[Caricare un certificato della CA nel servizio cloud]:#upload-ca-cert
+[Caricare il certificato della CA nel servizio cloud]:#upload-ca-cert
 [Aggiornare il certificato della CA nel file di configurazione del servizio]:#update-ca-in-csft
 [Rilasciare certificati client]:#issue-client-certs
 [Creare file PFX per i certificati client]:#create-pfx-files
@@ -449,3 +519,9 @@ I dati archiviati nel database non sono crittografati. Per evitare di rivelare l
 [Per configurare il certificato SSL]:#to-configure-ssl-cert
 [Altre considerazioni sulla sicurezza]:#other-security 
 [Caricare il certificato]:#upload-certificate
+[Creare un file PFX per il certificato di crittografia autofirmato]:#create-pfx-files-encryption
+[Caricare il certificato di crittografia nel servizio cloud]:#upload-encryption-cert 
+[Aggiornare il certificato di crittografia nel file di configurazione del servizio]:#update-encryption-in-csft
+[Esportare il certificato di crittografia dall'archivio certificati]:#export-encryption-from-store
+
+<!--HONumber=47-->

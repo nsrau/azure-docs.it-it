@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Introduzione alle notifiche push (push legacy) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript di Windows Store (push legacy)." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,23 +19,23 @@
 # Aggiungere notifiche push all'app di Servizi mobili (push legacy)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-    <a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-    <a href="/it-it/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/it-it/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/it-it/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+ <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+ <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+ <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+ <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+ <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!-- <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+ <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Back-end JavaScript</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end .NET</a> | <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/" title="JavaScript backend" class="current">Back-end JavaScript</a></div>		
 
 Questo argomento descrive come usare Servizi mobili di Azure in Visual Studio 2013 per inviare notifiche push all'app di Windows Store. In questa esercitazione si userà Servizi notifica Push Windows per aggiungere notifiche push al progetto di guida introduttiva, direttamente da Visual Studio. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
->[AZURE.NOTE]L'argomento supporta <em>servizi mobili</em> esistenti <em>che non sono stati ancora aggiornati</em> per l'uso dell'integrazione di Hub di notifica. Quando si crea un <em>nuovo</em> servizio mobile, questa funzionalità integrata è abilitata automaticamente. Per i nuovi servizi mobili, vedere [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]In questo argomento sono supportati servizi mobili <em>esistenti</em> che <em>non sono stati ancora aggiornati</em> per l'uso dell'integrazione di Hub di notifica. Quando si crea un <em>nuovo</em> servizio mobile, questa funzionalità integrata viene abilitata automaticamente. Per i nuovi servizi mobili, vedere [Introduzione alle notifiche push](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 >
->Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. <em>È consigliabile aggiornare i servizi mobili esistenti per l'uso di Hub di notifica, se possibile</em>. Dopo aver eseguito l'aggiornamento, vedere questa versione di [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. <em>È consigliabile aggiornare i servizi mobili esistenti per l'uso di Hub di notifica non appena è possibile</em>. Dopo aver eseguito l'aggiornamento, vedere questa versione di [Introduzione alle notifiche push](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 
@@ -76,18 +76,18 @@ Il codice generato semplifica la dimostrazione dell'invio di una notifica durant
 
 2. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-   	![][13]
+ 	![][13]
 
-   	Si noti che al termine dell'inserimento l'app riceve una notifica push da WNS.
+ 	Si noti che al termine dell'inserimento l'app riceve una notifica push da WNS.
 
-   	![][14]
+ 	![][14]
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione viene illustrata la funzionalità di notifica push di base fornita da Servizi mobili. Se per l'app sono richieste funzionalità più avanzate, ad esempio l'invio di notifiche tra piattaforme diverse, il routing basato sulla sottoscrizione o la gestione di volumi molto elevati, provare a usare Hub di notifica di Azure con il servizio mobile. Per altre informazioni, vedere uno degli argomenti seguenti relativi a Hub di notifica:
 
 + [Introduzione ad Hub di notifica]
-  <br/>Informazioni su come sfruttare Hub di notifica nell'app di Windows Store.
+ <br/>Informazioni su come sfruttare Hub di notifica nell'app di Windows Store.
 
 + [Inviare notifiche ai sottoscrittori]
 	<br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
@@ -101,16 +101,16 @@ In questa esercitazione viene illustrata la funzionalità di notifica push di ba
 Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
 * [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+ <br/>Ulteriori informazioni sull'archiviazione e le query dei dati tramite Servizi mobili.
 
 * [Introduzione all'autenticazione]
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con un account Windows.
+ <br/>Informazioni sull'autenticazione degli utenti dell'app con un account Windows.
 
 * [Informazioni di riferimento sugli script del server di Servizi mobili]
-  <br/>Altre informazioni sulla registrazione e l'uso di script del server.
+ <br/>Altre informazioni sulla registrazione e l'uso di script del server.
 
 * [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]
-  <br/>Altre informazioni su come usare Servizi mobili con HTML e JavaScript.  
+ <br/>Altre informazioni su come usare Servizi mobili con HTML e JavaScript. 
 
 <!-- Anchors. -->
 [Registrare l'app per le notifiche push e configurare Servizi mobili]: #register
@@ -136,22 +136,21 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/
-[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-js/
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-js
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-js
-[Inviare notifiche push agli utenti di app]: /it-it/develop/mobile/tutorials/push-notifications-to-users-js
-[Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-push-js
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/
+[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-js/
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-js
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-js
+[Inviare notifiche push agli utenti di app]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client/
+[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client/
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Informazioni su Hub di notifica]: /it-it/develop/net/how-to-guides/service-bus-notification-hubs/
-[Inviare notifiche ai sottoscrittori]: /it-it/manage/services/notification-hubs/breaking-news-dotnet/
-[Inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users/
-[Inviare notifiche agli utenti tra piattaforme diverse]: /it-it/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Introduzione ad Hub di notifica]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[Informazioni su Hub di notifica]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[Inviare notifiche ai sottoscrittori]: /manage/services/notification-hubs/breaking-news-dotnet/
+[Inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users/
+[Inviare notifiche agli utenti tra piattaforme diverse]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

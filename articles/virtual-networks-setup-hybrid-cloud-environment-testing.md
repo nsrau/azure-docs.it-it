@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Configurare un ambiente cloud ibrido per i test" 
+	pageTitle="Configurazione di un ambiente cloud ibrido per l'esecuzione di test" 
 	description="Informazioni su come creare un ambiente cloud ibrido per professionisti IT o per il test di sviluppo." 
 	services="virtual-network" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Configurare un ambiente cloud ibrido per i test
+# Configurazione di un ambiente cloud ibrido per l'esecuzione di test
 
 Questo argomento illustra la creazione di un ambiente cloud ibrido in Microsoft Azure per attività di test. Di seguito è riportata la configurazione risultante.
 
@@ -42,11 +42,11 @@ L'impostazione di un ambiente di test del cloud ibrido comporta cinque fasi prin
 4.	Creare la connessione VPN da sito a sito.
 5.	Configurare DC2. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ridurre i costi di esecuzione dell'ambiente di test quando non lo si usa, vedere [Ridurre al minimo i costi correnti dell'ambiente](#costs) in questo argomento per ottenere altre informazioni.
 
-##Fase 1: Configurare i computer nella subnet Corpnet.
+## Fase 1: Configurare i computer nella subnet Corpnet.
 
 Usare le istruzioni nella sezione "Passaggi per configurare la subnet Corpnet" della [Guida del laboratorio di testing: Configurazione di Windows Server 2012 R2 di base](http://www.microsoft.com/download/details.aspx?id=39638) per configurare i computer DC1, APP1 e CLIENT1 in una subnet denominata Corpnet. **Questa subnet deve essere isolata dalla rete dell'organizzazione perché verrà connessa direttamente a Internet tramite il computer RRAS1.** 
 
@@ -61,7 +61,7 @@ Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##Fase 2: Configurare RRAS1
+## Fase 2: Configurare RRAS1
 
 RRAS1 fornisce servizi di indirizzamento del traffico e servizi di dispositivi VPN tra i computer della subnet Corpnet e la rete virtuale TestVNET. RRAS1 deve disporre di due schede di rete installate.
 
@@ -101,7 +101,7 @@ Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#Fase 3: Creare la rete virtuale di Azure cross-premise
+# Fase 3: Creare la rete virtuale di Azure cross-premise
 
 In primo luogo, accedere al [portale di gestione di Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) con le credenziali della sottoscrizione di Azure e creare una rete virtuale denominata TestVNET.
 
@@ -124,11 +124,11 @@ In primo luogo, accedere al [portale di gestione di Azure](https://manage.window
 	- Fare clic su **Aggiungi subnet gateway**.
 11.	Fare clic sull'icona Completa. Attendere il completamento della creazione della rete virtuale prima di continuare.
 
-Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell/) per installare Azure PowerShell nel computer locale.
+Usare quindi le istruzioni disponibili nella pagina che illustra [come installare e configurare Azure PowerShell](../install-configure-powershell/) per installare Azure PowerShell nel computer locale.
 
 Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome TestVNET-*UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestVNET-Tailspin al servizio cloud.
 
-Per verificare l'univocità del nome, è possibile usare il comando di Azure PowerShell seguente nel computer locale.
+Per verificare l'univocità del nome, è possibile usare il seguente comando di Azure PowerShell nel computer locale.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
@@ -140,7 +140,7 @@ Creare quindi un nuovo account di archiviazione per la rete virtuale TestVNET. �
 
 	Test-AzureName -Storage <Proposed storage account name>
 
-Se questo comando restituisce "False", il nome proposto è univoco. Creare e impostare l'account di archiviazione con i comandi seguenti.
+Se questo comando restituisce "False", il nome proposto è univoco. Creare e impostare l'account di archiviazione con i seguenti comandi.
 
 	New-AzureStorageAccount -StorageAccountName <Unique storage account name> -Location "<Same location name as your virtual network>"
 	Set-AzureStorageAccount -StorageAccountName <Unique storage account name>
@@ -150,7 +150,7 @@ Questa è la configurazione corrente.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#Fase 4: Creare la connessione VPN da sito a sito
+# Fase 4: Creare la connessione VPN da sito a sito
 
 Creare innanzitutto un gateway di rete virtuale.
 
@@ -160,13 +160,13 @@ Creare innanzitutto un gateway di rete virtuale.
 4.	Annotare l'**Indirizzo IP gateway** dalla pagina Dashboard. Questo è l'indirizzo IP pubblico del gateway VPN di Azure per la rete virtuale TestVNET. Questo indirizzo IP è necessario per configurare RRAS1.
 5.	Nella barra delle applicazioni fare clic su **Gestisci chiave**, quindi fare clic sull'icona Copia accanto alla chiave per copiarla negli Appunti. Incollare la chiave in un documento e salvare il documento. Questo valore della chiave è necessario per configurare RRAS1. 
 
-Configurare quindi RRAS1 con il servizio Routing e Accesso remoto affinché agisca come dispositivo VPN per la subnet Corpnet. Accedere a RRAS1 come amministratore locale ed eseguire i comandi seguenti al prompt dei comandi di Windows PowerShell.
+Configurare quindi RRAS1 con il servizio Routing e Accesso remoto affinché agisca come dispositivo VPN per la subnet Corpnet. Accedere a RRAS1 come amministratore locale ed eseguire i seguenti comandi al prompt dei comandi di Windows PowerShell.
 
 	Import-Module ServerManager
 	Install-WindowsFeature RemoteAccess -IncludeManagementTools
 	Add-WindowsFeature -name Routing -IncludeManagementTools
 
-Configurare quindi RRAS1 per ricevere la connessione VPN da sito a sito dal gateway VPN di Azure. Riavviare RRAS1, accedere come amministratore locale ed eseguire i comandi seguenti al prompt dei comandi di Windows PowerShell. È necessario fornire l'indirizzo IP del gateway VPN di Azure e il valore della chiave.
+Configurare quindi RRAS1 per ricevere la connessione VPN da sito a sito dal gateway VPN di Azure. Riavviare RRAS1, accedere come amministratore locale e attivare i seguenti comandi al prompt dei comandi di Windows PowerShell. È necessario fornire l'indirizzo IP del gateway VPN di Azure e il valore della chiave.
 
 	$PresharedKey="<Key value>"
 	Import-Module RemoteAccess
@@ -213,16 +213,16 @@ Questa è la configurazione corrente.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#Fase 5: Configurare DC2
+# Fase 5: Configurare DC2
 
 Innanzitutto, creare una macchina virtuale di Azure per DC2 con questi comandi al prompt dei comandi di Azure PowerShell nel computer locale.
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -237,7 +237,7 @@ Accedere quindi alla nuova macchina virtuale DC2.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
 	- Nome: **DC2\\**[Nome dell'account amministratore locale]
-	- Password: [password dell'account amministratore locale]
+	- Password: [Password dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
 Configurare quindi una regola di Windows Firewall per permettere il traffico per il test della connettività di base. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in DC2 eseguire:
@@ -245,7 +245,7 @@ Configurare quindi una regola di Windows Firewall per permettere il traffico per
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-Il comando ping dovrebbe generare quattro risposte dall'indirizzo IP 10.0.0.1. Questo è un test del traffico per la connessione VPN da sito a sito.
+Il comando ping dovrebbe restituire quattro risposte dall'indirizzo IP 10.0.0.1. Questo è un test del traffico per la connessione VPN da sito a sito.
 
 Quindi, aggiungere un altro disco dati come nuovo volume con la lettera di unità F:.
 
@@ -285,19 +285,21 @@ Questa è la configurazione corrente.
  
 L'ambiente cloud ibrido è ora pronto per il testing.
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 
-[Configurare una farm Intranet di SharePoint in un cloud ibrido per i test](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per il test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
-[Configurare la sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per i test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-##Ridurre al minimo i costi di esercizio dell'ambiente
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+
+## Ridurre al minimo i costi di esercizio dell'ambiente
 
 Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples/). 
 
-Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway eseguendo i passaggi seguenti. 
+Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway seguendo questa procedura. 
 
 1.	Dal portale di gestione di Azure del computer locale fare clic su **Reti** nel riquadro sinistro, quindi su **TestVNET** e infine su **Dashboard**.
 2.	Nella barra delle applicazioni fare clic su **Elimina gateway**. Fare clic su **Sì** quando richiesto. Attendere l'eliminazione del gateway e l'impostazione del relativo stato su **Gateway non creato**.
@@ -316,4 +318,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

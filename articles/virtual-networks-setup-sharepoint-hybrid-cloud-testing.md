@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Configurare una farm Intranet di SharePoint in un cloud ibrido per i test" 
+	pageTitle="Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test" 
 	description="Informazioni su come creare una farm Intranet di SharePoint in un ambiente cloud ibrido per lo sviluppo o il test IT professionale." 
 	services="virtual-network" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
-#Configurare una farm Intranet di SharePoint in un cloud ibrido per i test
+# Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test
 
 I passaggi in questo argomento illustrano la creazione di un ambiente cloud ibrido per il testing di una farm Intranet di SharePoint ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -30,28 +30,28 @@ Questa configurazione simula un ambiente di produzione di SharePoint in Azure da
 - Una connessione VPN da sito a sito.
 - Una farm di SharePoint a due livelli e un controller di dominio secondario nella rete virtuale TestVNET.
 
-Questa configurazione costituisce una base e un punto di partenza comune da cui è possibile:
+Questa configurazione rappresenta una base e un punto di partenza comune da cui è possibile:
 
 - Sviluppare e testare applicazioni in una farm Intranet di SharePoint in un ambiente cloud ibrido.
 - Eseguire il test di questo carico di lavoro IT basato sul cloud ibrido.
 
 La configurazione di questo ambiente di test cloud ibrido prevede tre fasi principali:
 
-1.	Configurare l'ambiente cloud ibrido per i test.
+1.	Configurare l'ambiente cloud ibrido per l'esecuzione di test.
 2.	Configurare il computer SQL server (SQL1).
 3.	Configurare il server di SharePoint (SP1).
 
-Se non si dispone di una sottoscrizione di Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://www.windowsazure.com/pricing/free-trial/). Se si dispone di una sottoscrizione MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si dispone di una sottoscrizione Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Fase 1: Configurare l'ambiente cloud ibrido
+## Fase 1: Configurare l'ambiente cloud ibrido
 
-Usare le istruzioni nell'argomento [Configurare un ambiente cloud ibrido per i test](../virtual-networks-setup-hybrid-cloud-environment-testing/). Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
+Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
 
 Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
  
-##Fase 2: Configurare il computer SQL server (SQL1)
+## Fase 2: Configurare il computer SQL server (SQL1).
 
 Dal portale di gestione di Azure, avviare il computer DC2, se necessario.
 
@@ -70,7 +70,7 @@ Successivamente, creare una macchina virtuale di Azure per SQL1 con questi coman
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -107,7 +107,7 @@ Quindi, aggiungere il disco dati aggiuntivo come nuovo volume con la lettera di 
 6.	Nella pagina Specifica dimensioni del volume fare clic su **Avanti**.
 7.	Nella pagina Assegnare a una lettera di unità o cartella fare clic su **Avanti**.
 8.	Nella pagina Selezionare le impostazioni del file system fare clic su **Avanti**.
-9.	Nella pagina Conferma selezioni, fare clic su **crea**.
+9.	Nella pagina Conferma selezioni, fare clic su **Crea**.
 10.	Al termine, fare clic su **Chiudi**.
 
 Eseguire questi comandi al prompt dei comandi di Windows PowerShell in SQL1:
@@ -142,14 +142,14 @@ Questa è la configurazione corrente.
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##Fase 3: Configurare il server di SharePoint (SP1)
+## Fase 3: Configurare il server di SharePoint (SP1)
 
 Innanzitutto, creare una macchina virtuale di Azure per SP1 con questi comandi al prompt dei comandi Azure PowerShell nel computer locale.
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -191,16 +191,17 @@ Questa è la configurazione corrente.
  
 La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il test.
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 
 [SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Farm di SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
 
-[Configurare un ambiente cloud ibrido per i test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per i test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
-[Configurare la sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per i test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

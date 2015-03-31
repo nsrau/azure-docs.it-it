@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -22,18 +22,16 @@
 
 # Applicazione Web Hello World Django
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/it-it/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
-Questa esercitazione illustra come ospitare un sito Web basato su Django in Microsoft 
-Azure usando una macchina virtuale Windows Server. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
+Questa esercitazione illustra come ospitare un sito Web basato su Django in Microsoft Azure usando una macchina virtuale Windows Server. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
 
 Si apprenderà come:
 
 * Configurare una macchina virtuale di Azure per l'hosting di Django. Sebbene nell'esercitazione la procedura venga illustrata in **Windows Server**, è possibile eseguirla anche con una macchina virtuale Linux ospitata in Azure. 
 * Creare una nuova applicazione Django da Windows.
 
-Seguendo questa esercitazione, verrà creata una semplice applicazione Web
-Hello World. L'applicazione verrà ospitata in una macchina virtuale di Azure.
+Seguendo questa esercitazione, verrà creata una semplice applicazione Web Hello World. L'applicazione verrà ospitata in una macchina virtuale di Azure.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -46,26 +44,25 @@ Di seguito è riportata una schermata dell'applicazione completata:
 1. Attenersi alle istruzioni riportate [qui][portal-vm] per creare una macchina virtuale di Azure della distribuzione *Windows Server 2012 R2 Datacenter*.
 
 1. Impostare Azure in modo da dirigere il traffico della porta **80** proveniente dal Web alla porta **80** della macchina virtuale:
- - Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda  *ENDPOINT*.
- - Fare clic sul pulsante  *AGGIUNGI* nella parte inferiore della schermata.
+ - Passare alla macchina virtuale appena creata nel portale di Azure e fare clic sulla scheda *ENDPOINTS*.
+ - Fare clic sul pulsante *ADD* nella parte inferiore della schermata.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Selezionare il protocollo  *TCP* e aprire  *PORTA PUBBLICA 80* come  *PORTA PRIVATA 80*.
+ - Aprire la *PUBLIC PORT 80* del protocollo *TCP* come *PRIVATE PORT 80*.
 ![][port80]
-1. Dalla scheda  *DASHBOARD*, fare clic su  *CONNETTI* per usare  *Desktop remoto* per accedere in remoto alla macchina virtuale di Azure appena creata.  
+1. Dalla scheda *DASHBOARD* fare clic su *CONNECT* per usare *Remote Desktop* per accedere in remoto alla macchina virtuale di Azure appena creata.  
 
-**Nota importante:** tutte le seguenti istruzioni presuppongono che l'accesso alla macchina virtuale sia stato eseguito in modo corretto e che i comandi vengano eseguiti dalla macchina virtuale anziché da quella locale.
+**Nota importante:** tutte le istruzioni seguenti presuppongono che l'accesso alla macchina virtuale sia stato eseguito in modo corretto e che i comandi vengano eseguiti dalla macchina virtuale anziché da quella locale. 
 
 ## <a id="setup"> </a>Configurazione di Python e Django
 
-**Nota:** per scaricare con Internet Explorer può essere necessario configurare le impostazioni di sicurezza avanzate di Internet Explorer(Start/Strumenti di amministrazione/Server Manager/Server locale, quindi fare clic su **Configura sicurezza avanzata di Internet Explorer** e disattivare l'opzione).
+**Nota:** per scaricare con Internet Explorer può essere necessario configurare le impostazioni di sicurezza avanzate di Internet Explorer (Start/Strumenti di amministrazione/Server Manager/Server locale, quindi fare clic su **Configura sicurezza avanzata di Internet Explorer** e disattivare l'opzione).
 
 1. Installare [Installazione guidata piattaforma Web][].
 1. Installare Python WFastCGI con il programma di installazione della piattaforma Web.  Il file wfastcgi.py verrà installato nella cartella degli script di Python.
 	1. Avviare Installazione guidata piattaforma Web.
 	1. Digitare WFastCGI nella barra di ricerca. 
 	1. Selezionare la voce WFactCGI per la versione di Python che si vuole usare (2.7 o 3.4).  Notare che verrà installato Python come dipendenza di WFastCGI. 
-1. Se è stato installato Python 2.7, [seguire queste istruzioni per installare pip manualmente](https://pip.pypa.io/en/latest/installing.html) (Python 3.4 viene fornito con pip già installato).
 1. Installare Django usando pip.
 
     Python 2.7:
@@ -153,7 +150,7 @@ Eseguire questi comandi solo se si usa Python 3.4.
 ## Creazione di una nuova applicazione Django
 
 
-1.  Da *C:\inetpub\wwwroot*, digitare il comando seguente per creare un nuovo progetto Django:
+1.  Da *C:\inetpub\wwwroot* digitare il seguente comando per creare un nuovo progetto Django:
 
     Python 2.7:
 
@@ -173,7 +170,7 @@ Eseguire questi comandi solo se si usa Python 3.4.
 
 
 
-1.  Creare un nuovo file denominato **views.py** nella directory *C:\inetpub\wwwroot\helloworld\helloworld* . Questo file conterrà la visualizzazione del rendering della pagina "hello world". Avviare l'editor e immettere quanto segue:
+1.  Creare un nuovo file denominato **views.py** nella directory *C:\inetpub\wwwroot\helloworld\helloworld*. Questo file conterrà la visualizzazione del rendering della pagina "hello world". Avviare l'editor e immettere quanto segue:
 		
 		from django.http import HttpResponse
 		def home(request):
@@ -199,8 +196,9 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /it-it/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Installazione guidata piattaforma Web]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

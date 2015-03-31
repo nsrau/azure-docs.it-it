@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Autorizzazione lato servizio (Android) | Mobile Dev Center" 
 	description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,8 +10,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
 	ms.author="glenga"/>
@@ -22,7 +22,7 @@
 
 Questo argomento descrive come usare gli script del server per autorizzare gli utenti autenticati per accedere ai dati in Servizi mobili di Azure da un'app per Android.  In questa esercitazione verranno registrati gli script con Servizi mobili per filtrare le query in base all'ID utente di un utente autenticato, per garantire che ogni utente possa visualizzare solo i propri dati.
 
-##Prerequisiti
+## Prerequisiti
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
@@ -37,24 +37,34 @@ Poiché l'app di guida introduttiva legge e inserisce i dati, è necessario regi
 
    	![][1]
 
-3. Fare clic su **Script**, quindi selezionare l'operazione **Inserisci**.
+3. Fare clic su **Script**, quindi selezionare l'operazione **Insert**.
 
    	![][2]
 
-4. Sostituire lo script esistente con la funzione seguente e quindi fare clic su **Salva**.
-     function insert(item, user, request) {       item.userId = user.userId;           request.execute();     }
- Questo script aggiunge un valore userId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
- > [AZURE.NOTE] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **userId** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.
+4. Sostituire lo script esistente con la seguente funzione e quindi fare clic su **Salva**.
+
+        function insert(item, user, request) {
+          item.userId = user.userId;    
+          request.execute();
+        }
+
+    Questo script aggiunge un valore userId, ovvero l'ID utente dell'utente autenticato, all'elemento prima che venga inserito nella tabella TodoItem. 
+
+    > [AZURE.NOTE] È necessario abilitare lo schema dinamico la prima volta che viene eseguito lo script insert. Quando è abilitato lo schema dinamico, Servizi mobili aggiunge automaticamente la colonna **userId** alla tabella **TodoItem** alla prima esecuzione. Lo schema dinamico è abilitato per impostazione predefinita per un nuovo servizio mobile e deve essere disabilitato prima che l'app venga pubblicata in Windows Store.
 
 
-5. Ripetere i passaggi 3 e 4 per sostituire l'operazione **Read** esistente con la funzione seguente:
-     function read(query, user, request) {        query.where({ userId: user.userId });            request.execute();     }
+5. Ripetere i passaggi 3 e 4 per sostituire l'operazione **Read** esistente con la seguente funzione:
+
+        function read(query, user, request) {
+           query.where({ userId: user.userId });    
+           request.execute();
+        }
 
    	Questo script consente di filtrare gli oggetti TodoItem restituiti, in modo che ogni utente riceva solo gli elementi inseriti personalmente.
 
-## Testare l'app
+## Test dell'app
 
-1. In Eclipse aprire il progetto modificato durante l'esercitazione [Introduzione all'autenticazione].
+1. In Android Studio aprire il progetto modificato dopo aver completato l'esercitazione di [introduzione all'autenticazione].
 
 2. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto. 
 
@@ -94,12 +104,11 @@ L'esercitazione sulle nozioni di base dell'uso dell'autenticazione è terminata.
 <!-- URLs. -->
 [Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Dashboard App personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-android
-[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-android
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-android
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-android
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-android
+[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-android
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-android
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

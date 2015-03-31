@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,11 +20,11 @@
 
 Questo argomento descrive come registrare le app in modo da poter usare Facebook per l'autenticazione con Servizi mobili di Azure. 
 
-> [AZURE.NOTE] Questa esercitazione riguarda [Servizi mobili di Azure], una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introduzione all'autenticazione</a>, che illustra come consentire agli utenti l'accesso alla propria app. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introduzione a Servizi mobili</a>.
+> [AZURE.NOTE] Questa esercitazione riguarda [Servizi mobili di Azure], una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introduzione all'autenticazione</a> che illustra come eseguire l'accesso all'applicazione. Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introduzione a Servizi mobili</a>.
 	
-Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account Facebook, visitare il sito <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
+Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account Facebook, andare alla pagina all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">Facebook.com</a>.
 
-1. Passare al sito Web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook Developers</a> e accedere con le proprie credenziali dell'account Facebook.
+1. Passare al sito Web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Sviluppatori di Facebook</a> e accedere con le credenziali dell'account Facebook.
 
 2. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **App** e quindi su **Register as a Developer**, accettare le condizioni e seguire la procedura di registrazione. 
 
@@ -52,7 +52,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
    	![][5]
 
-	> [AZUTE.NOTE] **Nota sulla sicurezza**
+	> [AZURE.NOTE] **Nota sulla sicurezza**
 	Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri né distribuirlo con l'app.
 
 
@@ -83,10 +83,9 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [7]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-3.png
 
 <!-- URLs. -->
-[Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Sviluppatori di Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Servizi mobili di Azure]: http://azure.microsoft.com/services/mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

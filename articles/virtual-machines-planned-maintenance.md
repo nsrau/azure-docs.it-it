@@ -71,7 +71,4 @@ Solo per le macchine virtuali con configurazione a istanza singola Azure invier√
 [Disponibilit√† di gestione delle macchine virtuali]: ../virtual-machines-windows-tutorial/
 [Confronto tra manutenzione pianificata e manutenzione non pianificata]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

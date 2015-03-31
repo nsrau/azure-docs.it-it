@@ -10,42 +10,37 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Uso dell'eliminazione temporanea in Servizi mobili
+
+## Informazioni generali
 
 Le tabelle create con il back-end JavaScript o .NET possono facoltativamente avere l'eliminazione temporanea abilitata. Quando si usa l'eliminazione temporanea, una nuova colonna chiamata *\__deleted* di [tipo bit SQL] viene aggiunta al database. Con l'eliminazione temporanea abilitata, un'operazione di eliminazione non elimina fisicamente le righe dal database, ma imposta il valore della colonna eliminata su TRUE.
 
 Quando si esegue una query dei record in una tabella con l'eliminazione temporanea abilitata, le righe eliminate non vengono restituite nella query per impostazione predefinita. Per richiedere queste righe, è necessario passare un parametro di query *\__includeDeleted=true* nell'[operazione di query REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Nell'SDK del client .NET, è anche possibile usare il metodo helper  `IMobileServiceTable.IncludeDeleted()`.
 
-Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili in [Back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
+Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili alla pagina relativa al [back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
 
 Alcuni dei potenziali vantaggi dell'uso dell'eliminazione temporanea:
 
-* Quando si usa la funzionalità di [sincronizzazione dati offline per Servizi mobili], l'SDK del client esegue automaticamente la query dei record eliminati e li rimuove dal database locale. Senza l'eliminazione temporanea abilitata, è necessario scrivere codice aggiuntivo nel back-end in modo che l'SDK del client sappia quali record rimuovere dall'archivio locale; in caso contrario, l'archivio e il back-end del client locali non saranno coerenti in relazione a questi record eliminati e dovrà essere chiamato il metodo client  `PurgeAsync()` per cancellare l'archivio locale.
+* Quando si usa la funzionalità di [sincronizzazione dati offline per Servizi mobili], l'SDK del client esegue automaticamente la query dei record eliminati e li rimuove dal database locale. Senza l'eliminazione temporanea abilitata, è necessario scrivere codice aggiuntivo nel back-end in modo che l'SDK del client sappia quali record rimuovere dall'archivio locale; in caso contrario, l'archivio e il back-end del client locali non saranno coerenti in relazione a questi record eliminati e dovrà essere chiamato il metodo client `PurgeAsync()` per cancellare l'archivio locale.
 * Per alcune applicazioni esiste un requisito aziendale in base al quale i dati non vengono mai eliminati fisicamente oppure vengono eliminati solo dopo essere stati controllati. La funzionalità di eliminazione temporanea può essere utile in questo scenario.
 * L'eliminazione temporanea può essere usata per implementare una funzionalità di "ripristino", per poter recuperare i dati eliminati per errore.
-Tuttavia, i record eliminati temporaneamente occupano spazio nel database, quindi è consigliabile creare un processo pianificato per eliminare definitivamente a intervalli regolari i record eliminati temporaneamente. Per un esempio, vedere [Uso dell'eliminazione temporanea con il back-end .NET] e [Uso dell'eliminazione temporanea con il back-end JavaScript]. Il codice client deve anche chiamare periodicamente  `PurgeAsync()` in modo che questi record eliminati definitivamente non rimangano nell'archivio dati locale del dispositivo.
+Tuttavia, i record eliminati temporaneamente occupano spazio nel database, quindi è consigliabile creare un processo pianificato per eliminare definitivamente a intervalli regolari i record eliminati temporaneamente. Per un esempio, vedere [Uso dell'eliminazione temporanea con il back-end .NET] e [Uso dell'eliminazione temporanea con il back-end JavaScript]. Il codice client deve anche chiamare periodicamente `PurgeAsync()` in modo che questi record eliminati definitivamente non rimangano nell'archivio dati locale del dispositivo.
 
 
 
-Panoramica dell'argomento:
-
-1. [Abilitazione dell'eliminazione temporanea per il back-end .NET]
-2. [Abilitazione dell'eliminazione temporanea per il back-end JavaScript]
-3. [Uso dell'eliminazione temporanea con il back-end .NET] 
-4. [Uso dell'eliminazione temporanea con il back-end JavaScript] 
 
 
+## Abilitazione dell'eliminazione temporanea per il back-end .NET
 
-## <a name="enable-for-dotnet"></a>Abilitazione dell'eliminazione temporanea per il back-end .NET
-
-Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili in [Back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
+Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili alla pagina relativa al [back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
 Nei passaggi successivi viene illustrata l'abilitazione dell'eliminazione temporanea per un servizio mobile back-end .NET.
 
@@ -53,7 +48,7 @@ Nei passaggi successivi viene illustrata l'abilitazione dell'eliminazione tempor
 2. Fare clic con il pulsante destro del mouse sul progetto di back-end .NET e quindi scegliere **Gestisci pacchetti NuGet**. 
 3. Nella finestra di dialogo Gestione pacchetti fare clic su **Nuget.org** sotto gli aggiornamenti e installare la versione 1.0.402 o successiva dei pacchetti NuGet del [back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 3. In Esplora soluzioni per Visual Studio espandere il nodo **Controller** sotto il progetto del back-end .NET e aprire l'origine del controller. Ad esempio, *TodoItemController.cs*.
-4. Nel metodo  `Initialize()` del controller, passare il parametro  `enableSoftDelete: true` al costruttore EntityDomainManager.
+4. Nel metodo `Initialize()` del controller, passare il parametro `enableSoftDelete: true` al costruttore EntityDomainManager.
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
@@ -63,7 +58,7 @@ Nei passaggi successivi viene illustrata l'abilitazione dell'eliminazione tempor
         }
 
 
-## <a name="enable-for-javascript"></a>Abilitazione dell'eliminazione temporanea per il back-end JavaScript
+## Abilitazione dell'eliminazione temporanea per il back-end JavaScript
 
 Se si sta creando una nuova tabella per il servizio mobile, è possibile abilitare l'eliminazione temporanea nella pagina di creazione della tabella.
 
@@ -72,7 +67,7 @@ Se si sta creando una nuova tabella per il servizio mobile, è possibile abilita
 Per abilitare l'eliminazione temporanea in una tabella esistente nel back-end JavaScript:
 
 1. Nel [portale di gestione] fare clic sul servizio mobile, quindi fare clic sulla scheda Dati.
-2. Nella pagina dei dati fare clic per selezionare la tabella desiderata, quindi fare clic sul pulsante **Abilita eliminazione temporanea** nella barra dei comandi. Se l'eliminazione temporanea è già abilitata per la tabella, questo pulsante non verrà visualizzato, ma sarà possibile vedere la colonna *\__deleted* facendo clic sulle schede **Sfoglia** o **Colonne**.
+2. Nella pagina dei dati fare clic per selezionare la tabella desiderata, quindi fare clic sul pulsante **Abilita eliminazione temporanea** nella barra dei comandi. Se l'eliminazione temporanea è già abilitata per la tabella, questo pulsante non verrà visualizzato, ma sarà possibile vedere la colonna *\__deleted* facendo clic sulla scheda **Sfoglia** o **Colonne**.
 
     ![][0]
 
@@ -101,22 +96,20 @@ Il seguente processo pianificato ripulisce i record eliminati temporaneamente pi
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoIte
-	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoIte
-	ms.RemoveRange(toDelete);
+            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
         }
     }
 
-Per altre informazioni sui processi pianificati con Servizi mobili per il back-end .NET, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/it-it/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Per altre informazioni sui processi pianificati con Servizi mobili per il back-end .NET, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>Uso dell'eliminazione temporanea con il back-end JavaScript
+## Uso dell'eliminazione temporanea con il back-end JavaScript
 
 Gli script delle tabelle vengono usati per aggiungere la logica alla funzionalità di eliminazione temporanea con Servizi mobili per il back-end JavaScript.
 
@@ -125,7 +118,7 @@ Per rilevare una richiesta di ripristino, usare la proprietà "undelete" nello s
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+Per includere in uno script i record eliminati nel risultato di una query, impostare il parametro "includeDeleted" su true:
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -152,16 +145,11 @@ Il seguente processo pianificato di esempio elimina i record aggiornati prima di
         }});
     }
 
-Per altre informazioni sui processi pianificati con Servizi mobili per il back-end JavaScript, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/it-it/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Per altre informazioni sui processi pianificati con Servizi mobili per il back-end JavaScript, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 
 
-<!-- Anchors. -->
-[Abilitazione dell'eliminazione temporanea per il back-end .NET]: #enable-for-dotnet
-[Abilitazione dell'eliminazione temporanea per il back-end JavaScript]: #enable-for-javascript
-[Uso dell'eliminazione temporanea con il back-end .NET]: #using-with-dotnet
-[Uso dell'eliminazione temporanea con il back-end JavaScript]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -170,10 +158,9 @@ Per altre informazioni sui processi pianificati con Servizi mobili per il back-e
 
 <!-- URLs. -->
 [Tipo bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
-[Sincronizzazione dati offline per Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Sincronizzazione dati offline per Servizi mobili]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portale di gestione]: https://manage.windowsazure.com/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

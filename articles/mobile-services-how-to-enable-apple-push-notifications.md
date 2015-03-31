@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Come abilitare le notifiche push per Apple" 
 	description="Questa esercitazione consente di creare un nuovo servizio usando Servizi mobili di Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,10 @@ A questo punto è possibile usare questo certificato .p12 per abilitare servizi 
 
 
 <!-- URLs. -->
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Introduzione alle notifiche push]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
-[Portale di gestione]: https://manage.windowsazure.com/
+[portale di gestione]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

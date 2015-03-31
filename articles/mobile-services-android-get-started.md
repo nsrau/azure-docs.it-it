@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Introduzione a Servizi mobili di Azure per le app per Android" 
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Android." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="hero-article" 
-	ms.date="10/16/2014" 
-	ms.author="ricksal,glenga"/>
+	ms.date="02/03/2015" 
+	ms.author="ricksal,/glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -22,21 +22,28 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app per Android mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>Elenco attività</em> che archivia i dati dell'app nel nuovo servizio mobile.</p>
+<p>Questa esercitazione illustra come aggiungere un servizio back-end basato su cloud a un'app per Android mediante Servizi mobili di Azure. In questa esercitazione si creerà un nuovo servizio mobile e una semplice <em>app To do list</em> che memorizza i dati dell'app nel nuovo servizio mobile.</p>
 <p>Di seguito è riportata una schermata dell'app completata:</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">guarda l'esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a><span class="time">07:26</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a><span class="time">07:26</span></div>
 </div>
 
 ![][0]
 
-Per completare questa esercitazione, è necessario disporre di [Android Developer Tools][Android SDK] che include l'IDE (Integrated Development Environment) di Eclipse, il plug-in Android Developer Tools (ADT) e l'ultima piattaforma Android. È necessario Android 4.2 o versione successiva. 
+Per completare questa esercitazione, è necessario disporre di [Android Developer Tools][Android Studio] che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva. 
 
-Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili per Android. Questo progetto richiede Android 4.2 o versione successiva, invece l'SDK di Servizi mobili richiede solo Android 2.2 o versione successiva.
+Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di Azure per Android.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
->[AZURE.NOTE] Per visualizzare il codice sorgente dell'app completata, fare clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">qui</a>.
+<!-- -->
+
+> [AZURE.NOTE] Per visualizzare il codice sorgente dell'app completata, fare clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio" target="_blank">qui</a>.
+
+<!-- -->
+
+> [AZURE.NOTE] Per visualizzare la versione di Eclipse di questa esercitazione, vedere: [Introduzione a Eclipse].
+
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -71,47 +78,8 @@ In questa sezione si creerà una nuova app per Android connessa al servizio mobi
 
 ## Eseguire l'app per Android
 
-La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
+[WACOM.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
 
-2. In Eclipse fare clic su **File** quindi su **Import**, espandere **Android**, fare clic su **Existing Android Code into Workspace** e quindi su **Next**. 
-
- 	![][14]
-
-3. Fare clic su **Browse**, passare al percorso dei file di progetto espansi, fare clic su **OK**, assicurarsi che il progetto TodoActivity sia selezionato e quindi fare clic su **Finish**. 
-
- 	![][15]
-
-	I file del progetto verranno importati nell'area di lavoro corrente.
-
-   	![][8]
-
-4. Se è stata scaricata la versione 2.0 dell'SDK, è necessario aggiornare il codice con l'URL e la chiave del servizio mobile:
-	- 	Trovare il metodo **OnCreate** in **TodoActivity.java** e individuare il codice che crea un'istanza del client di Servizi mobili. Il codice è visibile nell'immagine precedente.
-	- 	Sostituire "MobileServiceUrl" con l'URL effettivo del servizio mobile.
-	- 	Sostituire "AppKey" con la chiave del servizio mobile.
-	- 	Per informazioni dettagliate, vedere l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Aggiungere Servizi mobili a un'app esistente</a>. 
-
-
-
-4. Dal menu **Run** scegliere **Run** per avviare il progetto nell'emulatore di Android.
-
-	> [AZURE.IMPORTANT] Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
-
-5. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, e quindi fare clic su **Add**.
-
-   	![][10]
-
-   	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
-
-	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.java.
-
-6. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
-
-   	![][11]
-
-   	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
-
-   	![][12]
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
@@ -125,6 +93,8 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 * [Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
+
+
 <!-- Anchors. -->
 [Introduzione a Servizi mobili]:#getting-started
 [Creare un nuovo servizio mobile]:#create-new-service
@@ -133,30 +103,24 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 <!-- Images. -->
 [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-
-
-
-
-
 [6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
+[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png
 [8]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
-
 [10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
 [11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
 [12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-
 [14]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-android-get-started-data/
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-android-get-started-users/
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introduzione a Eclipse]: /documentation/articles/mobile-services-android-get-started-EC/
+[Introduzione ai dati]: /documentation/articles/mobile-services-android-get-started-data/
+[Introduzione all'autenticazione]: /documentation/articles/mobile-services-android-get-started-users/
+[Introduzione alle notifiche push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portale di gestione]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

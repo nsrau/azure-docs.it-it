@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,9 +20,9 @@
 
 Questo argomento descrive come registrare un'app con Windows Store in modo che possa usare Live Connect per l'accesso Single Sign-On come provider di identità per Servizi mobili di Azure. In questo passaggio è inoltre richiesto l'uso delle notifiche push.
 
-> [AZURE.IMPORTANT] Non è necessario registrare l'app con Windows Store per usare l'account Microsoft per l'autenticazione prima di pubblicare l'app. Quando l'app di Windows Store non richiede l'accesso Single Sign-On o le notifiche push, è sufficiente registrare l'app con Live Connect per usare un accesso con account Microsoft.  Per altre informazioni, vedere [Registrazione delle app di Windows Store per l'uso delle credenziali di accesso di un account Microsoft](/it-it/develop/mobile/how-to-guides/register-for-microsoft-authentication).
+> [AZURE.IMPORTANT] Non è necessario registrare l'app con Windows Store per usare l'account Microsoft per l'autenticazione prima di pubblicare l'app. Quando l'app di Windows Store non richiede l'accesso Single Sign-On o le notifiche push, è sufficiente registrare l'app con Live Connect per usare un accesso con account Microsoft.  Per altre informazioni, vedere la pagina relativa alla [registrazione delle app di Windows Store per l'uso delle credenziali di accesso di un account Microsoft](/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
-1. Se l'app non è ancora stata registrata, passare alla pagina [Invia un'app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
+1. Se l'app non è ancora stata registrata, passare alla pagina [Invia un'app][Pagina Invia un'app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
    	![][0]
 
@@ -62,7 +62,7 @@ Questo argomento descrive come registrare un'app con Windows Store in modo che p
 
 È ora possibile integrare l'autenticazione mediante Live Connect nell'app. Servizi mobili fornisce i seguenti due metodi per l'autenticazione degli utenti mediante:
 
-   - Single Sign-On per le app di Windows Store. Questo metodo prevede che gli utenti autorizzino una volta l'autenticazione nell'applicazione tramite Live Connect e in seguito le credenziali vengano gestite da Windows, in base alle preferenze utente. Per altre informazioni, vedere [Single Sign-On per app di Windows Store tramite Live Connect].
+   - Single Sign-On per le app di Windows Store. Questo metodo prevede che gli utenti autorizzino una volta l'autenticazione nell'applicazione tramite Live Connect e in seguito le credenziali vengano gestite da Windows, in base alle preferenze utente. Per altre informazioni, vedere [Autenticazione Single Sign-On per app di Windows Store tramite Live Connect].
 
    - Autenticazione di base. Questo metodo, che supporta diversi provider di autenticazione, richiede che gli utenti eseguano l'accesso ogni volta che l'app viene avviata. Per altre informazioni, vedere [Introduzione all'autenticazione].
 
@@ -81,15 +81,14 @@ Questo argomento descrive come registrare un'app con Windows Store in modo che p
 
 
 <!-- URLs. -->
-[Single Sign-On per app di Windows Store tramite Live Connect]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Autenticazione Single Sign-On per app di Windows Store tramite Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-users-js/
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,3 +1,27 @@
-<properties  linkid="dev-net-fundamentals-hybrid-solutions" urlDisplayName="Hybrid Solutions" pageTitle="Azure Service Bus - Azure fundamentals" metaKeywords="Azure hybrid applications, Azure on-premises applications, Azure service bus, Azure service bus basics" description="An introduction to different ways you can use the Service Bus to connect Azure applications to other software." metaCanonical="" services="service-bus" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Bus di servizio di Azure - nozioni fondamentali di Azure" 
+	description="Introduzione ai diversi modi in cui il bus di servizio può essere usato per connettere le applicazioni Azure ad altri software." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor=""/>
 
-[WACOM.INCLUDE [hybrid-solutions](../includes/hybrid-solutions.md)]
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="sethm"/>
+
+
+
+
+
+
+
+[AZURE.INCLUDE [hybrid-solutions](../includes/hybrid-solutions.md)]
+
+<!--HONumber=47-->

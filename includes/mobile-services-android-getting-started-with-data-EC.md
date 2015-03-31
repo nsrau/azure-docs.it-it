@@ -1,12 +1,12 @@
-Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale. 
+﻿Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale. 
 
 1. Se non si dispone di [Mobile Services Android SDK], scaricarlo adesso ed espandere i file compressi.
 
-2. Copiare i file `.jar` dalla cartella `mobileservices` dell'SDK nella cartella `libs` del progetto GetStartedWithData.
+2. Copiare i file  `.jar` dalla cartella `mobileservices` dell'SDK nella cartella  `libs` del progetto GetStartedWithData.
 
-3. In Package Explorer in Eclipse fare clic con il pulsante destro del mouse sulla cartella `libs`, quindi scegliere **Refresh** per visualizzare i file jar copiati.
+3. In Package Explorer in Eclipse fare clic con il pulsante destro del mouse sulla cartella  `libs`, quindi scegliere **Refresh** per visualizzare i file jar copiati.
 
-  	Il riferimento a Mobile Services SDK verrà copiato nell'area di lavoro.
+ 	Il riferimento a Mobile Services SDK verrà copiato nell'area di lavoro.
 
 4. Aprire il file AndroidManifest.xml e aggiungere la riga seguente che consente all'app di accedere a Servizi mobili in Azure.
 
@@ -24,7 +24,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 		import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
 		import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 		import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
-		import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
+		import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRisposta;
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
@@ -51,9 +51,9 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
 12. Fare clic sulla scheda **Dashboard** e prendere nota del valore di **URL sito**, quindi fare clic su **Gestisci chiavi** e prendere nota del valore di **Chiave applicazione**.
 
-   	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
+ 	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
-  	Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
+ 	Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
 
 13. Nel metodo **onCreate** rimuovere i simboli di commento dalle righe di codice seguenti che definiscono la variabile **MobileServiceClient**:
 
@@ -71,89 +71,89 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Verrà creata una nuova istanza di *MobileServiceClient* usata per accedere al servizio mobile. Verrà inoltre creata l'istanza di *MobileServiceTable* usata per comunicare con l'archiviazione dati nel servizio mobile.
+ 	Viene creata una nuova istanza di *MobileServiceClient* che viene usata per accedere al servizio mobile. Viene inoltre creata l'istanza di *MobileServiceTable* che viene usata per l'archiviazione dati del proxy nel servizio mobile.
 
-14. Nel codice precedente sostituire `MobileServiceUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, in quest'ordine.
+14. Nel codice precedente, sostituire `MobileServiceUrl` e `AppKey` con l'URL e la chiave applicazione del sevizio mobile, in quest'ordine.
 
 
 
 15. Rimuovere i simboli di commento dalle righe seguenti del metodo **checkItem**:
 
-	    new AsyncTask<Void, Void, Void>() {
-	        @Override
-	        protected Void doInBackground(Void... params) {
-	            try {
-	                mToDoTable.update(item).get();
-	                runOnUiThread(new Runnable() {
-	                    public void run() {
-	                        if (item.isComplete()) {
-	                            mAdapter.remove(item);
-	                        }
-	                        refreshItemsFromTable();
-	                    }
-	                });
-	            } catch (Exception exception) {
-	                createAndShowDialog(exception, "Error");
-	            }
-	            return null;
-	        }
-	    }.execute();
+	 new AsyncTask<Void, Void, Void>() {
+	 @Override
+	 protected Void doInBackground(Void... params) {
+	 try {
+	 mToDoTable.update(item).get();
+	 runOnUiThread(new Runnable() {
+	  public void run() {
+	  if (item.isComplete()) {
+	  mAdapter.remove(item);
+	  }
+	  refreshItemsFromTable();
+	  }
+	 });
+	 } catch (Exception exception) {
+	 createAndShowDialog(exception, "Error");
+	 }
+	 return null;
+	 }
+	 }.execute();
 
-   	Verrà quindi inviato un aggiornamento dell'elemento al servizio mobile e verranno rimossi gli elementi dall'adattatore.
-    
+ 	Verrà quindi inviato un aggiornamento dell'elemento al servizio mobile e verranno rimossi gli elementi dall'adattatore.
+ 
 16. Rimuovere i simboli di commento dalle righe seguenti del metodo **addItem**:
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
-	        @Override
-	        protected Void doInBackground(Void... params) {
-	            try {
-	                mToDoTable.insert(item).get();
-	                if (!item.isComplete()) {
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            mAdapter.add(item);
-	                        }
-	                    });
-	                }
-	            } catch (Exception exception) {
-	                createAndShowDialog(exception, "Error");
-	            }
-	            return null;
-	        }
-	    }.execute();
+	 @Override
+	 protected Void doInBackground(Void... params) {
+	 try {
+	 mToDoTable.insert(item).get();
+	 if (!item.isComplete()) {
+	  runOnUiThread(new Runnable() {
+	  public void run() {
+	  mAdapter.add(item);
+	  }
+	  });
+	 }
+	 } catch (Exception exception) {
+	 createAndShowDialog(exception, "Error");
+	 }
+	 return null;
+	 }
+	 }.execute();
 		
 
-  	Verrà creato e inserito un nuovo elemento nella tabella nel servizio mobile remoto.
+ 	Verrà creato e inserito un nuovo elemento nella tabella nel servizio mobile remoto.
 
 18. Rimuovere i simboli di commento dalle righe seguenti del metodo **refreshItemsFromTable**:
 
 		// Get the items that weren't marked as completed and add them in the adapter
-	    new AsyncTask<Void, Void, Void>() {
-	        @Override
-	        protected Void doInBackground(Void... params) {
-	            try {
-	                final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
-	                runOnUiThread(new Runnable() {
-	                    @Override
-	                    public void run() {
-	                        mAdapter.clear();
+	 new AsyncTask<Void, Void, Void>() {
+	 @Override
+	 protected Void doInBackground(Void... params) {
+	 try {
+	 final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
+	 runOnUiThread(new Runnable() {
+	  @Override
+	  public void run() {
+	  mAdapter.clear();
 
-	                        for (ToDoItem item : result) {
-	                            mAdapter.add(item);
-	                        }
-	                    }
-	                });
-	            } catch (Exception exception) {
-	                createAndShowDialog(exception, "Error");
-	            }
-	            return null;
-	        }
-	    }.execute();
+	  for (ToDoItem item : result) {
+	  mAdapter.add(item);
+	  }
+	  }
+	 });
+	 } catch (Exception exception) {
+	 createAndShowDialog(exception, "Error");
+	 }
+	 return null;
+	 }
+	 }.execute();
 
 	Verrà interrogato il servizio mobile e verranno restituiti gli oggetti non contrassegnati come completati. Gli elementi verranno aggiunti all'adattatore per l'associazione.
 		
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=45--> 
+<!--HONumber=47-->

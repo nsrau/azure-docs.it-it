@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare Docker rapidamente con l'immagine di macchina virtuale Ubuntu-Docker" 
 	description="Descrive e dimostra come usare Docker in Ubuntu Server nel giro di pochi minuti direttamente dalla raccolta immagini di Azure" 
 	services="virtual-machines" 
@@ -31,11 +31,11 @@ Contenuto dell'argomento:
 - [Creare una VM con l'immagine Docker di Canonical e MSOpenTech]
 - [Connettersi con SSH e operare remotamente]
 
-## <a id='logon'>Accedere al portale</a>
+## <a id='logon'></a>Accedere al portale
 
 Questa è la parte più facile, a meno che non si sia ancora privi di un account Azure. [Ma è altrettanto facile ottenerne uno gratuitamente](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a id='createvm'>Creare una VM con l'immagine Docker di Canonical e MSOpenTech</a>
+## <a id='createvm'></a>Creare una VM con l'immagine Docker di Canonical e MSOpenTech
 
 1. Una volta eseguita la connessione, fare clic su **Nuovo** in basso a sinistra per creare una nuova immagine di macchina virtuale. L'immagine desiderata potrebbe essere visualizzata nel banner immediatamente,
 
@@ -53,7 +53,7 @@ Questa è la parte più facile, a meno che non si sia ancora privi di un account
 
 > ![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>Connettersi con SSH e operare remotamente</a>
+## <a id='havingfun'></a>Connettersi con SSH e operare remotamente
 
 A questo punto è possibile iniziare a sperimentare i comandi. È possibile connettersi immediatamente alla VM usando SSH
 
@@ -82,4 +82,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

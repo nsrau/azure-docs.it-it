@@ -20,16 +20,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Cluster MariaDB (MySQL) - Esercitazione su Azure
 
-<p>In questa esercitazione verrà creato un cluster multi-master [Galera](http://galeracluster.com/products/) di database [MariaDB](https://mariadb.org/en/about/), un sostituto robusto, scalabile e pronto all'uso di MySQL, da usare in un ambiente a disponibilità elevata in Macchine virtuali di Azure.</p>
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Panoramica dell'architettura] 
-+ [Creazione del modello]
-+ [Creazione del cluster]
-+ [Bilanciamento del carico del cluster]
-+ [Convalida del cluster]
-
+In questa esercitazione verrà creato un cluster multi-master [Galera](http://galeracluster.com/products/) di database [MariaDB](https://mariadb.org/en/about/), un sostituto pronto all'uso per MySQL, per lavorare in un ambiente a disponibilità elevata in Macchine virtuali di Azure.
 
 ## Panoramica dell'architettura
 
@@ -152,7 +143,7 @@ verrà restituito un risultato simile a `5112500ae3b842c8b9c604889f8753c3__OpenL
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. Poiché [SELinux interferisce con le operazioni cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), è necessario disabilitarlo per la sessione corrente (finché non sarà disponibile una versione compatibile). Modificare  `/etc/selinux/config` per disabilitarlo per i riavvii successivi:
+5. Poiché [SELinux interferisce con le operazioni cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), è necessario disabilitarlo per la sessione corrente (finché non sarà disponibile una versione compatibile). Modificare `/etc/selinux/config` per disabilitarlo per i riavvii successivi:
     	
 	        setenforce 0
     
@@ -331,7 +322,7 @@ quindi modificare Intervallo di probe in 5 secondi e salvare
 
 ## Convalida del cluster
 
-Il più è fatto. Il cluster dovrebbe essere accessibile all'indirizzo `mariadbha.cloudapp.net:3306`, che raggiungerà il servizio di bilanciamento del carico e instraderà le richieste tra le 3 macchine virtuali in modo semplice ed efficiente.
+Il più è fatto. Il cluster dovrebbe essere accessibile all'indirizzo `mariadbha.cloudapp.net:3306` che raggiungerà il servizio di bilanciamento del carico e instraderà le richieste tra le 3 macchine virtuali in modo semplice ed efficiente.
 
 Usare il client MySQL di propria scelta per connettersi oppure connettersi semplicemente tramite una delle macchine virtuali per verificare il funzionamento corretto di questo cluster.
 
@@ -374,14 +365,12 @@ Può essere utile consultare gli articoli sul [metodo alternativo per creare un 
 <!--Image references-->
 
 <!--Link references-->
-[Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[riferimento agli strumenti da riga di comando di Azure]: http://azure.microsoft.com/documentation/articles/command-line-tools/
+[interfaccia della riga di comando (CLI) di Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[Riferimento agli strumenti da riga di comando di Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [creare una chiave SSH per l'autenticazione]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[strategia di ottimizzazione delle prestazioni]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[ottimizzare e testare le prestazioni di MySQL in macchine virtuali Linux di Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[problema noto #1268 relativo agli strumenti dell'interfaccia della riga di comando di Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[strategia di ottimizzazione delle prestazioni]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[ottimizzare e testare le prestazioni di MySQL in macchine virtuali Linux di Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[problema noto n. 1268 relativo agli strumenti dell'interfaccia della riga di comando di Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

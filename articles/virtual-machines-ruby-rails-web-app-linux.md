@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Applicazione Web Ruby on Rails in una macchina virtuale di Azure che esegue Linux" 
 	description="Ospitare un sito Web basato su Ruby on Rails in Azure usando una macchina virtuale Linux." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 
 
 
-#Applicazione Web Ruby on Rails in una macchina virtuale di Azure
+# Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 
 Questa esercitazione illustra come ospitare un sito Web basato su Ruby on Rails in Azure usando una macchina virtuale Linux. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione Web basata su Ruby on Rails in esecuzione nel cloud.
 
@@ -38,53 +38,38 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-##Contenuto dell'articolo
 
-* [Configurare l'ambiente di sviluppo](#setup)
-
-* [Creare un'applicazione Rails](#create)
-
-* [Testare l'applicazione](#test)
-
-* [Creare una macchina virtuale di Azure](#createvm)
-
-* [Copiare l'applicazione nella macchina virtuale](#copy)
-
-* [Installare le gemme e avviare l'applicazione](#start)
-
-* [Passaggi successivi](#next)
-
-##<a id="setup"></a>Configurare l'ambiente di sviluppo
+## <a id="setup"></a>Configurare l'ambiente di sviluppo
 
 1. Installare Ruby nell'ambiente di sviluppo. La procedura può variare in base al sistema operativo.
 
-	* **Apple OS X** - Sono disponibili diverse distribuzioni Ruby per OS X. Questa esercitazione è stata convalidata con OS X usando [Homebrew](http://brew.sh/) per installare **rbenv** e **ruby-build**. Le informazioni sull'installazione sono reperibili all'indirizzo [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X**: sono disponibili diverse distribuzioni di Ruby per OS X. Questa esercitazione è stata convalidata con OS X usando [Homebrew](http://brew.sh/) per installare **rbenv** e **ruby-build**. Le informazioni sull'installazione sono reperibili all'indirizzo [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Usare il sistema di gestione di pacchetti delle distribuzioni. Questa esercitazione è stata convalidata con Ubuntu 12.10 usando i pacchetti ruby1.9.1 e ruby1.9.1-dev.
+	* **Linux**: usare il sistema di gestione di pacchetti delle distribuzioni. Questa esercitazione è stata convalidata con Ubuntu 12.10 usando i pacchetti ruby1.9.1 e ruby1.9.1-dev.
 
-	* **Windows** - Sono disponibili diverse distribuzioni Ruby per Windows. Questa esercitazione è stata convalidata usando [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
+	* **Windows**: sono disponibili diverse distribuzioni Ruby per Windows. Questa esercitazione è stata convalidata usando [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
 2. Aprire una nuova riga di comando o una sessione terminal e immettere il comando seguente per installare Ruby on Rails:
 
 		gem install rails --no-rdoc --no-ri
 
-	> [AZURE.NOTE] Per questo comando, in alcuni sistemi operativi, possono essere necessari privilegi di amministratore o radice. Se si riceve un errore durante l'esecuzione di questo comando, provare a utilizzare 'sudo' come indicato di seguito:
+	> [AZURE.NOTE] Per questo comando, in alcuni sistemi operativi, possono essere necessari privilegi di amministratore o radice. Se si riceve un errore durante l'esecuzione di questo comando, provare a usare 'sudo' come indicato di seguito.
 	>
 	>````` 
 	sudo gem install rails
 	`````
-
-	> [AZURE.NOTE] Per l'esercitazione è stata usata la versione 3.2.12 della gemma Rails.
+	>
+	> Per l'esercitazione è stata usata la versione 3.2.12 della gemma Rails.
 
 3. È necessario installare anche un interprete JavaScript, che verrà usato da Rails per compilare le risorse CoffeeScript usate dall'applicazione Rails. L'elenco di interpreti supportati è disponibile all'indirizzo [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
 	
-	Durante la convalida dell'esercitazione è stato usato [Node.js](http://nodejs.org/), in quanto è disponibile per i sistemi operativi OS X, Linux e Windows.
+	[Node.js](http://nodejs.org/) è stato usato durante la convalida di questa esercitazione perché è disponibile per i sistemi operativi OS X, Linux e Windows.
 
-##<a id="create"></a>Creare un'applicazione Rails
+## <a id="create"></a>Creare un'applicazione Rails
 
 1. Dalla riga di comando o dalla sessione terminal creare una nuova applicazione Rails denominata "blog_app" immettendo il seguente comando:
 
-		rails new blog_app
+			rails new blog_app
 
 	Questo comando crea una nuova directory denominata **blog_app** e la popola con i file e le sottodirectory richiesti da un'applicazione Rails.
 
@@ -92,23 +77,23 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 2. Passare alla directory **blog_app** e quindi immettere il seguente comando per creare uno scaffolding per blog di base:
 
-		rails generate scaffold Post name:string title:string content:text
+			rails generate scaffold Post name:string title:string content:text
 
 	Verranno create le migrazioni di controller, viste, modelli e database usate per mantenere i post nel blog. A ogni post saranno associati un nome dell'autore, un titolo e un contenuto di testo.
 
 3. Per creare il database in cui verranno archiviati i post del blog, immettere il comando seguente:
 
-		rake db:migrate
+			rake db:migrate
 
 	In questo modo per Rails verrà usato il provider di database predefinito, ovvero il [database SQLite3][sqlite3]. Anche se si può scegliere di usare un database diverso per un'applicazione di produzione, SQLite è sufficiente per gli scopi di questa esercitazione.
 
-##<a id="test"></a>Testare l'applicazione
+## <a id="test"></a>Testare l'applicazione
 
 Per avviare il server Rails nell'ambiente di sviluppo, eseguire la procedura seguente
 
 1. Dalla riga di comando o da una sessione terminal avviare il server Rails immettendo il comando seguente:
 
-		rails s
+			rails s
 
 	L'output dovrebbe essere simile al seguente. Si noti la porta su cui è in ascolto il server Web. Nell'esempio seguente è la porta 3000.
 
@@ -130,19 +115,23 @@ Per avviare il server Rails nell'ambiente di sviluppo, eseguire la procedura seg
 
 	Per interrompere il processo server, immettere CTRL+C nella riga di comando
 
-##<a id="createvm"></a>Creare una macchina virtuale di Azure
+## <a id="createvm"></a>Creare una macchina virtuale di Azure
 
 Seguire le istruzioni fornite [qui][vm-instructions] per creare una macchina virtuale di Azure che ospita Linux.
 
 > [AZURE.NOTE] I passaggi di questa esercitazione sono stati eseguiti in una macchina virtuale Azure che ospita Ubuntu 12.10. Se si usa una distribuzione Linux diversa, è può essere necessario eseguire passaggi diversi per completare le stesse attività.
 
+ 
+
 > [AZURE.IMPORTANT] È necessario creare **solo** la macchina virtuale. Interrompere la procedura dopo aver appreso come connettersi alla macchina virtuale tramite SSH.
+
+
 
 Dopo aver creato la macchina virtuale di Azure, eseguire i passaggi seguenti per installarvi Ruby and Rails:
 
 1. Dalla riga di comando o da una sessione terminal immettere il comando seguente per connettersi alla macchina virtuale tramite SSH:
 
-		ssh username@vmdns -p port
+			ssh username@vmdns -p port
 
 	Sostituire il nome utente specificato durante la creazione della macchina virtuale, l'indirizzo DNS della VM e la porta dell'endpoint SSH. Ad esempio:
 
@@ -152,9 +141,9 @@ Dopo aver creato la macchina virtuale di Azure, eseguire i passaggi seguenti per
 
 2. Dalla sessione SSH usare i comandi seguenti per installare Ruby nella macchina virtuale:
 
-		sudo apt-get update -y
-		sudo apt-get upgrade -y
-		sudo apt-get install ruby1.9.1 ruby1.9.1-dev build-essential libsqlite3-dev nodejs -y
+			sudo apt-get update -y
+			sudo apt-get upgrade -y
+			sudo apt-get install ruby1.9.1 ruby1.9.1-dev build-essential libsqlite3-dev nodejs -y
 
 	Al termine, immettere il comando seguente per verificare se l'installazione di Ruby è stata completata correttamente:
 
@@ -164,19 +153,19 @@ Dopo aver creato la macchina virtuale di Azure, eseguire i passaggi seguenti per
 
 2. Immettere il comando seguente per installare Bundler:
 
-		sudo gem install bundler --no-rdoc --no-ri
+			sudo gem install bundler --no-rdoc --no-ri
 
 	Bundler verrà usato per installare le gemme necessarie per l'applicazione Rails dopo la copia nel server.
 
-##<a id="copy"></a>Copiare l'applicazione nella macchina virtuale
+## <a id="copy"></a>Copiare l'applicazione nella macchina virtuale
 
 Dall'ambiente di sviluppo aprire una nuova riga di comando o una sessione terminal e immettere il comando **scp** per copiare la directory **blog_app** nella macchina virtuale. Il formato del comando è il seguente:
 
-	scp -r -P 54822 -C directory-to-copy user@vmdns:
+		scp -r -P 54822 -C directory-to-copy user@vmdns:
 
 Ad esempio:
 
-	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
+		scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
 > [AZURE.NOTE] Se si usa Windows come ambiente di sviluppo è possibile eseguire un'utility, ad esempio **pscp**, per ottenere funzionalità scp. Pscp è disponibile nella [pagina di download di PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -194,24 +183,24 @@ I parametri usati per questo comando hanno l'effetto seguente:
 
 Dopo l'operazione di copia, la directory **blog_app** si troverà nella home directory users. Immettere i comandi seguenti nella sessione SSH con la macchina virtuale per visualizzare i file copiati:
 
-	cd ~/blog_app
-	ls
+		cd ~/blog_app
+		ls
 
 L'elenco di file restituito dovrebbe corrispondere ai file contenuti nella directory **blog_app** dell'ambiente di sviluppo.
 
-##<a id="start"></a>Installare le gemme e avviare Rails
+## <a id="start"></a>Installare le gemme e avviare Rails
 
 1. Nella macchina virtuale passare alla directory **blog_app** e immettere il comando seguente per installare le gemme specificate in **Gemfile**:
 
-		sudo bundle install
+			sudo bundle install
 
 2. Per creare il database, immettere il comando seguente:
 
-		rake db:migrate
+			rake db:migrate
 
 3. Per avviare il server, immettere il comando seguente:
 	
-		rails s
+			rails s
 
 	L'output dovrebbe essere simile al seguente. Si noti la porta su cui è in ascolto il server Web. Nell'esempio seguente è la porta 3000.
 
@@ -255,36 +244,36 @@ L'elenco di file restituito dovrebbe corrispondere ai file contenuti nella direc
 
 	![posts page][blog-rails-cloud]
 
-##<a id="next"></a>Passaggi successivi
+## <a id="next"></a>Passaggi successivi
 
 In questo articolo è stato illustrato come creare e pubblicare una semplice applicazione Rails basata su form in una macchina virtuale di Azure. La maggior parte delle azioni eseguite sono manuali, mentre in un ambiente di produzione è consigliabile automatizzarle. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche.
 
-Per informazioni sull'automazione della distribuzione dell'applicazione Rails, oltre che sull'utilizzo del server Web Unicorn e di NginX, vedere [Unicorn, NginX e Capistrano con una macchina virtuale di Azure][unicorn-nginx-capistrano].
+Per informazioni sull'automazione della distribuzione dell'applicazione Rails, oltre che sull'utilizzo del server Web Unicorn e di NginX, vedere la pagina relativa all'uso di [Unicorn, NginX e Capistrano con una macchina virtuale di Azure][unicorn-nginx-capistrano].
 
-Per altre informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails][rails-guides].
+Per altre informazioni su Ruby on Rails, vedere le [guide di Ruby on Rails][rails-guides].
 
 Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi di Azure dall'applicazione Ruby, vedere:
 
-* [Archiviare dati non strutturati mediante BLOB][blobs]
+* [Archiviazione di dati non strutturati mediante BLOB][blobs]
 
-* [Archiviare coppie chiave-valore mediante tabelle][tables]
+* [Archiviazione di coppie chiave-valore mediante tabelle][tables]
 
-* [Distribuire contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti][cdn-howto]
+* [Distribuzione di contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti][cdn-howto]
 
 
 
 <!-- WA.com links -->
-[blobs]: /it-it/documentation/articles/storage-ruby-how-to-use-blob-storage
+[blobs]: /documentation/articles/storage-ruby-how-to-use-blob-storage
 
-[cdn-howto]: /it-it/develop/ruby/app-services/
+[cdn-howto]: /develop/ruby/app-services/
 
 [management-portal]: https://manage.windowsazure.com/
 
-[tables]: /it-it/develop/ruby/how-to-guides/table-service/
+[tables]: /develop/ruby/how-to-guides/table-service/
 
-[unicorn-nginx-capistrano]: /it-it/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+[unicorn-nginx-capistrano]: /documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
 
-[vm-instructions]: /it-it/documentation/articles/virtual-machines-linux-tutorial
+[vm-instructions]: /documentation/articles/virtual-machines-linux-tutorial
 
 
 <!-- External Links -->
@@ -308,5 +297,4 @@ Per altre informazioni sull'uso di Azure SDK per Ruby per l'accesso ai servizi d
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

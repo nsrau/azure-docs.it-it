@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Registrarsi e accedere alle risorse con Active Directory (Android) | Mobile Developer Center" 
+	pageTitle="Registrarsi e accedere alle risorse con Active Directory (Android) | Mobile Dev Center" 
 	description="Informazioni su come aggiungere l'autenticazione a un'app con Active Directory" 
 	documentationCenter="android" 
 	authors="mattchenderson" 
@@ -16,17 +16,17 @@
 	ms.author="mahender" 
 	ms.devlang="java"/>
 
-# Autenticazione dell'app con Active Directory
+# Autenticare l'app con Active Directory
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" >Windows Store C#</a>
-<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS">iOS</a>
-<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
+<a href="/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" >Windows Store C#</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS">iOS</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
 </div>
 
 Informazioni su come autenticare l'app e accedere alle risorse usando Active Directory con l'esercitazione di Chris Risner relativa all'[accesso a risorse protette tramite Azure Active Directory con iOS e Android].
 
 <!-- URLs. -->
 [Accesso a risorse protette tramite Azure Active Directory con iOS e Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
-<!--HONumber=45--> 
+<!--HONumber=47-->

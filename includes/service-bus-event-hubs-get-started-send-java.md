@@ -11,7 +11,7 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 
 	![][8]
 
-5. Creare un file denominato **servicebus.properties** nella radice del progetto **Sender**, con il contenuto seguente. Ricordare di sostituire il valore per il nome del proprio hub eventi e quello per il nome dello spazio dei nomi (quest'ultimo è in genere `{event hub name}-ns`). È anche necessario sostituire una versione codificata con URL della chiave per l'elemento **SendRule** creato in precedenza. È possibile creare la versione codificata con URL [qui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Creare un file denominato **servicebus.properties** nella radice del progetto **Sender**, con il seguente contenuto. Ricordare di sostituire il valore per il nome del proprio hub eventi e quello per il nome dello spazio dei nomi (quest'ultimo è in genere `{event hub name}-ns`). È anche necessario sostituire una versione codificata con URL della chiave per l'elemento **SendRule** creato in precedenza. È possibile creare la versione codificata con URL [qui](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		# servicebus.properties - sample JNDI configuration
 
@@ -24,7 +24,7 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. Creare una nuova classe denominata **Sender**. Aggiungere le istruzioni `import` seguenti:
+5. Creare una nuova classe denominata **Sender**. Aggiungere le seguenti istruzioni `import`:
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -43,7 +43,7 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 		import javax.naming.InitialContext;
 		import javax.naming.NamingException; 
 
-8. Aggiungere quindi il codice seguente:
+8. Aggiungere quindi il seguente codice:
 
 		public static void main(String[] args) throws NamingException,
 				JMSException, IOException, InterruptedException {
@@ -93,4 +93,4 @@ In questa sezione si scriverà un'app di console Java per inviare eventi all'hub
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,10 +1,24 @@
-﻿<properties title="Using Elastic Scale with Entity Framework" pageTitle="Uso di Scalabilità elastica con Entity Framework" description="Elastic Scale semplifica l'applicazione della scalabilità, Entity Framework è uno strumento di facile utilizzo per la codifica di database " metaKeywords="Using Elastic Scale with Entity Framework, Azure SQL Database sharding, elastic scale, Entity Framework and Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Uso di Scalabilità elastica con Entity Framework" 
+	description="Elastic Scale semplifica l'applicazione della scalabilità, Entity Framework è uno strumento di facile utilizzo per la codifica di database" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Uso di Scalabilità elastica con Entity Framework 
+# Uso di Scalabilità elastica con Entity Framework 
  
-È possibile usare Scalabilità elastica del database SQL di Azure con Entity Framework di Microsoft per la compilazione di applicazioni. Scalabilità elastica consente di aumentare e ridurre la capacità applicando il partizionamento orizzontale e scalando orizzontalmente il livello dati dell'applicazione. Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità di Scalabilità elastica. L'attenzione è concentrata sulla composizione della [gestione partizioni di Scalabilità elastica](http://go.microsoft.com/?linkid=9862595) e del [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First - Nuovo database](http://msdn.microsoft.com/it-it/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte degli esempi di Scalabilità elastica negli esempi di codice di Visual Studio.
+È possibile usare Scalabilità elastica del database SQL di Azure con Entity Framework di Microsoft per la compilazione di applicazioni. Scalabilità elastica consente di aumentare e ridurre la capacità applicando il partizionamento orizzontale e scalando orizzontalmente il livello dati dell'applicazione. Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità di Scalabilità elastica. L'attenzione è concentrata sulla composizione della [gestione partizioni di scalabilità elastica](http://go.microsoft.com/?linkid=9862595) e del [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](http://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte degli esempi di Scalabilità elastica negli esempi di codice di Visual Studio.
   
 ## Download ed esecuzione del codice di esempio
 Per scaricare il codice per questo articolo:
@@ -12,7 +26,7 @@ Per scaricare il codice per questo articolo:
 * È richiesto Visual Studio 2012 o versione successiva. 
 * Avviare Visual Studio. 
 * In Visual Studio selezionare File -> Nuovo progetto. 
-* Nella finestra di dialogo Nuovo progetto passare agli **esempi online** per **Visual C#** e digitare "elastic scale" nella casella di ricerca in alto a destra.
+* Nella finestra di dialogo "Nuovo progetto" passare agli **esempi online** per **Visual C#** e digitare "elastic scale" nella casella di ricerca in alto a destra.
     
     ![Entity Framework and elastic scale sample app][1] 
 
@@ -26,9 +40,9 @@ Per eseguire l'esempio è necessario creare tre database vuoti nel database SQL 
 
 Dopo aver creato questi database, riempire i segnaposto nel file **Program.cs** con il nome del server di database SQL di Azure, i nomi dei database e le credenziali per la connessione ai database. Compilare la soluzione in Visual Studio. Visual Studio scaricherà i necessari pacchetti NuGet per Scalabilità elastica, Entity Framework e il blocco applicazione per la gestione degli errori temporanei come parte del processo di compilazione. Verificare che per la soluzione sia abilitato il ripristino dei pacchetti NuGet. Per abilitare questa impostazione, fare clic con il pulsante destro del mouse sul file di soluzione in Esplora soluzioni di Visual Studio. 
 
-##Flussi di lavoro di Entity Framework 
+## Flussi di lavoro di Entity Framework 
 
-Gli sviluppatori Entity Framework si basano su uno dei quattro flussi di lavoro seguenti per compilare le applicazioni e garantire la persistenza degli oggetti applicazione: 
+Gli sviluppatori Entity Framework si basano su uno dei quattro seguenti flussi di lavoro per compilare le applicazioni e garantire la persistenza degli oggetti applicazione: 
 
 * **Code First (nuovo database)**: Lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
 * **Code First (database esistente)**: Lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
@@ -37,18 +51,18 @@ Gli sviluppatori Entity Framework si basano su uno dei quattro flussi di lavoro 
 
 Tutti questi approcci si basano sulla classe DbContext per gestire in modo trasparente le connessioni di database e lo schema del database per un'applicazione. Come illustrato in dettaglio più avanti nel documento, costruttori diversi della classe base DbContext offrono livelli di controllo diversi sulla creazione delle connessioni, il bootstrap del database e la creazione dello schema. Le difficoltà sorgono principalmente dal fatto che la gestione delle connessioni di database fornita da Entity Framework si sovrappone alle funzionalità di gestione connessioni delle interfacce di routing dipendente dai dati fornite da Scalabilità elastica del database di Azure. 
 
-##Presupposti di Scalabilità elastica 
+## Presupposti di Scalabilità elastica 
 
-Per le definizioni dei termini, vedere il [Glossario di Scalabilità elastica](./sql-database-elastic-scale-glossary.md).
+Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](./sql-database-elastic-scale-glossary.md).
 
 Scalabilità elastica del database SQL di Azure consente di definire partizioni dei dati applicativi denominate shardlet.  Gli shardlet sono identificati da una chiave di partizionamento orizzontale e sono mappati a database specifici. Un'applicazione può disporre di tutti i database necessari e distribuire gli shardlet per fornire capacità o prestazioni sufficienti in base ai requisiti aziendali correnti. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API di Scalabilità elastica. Questa funzionalità è denominata Gestione mappe partizioni. La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità viene definita routing dipendente dai dati. 
  
-Il gestore delle mappe partizioni in Scalabilità elastica protegge gli utenti da visualizzazioni incoerenti nei dati degli shardlet potenzialmente provocate dall'esecuzione simultanea di operazioni di gestione degli shardlet, ad esempio la rilocazione di dati da una partizione all'altra. A questo scopo, le mappe partizioni in Scalabilità elastica gestiscono le connessioni di database per un'applicazione di Scalabilità elastica. In questo modo la funzionalità mappa partizioni può terminare automaticamente una connessione di database quando le operazioni di gestione delle partizioni potrebbero influire sullo shardlet per cui è stata creata la connessione. Questo approccio richiede l'integrazione con alcune funzionalità di Entity Framework, ad esempio la creazione di nuove connessioni a partire da una connessione esistente per verificare l'esistenza del database. In generale, è stato osservato che i costruttori DbContext standard funzionano in modo affidabile solo per le connessioni di database chiuse che possono essere clonate in sicurezza per le operazioni di Entity Framework. Il principio di progettazione di Scalabilità elastica prevede invece solo la gestione delle connessioni aperte. Si potrebbe pensare che chiudere una connessione gestita da Scalabilità elastica prima di passarla al costruttore DbContext di Entity Framework consenta di risolvere il problema. Tuttavia, chiudendo la connessione e affidandone la riapertura a Entity Framework, si rinuncia alla convalida e ai controlli di coerenza eseguiti da Scalabilità elastica. La funzionalità per le migrazioni di Entity Framework, tuttavia, usa queste connessioni per gestire lo schema del database sottostante in modo trasparente per l'applicazione. La soluzione ideale sarebbe mantenere e combinare tutte le funzionalità di Scalabilità elastica ed Entity Framework nella stessa applicazione. La sezione seguente illustra queste proprietà e i requisiti in maggiore dettaglio. 
+Il gestore delle mappe partizioni in Scalabilità elastica protegge gli utenti da visualizzazioni incoerenti nei dati degli shardlet potenzialmente provocate dall'esecuzione simultanea di operazioni di gestione degli shardlet, ad esempio la rilocazione di dati da una partizione all'altra. A questo scopo, le mappe partizioni in Scalabilità elastica gestiscono le connessioni di database per un'applicazione di Scalabilità elastica. In questo modo la funzionalità mappa partizioni può terminare automaticamente una connessione di database quando le operazioni di gestione delle partizioni potrebbero influire sullo shardlet per cui è stata creata la connessione. Questo approccio richiede l'integrazione con alcune funzionalità di Entity Framework, ad esempio la creazione di nuove connessioni a partire da una connessione esistente per verificare l'esistenza del database. In generale, è stato osservato che i costruttori DbContext standard funzionano in modo affidabile solo per le connessioni di database chiuse che possono essere clonate in sicurezza per le operazioni di Entity Framework. Il principio di progettazione di Scalabilità elastica prevede invece solo la gestione delle connessioni aperte. Si potrebbe pensare che chiudere una connessione gestita da Scalabilità elastica prima di passarla al costruttore DbContext di Entity Framework consenta di risolvere il problema. Tuttavia, chiudendo la connessione e affidandone la riapertura a Entity Framework, si rinuncia alla convalida e ai controlli di coerenza eseguiti da Scalabilità elastica. La funzionalità per le migrazioni di Entity Framework, tuttavia, usa queste connessioni per gestire lo schema del database sottostante in modo trasparente per l'applicazione. La soluzione ideale sarebbe mantenere e combinare tutte le funzionalità di Scalabilità elastica ed Entity Framework nella stessa applicazione. La seguente sezione illustra queste proprietà e i requisiti in maggiore dettaglio. 
 
 
-##Requisiti 
+## Requisiti 
 
-Quando si usano sia le API di Scalabilità elastica che quelle di Entity Framework, si vogliono conservare le proprietà seguenti: 
+Quando si usano sia le API di Scalabilità elastica che quelle di Entity Framework, si vogliono conservare le seguenti proprietà: 
 
 * **Scalabilità orizzontale**: per aggiungere o rimuovere database dal livello dati dell'applicazione partizionata come necessario per soddisfare le esigenze di capacità dell'applicazione. Ciò significa controllo sulla creazione e sull'eliminazione dei database e uso delle API del gestore delle mappe partizioni di Scalabilità elastica per gestire i database e i mapping degli shardlet. 
 
@@ -58,7 +72,7 @@ Quando si usano sia le API di Scalabilità elastica che quelle di Entity Framewo
  
 * **Schema**: Entity Framework gestisce la creazione iniziale dello schema del database e la successiva evoluzione dello schema mediante migrazioni. Conservando queste funzionalità, adattare l'applicazione in base all'evoluzione dei dati è molto semplice. 
 
-Le informazioni aggiuntive seguenti illustrano come soddisfare questi requisiti per le applicazioni Code First usando Scalabilità elastica del database SQL di Azure. 
+Le seguenti informazioni aggiuntive illustrano come soddisfare questi requisiti per le applicazioni Code First usando Scalabilità elastica del database SQL di Azure. 
 
 ## Routing dipendente dai dati con DbContext di Entity Framework 
 
@@ -72,9 +86,9 @@ Per integrare i **DbContext** con il routing dipendente dai dati per la scalabil
 
 1. Creare connessioni di database fisiche mediante le interfacce di Scalabilità elastica del gestore delle mappe partizioni 
 2. Eseguire il wrapping della connessione con la sottoclasse **DbContext**
-3. Passare la connessione alle classi base **DbContext** per assicurarsi che venga eseguita anche tutta l'elaborazione sul lato Entity Framework. 
+3. Passare la connessione alle classi base **DbContext** per assicurarsi che venga eseguita anche tutta l'elaborazione sul lato Entity Framework 
 
-Nell'esempio di codice seguente viene illustrato questo approccio. Il codice è disponibile anche nel progetto di Visual Studio associato.
+Il seguente esempio di codice illustra questo approccio. Il codice è disponibile anche nel progetto di Visual Studio associato.
 
     public class ElasticScaleContext<T> : DbContext
     {
@@ -107,14 +121,14 @@ Nell'esempio di codice seguente viene illustrato questo approccio. Il codice è 
             return conn;
         }    
 
-#### Punti principali
+## Punti principali
 * Un nuovo costruttore sostituisce il costruttore predefinito nella sottoclasse DbContext 
 * Il nuovo costruttore accetta gli argomenti necessari per il routing dipendente dai dati mediante Scalabilità elastica: 
     * la mappa partizioni per l'accesso alle interfacce di routing dipendente dai dati 
     * la chiave di partizionamento orizzontale per l'identificazione dello shardlet 
     * una stringa di connessione con le credenziali per la connessione di routing dipendente dai dati alla partizione. 
 * La chiamata al costruttore di classe base accetta una deviazione in un metodo statico che esegue tutti i passaggi necessari per il routing dipendente dai dati. 
-    * Usa la chiamata **OpenConnectionForKey** delle interfacce di Scalabilità elastica sulla mappa partizioni per stabilire una connessione aperta. 
+    * Usa la chiamata **OpenConnectionForKey** delle interfacce di scalabilità elastica sulla mappa partizioni per stabilire una connessione aperta. 
     * La mappa partizioni crea la connessione aperta alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata.
     * Tale connessione aperta viene nuovamente passata al costruttore di classe base di **DbContext** per indicare che Entity Framework deve usare quella anziché crearne automaticamente una nuova. In questo modo, la connessione è stata contrassegnata da Scalabilità elastica al fine di garantire coerenza durante le operazioni di gestione della mappa partizioni.  
   
@@ -141,12 +155,12 @@ Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anzic
      ... 
     }
 
-Il nuovo costruttore apre la connessione alla partizione che contiene i dati per lo shardlet identificato dal valore di **tenantid1**. Il codice nel blocco **using** resta invariato per accedere al **DbSet** per i blog usando Entity Framework sulla partizione per **tenantid1**. Questo modifica la semantica per il codice nel blocco using in modo tale che tutte le operazioni di database abbiano come ambito la partizione in cui è conservato **tenantid1**. Ad esempio, una query LINQ sui blog **DbSet** restituirebbe solo i blog archiviati nella partizione corrente, ma non quelli archiviati in altre partizioni.  
+Il nuovo costruttore apre la connessione alla partizione che contiene i dati per lo shardlet identificato dal valore di **tenantid1**. Il codice nel blocco **using** resta invariato per accedere al **DbSet** per i blog usando Entity Framework sulla partizione per **tenantid1**. Questo modifica la semantica per il codice nel blocco using in modo tale che tutte le operazioni di database abbiano come ambito la partizione in cui è conservato **tenantid1**. Ad esempio, una query LINQ sul **DbSet** dei blog restituirebbe solo i blog archiviati nella partizione corrente, ma non quelli archiviati in altre partizioni.  
 
-####Gestione degli errori temporanei
-Il team Microsoft Patterns and Practices ha pubblicato il [blocco applicazione per la gestione degli errori temporanei](http://msdn.microsoft.com/it-it/library/dn440719(v=pandp.60).aspx). La libreria viene usata con Scalabilità elastica in combinazione con Entity Framework. È però necessario assicurarsi che qualsiasi eccezione temporanea venga restituita in una posizione in cui ci si può accertare che dopo un errore temporaneo venga usato il nuovo costruttore, in modo che qualsiasi nuovo tentativo di connessione venga effettuato usando i costruttori modificati. In caso contrario, la connessione alla partizione corretta non è garantita, né esistono garanzie che la connessione venga mantenuta in caso di modifica della mappa partizioni. 
+#### Gestione degli errori temporanei
+Il team Microsoft Patterns & Practices ha pubblicato il [blocco applicazione per la gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719(v=pandp.60.aspx)). La libreria viene usata con Scalabilità elastica in combinazione con Entity Framework. È però necessario assicurarsi che qualsiasi eccezione temporanea venga restituita in una posizione in cui ci si può accertare che dopo un errore temporaneo venga usato il nuovo costruttore, in modo che qualsiasi nuovo tentativo di connessione venga effettuato usando i costruttori modificati. In caso contrario, la connessione alla partizione corretta non è garantita, né esistono garanzie che la connessione venga mantenuta in caso di modifica della mappa partizioni. 
 
-L'esempio di codice seguente illustra il possibile uso di un criterio di ripetizione SQL sui nuovi costruttori della sottoclasse **DbContext**: 
+Il seguente esempio di codice illustra il possibile uso di un criterio di ripetizione SQL sui nuovi costruttori della sottoclasse **DbContext**: 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
     { 
@@ -162,34 +176,37 @@ L'esempio di codice seguente illustra il possibile uso di un criterio di ripetiz
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente (vedere l'argomento relativo alle [limitazioni per le strategie di esecuzione con ripetizione dei tentativi (Entity Framework 6 e versioni successive)](http://msdn.microsoft.com/it-it/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa le librerie di Scalabilità elastica.  
+**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente; vedere l'argomento relativo alle [limitazioni per le strategie di esecuzione con ripetizione dei tentativi (Entity Framework 6 e versioni successive)](http://msdn.microsoft.com/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa le librerie di Scalabilità elastica.
 
-Gli esempi di codice precedenti illustrano le riscritture del costruttore predefinito necessarie perché l'applicazione possa usare il routing dipendente dai dati di Scalabilità elastica con Entity Framework. La tabella seguente generalizza questo approccio per altri costruttori. 
+La necessità di controllare la posizione a cui si viene riportati dalle eccezioni temporanee all'interno dell'ambito preclude anche 'uso dell'oggetto **SqlAzureExecutionStrategy** fornito con Entity Framework. **SqlAzureExecutionStrategy** riaprirebbe una connessione, ma non userebbe **OpenConnectionForKey**, pertanto verrebbe ignorata qualsiasi forma di convalida eseguita come parte della chiamata di **OpenConnectionForKey**. L'esempio di codice invece usa l'oggetto **DefaultExecutionStrategy** fornito anch'esso con Entity Framework. A differenza di **SqlAzureExecutionStrategy**, funziona correttamente con i criteri di ripetizione derivanti dalla gestione degli errori temporanei. I criteri di esecuzione vengono impostati nella classe **ElasticScaleDbConfiguration**. Notare che si è deciso di non usare **DefaultSqlExecutionStrategy** perché suggerisce l'uso di **SqlAzureExecutionStrategy** in caso di eccezioni temporanee, situazione che causerebbe un comportamento errato, come spiegato in precedenza. Per altre informazioni sui diversi criteri di ripetizione ed Entity Framework, vedere la pagina Web relativa alla [resilienza delle connessioni in Entity Framework](http://msdn.microsoft.com/data/dn456835.aspx).     
+
+#### Riscritture dei costruttori
+Gli esempi di codice precedenti illustrano le riscritture del costruttore predefinito necessarie perché l'applicazione possa usare il routing dipendente dai dati di Scalabilità elastica con Entity Framework. La seguente tabella generalizza questo approccio per altri costruttori. 
 
 
-Costruttore corrente | Costruttore riscritto per i dati | Costruttore base | Note
+Costruttore corrente  | Costruttore riscritto per i dati | Costruttore base | Note
 ---------- | ----------- | ------------|----------
 MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connessione deve essere una funzione della mappa partizioni e della chiave di routing dipendente dai dati. È necessario ignorare la creazione automatica della connessione da parte di Entity Framework e gestire la connessione mediante la mappa partizioni. 
 MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connessione è una funzione della mappa partizioni e della chiave di routing dipendente dai dati. Non è possibile usare una stringa di connessione o un nome di database fisso, in quanto ignoreranno la convalida da parte della mappa partizioni. 
-MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Verrà creata la connessione per la mappa partizioni e la chiave di partizionamento orizzontale specificate sulla base del modello fornito. Il modello compilato verrà passato al costruttore base.
+MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Verrà creata la connessione per la mappa partizioni e per la chiave di partizionamento specificate con il modello fornito. Il modello compilato verrà passato al costruttore base.
 MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La connessione deve essere dedotta dalla mappa partizioni e dalla chiave. Non può essere fornita come input (a meno che l'input non usi già la mappa partizioni e la chiave). Il valore booleano verrà passato. 
 MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connessione deve essere dedotta dalla mappa partizioni e dalla chiave. Non può essere fornita come input (a meno che l'input non usi la mappa partizioni e la chiave). Il modello compilato verrà passato. 
 MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Il nuovo costruttore deve garantire che qualsiasi connessione in ObjectContext passato come input venga reinstradata a una connessione gestita da Scalabilità elastica. La descrizione dettagliata di ObjectContext esula dall'ambito di questo documento.
 MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |La connessione deve essere dedotta dalla mappa partizioni e dalla chiave. Non può essere fornita come input (a meno che l'input non usi già la mappa partizioni e la chiave). Il modello e il valore booleano verranno passati al costruttore di classe base. 
 
-###Distribuzione dello schema partizione tramite migrazioni di Entity Framework 
+## Distribuzione dello schema partizione tramite migrazioni di Entity Framework 
 
 La gestione automatica dello schema è una funzionalità disponibile in Entity Framework. Nel contesto dell'applicazione di Scalabilità elastica è desiderabile mantenere questa funzionalità per il provisioning automatico dello schema alle nuove partizioni quando si aggiungono database all'applicazione partizionata. Il caso di utilizzo principale è l'aumento della capacità al livello dati per le applicazioni partizionate mediante Entity Framework. L'uso delle le funzionalità di Entity Framework per la gestione dello schema riduce le attività di amministrazione di database necessarie per un'applicazione partizionata basata su Entity Framework. 
 
 La distribuzione dello schema tramite migrazioni di Entity Framework funziona al meglio con le **connessioni non aperte**. Si tratta di uno scenario diverso rispetto al routing dipendente dai dati, che usa la connessione aperta fornita da Scalabilità elastica. Un'altra differenza è il requisito di coerenza: sebbene sia opportuno garantire la coerenza per tutte le connessioni di routing dipendente dai dati per la protezione dalle modifiche simultanee alla mappa partizioni, questo non rappresenta un problema nel caso della distribuzione iniziale dello schema in un nuovo database non ancora registrato nella mappa partizioni e non ancora allocato per contenere shardlet. Per questi scenari è pertanto possibile usare le normali connessioni di database anziché il routing dipendente dai dati.  
 
-Questo conduce a un approccio in cui la distribuzione dello schema tramite migrazioni di Entity Framework è strettamente legata alla registrazione del nuovo database come partizione nella mappa partizioni dell'applicazione. L'approccio è basato sui prerequisiti seguenti: 
+Questo conduce a un approccio in cui la distribuzione dello schema tramite migrazioni di Entity Framework è strettamente legata alla registrazione del nuovo database come partizione nella mappa partizioni dell'applicazione. L'approccio è basato sui seguenti prerequisiti: 
 
 * Il database è già stato creato. 
 * Il database è vuoto, non contiene schemi utente o dati utente.
 * Il database non è ancora accessibile alle API di Scalabilità elastica per il routing dipendente dai dati. 
 
-Se questi prerequisiti sono soddisfatti, è possibile creare una normale **SqlConnection** non aperta per avviare le migrazioni di Entity Framework per la distribuzione dello schema. Nell'esempio di codice seguente viene illustrato questo approccio. 
+Se questi prerequisiti sono soddisfatti, è possibile creare una normale connessione **SqlConnection** non aperta per avviare le migrazioni di Entity Framework per la distribuzione dello schema. Il seguente esempio di codice illustra questo approccio. 
 
         // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
         // and kick off EF intialization of the database to deploy schema 
@@ -219,7 +236,7 @@ Se questi prerequisiti sono soddisfatti, è possibile creare una normale **SqlCo
         } 
  
 
-Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni di Scalabilità elastica, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (**ElasticScaleContext** nell'esempio) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nell'esempio seguente: 
+Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni di scalabilità elastica, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (**ElasticScaleContext** nell'esempio) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nel seguente esempio: 
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -241,24 +258,26 @@ Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizio
 Si sarebbe potuta usare la versione del costruttore ereditata dalla classe base, ma il codice deve garantire che per la connessione venga usato l'inizializzatore predefinito di Entity Framework. Da qui la breve deviazione nel metodo statico prima della chiamata al costruttore di classe base con la stringa di connessione. Notare che la registrazione delle partizioni deve essere eseguita in un dominio applicativo o in un processo diverso, per garantire l'assenza di conflitti con le impostazioni dell'inizializzatore per Entity Framework. 
 
 
-##Limitazioni 
+## Limitazioni 
 
 Gli approcci descritti in questo documento implicano due limitazioni: 
 
-* Prima di usare Scalabilità elastica, è necessario eseguire la migrazione delle applicazioni Entity Framework che usano **LocalDb** a un normale database di SQL Server. Scalare orizzontalmente un'applicazione mediante il partizionamento orizzontale con Scalabilità elastica non è possibile con **LocalDb**. Per lo sviluppo è comunque possibile usare **LocalDb**. 
+* Prima di usare la scalabilità elastica, è necessario eseguire la migrazione delle applicazioni Entity Framework che usano **LocalDb** a un normale database di SQL Server. Con **LocalDb** non è possibile scalare orizzontalmente un'applicazione mediante il partizionamento orizzontale con la scalabilità elastica. Per lo sviluppo è comunque possibile usare **LocalDb**. 
 
 * Le modifiche all'applicazione che implicano modifiche dello schema del database devono passare attraverso le migrazioni di Entity Framework su tutte le partizioni. Il codice di esempio per questo documento non illustra come eseguire questa operazione. Provare a usare Update-Database con un parametro ConnectionString per eseguire l'iterazione su tutte le partizioni oppure estrarre lo script T-SQL per la migrazione in sospeso usando Update-Database con l'opzione -Script e applicare lo script T-SQL alle partizioni.  
 
-* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, le librerie di Scalabilità elastica forniscono la classe **MultiShardQuery** che implementa l'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento
+* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, le librerie di scalabilità elastica forniscono la classe **MultiShardQuery** che implementa un'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento.
 
 
 
-##Conclusioni 
+## Conclusioni 
 
-Le applicazioni Entity Framework possono trarre facilmente vantaggio da Scalabilità elastica del database SQL di Azure. Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzione di routing dipendente dai dati di Scalabilità elastica eseguendo il refactoring dei costruttori delle sottoclassi **DbContext**. Questo limita il numero di modifiche necessarie nelle posizioni un cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni di Scalabilità elastica. 
+Le applicazioni Entity Framework possono trarre facilmente vantaggio da Scalabilità elastica del database SQL di Azure. Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della scalabilità elastica mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni di Scalabilità elastica. 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-using-entity-framework/sample.png
+
+<!--HONumber=47-->
