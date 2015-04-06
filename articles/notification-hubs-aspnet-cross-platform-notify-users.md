@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse" description="Informazioni su come usare i modelli di Hub di notifica per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties pageTitle="Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse" description="Informazioni su come usare i modelli di Hub di notifica per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -11,7 +11,7 @@
 # Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
 
 
-Nell'esercitazione precedente, [Uso di Hub di notifica per inviare notifiche agli utenti], si è appreso come inviare notifiche push a tutti i dispositivi registrati da uno specifico utente autenticato. In tale esercitazione vengono usate più richieste per inviare una notifica a ogni piattaforma client supportata. Hub di notifica supporta i modelli, che consentono di specificare il modo in cui un dispositivo desidera ricevere notifiche. Questa capacità semplifica l'invio di notifiche tra piattaforme diverse. Questo argomento descrive come servirsi dei modelli per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme. Per informazioni dettagliate sui modelli, vedere [Panoramica dell'Hub di notifica di Azure][Templates].
+Nell'esercitazione precedente, [Uso di Hub di notifica per inviare notifiche agli utenti], si è appreso come inviare notifiche push a tutti i dispositivi registrati da uno specifico utente autenticato. In tale esercitazione vengono usate più richieste per inviare una notifica a ogni piattaforma client supportata. Hub di notifica supporta i modelli, che consentono di specificare il modo in cui un dispositivo desidera ricevere notifiche. Questa capacità semplifica l'invio di notifiche tra piattaforme diverse. Questo argomento descrive come servirsi dei modelli per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme. Per informazioni dettagliate sui modelli, vedere [Panoramica dell'Hub di notifica di Azure][Modelli].
 
 > [AZURE.NOTE] Hub di notifica consente a un dispositivo di registrare più modelli con lo stesso tag. In questo caso, un messaggio in arrivo destinato a tale tag ha come esito il recapito al dispositivo di più notifiche, una per ogni modello. Questo consente di visualizzare lo stesso messaggio in più notifiche visive, ad esempio sia come notifica badge che come notifica di tipo avviso popup in un'app di Windows Store.
 
@@ -79,7 +79,7 @@ Dopo avere completato questa esercitazione, è possibile reperire altre informaz
 
 + **[Uso di Hub di notifica per inviare le ultime notizie]** <br/>Questo argomento descrive un altro scenario per l'uso dei modelli 
 
-+  **[Panoramica dell'Hub di notifica di Azure][Templates]**<br/>Panoramica con informazioni dettagliate sui modelli.
++  **[Panoramica dell'Hub di notifica di Azure][Modelli]**<br/>Panoramica con informazioni dettagliate sui modelli.
 
 +  **[Procedure di Hub di notifica per Windows Store]**<br/>Include un riferimento al linguaggio di espressione dei modelli.
 
