@@ -31,14 +31,14 @@ Contenuto della sezione
 
 > [AZURE.NOTE] Questo argomento descrive come creare una VM Docker dal portale di Azure. Per scoprire come creare una VM Docker nella riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione generale sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
-## <a id='createvm'></a>Creare una nuova VM dalla Raccolta immagini
+## <a id='createvm'>Creare una nuova VM dalla Raccolta immagini</a>
 Il primo passaggio richiede una VM di Azure da un'immagine Linux che supporti l'estensione della VM Docker, usando un'immagine di Ubuntu 14.04 LTS dalla Raccolta immagini come immagine del server di esempio e Ubuntu 14.04 Desktop come client. Nel portale, fare clic su **+ Nuovo** in basso a sinistra per creare una nuova istanza di VM, quindi selezionare un'immagine di Ubuntu 14.04 LTS dalle opzioni disponibili oppure dalla Raccolta immagini completa, come illustrato di seguito. 
 
 > [AZURE.NOTE] Attualmente, solo le immagini di Ubuntu 14.04 LTS successive al mese di luglio 2014 supportano l'estensione della VM Docker.
 
 ![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
-## <a id'dockercerts'></a>Creare i certificati Docker
+## <a id'dockercerts'>Creare i certificati Docker</a>
 
 Dopo aver creato la VM, assicurarsi di aver installato Docker sul computer client (per informazioni dettagliate, vedere le [istruzioni di installazione di Docker](https://docs.docker.com/installation/#installation)). 
 
@@ -59,7 +59,7 @@ Nella riga di comando, usare **`base64`** o un altro strumento di codifica prefe
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## <a id'adddockerextension'></a>Aggiungere l'estensione della macchina virtuale Docker
+## <a id'adddockerextension'>Aggiungere l'estensione della macchina virtuale Docker</a>
 Per aggiungere l'estensione della VM Docker, individuare l'istanza della VM creata e scorrere verso il basso fino a **Estensioni**, quindi fare clic per visualizzare le estensioni della VM, come illustrato di seguito.
 > [AZURE.NOTE] Questa funzionalità è supportata solo nel portale di anteprima: https://portal.azure.com/
 
@@ -92,7 +92,7 @@ Fare clic su **+** Aggiungi per aggiungere un altro endpoint e, in caso di impos
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
-## <a id='testclientandserver'></a>Testare il client Docker e l'host Docker di Azure
+## <a id='testclientandserver'>Testare il client Docker e l'host Docker di Azure</a>
 Individuare e copiare il nome del dominio della VM e, nella riga di comando del computer client, digitare `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (dove *dockerextension* viene sostituito con il sottodominio della propria VM). 
 
 Il risultato sarà simile al seguente:

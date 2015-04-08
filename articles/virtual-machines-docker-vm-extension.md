@@ -31,7 +31,7 @@ Per creare subito le macchine virtuali abilitate per Docker, vedere:
 + [Come usare l'estensione della VM Docker con il portale Azure]
 + [Come iniziare a usare rapidamente Docker in Azure Marketplace]
 
-## <a id='Docker and Linux Containers'></a>Contenitori Docker e Linux
+## <a id='Docker and Linux Containers'>Contenitori Docker e Linux</a>
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. Inoltre, fornisce altri servizi che consentono di creare o assemblare rapidamente applicazioni e distribuirle tra altri contenitori Docker.
 
 I contenitori Docker e Linux non sono [Hypervisor](http://en.wikipedia.org/wiki/Hypervisor) come Windows Hyper-V e [KVM](http://www.linux-kvm.org/page/Main_Page) su Linux (vi sono molti altri esempi). Gli hypervisor virtualizzano il sistema operativo sottostante per consentire l'esecuzione di sistemi operativi completi all'interno di un hypervisor come se fossero un'applicazione. 
@@ -55,7 +55,7 @@ Per altre informazioni su Docker e su come funziona, vedere le [informazioni su 
 
 Poiché i contenitori condividono l'accesso al kernel del computer host, se il malware riesce a penetrare potrebbe accedere non solo al computer host, ma anche agli altri contenitori. Per proteggere il sistema del contenitore più efficacemente rispetto alla configurazione predefinita, [Docker consiglia](https://docs.docker.com/articles/security/) di usare criteri di gruppo aggiuntivi o la [sicurezza basata sui ruoli](http://en.wikipedia.org/wiki/Role-based_access_control), ad esempio [SELinux](http://selinuxproject.org/page/Main_Page) o [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), oltre a ridurre il più possibile le capacità kernel concesse ai contenitori. Su Internet ci sono molti altri documenti in cui si descrivono gli approcci alla sicurezza quando si usano contenitori come Docker.
 
-## <a id='How to use the Docker VM Extension with Azure'></a>Come usare l'estensione della VM Docker con Azure
+## <a id='How to use the Docker VM Extension with Azure'>Come usare l'estensione della VM Docker con Azure</a>
 
 L'estensione della VM Docker è un componente installato nell'istanza della macchina virtuale creata che a sua volta installa il motore Docker e gestisce la comunicazione remota con la macchina virtuale. Esistono due metodi per installare l'estensione della VM: È possibile creare la VM dal portale di gestione oppure dall'interfaccia della riga di comando multipiattaforma di Azure (xplat-cli). 
 
@@ -66,7 +66,7 @@ Per creare subito le macchine virtuali abilitate per Docker, vedere:
 + [Come usare l'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]
 + [Come usare l'estensione della VM Docker con il portale Azure]
 
-## <a id='Virtual Machine Extensions for Linux and Windows'></a>Estensioni della macchina virtuale per Linux e Windows
+## <a id='Virtual Machine Extensions for Linux and Windows'>Estensioni della macchina virtuale per Linux e Windows</a>
 L'estensione della VM Docker per Azure è solo una delle varie estensioni VM che offrono un comportamento speciale e molte altre sono attualmente in corso di sviluppo. Ad esempio, diverse funzionalità dell'[estensione Agente VM Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) consentono di modificare e gestire la macchina virtuale, incluse le funzionalità di sicurezza, kernel, rete e così via. L'estensione VMAccess, ad esempio, consente di reimpostare la password amministratore o la chiave SSH.
 
 Per un elenco completo, vedere [Estensioni della VM di Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx).

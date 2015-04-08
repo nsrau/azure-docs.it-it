@@ -80,7 +80,7 @@ Stringa di connessione con sicurezza abilitata: <*nome server*>.database.**secur
 
 
 
-## <a id="subheading-3"></a>Analizzare i log di controllo e i report
+## <a id="subheading-3">Analizzare i log di controllo e i report</a>
 
 I log di controllo vengono aggregati in un'unica tabella di Azure Store denominata **AuditLogs** nell'account di archiviazione di Azure selezionato durante la configurazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Esplora archivi Azure</a>.
 
@@ -110,7 +110,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare <a href="ht
 7. Fare clic su **Mostra stringa di connessione sicura** per la stringa di connessione.
 
 
-## <a id="subheading-3"></a>Procedure per l'uso in produzione
+## <a id="subheading-3">Procedure per l'uso in produzione</a>
 La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di anteprima di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a> .
  
 

@@ -31,11 +31,11 @@ Contenuto dell'argomento:
 - [Creare una VM con l'immagine Docker di Canonical e MSOpenTech]
 - [Connettersi con SSH e operare remotamente]
 
-## <a id='logon'></a>Accedere al portale
+## <a id='logon'>Accedere al portale</a>
 
 Questa è la parte più facile, a meno che non si sia ancora privi di un account Azure. [Ma è altrettanto facile ottenerne uno gratuitamente](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a id='createvm'></a>Creare una VM con l'immagine Docker di Canonical e MSOpenTech
+## <a id='createvm'>Creare una VM con l'immagine Docker di Canonical e MSOpenTech</a>
 
 1. Una volta eseguita la connessione, fare clic su **Nuovo** in basso a sinistra per creare una nuova immagine di macchina virtuale. L'immagine desiderata potrebbe essere visualizzata nel banner immediatamente,
 
@@ -53,7 +53,7 @@ Questa è la parte più facile, a meno che non si sia ancora privi di un account
 
 > ![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'></a>Connettersi con SSH e operare remotamente
+## <a id='havingfun'>Connettersi con SSH e operare remotamente</a>
 
 A questo punto è possibile iniziare a sperimentare i comandi. È possibile connettersi immediatamente alla VM usando SSH
 

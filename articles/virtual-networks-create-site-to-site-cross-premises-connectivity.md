@@ -82,7 +82,7 @@ Se si intende usare questa esercitazione per configurare una rete virtuale cross
 
 3.  [Configurare il dispositivo VPN](#ConfigVPN)
 
-##  <a name="CreateVN"></a>Creare una rete virtuale
+##  <a name="CreateVN">Creare una rete virtuale</a>
 
 Per creare una rete virtuale di esempio per la connessione a una rete aziendale:
 
@@ -141,7 +141,7 @@ Per creare una rete virtuale di esempio per la connessione a una rete aziendale:
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
 
-##  <a name="StartGateway"></a>Avviare il gateway
+##  <a name="StartGateway">Avviare il gateway</a>
 
 Dopo aver creato la rete virtuale di Azure, attenersi alla procedura seguente per configurare il gateway di rete virtuale e creare la VPN da sito a sito. Questa procedura richiede un dispositivo VPN che soddisfi i requisiti minimi. Per altre informazioni sui dispositivi VPN e sulla configurazione dei dispositivi, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://go.microsoft.com/fwlink/?LinkID=248098).
 
@@ -188,7 +188,7 @@ Dopo aver creato la rete virtuale di Azure, attenersi alla procedura seguente pe
 Se il dispositivo VPN non è presente nell'elenco a discesa, vedere [Informazioni sui dispositivi VPN per Rete virtuale](http://go.microsoft.com/fwlink/?LinkID=248098) in MSDN Library per ulteriori modelli di script.
 
 
-##  <a name="ConfigVPN"></a>Configurare il dispositivo VPN (amministratore di rete)
+##  <a name="ConfigVPN">Configurare il dispositivo VPN (amministratore di rete)</a>
 
 Poiché ogni dispositivo VPN è diverso, quella fornita di seguito è solo una procedura di carattere generale. Questa procedura deve essere eseguita dall'amministratore di rete.
 
