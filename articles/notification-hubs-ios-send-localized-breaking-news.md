@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Esercitazione sull'invio di ultime notizie localizzate per iOS mediante Hub di notifica" 
 	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate (iOS)." 
 	services="notification-hubs" 
@@ -72,7 +72,7 @@ Si procederà quindi a verificare che i dispositivi effettuino la registrazione 
 		}
 	}
 
-I modelli rappresentano uno strumento particolarmente efficace. Per altre informazioni, vedere l'articolo relativo alle [linee guida su Hub di notifica]. Un riferimento al linguaggio di espressione dei modelli è disponibile in [Procedura: Hub notifiche di Service Bus (app per iOS)].
+I modelli rappresentano uno strumento particolarmente efficace. Per altre informazioni, vedere l'articolo relativo alle [Informazioni aggiuntive su Hub di notifica]. Un riferimento al linguaggio di espressione dei modelli è disponibile in [Procedura: Hub notifiche di Service Bus (app per iOS)].
 
 <h2><a name="ui"></a>Interfaccia utente dell'app</h2>
 
@@ -218,7 +218,7 @@ In [Procedure di Hub di notifica per iOS] è disponibile un riferimento al lingu
 
 
 <!-- URLs. -->
-[Procedura: Hub di notifica di Service Bus (app per iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Procedura: Hub notifiche di Service Bus (app per iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Uso di Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-ios
 [Servizio mobile]: /it-it/develop/mobile/tutorials/get-started
 [Uso di Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /it-it/manage/services/notification-hubs/notify-users-aspnet

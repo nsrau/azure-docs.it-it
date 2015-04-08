@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ad Hub di notifica per le app per Xamarin.Android" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin Android." 
 	authors="lindydonna" 
@@ -448,7 +448,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[pagina relativa alle linee guida per gli hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Uso di Hub di notifica per inviare notifiche push agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet

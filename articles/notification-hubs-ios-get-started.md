@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introduzione ad Hub di notifica di Azure" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+<properties pageTitle="Introduzione ad Hub di notifica di Azure" description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -172,7 +172,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 	Si dovrebbe ricevere un avviso sul dispositivo. Se si usa una connessione Wi-Fi, accertarsi che la connessione sia funzionante.
 
-È possibile trovare tutti i payload disponibili nella [guida alla programmazione di notifiche push e locali di Apple].
+È possibile trovare tutti i payload disponibili nella [guida alla programmazione di notifiche push e locali] di Apple.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 

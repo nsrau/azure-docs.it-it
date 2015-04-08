@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ad Hub di notifica di Azure" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
 	services="notification-hubs" 
@@ -91,7 +91,7 @@ Per inviare notifiche push ad app di Windows Store da Servizi mobili, è necessa
 
 ##<a name="configure-hub"></a>Configurare l'hub di notifica
 
-1. Accedere al portale di gestione di [Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di gestione di Azure] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, **Hub di notifica**, quindi **Creazione rapida**.
 
@@ -281,15 +281,15 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript e HTML]: /it-it/develop/mobile/tutorials/get-started-with-push-js
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[pagina delle linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Uso di Hub di notifica per inviare notifiche push agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet
 [Uso di Hub di notifica per inviare le ultime notizie]: /it-it/manage/services/notification-hubs/breaking-news-dotnet
 
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[panoramica dei badge]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 <!--HONumber=45--> 

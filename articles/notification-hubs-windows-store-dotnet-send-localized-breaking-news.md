@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica" 
 	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate." 
 	services="notification-hubs" 
@@ -234,7 +234,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Uso di Hub di notifica per 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927168.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
 <!--HONumber=45--> 
