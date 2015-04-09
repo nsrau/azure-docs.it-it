@@ -77,4 +77,4 @@
 [Tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

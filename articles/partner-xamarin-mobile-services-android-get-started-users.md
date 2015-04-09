@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
 	ms.author="donnam"/>
 
-# Aggiunta dell'autenticazione all'app di Servizi mobili
+# Aggiungere l'autenticazione all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
@@ -24,7 +24,7 @@
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1. [Registrare l'app per l'autenticazione e configurazione di Servizi mobili]
+1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
 2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
 3. [Aggiungere l'autenticazione all'app]
 
@@ -32,7 +32,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per completare questa esercitazione, è necessario disporre di Xamarin.Android e di Android SDK 4.2 o versione successiva. 
 
-<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurazione di Servizi mobili</h2>
+<h2><a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili</h2>
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -42,7 +42,7 @@ Per completare questa esercitazione, è necessario disporre di Xamarin.Android e
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
-3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili]. 
+3. In Eclipse aprire il progetto creato dopo avere completato l'esercitazione [Introduzione a Servizi mobili]. 
 
 4. Nel menu **Run** fare clic su **Run** per eseguire l'app e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). 
 
@@ -116,7 +116,7 @@ Scaricare il [progetto di esempio completato]. Assicurarsi di aggiornare le vari
 Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. 
 
 <!-- Anchors. -->
-[Registrare l'app per l'autenticazione e configurazione di Servizi mobili]: #register
+[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
 [Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
 [Aggiungere l'autenticazione all'app]: #add-authentication
 [Passaggi successivi]:#next-steps
@@ -134,15 +134,16 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started-xamarin-android
-[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Autorizzare gli utenti con gli script]: /it-it/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-xamarin-android
+[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

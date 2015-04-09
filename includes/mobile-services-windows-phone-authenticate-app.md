@@ -46,9 +46,10 @@
             this.Loaded += MainPage_Loaded;
         }
 
-   Questo costruttore registra inoltre il gestore per l'evento Loaded.
+   	Questo costruttore registra inoltre il gestore per l'evento Loaded.
 		
 4. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
    Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
-<!--HONumber=42-->
+
+<!--HONumber=49-->

@@ -160,7 +160,7 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 ##<a name="NextSteps"></a>Passaggi successivi
 
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
-- Per informazioni sulla gestione delle chiavi master e di sola lettura, fare clic [qui](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- Per informazioni sulla gestione delle chiavi master e di sola lettura, fare clic [qui](documentdb-manage-account.md).
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

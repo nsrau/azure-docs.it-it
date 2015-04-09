@@ -17,7 +17,7 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
     	public static final String TOKENPREF = "tkn";	
 
 
-3. Nel file ToDoActivity.java aggiungere la seguente definizione per il metodo  `cacheUserToken`.
+3. Nel file ToDoActivity.java aggiungere la seguente definizione per il metodo `cacheUserToken`.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -90,4 +90,4 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -234,8 +234,9 @@ In questa sezione sarà definito un ServiceFilter che rileverà una risposta di 
 		    }
 	    }
 
-	`RefreshTokenCacheFilter` è usato in questo codice in aggiunta a  `ProgressFilter`. Durante `onCreate` è anche necessario che sia caricata la cache di token. Sarà quindi passato `false` nel metodo  `authenticate`.
+
+`RefreshTokenCacheFilter` è usato in questo codice in aggiunta a  `ProgressFilter`. Durante `onCreate` è anche necessario che sia caricata la cache di token. Quindi  `false` viene passato al metodo  `authenticate`.
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

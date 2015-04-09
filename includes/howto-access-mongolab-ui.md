@@ -1,6 +1,6 @@
-In qualsiasi momento dopo il provisioning di un database MongoLab, è possibile accedere all'interfaccia utente Web di MongoLab per la gestione del database stesso. Viene offerta la praticità dell'accesso Single Sign-On (SSO) tramite il portale di gestione di Azure.
+﻿In qualsiasi momento dopo il provisioning di un database MongoLab, è possibile accedere all'interfaccia utente Web di MongoLab per la gestione del database stesso. Viene offerta la praticità dell'accesso Single Sign-On (SSO) tramite il portale di gestione di Azure.
 
-È possibile utilizzare l'interfaccia utente di MongoLab per eseguire la maggior parte delle attività correlate al database, ad esempio l'inserimento di documenti e di query, il recupero di statistiche e l'esecuzione di utili comandi di database. Per altre informazioni sull'interfaccia utente, visitare la [pagina del supporto](http://support.mongolab.com)  e il [blog](http://blog.mongolab.com) di MongoLab.
+È possibile utilizzare l'interfaccia utente di MongoLab per eseguire la maggior parte delle attività correlate al database, ad esempio l'inserimento di documenti e di query, il recupero di statistiche e l'esecuzione di utili comandi di database. Per ulteriori informazioni sull'interfaccia utente di MongoLab, andare a la [pagina del supporto](http://support.mongolab.com) e il [blog](http://blog.mongolab.com).
 
 Per accedere all'interfaccia utente di MongoLab, effettuare le operazioni seguenti:
 
@@ -20,4 +20,5 @@ Da qui sarà possibile selezionare una raccolta specifica ed eseguire il drill-d
 [button-manage]: ./media/howto-access-mongolab-ui/button-manage.png
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

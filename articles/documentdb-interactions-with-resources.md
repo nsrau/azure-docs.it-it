@@ -254,15 +254,15 @@ Vedere [Informazioni di riferimento sulle API REST di Azure DocumentDB](https://
 ##Riferimenti
 -   [Informazioni di riferimento sulle API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 -	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
--	Specifica JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+-	Specifica JSON  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 -	Specifica HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 -	Tag di entità [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Esecuzione di query con DocumentDB](../documentdb-sql-query/)
+-	[Esecuzione di query con DocumentDB](documentdb-sql-query.md)
 -	[Riferimento SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programmazione con DocumentDB: stored procedure, trigger e funzioni definite dall'utente](../documentdb-programming/)
+-	[Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente](../documentdb-programming/)
 -	[Documentazione di riferimento di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -2,7 +2,7 @@
 	pageTitle="Creare un'applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
 	description="Informazioni su come usare DocumentDB con .NET per creare un'applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
+	ms.date="03/23/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395809351"></a>Creare un'applicazione Web con MCV ASP.NET usando DocumentDB
+#<a name="_Toc395809351"></a>Creare un'applicazione Web con MCV ASP.NET usando DocumentDB
 
 Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo articolo include una procedura dettagliata end-to-end che mostra come creare un'applicazione Web per un elenco azioni usando Azure DocumentDB. Le attività verranno memorizzate come documenti JSON in Azure DocumentDB.
 
@@ -25,7 +25,7 @@ Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare
 
 La procedura guidata mostra come usare il servizio DocumentDB fornito da Azure per archiviare i dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Azure.
 
-> [AZURE.TIP] Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760),è consigliabile scaricare il progetto completo dell'esercitazione [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) da [GitHub](https://github.com/Azure/azure-documentdb-net) e creare la soluzione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP] Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto completo dell'esercitazione [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) da [GitHub](https://github.com/Azure/azure-documentdb-net) e creare la soluzione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
 
 ## <a name="_Toc395637760"></a>Prerequisiti
 
@@ -103,7 +103,7 @@ la soluzione. è possibile passare all'aggiunta di Azure DocumentDB all'applicaz
   	![Sreen shot of the two references added to the project in Solution Explorer.](./media/documentdb-dotnet-application/image22.png)
 
 
-## <a name="_Toc395637763"></a>Passaggio 4: Configurare l'applicazione MVC ASP.NET
+##<a name="_Toc395637763"></a>Passaggio 4: Configurare l'applicazione MVC ASP.NET
  
 Vengono ora aggiunti i modelli, le visualizzazioni e i controller all'applicazione MVC:
 
@@ -178,7 +178,7 @@ Una volta creato il file, la soluzione di Visual Studio deve essere simile alla 
 
 #### <a name="AddItemIndexView"></a>Aggiungere una visualizzazione Indice elemento
 
-1. In **Esplora soluzioni** espandere la cartella ***Visualizzazioni***, fare clic con il pulsante destro del mouse sulla cartella**Item** vuota creata prima da Visual Studio quando è stato aggiunto **ItemController**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
+1. In **Esplora soluzioni** espandere la cartella ***Visualizzazioni***, fare clic con il pulsante destro del mouse sulla cartella **Item** vuota creata prima da Visual Studio quando è stato aggiunto **ItemController**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
 
 ![Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted](./media/documentdb-dotnet-application/image17.png)
 
@@ -397,7 +397,7 @@ In questa sezione viene aggiunto il codice per gestire le operazioni seguenti:
 
 	Se si eseguisse l'applicazione a questo punto, si passerebbe a **HomeController** e alla visualizzazione **Index** di tale controller. Questo è il comportamento predefinito per il progetto di modello MVC scelto inizialmente, ma è possibile cambiarlo. Per modificare questo comportamento, è possibile cambiare il routing nell'applicazione MVC.
 
-11. Aprire ***App\_Start\RouteConfig.cs***, individuare la riga che inizia con "defaults:" e modificarla in modo che assomigli alla seguente.
+11. Aprire***App\_Start\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -437,7 +437,7 @@ Sono già presenti una visualizzazione **Create** e un pulsante nella visualizza
 			return View(item);   
 		}
 
-	**Nota sulla sicurezza**: L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni su questo argomento e alcuni esempi di corretta implementazione, vedere la pagina relativa alla [prevenzione di richieste intersito false][]. Il codice sorgente disponibile in [Github][] definisce l'implementazione completa.
+	**Nota sulla sicurezza**: L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni su questo argomento e alcuni esempi di corretta implementazione, vedere la pagina relativa alla [prevenzione di richieste intersito false][]. Il codice sorgente disponibile in [GitHub][] definisce l'implementazione completa.
 
 	**Nota sulla sicurezza**: Viene usato anche l'attributo **Bind** nel parametro del metodo in modo da garantire la protezione da attacchi basati su un eccesso di post. Per informazioni dettagliate, vedere la pagina relativa alle [operazioni CRUD di base in MVC ASP.NET][].
 
@@ -534,7 +534,7 @@ Vi è un'ultima operazione da eseguire, ovvero l'aggiunta della possibilità di 
 
 		using System.Threading.Tasks;
 
-	Ecco tutte le operazioni necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e **modificarli**.
+	Ecco tutte le operazioni necessarie per eseguire l'applicazione, elencare oggetti **Item** incompleti, aggiungere nuovi oggetti **Item** e modificarli****.
 
 ## <a name="_Toc395637773"></a>Passaggio 6: Eseguire l'applicazione in locale
 
@@ -562,7 +562,7 @@ Per testare l'applicazione nel computer locale, eseguire le operazioni seguenti:
 
 4. Una volta testata l'app, premere CTRL+F5 per arrestarne il debug. È ora possibile distribuire l'app.
 
-## <a name="_Toc395637774"></a>Passaggio 7: Distribuire l'applicazione in Siti Web di Azure
+##<a name="_Toc395637774"></a>Passaggio 7: Distribuire l'applicazione in Siti Web di Azure
 
 Ora che è completa e funziona correttamente con DocumentDB, è possibile distribuire questa app Web in Siti Web di Azure. Se alla creazione del progetto MVC ASP.NET vuoto si è selezionato **Host nel cloud**, Visual Studio semplifica notevolmente le operazioni eseguendo la maggior parte dei passaggi automaticamente. 
 
@@ -576,13 +576,13 @@ Ogni impostazione dovrebbe già essere configurata in base alle credenziali e in
 
 Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
 
-## <a name="_Toc395637775"></a>Passaggi successivi
+##<a name="_Toc395637775"></a>Passaggi successivi
 
-Congratulazioni. È stata creata la prima applicazione MVC ASP.NET con Azure DocumentDB e l'applicazione è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [Github][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
+Congratulazioni. È stata creata la prima applicazione MVC ASP.NET con Azure DocumentDB e l'applicazione è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
 Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella [raccolta .NET per DocumentDB](http://msdn.microsoft.com/library/azure/dn783362.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][]. 
 
-## <a id="GetProject"></a>Ottenere la soluzione da GitHub
+##<a id="GetProject"></a>Ottenere la soluzione da GitHub
 
 Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione completa todo, senza aggiungere personalmente il codice. La soluzione completa è disponibile su GitHub e può essere compilata e distribuita in pochi minuti in base alle istruzioni seguenti.
 
@@ -592,14 +592,14 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 
 2. Da Visual Studio aprire il file todo.sln dalla directory azure-documentdb-net/tutorials/todo.
 
-3. Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare clic con il pulsante destro del mouse sulla soluzione todo in **Esplora soluzioni** e quindi scegliere il comando per abilitare il ripristino del pacchetto **NuGet**, che ripristina i riferimenti. 
+3. Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare clic con il pulsante destro del mouse sulla soluzione todo in **Esplora soluzioni** e quindi scegliere il comando per abilitare il ripristino del pacchetto NuGet****, che ripristina i riferimenti. 
 
 4. Recuperare i valori di **URI** e **CHIAVE PRIMARIA** o **CHIAVE SECONDARIA** dal pannello **Chiavi** dell'account DocumentDB nel [portale di anteprima di Azure](https://portal.azure.com/). 
 
 	
-	Se non si dispone di un account, vedere [Creazione di un account di database](/documentation/articles/documentdb-create-account/) per configurarne uno.
+	Se non si dispone di un account, vedere [Creazione di un account di database](documentdb-create-account.md) per configurarne uno.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
+	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. Nel file Web.config aggiornare i valori predefiniti per le chiavi **endpoint** e **authKey**.
 
@@ -617,8 +617,8 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [prevenzione di richieste intersito false]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Operazioni CRUD di base in MVC ASP.NET]: http://go.microsoft.com/fwlink/?LinkId=317598
 
-<!--HONumber=47-->
+<!--HONumber=49-->

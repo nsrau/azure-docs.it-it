@@ -1,7 +1,7 @@
 ﻿<properties 
-	pageTitle="Ripristino di un sito Web di Microsoft Azure" 
-	description="Informazioni su come ripristinare i siti Web di Azure da un backup." 
-	services="web-sites" 
+	pageTitle="Ripristino di un'app Web in Azure App Service" 
+	description="Informazioni su come ripristinare l'app Web da un backup." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -9,122 +9,81 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Ripristino di un sito Web di Microsoft Azure
+# Ripristinare un'app Web in Azure App Service
 
-Questo articolo illustra come ripristinare un sito Web precedentemente sottoposto a backup mediante la funzionalità di backup di Siti Web di Azure. Per altre informazioni, vedere [Backup di Siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
+In questo articolo viene illustrato come ripristinare un'app Web in precedenza sottoposta a un backup tramite la funzionalità di backup delle [app Web di App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Per ulteriori informazioni, vedere [Backup delle app Web di App Service](web-sites-backup.md). 
 
-La funzionalità di ripristino di Siti Web di Azure consente di ripristinare su richiesta lo stato precedente di un sito Web oppure di creare un nuovo sito Web basato su un backup del sito originale. La creazione di un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
+La funzionalità di ripristino delle app Web consente di ripristinare su richiesta lo stato precedente dell'app Web o di creare una nuova app Web in base ai backup dell'app Web originale. Creare un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
-La funzionalità di ripristino, disponibile nella scheda Backup del portale Siti Web di Azure, è disponibile solo in modalità Standard.
-
-##Contenuto dell'articolo
-- [Per ripristinare un sito Web di Azure da un backup eseguito in precedenza](#PreviousBackup)
-- [Per ripristinare un sito Web di Azure direttamente da un account di archiviazione](#StorageAccount)
-- [Scegliere le impostazioni di ripristino del sito Web e avviare l'operazione di ripristino](#RestoreSettings)
-- [Visualizzare i registri operazioni](#OperationLogs)
-
+La funzionalità di ripristino delle app Web, disponibile nel pannello **Backup** del [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è disponibile solo nelle modalità Standard e Premium. Per informazioni su come ridimensionare l'app in modalità Standard o Premium, vedere [Scalare un'app Web in Azure App Service](web-sites-scale.md). 
+Si noti che la modalità Premium consente di eseguire un maggior numero di backup giornalieri rispetto alla modalità Standard.
 
 <a name="PreviousBackup"></a>
-##Per ripristinare un sito Web di Azure da un backup eseguito in precedenza
+## Per ripristinare un'app Web da un backup eseguito in precedenza
 
-1. Nella scheda **Backup** fare clic su **Ripristina ora** nella barra dei comandi nella parte inferiore della pagina del portale. Viene visualizzata la finestra di dialogo **Ripristina ora**.
+1. Nel pannello **Impostazioni** dell'app Web nel portale di Azure, fare clic sull'opzione **Backup** per visualizzare il pannello **Backup**. Scorrere nel pannello e selezionare una delle voci di backup in base all'**ORA DEL BACKUP** e allo **STATO** dall'elenco dei backup.
 	
-	![Choose backup source][ChooseBackupSource]
+	![Scegliere un'origine per il backup][ChooseBackupSource]
 	
-2. In **Scegliere l'origine del backup** selezionare **Backup precedente per questo sito Web**.
-3. Selezionare la data del backup da ripristinare, quindi fare clic sulla freccia destra per continuare.
-4. Attenersi alla procedura riportata nella sezione [Scegliere le impostazioni di ripristino del sito Web](#RestoreSettings) più avanti in questo articolo.
+2. Selezionare **Ripristina ora** nella parte superiore del pannello **Backup**. 
 
+	![Scegliere ripristina ora][ChooseRestoreNow]
+
+3. Nel pannello **Ripristina**, per ripristinare l'app Web esistente, verificare tutti i dettagli visualizzati e fare clic su **OK**. 
+	
+È inoltre possibile ripristinare l'app Web in una nuova app selezionando **APP WEB** dal pannello **Ripristina** e selezionando **Creare una nuova app Web**.
+	
 <a name="StorageAccount"></a>
-##Per ripristinare un sito Web di Azure direttamente da un account di archiviazione
+## Scaricare o eliminare un backup da un account di archiviazione
+	
+1. Dal pannello principale **Sfoglia** del portale di Azure, selezionare **Account di archiviazione**.
+	
+	Verrà visualizzato un elenco degli account di archiviazione esistenti. 
+	
+2. Selezionare l'account di archiviazione che contiene il backup che si desidera scaricare o eliminare.
+	
+	Verrà visualizzato il pannello **ARCHIVIAZIONE**.
 
-1. Nella scheda **Backup** fare clic su **Ripristina ora** nella barra dei comandi nella parte inferiore della pagina del portale. Viene visualizzata la finestra di dialogo **Ripristina ora**.
+3. Selezionare **Contenitori** nel pannello **ARCHIVIAZIONE** per visualizzare il pannello **Contenitori**.
 	
-	![Choose backup source][ChooseBackupSource]
+	Verrà visualizzato un elenco dei contenitori. In questo elenco verranno inoltre mostrati l'URL e la data in cui il contenitore è stato modificato l'ultima volta.
 	
-2. In **Scegliere l'origine del backup** selezionare **File dell'account di archiviazione**. In questa area è possibile specificare direttamente l'URL del file dell'account di archiviazione oppure fare clic sull'icona della cartella per passare all'archiviazione BLOB e specificare il file di backup. In questo esempio viene selezionata l'icona della cartella.
-	
-	![Storage Account File][StorageAccountFile]
-	
-3. Fare clic sull'icona della cartella per aprire la finestra di dialogo **Sfoglia archiviazione cloud**.
-	
-	![Browse Cloud Storage][BrowseCloudStorage]
-	
+	![Visualizzare i contenitori][ViewContainers]
 
-4. Espandere il nome dell'account di archiviazione da usare e quindi selezionare **websitebackups**, che contiene i backup dell'utente.
-5. Selezionare il file ZIP contenente il backup da ripristinare e quindi fare clic su **Apri**.
-6. Il file dell'account di archiviazione verrà selezionato e visualizzato nella casella. Fare clic sulla freccia destra per continuare.
+4. Nell'elenco, selezionare il contenitore e visualizzare il pannello in cui viene mostrato un elenco dei nomi di file, insieme alle dimensioni di ciascun file.
 	
-	![Storage Account File Selected][StorageAccountFileSelected]
-	
-7. Continuare con la seguente sezione [Scegliere le impostazioni di ripristino del sito Web e avviare l'operazione di ripristino](#RestoreSettings).
-
-<a name="RestoreSettings"></a>
-##Scegliere le impostazioni di ripristino del sito Web e avviare l'operazione di ripristino
-1. In **Scegliere le impostazioni di ripristino del sito Web**, **Ripristina** selezionare **Sito Web corrente** o **Nuova istanza di sito Web**.
-	
-	![Choose your web site restore settings][ChooseRestoreSettings]
-	
-	Se si seleziona **Sito Web corrente**, il sito Web esistente verrà sovrascritto dal backup selezionato (ripristino distruttivo). Tutte le modifiche apportate al sito Web dopo l'esecuzione del backup scelto verranno rimosse in modo permanente e non sarà possibile annullare l'operazione di ripristino. Durante l'operazione di ripristino, il sito Web corrente sarà temporaneamente non disponibile e verrà visualizzato un avviso in tal senso.
-	
-	Se si seleziona **Nuova istanza di sito Web**, nella stessa area verrà creato un nuovo sito Web con il nome specificato (per impostazione predefinita, il nuovo nome è **restored-***NomeSitoWebPrecedente*). 
-	
-	Il sito ripristinato sarà caratterizzato dalla stessa configurazione e dagli stessi contenuti impostati nel portale per il sito originale. Includerà inoltre qualsiasi database specificato nel passaggio successivo.
-2. Per ripristinare un database insieme al sito Web, in **Database inclusi** selezionare il nome del server di database in cui eseguire il ripristino di tale database nell'elenco a discesa **Ripristina**. È inoltre possibile creare un nuovo server di database in cui eseguire il ripristino oppure scegliere l'impostazione predefinita **Non ripristinare** per non ripristinare il database. 
-	
-	Dopo aver scelto il nome del server, specificare il nome del database di destinazione per il ripristino nella casella **Nome database**.
-	
-	Se il ripristino include uno o più database, è possibile selezionare **Regola automaticamente stringhe di connessione** per aggiornare le stringhe di connessione archiviate nel backup in modo che puntino al nuovo database o server di database, a seconda dei casi. Dopo il completamento del ripristino, è consigliabile verificare che tutte le funzionalità correlate ai database funzionino come previsto.
-	
-	![Choose database server host][ChooseDBServer]
-	
-	> [AZURE.NOTE] Non è possibile ripristinare un database SQL con lo stesso nome nella stessa istanza di SQL Server. È necessario scegliere un nome di database diverso oppure un host SQL Server diverso in cui ripristinare il database. 
-	
-	> [AZURE.NOTE] È possibile ripristinare un database MySQL con lo stesso nome nello stesso server. Si noti, tuttavia, che questa operazione comporta la cancellazione di tutti i contenuti esistenti archiviati nel database MySQL.	
-	
-3. Se si sceglie di ripristinare un database esistente, sarà necessario specificare un nome utente e una password. Se si sceglie di ripristinare in un nuovo database, sarà necessario specificare un nuovo nome di database:
-	
-	![Restore to a new SQL database][RestoreToNewSQLDB]
-	
-	Fare clic sulla freccia destra per continuare.	
-4. Se si è scelto di creare un nuovo database, nella finestra di dialogo successiva sarà necessario specificare le credenziali e altre informazioni di configurazione iniziali per il database. In questo esempio viene visualizzata la scelta di un nuovo database SQL. Le opzioni per un nuovo database MySQL sono leggermente differenti.
-	
-	![New SQL database settings][NewSQLDBConfig]
-	
-5. Fare clic sul segno di spunta per avviare l'operazione di ripristino. Al termine, la nuova istanza di sito Web (se si tratta dell'opzione di ripristino selezionata) sarà visibile nell'elenco dei siti Web nel portale.
-	
-	![Restored Contoso web site][RestoredContosoWebSite]
+5. Selezionando un file, è possibile scegliere di **scaricarlo** oppure **eliminarlo**. Si noti che esistono due tipi di file principali, i file ZIP e gli XML. 
 
 <a name="OperationLogs"></a>
-##Visualizzare i registri operazioni
+## Visualizzare i log di controllo
 	
-1. Per visualizzare informazioni dettagliate sull'esito dell'operazione di ripristino del sito Web, passare alla scheda Dashboard del sito Web. Nella sezione **Riepilogo rapido**, in **Servizi di gestione**, fare clic su **Registri operazioni**.
+1. Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app Web, selezionare **Log di controllo** nel pannello **Sfoglia** principale. 
 	
-	![Dashboard - Operation Logs Link][DashboardOperationLogsLink]
+	Nel pannello **Log audio** vengono visualizzate tutte le operazioni, insieme ai dettagli relativi a livello, stato, risorsa e tempo.
 	
-2. Viene visualizzata la pagina **Registri operazioni** del portale dei servizi di gestione, in cui è possibile visualizzare il registro dell'operazione di ripristino nell'elenco dei registri delle operazioni:
+2. Scorrere il pannello per individuare le operazioni correlate all'app Web.
+3. Per visualizzare altri dettagli su un'operazione, selezionare tale operazione nell'elenco.
 	
-	![Management Services Operation Logs page][ManagementServicesOperationLogsList]
+Nel pannello dei dettagli verranno visualizzate le informazioni disponibli correlate all'operazione.
 	
-3. Per visualizzare informazioni dettagliate sull'operazione, selezionarla nell'elenco e quindi fare clic sul pulsante **Dettagli** nella barra dei comandi.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 	
-	![Details Button][DetailsButton]
-	
-	Viene visualizzata la finestra **Dettagli operazione**, con il contenuto copiabile del file di registro:
-	
-	![Operation Details][OperationDetails]
-	
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
 [StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
@@ -138,5 +97,4 @@ La funzionalità di ripristino, disponibile nella scheda Backup del portale Siti
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

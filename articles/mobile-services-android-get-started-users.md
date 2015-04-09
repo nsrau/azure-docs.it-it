@@ -34,7 +34,7 @@
 Questa esercitazione illustra le operazioni di base per abilitare l'autenticazione in un'app.
 
 
-## Prerequisiti
+##Prerequisiti
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Questa esercitazione illustra le operazioni di base per abilitare l'autenticazio
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>Limitazione delle autorizzazioni agli utenti autenticati</h2>
+<h2><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati</h2>
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -58,7 +58,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Memorizzare nella cache i token di autenticazione sul client
+## <a name="cache-tokens"></a>Memorizzare i token di autenticazione nella cache del client
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
@@ -104,13 +104,13 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Autenticazione Single Sign-On per app di Windows Store tramite Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Single Sign-On per app di Windows Store tramite Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-android
-[Aggiunta di Servizi mobili a un'app esistente]: /develop/mobile/tutorials/get-started-with-data-android
+[Aggiungere Servizi mobili a un'app esistente]: /develop/mobile/tutorials/get-started-with-data-android
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-android
 [Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-android
 [Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

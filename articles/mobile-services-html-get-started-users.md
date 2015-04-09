@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'autenticazione (HTML 5) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app HTML tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/15/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili 
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento descrive come autenticare gli utenti in Servizi mobili di Azure dalla propria app HTML o PhoneGap.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
+Questo argomento descrive come autenticare gli utenti in Servizi mobili di Azure dalla propria app HTML, incluse quelle PhoneGap o Cordova.  Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.  
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
@@ -44,8 +44,8 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 	+ **launch-windows** (computer Windows) 
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
-	
-	>[AZURE.NOTE]In un computer Windows digitare `R` quando PowerShell chiede di confermare che si vuole eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
+
+	>[AZURE.NOTE] In un computer Windows digitare `R` quando PowerShell chiede di confermare che si desidera eseguire lo script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare la nuova app.
 
@@ -61,7 +61,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 >[AZURE.NOTE]Poiché l'accesso viene eseguito in una finestra popup, richiamare il metodo <strong>login</strong> da un evento clic del pulsante. In caso contrario, in molti browser non sarà visualizzata la finestra di accesso.
 
-1. Aprire il file di progetto index.html, individuare l'elemento H1 e sotto di esso aggiungere il frammento di codice seguente:
+1. Aprire il file di progetto, individuare l'elemento H1 e sotto di esso aggiungere il frammento di codice seguente:
 
 	    <div id="logged-in">
             You are logged in as <span id="login-name"></span>.
@@ -109,7 +109,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
     In questo modo viene creato set di funzioni per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo di <strong>login</strong> riportato in precedenza con uno dei seguenti: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> o <em>aad</em>.
 
-	>[AZURE.IMPORTANT]In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti:
+	>[AZURE.IMPORTANT] In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
 	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -117,7 +117,7 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
 	   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-	>[AZURE.NOTE]Se si usa Internet Explorer, dopo l'accesso potrebbe essere visualizzato un errore che indica che <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in <strong>Opzioni Internet</strong> aprire la scheda <strong>Sicurezza</strong>, fare clic su <strong>Intranet locale</strong>, quindi su <strong>Siti</strong> e disabilitare <strong>Rileva automaticamente rete Intranet</strong>. Ricordare di tornare a modificare questa opzione al termine del test.
+	>[AZURE.NOTE] Se si usa Internet Explorer, dopo l'accesso potrebbe essere visualizzato un errore che indica che <code>non è possibile accedere all'oggetto opener della finestra, in quanto potrebbe trovarsi in un'area di Internet Explorer diversa</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in <strong>Opzioni Internet</strong> aprire la scheda <strong>Sicurezza</strong>, fare clic su <strong>Intranet locale</strong>, quindi su <strong>Siti</strong> e disabilitare <strong>Rileva automaticamente rete Intranet</strong>. Ricordare di tornare a modificare questa opzione al termine del test.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
@@ -135,16 +135,14 @@ Nella prossima esercitazione, [Autorizzare gli utenti con gli script], il valore
 [5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
 [13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-html-get-started
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-html-get-started-data
-[Autorizzare gli utenti con gli script]: /it-it/documentation/articles/mobile-services-html-authorize-users-in-scripts
+[Introduzione a Servizi mobili]: mobile-services-html-get-started.md
+[Introduzione ai dati]: mobile-services-html-get-started-data.md
+[Autorizzare gli utenti con gli script]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library
+[Riferimento per i concetti e le procedure di HTML/JavaScript per Servizi mobili]: /documentation/articles/mobile-services-html-how-to-use-client-library
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

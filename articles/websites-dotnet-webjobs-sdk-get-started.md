@@ -1,24 +1,26 @@
-﻿<properties 
-	pageTitle="Introduzione a Azure WebJobs SDK" 
-	description="Informazioni sulla creazione di un'app a più livelli con ASP.NET MVC e Azure. Il front-end viene eseguito in un sito Web e il back-end viene eseguito come processo Web. L'app usa Entity Framework, il database SQL e i BLOB e le code di archiviazione di Azure." 
-	services="web-sites, storage" 
+<properties 
+	pageTitle="Creazione di processi Web .NET nel servizio app di Azure" 
+	description="Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. Il front-end viene eseguito in un'app Web nel servizio app di Azure e il back-end viene eseguito come processo Web. L'app usa Entity Framework, il database SQL e i BLOB e le code di archiviazione di Azure." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Introduzione a Azure WebJobs SDK
+# Creazione di processi Web .NET nel servizio app di Azure
 
-Questa esercitazione mostra come creare un'applicazione ASP.NET MVC multilivello che si basa su WebJobs SDK per usare le [code di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e i [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in un [sito Web di Azure](/it-it/documentation/services/websites/). L'applicazione usa anche [Database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279). 
+## Informazioni generali
+
+Questa esercitazione mostra come creare un'applicazione ASP.NET MVC multilivello che usa WebJobs SDK per lavorare con le [code di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e i [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in un'app Web nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). L'applicazione usa anche [Database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279). 
 
 Questa applicazione di esempio è un BBS pubblicitario. Gli utenti creano un'inserzione tramite l'immissione di testo e il caricamento di un'immagine. Possono visualizzare un elenco di inserzioni con immagini di anteprima e possono visualizzare l'immagine con le dimensioni originali quando selezionano un'inserzione per vederne i dettagli. Di seguito è riportata una schermata:
 
@@ -28,22 +30,11 @@ Questa applicazione di esempio è un BBS pubblicitario. Gli utenti creano un'ins
 
 [download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
 
-## Sommario
-
-- [Prerequisiti](#prerequisites)
-- [Contenuto dell'esercitazione](#learn)
-- [Architettura dell'applicazione](#contosoads)
-- [Configurare l'ambiente di sviluppo](#setupdevenv)
-- [Compilare, eseguire e implementare l'applicazione](#storage)
-- [Creare un'applicazione completamente nuova](#create)
-- [Verificare il codice dell'applicazione](#code)
-- [Passaggi successivi](#next-steps)
-
 ## <a id="prerequisites"></a>Prerequisiti
 
 L'esercitazione presuppone che si sia in grado di usare progetti [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form. 
 
-Le istruzioni dell'esercitazione sono applicabili ai seguenti prodotti:
+Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
 
 * Visual Studio 2013
 * Visual Studio 2013 Community
@@ -53,45 +44,47 @@ Se non sono disponibili, Visual Studio 2013 Express per il Web sarà installato 
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 ## <a id="learn"></a>Contenuto dell'esercitazione
 
-L'esercitazione mostra come eseguire le seguenti attività:
+L'esercitazione mostra come eseguire le attività seguenti:
 
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto di applicazione console che esegue automaticamente l'implementazione come processo Web di Azure quando si implementa il progetto Web associato.
 * Testare un back-end di WebJobs SDK localmente sul computer di sviluppo.
-* Pubblicare un'applicazione con un back-end di processi Web in un sito Web Azure.
+* Pubblicare un'applicazione con un back-end di processi Web in un'app Web nel servizio app.
 * Caricare file e archiviarli nel servizio BLOB di Azure.
 * Usare Azure WebJobs SDK per lavorare con code e BLOB di archiviazione di Azure.
 
 ## <a id="contosoads"></a>Architettura dell'applicazione
 
-L'applicazione di esempio usa il [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un uso elevato della CPU. 
+L'applicazione di esempio usa il [modello di lavoro incentrato sulle code](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU. 
 
 L'app archivia inserzioni pubblicitarie in un database SQL usando Code First di Entity Framework per creare le tabelle e accedere ai dati. Il database archivia due URL per ogni inserzione, uno per l'immagine con dimensioni normali e uno per l'anteprima.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-Quando un utente carica un'immagine, il sito Web front-end archivia l'immagine in un [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), quindi archivia le informazioni sulle inserzioni nel database con un URL che fa riferimento al BLOB e, al tempo stesso, scrive un messaggio in una coda di Azure. Un processo back-end che esegue un processo Web di Azure usa WebJobs SDK per eseguire il polling della coda alla ricerca di nuovi messaggi. Quando compare un nuovo messaggio, il processo Web crea un'anteprima per quell'immagine e aggiorna il campo di database relativo all'URL dell'anteprima per quell'inserzione. Il seguente diagramma mostra l'interazione tra le parti dell'applicazione:
+Quando un utente carica un'immagine, l'app Web front-end archivia l'immagine in un [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), quindi archivia le informazioni sulle inserzioni nel database con un URL che fa riferimento al BLOB e, al tempo stesso, scrive un messaggio in una coda di Azure. Un processo back-end che esegue un processo Web di Azure usa WebJobs SDK per eseguire il polling della coda alla ricerca di nuovi messaggi. Quando compare un nuovo messaggio, il processo Web crea un'anteprima per quell'immagine e aggiorna il campo di database relativo all'URL dell'anteprima per quell'inserzione. Il diagramma seguente mostra l'interazione tra le parti dell'applicazione:
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### Alternative architecture
+### Architettura alternativa
 
-I processi Web vengono eseguiti nel contesto di un sito Web e non sono scalabili separatamente. Ad esempio, se si ha un'istanza di un sito Web standard, si ha 1 sola istanza del processo in background in esecuzione, che usa alcune delle risorse del server (CPU, memoria e così via) che altrimenti sarebbero disponibili per la gestione del contenuto Web. 
+I processi Web vengono eseguiti nel contesto di un'app Web e non sono scalabili separatamente. Ad esempio, se si ha un'istanza di un'app Web standard, si ha una sola istanza del processo in background in esecuzione, che usa alcune delle risorse del server (CPU, memoria e così via) che altrimenti sarebbero disponibili per la gestione del contenuto Web. 
 
 Se il traffico varia in base all'ora del giorno o al giorno della settimana e se non è necessario eseguire subito l'elaborazione back-end, è possibile pianificare l'esecuzione dei processi Web nelle ore in cui il traffico è meno intenso. Se il carico è ancora troppo elevato per tale soluzione, è possibile prendere in considerazione ambienti alternativi per il programma back-end, ad esempio i seguenti:
 
-* Eseguire il programma come processo Web in un sito Web diverso dedicato a tale scopo. Sarà quindi possibile scalare il sito Web back-end indipendentemente dal sito Web front-end.
-* Eseguire il programma in un ruolo di lavoro dei servizi cloud di Azure. Se si sceglie questa opzione, è possibile eseguire il front-end in un ruolo Web dei servizi cloud o in un sito Web.
+* Eseguire il programma come processo Web in un'app Web diversa dedicata a tale scopo. Sarà quindi possibile scalare l'app Web back-end indipendentemente dall'app Web front-end.
+* Eseguire il programma in un ruolo di lavoro dei servizi cloud di Azure. Se si sceglie questa opzione, è possibile eseguire il front-end in un ruolo Web dei servizi cloud o in un'app Web.
 
-Questa esercitazione mostra come eseguire il front-end in un sito Web e il back-end come processo Web nello stesso sito Web. Per informazioni su come scegliere l'ambiente migliore per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](/it-it/documentation/articles/choose-web-site-cloud-service-vm/).
+Questa esercitazione mostra come eseguire il front-end in un'app Web e il back-end come processo Web nella stessa app Web. Per informazioni su come scegliere l'ambiente migliore per lo scenario specifico, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](../choose-web-site-cloud-service-vm/).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-Le istruzioni dell'esercitazione sono state scritte usando la prossima versione di anteprima di [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). La sola differenza rispetto a Visual Studio 2013 Update 3 è nella sezione relativa alla creazione da zero, dove si crea il progetto processo Web: con Update 4 i pacchetti WebJobs SDK vengono automaticamente inclusi nel progetto, mentre con Update 3 è necessario installare manualmente i pacchetti.
+Le istruzioni dell'esercitazione si applicano ad Azure SDK per .NET 2.5.1 o versioni successive. Nella sezione relativa alla creazione da zero del progetto processo Web, i pacchetti WebJobs SDK sono automaticamente inclusi nel progetto, mentre nelle versioni precedenti di SDK era necessario installare i pacchetti manualmente.
 
-## <a id="storage"></a>Creare un account di Archiviazione di Azure
+## <a id="storage"></a>Creare un account di archiviazione di Azure
 
 Un account di archiviazione di Azure offre risorse per l'archiviazione di dati di code e BLOB nel cloud. Viene anche usato da WebJobs SDK per archiviare i dati di registrazione per il dashboard.
 
@@ -113,15 +106,15 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	Il nome deve essere univoco. Nessun altro account di archiviazione di Azure può avere lo stesso nome. Se il nome immesso è già in uso, sarà possibile cambiarlo.
 
-	L'URL per accedere all'account di archiviazione sarà *{name}*.core.windows.net. 
+	L'URL per accedere all'account di archiviazione sarà *{nome}*.core.windows.net. 
 
 5. Nell'elenco a discesa **Regione o gruppo di affinità** impostare l'area geografica più vicina.
 
-	Questa impostazione specifica il data center di Azure che ospiterà l'account di archiviazione. Per questa esercitazione è possibile selezionare qualsiasi area senza riscontrare differenze evidenti, ma per un sito di produzione è consigliabile che il server Web e l'account di archiviazione siano nella stessa area geografica per poter ridurre al minimo la latenza e il costo per l'uscita dei dati. Il sito Web (che si creerà più avanti) deve essere il più vicino possibile ai browser che accedono al sito per poter da ridurre al minimo la latenza.
+	Questa impostazione specifica il data center di Azure che ospiterà l'account di archiviazione. Per questa esercitazione è possibile selezionare qualsiasi area senza riscontrare differenze evidenti. Tuttavia, per un'app Web di produzione è consigliabile che il server Web e l'account di archiviazione siano nella stessa area geografica per poter ridurre al minimo la latenza e il costo per l'uscita dei dati. Il data center dell'app Web (che si creerà più avanti) deve essere eseguito il più vicino possibile ai browser che accedono all'app Web per poter da ridurre al minimo la latenza.
 
 6. Dall'elenco a discesa **Replica** scegliere **Localmente ridondante**. 
 
-	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/#replication-options).
+	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account/#replication-options).
 
 5. Fare clic su **Crea**. 
 
@@ -186,7 +179,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile [archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto  `JobHost`](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).
+	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile [archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all' `JobHost` oggetto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md/#config).
 
 1. Sostituire entrambe le stringhe di connessione di archiviazione con la stringa di connessione copiata in precedenza.
 
@@ -196,7 +189,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 1. Per avviare il front-end Web dell'applicazione, premere CTRL+F5. 
 
-	Nel browser predefinito verrà aperta la home page. Viene eseguito il progetto Web perché è stato impostato come progetto di avvio.
+	Nel browser predefinito verrà aperta la home page. (The web project runs because you've made it the startup project.)
 
 	![Contoso Ads home page](./media/websites-dotnet-webjobs-sdk-get-started/home.png)
 
@@ -206,7 +199,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	![Console application window showing that the backend is running](./media/websites-dotnet-webjobs-sdk-get-started/backendrunning.png)
 
-2. Nel browser fare clic su **Create an Ad**.
+2. Nel browser fare clic su **Crea un'inserzione**.
 
 2. Immettere alcuni dati di prova e selezionare un'immagine da caricare, quindi fare clic su **Create**.
 
@@ -222,46 +215,44 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	![Index page](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-4. Fare clic su **Details** per visualizzare l'immagine con dimensioni normali per l'inserzione.
+4. Fare clic su **Dettagli** per visualizzare l'immagine con dimensioni normali per l'inserzione.
 
 	![Details page](./media/websites-dotnet-webjobs-sdk-get-started/details.png)
 
-L'applicazione è stata eseguita sul computer locale e usa un database di SQL Server sul computer, ma lavora con le code e i BLOB nel cloud. Nella seguente sezione si eseguirà l'applicazione nel cloud, usando un database cloud e BLOB e code cloud.  
+L'applicazione è stata eseguita sul computer locale e usa un database di SQL Server sul computer, ma lavora con le code e i BLOB nel cloud. Nella sezione seguente si eseguirà l'applicazione nel cloud, usando un database cloud e BLOB e code cloud.  
 
 ## <a id="runincloud"></a>Eseguire l'applicazione nel cloud
 
-Per eseguire l'applicazione nel cloud, seguire questa procedura:
+Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
-* Eseguire la distribuzione in un sito Web di Azure. Visual Studio creerà automaticamente un nuovo sito Web di Azure e un'istanza di database SQL.
-* Configurare il sito Web per l'uso del database SQL e dell'account di archiviazione di Azure.
+* Distribuire su App Web. Visual Studio creerà automaticamente una nuova app Web di Azure e un'istanza di database SQL.
+* Configurare l'app Web per l'uso del database SQL e dell'account di archiviazione di Azure.
 
 Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizzato il dashboard di WebJobs SDK con le funzionalità di monitoraggio complete disponibili.
 
-### Eseguire la distribuzione in un sito Web di Azure
+### Distribuire in App Web
 
 1. Chiudere il browser e la finestra dell'applicazione console.
 
 3. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ContosoAdsWeb, quindi scegliere **Pubblica**.
 
-3. Nel passaggio **Profilo** della procedura guidata **Pubblica sito Web** fare clic su **Siti Web di Microsoft Azure**.
+3. Nel passaggio **Profilo** della procedura guidata **Pubblica sito Web** fare clic su **App Web di Microsoft Azure**.
 
-	![Select Azure Website publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
+	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
-2. Nella finestra di dialogo **Seleziona sito Web esistente** fare clic su **Accedi**.
+2. Nella finestra di dialogo **Seleziona app Web esistente** fare clic su **Accedi** e immettere le credenziali se non è già stato effettuato l'accesso.
  
-	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
-
-5. Una volta effettuato l'accesso, fare clic su Nuovo.
+5. Una volta effettuato l'accesso, fare clic su **Nuovo**.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
-9. Nella finestra di dialogo **Crea sito in Microsoft Azure** immettere un nome univoco nella casella **Nome sito**.
+9. Nella finestra di dialogo **Crea app Web in Microsoft Azure** immettere un nome univoco nella casella **Nome app Web**.
 
-	L'URL completo sarà costituito da quanto immesso in questa casella e da .azurewebsites.net (come mostrato accanto alla casella di testo **Nome sito**). Se, ad esempio, il nome del sito è ContosoAds, l'URL sarà ContosoAds.azurewebsites.net.
+	L'URL completo sarà costituito da quanto immesso in questa casella e da .azurewebsites.net (come mostrato accanto alla casella di testo **Nome app Web**). Se, ad esempio, il nome dell'app Web è ContosoAds, l'URL sarà ContosoAds.azurewebsites.net.
 
 9. Nell'elenco a discesa **Regione** scegliere la stessa area scelta per l'account di archiviazione.
 
-	Questa impostazione specifica il data center di Azure in cui verrà eseguito il sito Web. Con il sito Web e l'account di archiviazione nello stesso data center, si riducono al minimo la latenza e gli addebiti per il trasferimento dei dati in uscita.
+	Questa impostazione specifica il data center di Azure in cui verrà eseguita l'app Web. Con l'app Web e l'account di archiviazione nello stesso data center, si riducono al minimo la latenza e gli addebiti per il trasferimento dei dati in uscita.
 
 9. Nell'elenco a discesa **Server di database** scegliere **Crea nuovo server**.
 
@@ -273,9 +264,9 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 1. Fare clic su **Crea**.
 
-	![Create site on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)	
+	![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)	
 
-	Visual Studio crea la soluzione, il progetto Web, il sito Web di Azure e l'istanza di database SQL di Azure.
+	Visual Studio crea la soluzione, il progetto Web, l'app Web in Azure e l'istanza di database SQL di Azure.
 
 2. Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Avanti**.
 
@@ -301,7 +292,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	È possibile ignorare l'avviso che informa che non ci sono database da pubblicare. Code First di Entity Framework creerà il database che non è necessario pubblicare.
 
-	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto di processo Web verranno copiati nella cartella  *app_data\jobs\continuous* del sito Web.
+	La finestra di anteprima mostra che i file binari e i file di configurazione del progetto processo Web verranno copiati nella cartella  *app_data\jobs\continuous* dell'app Web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)	
 
@@ -309,19 +300,19 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	Visual Studio implementa l'applicazione e apre l'URL della home page URL nel browser. 
 
-	Sarà possibile usare il sito solo dopo aver impostato le stringhe di connessione nell'ambiente di Azure nella sezione successiva. Verrà visualizzata una pagina di errore oppure la home page a seconda delle opzioni di creazione del sito e del database scelte in precedenza. 
+	Sarà possibile usare l'app Web solo dopo aver impostato le stringhe di connessione nell'ambiente di Azure nella sezione successiva. Verrà visualizzata una pagina di errore oppure la home page a seconda delle opzioni di creazione dell'app Web e del database scelte in precedenza. 
 
-### Configurare il sito Web per l'uso del database SQL e dell'account di archiviazione di Azure.
+### Configurare l'app Web per l'uso del database SQL e dell'account di archiviazione di Azure.
 
 Come procedura consigliata per la sicurezza, [evitare di inserire informazioni sensibili, come le stringhe di connessione, in file archiviati in repository di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). A questo scopo, è possibile impostare i valori delle stringhe di connessione e di altre impostazioni nell'ambiente di Azure. Le API di configurazione di ASP.NET rilevano automaticamente questi valori quando l'app viene eseguita in Azure. In questa sezione, si imposteranno i valori delle stringhe di connessione in Azure.
 
-7. In **Esplora server** fare clic con il pulsante destro del mouse sul sito Web sotto il nodo **Siti Web** e quindi scegliere **Visualizza impostazioni**.
+7. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web sotto il nodo **App Web**, quindi scegliere **Visualizza impostazioni**.
 
-	La finestra **Sito Web di Azure** si apre nella scheda **Configurazione**.
+	La finestra **App Web di Azure** si apre nella scheda **Configurazione**.
 
 9. Sostituire il nome della stringa di connessione DefaultConnection con ContosoAdsContext.
 
-	Poiché Azure ha creato automaticamente questa stringa di connessione quando si è creato il sito con un database associato, il valore della stringa di connessione è già quello corretto. Si sta solo sostituendo il nome con quello cercato dal codice.
+	Poiché Azure ha creato automaticamente questa stringa di connessione quando si è creata l'app Web con un database associato, il valore della stringa di connessione è già quello corretto. Si sta solo sostituendo il nome con quello cercato dal codice.
 
 9. Aggiungere due nuove stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Impostare il tipo personalizzato e impostare il valore delle stringhe di connessione sullo stesso valore usato in precedenza per i file  *Web.config* e  *App.config*. Assicurarsi di includere l'intera stringa di connessione, non solo la chiave di accesso, e non includere le virgolette.
 
@@ -331,13 +322,13 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. In **Esplora server** fare clic con il pulsante destro del mouse sul sito Web e quindi scegliere **Arresta sito Web**. 
+10. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web, quindi scegliere **Arresta app Web**. 
 
-12. Dopo che il sito Web viene arrestato, fare nuovamente clic con il pulsante destro del mouse sul sito Web e quindi scegliere **Avvia sito Web**.
+12. Dopo che l'app Web viene arrestata, fare nuovamente clic con il pulsante destro del mouse sull'app Web e scegliere **Avvia app Web**.
 
-	Il processo Web viene avviato automaticamente al momento della pubblicazione, ma si arresta quando si apporta una modifica alla configurazione. Per riavviarlo, è possibile riavviare il sito o riavviare il processo Web nel portale di gestione di Azure. In genere è consigliabile riavviare il sito dopo una modifica alla configurazione. 
+	Il processo Web viene avviato automaticamente al momento della pubblicazione, ma si arresta quando si apporta una modifica alla configurazione. Per riavviarlo, è possibile riavviare l'app Web o riavviare il processo Web nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). In genere è consigliabile riavviare l'app Web dopo una modifica alla configurazione. 
 
-9. Aggiornare la finestra del browser con l'URL del sito nella barra degli indirizzi.
+9. Aggiornare la finestra del browser con l'URL dell'app Web nella barra degli indirizzi.
 
 	Viene visualizzata la home page.
 
@@ -352,7 +343,7 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 ### Visualizzare il dashboard di WebJobs SDK
 
-1. Nel [portale di gestione di Azure](http://manage.windowsazure.com/) selezionare il sito Web.
+1. Nel portale di Azure selezionare l'app Web.
 
 2. Fare clic sulla scheda **Processi Web**.
 
@@ -370,17 +361,17 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 	Facendo clic sul pulsante **Riproduci funzione** di questa pagina, il framework WebJobs SDK chiama nuovamente la funzione ed è possibile modificare i dati passati prima alla funzione.
 
->[AZURE.NOTE] Al termine del test eliminare il sito Web e l'istanza di database SQL. Il sito Web è gratuito, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia il sito in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di gestione di Azure passare alla scheda **Dashboard** per il sito Web, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza di database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere al sito, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE] Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale di gestione di Azure passare alla scheda **Dashboard** per l'app Web, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza di database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ### Abilitare AlwaysOn per processi a esecuzione prolungata
 
-Per questa applicazione di esempio, l'attività del sito Web precede sempre la creazione di un messaggio in coda, in modo che non si verifichino problemi se il sito Web passa alla modalità sospensione e termina il processo Web a causa di un lungo periodo di inattività. Quando arriva una richiesta, il sito viene attivato e il processo Web riavviato.
+Per questa applicazione di esempio, l'attività dell'app Web precede sempre la creazione di un messaggio in coda, in modo che non si verifichino problemi se l'app Web passa alla modalità sospensione e termina il processo Web a causa di un lungo periodo di inattività. Quando arriva una richiesta, l'app Web viene attivata e il processo Web riavviato.
 
-Per i processi Web che si desidera mantenere in esecuzione anche quando il sito Web rimane inattivo per un lungo periodo di tempo, è possibile usare la funzionalità [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) di Siti Web di Azure.
+Per i processi Web che si desidera mantenere in esecuzione anche quando l'app Web rimane inattiva per un lungo periodo di tempo, è possibile usare la funzionalità [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
 
 ## <a id="create"></a>Creare un'applicazione completamente nuova 
 
-In questa sezione verranno effettuate le seguenti attività:
+In questa sezione verranno eseguite le attività seguenti:
 
 * Creare una soluzione Visual Studio con un progetto Web.
 * Aggiungere un progetto libreria di classi per il livello di accesso ai dati condiviso tra front-end e back-end.
@@ -400,9 +391,9 @@ In questa sezione verranno effettuate le seguenti attività:
 
 	![New Project](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)	
 
-5. Nella finestra di dialogo **Nuovo progetto ASP.NET** scegliere il modello MVC e deselezionare la casella di controllo **Host nel cloud** in **Microsoft Azure**.
+5. Nella finestra di dialogo **Nuovo progetto ASP.NET** scegliere il modello MVC e deselezionare la casella **Ospita nel cloud** in **Microsoft Azure**.
 
-	Selezionando **Ospita nel cloud**, Visual Studio può creare automaticamente un nuovo sito Web di Azure e un nuovo database SQL. Poiché sono già stati creati in precedenza, non è necessario farlo ora in fase di creazione del progetto. Per crearne uno nuovo, selezionare la casella di controllo. È quindi possibile configurare il nuovo sito Web e il nuovo database SQL come è stato fatto in precedenza durante la distribuzione dell'applicazione.
+	Selezionando **Ospita nel cloud**, Visual Studio può creare automaticamente una nuova app Web di Azure e un nuovo database SQL. Poiché sono già stati creati in precedenza, non è necessario farlo ora in fase di creazione del progetto. Per crearne uno nuovo, selezionare la casella di controllo. È quindi possibile configurare la nuova app Web e il nuovo database SQL come è stato fatto in precedenza durante la distribuzione dell'applicazione.
 
 5. Fare clic su **Modifica autenticazione**.
 
@@ -418,13 +409,13 @@ In questa sezione verranno effettuate le seguenti attività:
 
 9. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non sul progetto, quindi scegliere **Aggiungi** > **Nuovo progetto**.
 
-11. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Visual C#** > **Windows Desktop** > modello **Libreria di classi**.  
+11. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Visual C#** > **Windows Desktop** > modello **Libreria classi**.  
 
-10. Denominare il progetto  *ContosoAdsCommon*, quindi fare clic su **OK**.
+10. Assegnare al progetto il nome  *ContosoAdsCommon*, quindi fare clic su **OK**.
 
 	Questo progetto conterrà il contesto Entity Framework e il modello di dati che verranno usati sia dal front-end che dal back-end. In alternativa, è possibile definire le classi correlate a Entity Framework nel progetto Web e fare riferimento a tale progetto dal progetto processo Web. In tale caso, tuttavia, il progetto processo Web includerebbe un riferimento ad assembly Web non necessari.
 
-### Aggiungere un progetto applicazione console con la distribuzione dei processi Web abilitata.
+### Aggiungere un progetto applicazione console con la distribuzione dei processi Web abilitata
 
 11. Fare clic con il pulsante destro del mouse sul progetto Web (non sulla soluzione o sul progetto libreria di classi) e quindi scegliere **Aggiungi **> **Nuovo progetto processo Web Azure**.
 
@@ -434,13 +425,13 @@ In questa sezione verranno effettuate le seguenti attività:
 
 2.  Fare clic su **OK**.
   
-	Visual Studio crea un'applicazione console configurata per la distribuzione come processo Web quando si implementa il progetto Web. A tale scopo dopo la creazione del progetto ha effettuato le seguenti attività:
+	Visual Studio crea un'applicazione console configurata per la distribuzione come processo Web quando si implementa il progetto Web. A tale scopo dopo la creazione del progetto ha eseguito le attività seguenti:
 
-	* Aggiunta di un file  *webjob-publish-settings.json* nella cartella delle proprietà del progetto di processo Web.
+	* Aggiunta di un file  *webjob-publish-settings.json* nella cartella delle proprietà del progetto processo Web.
 	* Aggiunta di un file  *webjobs-list.json* nella cartella delle proprietà del progetto Web.
 	* Installazione del pacchetto NuGet Microsoft.Web.WebJobs.Publish nel progetto processo Web.
 	 
-	Per altre informazioni su queste modifiche, vedere la pagina relativa a [come implementare i processi Web usando Visual Studio](/it-it/documentation/articles/websites-dotnet-deploy-webjobs/).
+	Per altre informazioni su queste modifiche, vedere [Come implementare processi Web usando Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 ### Aggiungere i pacchetti NuGet
 
@@ -460,10 +451,10 @@ Tutti e tre i progetti usano Entity Framework per lavorare con i dati nel databa
 
 12. Nel riquadro sinistro selezionare **Online**.
    
-16. Trovare il pacchetto NuGet  *EntityFramework* e installarlo in tutti e tre i progetti.
+16. Trovare il pacchetto NuGet  *EntityFramework* e installarlo nei tre progetti.
 
 
-### Impostare i riferimenti dei progetti
+### Impostare i riferimenti al progetto
 
 Sia il progetto Web che il progetto processo Web useranno il database SQL, quindi hanno entrambi bisogno di un riferimento al progetto ContosoAdsCommon.
 
@@ -477,36 +468,36 @@ Il progetto processo Web ha bisogno di riferimenti per usare le immagini e per a
 
 ### Aggiungere il codice e i file di configurazione
 
-Questa esercitazione non mostra come creare [controller e visualizzazioni MVC usando lo scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), come [scrivere codice di Entity Framework da usare con database di SQL Server](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc) oppure le [nozioni di base della programmazione asincrona in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). Quindi resta solo da copiare il codice e i file di configurazione dalla soluzione scaricata alla nuova soluzione. Una volta eseguita l'operazione, vedere le seguenti sezioni che illustrano e spiegano parti chiave del codice.
+Questa esercitazione non mostra come [creare controlli e visualizzazioni MVC usando lo scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), come [scrivere codice di Entity Framework da usare con database SQL Server](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc) oppure [le nozioni di base della programmazione asincrona in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). Quindi resta solo da copiare il codice e i file di configurazione dalla soluzione scaricata alla nuova soluzione. Una volta eseguita l'operazione, vedere le sezioni seguenti che illustrano e spiegano parti chiave del codice.
 
 Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante destro del mouse sul progetto o sulla cartella, quindi scegliere **Aggiungi** > **Elemento esistente**. Selezionare i file da aggiungere, quindi fare clic su **Aggiungi**. Se viene richiesto di confermare che si vogliono sostituire i file esistenti, fare clic su **Sì**.
 
-3. Nel progetto ContosoAdsCommon eliminare il file  *Class1.cs* e sostituirlo con i seguenti file del progetto scaricato.
+3. Nel progetto ContosoAdsCommon eliminare il file  *Class1.cs* e sostituirlo con i file seguenti dal progetto scaricato.
 
 	- *Ad.cs*
 	- *ContosoAdscontext.cs*
 	- *BlobInformation.cs*<br/><br/>
 
-3. Nel progetto ContosoAdsWeb aggiungere i seguenti file dal progetto scaricato.
+3. Nel progetto ContosoAdsWeb aggiungere i file seguenti dal progetto scaricato.
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- In the *Controllers* folder: *AdController.cs* 
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
-	- In the *Views\Home* folder: *Index.cshtml*. 
-	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
+	- Nella cartella  *Controllers*: *AdController.cs* 
+	- Nella cartella  *Views\Shared*: <em>file _Layout.cshtml</em>. 
+	- Nella cartella  *Views\Home*: *Index.cshtml*. 
+	- Nella cartella  *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
 
-3. Nel progetto ContosoAdsWebJob aggiungere i seguenti file dal progetto scaricato.
+3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
 
-	- *App.config* (change the file type filter to **All Files**)
+	- *App.config* (impostare il filtro del tipo di file su **Tutti i file**)
 	- *Program.cs*
 	- *Functions.cs*
 
-Ora è possibile compilare, eseguire e implementare l'applicazione come indicato in precedenza nell'esercitazione. Prima però arrestare il processo Web ancora in esecuzione nel primo sito Web in cui è stata eseguita la distribuzione. Se non lo si arresta, il processo Web elaborerà i messaggi delle code creati localmente o dall'app in esecuzione in un nuovo sito Web, perché usano tutti lo stesso account di archiviazione.
+Ora è possibile compilare, eseguire e implementare l'applicazione come indicato in precedenza nell'esercitazione. Prima però arrestare il processo Web ancora in esecuzione nella prima app Web in cui è stata eseguita la distribuzione. In caso contrario, il processo Web elaborerà i messaggi delle code creati localmente o dall'app in esecuzione in una nuova app Web, perché usano tutti lo stesso account di archiviazione.
 
 ## <a id="code"></a>Verificare il codice dell'applicazione
 
-Le seguenti sezioni illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure. Per il codice specifico di WebJobs SDK, vedere la [sezione Program.cs](#programcs).
+Le sezioni seguenti illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure. Per il codice specifico di WebJobs SDK, vedere la [sezione Program.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -571,7 +562,7 @@ La classe ha due costruttori. Il primo è usato dal progetto Web e specifica il 
 
 ### ContosoAdsCommon - BlobInformation.cs
 
-La classe  `BlobInformation` viene usata per archiviare le informazioni su un BLOB di immagine in un messaggio di coda.
+La classe  `BlobInformation` viene usata per archiviare le informazioni su un BLOB di immagine in un messaggio di una coda.
 
 		public class BlobInformation
 		{
@@ -597,14 +588,14 @@ La classe  `BlobInformation` viene usata per archiviare le informazioni su un BL
 
 ### ContosoAdsWeb - Global.asax.cs
 
-Il codice chiamato dal metodo  `Application_Start` crea un contenitore BLOB  *images* e una coda  *images*, se non esistono ancora. In questo modo, ogni volta che si inizia a usare un nuovo account di archiviazione, il contenitore BLOB e la coda necessari saranno creati automaticamente.
+Il codice chiamato dal metodo  `Application_Start` crea un  *images* contenitore BLOB e una  *images* coda, se non esistono già. In questo modo, ogni volta che si inizia a usare un nuovo account di archiviazione, il contenitore BLOB e la coda necessari saranno creati automaticamente.
 
 Il codice ottiene l'accesso all'account di archiviazione tramite la stringa di connessione di archiviazione del file  *Web.config* o dell'ambiente di runtime di Azure.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-Ottiene quindi un riferimento al contenitore BLOB  *images*, crea il contenitore, se non esistente, e configura le autorizzazioni di accesso nel nuovo contenitore. Per impostazione predefinita, i nuovi contenitori permettono l'accesso ai BLOB solo ai client con credenziali dell'account di archiviazione. Per il sito Web è necessario che i BLOB siano pubblici, in modo che sia possibile visualizzare immagini usando gli URL che fanno riferimento ai BLOB delle immagini.
+Ottiene quindi un riferimento al contenitore BLOB  *images*, crea il contenitore se non esiste già e configura le autorizzazioni di accesso nel nuovo contenitore. Per impostazione predefinita, i nuovi contenitori permettono l'accesso ai BLOB solo ai client con credenziali dell'account di archiviazione. Per l'app Web è necessario che i BLOB siano pubblici, in modo che sia possibile visualizzare immagini usando gli URL che fanno riferimento ai BLOB delle immagini.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -629,7 +620,7 @@ Il file *_Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè d
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Il file  *Views\Home\Index.cshtml* visualizza i collegamenti alle categorie nella home page. I collegamenti passano il valore intero dell'enumerazione  `Category` in una variabile querystring nella pagina Ads Index.
+Il file  *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione  `Category` in una variabile stringaquery alla pagina di indice delle inserzioni.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -652,7 +643,7 @@ Tramite codice analogo si ottiene un riferimento alla coda  *images*.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-La maggior parte del codice del controller è tipica per l'uso di un modello di dati Entity Framework con una classe DbContext. Un'eccezione è costituita dal metodo  `Create`HttpPost che carica un file e lo salva nell'archiviazione BLOB. Lo strumento di associazione di modelli fornisce un oggetto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al metodo.
+La maggior parte del codice del controller è tipica per l'uso di un modello di dati Entity Framework con una classe DbContext. Un'eccezione è costituita dal metodo  `Create` HttpPost, che carica un file e lo salva nell'archiviazione BLOB. Lo strumento di associazione di modelli fornisce un oggetto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al metodo.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -681,13 +672,13 @@ Il codice che esegue il caricamento si trova nel metodo  `UploadAndSaveBlobAsync
 		    return imageBlob;
 		}
 
-Dopo avere caricato un BLOB e aggiornato il database, il metodo HttpPost  `Create` crea un messaggio di coda per segnalare al processo back-end che un'immagine è pronta per la conversione in anteprima.
+Dopo aver caricato un BLOB e aggiornato il database, il metodo  `Create` HttpPost crea un messaggio di coda per segnalare al processo back-end che un'immagine è pronta per la conversione in anteprima.
 
 		BlobInformation blobInfo = new BlobInformation() { AdId = ad.AdId, BlobUri = new Uri(ad.ImageURL) };
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		await thumbnailRequestQueue.AddMessageAsync(queueMessage);
 
-Il codice per il metodo HttpPost  `Edit` è simile, ma se l'utente seleziona un nuovo file immagine, eventuali BLOB già esistenti per questo annuncio dovranno essere eliminati.
+Il codice per il metodo  `Edit` HttpPost è simile; tuttavia, se l'utente seleziona un nuovo file immagine, eventuali BLOB già esistenti per questa inserzione dovranno essere eliminati.
  
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -718,19 +709,19 @@ Di seguito è riportato il codice per l'eliminazione dei BLOB in caso di elimina
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
 
-Il file  *Index.cshtml* mostra le anteprime insieme agli altri dati degli annunci:
+Il file  *Index.cshtml* mostra le anteprime insieme agli altri dati delle inserzioni:
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-Il file  *Details.cshtml* mostra l'immagine con dimensioni normali:
+Il file  *Details.cshtml* mostra l'immagine con dimensioni originali:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml and Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
 
-I file  *Create.cshtml* e  *Edit.cshtml* specificano la codifica di moduli che consente al controller di ottenere l'oggetto  `HttpPostedFileBase`.
+I file  *Create.cshtml* e  *Edit.cshtml* specificano la codifica di moduli che permettere al controller di ottenere l'oggetto  `HttpPostedFileBase`.
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
@@ -740,29 +731,22 @@ Un elemento `<input>` segnala al browser che è necessario fornire una finestra 
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-All'avvio del processo Web, il metodo  `Main` chiama  `Initialize` per creare un'istanza del contesto del database Entity Framework. Chiama quindi il metodo  `JobHost.RunAndBlock` di WebJobs SDK per iniziare un'esecuzione a thread singolo delle funzioni attivate nel thread corrente.
+Quando viene avviato il processo Web, il metodo  `Main` chiama il metodo  `JobHost.RunAndBlock` di WebJobs SDK per iniziare l'esecuzione di funzioni attivate sul thread corrente.
 
 		static void Main(string[] args)
 		{
-		    Initialize();
-		
 		    JobHost host = new JobHost();
 		    host.RunAndBlock();
 		}
-		
-		private static void Initialize()
-		{
-		    db = new ContosoAdsContext();
-		}
 
-### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Metodo GenerateThumbnail
 
 WebJobs SDK chiama questo metodo quando viene ricevuto un messaggio di una coda. Il metodo crea un'anteprima e inserisce l'URL dell'anteprima nel database.
 
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
-		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg"), FileAccess.Write] CloudBlockBlob outputBlob)
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 		{
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
@@ -770,14 +754,19 @@ WebJobs SDK chiama questo metodo quando viene ricevuto un messaggio di una coda.
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
 		
-		    var id = blobInfo.AdId;
-		    Ad ad = Program.db.Ads.Find(id);
-		    if (ad == null)
+		    // Entity Framework context class is not thread-safe, so it must
+		    // be instantiated and disposed within the function.
+		    using (ContosoAdsContext db = new ContosoAdsContext())
 		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        var id = blobInfo.AdId;
+		        Ad ad = db.Ads.Find(id);
+		        if (ad == null)
+		        {
+		            throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        }
+		        ad.ThumbnailURL = outputBlob.Uri.ToString();
+		        db.SaveChanges();
 		    }
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    Program.db.SaveChanges();
 		}
 
 * L'attributo  `QueueTrigger` indica a WebJobs SDK di chiamare questo metodo quando viene ricevuto un nuovo messaggio nella coda thumbnailrequest.
@@ -786,40 +775,47 @@ WebJobs SDK chiama questo metodo quando viene ricevuto un messaggio di una coda.
 
 	L'oggetto  `BlobInformation` nel messaggio della coda viene automaticamente deserializzato nel parametro  `blobInfo`. Al completamento del metodo, il messaggio della coda viene eliminato. Se il metodo non riesce prima del completamento, il messaggio della coda non viene eliminato. Dopo un lease di 10 minuti scade e il messaggio viene rilasciato per essere nuovamente prelevato ed elaborato. Questa sequenza non verrà ripetuta all'infinito se un messaggio genera sempre un'eccezione. Dopo 5 tentativi non riusciti di elaborare un messaggio, il messaggio viene spostato in una coda denominata {queuename}-poison. Il numero massimo di tentativi è configurabile. 
 
-* I due attributi  `Blob` forniscono oggetti associati ai BLOB: uno al BLOB di immagini esistente e uno a un nuovo BLOB di anteprima creato dal metodo. 
+* I due attributi  `Blob` forniscono oggetti associati ai BLOB: uno al BLOB di immagini esistenti e uno a un nuovo BLOB di anteprima creato dal metodo. 
 
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	I nomi dei BLOB derivano dalle proprietà dell'oggetto  `BlobInformation` ricevuto nel messaggio di coda (`BlobName` e  `BlobNameWithoutExtension`). Per ottenere le funzionalità complete della libreria del client di archiviazione, è possibile usare la classe  `CloudBlockBlob` per usare i BLOB. Per riusare il codice scritto per lavorare con gli oggetti  `Stream`, è possibile ricorrere alla classe  `Stream`. 
+	I nomi dei BLOB derivano dalle proprietà dell'oggetto  `BlobInformation` ricevuto nel messaggio della coda (`BlobName` e  `BlobNameWithoutExtension`). Per ottenere le funzionalità complete della libreria del client di archiviazione, è possibile usare la classe  `CloudBlockBlob` per lavorare con i BLOB. Per riutilizzare il codice scritto per lavorare con gli oggetti  `Stream`, è possibile usare la classe  `Stream`. 
 
-Per altre informazioni sulla scrittura di funzioni che usano attributi WebJobs SDK, vedere le seguenti risorse:
+Per altre informazioni su come scrivere funzioni che usano attributi di WebJobs SDK, vedere le risorse seguenti:
 
-* [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
-* [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
-* [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
-* [Come usare il bus di servizio di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-service-bus)
+* [Come usare l'archiviazione delle code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [Come usare l'archivio BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Come usare l'archivio tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
 
 >[AZURE.NOTE] 
->* Se il sito Web viene eseguito su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. Poiché in alcuni scenari è possibile che per questo motivo alcune funzioni elaborino gli stessi dati due volte, le funzioni dovrebbero essere idempotenti (scritte in modo tale che, anche se chiamate più volte con gli stessi dati di input, non generano risultati duplicati).
->* Per informazioni su come implementare l'arresto normale, vedere [Arresto normale](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   .
+>* Se l'app Web viene eseguita su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. Poiché in alcuni scenari è possibile che per questo motivo alcune funzioni elaborino gli stessi dati due volte, le funzioni dovrebbero essere idempotent (scritte in modo tale che, anche se chiamate più volte con gli stessi dati di input, non generano risultati duplicati).
+>* Per altre informazioni su come implementare l'arresto normale, vedere [Arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).   
 >* Il codice nel metodo  `ConvertImageToThumbnailJPG` (non mostrato) usa le classi disponibili nello spazio dei nomi  `System.Drawing` per maggiore semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET.
 
 ### WebJobs SDK e ruolo di lavoro dei servizi cloud senza WebJobs SDK
 
-Se si confronta la quantità di codice nel metodo  `GenerateThumbnails` in questa applicazione di esempio con il codice del ruolo di lavoro nella [versione dei servizi cloud dell'applicazione](/it-it/documentation/articles/cloud-services-dotnet-get-started/), sarà evidente quanto lavoro WebJobs SDK svolga automaticamente. Il vantaggio è maggiore di quanto possa sembrare, perché il codice dell'applicazione di esempio dei servizi cloud non esegue tutte le attività (ad esempio, la gestione di messaggi non elaborabili) che si eseguirebbero in un'applicazione di produzione e che WebJobs SDK esegue automaticamente.
+Se si confronta la quantità di codice nel metodo  `GenerateThumbnails` in questa applicazione di esempio con il codice del ruolo di lavoro nella [versione dell'applicazione per i servizi cloud](cloud-services-dotnet-get-started.md), sarà evidente quanto lavoro WebJobs SDK svolga autonomamente. Il vantaggio è maggiore di quanto possa sembrare, perché il codice dell'applicazione di esempio dei servizi cloud non esegue tutte le attività (ad esempio, la gestione di messaggi non elaborabili) che si eseguirebbero in un'applicazione di produzione e che WebJobs SDK esegue automaticamente.
 
-Nella versione dell'applicazione per i servizi cloud, l'ID record è l'unica informazione nel messaggio della coda e il processo in background ottiene l'URL dell'immagine dal database. Nella versione WebJobs SDK dell'applicazione il messaggio della coda include l'URL dell'immagine che può quindi essere fornito agli attributi  `Blob`. Se il messaggio della coda non includesse l'URL del BLOB, sarebbe possibile [usare l'attributo Blob nel corpo del metodo invece che nella firma del metodo](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
+Nella versione dell'applicazione per i servizi cloud, l'ID record è l'unica informazione nel messaggio della coda e il processo in background ottiene l'URL dell'immagine dal database. Nella versione dell'applicazione per WebJobs SDK, il messaggio della coda include l'URL dell'immagine che può quindi essere fornito agli attributi  `Blob`. Se il messaggio della coda non includesse l'URL del BLOB, sarebbe possibile [usare l'attributo Blob nel corpo del metodo invece che nella firma del metodo](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#blobbody).
 
 ### Uso di WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un sito Web di Azure. Per usare il dashboard, è necessario connettere il sito Web all'account di archiviazione in uso impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale di gestione. Sarà quindi possibile accedere al dashboard usando l'URL https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere la pagina relativa all'[accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un nome di stringa di connessione meno recente. 
+Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard, è necessario connettere l'app Web all'account di archiviazione in uso impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale di gestione. Sarà quindi possibile andare al dashboard tramite il seguente URL:
+
+https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
+
+Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un vecchio nome per la stringa di connessione. 
 
 ## Passaggi successivi
 
-In questa esercitazione è stata illustrata una semplice applicazione a più livelli che usa WebJobs SDK per l'elaborazione back-end. L'applicazione è semplice, in modo da essere idonea per un'esercitazione introduttiva. Ad esempio, non implementa l'[inserimento di dipendenze](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) o i [modelli di repository e unità di lavoro](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), non [usa un'interfaccia per la registrazione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), non usa [migrazioni Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) per gestire le modifiche ai modelli di dati o la [resilienza di connessione EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) per gestire gli errori di rete temporanei e così via.
+In questa esercitazione è stata illustrata una semplice applicazione a più livelli che usa WebJobs SDK per l'elaborazione back-end. L'applicazione è semplice, in modo da essere idonea per un'esercitazione introduttiva. Ad esempio, non implementa l'[inserimento di dipendenze](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) o i [modelli di archivio e unità di lavoro](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), non [usa un'interfaccia per l'elaborazione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), non usa [migrazioni Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) per gestire le modifiche ai modelli di dati o la [resilienza di connessione EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) per gestire gli errori di rete temporanei e così via.
 
 Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=42-->
+<!--HONumber=49-->

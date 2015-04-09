@@ -83,10 +83,12 @@
             base.OnActivated(args);
         }
 
-	Se il metodo **OnActivated** è già presente, aggiungere solamente il blocco di codice`#if...#endif`.
+	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
 
 8. Premere F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato. 
 
    Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.  <!--HONumber=42-->
+9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.  
+
+<!--HONumber=49-->

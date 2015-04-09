@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Eseguire query con DocumentDB SQL | Azure" 
+	pageTitle="Esecuzione di query con SQL di DocumentDB | Azure" 
 	description="DocumentDB, un servizio di database di documenti NoSQL, supporta le query che usano una grammatica simile a quella di SQL sui documenti JSON gerarchici senza richiedere esplicitamente uno schema o la creazione di indici secondari." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,27 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/24/2015" 
 	ms.author="mimig"/>
 
 #Esecuzione di query con DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari. 
+
 Nella progettazione del linguaggio di query per DocumentDB sono stati tenuti in considerazione due obiettivi:
 
--	<strong>Adottare SQL</strong>: invece di inventare un nuovo linguaggio di query, si è preferito adottare il linguaggio SQL. In fondo, SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
--	<strong>Estendere SQL</strong>: poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era usare il modello di programmazione di JavaScript come base per il linguaggio di query SQL. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
+-	<strong>Adottare SQL:</strong> invece di inventare un nuovo linguaggio di query, si è preferito adottare il linguaggio SQL. In fondo, SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
+-	<strong>Estendere SQL:</strong> poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era di usare il modello di programmazione di JavaScript come base per il linguaggio di query SQL. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
 
 Queste capacità costituiscono la chiave per la riduzione dell'attrito tra l'applicazione e il database e sono di importanza critica per la produttività degli sviluppatori.
 
-Per altre informazioni sulla grammatica e sulle funzionalità del linguaggio di query di DocumentDB, guardare il video seguente o completare l'esercitazione che segue in questo articolo. 
+Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandran mostra le funzionalità di query di DocumentDB, e visitando la pagina [Query Playground](http://www.documentdb.com/sql/demo), in cui è possibile provare DocumentDB ed eseguire query SQL rispetto a un set di dati predefinito.
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+Tornare quindi a questo articolo, dove verranno illustrati alcuni semplici documenti JSON e alcune semplici query.
 
 ## Per iniziare
 Per osservare il funzionamento del linguaggio SQL di DocumentDB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Tenere presente che, con DocumentDB, non è necessario creare alcuno schema o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di DocumentDB e successivamente eseguire una query. 
 In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate. 
 
-**Documento**
+**Documento**  
 
 	{
 	    "id": "AndersenFamily",
@@ -55,7 +58,7 @@ In questo caso è illustrato un semplice documento JSON relativo alla famiglia A
 
 Ecco un secondo documento con una sottile differenza: sono usati `givenName` e `familyName` invece di `firstName` e `lastName`.
 
-**Documento**
+**Documento**  
 
 	{
 	    "id": "WakefieldFamily",
@@ -150,7 +153,7 @@ La query successiva restituisce tutti i nomi dei bambini nella famiglia il cui I
 
 È opportuno prestare attenzione ad alcuni aspetti salienti del linguaggio di query di DocumentDB attraverso gli esempi finora esaminati:  
  
--	Poiché il linguaggio SQL di DocumentDB elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3.....Nodem`,in modo analogo al linguaggio SQL che fa riferimento al riferimento in due parti di `<table>.<column>`.   
+-	Poiché il linguaggio SQL di DocumentDB elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio  `Node1.Node2.Node3.....Nodem`, in modo analogo al linguaggio SQL relazionale che fa riferimento al riferimento in due parti di `<table>.<column>`.   
 -	Il linguaggio interagisce con i dati senza schema, perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
 -	DocumentDB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](http://www.json.org/).  
 -	Una raccolta di DocumentDB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra documenti, descritti più avanti in questo articolo.
@@ -185,16 +188,16 @@ Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative i
 
 
 ##Clausola FROM
-La clausola `FROM <from_specification>` è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intera raccolta, ma è possibile specificare piuttosto un sottoinsieme della raccolta. 
+La clausola  `FROM <from_specification>` è facoltativa, a meno che l'origine non sia filtrata/proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intera raccolta, ma è possibile specificare piuttosto un sottoinsieme della raccolta. 
 
-Una query come `SELECT * FROM Families` indica che l'intera raccolta Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome della raccolta, è possibile usare uno speciale identificatore ROOT per rappresentare la raccolta. 
+Una query come  `SELECT * FROM Families` indica che l'intera raccolta Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome della raccolta, è possibile usare uno speciale identificatore ROOT per rappresentare la raccolta. 
 L'elenco seguente include le regole applicate per ogni query:
 
-- È possibile effettuare l'aliasing della raccolta, ad esempio `SELECT f.id FROM Families AS f` o semplicemente `SELECT f.id FROM Families f`. In questo caso, `f` è l'equivalente di `Families`. `AS` è una parola chiave facoltativa per effettuare l'aliasing dell'identificatore.
+- È possibile effettuare l'aliasing della raccolta, come in  `SELECT f.id FROM Families AS f` o semplicemente  `SELECT f.id FROM Families f`.  `f` is the equivalent of `Families`. `AS` è una parola chiave facoltativa per effettuare l'aliasing dell'identificatore.
 
--	Tenere presente che, una volta effettuato l'aliasing, non sarà più possibile associare l'origine iniziale. Ad esempio, la sintassi di `SELECT Familes.id FROM Families f` non è valida perché non è più possibile risolvere l'identificatore "Families".
+-	Tenere presente che, una volta effettuato l'aliasing, non sarà più possibile associare l'origine iniziale. Ad esempio, la sintassi di  `SELECT Familes.id FROM Families f` non è valida perché non è più possibile risolvere l'identificatore "Families".
 
--	Tutte le proprietà a cui è necessario fare riferimento devono essere complete. In assenza di una rigorosa aderenza allo schema, ciò viene applicato per evitare eventuali associazioni ambigue. Di conseguenza, la sintassi di `SELECT id FROM Families f` non è valida poiché la proprietà `id` non è associata.
+-	Tutte le proprietà a cui è necessario fare riferimento devono essere complete. In assenza di una rigorosa aderenza allo schema, ciò viene applicato per evitare eventuali associazioni ambigue. Di conseguenza, la sintassi di  `SELECT id FROM Families f` non è valida perché la proprietà  `id` non è associata.
 	
 ###Documenti secondari
 È anche possibile ridurre il database di origine a un sottoinsieme di dimensioni inferiori. Ad esempio, per enumerare un solo sottoalbero in ogni documento, la sottoradice può quindi diventare l'origine, come nell'esempio seguente.
@@ -204,7 +207,7 @@ L'elenco seguente include le regole applicate per ogni query:
 	SELECT * 
 	FROM Families.children
 
-**Risultati**
+**Risultati**  
 
 	[
 	  [
@@ -325,7 +328,7 @@ Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati
 
 
 
-Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituisce i documenti JSON contenenti la proprietà `isRegistered`, dove il valore della proprietà è uguale al valore `true` JSON. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) condurrà all'esclusione del documento di origine dal risultato. 
+Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio,  `SELECT * FROM Families f WHERE f.isRegistered` restituirebbe i documenti JSON contenenti la proprietà  `isRegistered` e il valore della proprietà è uguale al valore  `true` JSON. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` e così via) comporta l'esclusione del documento di origine dai risultati. 
 
 ###Operatori di confronto e uguaglianza
 La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi.
@@ -996,7 +999,7 @@ Un'altra funzione fondamentale del linguaggio SQL di DocumentDB è la creazione 
 	SELECT [f.address.city, f.address.state] AS CityState 
 	FROM Families f	
 
-**Risultati**
+**Risultati**  
 
 	[
 	  {
@@ -1034,7 +1037,7 @@ La query seguente restituite il valore JSON senza l'etichetta `"address"` nei ri
 	SELECT VALUE f.address
 	FROM Families f	
 
-**Risultati**
+**Risultati**  
 
 	[
 	  {
@@ -1065,7 +1068,7 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
 
 
 ###Operatore *
-L'operatore speciale (*) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
+L'operatore speciale (*) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e  `SELECT *, f.id FROM Families f ` non sono valide.
 
 **Query**
 
@@ -1101,7 +1104,7 @@ Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la
 	SELECT * 
 	FROM Families.children
 
-**Risultati**
+**Risultati**  
 
 	[
 	  [
@@ -1128,14 +1131,14 @@ Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la
 	  ]
 	]
 
-Esaminare ora un'altra query che esegue l'iterazione sui figli nella raccolta. Notare la differenza nella matrice di output. Questo esempio suddivide `children` e converte i risultati in un'unica matrice.  
+Esaminare ora un'altra query che esegue l'iterazione sui figli nella raccolta. Notare la differenza nella matrice di output. Questo esempio suddivide  `children` e converte i risultati in un'unica matrice.  
 
 **Query**
 
 	SELECT * 
 	FROM c IN Families.children
 
-**Risultati**
+**Risultati**  
 
 	[
 	  {
@@ -1166,7 +1169,7 @@ Può essere usato per filtrare ulteriormente ciascuna voce individuale della mat
 	FROM c IN Families.children
 	WHERE c.grade = 8
 
-**Risultati**
+**Risultati**  
 
 	[{
 	  "givenName": "Lisa"
@@ -1185,13 +1188,13 @@ Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Nell'esempi
 	FROM Families f
 	JOIN f.NonExistent
 
-**Risultati**
+**Risultati**  
 
 	[{
 	}]
 
 
-Nell'esempio seguente, il join avviene tra la radice del documento e la sottoradice di `children`. È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
+Nell'esempio seguente, il join avviene tra la radice del documento e la sottoradice di  `children`. È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
 
 **Query**
 
@@ -1346,10 +1349,12 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 	       collectionSelfLink/* link of the parent collection*/, 
 	       sqrtUdf).Result;  
                                                                              
-Nell'esempio precedente è stata creata una UDF, denominata `SQRT`. Accetta un unico valore JSON `number` e calcola la radice quadrata del numero usando la libreria Math.
+Nell'esempio precedente è stata creata una UDF, denominata `SQRT`, che accetta un singolo valore JSON  `number` e calcola la radice quadrata del numero usando la libreria Math.
 
 
-È ora possibile usare questa UDF in una query in una proiezione.
+È ora possibile usare questa UDF in una query in una proiezione. Le UDF devono essere qualificate con il prefisso con distinzione tra maiuscole e minuscole "udf." quando chiamate dall'interno delle query. 
+
+>[AZURE.NOTE] Prima del 17/03/2015, DocumentDB supportava le chiamate UDF senza il prefisso "udf.", come SELECT SQRT(5). Questo modello di chiamata è stato deprecato.  
 
 **Query**
 
@@ -1370,7 +1375,7 @@ Nell'esempio precedente è stata creata una UDF, denominata `SQRT`. Accetta un u
 	  }
 	]
 
-È anche possibile usare l'UDF all'interno di un filtro, come mostrato nell'esempio seguente:
+È anche possibile usare l'UDF all'interno di un filtro, come mostrato nell'esempio seguente, anch'esso qualificato con il prefisso "udf.":
 
 **Query**
 
@@ -1465,6 +1470,137 @@ Questa richiesta può quindi essere inviata a DocumentDB come query con parametr
 
 I valori dei parametri possono essere qualsiasi valore JSON valido (stringhe, numeri, valori booleani, valori null, persino matrici o valori JSON annidati). Inoltre, dato che DocumentDB è senza schema, i parametri non vengono convalidati rispetto a qualsiasi tipo.
 
+##Funzioni predefinite
+DocumentDB supporta anche una serie di funzioni predefinite per le operazioni comuni, che possono essere usate all'interno di query come le funzioni definite dall'utente (UDF).
+
+<table>
+<tr>
+<td>Funzioni matematiche</td>	
+<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE e TRUNC</td>
+</tr>
+<tr>
+<td>Funzioni di controllo del tipo</td>	
+<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT e IS_STRING</td>
+</tr>
+</table>  
+
+Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora disponibile una funzione predefinita, è consigliabile usare la corrispondente funzione predefinita perché la sua esecuzione sarà più rapida ed efficiente. 
+
+###Funzioni matematiche
+Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
+
+<table>
+<tr>
+<td><strong>Utilizzo</strong></td>
+<td><strong>Descrizione</strong></td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td>Restituisce il valore assoluto (positivo) dell'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td>Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td>Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td>Restituisce l'esponente dell'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td>Restituisce il logaritmo naturale dell'espressione numerica specificata oppure il logaritmo usando la base specificata</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td>Restituisce il valore logaritmico in base 10 dell'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td>Restituisce un valore numerico, arrotondato al valore integer più vicino.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td>Restituisce un valore numerico, troncato al valore integer più vicino.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td>Restituisce la radica quadrata dell'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td>Restituisce il quadrato dell'espressione numerica specificata.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td>Restituisce la potenza dell'espressione numerica specificata al valore specificato.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td>Restituisce il valore del segno (-1, 0, 1) dell'espressione numerica specificata.</td>
+</tr>
+</table> 
+
+Ad esempio, è ora possibile eseguire query come le seguenti:
+
+**Query**
+
+    SELECT VALUE ABS(-4)
+
+**Risultati**
+
+    [4]
+
+La differenza principale tra le funzioni di DocumentDB confrontate con ANSI SQL è che sono progettate per interagire correttamente con dati senza schema e con schema misto. Se ad esempio si ha un documento in cui manca la proprietà Size oppure caratterizzato da un valore non numerico, come "unknown", il documento viene ignorato invece di restituire un errore.
+
+###Funzioni di controllo del tipo
+Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL. Le funzioni di controllo del tipo possono essere usate per determinare il tipo di proprietà all'interno dei documenti al volo, quando è variabile o sconosciuto. Di seguito è riportata una tabella di funzioni predefinite di controllo del tipo supportate.
+
+<table>
+<tr>
+  <td><strong>Utilizzo</strong></td>
+  <td><strong>Descrizione</strong></td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è una matrice.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è booleano.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è Null.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è un numero.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è un oggetto JSON.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
+  <td>Restituisce un valore booleano che indica se il tipo del valore è una stringa.</td>
+</tr>
+</table>
+
+Usando queste funzioni, è ora possibile eseguire query come le seguenti:
+
+**Query**
+
+    SELECT VALUE IS_NUMBER(-4)
+
+**Risultati**
+
+    [true]
+
+
 ##Da LINQ a SQL di DocumentDB
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. DocumentDB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di DocumentDB. 
 
@@ -1524,7 +1660,7 @@ Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo de
 	Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
 
 
-**JSON**
+**JSON**  
 
 	{
 	    "id": "WakefieldFamily",
@@ -1596,7 +1732,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 	input.Select(family => family.parents[0].familyName);
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE f.parents[0].familyName
 	FROM Families f
@@ -1608,7 +1744,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 	input.Select(family => family.children[0].grade + c); // c is an int variable
 
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE f.children[0].grade + c
 	FROM Families f 
@@ -1624,7 +1760,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 	});
 
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE {"name":f.children[0].familyName, 
 	              "grade": f.children[0].grade + 3 }
@@ -1633,13 +1769,13 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 
 ####Operatore SelectMany
-La sintassi è  `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare che restituisce un tipo di raccolta.
+La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare che restituisce un tipo di raccolta.
 
 **Espressione Lambda LINQ**
 
 	input.SelectMany(family => family.children);
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE child
 	FROM child IN Families.children
@@ -1653,7 +1789,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 
 	input.Where(family=> family.parents[0].familyName == "Smith");
 
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM Families f
@@ -1667,7 +1803,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 	    family => family.parents[0].familyName == "Smith" && 
 	    family.children[0].grade < 3);
 
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM Families f
@@ -1680,7 +1816,7 @@ Gli operatori sopra riportati possono essere composti in modo da formare query p
 
 ####Concatenazione 
 
-La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
+La sintassi è una query `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated query can start with an optional `SelectMany` seguita da più operatori `Select` o `Where`.
 
 
 **Espressione Lambda LINQ**
@@ -1701,7 +1837,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 	input.Where(family => family.children[0].grade > 3)
 	    .Select(family => family.parents[0].familyName);
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE f.parents[0].familyName
 	FROM Families f
@@ -1714,7 +1850,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 	input.Select(family => new { grade=family.children[0].grade}).
 	    Where(anon=> anon.grade < 3);
             
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM Families f
@@ -1727,7 +1863,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 	input.SelectMany(family => family.parents)
 	    .Where(parent => parents.familyName == "Smith");
 
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM p IN Families.parents
@@ -1746,7 +1882,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	input.SelectMany(family=> 
 	    family.parents.Select(p => p.familyName));
 
-**SQL**
+**SQL** 
 
 	SELECT VALUE p.familyName
 	FROM Families f
@@ -1758,7 +1894,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	input.SelectMany(family => 
 	    family.children.Where(child => child.familyName == "Jeff"));
             
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM Families f
@@ -1772,7 +1908,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	input.SelectMany(family => family.children.Where(
 	    child => child.familyName == family.parents[0].familyName));
 
-**SQL**
+**SQL** 
 
 	SELECT *
 	FROM Families f
@@ -1914,7 +2050,7 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
 
 Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count`.
 
-Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, fare riferimento a [Livelli di coerenza in DocumentDB] [livelli-di-coerenza].
+Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di DocumentDB][consistency-levels].
 
 Se i criteri di indicizzazione configurati sulla raccolta non possono supportare la query specificata, il server di DocumentDB restituisce il codice di errore 400 (Richiesta non valida). Questo codice viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
@@ -2008,7 +2144,7 @@ L'esempio successivo illustra i join, espressi tramite la clausola SelectMany di
 
 Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come illustrato sopra. Le opzioni di query presentate nella sezione relativa alle API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` e `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`. 
 
-Gli sviluppatori possono anche controllare esplicitamente il paging creando un oggetto `IDocumentQueryable` che usi l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` a `FeedOptions`. È possibile impostare `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
+Gli sviluppatori possono anche controllare esplicitamente il paging creando un oggetto `IDocumentQueryable` che usi l'oggetto `IQueryable`, quindi leggendo i valori` ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` in `FeedOptions`. È possibile impostare  `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
 
 Per altri esempi contenenti query, vedere gli [esempi di .NET in DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content). 
 
@@ -2050,7 +2186,7 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 
 
 ##Riferimenti
-1.	[Introduzione ad Azure DocumentDB][introduction]
+1.	[Introduzione a Azure DocumentDB][introduction]
 2.	[Specifica del linguaggio SQL di DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Esempi di .NET in DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
 4.	[Livelli di coerenza in DocumentDB][consistency-levels]
@@ -2058,7 +2194,7 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 6.	JSON [http://json.org/](http://json.org/)
 7.	Specifiche Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	Tecniche di valutazione delle query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9.	Tecniche di valutazione di query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
@@ -2066,7 +2202,7 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
-[introduction]: ../documentdb-introduction
-[consistency-levels]: ../documentdb-consistency-levels
+[introduction]: documentdb-introduction.md
+[consistency-levels]: documentdb-consistency-levels.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

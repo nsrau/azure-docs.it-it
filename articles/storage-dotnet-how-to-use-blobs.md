@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Come usare l'archiviazione BLOB da .NET | Azure" 
+	pageTitle="Come usare l'archiviazione BLOB da .NET | Microsoft Azure" 
 	description="Informazioni su come usare il servizio di archiviazione BLOB di Microsoft Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in C#." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,56 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/12/2015" 
 	ms.author="tamram"/>
+
 
 # Come usare l'archiviazione BLOB da .NET
 
-Questa guida illustra diversi scenari d'uso comuni del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono **caricamento**, **visualizzazione in elenchi**, **download** ed **eliminazione** di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi][].
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
-> [AZURE.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione 4.x, disponibile tramite [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o come parte di [Azure SDK per .NET](/it-it/downloads/). Vedere [Procedura: Accedere all'archiviazione BLOB a livello di codice][] per informazioni su come ottenere la libreria client di archiviazione.
+## Informazioni generali
 
-##Sommario
+Questa guida illustra diversi scenari d'uso comuni del
+servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene usata la libreria client di archiviazione di Azure per .NET. Tra gli scenari illustrati sono inclusi
+**caricamento**, **inclusione in elenco**, **download** ed **eliminazione** di BLOB.
 
--   [Informazioni sull'archiviazione BLOB][]
--   [Concetti][]
--   [Creare un account di archiviazione di Azure][]
--   [Configurare una stringa di connessione di archiviazione][]
--   [Procedura: Accedere all'archiviazione BLOB a livello di codice][]
--   [Procedura: Creare un contenitore][]
--   [Procedura: Caricare un BLOB in un contenitore][]
--   [Procedura: Elencare i BLOB in un contenitore][]
--   [Procedura: Scaricare BLOB][]
--   [Procedura: Eliminare BLOB][]
--   [Procedura: Elencare BLOB nelle pagine in modo asincrono][]
--   [Passaggi successivi][]
+> [AZURE.NOTE] Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione 4.x, disponibile tramite [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o come parte di [Azure SDK per .NET](/downloads/). Vedere di seguito [Accedere all'archiviazione BLOB a livello di codice](#programmatically-access-blob-storage) per informazioni su come ottenere la libreria client di archiviazione.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
+[AZURE.INCLUDE [storage-configure-connection-string-include](../includes/storage-configure-connection-string-include.md)]
 
-## <a name="configure-access"> </a>Procedura: Accedere all'archiviazione BLOB a livello di codice
+## Accedere all'archiviazione BLOB a livello di codice
 
-###Recupero dell'assembly È consigliare usare NuGet per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.  Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
+### Recupero dell'assembly
+È consigliare usare NuGet per ottenere l'assembly  `Microsoft.WindowsAzure.Storage.dll`. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.  Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+Il file `Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#">Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
 
-###Dichiarazioni dello spazio dei nomi Aggiungere le seguenti dichiarazioni dello spazio dei nomi all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di programmazione:
+### Dichiarazioni dello spazio dei nomi
+Aggiungere le seguenti dichiarazioni dello spazio dei nomi all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di programmazione:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+	using Microsoft.WindowsAzure.Storage.Blob;
 
 Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll`.
 
-###Recupero della stringa di connessione Per rappresentare le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si intende usare un modello di progetto di Azure e/o si dispone di un riferimento a Microsoft.WindowsAzure.CloudConfigurationManager, è possibile usare il tipo **CloudConfigurationManager** per recuperare la stringa di connessione di archiviazione e le informazioni dell'account di archiviazione dalla configurazione dei servizi di Azure:
+### Recupero della stringa di connessione
+Per rappresentare le informazioni dell'account di archiviazione, è possibile usare il tipo **CloudStorageAccount**. Se si usa un 
+modello di progetto di Azure e/o si dispone di un riferimento a 
+Microsoft.WindowsAzure.CloudConfigurationManager, è possibile usare il tipo **CloudConfigurationManager** per recuperare la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.CloudConfigurationManager e la stringa di connessione si trova nel file `web.config` o `app.config` come illustrato in precedenza, per recuperarla è possibile usare **ConfigurationManager**. Sarà necessario aggiungere un riferimento a System.Configuration.dll al progetto e aggiungere un'altra dichiarazione dello spazio dei nomi:
+Se si intende creare un'applicazione senza riferimenti a Microsoft.WindowsAzure.CloudConfigurationManager e la stringa di connessione si trova nel file  `web.config` o  `app.config` come illustrato in precedenza, per recuperarla è possibile usare **ConfigurationManager**.  Sarà necessario aggiungere un riferimento a System.Configuration.dll al progetto e aggiungere un'altra dichiarazione dello spazio dei nomi:
 
 	using System.Configuration;
 	...
@@ -73,9 +70,10 @@ Un tipo **CloudBlobClient** consente di recuperare oggetti che rappresentano con
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-###Dipendenze ODataLib Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici sono [OData], [Edm] e [Spatial].
+### Dipendenze ODataLib
+Le dipendenze ODataLib nella libreria client di archiviazione per .NET vengono risolte con i pacchetti ODataLib (versione 5.0.2) disponibili tramite NuGet e non WCF Data Services.  È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet.  I pacchetti ODataLib specifici sono [OData], [Edm] e [Spatial].
 
-## <a name="create-container"> </a>Procedura: Creare un contenitore
+## Creare un contenitore
 
 Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 
@@ -100,9 +98,9 @@ Per impostazione predefinita, il nuovo contenitore è privato ed è necessario s
 
 I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone della chiave di accesso appropriata.
 
-## <a name="upload-blob"> </a>Procedura: Caricare un BLOB in un contenitore
+## Caricare un BLOB in un contenitore
 
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
+In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine.  Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
 
 Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e usarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando il metodo **UploadFromStream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.
 
@@ -125,9 +123,10 @@ Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un conteni
         blockBlob.UploadFromStream(fileStream);
     } 
 
-##<a name="list-blob"> </a>Procedura: Elencare i BLOB in un contenitore
+## Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile usare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere all'insieme avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Il codice seguente illustra come recuperare e visualizzare l'URI di ogni elemento nel contenitore `photos`:
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile usare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere all'insieme avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, 
+**CloudPageBlob** o **CloudBlobDirectory**.  Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast.  Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento nel contenitore  `photos`:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,7 +163,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
 		}
 	}
 
-Come illustrato in precedenza, il servizio BLOB include anche il concetto di directory all'interno di contenitori. È quindi possibile organizzare i BLOB in una struttura più simile a quella delle cartelle. Si consideri, ad esempio, il seguente set di BLOB in blocchi in un contenitore denominato `photos`:
+Come illustrato in precedenza, il servizio BLOB include anche il concetto di directory all'interno di contenitori. È quindi possibile organizzare i BLOB in una struttura più simile a quella delle cartelle. Si consideri, ad esempio, il seguente set di BLOB in blocchi in un contenitore denominato  `photos`:
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -175,15 +174,16 @@ Come illustrato in precedenza, il servizio BLOB include anche il concetto di dir
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-Quando si chiama **ListBlobs** sul contenitore 'photos' (come nell'esempio precedente), la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlockBlob** che rappresentano le directory e i BLOB contenuti al primo livello. L'output risultante è il seguente:
+Quando si chiama **ListBlobs** sul contenitore  'photos' (come nell'esempio precedente), la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlockBlob** che rappresentano le directory e i BLOB contenuti al primo livello. L'output risultante è il seguente:
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Facoltativamente, è possibile impostare il parametro **UseFlatBlobListing** del metodo **ListBlobs** su 
-**true**. In questo modo tutti i BLOB verranno restituiti come **CloudBlockBlob**, indipendentemente dalla directory. La chiamata a **ListBlobs** è la seguente:
+Facoltativamente è possibile impostare il parametro **UseFlatBlobListing** del metodo **ListBlobs** su 
+**true**. In questo modo tutti i BLOB verranno restituiti come **CloudBlockBlob**
+, indipendentemente dalla directory.  Di seguito è illustrata la chiamata a **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -203,9 +203,11 @@ Facoltativamente, è possibile impostare il parametro **UseFlatBlobListing** del
 
 Per altre informazioni, vedere [CloudBlobContainer.ListBlobs][].
 
-## <a name="download-blobs"> </a>Procedura: Scaricare BLOB
+## Scaricare BLOB
 
-Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **DownloadToStream**. Nell'esempio seguente il metodo **DownloadToStream** viene usato per trasferire il contenuto del BLOB a un oggetto stream che è quindi possibile rendere persistente in un file locale.
+Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **DownloadToStream** . Il seguente
+esempio usa il metodo **DownloadToStream** per trasferire i contenuti del BLOB
+in un oggetto stream che è quindi possibile rendere persistente in un file locale.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -248,9 +250,10 @@ Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il
 		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 	}
 
-##<a name="delete-blobs"> </a>Procedura: Eliminare BLOB
+## Eliminare BLOB
 
-Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il metodo **Delete**.
+Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il
+metodo **Delete**.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -269,7 +272,7 @@ Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il 
     blockBlob.Delete(); 
 
 
-##<a name="list-blobs-async"> </a>Procedura: Elencare BLOB nelle pagine in modo asincrono
+## Elencare BLOB nelle pagine in modo asincrono
 
 Se si sta elencando un numero elevato di BLOB oppure si vuole controllare il numero di risultati restituiti in un'operazione di elenco, è possibile elencare i BLOB nelle pagine dei risultati. Questo esempio spiega come restituire i risultati nelle pagine in modo asincrono, in modo che l'esecuzione non venga bloccata durante l'attesa della restituzione di un set di risultati di grandi dimensioni.
 
@@ -329,7 +332,7 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
         }
     }
 
-## <a name="next-steps"></a>Passaggi successivi
+## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 <ul>
@@ -337,44 +340,35 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">Informazioni di riferimento sulle API REST dei servizi di archiviazione</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Informazioni di riferimento sulle API REST</a></li>
   </ul>
 </li>
-<li>Per altre informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Archiviazione</a>.</li>
+<li>Per altre informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Archiviazione e accesso ai dati in Azure</a>.</li>
 <li>Per altre informazioni su come semplificare il codice scritto per usare Archiviazione di Azure, vedere <a href="../websites-dotnet-webjobs-sdk/">Introduzione a Azure WebJobs SDK.</li>
 <li>Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
   <ul>
-    <li>Per archiviare dati strutturati, usare <a href="/it-it/documentation/articles/storage-dotnet-how-to-use-tables/">Archiviazione tabelle</a>.</li>
-    <li>Per archiviare dati non strutturati, usare <a href="/it-it/documentation/articles/storage-dotnet-how-to-use-queues/">Archiviazione di accodamento</a>.</li>
-    <li>Per archiviare dati relazionali, usare <a href="/it-it/documentation/articles/sql-database-dotnet-how-to-use/">Database SQL</a>.</li>
+    <li>Per archiviare dati strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Archiviazione tabelle</a>.</li>
+    <li>Per archiviare dati non strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Archiviazione di accodamento</a>.</li>
+    <li>Per archiviare dati relazionali, usare <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Database SQL</a>.</li>
   </ul>
 </li>
 </ul>
 
-  [Passaggi successivi]: #next-steps
-  [Informazioni sull'archiviazione BLOB]: #what-is
-  [Concetti]: #concepts
-  [Creare un account di archiviazione di Azure]: #create-account
-  [Configurare una stringa di connessione di archiviazione]: #setup-connection-string
-  [Procedura: Accedere all'archiviazione BLOB a livello di codice]: #configure-access
-  [Procedura: Creare un contenitore]: #create-container
-  [Procedura: Caricare un BLOB in un contenitore]: #upload-blob
-  [Procedura: Elencare i BLOB in un contenitore]: #list-blob
-  [Procedura: Scaricare BLOB]: #download-blobs
-  [Procedura: Eliminare BLOB]: #delete-blobs
-  [Procedura: Elencare BLOB nelle pagine in modo asincrono]: #list-blobs-async
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
   [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
-  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
+  [Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [Informazioni di riferimento sulla libreria client .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Informazioni di riferimento sulle API REST dei servizi di archiviazione]: http://msdn.microsoft.com/library/windowsazure/dd179355
+  [Informazioni di riferimento sulle API REST]: http://msdn.microsoft.com/library/azure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-<!--HONumber=42-->
+
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

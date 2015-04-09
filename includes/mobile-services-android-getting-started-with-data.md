@@ -1,4 +1,4 @@
-Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale. 
+﻿Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale. 
 
 1. Verificare che le seguenti righe siano presenti nel tag **dependencies** nel file *build.gradle (Module app)*. Se non sono presenti, aggiungerle. Verranno aggiunti i riferimenti all'SDK di Servizi mobili per il client Android.
 
@@ -10,16 +10,16 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
 2. Ricompilare il progetto facendo clic su **Sync Project with Gradle Files**.
 
-3. Aprire il file AndroidManifest.xml e aggiungere la seguente riga che consente all'app di accedere a Servizi mobili in Azure.
+3. Aprire il file AndroidManifest.xml e aggiungere la riga seguente che consente all'app di accedere a Servizi mobili in Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Aprire il file AndroidManifest.xml e aggiungere la seguente riga che consente all'app di accedere a Servizi mobili in Azure.
+6. Aprire il file AndroidManifest.xml e aggiungere la riga seguente che consente all'app di accedere a Servizi mobili in Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. In Package Explorer aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle seguenti righe di codice: 
+5. In Esplora pacchetti, aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle seguenti righe di codice: 
 
 
 
@@ -37,18 +37,18 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-5. Rimuovere quindi i simboli di commento dalle seguenti righe:
+5. Rimuovere quindi i simboli di commento dalle righe seguenti:
 
 		import java.util.ArrayList;
 		import java.util.List;
 
-6. Si procederà quindi alla rimozione dell'elenco in memoria attualmente usato dall'app in modo da poterlo sostituire con un servizio mobile. Nella classe **ToDoActivity** impostare come commento la seguente riga di codice che definisce l'elenco **toDoItemList** esistente.
+6. Si procederà quindi alla rimozione dell'elenco in memoria attualmente usato dall'app in modo da poterlo sostituire con un servizio mobile. Nella classe **ToDoActivity** impostare come commento la riga di codice seguente che definisce l'elenco **toDoItemList** esistente.
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Salvare il file. Gli errori di compilazione verranno indicati nel progetto. Cercare le altre tre posizioni in cui viene usata la variabile `toDoItemList` e impostare come commento le sezioni indicate. In questo modo l'elenco in memoria viene rimosso completamente. 
+7. Salvare il file. Gli errori di compilazione verranno indicati nel progetto. Cercare le altre tre posizioni in cui viene usata la variabile  `toDoItemList` e impostare come commento le sezioni indicate. In questo modo l'elenco in memoria viene rimosso completamente. 
 
-8. Ora si procederà all'aggiunta del servizio mobile. Rimuovere quindi i simboli di commento dalle seguenti righe di codice:
+8. Ora si procederà all'aggiunta del servizio mobile. Rimuovere quindi i simboli di commento dalle righe di codice seguenti:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
@@ -64,7 +64,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
   	Questi valori sono necessari per accedere al servizio mobile dal codice dell'app.
 
-12. Nel metodo **onCreate** rimuovere i simboli di commento dalle seguenti righe di codice che definiscono la variabile **MobileServiceClient**:
+12. Nel metodo **onCreate** rimuovere i simboli di commento dalle righe di codice seguenti che definiscono la variabile **MobileServiceClient**:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -82,11 +82,11 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
   	Verrà creata una nuova istanza di *MobileServiceClient* usata per accedere al servizio mobile. Verrà inoltre creata l'istanza di *MobileServiceTable* usata per comunicare con l'archiviazione dati nel servizio mobile.
 
-13. Nel codice precedente sostituire `MobileServiceUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, in quest'ordine.
+13. Nel codice precedente, sostituire  `MobileServiceUrl` e  `AppKey` con l'URL e la chiave applicazione del sevizio mobile, in quest'ordine.
 
 
 
-14. Rimuovere i simboli di commento dalle seguenti righe del metodo **checkItem**:
+14. Rimuovere i simboli di commento dalle righe seguenti del metodo **checkItem**:
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -110,7 +110,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
    	Verrà quindi inviato un aggiornamento dell'elemento al servizio mobile e verranno rimossi gli elementi dall'adattatore.
     
-15. Rimuovere i simboli di commento dalle seguenti righe del metodo **addItem**:
+15. Rimuovere i simboli di commento dalle righe seguenti del metodo **addItem**:
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -135,7 +135,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
   	Verrà creato e inserito un nuovo elemento nella tabella nel servizio mobile remoto.
 
-16. Rimuovere i simboli di commento dalle seguenti righe del metodo **refreshItemsFromTable**:
+16. Rimuovere i simboli di commento dalle righe seguenti del metodo **refreshItemsFromTable**:
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {
@@ -165,4 +165,5 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

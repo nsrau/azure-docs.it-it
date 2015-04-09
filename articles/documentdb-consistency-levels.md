@@ -54,8 +54,8 @@ Per impostazione predefinita, per le risorse definite dall'utente, il livello di
 
 Modalità di indicizzazione|	Letture|	Query  
 -------------|-------|---------
-Coerente (impostazione predefinita)|	Scegliere tra assoluta, con obsolescenza associata, sessione o finale|	Scegliere tra assoluta, con obsolescenza associata, sessione o finale|
-Differita|	Scegliere tra assoluta, con obsolescenza associata, sessione o finale|	Finale  
+Coerente (impostazione predefinita)|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|
+Differita|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|	Finale  
 
 Come per le richieste di lettura, è possibile abbassare il livello di coerenza per una particolare richiesta di query specificando l'intestazione di richiesta [x-ms-consistency-level].  
 
@@ -71,4 +71,4 @@ Come per le richieste di lettura, è possibile abbassare il livello di coerenza 
 -	Werner Vogels. Eventual Consistent - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

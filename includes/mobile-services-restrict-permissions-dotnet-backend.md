@@ -1,6 +1,4 @@
-﻿
-
-Per impostazione predefinita, tutte le richieste alle risorse del servizio mobile sono limitate ai client che presentano la chiave applicazione, che non protegge in modo efficace l'accesso alle risorse. Per proteggere le risorse, è necessario limitare l'accesso ai soli client autenticati.
+﻿Per impostazione predefinita, tutte le richieste alle risorse del servizio mobile sono limitate ai client che presentano la chiave applicazione, che non protegge in modo efficace l'accesso alle risorse. Per proteggere le risorse, è necessario limitare l'accesso ai soli client autenticati.
 
 1. In Visual Studio aprire il progetto di servizio mobile, espandere la cartella Controller e aprire **TodoItemController.cs**. La classe **TodoItemController**consente di implementare l'accesso ai dati per la tabella TodoItem. Aggiungere la seguente istruzione `using`:
 
@@ -20,4 +18,4 @@ Per impostazione predefinita, tutte le richieste alle risorse del servizio mobil
 
 4. Pubblicare di nuovo il progetto.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

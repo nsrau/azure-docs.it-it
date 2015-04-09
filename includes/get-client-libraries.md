@@ -1,4 +1,4 @@
-﻿### Installare tramite Composer
+﻿###Installare tramite Composer
 
 1. [Installazione di Git][install-git]. 
 
@@ -7,18 +7,21 @@
 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il seguente codice:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+        {
+            "repositories": [
+                {
+                    "type": "pear",
+                    "url": "http://pear.php.net"
+                }
+            ],
+            "require": {
+                "pear-pear.php.net/mail_mime" : "*",
+                "pear-pear.php.net/http_request2" : "*",
+                "pear-pear.php.net/mail_mimedecode" : "*",
+                "microsoft/windowsazure": "*"
+            }
+        }
+
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 
@@ -26,7 +29,7 @@
 
 		php composer.phar install
 
-### Installare manualmente
+###Installare manualmente
 
 Per scaricare e installare manualmente le librerie client PHP per Azure, seguire questa procedura:
 
@@ -43,7 +46,7 @@ Per altre informazioni sull'installazione delle librerie client PHP per Azure, c
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[download-SDK-PHP]: ../php-download-sdk/
+[download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=47-->
+<!--HONumber=49-->

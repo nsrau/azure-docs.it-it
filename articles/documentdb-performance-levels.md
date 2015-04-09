@@ -69,7 +69,7 @@ Una volta creata una raccolta, l'allocazione completa di unità di richiesta in 
 
 Dopo aver creato le raccolte, è possibile modificare il livello di prestazioni tramite gli SDK di DocumentDB o tramite il portale di gestione di Azure. 
 
-> [AZURE.IMPORTANT] Per le raccolte standard di DocumentDB viene fatturata una tariffa oraria e per ogni raccolta creata verrà fatturata minimo un'ora di utilizzo.
+> [AZURE.IMPORTANT] Per le raccolte standard di DocumentDB viene fatturata una tariffa oraria e per ogni raccolta creata verrà fatturata minimo un'ora di utilizzo. 
 
 Se si modifica il livello di prestazioni di una raccolta nell'intervallo di un'ora, verrà addebitato il costo per il massimo livello di prestazioni impostato durante quell'ora. Ad esempio, se si aumenta il livello di prestazioni per una raccolta alle ore 8:53, verrà addebitato il costo per il nuovo livello a partire dalle ore 8:00. Analogamente, se si diminuisce il livello di prestazioni alle ore 8:53, la nuova tariffa verrà applicata alle ore 9:00.
 
@@ -78,7 +78,7 @@ Le unità di richiesta vengono riservate per ogni raccolta in base al livello de
 > [AZURE.NOTE] Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate.
 
 ##<a id="Sub3"></a>Utilizzo dei livelli delle prestazioni##
-Le raccolte di DocumentDB consentono di partizionare i dati basati su modelli di query e sulle esigenze in termini di prestazioni dell'applicazione. Per altre informazioni dettagliate sul partizionamento dei dati con DocumentDB consultare la [documentazione relativa al partizionamento dei dati](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/). Con l'indicizzazione automatica e il supporto delle query di DocumentDB, è molto comune collocare documenti eterogenei all'interno della stessa raccolta. Le considerazioni principali nello stabilire se è necessario usare raccolte separate per i dati includono:
+Le raccolte di DocumentDB consentono di partizionare i dati basati su modelli di query e sulle esigenze in termini di prestazioni dell'applicazione. Per altre informazioni dettagliate sul partizionamento dei dati con DocumentDB consultare la [documentazione relativa al partizionamento dei dati](documentdb-partition-data.md). Con l'indicizzazione automatica e il supporto delle query di DocumentDB, è molto comune collocare documenti eterogenei all'interno della stessa raccolta. Le considerazioni principali nello stabilire se è necessario usare raccolte separate per i dati includono:
 
 - Query: una raccolta è l'ambito per l'esecuzione di query. Se è necessario eseguire una query in un set di documenti, i modelli di lettura più efficienti derivano dall'inserimento dei documenti in un'unica raccolta.
 - Transazioni: una raccolta è il dominio di transazione per stored procedure e trigger. Tutte le transazioni sono limitate a una singola raccolta. 
@@ -93,12 +93,12 @@ Le raccolte di DocumentDB consentono di partizionare i dati basati su modelli di
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
  
 - [Prezzi di DocumentDB](http://azure.microsoft.com/pricing/details/documentdb/)
-- [Gestire la capacità e le prestazioni di DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-manage/) 
-- [Modellazione dei dati in DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [Partizionamento dei dati in DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md) 
+- [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
+- [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md)
 
 Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.microsoft.com/documentation/services/documentdb/) relativa ad Azure DocumentDB. 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

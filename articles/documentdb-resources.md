@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Modello di risorse e concetti relativi a DocumentDB | Azure" 
 	description="Microsoft Azure DocumentDB è un database di documenti NoSQL completamente gestito che usa un modello gerarchico degli account di database, dei database, delle raccolte, delle stored procedure, dei trigger, delle funzioni definite dall'utente, dei documenti, degli allegati, degli elementi multimediali, degli utenti e delle autorizzazioni per la gestione delle risorse."  
 	services="documentdb" 
@@ -35,20 +35,20 @@ Come illustrato nel diagramma seguente, il **modello di risorse** di DocumentDB 
 >[AZURE.NOTE] DocumentDB offre anche un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![][1]  
-**Hierarchical resource model under a database account**   
+**Modello di risorse gerarchico in un account di database**   
 
-Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](./documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 |Risorsa 	|Descrizione
 |-----------|-----------
-|Account di database	|Un account di database è associato a una o più unità di capacità che rappresentano archiviazione di documenti con provisioning e velocità effettiva, un set di database e un archivio BLOB. È possibile creare uno o più account di database usando la sottoscrizione di Azure.
-|Database	|Un database è un contenitore logico di archiviazione di documenti partizionato tra raccolte. Un database è anche un contenitore degli utenti
-|Utente	|Spazio dei nomi logico per le autorizzazioni relative a definizione dell'ambito e partizionamento. 
+|Account di database	|Un account di database è associato a una o più unità di capacità, che rappresentano il provisioning di archiviazione documenti e la velocità effettiva, ovvero un insieme di database e di archiviazione BLOB. È possibile creare uno o più account di database usando la sottoscrizione di Azure.
+|Database	|Un database è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Un database è anche un contenitore degli utenti
+|Utente	|Spazio dei nomi logico per le autorizzazioni relative alla definizione dell'ambito e al partizionamento. 
 |Autorizzazione	|Token di autorizzazione associato a un utente per l'accesso autorizzato a una risorsa specifica.
-|Raccolta	|Una raccolta è un contenitore di documenti JSON e della logica dell'applicazione JavaScript associata.
-|Stored procedure	|Logica dell'applicazione scritta in JavaScript, registrata con una raccolta ed eseguita in modo transazionale all'interno del motore di database.
+|Raccolta	|Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
+|Stored procedure	|Logica dell'applicazione scritta in JavaScript, registrata con una raccolta ed eseguita a livello di transazione all'interno del motore di database.
 |Trigger	|Logica dell'applicazione scritta in JavaScript per la modellazione degli effetti collaterali associati a operazioni di inserimento, sostituzione o eliminazione.
-|Funzione definita dall'utente	|Logica dell'applicazione priva di effetti collaterali scritta in JavaScript. Consente di modellare un operatore query personalizzato e quindi di estendere il linguaggio di query di base di DocumentDB.
+|UDF	|Logica dell'applicazione senza effetti collaterali scritta in JavaScript. Consente di modellare un operatore query personalizzato e quindi di estendere il linguaggio di query di base di DocumentDB.
 |Documento	|Contenuto JSON definito dall'utente (arbitrario). Per impostazione predefinita, non è necessario definire alcuno schema, né fornire indici secondari per tutti i documenti aggiunti a una raccolta.
 |Allegato	|Gli allegati sono documenti speciali contenenti riferimenti e i metadati associati per BLOB/file multimediali esterni. Lo sviluppatore può definire se il BLOB debba essere gestito da DocumentDB o archiviato con un provider di servizi BLOB esterno come OneDrive, Dropbox e così via. 
 
@@ -110,12 +110,12 @@ Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_
 |-------------------|-----------
 |/dbs	|Feed dei database in un account di database.
 |/dbs/{_rid-db}	|Database con proprietà id univoca con il valore {_rid-db}.
-|/dbs/{_rid-db}/colls/	|Feed di raccolte in un database.
-|/dbs/{_rid-db}/colls/{_rid-coll}	|Raccolta con la proprietà id univoca con il valore {_rid-coll}.
-|/dbs/{_rid-db}/users/	|Feed di utenti in un database. 
-|/dbs/{_rid-db}/users/{_rid-user}	|Utente con la proprietà id univoca con il valore {_rid-user}.
-|/dbs/{_rid-db}/users/{_rid-user}/permissions	|Feed di autorizzazioni in un database. 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|Autorizzazione con la proprietà id univoca con il valore {_rid-permission}.  
+|/dbs/{_rid-db}/colls/	|Feed delle raccolte in un database.
+|/dbs/{_rid-db}/colls/{_rid-coll}	|Raccolta con proprietà id univoca con il valore {_rid-coll}.
+|/dbs/{_rid-db}/users/	|Feed degli utenti in un database. 
+|/dbs/{_rid-db}/users/{_rid-user}	|Utente con proprietà id univoca con il valore {_rid-user}.
+|/dbs/{_rid-db}/users/{_rid-user}/permissions	|Feed delle autorizzazioni in un database. 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|Autorizzazione con proprietà id univoca con il valore {_rid-permission}.  
   
 Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà _rid viene usata per costruire il collegamento _self indirizzabile di una risorsa.   
 
@@ -130,7 +130,7 @@ I valori delle proprietà _self e _rid sono rappresentazioni alternative e canon
 
 In base alla scala delle applicazioni e alle esigenze a livello di prestazioni, è possibile aggiungere o rimuovere unità di capacità in modo incrementale. Ogni unità di capacità include un insieme di raccolte flessibili, archiviazione documenti con provisioning basata su SSD e velocità effettiva con provisioning. La capacità relativa a risorse di archiviazione e velocità effettiva con provisioning associata a un'unità di capacità è distribuita nelle raccolte di DocumentDB create nei diversi database disponibili per l'account di database. La capacità con provisioning in un account di database è disponibile per tutti i database e tutte le raccolte esistenti o creati nell'account. Non è previsto alcun limite di scala pratico per le dimensioni dell'account di database. È possibile aggiungere nel tempo qualsiasi numero di unità di capacità, in base alle limitazioni specifiche dell'offerta. La scalabilità orizzontale è applicata alle risorse gestite in un'unità di capacità tramite il partizionamento e le risorse sono replicate per assicurare una disponibilità elevata. 
 
-È possibile [creare e gestire account di database DocumentDB](./documentdb-create-account.md) tramite il portale di Azure all'indirizzo [http://portal.azure.com/](http://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure. 
+È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure all'indirizzo [http://portal.azure.com/](http://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure. 
 
 ###Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:  
@@ -288,7 +288,7 @@ Una volta creata una raccolta, è possibile registrare stored procedure, trigger
 	        })
 	};
 
-Il client può "inviare" la logica JavaScript precedente al database per l'esecuzione transazionale tramite POST HTTP. Per altre informazioni sull'utilizzo di metodi HTTP, vedere l'articolo relativo alle [interazioni di tipo RESTful con risorse di DocumentDB](../documentdb-interactions-with-resources/). 
+Il client può "inviare" la logica JavaScript precedente al database per l'esecuzione transazionale tramite POST HTTP. Per altre informazioni sull'utilizzo di metodi HTTP, vedere l'articolo relativo alle [interazioni di tipo RESTful con risorse di DocumentDB](documentdb-interactions-with-resources.md). 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -351,7 +351,7 @@ L'esecuzione di una stored procedure avviene tramite l'esecuzione di un metodo H
 	    });
 
 ###Annullamento della registrazione di una stored procedure
-L'annullamento della registrazione di una stored procedure avviene tramite la semplice esecuzione di un metodo HTTP DELETE su una risorsa stored procedure esistente.   
+L'annullamento della registrazione di una stored procedure è eseguito in modo semplice tramite l'emissione di HTTP DELETE rispetto a una risorsa stored procedure esistente.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -483,14 +483,14 @@ Indipendentemente dalla strategia scelta per partizionare i dati, è possibile m
 Analogamente a tutte le altre risorse, gli utenti in DocumentDB possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa utente. È utile segnalare che se si elimina un utente, non sarà automaticamente più possibile accedere alle autorizzazioni incluse nell'utente stesso. Anche se DocumentDB recupera in background la quota di autorizzazioni come parte dell'utente eliminato, le autorizzazioni eliminate saranno disponibili immediatamente per un nuovo uso.  
 
 ##Autorizzazioni
-Dal punto di vista del controllo di accesso, le risorse come account di database, database, utenti e autorizzazioni sono considerate risorse  *amministrative*, perché richiedono autorizzazioni amministrative. D'altro canto, l'ambito di risorse come raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente viene definito in base a un database specifico e queste risorse sono considerate  *risorse dell'applicazione*. Corrispondente ai due tipi di risorse e ai ruoli che vi accedono, ovvero l'amministratore e l'utente, il modello di autorizzazione definisce due tipi di  *chiavi di accesso*: *chiave master* e *chiave risorsa*. La chiave master fa parte dell'account di database ed è fornita allo sviluppatore o all'amministratore che esegue il provisioning dell'account di database. La chiave master usa semantica di amministratore, ovvero può essere usata per autorizzare l'accesso alle risorse amministrative e dell'applicazione. Una chiave risorsa, invece, è una chiave di accesso granulare che permette di accedere a una risorsa dell'applicazione  *specifica*. Acquisisce quindi la relazione tra l'utente di un database e le autorizzazioni di cui l'utente dispone per una risorsa specifica, ad esempio una raccolta, un documento, un allegato, una stored procedure, un trigger o una funzione UDF.   
+Dal punto di vista del controllo di accesso, le risorse come account di database, database, utenti e autorizzazioni sono considerate risorse *administrative*, perché richiedono autorizzazioni amministrative. D'altro canto, l'ambito di risorse come raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente viene definito in base a un database specifico e queste risorse sono considerate *application resources*. Il modello di autorizzazione definisce due tipi di *access keys*, corrispondenti ai due tipi di risorse e ai ruoli usati per accedervi (ovvero  *master key* e *resource key*): La chiave master fa parte dell'account di database ed è fornita allo sviluppatore o all'amministratore che esegue il provisioning dell'account di database. La chiave master usa semantica di amministratore, ovvero può essere usata per autorizzare l'accesso alle risorse amministrative e dell'applicazione. Una chiave risorsa, invece, è una chiave di accesso granulare che permette di accedere a una risorsa dell'applicazione *specific*. Acquisisce quindi la relazione tra l'utente di un database e le autorizzazioni di cui l'utente dispone per una risorsa specifica, ad esempio una raccolta, un documento, un allegato, una stored procedure, un trigger o una funzione UDF.   
 
 L'unico modo per ottenere una chiave di risorsa consiste nella creazione di una risorsa di autorizzazione per un utente specifico. Si noti che per creare o recuperare un'autorizzazione è necessario presentare una chiave master nell'intestazione dell'autorizzazione. Una risorsa di autorizzazione associa la risorsa, l'accesso e l'utente. Dopo la creazione di una risorsa di autorizzazione, l'utente dovrà solo presentare la chiave di risorsa associata per ottenere l'accesso alla risorsa rilevante. Una chiave di risorsa può essere quindi considerata come una rappresentazione logica e compatta della risorsa di autorizzazione.  
 
 Come per tutte le altre risorse, le autorizzazioni in DocumentDB possono essere create, sostituite, eliminate, lette o enumerate facilmente usando le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di un'autorizzazione. 
 
 ##Passaggi successivi
-Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere l'articolo relativo alle [interazioni di tipo RESTful con risorse di DocumentDB](../documentdb-interactions-with-resources/).
+Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere l'articolo relativo alle [interazioni di tipo RESTful con risorse di DocumentDB](documentdb-interactions-with-resources.md).
 
 
 [1]: ./media/documentdb-resources/resources1.png
@@ -498,4 +498,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere l'a
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

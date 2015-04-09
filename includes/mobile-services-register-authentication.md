@@ -1,6 +1,4 @@
-﻿
-
-Per autenticare gli utenti, registrare l'app con un provider di identità e quindi registrare le credenziali del client generate dal provider con Servizi mobili di Azure.
+﻿Per autenticare gli utenti, registrare l'app con un provider di identità e quindi registrare le credenziali del client generate dal provider con Servizi mobili di Azure.
 
 1. Accedere al portale di gestione di Azure, fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
@@ -20,4 +18,4 @@ Per autenticare gli utenti, registrare l'app con un provider di identità e quin
 
     > [AZURE.IMPORTANT] Verificare di aver impostato l'URI di reindirizzamento corretto nel sito per sviluppatori del provider di identità. Come descritto nelle istruzioni collegate per ogni provider riportato sopra, l'URI di reindirizzamento può essere diverso per un servizio back-end .NET e per un servizio back-end JavaScript. Se l'URI di reindirizzamento non è configurato in modo corretto, è possibile che la schermata di accesso non venga visualizzata correttamente e che si verifichino anomalie impreviste nel funzionamento dell'applicazione.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

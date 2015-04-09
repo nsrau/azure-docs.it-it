@@ -16,7 +16,7 @@
 
 # Partizionamento dei dati in DocumentDB
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) è progettato per permettere di ottenere prestazioni elevate e prevedibili e applicare facilmente la *scalabilità orizzontale* in base alla crescita dell'applicazione. DocumentDB viene usato per i servizi di produzione su vasta scala di Microsoft, quale l'archivio dati utente su cui si basano le app Web e per dispositivi mobili della famiglia di prodotti MSN. 
+[Microsoft Azure DocumentDB](../../services/documentdb/) è progettato per permettere di ottenere prestazioni elevate e prevedibili e applicare facilmente la *scale-out* in base alla crescita dell'applicazione. DocumentDB viene usato per i servizi di produzione su vasta scala di Microsoft, quale l'archivio dati utente su cui si basano le app Web e per dispositivi mobili della famiglia di prodotti MSN. 
 
 Grazie al **partizionamento orizzontale** dei dati, è possibile ottenere una scalabilità quasi infinita in termini di archiviazione e produttività per l'applicazione DocumentDB.  Gli account DocumentDB supportano la scalabilità lineare grazie all'uso di unità organizzabili in stack, note anche come **raccolte**. Il partizionamento ottimale dei dati tra le raccolte dipenderà dal formato dei dati e dai modelli di accesso. 
 
@@ -28,33 +28,33 @@ Dopo la lettura di questo articolo, si sarà in grado di rispondere alle domande
 
 ## Raccolte = partizioni
 
-Prima si approfondire il discorso sulle tecniche di partizionamento dei dati, è importante comprendere cos'è e cosa non è una raccolta. Come probabilmente si saprà già, una raccolta è un contenitore per i documenti JSON. Le raccolte in DocumentDB non sono semplicemente contenitori *logici*, ma anche contenitori *fisici*. Sono il limite della transazione per stored procedure e trigger e il punto di ingresso per query e operazioni CRUD. A ogni raccolta viene assegnata una quantità di velocità effettiva riservata che non viene condivisa con altre raccolte nello stesso account. È quindi possibile applicare la scalabilità orizzontale all'applicazione, sia in termini di archiviazione che di velocità effettiva, aggiungendo altre raccolte e quindi distribuendo i documenti tra di esse.
+Prima si approfondire il discorso sulle tecniche di partizionamento dei dati, è importante comprendere cos'è e cosa non è una raccolta. Come probabilmente si saprà già, una raccolta è un contenitore per i documenti JSON. Le raccolte in DocumentDB non sono semplicemente contenitori *logical*, ma anche contenitori *physical*. Sono il limite della transazione per stored procedure e trigger e il punto di ingresso per query e operazioni CRUD. A ogni raccolta viene assegnata una quantità di velocità effettiva riservata che non viene condivisa con altre raccolte nello stesso account. È quindi possibile applicare la scalabilità orizzontale all'applicazione, sia in termini di archiviazione che di velocità effettiva, aggiungendo altre raccolte e quindi distribuendo i documenti tra di esse.
 
 Le raccolte sono diverse dalle tabelle nei database relazionali. Alle raccolte non viene applicato uno schema. Pertanto è possibile archiviare diversi tipi di documenti con schemi diversi nella stessa raccolta. È tuttavia possibile scegliere di usare le raccolte per archiviare oggetti di un singolo tipo come si farebbe con le tabelle. Il modello migliore dipende solo dal modo in cui i dati vengono visualizzati insieme in query e transazioni.
 
 ## Partizionamento con DocumentDB
 
-Le tecniche più comuni usate per il partizionamento dei dati con Azure DocumentDB sono *partizionamento per intervalli*, *partizionamento basato su ricerca* e *partizionamento hash*. In genere si definisce un solo nome di proprietà JSON all'interno del documento come chiave di partizione, ad esempio "timestamp" o "IDutente". In alcuni casi, potrebbe invece trattarsi di una proprietà JSON interna o di un nome di proprietà diverso per ogni tipo distinto di documento.
+Le tecniche più comuni usate per il partizionamento dei dati con Azure DocumentDB sono: *range partitioning*, *lookup partitioning* e *hash partitioning*. In genere si definisce un solo nome di proprietà JSON all'interno del documento come chiave di partizione, ad esempio "timestamp" o "IDutente". In alcuni casi, potrebbe invece trattarsi di una proprietà JSON interna o di un nome di proprietà diverso per ogni tipo distinto di documento.
 
 Di seguito vengono esaminate queste tecniche in maggiore dettaglio.
 
 ## Partizionamento per intervalli
 
-Nel partizionamento per intervalli le partizioni vengono assegnate in base alla presenza della chiave di partizione in un determinato intervallo. Questo approccio viene in genere usato per il partizionamento con proprietà di tipo  *timestamp*, (ad esempio, eventTime tra 1 febbraio 2015 e 2 febbraio 2015). 
+Nel partizionamento per intervalli le partizioni vengono assegnate in base alla presenza della chiave di partizione in un determinato intervallo. Questo approccio viene in genere usato per il partizionamento con proprietà di tipo  *time stamp*, (ad esempio, eventTime tra 1 febbraio 2015 e 2 febbraio 2015). 
 
-> [AZURE.SUGGERIMENTO] È consigliabile usare il partizionamento per intervalli se le query sono limitate a valori di un intervallo specifico in relazione alla chiave di partizione.
+> [AZURE.TIP] È consigliabile usare il partizionamento per intervalli se le query sono limitate a valori di un intervallo specifico in relazione alla chiave di partizione.
 
 ## Partizionamento basato su ricerca
 
 Nel partizionamento basato su ricerca le partizioni vengono assegnate in base a una mappa di ricerca che assegna valori di partizione discreti a partizioni specifiche, una tecnica nota anche come mappa partizioni. Questo approccio viene in genere usato per il partizionamento in base all'area (ad esempio, la partizione per la Scandinavia contiene Norvegia, Danimarca e Svezia).
 
-> [AZURE.SUGGERIMENTO] Il partizionamento basato su ricerca offre il massimo livello di controllo nella gestione di un'applicazione multi-tenant. È possibile assegnare più tenant a una singola raccolta, un singolo tenant a una singola raccolta o anche un singolo tenant a più raccolte. 
+> [AZURE.TIP] Il partizionamento basato su ricerca offre il massimo livello di controllo nella gestione di un'applicazione multi-tenant. È possibile assegnare più tenant a una singola raccolta, un singolo tenant a una singola raccolta o anche un singolo tenant a più raccolte. 
 
 ## Partizionamento hash
 
 Nel partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things"). 
 
-> [AZURE.SUGGERIMENTO] È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione tramite il partizionamento basato su ricerca (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
+> [AZURE.TIP] È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione tramite il partizionamento basato su ricerca (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
 
 ## Scelta della tecnica di partizionamento corretta
 
@@ -62,9 +62,9 @@ Quale tecnica di partizionamento è quindi adatta alle proprie esigenze ? Dipend
 
 - **Partizionamento per intervalli**: viene usato in genere nel contesto delle date, in quanto offre un meccanismo semplice e naturale per la definire la durata delle partizioni in base al timestamp. È utile anche quando le query vengono generalmente vincolate a un intervallo di tempo, dal momento che viene allineato con i limiti del partizionamento. 
 - **Partizionamento basato su ricerca**: permette di raggruppare e organizzare in modo naturale set di dati non ordinati e non correlati, ad esempio, raggruppare tenant per organizzazione o stati per area geografica. La ricerca offre inoltre un controllo dettagliato per la migrazione dei dati tra raccolte. 
-- **Partizionamento hash**: è utile per il bilanciamento uniforme del carico delle richieste, per ottimizzare l'uso di archiviazione e velocità effettiva con provisioning. L'uso di algoritmi di *hash coerente* consente di ridurre al minimo la quantità di dati da spostare quando si aggiunge o si rimuove una partizione.
+- **Partizionamento hash**: è utile per il bilanciamento uniforme del carico delle richieste, per ottimizzare l'uso di archiviazione e velocità effettiva con provisioning. L'uso di algoritmi di *consistent hashing* consente di ridurre al minimo la quantità di dati da spostare quando si aggiunge o si rimuove una partizione.
 
-Non è necessario scegliere una sola tecnica di partizionamento. A seconda dello scenario, può anche essere utile un *insieme* di queste tecniche. Ad esempio, se si archiviano i dati di telemetria di un veicolo, un buon approccio consiste nel partizionare i dati di telemetria del dispositivo per intervalli in base al timestamp per una migliore gestibilità delle partizioni, quindi creare una partizione secondaria basata sul numero di identificazione del veicolo per applicare la scalabilità orizzontale ai fini della velocità effettiva (partizionamento composito per intervalli-hash).
+Non è necessario scegliere una sola tecnica di partizionamento. A seconda dello scenario, può anche essere utile un *composite* di queste tecniche. Ad esempio, se si archiviano i dati di telemetria di un veicolo, un buon approccio consiste nel partizionare i dati di telemetria del dispositivo per intervalli in base al timestamp per una migliore gestibilità delle partizioni, quindi creare una partizione secondaria basata sul numero di identificazione del veicolo per applicare la scalabilità orizzontale ai fini della velocità effettiva (partizionamento composito per intervalli-hash).
 
 ## Sviluppo di un'applicazione partizionata
 Esistono tre aree di progettazione principali da esaminare quando si sviluppa un'applicazione partizionata in DocumentDB.
@@ -79,7 +79,7 @@ Queste aree saranno ora esaminate in maggiore dettaglio.
 
 L'instradamento delle richieste di creazione di un documento è semplice per tutte e tre le tecniche descritte. Il documento viene creato nella partizione dal valore di hash, ricerca o intervallo corrispondente alla chiave di partizione.
 
-Query e richieste di lettura dovrebbero, in genere, essere limitate a una singola chiave di partizione, in modo da effettuare il fan-out delle query solo alle partizioni corrispondenti. Per le query su tutti i dati sarebbe tuttavia necessario *effettuare il fan-out* della richiesta tra più partizioni e quindi unire i risultati. Tenere presente che per alcune query potrebbe essere necessario eseguire una logica personalizzata per unire i risultati, ad esempio si recuperano i primi N risultati.
+Query e richieste di lettura dovrebbero, in genere, essere limitate a una singola chiave di partizione, in modo da effettuare il fan-out delle query solo alle partizioni corrispondenti. Per le query su tutti i dati sarebbe tuttavia necessario effettuare il *fan-out* della richiesta tra più partizioni e quindi unire i risultati. Tenere presente che per alcune query potrebbe essere necessario eseguire una logica personalizzata per unire i risultati, ad esempio si recuperano i primi N risultati.
 
 ## Gestione della mappa partizioni
 
@@ -104,4 +104,4 @@ Un modo relativamente semplice per aggiungere nuove partizioni senza richiedere 
 In questo articolo sono state introdotte alcune tecniche su come partizionare i dati con DocumentDB e quando usare una determinata tecnica o una combinazione di tecniche. Iniziare con uno degli [SDK supportati](https://msdn.microsoft.com/library/azure/dn781482.aspx) e contattare Microsoft tramite i [forum di supporto di MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) in caso di domande.
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

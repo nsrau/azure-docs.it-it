@@ -3,7 +3,7 @@
 ### Creare gli utenti
 
 
-1. Nel [portale di gestione di Azure] passare alla directory configurata in precedenza per l'autenticazione quando è stata eseguita l'esercitazione [Introduzione all'autenticazione]].
+1. Nel [Portale di gestione di Azure] passare alla directory configurata in precedenza per l'autenticazione quando è stata eseguita l'esercitazione per l'aggiunta dell'autenticazione all'app.
 2. Fare clic su **Utenti** nella parte superiore della pagina. Fare quindi clic sul pulsante **Aggiungi utente** nella parte inferiore. 
 3. Completare le finestre di dialogo per la creazione di un nuovo utente creando l'utente **Bob**. Prendere nota della password temporanea per l'utente. 
 4. Creare ora l'utente **Dave**. Prendere nota della password temporanea per l'utente.
@@ -28,9 +28,13 @@
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/group-membership.png)
 
-3. Nella pagina del gruppo Sales fare clic su **Configura**, quindi notare l'**ID oggetto** del gruppo. In questa esercitazione l'ID oggetto del gruppo viene effettivamente cercato tramite le API Graph. L'ID non è quindi necessario, tuttavia in alcuni casi è preferibile non usare il nome del gruppo perché può cambiare mentre l'ID rimane sempre lo stesso. Se si vuole archiviare l'ID gruppo come impostazione dell'app nel servizio mobile oppure impostarlo come hardcoded nel codice, è possibile trovarlo qui.
+3. Nella pagina del gruppo Sales, fare clic su **Proprietà**, quindi copiare l'**ID oggetto** per il gruppo Sales nella parte inferiore della pagina. 
 
+   
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
+4. Tornare alla pagina di configurazione del servizio mobile e aggiungere l'id oggetto come impostazione di app denominata **AAD\_SALES\_GROUP\_ID**. Questa esercitazione utilizza l'id oggetto del gruppo come impostazione dell'app anziché cercare l'id in base al nome del gruppo. Questo perché il nome del gruppo può cambiare mentre l'id resta invariato.
 
-<!--HONumber=42-->
+    ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
+
+<!--HONumber=49-->

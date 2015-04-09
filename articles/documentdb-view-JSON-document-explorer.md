@@ -53,7 +53,7 @@ Esplora documenti può essere avviato da qualsiasi account, database e pannelli 
 	![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANTE] La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
+	> [AZURE.IMPORTANT] La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
 
 6. Per aggiornare l'elenco dei documenti caricati da Esplora documenti, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
 
@@ -124,4 +124,4 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Come usare il servizio di archiviazione BLOB (Java) | Microsoft Azure" 
+﻿<properties 
+	pageTitle="Come usare l'archiviazione BLOB da Java | Microsoft Azure" 
 	description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Java." 
 	services="storage" 
 	documentationCenter="java" 
@@ -13,44 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
 # Come usare l'archiviazione BLOB da Java
 
-In questa guida verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono **caricamento**, **visualizzazione in elenchi**, **download** ed **eliminazione** di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi](#NextSteps).
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
-Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][]. 
+## Informazioni generali
 
-## <a name="Contents"></a>Sommario
+Questa guida illustra diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono **caricamento**, **visualizzazione in elenchi**, **download** ed **eliminazione** di BLOB. Per altre informazioni sui BLOB, vedere la sezione [Passaggi successivi](#NextSteps) .
 
-* [Informazioni sull'archiviazione BLOB](#what-is)
-* [Concetti](#Concepts)
-* [Creare un account di archiviazione di Azure](#CreateAccount)
-* [Creare un'applicazione Java](#CreateApplication)
-* [Configurare l'applicazione per l'accesso all'archiviazione BLOB](#ConfigureStorage)
-* [Configurare una stringa di connessione di archiviazione di Azure](#ConnectionString)
-* [Procedura: Creare un contenitore](#CreateContainer)
-* [Procedura: Caricare un BLOB in un contenitore](#UploadBlob)
-* [Procedura: Elencare i BLOB in un contenitore](#ListBlobs)
-* [Procedura: Scaricare un BLOB](#DownloadBlob)
-* [Procedura: Eliminare un BLOB](#DeleteBlob)
-* [Procedura: Eliminare un contenitore BLOB](#DeleteContainer)
-* [Passaggi successivi](#NextSteps)
+> [AZURE.NOTE] per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][]. 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-<h2><a id="CreateAccount"></a>Creare un account di archiviazione di Azure</h2>
-
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-## <a name="CreateApplication"> </a>Creare un'applicazione Java
+## Creare un'applicazione Java
 
 In questa guida si useranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
 A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK per Java][] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
-## <a name="ConfigureStorage"> </a>Configurare l'applicazione per l'accesso all'archiviazione BLOB
+## Configurare l'applicazione per l'accesso all'archiviazione BLOB
 
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere ai BLOB:
 
@@ -58,9 +44,10 @@ Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desi
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
-## <a name="ConnectionString"> </a>Configurare una stringa di connessione di archiviazione di Azure
+## Configurare una stringa di connessione di archiviazione di Azure
 
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel portale di gestione per i valori di *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare
+endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel portale di gestione per i valori di *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
     // Define the connection-string with your values
     public static final String storageConnectionString = 
@@ -76,9 +63,9 @@ In un'applicazione in esecuzione in un ruolo di Microsoft Azure questa stringa p
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
-## <a name="CreateContainer"> </a>Procedura: Creare un contenitore
+## Procedura: Creare un contenitore
 
-Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nelle [informazioni di riferimento di Azure Storage Client SDK]().
+Gli oggetti CloudBlobClient consentono di ottenere oggetti di riferimento per contenitori e BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient**. Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure].
 
 Tutti i BLOB risiedono in un contenitore. Usare l'oggetto **CloudBlobClient** per ottenere un riferimento al contenitore da usare. È possibile creare un contenitore, se non esiste, con il metodo **createIfNotExists**, che in caso contrario restituirà il contenitore esistente. Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore.
 
@@ -103,7 +90,7 @@ Tutti i BLOB risiedono in un contenitore. Usare l'oggetto **CloudBlobClient** pe
         e.printStackTrace();
     }
 
-###Facoltativo: Configurare un contenitore per l'accesso pubblico ###
+### Facoltativo: Configurare un contenitore per l'accesso pubblico
 
 Per impostazione predefinita autorizzazioni di un contenitore sono configurate per l'accesso privato, ma è possibile configurare le autorizzazioni di un contenitore per consentire l'accesso pubblico di sola lettura per tutti gli utenti in Internet:
 
@@ -116,7 +103,7 @@ Per impostazione predefinita autorizzazioni di un contenitore sono configurate p
     // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## <a name="UploadBlob"> </a>Procedura: Caricare un BLOB in un contenitore
+## Procedura: Caricare un BLOB in un contenitore
 
 Per caricare un file in un BLOB, ottenere un riferimento a un contenitore e usarlo per ottenere un riferimento a un BLOB. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando upload sul riferimento al BLOB. Questa operazione consentirà di creare il BLOB se non esistente o di sovrascriverlo se esistente. Nel codice seguente viene illustrato come effettuare questa operazione presupponendo che il contenitore sia già stato creato.
 
@@ -145,7 +132,7 @@ Per caricare un file in un BLOB, ottenere un riferimento a un contenitore e usar
         e.printStackTrace();
     }
 
-## <a name="ListBlobs"> </a>Procedura: Elencare i BLOB in un contenitore
+## Procedura: Elencare i BLOB in un contenitore
 
 Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore, come previsto per caricare un BLOB. È possibile usare il metodo **listBlobs** del contenitore con un ciclo **for**. Il codice seguente consente di inviare alla console l'URI di ogni BLOB in un contenitore.
 
@@ -180,7 +167,7 @@ il parametro **useFlatBlobListing** impostato su true. In questo modo
 verranno restituiti tutti i BLOB, indipendentemente dalla directory. Per altre
 informazioni, vedere **CloudBlobContainer.listBlobs** nel [Riferimento all'SDK del client di archiviazione di Azure].
 
-## <a name="DownloadBlob"> </a>Procedura: Scaricare un BLOB
+## Procedura: Scaricare un BLOB
 
 Per scaricare i BLOB, eseguire la stessa procedura illustrata per caricarli al fine di ottenere un riferimento al BLOB. Nell'esempio di caricamento è stato chiamato upload sull'oggetto BLOB. Nell'esempio seguente verrà chiamato download per trasferire il contenuto del BLOB in un oggetto stream, come **FileOutputStream**, che è possibile usare per mantenere il BLOB in un file locale.
 
@@ -211,7 +198,7 @@ Per scaricare i BLOB, eseguire la stessa procedura illustrata per caricarli al f
         e.printStackTrace();
     }
 
-## <a name="DeleteBlob"> </a>Procedura: Eliminare un BLOB
+## Procedura: Eliminare un BLOB
 
 Per eliminare un BLOB, ottenere il riferimento al BLOB e chiamare **deleteIfExists**.
 
@@ -238,9 +225,10 @@ Per eliminare un BLOB, ottenere il riferimento al BLOB e chiamare **deleteIfExis
         e.printStackTrace();
     }
 
-## <a name="DeleteContainer"> </a>Procedura: Eliminare un contenitore BLOB
+## Procedura: Eliminare un contenitore BLOB
 
-Infine, per eliminare un contenitore BLOB, ottenere un riferimento al contenitore BLOB e chiamare **deleteIfExists**.
+Infine, per eliminare un contenitore BLOB, ottenere un riferimento al contenitore BLOB e
+chiamare **deleteIfExists**.
 
     try
     {
@@ -262,7 +250,7 @@ Infine, per eliminare un contenitore BLOB, ottenere un riferimento al contenitor
         e.printStackTrace();
     }
 
-## <a name="NextSteps"></a>Passaggi successivi
+## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
@@ -277,4 +265,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

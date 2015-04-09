@@ -1,4 +1,4 @@
-
+﻿
 1. Assicurarsi di arrestare il servizio mobile se è in esecuzione in IIS Express. Fare clic con il pulsante destro del mouse sull'icona IIS Express sulla barra delle applicazioni e scegliere **stop** per il servizio mobile.
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
@@ -38,4 +38,5 @@
 
 <!-- URLs. -->
 [Come aggiungere una nuova regola di porta in Windows Firewall]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

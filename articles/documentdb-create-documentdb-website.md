@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 # Distribuire DocumentDB e un sito Web di Azure usando un modello di Gestione risorse di Azure #
@@ -31,15 +31,15 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione.  Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) oppure [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage-whatis-account/).
-- Workstation con Azure PowerShell. Per istruzioni, vedere [Installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](storage-whatis-account.md).
+- Workstation con Azure PowerShell. Per istruzioni, vedere [Installare e configurare Azure PowerShell](install-configure-powershell.md).
 
 ##<a id="CreateDB"></a>Passaggio 1: Scaricare ed estrarre i file di esempio ##
 Per iniziare, scaricare i file di esempio che verranno usati in questa esercitazione.
 
-1. Scaricare l'[esempio per creare un account DocumentDB, un sito Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) in una cartella locale (ad esempio C:\DocumentDBTemplates) quindi estrarre i file.  Con questo esempio si distribuirà un account DocumentDB, un sito Web di Azure e un'applicazione Web.  L'applicazione Web verrà anche configurata automaticamente per connettersi all'account DocumentDB.
+1. Scaricare l'[esempio per creare un account DocumentDB, un sito Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) in una cartella locale (ad esempio, C:\DocumentDBTemplates), quindi estrarre i file.  Con questo esempio si distribuirà un account DocumentDB, un sito Web di Azure e un'applicazione Web.  L'applicazione Web verrà anche configurata automaticamente per connettersi all'account DocumentDB.
 
-2. Scaricare l'[esempio per creare un account DocumentDB e un sito Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) in una cartella locale (ad esempio C:\DocumentDBTemplates) quindi estrarre i file.  Questo esempio distribuirà un account DocumentDB, un sito Web di Azure e modificherà la configurazione del sito Web per rilevare in modo semplice le informazioni relative alla connessione di DocumentDB. Non è tuttavia inclusa alcuna applicazione Web.  
+2. Scaricare l'[esempio per creare un account DocumentDB e un sito Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) in una cartella locale (ad esempio, C:\DocumentDBTemplates), quindi estrarre i file.  Questo esempio distribuirà un account DocumentDB, un sito Web di Azure e modificherà la configurazione del sito Web per rilevare in modo semplice le informazioni relative alla connessione di DocumentDB. Non è tuttavia inclusa alcuna applicazione Web.  
 
 > [AZURE.TIP] Si noti che, a seconda delle impostazioni di sicurezza del computer, potrebbe essere necessario sbloccare i file estratti facendo clic con il pulsante destro del mouse, scegliendo **Proprietà**, quindi facendo clic su **Sblocca**.
 
@@ -52,7 +52,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
 > [AZURE.TIP] Il modello non verifica che il nome del sito Web e il nome dell'account DocumentDB siano validi e/o disponibili.  È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
-1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB, un sito Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (ad esempio C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).
+1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB, un sito Web e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (ad esempio, C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).
 
 
 2. Verrà eseguito lo script di PowerShell CreateDocDBWebsiteTodo.ps1.  Lo script accetta i parametri obbligatori seguenti:
@@ -69,7 +69,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebsiteTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebsite" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP] Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script.  Il completamento della distribuzione richiederà tra 10 e 15 minuti.  	
+	> [AZURE.TIP] Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.  	
 
 4. Di seguito è riportato un esempio di output risultante: 
 
@@ -151,7 +151,7 @@ Si procederà ora alla distribuzione del secondo modello.
 
 > [AZURE.TIP] Il modello non verifica che il nome del sito Web e il nome dell'account DocumentDB siano validi e/o disponibili.  È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
-1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB e un sito Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (ad esempio C:\DocumentDBTemplates\CreateDocDBWebsite).
+1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB e un sito Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (ad esempio, C:\DocumentDBTemplates\CreateDocDBWebsite).
 
 
 2. Verrà eseguito lo script di PowerShell CreateDocDBWebsite.ps1.  Lo script accetta gli stessi parametri del primo modello che distribuito, vale a dire:
@@ -200,4 +200,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un sito Web
 - Per altre informazioni su Siti Web di Azure, vedere [qui](http://go.microsoft.com/fwlink/?LinkId=325362).
 - Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

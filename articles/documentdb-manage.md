@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="03/17/2015" 
 	ms.author="mimig"/>
 
 #Gestire la capacità e le prestazioni di DocumentDB
@@ -23,12 +23,12 @@ DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e com
 
 Ogni unità di capacità include una quota di raccolte per l'archiviazione di dati dei documenti, risorse di archiviazione con provisioning e velocità effettiva con provisioning sotto forma di unità di richiesta al secondo. In caso di modifica dei requisiti di capacità dell'applicazione, sarà possibile aumentare o ridurre la capacità di cui è stato effettuato il provisioning nell'account di database. La capacità con provisioning in un account di database è disponibile per tutti i database e tutte le raccolte esistenti o creati nell'account.
 
-> [AZURE.NOTE] È possibile aumentare o ridurre le dimensioni di ogni raccolta in memoria e velocità effettiva fino al valore [limite](http://azure.microsoft.com/documentation/articles/documentdb-limits/) massimo supportato. La velocità effettiva verrà distribuita uniformemente a tutte le raccolte fino al limite massimo per ogni raccolta.
+> [AZURE.NOTE] È possibile aumentare o ridurre le dimensioni di ogni raccolta in memoria e velocità effettiva fino al valore [limite](documentdb-limits.md) massimo supportato. La velocità effettiva verrà distribuita uniformemente a tutte le raccolte fino al limite massimo per ogni raccolta.
 
 Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate.
 
 ##<a name="DBaccount"></a>Account di database e risorse amministrative
-Gli utenti che hanno sottoscritto Azure possono eseguire il provisioning di uno o più account di database di DocumentDB. Ogni account di database è associato a una quota di risorse di amministrazione, inclusi database, utenti e autorizzazioni. Queste risorse sono soggette a [limiti e quote](http://azure.microsoft.com/documentation/articles/documentdb-limits/). Se sono necessarie altre risorse amministrative, contattare il supporto.   
+Gli utenti che hanno sottoscritto Azure possono eseguire il provisioning di uno o più account di database di DocumentDB. Ogni account di database è associato a una quota di risorse di amministrazione, inclusi database, utenti e autorizzazioni. Queste risorse sono soggette a [limiti e quote](documentdb-limits.md). Se sono necessarie altre risorse amministrative, contattare il supporto.   
 
 ##<a name="DBstorage"></a> Database con archiviazione illimitata dei documenti
 Un singolo database di DocumentDB può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base alle raccolte. Le raccolte costituiscono i domini transazione per i documenti incluse nelle raccolte stesse. Un database di DocumentDB è flessibile per impostazione predefinita e può includere da pochi GB a, potenzialmente, terabyte di archiviazione documenti e velocità effettiva con provisioning basate su SSD. A differenza del database RDBMS tradizionale, l'ambito di un database in DocumentDB non è limitato a una singola macchina.   
@@ -46,40 +46,33 @@ Ogni database di DocumentDB può includere una o più raccolte. Una raccolta for
 Ogni unità di capacità include tre raccolte flessibili, 10 GB di archiviazione documenti con provisioning basata su SSD e 2000 unità di richiesta (RU, Request Unit) di velocità effettiva con provisioning. La capacità relativa a risorse di archiviazione e velocità effettiva con provisioning associata a un'unità di capacità è distribuita nelle raccolte di DocumentDB create.   
 
 ##<a name="ProvThroughput"></a>Unità di richiesta e operazioni di database
-DocumentDB permette un'ampia gamma di operazioni di database, incluse le query relazionali e gerarchiche con funzioni UDF, stored procedure e trigger operative nei documenti in una raccolta di database. Il costo associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione.  Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.   
+DocumentDB permette un'ampia gamma di operazioni di database, incluse le query relazionali e gerarchiche con funzioni UDF, stored procedure e trigger operative nei documenti in una raccolta di database. Il costo di elaborazione associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
 
-Il provisioning delle unità di richiesta è eseguito per ogni account di database in base al numero di unità di capacità acquistato. Il consumo delle unità di richiesta è valutato in base alla frequenza al secondo. Le applicazioni che superano il livello di unità di richiesta con provisioning previsto per il relativo account saranno limitate fino al ritorno del livello sotto il valore riservato per l'account. Se l'applicazione necessita di un livello superiore di velocità effettiva, sarà possibile acquistare unità di capacità aggiuntive.  
+Il provisioning delle unità di richiesta è eseguito per ogni account di database in base al numero di unità di capacità acquistato. Nell'anteprima di DocumentDB, a ogni raccolta creata viene assegnato un limite di unità di richiesta. L'allocazione viene calcolata allocando in modo uniforme tutte le unità di richiesta dalle unità di capacità acquistate in base al numero di raccolte create all'interno di un account. Ad esempio, per un account con 2 unità di capacità acquistate e 4 raccolte create, a ogni raccolta vengono assegnate 2 unità di capacità x 2.000 unità di richiesta / 4 raccolte per un'allocazione di 1.000 unità di richiesta per raccolta. Quando Azure DocumentDB è disponibile a livello generale, il servizio non distribuirà più le unità di richiesta tra le raccolte all'interno di un account. Le unità di richiesta verranno acquistate e assegnate a raccolte specifiche in base ai livelli di prestazioni. Per altre informazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). 
 
-La tabella seguente fornisce un elenco di diverse operazioni di database e delle unità di richiesta disponibili per ogni unità di capacità. La tabella semplifica la pianificazione del consumo della velocità effettiva associata a un'unità di capacità da parte di una determinata operazione di database.  Si presuppone che la dimensione del documento sia pari a 1 KB e che sia costituita da 10 valori di proprietà univoci con livello di coerenza predefinito impostato su "Sessione" e che tutti i documenti siano indicizzati automaticamente da DocumentDB. 
+>[AZURE.NOTE] Durante l'anteprima di Azure DocumentDB, a ogni raccolta non possono essere allocate più di 2.000 unità di richiesta. 
 
-|Operazioni di database|Numero di operazioni al secondo per unità di capacità|
-|-------------------|--------------------------------------|
-|Lettura di un singolo documento	|2000
-|Inserimento/Sostituzione/Eliminazione di un singolo documento	|500
-|Esecuzione di query su una raccolta con un semplice predicato e restituzione di un singolo documento	|1000
-|Stored procedure con 50 inserimenti di documenti	|20
+Il consumo delle unità di richiesta è valutato in base alla frequenza al secondo. Le applicazioni che superano il livello di unità di richiesta con provisioning previsto per il relativo account saranno limitate fino al ritorno del livello sotto il valore riservato per ogni raccolta. Se l'applicazione necessita di un livello superiore di velocità effettiva, sarà possibile acquistare unità di capacità aggiuntive.
 
-Come si può notare dalla tabella, le unità di richiesta usate dalle operazioni di inserimento/sostituzione/eliminazione per documenti indicizzati automaticamente sono pari a circa 4 volte quelle necessarie per la lettura di un documento. Questa tabella è semplicemente un riferimento. In pratica tuttavia:  
+Un'unità di richiesta è una misura normalizzata del costo di elaborazione della richiesta. Una singola unità di richiesta rappresenta la capacità di elaborazione necessaria per leggere un singolo documento JSON da 1 KB costituito da 10 valori di proprietà univoci. L'addebito delle unità di richiesta presuppone un livello di coerenza impostato sul valore predefinito "Sessione" e che tutti i documenti siano indicizzati automaticamente. Una richiesta di inserimento, sostituzione o eliminazione dello stesso documento utilizzerà più potenza di elaborazione del servizio e pertanto più unità di richiesta. Ogni risposta della richiesta dal servizio include un'intestazione personalizzata (x-ms-request-charge) che misura le unità di richiesta usate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK. In .Net SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.
 
--	I documenti possono avere dimensioni diverse, non corrispondenti a 1 KB. 
--	I documenti possono avere più di 10 proprietà.
--	Il livello di coerenza predefinito può essere impostato su avanzata, con obsolescenza associata o futura.
--	È possibile scegliere di non indicizzare solo alcuni documenti. 
--	È possibile scegliere di indicizzare solo alcune proprietà e di non permettere a DocumentDB di indicizzare tutti gli elementi automaticamente.
--	Le query e le stored procedure in uso potrebbero essere molto più complesse.  
+Ci sono diversi fattori che influiscono sulle unità di richiesta usate per un'operazione in un account di database DocumentDB. Questi fattori includono:
 
- È possibile acquisire le unità di richiesta per una determinata richiesta controllando l'intestazione della risposta x-ms-request-charge della richiesta stessa.  
+- Dimensioni del documento: con l'aumento delle dimensioni del documento aumentano anche le unità usate per leggere o scrivere i dati.
+- Numero delle proprietà: presupponendo l'indicizzazione predefinita di tutte le proprietà, le unità usate per scrivere un documento aumenteranno con l'aumento del numero delle proprietà.
+- Coerenza dei dati: se si usano i livelli di coerenza dei dati Assoluta o Obsolescenza associata, verranno usate ulteriori unità per leggere i documenti.
+- Proprietà indicizzate: i criteri di indicizzazione in ogni raccolta determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità di richiesta limitando il numero di proprietà indicizzate.
+- Indicizzazione del documento: per impostazione predefinita ogni documento viene indicizzato automaticamente, ma se si sceglie di non indicizzare alcuni documenti si utilizzeranno meno unità di richiesta.
+
+Query, stored procedure e trigger utilizzeranno le unità di richiesta in base alla complessità delle operazioni eseguite. Quando si sviluppa l'applicazione, controllare l'intestazione per l'addebito delle richieste per comprendere meglio il modo in cui ciascuna operazione usa la capacità delle unità di richiesta.
 
 ##<a name="Collections"></a>Raccolte e velocità effettiva con provisioning
-La velocità effettiva con provisoning per l'account di database è allocata in modo uniforme in tutte le raccolte, fino al livello massimo di velocità effettiva (unità di richiesta) per una singola raccolta. Se, ad esempio, si acquista una singola unità di capacità e si crea una singola raccolta, tutta la velocità effettiva con provisioning per l'unità di capacità sarà disponibile per la raccolta. Se si crea una raccolta aggiuntiva, la velocità effettiva con provisioning sarà allocata in modo uniforme e ogni raccolta riceverà la metà della velocità effettiva con provisioning.  
+La velocità effettiva con provisioning per l'account di database è allocata in modo uniforme in tutte le raccolte, fino al livello massimo di velocità effettiva (unità di richiesta) per una singola raccolta. Se, ad esempio, si acquista una singola unità di capacità e si crea una singola raccolta, tutta la velocità effettiva con provisioning per l'unità di capacità sarà disponibile per la raccolta. Se si crea una raccolta aggiuntiva, la velocità effettiva con provisioning sarà allocata in modo uniforme e ogni raccolta riceverà la metà della velocità effettiva con provisioning.  
 
 ##<a name="Consistency"></a>Scelta del livello di coerenza e velocità effettiva
-La scelta del livello di coerenza predefinita influisce sulla velocità effettiva e sulla latenza.  È possibile impostare il livello di coerenza predefinito sia a livello di codice che tramite il portale di Azure. È anche possibile eseguire l'override del livello di coerenza per singole richieste. Per impostazione predefinita, il livello di coerenza corrisponde a quello della sessione che fornisce letture/scritture costanti e legge le garanzie di scrittura fornite. La coerenza delle sessioni è ideale per applicazioni incentrate sugli utenti e offre un compromesso ideale tra coerenza e prestazioni.   
+La scelta del livello di coerenza predefinita influisce sulla velocità effettiva e sulla latenza.  È possibile impostare il livello di coerenza predefinito sia a livello di codice che tramite il portale di Azure. È anche possibile eseguire l'override del livello di coerenza per singole richieste. Per impostazione predefinita, il livello di coerenza corrisponde a quello della sessione che fornisce letture/scritture costanti e legge le garanzie di scrittura fornite. La coerenza delle sessioni è ideale per applicazioni incentrate sugli utenti e offre un compromesso ideale tra coerenza e prestazioni.    
 
--	I livelli sessione e futura per la coerenza offrono circa 2000 richieste di lettura di documenti e 500 inserimenti/sostituzioni/eliminazioni di documenti.
--	I livelli avanzata e con obsolescenza associata per la coerenza offrono circa 1200 richieste di lettura di documenti e 500 inserimenti/sostituzioni/eliminazioni di documenti. La latenza degli inserimenti/sostituzioni/eliminazioni offerta dal livello con obsolescenza associata è significativamente inferiore rispetto a quella offerta dal livello avanzata.  
-
-Per istruzioni sulla modifica del livello di coerenza nel portale di gestione dell'anteprima di Azure, vedere Procedura: Gestire le impostazioni di coerenza di DocumentDB in [Come gestire un account DocumentDB](../documentdb-manage-account/).
+Per istruzioni sulla modifica del livello di coerenza nel portale di gestione dell'anteprima di Azure, vedere Procedura: Gestire le impostazioni di coerenza di DocumentDB in [Come gestire un account DocumentDB](documentdb-manage-account.md).
 
 ##<a name="IndexOverhead"></a>Archiviazione documenti con provisioning e sovraccarico dell'indice
 A ogni acquisto di unità di capacità viene eseguito il provisioning dell'account con 10 GB di archiviazione documenti basata su SSD. I 10 GB di archiviazione documenti includono i documenti e l'archiviazione per l'indice. Per impostazione predefinita, una raccolta DocumentDB è configurata per l'indicizzazione automatica di tutti i documenti, senza richiedere esplicitamente indici o schemi secondari. In base all'uso in produzione di applicazioni produttore su scala consumer che usano DocumentDB, il sovraccarico tipico dell'indice è compreso tra il 2 e il 20%. La tecnologia di indicizzazione usata da DocumentDB assicura che, indipendentemente dai valori delle proprietà, il sovraccarico dell'indice non supererà l'80% delle dimensioni dei documenti con impostazioni predefinite.  
@@ -87,8 +80,8 @@ A ogni acquisto di unità di capacità viene eseguito il provisioning dell'accou
 Per impostazione predefinita, tutti i documenti sono indicizzati automaticamente da DocumentDB. Se, tuttavia, si vuole ottimizzare il sovraccarico dell'indice, è possibile scegliere di rimuovere determinati documenti dall'indicizzazione al momento dell'inserimento o della sostituzione di un documento. È possibile configurare una raccolta di DocumentDB in modo da escludere dall'indicizzazione tutti i documenti nella raccolta. È anche possibile configurare una raccolta DocumentDB in modo che indicizzi in modo selettivo solo determinate proprietà o alcuni percorsi con caratteri jolly dei documenti JSON.  L'esclusione di proprietà o documenti migliora anche la velocità effettiva di scrittura, permettendo quindi di usare meno unità di richiesta.   
  
 ##<a name="NextSteps"></a>Passaggi successivi
-Per istruzioni sulla gestione dell'account di DocumentDB nel portale di anteprima di Azure, vedere Procedura: Gestire le impostazioni di coerenza di DocumentDB in [Come gestire un account DocumentDB](../documentdb-manage-account/).
+Per istruzioni sulla gestione dell'account di DocumentDB nel portale di anteprima di Azure, vedere Procedura: Gestire le impostazioni di coerenza di DocumentDB in [Come gestire un account DocumentDB](documentdb-manage-account.md).
 
-Per istruzioni su come monitorare i livelli di prestazioni nel portale di anteprima di Azure, vedere [Monitorare un account DocumentDB](../documentdb-monitor-accounts/).
+Per istruzioni su come monitorare i livelli di prestazioni nel portale di anteprima di Azure, vedere [Monitorare un account DocumentDB](documentdb-monitor-accounts.md).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

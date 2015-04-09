@@ -1,7 +1,7 @@
 ﻿<properties 
-	pageTitle="Come gestire i siti Web - Gestione dei servizi Microsoft Azure" 
-	description="Un riferimento per le pagine di gestione del sito Web del portale in Microsoft Azure. Vengono fornite informazioni dettagliate per ogni pagina di gestione del sito Web." 
-	servizi="siti web" 
+	pageTitle="Gestione delle app Web attraverso il portale di Azure" 
+	description="Panoramica delle attività di gestione delle app Web in Microsoft Azure attraverso il portale di Azure." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
 	writer="mwasson" 
@@ -9,217 +9,88 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="03/24/2015" 
 	ms.author="mwasson"/>
 
-#<a name="howtomanage"></a>Gestione dei siti Web attraverso il portale di gestione di Microsoft Azure
+# Gestione delle app Web attraverso il portale di Azure
 
-Nel portale di Azure è disponibile un set di pagine o "schede" che consentono di gestire i siti Web. Ogni pagina di gestione del sito Web è descritta di seguito.
+Nel [portale di Azure](https://portal.azure.com), è possibile gestire le app Web attraverso una serie di  *blades*, che sono contenitori di diversi componenti. Per una panoramica del portale di Azure, fare riferimento alla guida sulle modifiche del [portale](http://go.microsoft.com/fwlink/?LinkId=529715)). 
 
-## Guida introduttiva ##
-Nella pagina di gestione **QuickStart** sono incluse le sezioni seguenti:
+Per visualizzare il pannello dell'app Web, fare clic su **Home** e sul nome dell'app o fare clic su **Sfoglia** per visualizzare tutte le risorse di Azure.
 
-- **Scarica gli strumenti**: vengono forniti collegamenti a [Installazione di WebMatrix][mswebmatrix] e [Microsoft Azure SDK][azuresdk].
-- **Pubblica l'app**: include i collegamenti per scaricare il profilo di pubblicazione del sito Web, reimpostare le credenziali di distribuzione per il sito Web, aggiungere uno slot di pubblicazione (distribuzione) di gestione temporanea a un sito non di gestione temporanea e acquisire altre informazioni sulla pubblicazione di gestione temporanea.
-- **Integra controllo del codice sorgente**: consente di configurare e gestire la distribuzione da strumenti di controllo del codice sorgente o siti Web quali TFS, CodePlex, GitHub, Dropbox, Bitbucket o Git locale.
+![](./media/web-sites-manage/manage01.png)
 
-## Dashboard ##
-Nella pagina di gestione **Dashboard** sono inclusi gli elementi seguenti:
+La parte superiore del pannello presenta comandi per alcuni azioni comuni:
 
-Un grafico in cui è riportato un riepilogo dell'uso del sito Web come misure di determinate metriche.
+- **Impostazioni** per vedere un elenco di tutte le impostazioni di gestione.
 
- - **Tempo CPU**: una misura di utilizzo della CPU del sito Web.
- - **Dati in entrata**: misura dei dati ricevuti dal sito Web dai client.
- - **Dati in uscita**: misura dei dati inviati dal sito Web ai client.
- - **Errori server HTTP**: numero di messaggi di errore del server HTTP 5xx inviati.
- - **Richieste**: conteggio di tutte le richieste client al sito Web.
+- **Sfoglia** per aprire l'app Web nella finestra del browser. 
 
-**Nota:** per aggiungere ulteriori metriche delle prestazioni, passare alla pagina di gestione **Monitora** e scegliere **Aggiungi metriche** nella parte inferiore della pagina. Per altre informazioni, vedere [Come monitorare i siti Web][Monitora].
+- Sono presenti altri pulsanti per aprire o chiudere l'app, scambiare gli slot di distribuzione, eliminare l'app e così via.
 
-**Stato endpoint Web**: elenco degli endpoint Web configurati per il monitoraggio. Se non sono stati configurati endpoint, fare clic su **Configura monitoraggio endpoint Web** e passare alla sezione **Monitoraggio** della pagina di gestione **Configura**. Per altre informazioni, vedere [Come monitorare i siti Web][Monitora].
+**Elementi essenziali** elenca informazioni di base relative all'app, tra cui URL, percorso, piano del [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) e stato corrente (in esecuzione, arrestata, ecc.).
 
-**Stato scalabilità automatica**: nella modalità standard è disponibile la scalabilità automatica delle risorse, in modo da spendere solo per l'uso delle risorse necessarie. Per abilitare la scalabilità automatica, scegliere **Configura scalabilità automatica** per passare alla pagina **Scala**. Se il sito Web è in modalità Gratuito o Condiviso, per configurare la scalabilità automatica sarà necessario passare alla modalità Standard (dalla pagina **Scala**). **Log operazioni scalabilità automatica**: reindirizza l'utente al portale **Servizi di gestione** in cui è possibile visualizzare la cronologia di scalabilità automatica del sito Web. La query prevede solo le ultime 24 ore, ma è possibile modificarla.
+In **Elementi essenziali** sono presenti diversi componenti che possono essere usati per monitorare, gestire e distribuire l'app. Per personalizzare il layout del pannello, fare clic con il pulsante destro del mouse e selezionare **Personalizza** o **Aggiungi componenti**. La parte restante del documento descrive i componenti nel layout predefinito.
 
-**Panoramica sull'utilizzo**: in questa sezione sono visualizzate le statistiche relative all'uso di CPU, file system e memoria del sito Web.
+## Monitoraggio
 
-**Risorse collegate**: in questa sezione viene visualizzato un elenco di risorse, ad esempio un database SQL o MySQL o un account di archiviazione di Microsoft Azure, che sono collegate al sito Web. Fare clic sul nome della risorsa per gestirla. Se si dispone di un database MySQL, facendo clic sul nome si verrà reindirizzati alla pagina di gestione ClearDB. Da cui sarà possibile visualizzare le metriche delle prestazioni o passare al dashboard ClearDB che consente di aggiornare il database MySQL, se necessario. Se nell'elenco non sono presenti risorse, fare clic su **Gestisci risorse collegate** per passare alla pagina **Risorse collegate** da cui è possibile aggiungere un collegamento a una risorsa per il sito Web.
+In **Monitoraggio** è presente un grafico che mostra le metriche dell'app Web. Per configurare il grafico, fare clic su **Modifica**. È possibile selezionare l'intervallo di tempo e le metriche da visualizzare. Le metriche disponibili includono numero delle richieste, tempo di risposta medio, errori del server e tempo CPU.   
 
-Sezione **Riepilogo rapido** che include le seguenti informazioni di riepilogo e i collegamenti (a seconda delle impostazioni delle opzioni riportate di seguito potrebbero non apparire):
+![](./media/web-sites-manage/manage02.png)
 
- - **Visualizza componenti aggiuntivi disponibili**: consente di aprire la finestra di dialogo **Acquista dal negozio** in cui è possibile acquistare componenti aggiuntivi che offrono ulteriori funzionalità per il sito Web. Alcuni componenti aggiuntivi potrebbero non essere disponibili nell'area geografica dell'utente o per l'ambiente in uso.
- - **Visualizza stringhe di connessione**: consente di visualizzare le stringhe di connessione del database del sito Web.
- - **Scaricare il profilo di pubblicazione**: fare clic su questo collegamento per scaricare il profilo di pubblicazione per il sito Web. Il profilo di pubblicazione contiene le credenziali dell'utente (nome utente e password) e gli URL per caricare il contenuto nel sito Web tramite FTP e Git. Il file del profilo è in formato XML e può essere visualizzato in un editor di testo.
- - **Imposta credenziali di distribuzione**: fare clic su questa opzione per creare un nome utente e una password allo scopo di caricare il contenuto nel sito Web tramite FTP o Git. È possibile usare queste credenziali per effettuare il push del contenuto in qualsiasi sito Web della sottoscrizione (Vedere [Credenziali FTP]). **Nota**: l'autenticazione a un host FTP o a un repository Git mediante l'uso delle credenziali dell'account Microsoft (Live ID) non è supportata.
- - **Reimpostare le proprie credenziali del profilo di pubblicazione**: consente di reimpostare il profilo di pubblicazione per il sito Web. I profili di pubblicazione scaricati in precedenza diventeranno non validi.
- - **Imposta distribuzione dal controllo del codice sorgente**: consente di visualizzare una finestra di dialogo in cui è possibile configurare la pubblicazione continua da Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket o Local Git.
- - **Aggiungi nuovo slot di distribuzione**: per i siti nella modalità standard, è possibile usare questa funzionalità per creare uno slot di gestione temporanea per il sito Web. Lo slot di gestione temporanea (sito di gestione temporanea) consente di convalidare il contenuto e la configurazione del sito prima di passare all'ambiente di produzione. È inoltre possibile usare la versione di gestione temporanea del sito per aggiungere gradualmente aggiornamenti del contenuto e quindi effettuare lo scambio alla produzione dopo che gli aggiornamenti nello slot di gestione temporanea sono stati completati. Non è possibile aggiungere uno slot a un sito già in gestione temporanea.
- - **Modifica in Visual Studio Online**: fare clic su questo collegamento per modificare il sito Web direttamente online tramite Visual Studio Online dal portale di Microsoft Azure. Questa opzione è visualizzata solo se viene abilitata nella pagina**Configura**.
- - **Disconnetti da Dropbox**: se è stata configurata una connessione a Dropbox ai fini della distribuzione, questo collegamento consente di effettuare la disconnessione.
- - **Elimina archivio GIT**: se è stato configurato un archivio Git, questo collegamento consente di eliminarlo.
- - **Stato**: indica se il sito Web è in esecuzione.
- - **Servizi di gestione**: fare clic sul collegamento **Log operazioni** per visualizzare i log delle operazioni per il sito Web dal portale dei servizi di gestione di Microsoft Azure.
- - **Indirizzo IP virtuale**: consente di visualizzare l'indirizzo IP virtuale del sito Web se è stata configurata un'associazione SSL basata su IP per il sito Web nella sezione **Associazioni SSL** della scheda **Configura**. 
- - **URL sito**: specifica l'indirizzo pubblicamente accessibile del sito Web in Internet.
- - **Modalità di calcolo**: specifica se il sito Web è in esecuzione in modalità Gratuito, Condiviso, Di base o Standard. Per altre informazioni sulle modalità dei gruppi di scala Web, vedere [Come scalare un sito Web][Scala].
- - **Nome host FTP**: specifica l'URL da usare per la pubblicazione nel sito Web tramite FTP (vedere [Credenziali FTP]).
- - **Nome host FTPS**: specifica l'URL da usare per la pubblicazione nel sito Web tramite FTPS (vedere [Credenziali FTP]). 
- - **Utente FTP/distribuzione**: indica l'account usato per la distribuzione del sito Web in Microsoft Azure tramite FTP o Git (vedere [Credenziali FTP]).
- - **Registri di diagnostica FTP**: specifica il percorso FTP dei log di diagnostica del sito Web se è stata abilitata la registrazione diagnostica nella pagina di gestione **Configura**.
- - **Registri di diagnostica FTPS**: specifica il percorso FTPS dei log di diagnostica del sito Web se è stata abilitata la registrazione diagnostica nella pagina di gestione **Configura**.
- - **Località**: specifica l'area geografica del data center che ospita il sito Web.
- - **Nome sottoscrizione**: specifica il nome della sottoscrizione a cui è associato il sito Web.
- - **ID sottoscrizione**: specifica l'ID sottoscrizione univoco (GUID) della sottoscrizione a cui è associato il sito Web.
+Per aggiungere una regola avvisi, fare clic sul grafico, quindi fare clic su **Aggiungi avviso**. Una regola avvisi avvisa quando una metrica specifica raggiunge una determinata soglia. Ad esempio, è possibile essere avvisati quando il numero di errori del server supera un valore specifico in un periodo di 5 minuti. 
 
+**Monitoraggio** inoltre include componenti per configurare l'analisi, configurare il monitoraggio dell'applicazione e creare test di disponibilità. Per ulteriori informazioni, vedere [Informazioni di base sul monitoraggio delle app Web nel servizio app di Azure](web-sites-monitor.md).
 
-##Distribuzioni##
- Questa scheda viene visualizzata solo se è stata impostata la distribuzione dal controllo del codice sorgente. Nella pagina di gestione **Distribuzioni** viene visualizzato un riepilogo di tutte le distribuzioni effettuate nel sito Web usando il metodo di pubblicazione scelto. Se per il sito Web è stata configurata la pubblicazione Git ma non è stata effettuata alcuna distribuzione, nella pagina di gestione **Distribuzioni** vengono fornite informazioni su come usare Git per distribuire l'applicazione Web nel sito Web.
+## Utilizzo
 
-##Monitora##
-Nella pagina di gestione **Monitora** è disponibile un grafico in cui sono visualizzate le informazioni sull'uso per il sito Web. Per impostazione predefinita, questo grafico visualizza le stesse metriche del grafico nella pagina **Dashboard**, come descritto in precedenza nella sezione Dashboard. È inoltre possibile configurare il grafico per visualizzare metriche quali operazioni HTTP completate, reindirizzamenti HTTP, errori HTTP 401, errori HTTP 403, errori HTTP 404 ed errori HTTP 406. Per altre informazioni su queste metriche, vedere [Come monitorare i siti Web][Monitora].
+![](./media/web-sites-manage/manage03.png)
 
-##WebJobs##
-La pagina di gestione WebJobs consente di creare attività su richiesta, pianificate o con esecuzione continua per il sito Web. Per altre informazioni, vedere [Come usare la funzionalità WebJobs in Siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/).
+- **Archiviazione file system** mostra quanto spazio di archiviazione file sta usando l'app.
+- **Quote** mostra il modo in cui l'app sta usando la sua quota utilizzo risorse. Fare clic sul componente per visualizzare i dettagli.
+- **Scalabilità** consente di scalare il numero di istanze e configurare la scalabilità automatica. Vedere [Scalare un'app Web nel servizio app di Azure](how-to-scale-websites.md).  
+- **Spesa stimata** mostra una stima dei costi dell'app.
+- **Livello di prezzo** consente di modificare il livello di prezzo.
 
-##Configura##
-È possibile usare la pagina di gestione **Configura** per configurare le impostazioni specifiche dell'applicazione.
+## Operations
 
-Per informazioni dettagliate, vedere [Come configurare i siti Web][Configura].
+![](./media/web-sites-manage/manage04.png)
 
+- **Eventi**. Fare clic per visualizzare i log eventi.  
+- **Regole avvisi**. Fare clic per visualizzare le regole avvisi e aggiungere nuovi avvisi.
+- **Log di streaming** (A). Fare clic per visualizzare i log delle applicazioni. Per attivare i log, andare a **Impostazioni** e aprire il pannello **Log di diagnostica**. 
+- **Console**. Fare clic per aprire una riga di comando in esecuzione nel portale. È possibile usarla per eseguire comandi quali  `mkdir` e  `dir`.  
+- **Esplora processi** (B). Fare clic per visualizzare i processi in esecuzione nell'app, tra cui working set e conteggio dei thread.
 
-##Scala##
-Nella pagina di gestione **Scala** è possibile specificare la modalità del gruppo di scala Web (**Gratuito**, **Condiviso**, **Di base** o **Standard**). **Le modalità Condiviso**, **Di base** e **Standard** offrono prestazioni e velocità effettiva ottimizzate. **Le modalità Condiviso**, **Di base** e **Standard** consentono di aumentare il valore di **Conteggio istanze**, ovvero il numero di macchine virtuali usate dal sito Web e da altri siti Web nello stesso gruppo di scala Web.
+## Distribuzione
  
-In modalità **Standard** è inoltre possibile aumentare il numero di core e la capacità di memoria di ogni istanza modificando il valore in **Dimensioni istanze**.  Ai fini della convenienza, è possibile scegliere l'opzione **Scalabilità automatica** per consentire a Microsoft Azure di allocare le risorse per il sito Web in modo dinamico. 
+![](./media/web-sites-manage/manage05.png)
 
-Per altre informazioni sulla configurazione delle opzioni di scala per un sito Web, vedere [Come aggiungere risorse a un sito Web][Scala].
+- Configurare la distribuzione continua. Vedere [Uso di Git per distribuire App Web nel servizio app di Azure](web-sites-publish-source-control.md)
+- Slot di distribuzione. Vedere [Distribuzione di App Web negli ambianti di staging nel servizio app di Azure](web-sites-staged-publishing.md)
+- Configurare le credenziali di distribuzione per Git o FTP. 
 
-##Risorse collegate##
-Nella pagina di gestione **Risorse collegate** è disponibile un elenco di risorse di Microsoft Azure in uso nel sito Web, tra cui database SQL, database MySQL e account di archiviazione di Azure. Fare clic sul nome della risorsa per gestirla.
+## Rete
 
-##Backup##
-La pagina di gestione **Backup** consente di creare backup automatici o manuali per il sito Web, ripristinare il sito Web a uno stato precedente o creare un nuovo sito Web in base a uno dei backup esistenti. Per altre informazioni, vedere [Backup di siti Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/) e [Ripristino di un sito Web di Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
+- Connessione dell'app a una rete virtuale
+- Aggiunta di connessioni ibride
 
-##Icone delle pagine di gestione##
-Le icone sono visualizzate nella parte inferiore delle pagine di gestione del sito Web. La maggior parte delle icone è visualizzata in più pagine mentre alcune sono visualizzate solo in pagine specifiche.  Nella parte inferiore della pagina di gestione **Dashboard** sono visualizzate le icone seguenti:
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-- **Sfoglia**: apre la pagina predefinita per il sito Web.
-- **Arresta**: arresta il sito Web.
-- **Riavvia**: riavvia il sito Web.
-- **Gestisci domini**: mappa un dominio a questo sito Web. Non disponibile per i siti in modalità di scala **Gratuito**.
-- **Elimina**: elimina il sito Web.
-- **WebMatrix**: apre i siti Web supportati in WebMatrix, consentendo la modifica del sito Web e la pubblicazione delle modifiche apportate al sito Web in Microsoft Azure.
+## Passaggi successivi
 
-Le icone seguenti non sono visualizzate nella parte inferiore della pagina di gestione **Dashboard** ma sono disponibili nella parte inferiore di altre pagine di gestione per lo svolgimento di attività specifiche:
+- [Scalare un'app Web nel servizio app di Azure](how-to-scale-websites.md)
+- [Eseguire attività in background con processi Web](web-sites-create-web-jobs.md)
+- [Backup](web-sites-backup.md) e [ripristino](web-sites-restore.md) di App Web di Azure
+- [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure](web-sites-monitor.md)
 
-- **Aggiungi metriche**: è disponibile nella parte inferiore della pagina di gestione **Monitora** e consente di aggiungere metriche al grafico visualizzato nella pagina di gestione Monitora.
-- **Collegamento**: è disponibile nella parte inferiore della pagina **Risorse collegate** e consente di creare collegamenti di gestione ad altre
--  risorse di Microsoft Azure. Se ad esempio il sito Web accede a un database SQL, è possibile creare un collegamento di gestione alla risorsa di database facendo clic su **Collegamento**.
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-
-## Credenziali FTP
-
-È possibile usare due set di credenziali FTP: credenziali di  *deployment* e credenziali del  *publishing profile*.  Le principali differenze sono le seguenti:
-
-**Credenziali di distribuzione**
-
-- Associate a un account Microsoft. 
-- Possono essere usate per distribuire su qualsiasi sito Web, in tutte le sottoscrizioni associate all'account. 
-- L'utente sceglie il nome utente/la password.
-- Sono in genere usate per la distribuzione Git o FTP.
-
-	 
-**Credenziali del profilo di pubblicazione**
-
-- Associate a un singolo sito Web. 
-- L'utente non sceglie il nome utente o la password.
-- Sono in genere usate per la distribuzione Web, ma possono essere usate anche per FTP.
-
-
-È possibile usare un set di credenziali o l'altro. I nomi host FTP e FTPS sono indicati nel dashboard, in **Riepilogo rapido**.
-
-
-### Uso delle credenziali di distribuzione
-
-Per configurare le credenziali di distribuzione: 
-
-1.	Nel portale di gestione, passare alla pagina **Dashboard** del sito Web.
-2.	Fare clic su **Imposta credenziali di distribuzione**.
-3.	Nella finestra di dialogo, immettere un nome utente e la password.
-
-Nota: nel passaggio 2, se si dispone già di credenziali di distribuzione, verrà visualizzata l'opzione **Reimposta credenziali di distribuzione**. Fare clic su questa opzione per impostare una nuova password o modificare il nome utente.
-
-Le credenziali di distribuzione sono associate a un account Microsoft. Se si modifica il nome utente o la password, la modifica viene applicata a tutti i siti Web associati all'account. Se una sottoscrizione di Azure ha più amministratori, ogni persona avrà le proprie credenziali. 
-Il nome utente FTP completo è "sitoWeb\nomeutente".  Questo nome è riportato in **Riepilogo rapido**, come **Utente FTP/distribuzione**.
-
-
-### Uso delle credenziali del profilo di pubblicazione
-
-Ogni sito Web presenta proprie credenziali del profilo di pubblicazione. Per visualizzare queste credenziali:
-
-1.	Nel portale di gestione, passare alla pagina **Dashboard** del sito Web.
-2.	Fare clic su **Scaricare il profilo di pubblicazione**.
-
-Il profilo di pubblicazione è un file XML. Contiene due profili, uno per la distribuzione Web e l'altro per FTP.
-
-<pre>
-&lt;publishData&gt;
-  &lt;publishProfile
-    profileName="contoso - Web Deploy"
-    publishMethod="MSDeploy"
-    publishUrl="contoso.scm.azurewebsites.net:443"
-    msdeploySite="contoso"
-    userName="$contoso"
-    userPWD="abc1234..."
-    destinationAppUrl="http://contoso.azurewebsites.net"
-    SQLServerDBConnectionString=""
-    mySQLDBConnectionString=""
-    hostingProviderForumLink="" 
-    controlPanelLink="http://windows.azure.com"&gt;
-    &lt;databases/&gt;
-  &lt;/publishProfile&gt;
-  &lt;publishProfile 
-    profileName="contoso - FTP" 
-    <mark>publishMethod="FTP"</mark> 
-    publishUrl="ftp://waws-prod-bay-003.ftp.azurewebsites.windows.net/site/wwwroot" 
-    ftpPassiveMode="True" 
-    <mark>userName="contoso\$contoso"</mark> 
-    <mark>userPWD=" abc1234..."</mark>  
-    destinationAppUrl="http://contoso.azurewebsites.net" 
-    SQLServerDBConnectionString="" 
-    mySQLDBConnectionString="" 
-    hostingProviderForumLink="" 
-    controlPanelLink="http://windows.azure.com"&gt;
-    &lt;databases/&gt;
-  &lt;/publishProfile&gt;
-&lt;/publishData&gt;
-</pre>
-
-Cercare il profilo con <code>publishMethod="FTP"</code>.  Il nome utente è indicato in <code>userName</code> e la password è indicata in <code>userPWD</code>.
-
-Per reimpostare la password, fare clic su **Reimpostare le proprie credenziali del profilo di pubblicazione**. Per ottenere le nuove credenziali, scaricare di nuovo il profilo di pubblicazione. Le credenziali del profilo di pubblicazione sono associate al sito Web. Ogni sito Web presenta il proprio profilo di pubblicazione.
-
-
-
-<!-- LINKS -->
-[mswebmatrix]:http://go.microsoft.com/fwlink/?LinkID=226244
-
-[azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
-
-[Configura]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
-
-[Monitora]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
-
-[Scala]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
-
-
-<!-- Anchors. -->
-[Credenziali FTP]: #ftp-credentials
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -5,54 +5,51 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 # Controllo di accesso basato sui ruoli nei servizi mobili e in Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
+#Informazioni generali
 
 Il controllo di accesso basato sui ruoli consente di assegnare le autorizzazioni ai ruoli applicabili agli utenti, definendo in modo chiaro i limiti delle operazioni eseguibili o meno da determinate classi di utenti. Questa esercitazione descrive la procedura per aggiungere il controllo di accesso basato sui ruoli di base ai servizi mobili di Azure.
 
 Questa esercitazione illustra il controllo di accesso basato sui ruoli, verificando l'appartenenza di ciascun utente a un gruppo Vendite definito in Azure Active Directory (AAD). Il controllo degli accessi viene eseguito con JavaScript nel back-end del servizio mobile usando l'[API Graph] per Azure Active Directory. Solo gli utenti che appartengono al ruolo Vendite possono eseguire query sui dati.
 
 
->[AZURE.NOTE] L'intento di questa esercitazione è approfondire la conoscenza dell'autenticazione per includere procedure di autorizzazione. Si presuppone che sia stata già completata l'esercitazione [Introduzione all'autenticazione] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Introduzione all'autenticazione].
+>[AZURE.NOTE] L'intento di questa esercitazione è approfondire la conoscenza dell'autenticazione per includere procedure di autorizzazione. Si presuppone che sia stata già completata l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili] usando il provider di autenticazione di Azure Active Directory. Questa esercitazione continua ad aggiornare l'applicazione ToDoItem usata nell'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
 
-In questa esercitazione viene descritta la procedura seguente:
+##Prerequisiti
 
-1. [Creazione di un gruppo Vendite con l'appartenenza]
-2. [Generazione di una chiave per l'applicazione integrata]
-3. [Aggiunta di uno script condiviso per verificare l'appartenenza] 
-4. [Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database]
-5. [Test dell'accesso client]
-
-Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
+Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio 2013 in esecuzione su Windows 8.1
-* Completamento dell'esercitazione [Introduzione all'autenticazione] con il provider di autenticazione di Azure Active Directory.
+* Completamento dell'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili] con il provider di autenticazione di Azure Active Directory.
 * Completamento dell'esercitazione sull'[archiviazione degli script del server] per acquisire familiarità con un repository GIT per archiviare gli script del server.
  
 
 
-## <a name="create-group"></a>Creazione di un gruppo Vendite con l'appartenenza
+##Creare un gruppo Vendite con l'appartenenza
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Generazione di una chiave per l'applicazione integrata
+##Generare una chiave per l'applicazione integrata
 
 
-Nel corso dell'esercitazione [Introduzione all'autenticazione] è stata creata una registrazione per l'applicazione integrata quando è stato completato il passaggio [Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]. In questa sezione viene generata una chiave da usare nella lettura delle informazioni sulla directory con l'ID client dell'applicazione integrata. 
+Nel corso dell'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili] è stata creata una registrazione per l'applicazione integrata quando è stato completato il passaggio [Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]. In questa sezione viene generata una chiave da usare nella lettura delle informazioni sulla directory con l'ID client dell'applicazione integrata. 
+
+Se è stata eseguita in precedenza l'esercitazione [Accesso alle informazioni di Azure Active Directory Graph], questo passaggio è già stato completato ed è possibile ignorare questa sezione.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -60,14 +57,14 @@ Nel corso dell'esercitazione [Introduzione all'autenticazione] è stata creata u
 
 
 
-## <a name="add-shared-script"></a>Aggiungere uno script condiviso al servizio mobile che controlla l'appartenenza
+##Aggiungere uno script condiviso al servizio mobile per verificare l'appartenenza
 
 In questa sezione si userà Git per distribuire un file di script condiviso denominato *rbac.js* nel servizio mobile. Questo file di script condiviso file contiene le funzioni che usano l'[API Graph] per verificare l'appartenenza dell'utente al gruppo. 
 
 Se non si conosce come distribuire script nel servizio mobile con Git, vedere l'esercitazione sull'[archiviazione degli script del server] prima di completare questa sezione.
 
 1. Creare un nuovo file di script denominato *rbac.js* nella directory *./service/shared/* del repository locale per il servizio mobile.
-2. Aggiungere lo script seguente all'inizio del file che definisce la funzione `getAADToken`. Dati i valori di *tenant_domain*,  *client id* dell'applicazione integrata e *key* dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
+2. Aggiungere lo script seguente all'inizio del file che definisce la funzione `getAADToken`. Dati i valori di *tenant_domain*,  *client id* dell'applicazione integrata e *chiave * dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
 
     >[AZURE.NOTE] Invece di creare un nuovo token a ogni controllo di accesso, è consigliabile memorizzarlo nella cache. Aggiornare quindi la cache quando i tentativi di usare il token generano una risposta 401 Authentication_ExpiredToken come indicato nelle [informazioni di riferimento sugli errori dell'API Graph]. Nel codice seguente questo passaggio non viene mostrato per semplicità, ma consente di alleggerire il traffico di rete aggiuntivo in Active Directory. 
 
@@ -145,7 +142,7 @@ Se non si conosce come distribuire script nel servizio mobile con Git, vedere l'
 
     
 
-7. Aggiungere la funzione seguente `checkGroupMembership` esportata a *rbac.js*.  
+7. Aggiungere la funzione esportata seguente `checkGroupMembership` a *rbac.js*.  
 
     Questa funzione esegue il wrapping dell'uso delle funzioni dell'altro script ed è esportata dallo script condiviso per essere chiamata da altri script per eseguire le verifiche di accesso vere e proprie. Dati l'oggetto utente del servizio mobile e l'ID del gruppo, lo script recupera l'ID dell'oggetto di Azure Active Directory per l'identità dell'utente e verifica l'appartenenza al gruppo.
 
@@ -170,10 +167,10 @@ Se non si conosce come distribuire script nel servizio mobile con Git, vedere l'
 
 8. Salvare le modifiche in *rbac.js*.
 
-## <a name="add-access-checking"></a>Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database
+##Aggiungere il controllo di accesso basato sui ruoli alle operazioni del database
 
 
-Al termine dell'esercitazione [Introduzione all'autenticazione] le operazioni della tabella per richiedere l'autenticazione dovrebbero già essere state impostate come illustrato di seguito.
+Una volta completata l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili], le operazioni della tabella per richiedere l'autenticazione dovrebbero già essere state impostate come illustrato di seguito.
 
 ![][3]
 
@@ -196,7 +193,7 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
             });
         }
 
-2. Aggiungere un nuovo file di script denominato *todoitem.read.js* alla directory *./service/table/* nel repository Git locale del servizio mobile. Incollare lo script seguente nel file.
+2. Aggiungere un nuovo file di script denominato  *todoitem.read.js* alla directory *./service/table/* nel repository GIT locale per il servizio mobile. Incollare lo script seguente nel file.
 
         function read(query, user, request) {
         
@@ -249,7 +246,7 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 
         git commit -m "Added role based access control to table operations"
   
-7. Nell'interfaccia della riga di comando del repository Git distribuire gli aggiornamenti nel repository Git locale del servizio mobile eseguendo il comando seguente. Questo comando presuppone che gli aggiornamenti siano stati effettuati nel ramo *master*.
+7. Nell'interfaccia della riga di comando del repository Git distribuire gli aggiornamenti nel repository Git locale del servizio mobile eseguendo il comando seguente. Questo comando presuppone che gli aggiornamenti siano stati effettuati nel ramo  *master*.
 
         git push origin master
 
@@ -257,7 +254,7 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 
     ![][4]
 
-## <a name="test-client"></a>Testare l'accesso client
+##Testare l'accesso client
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -265,33 +262,27 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 
 
 
-<!-- Anchors. -->
-[Creazione di un gruppo Vendite con l'appartenenza]: #create-group
-[Generazione di una chiave per l'applicazione integrata]: #generate-key
-[Aggiunta di uno script condiviso per verificare l'appartenenza]: #add-shared-script
-[Aggiunta del controllo di accesso basato sui ruoli alle operazioni del database]: #add-access-checking
-[Test dell'accesso client]: #test-client
 
 
 <!-- Images -->
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/users.png
 [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/group-membership.png
 [2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group.png
-[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-per
-	ms.png
+[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
 [4]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
 [5]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group-id.png
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Come eseguire la registrazione ad Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Aggiungere l'autenticazione all'app di Servizi mobili]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
+[Come eseguire la registrazione ad Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Scenari di sincronizzazione della directory]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Archiviazione degli script del server]: /it-it/documentation/articles/mobile-services-store-scripts-source-control/
-[Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Archiviazione degli script del server]: mobile-services-store-scripts-source-control.md
+[Registrazione delle app per l'uso delle credenziali di accesso di un account Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Informazioni di riferimento sugli errori dell'API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
+[Accesso alle informazioni di Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -58,7 +58,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Aggiungere un nuovo metodo **Authenticate** a **QSTodoService** con la definizione seguente:
+2. Aggiungere un nuovo metodo **Autenticate** a **QSTodoService** con la definizione seguente:
 
         private async Task Authenticate(UIViewController view)
         {
@@ -112,9 +112,9 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 
 	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
-<!-- ## <a name="next-steps"> </a>Passaggi successivi
+<!-- ## <a name="next-steps"> </a>Next steps
 
-Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -128,13 +128,12 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Autorizzare gli utenti con gli script]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript e HTML]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Introduzione a Servizi mobili]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[Introduzione all'autenticazione]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Introduzione alle notifiche push]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Autorizzare gli utenti con gli script]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript e HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿Quando si esegue il provisioning di un database MongoLab, MongoLab trasmette un URI di connessione ad Azure nel formato della stringa di connessione standard di MongoDB. Questo valore viene utilizzato per avviare una connessione MongoDB tramite il driver MongoDB desiderato. Per altre informazioni sulle stringhe di connessione, vedere l'argomento relativo alle [connessioni](http://www.mongodb.org/display/DOCS/Connections) all'indirizzo mongodb.org.
+﻿Quando si esegue il provisioning di un database MongoLab, MongoLab trasmette un URI di connessione ad Azure nel formato della stringa di connessione standard di MongoDB. Questo valore viene utilizzato per avviare una connessione MongoDB tramite il driver MongoDB desiderato. Per altre informazioni sulle stringhe di connessione, vedere l'argomento relativo alle [connessioni](http://www.mongodb.org/display/DOCS/Connections) su mongodb.org.
 
 **Questo URI contiene il nome utente e la password per il database.  Trattare queste informazioni come dati sensibili e non condividerle.**
 
@@ -19,4 +19,5 @@ Verrà visualizzato l'URI MongoLab:
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

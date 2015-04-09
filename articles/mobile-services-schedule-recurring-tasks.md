@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" 
 	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # Pianificare processi ricorrenti in Servizi mobili 
 
 > [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
-- [(Qualsiasi | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Qualsiasi | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Qualsiasi | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Qualsiasi | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
@@ -34,11 +34,11 @@ In questa esercitazione vengono descritte le procedure per usare la pianificazio
 + [Creare la nuova tabella Updates]
 + [Creare un nuovo processo pianificato]
 
-## <a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter v1.1 e archiviare le credenziali
+##<a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter v1.1 e archiviare le credenziali
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>Creare la nuova tabella Updates
+##<a name="create-table"></a>Creare la nuova tabella Updates
 
 In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
@@ -46,13 +46,13 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
 3. In **Nome tabella** digitare _Updates_, quindi fare clic sul segno di spunta.
 
-## <a name="add-job"></a>Creare un nuovo processo pianificato  
+##<a name="add-job"></a>Creare un nuovo processo pianificato  
 
 Ora è possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
 2. Fare clic sulla scheda **Utilità di pianificazione**, quindi su **+Crea**. 
 
-    >[AZURE.NOTE]Quando si esegue il servizio mobile nel livello <em>Free</em> , è possibile eseguire solo un processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
+    >[AZURE.NOTE] Quando si esegue il servizio mobile nella modalità <em>Gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
 
 3. Nella finestra di dialogo dell'utilità di pianificazione immettere getUpdates per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta. 
 
@@ -183,4 +183,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

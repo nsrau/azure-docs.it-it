@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente | Azure" 
+	pageTitle="Programmazione con DocumentDB: stored procedure, trigger e funzioni definite dall'utente | Azure" 
 	description="Informazioni su come usare Microsoft Azure DocumentDB per scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) in modo nativo in JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente
 
 Informazioni su come l'esecuzione integrata e transazionale di JavaScript con il linguaggio di DocumentDB consenta agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in JavaScript. Ciò consente di scrivere la logica dell'applicazione che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
 
-Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti:
+Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione lato server di DocumentDB. 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
 
 - Come è possibile scrivere un una stored procedure, un trigger o una funzione definita dall'utente usando JavaScript?
 - In che modo DocumentDB garantisce proprietà ACID?
@@ -31,11 +35,11 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 
 ##Introduzione
 
-Questo approccio di "JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:  
+Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:  
 
 -	**Logica procedurale:** JavaScript, come linguaggio di programmazione di alto livello, fornisce un'interfaccia avanzata e familiare per esprimere la logica di business. È possibile eseguire complesse sequenze di operazioni più vicino ai dati.
 
--	**Transazioni atomiche:** DocumentDB garantisce che le operazioni di database eseguite all'interno di una singola stored procedure o di un singolo trigger siano atomiche. In questo modo, un'applicazione combina le operazioni correlate in un singolo batch in modo che abbiano tutte, o nessuna, esito positivo.
+-	**Transazioni atomiche:** DocumentDB garantisce che le operazioni di database eseguite all'interno di una singola stored procedure o di un singolo trigger siano atomiche. In questo modo, un'applicazione combina le operazioni correlate in un singolo batch in modo che abbiano tutte, o nessuna, esito positivo. 
 
 -	**Prestazioni:** il fatto che JSON sia intrinsecamente mappato al sistema di tipi del linguaggio JavaScript e rappresenti anche l'unità di archiviazione di base in DocumentDB consente numerose ottimizzazioni, come la materializzazione differita di documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi in termini di prestazioni associati all'integrazione della logica di business nel database:
 	-	Invio in batch: gli sviluppatori possono raggruppare le operazioni, come gli inserimenti, e inviarle in blocco. Ciò comporta una drastica riduzione del costo legato alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate. 
@@ -142,7 +146,7 @@ Notare che è possibile modificare questa stored procedure in modo che accetti u
 L'esempio descritto ha dimostrato come usare le stored procedure. I trigger e le funzioni definite dall'utente (UDF) saranno trattati più avanti in questa esercitazione. In primo luogo, saranno analizzate le caratteristiche generali del supporto di scripting in DocumentDB.  
 
 ##Supporto di runtime
-L'[SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](../documentdb-interactions-with-resources.md).
+L' [SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transazioni
 Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione fornisce **garanzie ACID**. ACID è un acronimo noto che riassume quattro proprietà: Atomicità, Coerenza, Isolamento e Durabilità.  
@@ -403,7 +407,7 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -601,7 +605,7 @@ Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library
 	    });
 
 
-L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) e usarla in una [query SQL di DocumentDB](../documentdb-sql-query.md).
+L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) e usarla in una [query SQL di DocumentDB](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -613,7 +617,7 @@ L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) 
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
@@ -631,4 +635,4 @@ Fare riferimento agli [SDK di Azure DocumentDB](https://msdn.microsoft.com/libra
 -	Architettura di database orientata ai servizi - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	Hosting del runtime .NET in Microsoft SQL Server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

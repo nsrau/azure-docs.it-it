@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Come configurare Tomcat7 in una macchina virtuale Linux con Microsoft Azure" 
-	description="Informazioni su come configurare Tomcat7 con Microsoft Azure usando una macchina virtuale Azure (VM) che esegue Linux." 
+	description="Informazioni su come configurare Tomcat7 con Microsoft Azure usando una macchina virtuale Azure (VM) che esegue Linux". 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="NingKuang" 
@@ -22,13 +22,13 @@ Apache Tomcat (o semplicemente Tomcat, precedentemente denominato anche Jakarta 
 
 In questa guida si installerà tomcat7 su un'immagine Linux e la si distribuirà in Microsoft Azure.  
 
-Si apprenderà:  
+Si apprender  
 
 -	Come creare una macchina virtuale in Azure.
 -	Come preparare la macchina virtuale per tomcat7.
 -	Come installare tomcat7.
 
-Si presuppone che l'utente disponga già di una sottoscrizione di Azure.  In caso contrario, è possibile registrarsi per una versione di valutazione gratuita all'indirizzo [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/overview/what-is-azure/).
+Si presuppone che l'utente disponga già di una sottoscrizione di Azure.  In caso contrario, è possibile registrarsi per una versione di valutazione gratuita all'indirizzo [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Azure?](http://azure.microsoft.com/overview/what-is-azure/).
 
 In questo argomento si presuppone che l'utente abbia una conoscenza pratica di base di tomcat e Linux.  
 
@@ -98,7 +98,7 @@ Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di antepr
 Ottenere il numero di porta per le connessioni SSH dal campo **SSH**. Di seguito è fornito un esempio.  
 ![][8]
  
-Scaricare Putty da [questa pagina](http://www.putty.org/) .  
+Scaricare Putty da [questa pagina](http://www.putty.org/).  
 
 Dopo il download, fare clic sul file eseguibile PUTTY.EXE. Configurare le opzioni di base con il nome host e il numero di porta ottenuto dalle proprietà della macchina virtuale. Di seguito è fornito un esempio:  
 ![][9]
@@ -157,7 +157,7 @@ oracle-jdk
 ####Test:
 Per verificare se l'ambiente di runtime Java è stato installato correttamente, è possibile usare un comando simile al seguente:  
 
-	java -version  
+	versione - java  
 
 Se è stato installato open-jdk, si dovrebbe visualizzare un messaggio simile al seguente:
 ![][14] 
@@ -219,7 +219,7 @@ Dopo avere modificato questo file, è necessario riavviare i servizi tomcat7 con
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Aprire il browser e immettere l'URL **http://<your tomcat server DNS name>/manager/html**. Ad esempio, in questo articolo l'URL è http://tomcatexample.cloudapp.net/manager/html.  
+Aprire il browser e immettere l'URL **http://<nome del server DNS tomcat>/manager/html**. Ad esempio, in questo articolo l'URL è http://tomcatexample.cloudapp.net/manager/html.  
 
 Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente:  
 ![][18]
@@ -228,9 +228,9 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 
 ###Impossibile accedere alla macchina virtuale con Tomcat e Moodle da Internet
 
--	**Sintomo**  
+-	**Sintomo** 
 Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita di Tomcat con il browser.
--	**Possibile caso radice**   
+-	**Possibile caso radice** 
 	1.	La porta di ascolto di tomcat non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico in tomcat.  
 	
 		Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di tomcat. Vedere la fase 1: Creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale.  
@@ -243,7 +243,7 @@ Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita d
 
 			sudo vi /etc/default/tomcat7  
 
-		Rimuovere quindi i commenti dall’ultima riga e modificare “no” in “sì”.  
+		Rimuovere quindi i commenti dall'ultima riga e modificare "no" in "sì".  
 
 			AUTHBIND=yes
 
@@ -276,17 +276,17 @@ Tomcat è in esecuzione ma non è possibile visualizzare la pagina predefinita d
 
 ###Autorizzazione negata quando si caricano i file di progetto in /var/lib/tomcat7/webapps/  
 
--	**Sintomo**  
+-	**Sintomo** 
 Quando si usa qualsiasi client FTP sicuro (ad esempio, FileZilla) per connettersi alla macchina virtuale e passare a /var/lib/tomcat7/webapps/ per pubblicare il sito, si visualizza un messaggio di errore simile al seguente:  
 
-		status:	Listing directory /var/lib/tomcat7/webapps
-		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
+		stato:	Listing directory /var/lib/tomcat7/webapps
+		Comando:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
 		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
-		Error:	File transfer failed
+		Error:	Trasferimento file non riuscito
 
 -	**Possibile caso radice**
 Non si dispone delle autorizzazioni di accesso alla cartella /var/lib/tomcat7/webapps.  
--	**Soluzione**  
+-	**Soluzione** 
 È necessario ottenere l'autorizzazione dall'account radice. È possibile modificare la proprietà di tale cartella dalla radice al nome utente usato per il provisioning della macchina. Di seguito è riportato un esempio con il nome dell'account azureuser:  
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
@@ -324,6 +324,4 @@ Non si dispone delle autorizzazioni di accesso alla cartella /var/lib/tomcat7/we
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

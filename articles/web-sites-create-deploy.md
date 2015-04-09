@@ -1,70 +1,72 @@
-﻿<properties 
-	pageTitle="Come creare siti Web - Gestione servizi di Azure" 
-	description="Informazioni su come creare un sito Web usando il portale di gestione di Azure." 
-	services="web-sites" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+﻿<properties
+	pageTitle="Come creare un'app Web - Gestione del servizio di Azure"
+	description="Informazioni su come creare un'app Web nel portale di Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="web-sites" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2014" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
-#Come creare un sito Web
+#Come creare un'app Web
 
-Questo argomento descrive come creare un sito Web dalla raccolta oppure mediante il portale di gestione.
+In questo argomento viene illustrato come creare un'app Web dalla raccolta oppure mediante il portale di Azure.
 
-Per informazioni su come distribuire il contenuto in un sito Web di Azure creato, vedere la sezione **Distribuzione** in [Siti Web di Azure](/it-it/documentation/services/web-sites/)..
+Per informazioni su come distribuire i contenuti in un'app Web creata, vedere la sezione **Distribuzione** in [App Web di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-## Sommario ##
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non é necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-- [Procedura: Creare un sito Web mediante il portale di gestione](#createawebsiteportal)
-- [Procedura: Creare un sito Web dalla raccolta](#howtocreatefromgallery)
-- [Procedura: Eliminare un sito Web](#deleteawebsite)
-- [Passaggi successivi](#nextsteps)
+##<a name="createawebsiteportal"></a>Procedura: Creare un'app Web tramite il portale di Azure
 
-##<a name="createawebsiteportal"></a>Procedura: Creare un sito Web mediante il portale di gestione
+Seguire le istruzioni per creare un'app Web in Azure.
 
-Per creare un sito Web in Azure, attenersi alla procedura seguente.
-	
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com/).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-2. Fare clic sull'icona **Crea nuovo** in basso a sinistra nel portale di gestione.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale.
 
-3. Fare clic sull'icona **Sito Web** e quindi sull'icona **Creazione rapida**, immettere un valore per l'URL e selezionare il segno di spunta accanto a **Crea sito Web** nell'angolo in basso a destra della pagina.
+3. Fare clic sull'icona **Web + Mobile**, quindi sull'icona **App Web**, inserire un valore per l'URL, quindi selezionare **Crea** nell'angolo inferiore destro nel pannello di creazione.
 
-4. Dopo la creazione del sito Web verrà visualizzato il messaggio **Creazione del sito Web <*nome del sito Web*> completata**. Per passare al sito Web, fare clic su **Sfoglia** nella parte inferiore della pagina del portale.
+4. Una volta creata l'app Web, viene visualizzato il testo **Distribuzione al gruppo di risorse <nome gruppo di risorse> riuscita**.
 
-5. Nel portale fare clic sul nome del sito Web visualizzato nell'elenco dei siti Web per aprire la pagina di gestione **Avvio rapido** del sito.
+5. Nel portale, fare clic sul nome dell'app Web visualizzata nel relativo elenco per aprire il pannello dell'app Web.
 
-6. Nella pagina **Avvio rapido** sono visualizzate le opzioni per ottenere gli strumenti di sviluppo per il sito Web, configurare la pubblicazione del sito o configurare la distribuzione da un provider del controllo del codice sorgente come TFS o Git. La pubblicazione con FTP è configurata per impostazione predefinita per i siti Web e il nome host FTP è visualizzato in **Nome host FTP** nella sezione **Riepilogo rapido** della pagina **Dashboard**. Prima della pubblicazione con FTP o Git, scegliere l'opzione **Reimposta credenziali di distribuzione** nella pagina **Dashboard** per poter eseguire l'autenticazione con l'host FTP o il repository Git durante la distribuzione di contenuto nel sito Web.
+6. Nel pannello, sono visualizzate le opzioni per ottenere per ottenere gli strumenti di sviluppo per l'app Web, configurare la pubblicazione dell'app Web oppure la distribuzione da un provider di controllo del codice sorgente come TFS o Git. La pubblicazione con FTP viene configurata per impostazione predefinita per le app Web e il nome host FTP viene visualizzato nella sezione **Elementi essenziali** presente nel pannello dell'app Web. Prima della pubblicazione con FTP o Git, scegliere l'opzione per **reimpostare la pubblicazione del profilo** nel pannello dell'app Web. In questo modo, è possibile eseguire l'autenticazione con l'host FTP o il repository Git durante la distribuzione dei contenuti nell'app Web.
 
-7. Nella pagina di gestione **Configura** sono visualizzate le impostazioni per il sito Web seguenti:
+7. Nel pannello **Impostazioni** vengono riportate le impostazioni dell'app Web, ad esempio:
 
-	- Versione di .NET Framework o PHP per l'applicazione Web
+	- Versione di .NET, PHP, Java o Python per l'app Web
+	- Modifiche in Visual Studio Online
 	- Associazioni SSL
 	- Nomi di dominio personalizzati
+	- Autenticazione/autorizzazione
+	- Diagnostica dell'applicazione e del sito
+	- Endpoint di monitoraggio
 	- Opzioni di registrazione
-	- impostazioni dell'app per l'ambiente Azure (con l'override <appSettings> ad esempio nel file Web.config dell'ambiente di sviluppo)
-	- stringhe di connessione (con l'override <connectionStrings> ad esempio nel file Web.config dell'ambiente di sviluppo)
+	- Impostazioni app per l'ambiente Azure (ad esempio eseguendo l'override di <appSettings> nel file Web.config dell'ambiente di sviluppo)
+	- Stringhe di connessione (ad esempio eseguendo l'override di <connectionStrings> nel file Web.config dell'ambiente di sviluppo)
 	- Processori script per estensioni file specifiche come *.php
 
-##<a name="howtocreatefromgallery"></a>Procedura: Creare un sito Web dalla raccolta
+##<a name="howtocreatefromgallery"></a> Procedura: Creare un'app Web dalla raccolta
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
-##<a name="deleteawebsite"></a>Procedura: Eliminare un sito Web
-Per eliminare i siti Web usare l'icona **Elimina** del portale di gestione di Azure. L'icona **Elimina** è disponibile nel portale Azure quando si fa clic su **Siti Web** per visualizzare l'elenco di tutti i siti Web, nonché nella parte inferiore di tutte le pagine di gestione del sito Web.
+##<a name="deleteawebsite"></a> Procedura: Eliminare un'app Web
+Le app Web vengono eliminate utilizzando l'icona **Elimina** disponibile nel portale di Azure. L'icona **Elimina** è presente nella parte superiore del pannello per l'app Web.
 
-##<a name="nextsteps"></a>Passaggi successivi
+##<a name="nextsteps"></a> Passaggi successivi
 
-Per altre informazioni, vedere [Siti Web di Azure](/it-it/documentation/services/web-sites/).
+Per ulteriori informazioni, vedere [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=42-->
+<!--HONumber=49-->

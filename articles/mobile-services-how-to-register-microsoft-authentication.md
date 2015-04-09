@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Registrazione per l'autenticazione Microsoft - Servizi mobili" 
+<properties 
+	pageTitle="Registrarsi per l'autenticazione Microsoft - Servizi mobili" 
 	description="Informazioni su come registrarsi per l'autenticazione Microsoft nell'applicazione Servizi mobili di Azure." 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -16,13 +16,13 @@
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
-# Registrazione delle app per l'uso delle credenziali di accesso di un account Microsoft
+# Registrare le app per l'uso delle credenziali di accesso di un account Microsoft
 
 Questo argomento descrive come registrare l'app in modo da usare Live Connect come provider di autenticazione per Servizi mobili di Azure. 
 
->[AZURE.NOTE]Per configurare l'autenticazione dell'account Microsoft per un'app di Windows universale o per offrire un ambiente Single Sign-On To per un'app di Windows Store, vedere [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]Per configurare l'autenticazione dell'account Microsoft per un'app di Windows universale o per offrire un ambiente Single Sign-On To per un'app di Windows Store, vedere [Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft](mobile-services-how-to-register-store-app-package-microsoft-authentication.md).
 
-1. Passare al sito Web <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Applicazioni personali</a> nel Centro sviluppatori Live Connect e, se necessario, accedere con il proprio account Microsoft. 
+1. Passare alla pagina <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Applicazioni personali</a> nel Centro sviluppatori Live Connect e, se necessario, accedere con il proprio account Microsoft. 
 
 2. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
 
@@ -32,13 +32,13 @@ Questo argomento descrive come registrare l'app in modo da usare Live Connect co
 
 3. Fare clic su **Impostazioni API**, specificare il valore `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **URL di reindirizzamento**, quindi fare clic su **Salva**.
 
-	>[AZURE.NOTE]Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento è l'URL del servizio mobile con l'aggiunta del percorso _signin-microsoft_, ovvero il servizio mobile come servizio .NET, ad esempio <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
+	>[AZURE.NOTE] Per un servizio mobile back-end .NET pubblicato in Azure tramite Visual Studio, l'URL di reindirizzamento è l'URL del servizio mobile con l'aggiunta del percorso _signin-microsoft_, ovvero il servizio mobile come servizio .NET, ad esempio <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
 
 	![][3]
 
 	Ciò consente di abilitare l'autenticazione dell'account Microsoft per l'app.
 
-	>[AZURE.NOTE]Per una registrazione esistente dell'app di Live Connect, può essere necessario innanzitutto abilitare **Enhanced redirection security**.
+	>[AZURE.NOTE] Per una registrazione esistente dell'app di Live Connect, può essere necessario innanzitutto abilitare **Enhanced redirection security**.
 
 4. Fare clic su **App Settings** e annotare i valori di **Client ID** e **Client secret**. 
 
@@ -62,4 +62,4 @@ Questo argomento descrive come registrare l'app in modo da usare Live Connect co
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

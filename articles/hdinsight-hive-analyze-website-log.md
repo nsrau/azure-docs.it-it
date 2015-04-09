@@ -16,7 +16,7 @@
 	ms.date="02/06/2015" 
 	ms.author="nitinme"/>
 
-# Uso di Hive con HDInsight per analizzare i log dei siti Web
+# Usare Hive con HDInsight per analizzare i log dei siti Web
 
 Informazioni su come usare HiveQL con HDInsight per analizzare i log di un sito Web. L'analisi del log dei siti Web può essere usata per segmentare il proprio pubblico in base ad attività simile, classificare i visitatori di un sito in base a dati demografici, scoprire i contenuti che visualizzano, da quali siti Web sono stati indirizzati e così via.
 
@@ -31,9 +31,9 @@ In questo esempio verrà usato un cluster HDInsight per analizzare i log dei sit
 
 ##Prerequisiti
 
-- È necessario avere completato il provisioning di un **cluster HDInsight**. Per ottenere istruzioni, vedere [Provisioning di cluster HDInsight][hdinsight-provision]. 
+- È necessario avere completato il provisioning di un **cluster HDInsight**. Per le istruzioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. 
 - È necessario aver installato Microsoft Excel 2010 oppure Microsoft Excel 2013.
-- Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](http://www.microsoft.com/it-it/download/details.aspx?id=40886).
+- Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886).
 
 
 ##Per eseguire l'esempio
@@ -51,8 +51,9 @@ In questo esempio verrà usato un cluster HDInsight per analizzare i log dei sit
 Provare a eseguire l'esempio su come analizzare i dati del sensore usando Azure HDInsight. Vedere [Analisi dei dati del sensore usando Hive con HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

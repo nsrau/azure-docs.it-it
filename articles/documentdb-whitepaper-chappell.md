@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="White paper su DocumentDB di David Chappell |  Azure" 
+	pageTitle="White paper su DocumentDB di David Chappell | Azure" 
 	description="Scaricare un whitepaper di David Chappell relativo a DocumentDB, un database NoSQL gestito in Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -36,4 +36,4 @@ Questo documento affronta inoltre i seguenti concetti fondamentali:
 **Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

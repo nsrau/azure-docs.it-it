@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 #Introduzione a Microsoft Azure DocumentDB
 
 Questo articolo fornisce un'introduzione a Microsoft Azure DocumentDB, un servizio di database di documenti NoSQL per sviluppatori, professionisti IT e decisori aziendali. 
 
-Si consiglia di iniziare guardando il video seguente, in cui Ryan CrawCour e Scott Hanselman presentano Azure DocumentDB. 
+Si consiglia di iniziare guardando il video seguente, in cui Ryan CrawCour e Scott Hanselman introducono Azure DocumentDB, e visitando la pagina [Query Playground](http://www.documentdb.com/sql/demo), in cui è possibile provare DocumentDB ed eseguire query SQL rispetto a un set di dati predefinito.
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
@@ -93,12 +93,13 @@ L'esecuzione di JavaScript in DocumentDB è modellata sui concetti supportati da
 ##<a name="next-steps"></a>Passaggi successivi
 Per iniziare a usare Azure DocumentDB, vedere le risorse seguenti:
 
-- [Prova ora DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
--	[Modello di risorse e concetti relativi a DocumentDB](/documentation/articles/documentdb-resources/)
--	[Interagire con risorse di DocumentDB](/documentation/articles/documentdb-interactions-with-resources/)
--	[Creazione di un account di database DocumentDB](/documentation/articles/documentdb-create-account/)
--	[Introduzione a DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
+-   [Prova ora DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [Query Playground](http://www.documentdb.com/sql/demo)
+-	[Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
+-	[Interagire con risorse di DocumentDB](documentdb-interactions-with-resources.md)
+-	[Creare un account di database di DocumentDB](documentdb-create-account.md)
+-	[Introduzione a DocumentDB .NET SDK](documentdb-get-started.md)
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

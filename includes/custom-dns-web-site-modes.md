@@ -1,4 +1,5 @@
-L'impostazione di un nome di dominio personalizzato è disponibile solo per i livelli di prezzo Condiviso, Basic e Standard per Siti Web di Azure. Prima di impostare un sito Web dal livello Gratuito al livello Condiviso, Basic o Standard, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per Siti Web. 
+L'impostazione di un nome i dominio personalizzato è disponibile solo per le modalità **Condivisa**, **Base** e **Standard** per App Web. Prima di cambiare la modalità di un'app Web da **Gratuita** a **Condivisa**, **Base** o **Standard**, è necessario rimuovere i limiti di sopesa applicati alla sottoscrizione per App Web App. 
 
-Per altre informazioni sulle modalità di Siti Web e su come passare da una all'altra, vedere [Come applicare la scalabilità ai siti Web](/it-it/documentation/articles/web-sites-scale/).
-<!--HONumber=42-->
+Per altre informazioni sulle modalità dei piani di Servizio app e su come passare da una modalità all'altra, vedere [Come applicare la scalabilità alle app Web](web-sites-scale.md).
+
+<!--HONumber=49-->

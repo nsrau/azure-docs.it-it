@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creare, modificare ed eseguire query SQL in una raccolta di DocumentDB tramite Esplora query | Azure" 
 	description="Informazioni su Esplora query di DocumentDB, uno strumento del portale di anteprima di Azure per creare, modificare ed eseguire query SQL in una raccolta di DocumentDB." 
 	services="documentdb" 
@@ -36,7 +36,7 @@ Esplora query può essere avviato da qualsiasi account, database e pannelli di r
 
 2. Fare clic su questa sezione per avviare Esplora query.
 
-	Gli elenchi a discesa**Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora query.  Ad esempio, se viene avviato da un pannello di database, viene prepopolato il database corrente. Se viene avviato da un pannello della raccolta, viene prepopolata la raccolta corrente.
+	Gli elenchi a discesa **Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora query.  Ad esempio, se viene avviato da un pannello di database, viene prepopolato il database corrente. Se viene avviato da un pannello della raccolta, viene prepopolata la raccolta corrente.
 
 	![Screenshot of Query Explorer](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
@@ -44,7 +44,7 @@ Esplora query può essere avviato da qualsiasi account, database e pannelli di r
 
 Esplora query consente di creare, modificare ed eseguire query in modo semplice su una raccolta di DocumentDB e offre l'evidenziazione delle parole chiave e dei valori principali per migliorare l'esperienza di creazione delle query.  
 
-- Quando si apre inizialmente Esplora query, viene fornita una query predefinita SELECT * FROM c.  È possibile accettare la query predefinita oppure crearne una propria e quindi usare il pulsante **Esegui query** per visualizzare i risultati. Esplora query supporta il linguaggio di query SQL DocumentDB come descritto in [Esecuzione di query con DocumentDB](../documentdb-sql-query/).
+- Quando si apre inizialmente Esplora query, viene fornita una query predefinita SELECT * FROM c.  È possibile accettare la query predefinita oppure crearne una propria e quindi usare il pulsante **Esegui query** per visualizzare i risultati. Esplora query supporta il linguaggio di query SQL DocumentDB come descritto in [Eseguire query con DocumentDB](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -63,6 +63,6 @@ Esplora query consente di creare, modificare ed eseguire query in modo semplice 
 ##<a name="NextSteps"></a>Passaggi successivi
 
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
-- Per altre informazioni sulla grammatica SQL DocumentDB supportata in Esplora query, vedere [qui](../documentdb-sql-query/).
+- Per altre informazioni sulla grammatica SQL DocumentDB supportata in Esplora query, vedere [qui](documentdb-sql-query.md).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

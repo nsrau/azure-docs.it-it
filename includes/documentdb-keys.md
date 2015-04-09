@@ -1,4 +1,5 @@
-﻿       Passare ora al pannello Chiavi dell'account DocumentDB in quanto questi valori verranno utilizzati nell'applicazione Web che verrà creata successivamente.
+Passare ora al pannello Chiavi dell'account DocumentDB in quanto questi valori verranno utilizzati nell'applicazione Web che verrà creata successivamente.
 
-       ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
-<!--HONumber=47-->
+![Schermata del portale di anteprima di Azure, che mostra un account DocumentDB, con  il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi](./media/documentdb-keys/keys.png)
+
+<!--HONumber=49-->

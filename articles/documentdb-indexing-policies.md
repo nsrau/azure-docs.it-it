@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Criteri di indicizzazione di DocumentDB | Azure" 
 	description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare i criteri di indicizzazione." 
 	services="documentdb" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="documentdb" 
-	ms.devlang="may be required" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/23/2015" 
+	ms.date="03/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -26,17 +26,17 @@ L'indicizzazione automatica dei documenti è consentita da tecniche di manutenzi
 
 Il sottosistema di indicizzazione di DocumentDB è progettato per supportare:
 
-*  Query efficienti, altamente gerarchiche e relazionali senza definizioni di schema o indice.
+·         Query efficienti, altamente gerarchiche e relazionali senza definizioni di schema o indice.
 
-*  Risultati di query coerenti durante la gestione di un volume sostenuto delle operazioni di scrittura. Per i carichi di lavoro elevati di velocità effettiva della scrittura con query coerenti, l'indice viene aggiornato in maniera incrementale, efficiente e online, gestendo al tempo stesso un volume elevato di scritture.
+·         Risultati di query coerenti durante la gestione di un volume sostenuto delle operazioni di scrittura. Per i carichi di lavoro elevati di velocità effettiva della scrittura con query coerenti, l'indice viene aggiornato in maniera incrementale, efficiente e online, gestendo al tempo stesso un volume elevato di scritture.
 
-*  Efficienza di archiviazione. Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili.
+·         Efficienza di archiviazione. Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili.
 
-*  Multi-tenancy. Gli aggiornamenti dell'indice vengono eseguiti entro i limiti delle risorse di sistema allocate per la raccolta di DocumentDB. 
+·         Multi-tenancy. Gli aggiornamenti dell'indice vengono eseguiti entro i limiti delle risorse di sistema allocate per la raccolta di DocumentDB.
 
-Per la maggior parte delle applicazioni, è possibile usare i criteri di indicizzazione automatica predefiniti poiché consentono la massima flessibilità e compromessi efficaci tra prestazioni ed efficienza di archiviazione. Tuttavia, la definizione di criteri di indicizzazione personalizzati consente di ottenere compromessi più ragionati tra prestazioni delle query, prestazioni di scrittura e costi di archiviazione dell'indice.  
+Per la maggior parte delle applicazioni, è possibile usare i criteri di indicizzazione automatica predefiniti poiché consentono la massima flessibilità e compromessi efficaci tra prestazioni ed efficienza di archiviazione. Tuttavia, la definizione di criteri di indicizzazione personalizzati consente di ottenere compromessi più ragionati tra prestazioni delle query, prestazioni di scrittura e costi di archiviazione dell'indice.
 
-Ad esempio, se si escludono dall'indicizzazione determinati documenti o percorsi all'interno di documenti, è possibile ridurre sia lo spazio di archiviazione usato per l'indicizzazione sia i tempi di inserimento per la manutenzione dell'indice. È possibile cambiare il tipo di indice in modo che risulti più adatto alle query di intervallo oppure aumentare la precisione dell'indice in byte per migliorare le prestazioni delle query. Questo articolo descrive le diverse configurazioni di indicizzazione disponibili in DocumentDB e indica come personalizzare i criteri di indicizzazione per i carichi di lavoro.
+Ad esempio, se si escludono dall'indicizzazione determinati documenti o percorsi all'interno di documenti, è possibile ridurre sia lo spazio di archiviazione usato per l'indicizzazione sia i tempi di inserimento per la manutenzione dell'indice. È possibile cambiare il tipo di indice in modo che risulti più adatto alle query di intervallo oppure aumentare la precisione dell'indice in byte per migliorare le prestazioni delle query. Questo articolo presenta le varie opzioni di configurazione dell'indicizzazione disponibili in DocumentDB e descrive come personalizzare i criteri di indicizzazione per i carichi di lavoro.
 
 <a id="HowWorks"></a>Come funziona l'indicizzazione di DocumentDB
 -----------------------------
@@ -50,10 +50,9 @@ Ad esempio, la proprietà JSON {"headquarters": "Belgium"} nell'esempio preceden
 
 **Nota** La rappresentazione di percorso attenua il confine tra struttura/schema e valori di istanza nei documenti, consentendo a DocumentDB di essere effettivamente privo di schema.
 
-In DocumentDB i documenti sono organizzati in raccolte su cui è possibile eseguire query SQL o che è possibile elaborare nell'ambito di una singola transazione.
-Ogni raccolta può essere configurata con specifici criteri di indicizzazione espressi in termini di percorsi. Nella sezione seguente si esaminerà come configurare il comportamento dell'indicizzazione di una raccolta di DocumentDB.
+In DocumentDB i documenti sono organizzati in raccolte su cui è possibile eseguire query SQL o che è possibile elaborare nell'ambito di una singola transazione. Ogni raccolta può essere configurata con specifici criteri di indicizzazione espressi in termini di percorsi. Nella sezione seguente si esaminerà come configurare il comportamento dell'indicizzazione di una raccolta di DocumentDB.
 
-<a id="ConfigPolicy"></a>Configurare i criteri di indicizzazione di una raccolta
+<a id="ConfigPolicy"></a>Configurazione dei criteri di indicizzazione di una raccolta
 -------------------------------------------
 
 L'esempio seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta usando l'API REST di DocumentDB. L'esempio mostra i criteri di indicizzazione espressi in termini di percorsi, tipi di indice e precisioni.
@@ -64,7 +63,7 @@ L'esempio seguente mostra come impostare criteri di indicizzazione personalizzat
  	Accept: application/json 
                                                                                                                          
  	{                                                                     
-	 "name":"customIndexCollection",                                     
+	 "id":"customIndexCollection",                                     
 	 "indexingPolicy":{                                                 
      "automatic":true,                                            
 	 "indexingMode":"Consistent",                                     
@@ -93,8 +92,7 @@ L'esempio seguente mostra come impostare criteri di indicizzazione personalizzat
 
 È possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile scegliere di disattivare tale funzionalità. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i relativi self link o le query con ID.
 
-Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile lasciare attivata l'indicizzazione automatica e scegliere di escludere in modo selettivo solo documenti specifici.
-Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili quando si ha un solo subset di documenti su cui eseguire query.
+Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile lasciare attivata l'indicizzazione automatica e scegliere di escludere in modo selettivo solo documenti specifici. Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili quando si ha un solo subset di documenti su cui eseguire query.
 
 È possibile configurare i criteri predefiniti impostando su true o false il valore per la proprietà automatica. Per ignorare un singolo documento, è possibile impostare l'intestazione della richiesta x-ms-indexingdirective durante l'inserimento o la sostituzione di un documento.
 
@@ -105,7 +103,7 @@ L'esempio seguente mostra come includere un documento in modo esplicito usando [
 	// use the RequestOptions.IndexingDirective property.                                  
 	                                                                         
 	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
+	    new { Id = "AndersenFamily", isRegistered = true },                            
 		new RequestOptions                               
 		    {                                                                    
 			    IndexingDirective = IndexingDirective.Include                                                                                      
@@ -117,7 +115,7 @@ L'esempio seguente mostra come includere un documento in modo esplicito usando [
 
 È possibile scegliere tra aggiornamenti dell'indice sincroni (**coerenti**) e asincroni (**differiti**). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono in ogni azione di inserimento, sostituzione o eliminazione eseguita su un documento della raccolta. Questo consente alle query di rispettare lo stesso livello di coerenza delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
 
-Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita è ideale per gli scenari in cui i dati vengono scritti in burst e si desidera ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. Questo consente di usare in modo efficiente la velocità effettiva con provisioning e di servire le richieste di scrittura nei momenti di massima attività con latenza minima.  Con l'indicizzazione differita attivata, i risultati delle query risulteranno comunque coerenti indipendentemente dal livello di coerenza configurato per l'account di database.
+Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita è ideale per gli scenari in cui i dati vengono scritti in burst e si desidera ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. Questo consente di usare in modo efficiente la velocità effettiva con provisioning e di servire le richieste di scrittura nei momenti di massima attività con latenza minima. Con l'indicizzazione differita attivata, i risultati delle query risulteranno comunque coerenti indipendentemente dal livello di coerenza configurato per l'account di database.
 
 L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK con indicizzazione automatica coerente in tutti gli inserimenti di documenti.
 
@@ -126,7 +124,7 @@ L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK
 	 // fields. Hash indexes are compact and offer efficient                                                                                           
 	 // performance for equality queries.                                     
 	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
+	 var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
 	                                                                          
 	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
 	                                                                          
@@ -144,7 +142,7 @@ L'esempio seguente mostra come creare una raccolta di DocumentDB usando .NET SDK
 
 Il tipo o lo schema usato per le voci di indice ha un impatto diretto sulle prestazioni e le risorse di archiviazione dell'indice. Per uno schema con precisione più elevata, le query sono in genere più veloci, ma i costi di archiviazione dell'indice sono maggiori. Se si sceglie una precisione inferiore, è possibile che debbano essere elaborati più documenti durante l'esecuzione di query, ma i costi di archiviazione saranno inferiori.
 
-La precisione dell'indice per i valori di qualsiasi percorso può essere configurata entro un intervallo da 3 a 7 byte. 
+La precisione dell'indice per i valori di qualsiasi percorso può essere configurata entro un intervallo da 3 a 7 byte.
 Poiché lo stesso percorso può avere valori numerici e stringa in diversi documenti, è possibile controllarli separatamente. In .NET SDK questi valori corrispondono alle proprietà [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) e [StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx).
 
 Sono supportati due tipi di indice: Hash e Range. Se si sceglie un tipo di indice **Hash**, è possibile eseguire query di uguaglianza efficienti. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte.
@@ -162,7 +160,7 @@ L'esempio seguente mostra come aumentare la precisione per gli indici Range di u
 	 // against ranges (>,>=,<=,<), then you can configure the collection to 
 	 // use range queries for all numeric values.                                                                                                      
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
+	var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
 	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
 												 new IndexingPath {   
 													IndexType = IndexType.Range, Path = "/", 
@@ -270,7 +268,7 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
     </tbody>
 </table>
 
-> [AZURE.NOTE] Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/". 
+> [AZURE.NOTE] Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intera struttura ad albero del documento indicata dal percorso speciale "/".
 
 L'esempio seguente configura un percorso specifico con indicizzazione Range e un valore di precisione personalizzato di 7 byte:
 
@@ -282,7 +280,7 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
  	// /"CreatedTimestamp"/?    
  	// allowing queries of the form WHERE CreatedTimestamp [>] X            
 	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
+	var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 	
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
@@ -302,9 +300,10 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
 
 DocumentDB restituisce un errore quando una query usa un operatore di intervallo ma non dispone di un indice Range per il percorso richiesto né dispone di altri filtri che possono essere serviti dall'indice. Le query di questo tipo possono comunque essere eseguite senza un indice Range usando l'intestazione x-ms-documentdb-allow-scans nell'API REST o l'opzione AllowScanInQueryrequest di .NET SDK.
 
-L'esempio seguente esclude dall'indicizzazione un sottoalbero di percorsi usando il carattere jolly "*".
+L'esempio seguente esclude dall'indicizzazione un sottoalbero di percorsi usando il carattere jolly
+"*".
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
+	var excluded = new DocumentCollection { Id = "excludedPathCollection" };                                                                       
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
@@ -326,7 +325,7 @@ Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire u
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (create, update o delete), esaminare l'intestazione x-ms-request-charge (o l'equivalente proprietà [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) di [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK) per determinare il numero di unità di richiesta utilizzate da queste operazioni.
+Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (create, update o delete), esaminare l'intestazione x-ms-request-charge (o l'equivalente proprietà [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) di [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK) per determinare il numero di unità di richiesta usate da queste operazioni.
 
 
  	// Measure the performance (request units) of writes.     
@@ -346,4 +345,4 @@ Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (creat
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

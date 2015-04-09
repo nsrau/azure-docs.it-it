@@ -1,69 +1,63 @@
-La raccolta rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le applicazioni Web create dalla raccolta non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al portale di gestione di Azure. 
+﻿Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web create da Azure Marketplace non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In questa esercitazione si apprenderà come:
 
-- Creare un nuovo sito tramite la raccolta.
+- Come creare una nuova app Web tramite Azure Marketplace.
 
-- Distribuire il sito tramite il portale Azure.
+- Come distribuire l'app Web tramite il Portale di Azure.
  
 Verrà creato un blog WordPress basato su un modello predefinito. Nella figura seguente è illustrata l'applicazione completata:
 
 
-![Wordpress blog][13]
+![Blog Wordpress][13]
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creare un account Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-## Creazione di un sito Web nel portale
+## Creare un'app Web nel portale
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
+1. Accedere al Portale di Azure.
 
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del dashboard.
+2. Aprire Azure Marketplace facendo clic sull'icona **Marketplace** oppure sull'icona **Nuovo** in basso a sinistra nel dashboard e selezionando **Web + mobile** e poi **Azure Marketplace** in fondo.
 	
-	![Create New][5]
-
-3. Fare clic sull'icona **Sito Web** e quindi su **Da raccolta**.
+	<!--todo:![Create New][5]-->
 	
-	![Create From Gallery][6]
+3. In Marketplace, selezionare **App Web**.
 
-4. Individuare e selezionare l'icona WordPress nell'elenco, quindi fare clic su **Avanti**.
+4. Fare clic sull'icona **Scalable WordPress**.
+
+	<!--todo:![WordPress from list][7]-->
 	
-	![WordPress from list][7]
+5. Dopo aver letto la descrizione dell'app WordPress, selezionare **Crea**.
 
-5. Nella pagina **Configura applicazione** immettere o selezionare i valori per tutti i campi:
+6. Fare clic su ogni parte (**WEB APP**, **DATABASE** e **SUBSCRIPTION**) e immettere o selezionare i valori per i campi obbligatori:
 	
 - Immettere un nome di URL a scelta.	
-- Lasciare l'opzione **Crea un nuovo database MySQL** selezionata nel campo **Database**.
 - Selezionare l'area più vicina.
 
-	![configure your app][8]
+	<!--todo:![configure your app][8]-->
 
-6. Quindi fare clic su **Avanti**.
+7. Al termine della definizione dell'app Web, fare clic su **Crea**.
 
-7. Nella pagina **Crea nuovo database** è possibile specificare un nome per il nuovo database MySQL oppure usare quello predefinito. Selezionare l'area più vicina come posizione di hosting. Selezionare la casella nella parte inferiore dello schermo per accettare le condizioni per l'utilizzo di ClearDB per il database MySQL ospitato. Quindi fare clic sul segno di spunta per completare la creazione del sito. 
+## Avviare e gestire l'app Web WordPress
 	
-	![create database][9]
+1. Dal pannello **App Web**, fare clic sulla nuova app Web per aprire il dashboard.
 
-Dopo aver fatto clic su **Completa**, in Azure verranno avviate le operazioni di creazione e distribuzione. Durante la creazione e la distribuzione del sito Web, nella parte inferiore della pagina Siti Web verrà visualizzato lo stato di queste operazioni. Al termine di tutte le operazioni, quando il sito sarà stato correttamente distribuito, verrà visualizzato un messaggio di stato finale.
+	<!--todo:![launch dashboard][10]-->
 
-## Avvio e gestione del sito WordPress
+2. Nella pagina **Essentials**, fare clic sul collegamento sotto **Url** per aprire la pagina di benvenuto dell'app Web.
 
-1. Fare clic sul nuovo sito nella pagina **Siti Web** per aprire il dashboard corrispondente.
+	<!--todo:![site URL][11]--> 
 
-	![launch dashboard][10]
+3. Se non è stato installato WordPress, immettere le informazioni di configurazione appropriate richieste da WordPress e fare clic su **Installa WordPress** per finalizzare la configurazione e aprire la pagina di accesso all'app Web. 
 
-2. Nella pagina di gestione **Dashboard** scorrere verso il basso e fare clic sul collegamento a sinistra, in **URL sito**, per aprire la pagina iniziale del sito.
+	<!--todo:![login to WordPress][12]-->
 
+4. Fare clic su **Accesso** e immettere le credenziali.  
+	<!--todo:screenshot-->
 
+5. La nuova app Web WordPress avrà un aspetto simile al seguente.    
 
-3. Immettere le informazioni di configurazione appropriate richieste da WordPress e fare clic su **Installa WordPress** per finalizzare la configurazione e aprire la pagina di accesso del sito Web.
-
-
-
-4. Accedere al nuovo sito Web WordPress immettendo il nome utente e la password specificati nella **pagina iniziale**.
-
-5. Il nuovo sito WordPress avrà un aspetto simile al seguente.  
-
-	![your WordPress site][13]
+	<!--todo:![your WordPress site][13]-->
 
 
 
@@ -78,8 +72,4 @@ Dopo aver fatto clic su **Completa**, in Azure verranno avviate le operazioni di
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

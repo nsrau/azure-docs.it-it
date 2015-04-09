@@ -19,4 +19,5 @@ Le istruzioni e le schermate seguenti si applicano ai test di un client di Windo
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=49-->

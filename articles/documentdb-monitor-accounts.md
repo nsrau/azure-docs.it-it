@@ -68,7 +68,7 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 1.	Nel [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche di utilizzo.
 2.	Per impostazione predefinita, nella sezione **Utilizzo** è possibile visualizzare:
 	*	Costo stimato.
-	*	Spazio di archiviazione utilizzato nell'account.
+	*	Spazio di archiviazione usato nell'account.
 	*	Spazio di archiviazione disponibile massimo dell'account.
 	*	Utilizzo di utenti e autorizzazioni.
 	*	Allocazione di unità di capacità.
@@ -95,7 +95,7 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 
  
 ## <a id="next"></a>Passaggi successivi
-Per altre informazioni sulla capacità e sulle prestazioni di DocumentDB, vedere [Gestire la capacità e le prestazioni di DocumentDB](../documentdb-manage/). 
+Per altre informazioni sulla capacità e sulle prestazioni di DocumentDB, vedere [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md). 
 
 <!--Anchors-->
 [Come visualizzare le metriche delle prestazioni per un account DocumentDB]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ Per altre informazioni sulla capacità e sulle prestazioni di DocumentDB, vedere
 [Come configurare gli avvisi delle metriche delle prestazioni per un account DocumentDB]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [Passaggi successivi]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

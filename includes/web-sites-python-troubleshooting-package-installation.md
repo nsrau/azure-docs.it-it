@@ -1,4 +1,4 @@
-Alcuni pacchetti potrebbero non essere installati tramite pip se eseguiti su Azure.  Il motivo può essere semplicemente dovuto al fatto che il pacchetto non è disponibile nell'indice del pacchetto Python.  Potrebbe essere necessario un compilatore (se non è disponibile alcun compilatore nel computer che esegue il sito Web di Azure).
+﻿Alcuni pacchetti potrebbero non essere installati tramite pip se eseguiti su Azure.  Il motivo può essere semplicemente dovuto al fatto che il pacchetto non è disponibile nell'indice del pacchetto Python.  Potrebbe essere necessario un compilatore (se non è disponibile alcun compilatore nel computer che esegue il sito Web di Azure).
 
 In questa sezione vengono esaminati alcuni metodi utili per risolvere questo problema.
 
@@ -34,7 +34,7 @@ Modificare requirements.txt per aggiungere l'opzione `--find-links` nella parte 
 
     --find-links wheelhouse
     azure==0.8.4
-			
+
 Per includere tutte le dipendenze nella cartella \wheelhouse senza usare del tutto l'indice del pacchetto Python, è possibile forzare pip in modo che ignori l'indice del pacchetto aggiungendo `--no-index` nella parte superiore di requirements.txt.
 
     --no-index
@@ -64,7 +64,8 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 È preferibile eliminare l'ambiente virtuale nel sito, per evitare la presenza di file rimasti in seguito alla gestione automatica dell'ambiente virtuale.
 
 
-[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Compilatore Microsoft Visual C++ per Python 2.7]: http:://aka.ms/vcpython27
-[compilatore Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-<!--HONumber=42-->
+[Creazione di una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Compilatore Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
+[Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
+<!--HONumber=49-->

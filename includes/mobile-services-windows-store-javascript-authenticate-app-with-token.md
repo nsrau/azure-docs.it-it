@@ -80,4 +80,6 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 3. Riavviare l'app due volte.
 
-	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato. <!--HONumber=42-->
+	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato. 
+
+<!--HONumber=49-->

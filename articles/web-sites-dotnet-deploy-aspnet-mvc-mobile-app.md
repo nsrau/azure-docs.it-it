@@ -1,57 +1,56 @@
 <properties 
-	pageTitle="Sito Web .NET ASP.NET MVC 5 per dispositivi mobili - Esercitazioni di Azure" 
-	description="Un'esercitazione che illustra come distribuire un'applicazione Web in un sito Web di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5." 
-	services="web-sites" 
+	pageTitle="Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure" 
+	description="Un'esercitazione che illustra come distribuire un'app Web in App Service di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/19/2014" 
-	ms.author="cephalin,riande"/>
+	ms.date="03/24/2015" 
+	ms.author="cephalin;riande"/>
 
 
-# Distribuzione di un'applicazione Web ASP.NET MVC 5 per dispositivi mobili su Siti Web di Azure
+# Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
 
-In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'applicazione Web ASP.NET MVC 5
-per dispositivi mobili e la distribuzione di tale applicazione in Microsoft Azure. Ai fini di questa esercitazione è necessario disporre di 
-[Visual Studio Express 2013 per il Web][Visual Studio Express 2013] o della versione professionale di Visual Studio.
+In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario avere 
+[Visual Studio Express 2013 per il Web][Visual Studio Express 2013] o la versione professionale di Visual Studio, se già se ne dispone.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-### Scopo dell'esercitazione
+## Scopo dell'esercitazione
 
-Ai fini di questa esercitazione si aggiungeranno funzionalità per dispositivi mobili alla semplice applicazione di elenco conferenze fornita nel [progetto iniziale][StarterProject]. La schermata seguente mostra le sessioni ASP.NET nell'applicazione completata, così come vengono visualizzate nell'emulatore di browser negli strumenti di sviluppo F12 di Internet Explorer 11.
+Ai fini di questa esercitazione, si aggiungeranno funzionalità mobili alla semplice applicazione di elenco conferenze fornita nel [progetto iniziale][StarterProject]. La schermata seguente mostra le sessioni ASP.NET nell'applicazione completata, così come vengono visualizzate nell'emulatore di browser negli strumenti di sviluppo F12 di Internet Explorer 11.
 
 ![][FixedSessionsByTag]
 
 È possibile usare gli strumenti di sviluppo F12 di Internet Explorer 11 e lo [strumento Fiddler][Fiddler] per eseguire il debug dell'applicazione. 
 
-### Acquisizione di competenze
+## Acquisizione di competenze
 
-Argomenti trattati nell'esercitazione:
-
--	Come usare Visual Studio 2013 per pubblicare un'applicazione Web direttamente in un sito Web di Microsoft Azure.
+In questa esercitazione si apprenderà:
+ 
+-	Come usare Visual Studio 2013 per pubblicare un'applicazione Web direttamente in un'app Web nel servizio app di Azure.
 -   Come i modelli ASP.NET MVC 5 usano il framework CSS Bootstrap per migliorare la visualizzazione sui dispositivi mobili
 -   Come creare visualizzazioni specifiche del dispositivo per browser di destinazione specifici del dispositivo, ad esempio quelli di iPhone e Android.
--   Come creare visualizzazioni reattive (che rispondono a browser differenti su dispositivi differenti)
+-   Come creare visualizzazioni reattive (che rispondono a browser differenti su dispositivi differenti).
 
-<h2>Configurare l'ambiente di sviluppo</h2>
+## Configurare l'ambiente di sviluppo
 
 Installare Azure SDK per .NET Framework per configurare l'ambiente di sviluppo. 
 
 1. Per installare Azure SDK per .NET, fare clic sul collegamento seguente. Se Visual Studio 2013 non è ancora presente, verrà installato tramite questo collegamento. Per completare questa esercitazione, è necessario disporre di Visual Studio 2013. [Azure SDK per Visual Studio 2013][AzureSDKVs2013]
 1. Nell'Installazione guidata piattaforma Web fare clic su **Installa** e procedere con l'installazione.
 
-	![Installazione guidata piattaforma Web - Azure SDK per .NET][WebPIAzureSdk23NetVS13]
+	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk23NetVS13]
 
-Sarà inoltre necessario disporre di un emulatore di browser per dispositivi mobili. Sarà possibile usare uno dei seguenti:
+Sarà inoltre necessario disporre di un emulatore di browser per dispositivi mobili. Eseguire una o più delle operazioni seguenti:
 
 -   Emulatore di browser disponibile negli [strumenti di sviluppo F12 di Internet Explorer 11][EmulatorIE11] (usato in tutte le schermate del browser per dispositivi mobili). Dispone di set di impostazioni della stringa agente utente per Windows Phone 8, Windows Phone 7 e Apple iPad.
 -	Emulatore di browser disponibile in [Google Chrome DevTools][EmulatorChrome]. Sono disponibili set di impostazioni per diversi dispositivi Android, oltre che per Apple iPhone, Apple iPad e Amazon Kindle Fire. Emula anche gli eventi tocco.
@@ -62,87 +61,76 @@ Sono disponibili alcuni progetti con codice sorgente C\# a integrazione di quest
 -   [Download progetto iniziale][StarterProject]
 -   [Download progetto completato][CompletedProject]
 
-<h2>Passaggi dell'esercitazione</h2>
-
-- [Distribuire il progetto iniziale in un sito Web di Microsoft Azure][]
-- [Framework CSS Bootstrap][]
-- [Eseguire l'override di visualizzazioni, layout e visualizzazioni parziali][]
-- [Migliorare l'elenco Speakers][]
-- [Migliorare l'elenco Tags][]
-- [Migliorare l'elenco Dates][]
-- [Migliorare la visualizzazione SessionsTable][]
-- [Migliorare la visualizzazione SessionByCode][]
-
-<h3><a name="bkmk_DeployStarterProject"></a>Distribuire il progetto iniziale in un sito Web di Microsoft Azure</h3>
+##<a name="bkmk_DeployStarterProject"></a>Distribuzione del progetto iniziale in un'app Web di Azure
 
 1.	Scaricare il [progetto iniziale][StarterProject] dell'applicazione di elenco conferenze.
 
 2. 	In Esplora risorse fare quindi clic con il pulsante destro del mouse sul file Mvc5Mobile.zip e scegliere *Properties*.
 
-3. 	Nella finestra di dialogo **Proprietà - Mvc5Mobile.zip** fare clic sul pulsante **Sblocca**. (L'operazione di sblocco impedisce la visualizzazione dell'avviso di sicurezza quando si tenta di usare un file *.zip* scaricato dal Web).
+3. 	Nella finestra di dialogo **Proprietà - Mvc5Mobile.zip**, fare clic sul pulsante **Sblocca** (l'operazione di sblocco impedisce la visualizzazione dell'avviso di sicurezza quando si tenta di utilizzare un file *.zip* scaricato dal Web).
 
-4.	Fare clic con il pulsante destro del mouse sul file *Mvc5Mobile.zip* e scegliere **Estrai tutto** per decomprimere il file. 
+4.	Fare clic con il pulsante destro del mouse sul file  *Mvc5Mobile.zip* e selezionare **Estrai tutto** per decomprimere il file. 
 
-5. 	In Visual Studio aprire il file *Mvc5Mobile.sln*.
+5. 	In Visual Studio, aprire il file  *Mvc5Mobile.sln*.
 
 6.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
 	![][DeployClickPublish]
 
-7.	In Pubblica sito Web fare clic su **Siti Web di Microsoft Azure**.
+7.	In Pubblica sito Web fare clic su **App Web di Microsoft Azure**.
 
-	![][DeployClickWebSites]
+	<!--todo: ![][DeployClickWebSites] -->
 
 8.	Fare clic su **Accedi**.
 
-	![][DeploySignIn]
+	<!--todo: ![][DeploySignIn] -->
 
-9.	Digitare il proprio nome utente Microsoft Azure e fare clic su **Continua**.
+9.	Digitare il nome dell'account di Azure e fare clic su **Continua**.
 
-	![][DeployUsername]
+	<!--todo: ![][DeployUsername] -->
 
 10.	Digitare la password e fare clic su **Accedi**.
 
-	![][DeployPassword]
+	<!--todo: ![][DeployPassword] -->
 
-11. A questo punto è stato eseguito l'accesso alla finestra di dialogo relativa alla selezione del sito Web esistente. Fare clic su **Nuovo**.
+11. A questo punto è stato eseguito l'accesso alla finestra di dialogo relativa alla selezione dell'app Web esistente. Fare clic su **Nuovo**.
 
-	![][DeployNewWebsite]  
+	<!--todo: ![][DeployNewWebsite] -->  
 
-12. Nel campo **Nome sito** specificare un prefisso univoco per il nome del sito. Il nome del sito completo sarà *&lt;prefisso>*.azurewebsites.net. Nel campo **Regione** selezionare una regione. Fare quindi clic su **Crea**.
+12. Nel campo **Nome sito** specificare un prefisso univoco per il nome del sito. Il nome completo del sito sarà *&lt;prefisso>*.azurewebsites.net. Nel campo **Regione** selezionare una regione. Fare quindi clic su **Crea**.
 
-	![][DeploySiteSettings]
+	<!--todo: ![][DeploySiteSettings] -->
 
-13.	Nella finestra di dialogo Pubblica sito Web verranno inserite le impostazioni relative al nuovo sito Web. Fare clic su **Pubblica**.
+13.	Nella finestra di dialogo Pubblica sito Web verranno inserite le impostazioni relative alla nuova app Web. Fare clic su **Pubblica**.
 
-	![][DeployPublishSite]
+	<!--todo: ![][DeployPublishSite] -->
 
-	Dopo che Visual Studio ha completato la pubblicazione del progetto iniziale in Siti Web di Microsoft Azure, viene avviato il browser desktop per visualizzare il sito Web live.
+	Completata la pubblicazione del progetto iniziale nell'app Web di Azure con Visual Studio, si avvia il browser desktop e viene visualizzata l'app Web live.
 
-14.	Avviare l'emulatore di browser per dispositivi mobili, copiare l'URL dell'applicazione per conferenze (*<prefix>*.azurewebsites.net) nell'emulatore, quindi fare clic sul pulsante nell'angolo superiore destro e selezionare **Browse by tag**. Se si usa Internet
-Explorer 11 come browser predefinito, è solo necessario premere `F12`, quindi
-`CTRL+8` e infine impostare il profilo del browser su **Windows Phone**. La seguente immagine mostra la visualizzazione *AllTags* in modalità verticale (a seguito della selezione di
-**Browse by tag**).
+14.	Avviare l'emulatore di browser per dispositivi mobili, copiare l'URL dell'applicazione per conferenze (*<prefisso>*.azurewebsites.net) nell'emulatore, quindi fare clic sul pulsante nell'angolo superiore destro e selezionare **Sfoglia per tag**. Se si usa Internet
+Explorer 11 come browser predefinito, sarà sufficiente digitare "F12", quindi
+"Ctrl+8" e modificare il profilo del browser in **Windows Phone**. L'immagine riportata di seguito mostra la visualizzazione  *AllTags* in modalità verticale (risultante dalla selezione di
+**Sfoglia per tag**).
 
 	![][AllTags]
 
->[AZURE.NOTE] Mentre si esegue il debug dell'applicazione MVC 5 da Visual Studio, è possibile pubblicare di nuovo il sito Web in Microsoft Azure per verificare il sito live direttamente dall'emulatore per dispositivi mobili o dall'emulatore del browser.
+>[AZURE.NOTE] Mentre si esegue il debug dell'applicazione MVC 5 da Visual Studio, è possibile pubblicare di nuovo l'app Web in Azure per verificare l'app Web live direttamente dall'emulatore per dispositivi mobili o dall'emulatore del browser.
 
 Il display è molto leggibile su un dispositivo mobile. È già possibile vedere alcuni degli effetti grafici applicati dal framework CSS Bootstrap.
 Fare clic sul collegamento **ASP.NET**.
 
 ![][SessionsByTagASP.NET]
 
-La visualizzazione relativa ai tag ASP.NET viene ridotta in modo da rientrare per intero nello schermo, operazione eseguita automaticamente da Bootstrap. È tuttavia possibile migliorare tale visualizzazione per adattarla al browser per dispositivi mobili. La colonna **Date**, ad esempio, è di difficile lettura. Più avanti in questa esercitazione verrà illustrato come modificare la visualizzazione *AllTags* per adattarla allo schermo dei dispositivi mobili.
+La visualizzazione relativa ai tag ASP.NET viene ridotta in modo da rientrare per intero nello schermo, operazione eseguita automaticamente da Bootstrap. È tuttavia possibile migliorare tale visualizzazione per adattarla al browser per dispositivi mobili. La colonna **Date**, ad esempio, è di difficile lettura. Più avanti in questa esercitazione verrà illustrato come modificare la visualizzazione  *AllTags* per adattarla allo schermo dei dispositivi mobili.
 
-<h2><a name="bkmk_bootstrap"></a>Framework CSS Bootstrap</h2>
+##<a name="bkmk_bootstrap"></a> Framework CSS Bootstrap
 
 Una delle novità del modello MVC 5 è il supporto integrato per Bootstrap. È già stato illustrato come Bootstrap consenta di migliorare le diverse schermate dell'applicazione. Ad esempio, quando la larghezza del browser è ridotta, la barra di spostamento nella parte superiore della schermata è automaticamente comprimibile. Sul browser desktop, provare a ridimensionare la finestra e osservare come cambiano le dimensioni e l'aspetto della barra di spostamento. Questa è una dimostrazione della progettazione Web reattiva integrata in
 Bootstrap.
 
 Per vedere l'aspetto dell'app Web senza Bootstrap, aprire
 *App\_Start\\BundleConfig.cs* e impostare come commento le righe contenenti
-*bootstrap.js* e *bootstrap.css*. Il seguente codice mostra le ultime due istruzioni del metodo `RegisterBundles` dopo la modifica:
+*bootstrap.js* e  *bootstrap.css*. Il codice riportato di seguito mostra le ultime due istruzioni del `RegisterBundles` metodo dopo la modifica:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -164,24 +152,24 @@ Annullare le modifiche e aggiornare il browser per verificare che la schermata p
 Bootstrap non è specifico di ASP.NET MVC 5 e le funzionalità che fornisce possono essere usate in qualsiasi applicazione Web. Ora, tuttavia, Bootstrap è integrato nel
 modello di progetto ASP.NET MVC 5 per consentire all'applicazione Web MVC 5 di sfruttarne i vantaggi per impostazione predefinita.
 
-Per altre informazioni, visitare il sito Web di
+Per altre informazioni, andare a il sito Web di
 [Bootstrap][BootstrapSite].
 
 Nella sezione seguente verrà illustrato come creare visualizzazioni specifiche del browser per dispositivi mobili.
 
-<h2><a name="bkmk_overrideviews"></a>Eseguire l'override di visualizzazioni, layout e visualizzazioni parziali</h2>
+##<a name="bkmk_overrideviews"></a> Eseguire l'override di visualizzazioni, layout e visualizzazioni parziali
 
-È possibile eseguire l'override di una visualizzazione (inclusi i layout e le visualizzazioni parziali) per i browser per dispositivi mobili in generale, per un singolo browser per dispositivi mobili o per un qualsiasi browser specifico. Per fornire una visualizzazione specifica per dispositivi mobili, è possibile copiare un file di visualizzazione e aggiungere *.Mobile* al nome del file. Ad esempio, per creare una visualizzazione mobile
-*Index*, è possibile copiare *Views\\Home\\Index.cshtml* in
+È possibile eseguire l'override di una visualizzazione (inclusi i layout e le visualizzazioni parziali) per i browser per dispositivi mobili in generale, per un singolo browser per dispositivi mobili o per un qualsiasi browser specifico. Per fornire una vista specifica per dispositivi mobili è possibile copiare un file di visualizzazione e aggiungere *.Mobile* al nome del file. Ad esempio, per creare una visualizzazione
+*Indice* per dispositivi mobili, è possibile copiare  *Views\\Home\\Index.cshtml* in
 *Views\\Home\\Index.Mobile.cshtml*.
 
 In questa sezione verrà illustrato come creare un file di layout specifico per dispositivi mobili.
 
-Per iniziare, copiare *Views\\Shared\\\_Layout.cshtml* in
+Per iniziare, copiare  *Views\\Shared\\\_Layout.cshtml* in
 *Views\\Shared\\\_Layout.Mobile.cshtml*. Aprire *\_Layout.Mobile.cshtml* e modificare il titolo da **MVC5 Application** a **MVC5 Application (Mobile)**.
 
-In ogni chiamata di `Html.ActionLink` per la barra di spostamento, rimuovere "Browse by" da ciascun collegamento
-*ActionLink*. Il seguente codice mostra il tag `<ul class="nav navbar-nav">` completato del file di layout mobile.
+In ogni chiamata di  `Html.ActionLink` per la barra di spostamento, rimuovere "Browse by" da ciascun collegamento
+*ActionLink*. Il codice seguente mostra il tag `<ul class="nav navbar-nav">` completato del file di layout per dispositivi mobili.
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -190,14 +178,13 @@ In ogni chiamata di `Html.ActionLink` per la barra di spostamento, rimuovere "Br
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copiare il file *Views\\Home\\AllTags.cshtml* in
+Copiare il file  *Views\\Home\\AllTags.cshtml* in
 *Views\\Home\\AllTags.Mobile.cshtml*. Aprire il nuovo file e cambiare l'elemento
-`<h2>` da "Tags" a "Tags (M)":
+`<h2>` da "Tags" in "Tags (M)":
 
     <h2>Tags (M)</h2>
 
-Passare alla pagina Tags usando un browser desktop e un emulatore di browser per dispositivi mobili. In quest'ultimo saranno visibili le due modifiche apportate
-(la modifica del titolo da *\_Layout.Mobile.cshtml* e la modifica del titolo da
+Passare alla pagina Tags usando un browser desktop e un emulatore di browser per dispositivi mobili. L'emulatore di browser per dispositivi mobili mostra le due modifiche apportate (titolo da *\_Layout.Mobile.cshtml* e titolo da
 *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
@@ -207,11 +194,11 @@ La visualizzazione desktop, invece, non è stata modificata (con i titoli da *\_
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-<h2><a name="bkmk_browserviews"></a>Creare visualizzazioni specifiche del browser</h2>
+##<a name="bkmk_browserviews"></a> Creazione di visualizzazioni specifiche del browser
 
-Oltre a visualizzazioni specifiche del dispositivo mobile e del desktop, è possibile anche creare visualizzazioni per un particolare browser. È possibile, ad esempio, creare visualizzazioni specifiche per i browser di iPhone o Android. Questa sezione illustrerà come creare un layout per il browser di iPhone e una versione iPhone della visualizzazione *AllTags*.
+Oltre a visualizzazioni specifiche del dispositivo mobile e del desktop, è possibile anche creare visualizzazioni per un particolare browser. È possibile, ad esempio, creare visualizzazioni specifiche per i browser di iPhone o Android. In questa sezione verrà illustrato come creare un layout per il browser di iPhone e una versione iPhone della visualizzazione  *AllTags*.
 
-Aprire il file *Global.asax* e aggiungere il seguente codice all'ultima riga del metodo
+Aprire il file  *Global.asax* e aggiungere il codice seguente all'ultima riga del metodo
 `Application_Start`.
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
@@ -220,66 +207,60 @@ Aprire il file *Global.asax* e aggiungere il seguente codice all'ultima riga del
             ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
     });
 
-Questo codice definisce una nuova modalità di visualizzazione denominata "iPhone" che verrà confrontata con ciascuna richiesta in ingresso. Se tale richiesta soddisfa la condizione definita (ovvero se l'agente utente contiene la stringa
-"iPhone"), ASP.NET MVC cercherà le visualizzazioni nel cui nome sia incluso il suffisso
+Questo codice definisce una nuova modalità di visualizzazione denominata "iPhone" che verrà associata a ciascuna richiesta in ingresso. Se la richiesta in ingresso corrisponde alla condizione definita dall'utente (ovvero, se l'agente utente contiene la stringa
+"iPhone"), in ASP.NET MVC verrà effettuata una ricerca delle visualizzazioni il cui nome include il suffisso
 "iPhone".
 
->[AZURE.NOTE] Quando si aggiungono modalità di visualizzazione specifiche del browser per dispositivi mobili, ad esempio per iPhone e Android, assicurarsi di impostare il primo argomento su `0` (inserirlo all'inizio dell'elenco) in modo che la modalità specifica del browser abbia la precedenza sul modello mobile (*.Mobile.cshtml). Se invece il primo posto dell'elenco è occupato dal modello mobile, questo sarà selezionato al posto della modalità di visualizzazione specificata (la prima corrispondenza ha la priorità e il modello mobile viene usato per tutti i browser per dispositivi mobili). 
+>[AZURE.NOTE] Quando si aggiungono modalità di visualizzazione specifiche del browser per dispositivi mobili, ad esempio per i browser di iPhone e Android, assicurarsi di impostare il primo argomento su `0` (inserirlo all'inizio dell'elenco), in modo che la modalità specifica del browser abbia la precedenza sul modello mobile (*.Mobile.cshtml). Se invece il primo posto dell'elenco è occupato dal modello mobile, questo sarà selezionato al posto della modalità di visualizzazione specificata (la prima corrispondenza ha la priorità e il modello mobile viene usato per tutti i browser per dispositivi mobili). 
 
-Nel codice fare clic con il pulsante destro del mouse su `DefaultDisplayMode`, scegliere **Resolve**, quindi `using System.Web.WebPages;`. Verrà aggiunto un riferimento allo spazio dei nomi
-`System.Web.WebPages`, dove i tipi
-`DisplayModeProvider` e `DefaultDisplayMode` vengono definiti.
+Nel codice fare clic con il pulsante destro del mouse su  `DefaultDisplayMode`, scegliere **Risolvi**, quindi scegliere lo spazio dei nomi  `using System.Web.WebPages;`. This adds a reference to the
+`System.Web.WebPages`, dove
+vengono definiti i tipi `DisplayModeProvider` e  `DefaultDisplayMode`.
 
 ![][ResolveDefaultDisplayMode]
 
-In alternativa, è possibile aggiungere manualmente la riga seguente alla sezione
-`using` del file.
+In alternativa, è possibile aggiungere manualmente la riga seguente alla
+sezione "using" del file.
 
     using System.Web.WebPages;
 
-Salvare le modifiche. Copiare
-*Views\\Shared\\\_Layout.Mobile.cshtml* file to
-*Views\\Shared\\\_Layout.iPhone.cshtml*. Open the new file
-and then change the title from `MVC5 Application (Mobile)` to
+Salvare le modifiche. Copiare il
+file *Views\\Shared\\\_Layout.Mobile.cshtml* in
+*Views\\Shared\\\_Layout.iPhone.cshtml*. Aprire il nuovo file e modificare il titolo da  `MVC5 Application (Mobile)` in
 `MVC5 Application (iPhone)`.
 
-Copiare il file *Views\\Home\\AllTags.Mobile.cshtml* in
-*Views\\Home\\AllTags.iPhone.cshtml*. In the new file, change
-the `<h2>` element from "Tags (M)" to "Tags (iPhone)".
+Copiare il file  *Views\\Home\\AllTags.Mobile.cshtml* in
+*Views\\Home\\AllTags.iPhone.cshtml*. Nel nuovo file cambiare l'elemento \<h2\> da "Tags (M)" a "Tags (iPhone)".
 
-Eseguire l'applicazione. Eseguire un emulatore di browser per dispositivi mobili, assicurarsi che il relativo agente utente sia impostato su "iPhone" e passare alla visualizzazione *AllTags*. Se si usa l'emulatore negli strumenti di sviluppo F12 di Internet Explorer 11, configurare l'emulazione come segue:
+Eseguire l'applicazione. Eseguire un emulatore di browser per dispositivi mobili, assicurarsi che il relativo agente utente sia impostato su "iPhone" e passare alla visualizzazione  *AllTags*. Se si usa l'emulatore negli strumenti di sviluppo F12 di Internet Explorer 11, configurare l'emulazione come segue:
 
 -   Profilo del browser = **Windows Phone**
 -   Stringa agente utente =  **Custom**
 -   Stringa personalizzata = **Apple-iPhone5C1/1001.525**
 
-La seguente schermata mostra la visualizzazione *AllTags* sottoposta a rendering nell'emulatore negli strumenti di sviluppo F12 di Internet Explorer 11 con la stringa agente utente personalizzata (in questo caso, una stringa agente utente iPhone 5C).
+La schermata seguente mostra la visualizzazione  *AllTags* sottoposta a rendering nell'emulatore negli strumenti di sviluppo F12 di Internet Explorer 11 con la stringa agente utente personalizzata (in questo caso, una stringa agente utente iPhone 5C).
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-Nel browser per dispositivi mobili selezionare il collegamento **Speakers**. Poiché non è disponibile una visualizzazione mobile (*AllSpeakers.Mobile.cshtml*), la visualizzazione dei relatori predefinita
-(*AllSpeakers.cshtml*) verrà sottoposta a rendering usando la visualizzazione del layout mobile
-(*\_Layout.Mobile.cshtml*). Come mostrato di seguito, il titolo **MVC5 Application
-(Mobile)** è definito in *\_Layout.Mobile.cshtml*.
+Nel browser per dispositivi mobili selezionare il collegamento **Speakers**. Poiché non è disponibile una visualizzazione mobile (*AllSpeakers.Mobile.cshtml*), viene eseguito il rendering della visualizzazione dei relatori predefinita(*AllSpeakers.cshtml*) usando la visualizzazione di layout mobile(*\_Layout.Mobile.cshtml*). Come mostrato di seguito, il titolo **MVC5 Application (Mobile)** è definito in *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
-È possibile escludere globalmente una visualizzazione predefinita (non mobile) dal rendering all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su
-`true` nel file *Views\\\_ViewStart.cshtml*, come mostrato di seguito:
+È possibile disabilitare a livello globale il rendering di una visualizzazione predefinita (non mobile) all'interno di un layout mobile impostando `RequireConsistentDisplayMode` su
+"true" nel file  *Views\\\_ViewStart.cshtml*, come mostrato di seguito:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile
-(*\_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili (ovvero quando il file di visualizzazione è nel formato ***NomeVisualizzazione**.Mobile.cshtml*). Può essere opportuno impostare `RequireConsistentDisplayMode` su `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La seguente schermata mostra il modo in cui viene eseguito il rendering della pagina *Speakers* quando `RequireConsistentDisplayMode` è impostato su `true` (senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata).
+Se  `RequireConsistentDisplayMode` è impostato su  `true`, il layout mobile (*\_Layout.Mobile.cshtml*) viene usato solo per le visualizzazioni mobili, ovvero quando il file della visualizzazione è in formato ***ViewName**.Mobile.cshtml*. Può essere opportuno impostare  `RequireConsistentDisplayMode` su  `true` se il layout mobile non interagisce correttamente con le visualizzazioni non mobili. La schermata seguente mostra il modo in cui la pagina  *Speakers* viene sottoposta a rendering quando  `RequireConsistentDisplayMode` è impostato su  `true`, senza la stringa "(Mobile)" nella barra di spostamento nella parte superiore della schermata.
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-È possibile disabilitare la modalità di visualizzazione coerente in una visualizzazione specifica impostando
-`RequireConsistentDisplayMode` su `false` nel file di visualizzazione. Il seguente markup nel file *Views\\Home\\AllSpeakers.cshtml* imposta
-`RequireConsistentDisplayMode` su `false`:
+È possibile disabilitare la modalità di visualizzazione coerente in una vista specifica impostando
+`RequireConsistentDisplayMode` su  `false` nel file di visualizzazione. Il markup seguente nel file  *Views\\Home\\AllSpeakers.cshtml* imposta
+`RequireConsistentDisplayMode` su  `false`:
 
     @model IEnumerable<string>
 
@@ -291,11 +272,11 @@ Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile
 In questa sezione è stato spiegato come creare layout e visualizzazioni mobili e come creare layout e visualizzazioni per dispositivi specifici, ad esempio iPhone.
 Il principale vantaggio offerto dal framework CSS Bootstrap, tuttavia, è il layout reattivo, ovvero la possibilità di applicare un singolo foglio di stile a browser per desktop, telefoni cellulari e tablet per assicurare un aspetto uniforme e coerente. Nella sezione seguente verrà illustrato come usare Bootstrap per creare visualizzazioni per dispositivi mobili.
 
-<h2><a name="bkmk_Improvespeakerslist"></a> Migliorare l'elenco Speakers</h2>
+##<a name="bkmk_Improvespeakerslist"></a> Miglioramento dell'elenco Speakers
 
-Come si è appena osservato, la visualizzazione *Speakers* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. Questa sezione illustrerà come rendere la visualizzazione *AllSpeakers* adatta a dispositivi mobili, con collegamenti ben visibili e facili da toccare e una casella di ricerca per trovare rapidamente i relatori.
+Come si è appena osservato, la vista  *Speakers* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. In questa sezione verrà illustrato come rendere la visualizzazione  *AllSpeakers* adatta a dispositivi mobili, con collegamenti ben visibili e facili da toccare e una casella di ricerca per trovare rapidamente i relatori.
 
-È possibile usare lo stile di Bootstrap relativo ai [gruppi elenchi collegati][] per migliorare la visualizzazione *Speakers*. In *Views\\Home\\AllSpeakers.cshtml*, sostituire il contenuto del file Razor con il seguente codice.
+È possibile usare lo stile di Bootstrap relativo ai [gruppi elenchi collegati][] per migliorare la visualizzazione  *Speakers*. In  *Views\\Home\\AllSpeakers.cshtml* sostituire il contenuto del file Razor con il codice riportato di seguito.
 
      @model IEnumerable<string>
 
@@ -313,18 +294,18 @@ Come si è appena osservato, la visualizzazione *Speakers* è leggibile, ma i co
     </div>
 
 L'attributo `class="list-group"` nel tag `<div>` applica
-lo stile di elenco di Bootstrap, mentre l'attributo `class="input-group-item"` applica lo stile di elemento di elenco di Bootstrap a ogni collegamento.
+lo stile dell'elenco di Bootstrap e l'attributo `class="input-group-item"` applica lo stile delle voci dell'elenco di Bootstrap a ogni collegamento.
 
 Aggiornare il browser per dispositivi mobili. La visualizzazione aggiornata avrà un aspetto simile al seguente:
 
 ![][AllSpeakersFixed]
 
-Lo stile di Bootstrap relativo ai [gruppi elenchi collegati][] rende l'intera casella di ogni collegamento selezionabile con un clic, aumentando in questo modo la semplicità d'uso. Passare alla visualizzazione desktop e osservare l'aspetto uniforme e coerente.
+Lo stile di Bootstrap relativo ai [gruppi elenchi collegati][] rende l'intera casella di ogni collegamento selezionabile con un clic, agevolando in questo modo l'esperienza utente. Passare alla visualizzazione desktop e osservare l'aspetto uniforme e coerente.
 
 ![][AllSpeakersFixedDesktop]
 
 Anche se la visualizzazione per il browser per dispositivi mobili è stata migliorata, scorrere il lungo elenco di relatori è ancora difficile. Bootstrap non fornisce un filtro di ricerca pronto all'uso, ma è possibile aggiungere questa funzionalità con poche righe di codice. È necessario innanzitutto aggiungere alla visualizzazione una casella di ricerca e quindi collegare tale casella al codice JavaScript relativo alla funzione di filtro. In
-*Views\\Home\\AllSpeakers.cshtml* aggiungere un tag \<form\> subito dopo il tag \<h2\>, come mostrato di seguito:
+*Views\\Home\\AllSpeakers.cshtml* aggiungere un tag \<form\> subito dopo il tag \<h2\>, come illustrato di seguito:
 
     @model IEnumerable<string>
 
@@ -349,10 +330,10 @@ Anche se la visualizzazione per il browser per dispositivi mobili è stata migli
         }
     </div>
 
-Si noti che ai tag `<form>` e `<input>` sono applicati gli stili di Bootstrap. L'elemento `<span>` aggiunge un'icona di Bootstrap
-[glyphicon][] alla casella di ricerca.
+Si noti che a entrambi i tag `<form>` e `<input>` sono applicati gli stili di Bootstrap. L'elemento `<span>` aggiunge un'
+[icona][] di Bootstrap alla casella di ricerca.
 
-Nella cartella *Scripts* aggiungere un file JavaScript denominato *filter.js*. Aprire il file e incollarvi il seguente codice:
+Nella cartella  *Scripts*, aggiungere un file JavaScript denominato  *filter.js*. Aprire il file e incollarvi il codice seguente:
 
     $(function () {
 
@@ -381,22 +362,22 @@ Nella cartella *Scripts* aggiungere un file JavaScript denominato *filter.js*. A
     });
 
 È inoltre necessario includere il filtro.js nei bundle registrati. Aprire
-*App\_Start\\BundleConfig.cs* e modificare i primi bundle. Modificare la prima istruzione `bundles.Add` (per il bundle **jquery**) in modo da includere
+*App\_Start\\BundleConfig.cs* e modificare i primi bundle. Modificare la prima istruzione  `bundles.Add` (per il bundle **jquery**) in modo che includa
 *Scripts\\filter.js*, come mostrato di seguito:
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-Il bundle **jquery** è già stato sottoposto a rendering dalla visualizzazione predefinita *\_Layout*. In un secondo tempo è possibile usare lo stesso codice JavaScript per applicare la funzionalità di filtro ad altre visualizzazioni elenco.
+Il bundle **jquery** è già stato sottoposto a rendering dalla visualizzazione predefinita *\_Layout. In un secondo tempo è possibile usare lo stesso codice JavaScript per applicare la funzionalità di filtro ad altre visualizzazioni elenco.
 
-Aggiornare il browser per dispositivi mobili e passare alla visualizzazione *AllSpeakers*. Nella casella di ricerca digitare "sc". L'elenco dei relatori viene ora filtrato in base alla stringa di ricerca.
+Aggiornare il browser per dispositivi mobili e passare alla visualizzazione  *AllSpeakers*. Nella casella di ricerca digitare "sc". L'elenco dei relatori viene ora filtrato in base alla stringa di ricerca.
 
 ![][AllSpeakersFixedSearchBySC]
 
-<h2><a name="bkmk_improvetags"></a> Migliorare l'elenco Tags</h2>
+##<a name="bkmk_improvetags"></a> Miglioramento dell'elenco Tags
 
-Come la visualizzazione *Speakers*, anche la visualizzazione *Tags* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. È possibile intervenire sulla visualizzazione *Tags* nello stesso modo in cui viene migliorata la visualizzazione *Speakers*. Usare le modifiche del codice descritte in precedenza, ma applicare la seguente sintassi del metodo `Html.ActionLink` in *Views\\Home\\AllTags.cshtml*:
+Come la visualizzazione  *Speakers*, anche la visualizzazione  *Tags* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. È possibile intervenire sulla visualizzazione  *Tags* nello stesso modo in cui è stata migliorata la visualizzazione  *Speakers*. Usare le modifiche del codice descritte in precedenza, ma applicare in  *Views\\Home\\AllTags.cshtml* la seguente sintassi del metodo  `Html.ActionLink`:
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
@@ -407,28 +388,28 @@ Il browser desktop aggiornato avrà il seguente aspetto:
 
 ![][AllTagsFixedDesktop]
 
-Il browser per dispositivi mobili aggiornato invece avrà il seguente aspetto: 
+Il browser per dispositivi mobili aggiornato avrà il seguente aspetto: 
 
 ![][AllTagsFixed]
 
 >[AZURE.NOTE] È possibile che sul browser per dispositivi mobili sia ancora presente la formattazione originale dell'elenco, senza l'applicazione dello stile di Bootstrap: si tratta del risultato della precedente azione di creazione di visualizzazioni specifiche del dispositivo mobile. Tuttavia, poiché ora si sta usando il framework CSS Bootstrap per creare una progettazione Web reattiva, rimuovere le visualizzazioni e il layout specifici del dispositivo mobile. Una volta eseguita l'eliminazione, il browser per dispositivi mobili aggiornato visualizzerà lo stile di Bootstrap.
 
-<h2><a name="bkmk_improvedates"></a> Migliorare l'elenco Dates</h2>
+##<a name="bkmk_improvedates"></a> Miglioramento dell'elenco Dates
 
-È possibile migliorare la visualizzazione *Dates* come sono state migliorate le visualizzazioni *Speakers* e
-*Tags* se si usano le modifiche del codice descritte in precedenza, ma con la seguente sintassi del metodo `Html.ActionLink` in  *Views\\Home\\AllDates.cshtml*:
+È possibile migliorare la visualizzazione  *Dates* nello stesso modo in cui sono state migliorate le visualizzazioni  *Speakers* e
+*Tags*. Usare le modifiche del codice descritte in precedenza, ma applicare in  *Views\\Home\\AllDates.cshtml* la seguente sintassi del metodo  `Html.ActionLink`:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
                      new { date }, 
                      new { @class = "list-group-item" })
 
-Si otterrà una visualizzazione del browser per dispositivi mobili aggiornata simile a quella riportata di seguito:
+Si otterrà una visualizzazione del browser per dispositivi mobili aggiornato simile a quella riportata di seguito:
 
 ![][AllDatesFixed]
 
-È possibile migliorare ulteriormente la visualizzazione *Dates* organizzando i valori di data e ora in base alla data. È possibile eseguire questa operazione usando lo stile di Bootstrap relativo a
-[pannelli][]. Sostituire il contenuto del file *Views\\Home\\AllDates.cshtml* con il seguente codice:
+È possibile migliorare ulteriormente la visualizzazione  *Dates* organizzando i valori di data e ora in base alla data. È possibile eseguire questa operazione usando lo stile di Bootstrap relativo ai
+[pannelli][]. Sostituire il contenuto del file  *Views\\Home\\AllDates.cshtml* con il codice seguente:
 
     @model IEnumerable<DateTime>
 
@@ -456,7 +437,7 @@ Si otterrà una visualizzazione del browser per dispositivi mobili aggiornata si
         </div>
     }
 
-Questo codice crea un tag separato `<div class="panel panel-primary">` per ogni data dell'elenco e usa il [gruppo elenchi collegati][] per i rispettivi collegamenti, come indicato in precedenza. Si osservi di seguito l'aspetto del browser per dispositivi mobili quando viene eseguito questo codice:
+Il codice crea un tag "<div class="panel panel-primary">" separato per ogni data dell'elenco e usa il [gruppo elenchi collegati][] per i rispettivi collegamenti, come indicato in precedenza. Si osservi di seguito l'aspetto del browser per dispositivi mobili quando viene eseguito questo codice:
 
 ![][AllDatesFixed2]
 
@@ -464,11 +445,11 @@ Passare al browser desktop. Si noti ancora una volta l'aspetto uniforme e coeren
 
 ![][AllDatesFixed2Desktop]
 
-<h2><a name="bkmk_improvesessionstable"></a> Migliorare la visualizzazione SessionsTable</h2>
+##<a name="bkmk_improvesessionstable"></a> Miglioramento della visualizzazione SessionsTable
 
-Questa sezione illustrerà come migliorare la visualizzazione *SessionsTable* in modo specifico per i dispositivi mobili. Questa modifica è più impegnativa di quelle apportate in precedenza.
+In questa sezione verrà illustrato come creare la visualizzazione  *SessionsTable* in modo specifico per dispositivi mobili. Questa modifica è più impegnativa di quelle apportate in precedenza.
 
-Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere `asp` nella casella di ricerca.
+Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere  `asp` nella casella di ricerca.
 
 ![][AllTagsFixedSearchByASP]
 
@@ -477,7 +458,7 @@ Toccare il collegamento **ASP.NET**.
 ![][SessionsTableTagASP.NET]
 
 Come mostrato dalla figura, la visualizzazione è formattata come tabella, soluzione normalmente adottata per il browser desktop. Questa formattazione, tuttavia, risulta di difficile lettura su un dispositivo mobile. Per risolvere questo problema, aprire
-*Views\\Home\\SessionsTable.cshtml* e sostituire il contenuto di tale file con il seguente codice:
+il file *Views\\Home\\SessionsTable.cshtml* e sostituirne il contenuto con il codice seguente:
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -512,9 +493,10 @@ Come mostrato dalla figura, la visualizzazione è formattata come tabella, soluz
 
 Il codice esegue tre operazioni:
 
--   Usa il [gruppo elenchi collegati personalizzato][] di Bootstrap per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura in un browser per dispositivi mobili (mediante classi come list-group-item-text).
+-   Usa il [gruppo elenchi personalizzato][] di Bootstrap
+    per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura su un browser per dispositivi mobili (usando classi quali list-group-item-text).
 -   Applica il [sistema griglia][] al layout, in modo che gli elementi della sessione scorrano in orizzontale nel browser desktop e in verticale in quello per dispositivi mobili (mediante la classe col-md-4).
--   Usa [utilità reattive][] per nascondere i tag della sessione durante la visualizzazione nel browser per dispositivi mobili (mediante la classe hidden-xs).
+-   Usa [utilità reattive][] per nascondere i tag della sessione durante la visualizzazione sul browser per dispositivi mobili (mediante la classe hidden-xs).
 
 È possibile anche toccare il collegamento di un titolo per passare alla relativa sessione. Nell'immagine seguente è illustrato l'aspetto risultante dopo aver apportato le modifiche al codice.
 
@@ -526,11 +508,11 @@ Il sistema griglia di Bootstrap applicato formatta automaticamente le sessioni i
 
 Si noti che ora nel browser desktop i tag sono visualizzati. Si noti anche che il sistema griglia di Bootstrap applicato ha organizzato gli elementi della sessione in due colonne. Se si ingrandisce la finestra del browser, gli elementi verranno visualizzati in tre colonne.
 
-<h2><a name="bkmk_improvesessionbycode"></a> Migliorare la visualizzazione SessionByCode</h2>
+##<a name="bkmk_improvesessionbycode"></a> Miglioramento della visualizzazione SessionByCode
 
-Come operazione conclusiva, la visualizzazione *SessionByCode* verrà modificata per adattarla allo schermo dei dispositivi mobili.
+Come operazione conclusiva, la visualizzazione  *SessionByCode* verrà modificata per adattarla allo schermo dei dispositivi mobili.
 
-Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere `asp` nella casella di ricerca.
+Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere  `asp` nella casella di ricerca.
 
 ![][AllTagsFixedSearchByASP]
 
@@ -545,7 +527,7 @@ AngularJS**.
 
 La visualizzazione desktop è accettabile, ma è possibile migliorarne facilmente l'aspetto usando i componenti dell'interfaccia utente grafica di Bootstrap.
 
-Aprire *Views\\Home\\SessionByCode.cshtml* e sostituirne il contenuto con il seguente markup:
+Aprire il file  *Views\\Home\\SessionByCode.cshtml* e sostituirne il contenuto con il markup seguente:
 
     @model Mvc5Mobile.Models.Session
 
@@ -587,24 +569,24 @@ Aprire *Views\\Home\\SessionByCode.cshtml* e sostituirne il contenuto con il seg
 
 Il nuovo markup usa lo stile di Bootstrap relativo ai pannelli per adattare la visualizzazione allo schermo dei dispositivi mobili. 
 
-Aggiornare il browser per dispositivi mobili. La seguente immagine mostra l'aspetto del codice dopo che sono state apportate queste ultime modifiche:
+Aggiornare il browser per dispositivi mobili. Nell'immagine seguente è illustrato l'aspetto risultante dopo aver apportato le ultime modifiche:
 
 ![][SessionByCodeFixed3-644]
 
-Riepilogo e revisione
-------------------
+## Riepilogo e revisione
 
-Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per sviluppare applicazioni Web per dispositivi mobili. È incluso quanto segue:
+Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per sviluppare applicazioni Web per dispositivi mobili. Sono state illustrate le seguenti operazioni:
 
--	Distribuzione di un'applicazione ASP.NET MVC 5 su Siti Web di Azure
+-	Distribuzione di un'applicazione ASP.NET MVC 5 in un'app Web del servizio app
 -   Uso di Bootstrap per creare un layout Web reattivo nell'applicazione MVC 5
+    application
 -   Override di layout, visualizzazioni e visualizzazioni parziali, sia in modo globale sia per una singola visualizzazione
--   Controllo del layout ed esecuzione di un override parziale usando la proprietà `RequireConsistentDisplayMode`
+-   Controllo del layout ed esecuzione di un override parziale usando la proprietà
+    `RequireConsistentDisplayMode`
 -   Creazione di visualizzazioni per browser specifici, ad esempio quello per iPhone
 -   Applicazione di stili Bootstrap in codice Razor
 
-Vedere anche
---------
+## Vedere anche
 
 -   [9 principi di base della progettazione Web reattiva](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Bootstrap][BootstrapSite]
@@ -614,8 +596,12 @@ Vedere anche
 -   [Procedure consigliate per applicazioni Web W3C per dispositivi mobili][]
 -   [Candidate recommendation W3C per query sui supporti][]
 
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 <!-- Internal Links -->
-[Distribuire il progetto iniziale in un sito Web di Microsoft Azure]: #bkmk_DeployStarterProject
+[Distribuire il progetto iniziale in un'app Web di Azure]: #bkmk_DeployStarterProject
 [Framework CSS Bootstrap]: #bkmk_bootstrap
 [Eseguire l'override di visualizzazioni, layout e visualizzazioni parziali]: #bkmk_overrideviews
 [Creare visualizzazioni specifiche del browser]:#bkmk_browserviews
@@ -637,9 +623,9 @@ Vedere anche
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
 [gruppi elenchi collegati]: http://getbootstrap.com/components/#list-group-linked
-[glyphicon]: http://getbootstrap.com/components/#glyphicons
+[icona]: http://getbootstrap.com/components/#glyphicons
 [pannelli]: http://getbootstrap.com/components/#panels
-[gruppo di elenchi collegati personalizzato]: http://getbootstrap.com/components/#list-group-custom-content
+[gruppo elenchi personalizzato]: http://getbootstrap.com/components/#list-group-custom-content
 [sistema griglia]: http://getbootstrap.com/css/#grid
 [utilità reattive]: http://getbootstrap.com/css/#responsive-utilities
 [Blog ufficiale di Bootstrap]: http://blog.getbootstrap.com/
@@ -682,5 +668,4 @@ Vedere anche
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

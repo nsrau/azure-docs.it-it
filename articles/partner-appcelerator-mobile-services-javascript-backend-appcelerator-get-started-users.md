@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -20,11 +20,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Microsoft Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+Questo argomento descrive come autenticare gli utenti in Servizi mobili di Microsoft Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
 
-1.  [Registrare l'app per l'autenticazione e configurazione di Servizi mobili]
+1.  [Registrare l'app per l'autenticazione e configurare Servizi mobili]
 2.  [Limitare le autorizzazioni per la tabella agli utenti autenticati]
 3.  [Aggiungere l'autenticazione all'app]
 
@@ -32,7 +32,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 Per completare questa esercitazione, è necessario disporre di Appcelerator Titanium Studio 3.2.1 o versione successiva, di iOS 7.0 e/o versione successiva e di Android 4.3 o versione successiva.
 
-##<a name="register"></a>Registrare l'app per l'autenticazione e configurazione di Servizi mobili
+##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -94,7 +94,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
             }
         });
 
->[AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato a **authorizeClient** con uno dei seguenti: *microsoftaccount*, *facebook*, *twitter* or *windowsazureactivedirectory*.
+>[AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato a **authorizeClient** con uno dei seguenti: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
 
 4.	Fare clic su Esegui per compilare il progetto, avviare l'app nel simulatore iPhone o in un emulatore Android e quindi fare clic sull'opzione con account di accesso per accedere con il provider di identità.
 
@@ -103,13 +103,14 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 <!-- Anchors. -->
 
-[Registrare l'app per l'autenticazione e configurazione di Servizi mobili]: #register
+[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
 [Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
 [Aggiungere l'autenticazione all'app]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Introduzione a Servizi mobili]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

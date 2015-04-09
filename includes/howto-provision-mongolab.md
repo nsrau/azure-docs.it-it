@@ -1,10 +1,10 @@
 ﻿È possibile eseguire la sottoscrizione a un database MongoDB completamente gestito e ospitato da Azure nello Store di Azure. A questo scopo, attenersi alla procedura seguente:
 
-1. Accedere al portale di gestione di Azure.
+1. Accedere al Portale di gestione di Azure.
 1. Fare clic su **Nuovo**.  
 ![Nuovo][button-new]
 1. Selezionare **Store**.  
-![Store][button-store]
+![Archiviazione][button-store]
 1. Selezionare MongoLab. Il database è disponibile nella categoria **App Services** e in **All**.  
 ![MongoLab][entry-mongolab]
 1. Fare clic su **Avanti**.  
@@ -33,4 +33,5 @@ Congratulazioni. È stato eseguito il provisioning di un database MongoDB nella 
 [entry-mongolab]: ./media/howto-provision-mongolab/entry-mongolab.png 
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png 
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

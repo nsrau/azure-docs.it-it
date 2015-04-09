@@ -1,6 +1,6 @@
-﻿<h2><a name="setupdevenv"></a>Configurare l'ambiente di sviluppo</h2>
+﻿<h2><a name="setupdevenv"></a>Configurazione dell'ambiente di sviluppo</h2>
 
-Per iniziare, installare [Azure SDK per Visual Studio 2013][] per configurare l'ambiente di sviluppo.
+Per iniziare, configurare l'ambiente di sviluppo installando [Azure SDK per Visual Studio 2013][].
 
 Se Visual Studio non è ancora installato, insieme all'SDK verrà installato anche Visual Studio Express per il Web.
 
@@ -8,4 +8,4 @@ Se Visual Studio non è ancora installato, insieme all'SDK verrà installato anc
 
 [Azure SDK per Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

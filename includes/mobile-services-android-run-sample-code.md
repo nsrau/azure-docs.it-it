@@ -3,7 +3,7 @@
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
 
-   	Si noti che sono presenti commenti `//TODO` in cui vengono specificate le procedure da eseguire per consentire il funzionamento dell'app con il servizio mobile.
+   	Si noti che sono presenti commenti  `//TODO` in cui vengono specificate le procedure da eseguire per consentire il funzionamento dell'app con il servizio mobile.
 
 2. Nel menu **Run**, fare clic su **Run app**.
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Si noti che il testo salvato è archiviato in una raccolta in memoria e visualizzato nell'elenco riportato di seguito.
-<!--HONumber=47-->
+
+<!--HONumber=49-->
