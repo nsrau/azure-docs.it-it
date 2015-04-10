@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="Autorizzazione sul lato servizio degli utenti in Servizi mobili con back-end JavaScript | Mobile Developer Center"
-	Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure."
+	description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure."
 	services="mobile-services"
 	authors="krisragh"
 	manager="dwrede"
