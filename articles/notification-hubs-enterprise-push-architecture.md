@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Hub di notifica: architettura push aziendale" 
 	description="Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale" 
 	services="notification-hubs" 
@@ -43,26 +43,26 @@ L'elemento chiave del diagramma dell'architettura è costituito dal bus di servi
 3. Applicazione per dispositivi mobili
 	- Riceve e visualizza la notifica
 		
-### Vantaggi:
+###Vantaggi:
 
 1. Il disaccoppiamento tra il ricevitore (app/servizio per dispositivi mobili tramite Hub di notifica) e il mittente(sistemi back-end) consente l'integrazione di sistemi back-end aggiuntivi con modifiche minime.
 2. In questo modo, è possibile ricevere eventi da uno o più sistemi back-end anche nello scenario con più app per dispositivi mobili.  
 
 ## Esempio:
 
-### Prerequisiti
+###Prerequisiti
 È necessario completare le seguenti esercitazioni per acquisire familiarità con i concetti e con i comuni passaggi di creazione e configurazione:
 
 1. [Come usare argomenti/sottoscrizioni del bus di servizio]: vengono illustrati i dettagli relativi all'uso di argomenti/sottoscrizioni del bus di servizio, viene indicato come creare uno spazio dei nomi per contenere argomenti/sottoscrizioni e viene spiegato come inviare e ricevere messaggi da questi ultimi. 
 2. [Introduzione ad Hub di notifica]: viene illustrato come configurare un'app di Windows Store e usare Hub di notifica per registrare e quindi ricevere le notifiche. 
 
-### Codice di esempio
+###Codice di esempio
 
 Il codice completo è disponibile nella pagina relativa agli [esempi su Hub di notifica]. Il codice è suddiviso in tre componenti:
 
 1. **EnterprisePushBackendSystem**
 	
-	a. Il progetto usa il pacchetto Nuget  *WindowsAzure.ServiceBus* ed è basato su quanto riportato in [Come usare argomenti/sottoscrizioni del bus di servizio]. 
+	a. Il progetto usa il pacchetto Nuget *WindowsAzure.ServiceBus* ed è basato su quanto riportato in [Come usare argomenti/sottoscrizioni del bus di servizio]. 
 
 	b. Si tratta di una app console C# per simulare un sistema LoB che avvia il messaggio da recapitare all'app per dispositivi mobili. 
 	
@@ -126,9 +126,10 @@ Il codice completo è disponibile nella pagina relativa agli [esempi su Hub di n
 
 2. **ReceiveAndSendNotification**
 
-	a. Questo progetto usa i pacchetti Nuget  *WindowsAzure.ServiceBus* e  *Microsoft.Web.WebJobs.Publish* ed è basato su quanto riportato in [Come usare argomenti/sottoscrizioni del bus di servizio]. 
+	a. Il progetto usa i pacchetti Nuget *WindowsAzure.ServiceBus* e *Microsoft.Web.WebJobs.Publish* ed è basato su quanto riportato in [Come usare argomenti/sottoscrizioni del bus di servizio]. 
 
-	b. Si tratta di un'altra app console C# che verrà eseguita come [processo Web di Azure]. Tale app deve infatti essere eseguita continuamente per ascoltare i messaggi dei sistemi LoB/back-end. L'app sarà parte del back-end Mobile. 
+	b. Si tratta di un'altra app console C# che verrà eseguita come [processo Web di Azure 
+]. Tale app deve infatti essere eseguita continuamente per ascoltare i messaggi dei sistemi LoB/back-end. L'app sarà parte del back-end Mobile. 
 
 	    static void Main(string[] args)
 	    {
@@ -221,11 +222,11 @@ Il codice completo è disponibile nella pagina relativa agli [esempi su Hub di n
 
 3. **EnterprisePushMobileApp**
 
-	a. Si tratta di un'applicazione Windows Store che riceve notifiche di tipo avviso popup dal processo Web in esecuzione come parte del back-end Mobile e le visualizza. L'app è basata su quanto riportato in [Introduzione ad Hub di notifica].  
+	a. Si tratta di un'applicazione Windows Store che riceve notifiche di tipo avviso popup dal processo Web in esecuzione come parte del back-end Mobile e le visualizza. Si basa su quanto riportato in [Introduzione ad Hub di notifica].  
 	
 	b. Verificare che l'applicazione sia abilitata alla ricezione di notifiche di tipo avviso popup. 
 
-	c. Assicurarsi che all'avvio dell'app, dopo aver sostituito  *HubName* e  *DefaultListenSharedAccessSignature*, venga chiamato il seguente codice di registrazione di Hub di notifica:
+	c. Assicurarsi che all'avvio dell'app, dopo aver sostituito *HubName* e *DefaultListenSharedAccessSignature*, venga chiamato il seguente codice di registrazione di Hub di notifica:
 
         private async void InitNotificationsAsync()
         {
@@ -264,11 +265,11 @@ Il codice completo è disponibile nella pagina relativa agli [esempi su Hub di n
 [6]: ./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png
 
 <!-- Links -->
-[esempi su Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples
-[Servizi mobili di Azure]: http://azure.microsoft.com/ documentation/services/mobile-services/
-[Bus di servizio di Azure]: http://azure.microsoft.com/ documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Come usare argomenti/sottoscrizioni del bus di servizio]: http://azure.microsoft.com/ documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Processo Web di Azure]: http://azure.microsoft.com/ documentation/articles/web-sites-create-web-jobs/
-[Introduzione ad Hub di notifica]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Esempi di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples
+[Servizi mobili di Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[Bus di servizio di Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Come usare argomenti/sottoscrizioni del bus di servizio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Processo Web di Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

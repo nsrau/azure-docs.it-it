@@ -1,6 +1,6 @@
 ﻿
 Questa sezione mostra come inviare notifiche da un'app console .NET e di qualsiasi altro tipo.
-Se si usa Servizi mobili, fare riferimento alle esercitazioni di [Introduzione alle notifiche push](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Se si preferisce usare Java o PHP, fare riferimento a [Come usare Hub di notifica da Java/PHP](/it-it/documentation/articles/notification-hubs-java-backend-how-to/). È possibile inviare notifiche da qualsiasi back-end tramite l'[interfaccia REST degli Hub di notifica].
+Se si usa Servizi mobili, fare riferimento alle esercitazioni di [Introduzione alle notifiche push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Se si preferisce usare Java o PHP, fare riferimento a [HCome usare Hub di notifica da Java/PHP](notification-hubs-java-backend-how-to.md). È possibile inviare notifiche da qualsiasi back-end tramite l'[interfaccia REST degli Hub di notifica].
 
 Il seguente codice consente di inviare notifiche a Windows Store, Windows Phone e a dispositivi iOS e Android. 
 
@@ -92,13 +92,13 @@ Se è stata creata un'app console quando è stata completata l'esercitazione [In
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Usare Hub di notifica per inviare notifiche agli utenti]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started/#create-new-service
+[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[Usare Hub di notifica per inviare notifiche agli utenti]: ../articles/tutorial-notify-users-mobileservices.md
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[oggetto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Interfaccia REST degli Hub di notifica]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

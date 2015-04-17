@@ -1,29 +1,33 @@
-<properties 
+﻿<properties 
 	pageTitle="Introduzione ad Hub di notifica di Azure" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-kindle" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
-	ms.date="09/24/2014" 
-	ms.author="piyushjo"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/it-it/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/it-it/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/it-it/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/it-it/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/it-it/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/it-it/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/it-it/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-Questo argomento illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. 
+##Informazioni generali
+
+In questo argomento viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. 
 In questa esercitazione verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging (ADM).
 
-Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
+##Prerequisiti
+
+Per completare questa esercitazione, è necessario disporre di:
 
 + Android SDK (si presuppone che verrà usato Eclipse), che è possibile scaricare facendo clic su <a href="http://go.microsoft.com/fwlink/?LinkId=389797">questo collegamento</a>.
 + Seguire la procedura riportata <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">in questa pagina</a> per impostare l'ambiente di sviluppo per Kindle.
@@ -76,7 +80,7 @@ Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configure*
 Aggiungere le librerie ADM al progetto Eclipse.
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
-2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quini selezionare la scheda **Libraries **nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
+2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quini selezionare la scheda **Libraries **nella parte superiore. Fare clic su **Aggiungi contenitore esterno**, quindi selezionare il file  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
 3. Scaricare NotificationHubs Android SDK (collegamento).
 4. Decomprimere il pacchetto, quindi trascinare il file  `notification-hubs-sdk.jar` nella cartella `libs `in Eclipse.
 
@@ -131,11 +135,11 @@ Modificare il manifesto dell'app per supportare ADM:
 
 ## Creazione del gestore di messaggi ADM:
 
-1. Creare una nuova classe che eredita da  `com.amazon.device.messaging.ADMMessageHandlerBase` e denominarla  `MyADMMessageHandler`, come mostrato nella seguente figura:
+1. Creare una nuova classe che eredita `com.amazon.device.messaging.ADMMessageHandlerBase` e denominarla `MyADMMessageHandler`, come mostrato nella figura seguente:
 
 	![][6]
 
-2. Aggiungere le seguenti istruzioni `import`:
+2. Aggiungere le istruzioni  `import` seguenti:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -248,7 +252,7 @@ Modificare il manifesto dell'app per supportare ADM:
 2. Nell'emulatore, scorrere dall'alto e fare clic su **Settings**, quindi fare clic su **My account** ed effettuare la registrazione usando un account Amazon valido.
 3. In Eclipse eseguire l'app.
 
-> [AZURE.NOTE] Se si verifica un problema, controllare l'ora dell'emulatore (o del dispositivo). Il valore dell'ora deve essere accurato. Per modificare l'ora dell'emulatore Kindle è possibile eseguire il seguente comando dalla directory di strumenti della piattaforma Android SDK: 
+> [AZURE.NOTE] Se si verifica un problema, controllare l'ora dell'emulatore (o del dispositivo). Il valore dell'ora deve essere accurato. Per modificare l'ora dell'emulatore Kindle, è possibile eseguire il seguente comando dalla directory di strumenti della piattaforma Android SDK: 
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -266,7 +270,7 @@ Per inviare un messaggio usando .NET:
 ![][7]
 
 <!-- URLs. -->
-[portale per gli sviluppatori]: https://developer.amazon.com/home.html
+[portale per sviluppatori]: https://developer.amazon.com/home.html
 [scaricare l'SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -278,4 +282,4 @@ Per inviare un messaggio usando .NET:
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

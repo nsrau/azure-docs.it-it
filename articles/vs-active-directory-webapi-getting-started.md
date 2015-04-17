@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Informazioni sulla procedura guidata iniziale di Azure Active Directory (progetti API Web)." 
+	description="Informazioni introduttive sulla procedura guidata Azure Active Directory (progetti API Web)" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,17 +16,16 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Introduzione a Azure Active Directory (progetti API Web)
+
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-active-directory-webapi-getting-started/)
-> - [Risultati](/documentation/articles/vs-active-directory-webapi-what-happened/)
-
-
-##Introduzione a Azure Active Directory (progetti API Web)
+> - [Guida introduttiva](vs-active-directory-webapi-getting-started.md)
+> - [Risultati](vs-active-directory-webapi-what-happened.md)
 
 #####Richiesta di autenticazione ai controller di accesso
  
 A tutti i controller del progetto è stato assegnato l'attributo **Authorize**. Questo attributo richiede l'autenticazione dell'utente prima dell'accesso alle API definite dai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Ulteriori informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿## Progetto WebAPI
+﻿## Progetto API Web
 
 1. In Visual Studio aprire il progetto **AppBackend** creato nell'esercitazione sulla **creazione di notifiche per gli utenti**.
 2. In Notifications.cs sostituire l'intera classe **Notifications** con il seguente codice. Assicurarsi di sostituire i segnaposto con la stringa di connessione con accesso completo per l'hub di notifica e il nome dell'hub. È possibile ottenere questi valori nel [portale di gestione di Azure](http://manage.windowsazure.com). Questo modulo rappresenta ora le diverse notifiche sicure che verranno inviate. In un'implementazione completa le notifiche verranno archiviate in un database; per semplicità, in questo caso, verranno archiviate in memoria.
@@ -84,4 +84,4 @@ Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma 
 
 24. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a questo URL come *backend endpoint* più avanti in questa esercitazione. Fare clic su **Pubblica**.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

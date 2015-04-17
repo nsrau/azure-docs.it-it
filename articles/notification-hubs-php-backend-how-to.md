@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Hub di notifica di Azure da un back-end PHP." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,22 +14,22 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="11/14/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Come usare Hub di notifica da PHP
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/it-it/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/it-it/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/it-it/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx) di MSDN.
+Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica di MSDN](http://msdn.microsoft.com/library/dn223264.aspx).
 
 In questo argomento viene illustrato come:
 
 * Compilare un client REST per le funzionalità di Hub di notifica in PHP.
-* Completare l'[esercitazione introduttiva](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/) per la piattaforma mobile preferita, implementando la parte del backend in PHP.
+* Completare l'[esercitazione introduttiva](notification-hubs-ios-get-started.md) per la piattaforma mobile preferita implementando la parte del back-end in PHP.
 
 ## Interfaccia del client
-L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e messi a disposizione dalla community in Internet.
+L'interfaccia del client principale può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). In questo modo sarà possibile tradurre direttamente tutte le esercitazioni e gli esempi disponibili in questo sito oppure messi a disposizione dalla community in Internet.
 
 Tutto il codice disponibile è incluso nell'[esempio di wrapper REST PHP].
 
@@ -90,7 +90,7 @@ Questa è la classe principale che implementa il client, il cui costruttore anal
 
 
 ### Creare il token di sicurezza
-I dettagli della creazione del token di sicurezza sono disponibili in [questa pagina](http://msdn.microsoft.com/library/dn495627.aspx).
+I dettagli della creazione del token di sicurezza sono disponibili [qui](http://msdn.microsoft.com/library/dn495627.aspx).
 È necessario aggiungere il seguente metodo alla classe **NotificationHub** per creare il token sulla base dell'URI della richiesta corrente e delle credenziali estratte dalla stringa di connessione.
 
 	private function generateSasToken($uri) {
@@ -257,6 +257,6 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 
 
 [Esempio di wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Esercitazione introduttiva]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[Esercitazione introduttiva]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

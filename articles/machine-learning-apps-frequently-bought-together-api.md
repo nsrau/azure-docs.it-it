@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="App di esempio di Machine Learning: Frequently Bought Together | Azure" 
-	description="Un servizio Web di Machine Learning che esegue l'analisi dei carrelli acquisti online per offrire raccomandazioni sugli articoli spesso acquistati insieme ad altri in base alle transazioni cronologiche fornite dall'utente." 
+	pageTitle="App di esempio di Machine Learning: Spesso acquistati insieme | Azure" 
+	description="Un servizio Web di Machine Learning che esegue l'analisi dei carrelli degli acquisti online per offrire consigli sugli articoli spesso acquistati insieme ad altri in base alle transazioni cronologiche fornite dall'utente." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="CoromT" 
@@ -14,18 +14,23 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/17/2014" 
-	ms.author="coromt"/>  
+	ms.author="coromt"/> 
 
-# App di esempio di Machine Learning: Frequently Bought Together
+# App di esempio di Machine Learning: Spesso acquistati insieme
+
+##Informazioni generali
  
-Questo [servizio Web]( https://datamarket.azure.com/dataset/amla/mba) di Machine Learning esegue l'analisi dei carrelli acquisti online per offrire raccomandazioni sugli articoli spesso acquistati insieme ad altri in base alle transazioni cronologiche fornite dall'utente. Le raccomandazioni di Frequently Bought Together aiutano gli acquirenti a identificare i prodotti più rilevanti di un catalogo quando si acquista un articolo specifico. È provato che mettere bene in vista queste raccomandazioni alza le vendite dei rivenditori online. 
+Il [Servizio Web Spesso acquistati insieme]( https://datamarket.azure.com/dataset/amla/mba) in Machine Learning consente di eseguire l'analisi del carrello degli acquisti online per produrre, dalla cronologia delle transazioni, consigli sui prodotti di articoli frequentemente acquistati insieme. I consigli di Spesso acquistati insieme aiutano gli acquirenti a identificare i prodotti più rilevanti di un catalogo quando si acquista un articolo specifico. È stato dimostrato che la visualizzazione dei consigli, da parte del cliente, provoca una crescita reale delle vendite per i rivenditori online. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
   
 ##Guida introduttiva 
-Dopo aver sottoscritto il [servizio Web]( https://datamarket.azure.com/dataset/amla/mba) è possibile usare l'[applicazione Web di esempio Frequently Bought Together](https://marketbasket.cloudapp.net/) per caricare facilmente i dati in un modello e individuare i gruppi di prodotti acquistati spesso.  Per usare l'applicazione o l'API, prima sarà necessaria la chiave API che è possibile ottenere dalla [pagina dell'account di Azure DataMarket](https://datamarket.azure.com/account)
+
+Dopo aver effettuato la sottoscrizione al servizio Web Spesso acquistati insieme, è possibile utilizzare l'[applicazione Web di esempio Servizio di analisi del carrello degli acquisti](https://marketbasket.cloudapp.net/) per caricare facilmente i dati in un modello e scoprire i set di prodotti frequentemente acquistati. Prima di utilizzare l'applicazione o l'API, è necessaria la chiave API, che può essere ottenuta dalla [pagina dell'account di Azure DataMarket](https://datamarket.azure.com/account).
 
 ##Uso del servizio Web 
 
-Questo servizio contiene le API per creare modelli di Frequently Bought Together, caricare transazioni cronologiche e recuperare il gruppo di prodotti più spesso acquistati insieme per un determinato prodotto.  Esempi che illustrano come usare queste API sono disponibili nel [repository Azure-MachineLearning-DataScience di GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
+Questo servizio contiene le API per creare modelli di Spesso acquistati insieme, caricare transazioni cronologiche e recuperare il set di prodotti più spesso acquistati insieme per un determinato prodotto. Esempi che illustrano come utilizzare queste API sono disponibili sul repository [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) su GitHub.
 
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

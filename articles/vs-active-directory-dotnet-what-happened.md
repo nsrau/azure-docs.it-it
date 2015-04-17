@@ -16,13 +16,15 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Che cosa è successo al progetto?
+
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [Risultati](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+> - [Guida introduttiva](vs-active-directory-dotnet-getting-started.md)
+> - [Risultati](vs-active-directory-dotnet-what-happened.md)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
  
-Sono stati aggiunti dei riferimenti. 
+Sono stati aggiunti dei riferimenti.
 
 #####Riferimenti al pacchetto NuGet
 
@@ -53,11 +55,11 @@ Sono stati aggiunti dei riferimenti.
 
 #####Sono stati aggiunti file di codice al progetto 
 
-Al progetto è stata aggiunta una classe di avvio di autenticazione `App_Start/Startup.Auth.cs` contenente la logica di avvio per l'autenticazione di Azure AD. È stata anche aggiunta una classe controller, Controllers/AccountController.cs che include metodi `SignIn()` e `SignOut()`. È stata infine aggiunta una visualizzazione parziale, `Views/Shared/_LoginPartial.cshtml` che include un collegamento azione per SignIn/SignOut. 
+Al progetto è stata aggiunta una classe Startup  `App_Start/Startup.Auth.cs` contenente la logica di avvio per l'autenticazione di Azure AD. È stata aggiunta anche una classe Controller, Controllers/AccountController.cs, contenente i metodi  `SignIn()` e  `SignOut()`. È stata infine aggiunta una visualizzazione parziale  `Views/Shared/_LoginPartial.cshtml` contenente un collegamento azione per SignIn/SignOut. 
 
-#####Al progetto è stato aggiunto codice di avvio
+#####È stato aggiunto codice di avvio al progetto
  
-Se nel progetto era già presente una classe Startup, il metodo **Configuration** è stato aggiornato per includere una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto. 
+Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato per includere una chiamata a  `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto. 
 
 #####Il file app.config o web.config include nuovi valori di configurazione 
 
@@ -73,6 +75,6 @@ Sono state aggiunte le voci di configurazione seguenti.
 #####È stata creata un'app Azure Active Directory (AD) 
 Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD. 
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Ulteriori informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

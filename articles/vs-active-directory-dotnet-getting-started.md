@@ -1,12 +1,12 @@
-﻿<properties 
-	pageTitle="Introduzione a Azure Active Directory (progetto .NET)" 
+<properties 
+	pageTitle="Introduzione ad Azure Active Directory (progetto .NET)" 
 	description="Informazioni su come iniziare a usare Azure Active Directory in Visual Studio." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
-  
+ 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [Risultati](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+# Introduzione a Azure Active Directory (progetto .NET)
 
-## Introduzione a Azure Active Directory (progetto .NET)
+> [AZURE.SELECTOR]
+> - [Guida introduttiva](vs-active-directory-dotnet-getting-started.md)
+> - [Risultati](vs-active-directory-dotnet-what-happened.md)
  
 #####Richiesta di autenticazione ai controller di accesso 
 
@@ -28,7 +28,7 @@ A tutti i controller del progetto è stato assegnato l'attributo **Authorize**. 
  
 #####Aggiunta di controlli SignIn/SignOut 
 
-Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usare la visualizzazione parziale **_LoginPartial.cshtml** per aggiungere la funzionalità a una delle visualizzazioni. L'esempio seguente illustra l'aggiunta di funzionalità alla visualizzazione **_Layout.cshtml** standard. (Notare l'ultimo elemento nella sezione div con class navbar-collapse):
+Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usare la visualizzazione parziale **_LoginPartial.cshtml** per aggiungere la funzionalità a una delle visualizzazioni. Di seguito è riportato un esempio della funzionalità aggiunta alla visualizzazione standard **_Layout.cshtml**. (Notare l'ultimo elemento nella sezione div con class navbar-collapse):
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -75,6 +75,6 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
     &lt;/html&gt;
 </PRE>
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Ulteriori informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->
