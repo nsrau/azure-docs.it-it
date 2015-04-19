@@ -18,7 +18,7 @@
 
 Ci si può domandare quanti utenti abbiano visitato un sito.  E quale sia il tempo di caricamento medio delle pagine o quale browser venga usato.  Mediante l'inserimento di poche righe di script nelle pagine di un sito Web è possibile raccogliere dati sull'utilizzo del sito da parte dei clienti. 
 
-*È possibile eseguire questa operazione anche per i siti Web non di Azure: [Monitorare l'utilizzo di applicazioni Web con Application Insights](../app-insights-web-track-usage/).*
+*È possibile eseguire questa operazione anche per i siti Web non di Azure: [Monitorare l'utilizzo di applicazioni Web con Application Insights](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

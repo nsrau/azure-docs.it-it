@@ -3,7 +3,7 @@
 	description="Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,19 +13,15 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/it-it/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/it-it/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-##Informazioni generali
-
-Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per altre informazioni sullo scenario relativo all'invio di notifiche agli utenti, vedere [Uso di Hub di notifica per inviare notifiche agli utenti].
-
-##Aggiornamento dell'app  
+Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per altre informazioni sullo scenario di notifica agli utenti, vedere l'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti].  
 
 1. Nel file MainStoryboard_iPhone.storyboard aggiungere i seguenti componenti dalla libreria di oggetti:
 
@@ -108,7 +104,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 	Questo codice consente di impostare il token di dispositivo per la richiesta.
 
-	> [AZURE.NOTE] A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica],(/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") è necessario impostare la chiamata come commento oppure rimuoverla.
+	> [AZURE.NOTE] A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](/it-it/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), è necessario impostare la chiamata come commento oppure rimuoverla.
 
 10.	Nel file PushToUserAppDelegate.m aggiungere il metodo del seguente gestore:
 
@@ -221,7 +217,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 	Questo metodo ottiene un ID di installazione e un canale per le notifiche push e li invia, insieme al tipo di dispositivo, al metodo API Web di autenticazione che crea una registrazione in Hub di notifica. Questa API Web è stata definita nell'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti].
 
-Ora che l'app client è stata aggiornata, tornare a [Uso di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile in modo che invii notifiche tramite Hub di notifica.
+Ora che l'app client è stata aggiornata, tornare all'esercitazione [Uso di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
 <!-- Anchors. -->
 
@@ -230,9 +226,9 @@ Ora che l'app client è stata aggiornata, tornare a [Uso di Hub di notifica per 
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Uso di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
+[Uso di Hub di notifica per inviare notifiche agli utenti]: /it-it/manage/services/notification-hubs/notify-users-aspnet
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

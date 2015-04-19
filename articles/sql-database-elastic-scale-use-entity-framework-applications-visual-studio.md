@@ -18,7 +18,7 @@
 
 # Uso di Scalabilità elastica con Entity Framework 
  
-È possibile usare Scalabilità elastica del database SQL di Azure con Entity Framework di Microsoft per la compilazione di applicazioni. Scalabilità elastica consente di aumentare e ridurre la capacità applicando il partizionamento orizzontale e scalando orizzontalmente il livello dati dell'applicazione. Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità di Scalabilità elastica. L'attenzione è concentrata sulla composizione della [gestione partizioni di scalabilità elastica](http://go.microsoft.com/?linkid=9862595) e del [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](http://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte degli esempi di Scalabilità elastica negli esempi di codice di Visual Studio.
+È possibile usare Scalabilità elastica del database SQL di Azure con Entity Framework di Microsoft per la compilazione di applicazioni. Scalabilità elastica consente di aumentare e ridurre la capacità applicando il partizionamento orizzontale e scalando orizzontalmente il livello dati dell'applicazione. Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità di Scalabilità elastica. L'attenzione è concentrata sulla composizione della [gestione partizioni di scalabilità elastica](http://go.microsoft.com/?linkid=9862595) e del [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](http://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte degli esempi di Scalabilità elastica negli esempi di codice di Visual Studio.
   
 ## Download ed esecuzione del codice di esempio
 Per scaricare il codice per questo articolo:
@@ -53,7 +53,7 @@ Tutti questi approcci si basano sulla classe DbContext per gestire in modo trasp
 
 ## Presupposti di Scalabilità elastica 
 
-Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](./sql-database-elastic-scale-glossary.md).
+Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](sql-database-elastic-scale-glossary.md).
 
 Scalabilità elastica del database SQL di Azure consente di definire partizioni dei dati applicativi denominate shardlet.  Gli shardlet sono identificati da una chiave di partizionamento orizzontale e sono mappati a database specifici. Un'applicazione può disporre di tutti i database necessari e distribuire gli shardlet per fornire capacità o prestazioni sufficienti in base ai requisiti aziendali correnti. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API di Scalabilità elastica. Questa funzionalità è denominata Gestione mappe partizioni. La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità viene definita routing dipendente dai dati. 
  

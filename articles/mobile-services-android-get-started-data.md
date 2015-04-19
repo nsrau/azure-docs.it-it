@@ -36,7 +36,7 @@
 > [AZURE.NOTE] Per visualizzare il codice sorgente dell'app completata, fare clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">qui</a>.
 
 Per visualizzare la versione di Eclipse di questa esercitazione, vedere 
-[Introduzione ai dati con Eclipse](/documentation/articles/mobile-services-android-get-started-data-EC/).
+[Introduzione ai dati con Eclipse](mobile-services-android-get-started-data-EC.md).
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
 

@@ -26,7 +26,7 @@ proteggere i dati inviati tramite Internet. Questa attività comune illustra com
 specificare un endpoint HTTPS per un'applicazione Node.js ospitata come Servizio Cloud di Azure in un ruolo di Web e come caricare un
 certificato SSL per proteggere l'applicazione.
 
-> [AZURE.NOTE] Le procedure descritte in questo articolo si applicano solo alle applicazioni nodo ospitate come Servizio cloud di Azure in un ruolo Web. Per informazioni su Siti Web, vedere l'argomento relativo alla [configurazione di un certificato SSL per un sito Web di Azure](../web-sites-configure-ssl-certificate/).
+> [AZURE.NOTE] Le procedure descritte in questo articolo si applicano solo alle applicazioni nodo ospitate come Servizio cloud di Azure in un ruolo Web. Per informazioni su Siti Web, vedere l'argomento relativo alla [configurazione di un certificato SSL per un sito Web di Azure](web-sites-configure-ssl-certificate.md).
 
 Questa attività include i seguenti passaggi:
 

@@ -26,7 +26,7 @@ Farm di SharePoint Server è una funzionalità del portale Microsoft Azure Previ
 
 Le sezioni seguenti illustrano i dettagli di configurazione per ogni farm.
 
-Per altre informazioni, vedere [Farm di SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/).
+Per altre informazioni, vedere [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md).
 
 ## Farm di SharePoint di base
 
@@ -121,7 +121,7 @@ Ecco i dettagli di configurazione:
 
 ## Risorse aggiuntive
 
-[Farm di SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
+[Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

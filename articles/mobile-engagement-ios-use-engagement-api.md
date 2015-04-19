@@ -31,7 +31,7 @@ Prima di eseguire qualsiasi chiamata dell'API, è necessario inizializzare l'ogg
 
 ##Concetti di Engagement
 
-Nelle sezioni seguenti vengono riportati i concetti comuni relativi a [Mobile Engagement](../mobile-engagement-concepts/) per la piattaforma iOS.
+Nelle sezioni seguenti vengono riportati i concetti comuni relativi a [Mobile Engagement](mobile-engagement-concepts.md) per la piattaforma iOS.
 
 ### `Sessione` e  `Attività`
 

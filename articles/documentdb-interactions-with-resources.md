@@ -259,7 +259,7 @@ Vedere [Informazioni di riferimento sulle API REST di Azure DocumentDB](https://
 -	Tag di entità [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[Esecuzione di query con DocumentDB](documentdb-sql-query.md)
 -	[Riferimento SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente](../documentdb-programming/)
+-	[Programmazione con DocumentDB: Stored procedure, trigger e funzioni definite dall'utente](documentdb-programming.md)
 -	[Documentazione di riferimento di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

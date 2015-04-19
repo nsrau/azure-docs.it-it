@@ -25,7 +25,7 @@ Questo argomento descrive come usare Servizi mobili di Azure per consentire alla
 
 Non è possibile distribuire in modo sicuro con l'app client le credenziali necessarie per caricare i dati nel servizio di archiviazione BLOB senza rischi. Queste credenziali devono invece essere archiviate nel servizio mobile ed essere usate per generare una firma di accesso condiviso usata per caricare una nuova immagine. La firma di accesso condiviso, ovvero una credenziale con una scadenza breve (in questo caso 5 minuti), viene restituita in modo sicuro da Servizi mobili all'app client. L'app usa quindi questa credenziale temporanea per caricare l'immagine. In questo esempio, i download del servizio BLOB sono pubblici.
 
-In questa esercitazione verranno aggiunte funzionalità al [progetto applicazione di esempio GetStartedWithData](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili. L'esercitazione fornisce istruzioni dettagliate sulle operazioni di base per aggiornare la semplice app TodoList in modo da caricare immagini nel servizio di archiviazione BLOB:
+In questa esercitazione verranno aggiunte funzionalità al [progetto applicazione di esempio GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) per poter scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili. L'esercitazione fornisce istruzioni dettagliate sulle operazioni di base per aggiornare la semplice app TodoList in modo da caricare immagini nel servizio di archiviazione BLOB:
 
 1. [Installazione della libreria client di archiviazione]
 2. [Aggiornamento dell'app client per l'acquisizione di immagini]
@@ -40,7 +40,7 @@ Per completare questa esercitazione, è necessario soddisfare i seguenti requisi
 + [Windows Phone SDK 8.0] o versione successiva
 + Programma per la gestione dei pacchetti Nuget installato per Microsoft Visual Studio.
 + [Account di archiviazione di Azure][Come creare un account di archiviazione]
-+ Completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
++ Completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md)  
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 

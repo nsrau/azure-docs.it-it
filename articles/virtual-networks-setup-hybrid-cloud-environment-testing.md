@@ -124,7 +124,7 @@ In primo luogo, accedere al [portale di gestione di Azure](https://manage.window
 	- Fare clic su **Aggiungi subnet gateway**.
 11.	Fare clic sull'icona Completa. Attendere il completamento della creazione della rete virtuale prima di continuare.
 
-Usare quindi le istruzioni disponibili nella pagina che illustra [come installare e configurare Azure PowerShell](../install-configure-powershell/) per installare Azure PowerShell nel computer locale.
+Usare quindi le istruzioni disponibili nella pagina che illustra [come installare e configurare Azure PowerShell](install-configure-powershell.md) per installare Azure PowerShell nel computer locale.
 
 Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome TestVNET-*UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestVNET-Tailspin al servizio cloud.
 
@@ -287,17 +287,17 @@ L'ambiente cloud ibrido è ora pronto per il testing.
 
 ## Risorse aggiuntive
 
-[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ## Ridurre al minimo i costi di esercizio dell'ambiente
 
-Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples/). 
+Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](automation-create-runbook-from-samples.md). 
 
 Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway seguendo questa procedura. 
 

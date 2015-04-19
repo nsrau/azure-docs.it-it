@@ -1,15 +1,11 @@
 ﻿
+1. Passare al sito Web <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a>, eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **Crea progetto**.
 
->[AZURE.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, andare a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+ 	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png) 
 
+	>[AZURE.NOTE]Se si dispone già di un progetto esistente, dopo l'accesso verrà visualizzata la pagina <strong>Progetti</strong. Per creare un nuovo progetto dalla pagina Dashboard, espandere <strong>Progetto API</strong>, fare clic su <strong>Crea</strong in <strong>Altri progetti</strong, quindi immettere un nome di progetto e fare clic su <strong>Crea progetto</strong>.
 
-1. Passare al sito Web <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **Crea progetto**.
-
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
-
-	>[AZURE.NOTE]Se si dispone già di un progetto esistente, si verrà indirizzati alla pagina <strong>Projects</strong> dopo aver effettuato l'accesso. Per crreare un nuovo progetto dal dashboard, espandere <strong>API Project</strong>, fare clic su <strong>Create...</strong> in <strong>Other projects</strong>, quindi immettere un nome di progetto e fare clic su <strong>Create project</strong>.
-
-2. Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Create**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Create**.
+2. Immettere un nome di progetto, accettare le condizioni per l'utilizzo del servizio, quindi fare clic su **Crea**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Create**.
 
 3. Prendere nota del numero di progetto nella sezione **Projects**. 
 
@@ -21,17 +17,17 @@
 
 5. Fare clic su **Credentials**, quindi su **Create new Key** 
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
+ 	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
 6. In **Create new key** fare clic su **Server key**. Nella finestra successiva fare clic su **Create**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+ 	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
 7. Prendere nota del valore **API KEY**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+ 	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
-	Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
+	Questo valore della chiave dell'API verrà usato successivamente per abilitare Servizi mobili per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
 
 
-<!--HONumber=49-->
+<!--HONumber=47-->

@@ -175,7 +175,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 
 [Sito Web di Connessioni ibride](http://azure.microsoft.com/services/biztalk-services/)
 
-[Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità, Configurazione e Connessione ibrida](../biztalk-dashboard-monitor-scale-tabs/)
+[Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità, Configurazione e Connessione ibrida](biztalk-dashboard-monitor-scale-tabs.md)
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (video Channel 9 in inglese)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

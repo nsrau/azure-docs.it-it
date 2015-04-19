@@ -46,7 +46,7 @@ I nodi head vengono allocati come macchine virtuali con dimensione grande per im
 
 È possibile configurare le macchine virtuali con dimensione molto grande usando i cmdlet di Azure PowerShell oppure l'SDK per HDInsight.
 
-La creazione e il provisioning di un cluster con PowerShell sono documentati nell'articolo relativo alla [gestione di HDInsight tramite PowerShell](../hdinsight-administer-use-powershell/). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usato in questo codice.
+La creazione e il provisioning di un cluster con PowerShell sono documentati nell'articolo relativo alla [gestione di HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usato in questo codice.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

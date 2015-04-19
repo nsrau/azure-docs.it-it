@@ -19,7 +19,7 @@
 
 # Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) . 
 
 ## Informazioni generali
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
@@ -32,9 +32,9 @@ Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a 
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](../media-services-rest-how-to-use).
+>Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](../media-services-rest-connect_programmatically/). 
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md). 
 
 
 Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
@@ -110,7 +110,7 @@ In molti scenari di applicazione, gli sviluppatori desiderano creare una serie d
 
 
 ## Passaggi successivi
-Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](../media-services-rest-check-job-progress/) .
+Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-rest-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Impostazioni per il codificatore]: http://msdn.microsoft.com/library/dn619392.aspx

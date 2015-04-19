@@ -73,7 +73,7 @@ Vedere anche le seguenti sezioni in [Distribuzione di processi Web](#deploy) e [
 * [Hosting del codice interattivo nel cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Visualizzazione di un dashboard per lo sviluppo locale tramite l'SDK Processi Web](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Aggiunta di analisi ai siti Web e ai Processi Web di Azure](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitoraggio, diagnostica e risoluzione dei problemi relativi ad  Archiviazione di Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
+* [Monitoraggio, diagnostica e risoluzione dei problemi relativi ad  Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * Video
 	* [Strumenti di Processi Web e debug remoto](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

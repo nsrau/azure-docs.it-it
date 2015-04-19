@@ -25,7 +25,7 @@ La classe TodoItem definisce l'oggetto dati ed è necessario aggiungere a questa
 
 	Queste proprietà consentono di generare la firma di accesso condiviso e di archiviare le informazioni sulle immagini. Si noti che la convenzione per l'utilizzo di maiuscole e minuscole di queste proprietà corrisponde alla versione back-end di JavaScript. 
 
-	>[AZURE.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>Aggiornamento del controller TodoItem per generare una firma di accesso condiviso 
 

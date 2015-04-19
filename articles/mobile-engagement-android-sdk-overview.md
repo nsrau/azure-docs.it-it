@@ -18,18 +18,18 @@
 
 
 #Android SDK per Azure Mobile Engagement v3.0.0
-In questo articolo sono disponibili informazioni dettagliate per integrare Azure Mobile Engagement in un'app per Android. Se si preferisce fare prima una prova, si consiglia di seguire l'[esercitazione di 15 minuti](../mobile-engagement-android-get-started/).
+In questo articolo sono disponibili informazioni dettagliate per integrare Azure Mobile Engagement in un'app per Android. Se si preferisce fare prima una prova, si consiglia di seguire l'[esercitazione di 15 minuti](mobile-engagement-android-get-started.md).
 
-Fare clic per visualizzare il [Contenuto dell'SDK](../mobile-engagement-android-sdk-content)
+Fare clic per visualizzare il [Contenuto dell'SDK](mobile-engagement-android-sdk-content.md)
 
 ##Procedure di integrazione
-1. Per iniziare: [Come integrare Mobile Engagement nell'app per Android](../mobile-engagement-android-integrate-engagement/)
+1. Per iniziare: [Come integrare Mobile Engagement nell'app per Android](mobile-engagement-android-integrate-engagement.md)
 
-2. Per le notifiche: [Come integrare la copertura (notifiche) nell'app per Android](../mobile-engagement-android-integrate-engagement-reach/)
-	1. Google Cloud Messaging (GCM): [Come integrare GCM con Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
-	2. Amazon Device Messaging (ADM): [Come integrare ADM con Mobile Engagement](../mobile-engagement-android-adm-integrate/)
+2. Per le notifiche: [Come integrare la copertura (notifiche) nell'app per Android](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM): [Come integrare GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM): [Come integrare ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Implementazione del piano di tag: [Come usare l'API di assegnazione di tag di Mobile Engagement avanzata nell'app per Android](../mobile-engagement-android-use-engagement-api/)
+3. Implementazione del piano di tag: [Come usare l'API di assegnazione di tag di Mobile Engagement avanzata nell'app per Android](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Note sulla versione
@@ -43,13 +43,13 @@ Fare clic per visualizzare il [Contenuto dell'SDK](../mobile-engagement-android-
 -   Miglioramenti della sicurezza
 -   È stata rimossa la verifica per Google Play e SmartAd.
 
-Per la versione precedente, vedere le [note sulla versione complete](../mobile-engagement-android-release-notes/)
+Per la versione precedente, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md)
 
 ##Procedure di aggiornamento
 
 Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nell'applicazione, sarà necessario tenere in considerazione gli aspetti seguenti durante l'aggiornamento dell'SDK.
 
-Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Vedere le [Procedure di aggiornamento] complete(../mobile-engagement-android-upgrade-procedure/). Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
+Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Vedere le [Procedure di aggiornamento] complete(mobile-engagement-android-upgrade-procedure.md). Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
 
 Indipendentemente dalla versione di partenza dell'aggiornamento, sarà necessario sostituire tutti i file `mobile-engagement-VERSION.jar` con i nuovi file.
 

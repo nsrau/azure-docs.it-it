@@ -35,7 +35,7 @@ Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, s
 
 * [Aggiungere Application Insights al progetto dell'app in Visual Studio][greenbrown]: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'utilizzo.
 * [Monitorare ora le prestazioni di un sito Web live][redfield]: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
-* [Per un sito Web di Microsoft Azure](../insights-how-to-customize-monitoring/)  è possibile già vedere le metriche sul filtro di monitoraggio del sito. 
+* [Per un sito Web di Microsoft Azure](insights-how-to-customize-monitoring.md)  è possibile già vedere le metriche sul filtro di monitoraggio del sito. 
 
 
 ## <a name="view"></a>Visualizzazione dei report

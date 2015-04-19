@@ -53,7 +53,7 @@ In questa esercitazione viene usato il metodo **Da raccolta** per creare una mac
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] È inoltre possibile connettersi alla macchina virtuale Linux usando una chiave SSH per l'identificazione. Per altre informazioni su come configurare e connettersi tramite una chiave SSH, vedere la pagina relativa all'[uso di SSH con Linux in Azure](./virtual-machines-linux-use-ssh-key/).
+> [AZURE.NOTE] È inoltre possibile connettersi alla macchina virtuale Linux usando una chiave SSH per l'identificazione. Per altre informazioni su come configurare e connettersi tramite una chiave SSH, vedere la pagina relativa all'[uso di SSH con Linux in Azure](virtual-machines-linux-use-ssh-key).
 
 ##Passaggi successivi 
 
@@ -65,7 +65,7 @@ Per altre informazioni su Linux in Azure, vedere gli articoli seguenti:
 
 - [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Come usare l'estensione della macchina virtuale Docker per Linux in Azure](../virtual-machines-docker-vm-extension/)
+- [Come usare l'estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
 
 [Passaggi successivi]: #next

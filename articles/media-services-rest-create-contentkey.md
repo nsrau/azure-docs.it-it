@@ -19,13 +19,13 @@
 
 # Creare entità ContentKey mediante REST
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) .  
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) .  
 
 Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](../media-services-rest-upload-files/)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](media-services-rest-upload-files.md)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
-Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](../media-services-rest-configure-asset-delivery-policy) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](media-services-rest-configure-asset-delivery-policy.md) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Gli asset crittografati devono essere associati alle entità **ContentKey**. Questo articolo descrive come creare una chiave simmetrica.
 
@@ -67,9 +67,9 @@ Si noti che gli esempi che generano una chiave AES, ne eseguono la crittografia 
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](../media-services-rest-how-to-use).
+>Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](../media-services-rest-connect_programmatically/). 
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md). 
 
 ## Recuperare l'entità ProtectionKeyId 
  

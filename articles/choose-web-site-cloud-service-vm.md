@@ -339,8 +339,8 @@ Nella tabella seguente vengono confrontate le funzionalità di Siti Web, Servizi
 
 Per altre informazioni sulle tre opzioni di hosting Web, vedere le risorse seguenti:
 
-* [Introduzione ad Azure](../fundamentals-introduction-to-azure/)
-* [Opzioni di hosting di calcolo fornite da Azure](../fundamentals-application-models/)
+* [Introduzione ad Azure](fundamentals-introduction-to-azure.md)
+* [Opzioni di hosting di calcolo fornite da Azure](fundamentals-application-models.md)
 
 Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seguenti:
 

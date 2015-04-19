@@ -90,7 +90,7 @@ Con il piano di hosting **Standard** è possibile monitorare i tempi di risposta
 ## Altre risorse
 
 - [Documentazione di Siti Web di Azure](/it-it/documentation/services/websites/)
-- [Mappa di formazione per Siti Web di Azure](/it-it/documentation/articles/websites-learning-map/)
+- [Mappa di formazione per Siti Web di Azure](websites-learning-map.md)
 - [Blog Web di Azure](/blog/topics/web/)
 
 

@@ -20,9 +20,9 @@
 
 Le applicazioni basate sul database SQL di Azure si trovano in difficoltà quando le esigenze relative ai dati o all'elaborazione superano le capacità di una singola unità di scala del database SQL di Azure. Ciò può ad esempio verificarsi per applicazioni che ottengono una straordinaria diffusione o in cui un set specifico di tenant supera i limiti di un singolo database SQL di Azure. Il **servizio di suddivisione/unione** della scalabilità elastica riduce notevolmente tali difficoltà. 
 
-Questa descrizione del servizio di suddivisione/unione esamina la riduzione e l'aumento delle dimensioni tramite la modifica del numero di database di Azure e il bilanciamento della distribuzione di **shardlet** tra i database. (Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](./sql-database-elastic-scale-glossary.md)). 
+Questa descrizione del servizio di suddivisione/unione esamina la riduzione e l'aumento delle dimensioni tramite la modifica del numero di database di Azure e il bilanciamento della distribuzione di **shardlet** tra i database. (Per le definizioni dei termini, vedere il [Glossario relativo alla scalabilità elastica](sql-database-elastic-scale-glossary.md)). 
 
-Considerate le possibilità di scelta attuali tra le edizioni del database SQL di Azure, è anche possibile gestire la capacità aumentando o riducendo la capacità di un singolo database SQL di Azure. L'aspetto della gestione della capacità elastica relativo alla riduzione o all'aumento delle dimensioni non viene affrontato dalla suddivisione e unione. Per informazioni, vedere invece [Elasticità di partizionamento della scalabilità elastica](./sql-database-elastic-scale-elasticity.md)). 
+Considerate le possibilità di scelta attuali tra le edizioni del database SQL di Azure, è anche possibile gestire la capacità aumentando o riducendo la capacità di un singolo database SQL di Azure. L'aspetto della gestione della capacità elastica relativo alla riduzione o all'aumento delle dimensioni non viene affrontato dalla suddivisione e unione. Per informazioni, vedere invece [Elasticità di partizionamento della scalabilità elastica](sql-database-elastic-scale-elasticity.md)). 
  
 ## Novità del servizio suddivisione/unione
 
@@ -65,7 +65,7 @@ Figura 1: Panoramica concettuale del servizio di suddivisione/unione
 
 ## Concetti e funzionalità principali
 
-**Servizi ospitati dal cliente**: Il servizio di suddivisione/unione viene fornito come servizio ospitato presso il cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Vedere l'[esercitazione relativa alla suddivisione e all'unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) per informazioni dettagliate. Poiché il servizio è in esecuzione nella sottoscrizione Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni necessarie per configurare SSL, l'autenticazione client basata su certificato, la crittografia per le credenziali archiviate, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel seguente documento, relativo alle [configurazioni di sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md).
+**Servizi ospitati dal cliente**: Il servizio di suddivisione/unione viene fornito come servizio ospitato presso il cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Vedere l'[esercitazione relativa alla suddivisione e all'unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md) per informazioni dettagliate. Poiché il servizio è in esecuzione nella sottoscrizione Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni necessarie per configurare SSL, l'autenticazione client basata su certificato, la crittografia per le credenziali archiviate, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel seguente documento, relativo alle [configurazioni di sicurezza per la scalabilità elastica](sql-database-elastic-scale-configure-security.md).
 
 Il servizio distribuito predefinito viene eseguito con un ruolo di lavoro e un ruolo Web. Ogni ruolo usa la dimensione di VM A1 in Servizi cloud di Azure. Benché non sia possibile modificare queste impostazioni durante la distribuzione del pacchetto, è possibile modificarle dopo una distribuzione corretta nel servizio cloud in esecuzione, tramite il portale di Azure. Si noti che per motivi tecnici il ruolo di lavoro deve essere configurato solo per un'istanza. 
 
@@ -109,7 +109,7 @@ Le tabelle 'region' e 'nation' sono definite come tabelle di riferimento e verra
 
 ## Recupero dei file binari del servizio
 
-I file binari per il servizio di suddivisione/unione vengono forniti tramite [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Vedere l'[esercitazione dettagliata sulla suddivisione/unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) per altre informazioni sul download dei file binari.
+I file binari per il servizio di suddivisione/unione vengono forniti tramite [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Vedere l'[esercitazione dettagliata sulla suddivisione/unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md) per altre informazioni sul download dei file binari.
 
 ## Interfaccia utente del servizio di suddivisione/unione
 
@@ -204,9 +204,9 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 
 ## Riferimenti 
 
-* [Esercitazione relativa alla suddivisione e unione](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Esercitazione relativa alla suddivisione e unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Configurazioni di sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md)  
+* [Configurazioni di sicurezza per la scalabilità elastica](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

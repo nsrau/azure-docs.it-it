@@ -196,8 +196,8 @@ Verrà visualizzato un elenco di parole con l'indicazione del numero di occorren
 
 Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, vedere i seguenti collegamenti per esplorare altri modi di uso di Azure HDInsight.
 
-* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
-* [Usare Pig con HDInsight](../hdinsight-use-pig/)
-* [Usare processi MapReduce con HDInsight](../hdinsight-use-mapreduce)
+* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Usare Pig con HDInsight](hdinsight-use-pig.md)
+* [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 <!--HONumber=47-->

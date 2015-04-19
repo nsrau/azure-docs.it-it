@@ -349,9 +349,9 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 
 ##Caricare il file JAR e avviare un processo
 
-> [AZURE.NOTE] Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto nella sezione [Caricare dati per processi Hadoop in HDInsight](/it-it/documentation/articles/hdinsight-upload-data/). Nella procedura seguente viene usato [Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto nella sezione [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md). Nella procedura seguente viene usato [Azure PowerShell](install-configure-powershell.md).
 
-1. Dopo aver installato e configurato [Azure PowerShell](/it-it/documentation/articles/install-configure-powershell/), creare un nuovo file denominato __hbase-runner.psm1__. Usare il codice seguente come contenuto di questo file.
+1. Dopo aver installato e configurato [Azure PowerShell](install-configure-powershell.md), creare un nuovo file denominato __hbase-runner.psm1__. Usare il codice seguente come contenuto di questo file.
 
 		<#
 		.SYNOPSIS

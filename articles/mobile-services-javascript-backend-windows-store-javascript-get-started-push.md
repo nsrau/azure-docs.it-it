@@ -24,7 +24,7 @@
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app di Windows Store. 
 In questa esercitazione si userà Hub di notifica di Azure per abilitare le notifiche push nel progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push usando Hub di notifica ogni volta che viene inserito un record. L'hub di notifica creato può essere usato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere usato da altri servizi e applicazioni.
 
->[AZURE.NOTE]Questo argomento descrive come configurare manualmente le notifiche push mediante Servizi notifica Push Windows (WNS) per un'app di Windows Store. È possibile usare gli strumenti di Visual Studio 2013 per configurare automaticamente le stesse notifiche push in un progetto di app di Windows. Per altre informazioni, vedere la [versione dell'app di Windows universale](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push) di questa esercitazione.
+>[AZURE.NOTE]Questo argomento descrive come configurare manualmente le notifiche push mediante Servizi notifica Push Windows (WNS) per un'app di Windows Store. È possibile usare gli strumenti di Visual Studio 2013 per configurare automaticamente le stesse notifiche push in un progetto di app di Windows. Per altre informazioni, vedere la [versione dell'app di Windows universale](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) di questa esercitazione.
 
 In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
 

@@ -38,7 +38,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 	**Nota**: per altre informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/it-it/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. In **Regione/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere la pagina relativa alle [informazioni sui gruppi di affinità per la rete virtuale](http://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
+12. In **Regione/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere la pagina relativa alle [informazioni sui gruppi di affinità per la rete virtuale](http://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 13. In **Account di archiviazione** selezionare un account di archiviazione esistente per il file VHD o usarne uno generato automaticamente. Verrà creato automaticamente un solo account di archiviazione per ogni area. Tutte le altre macchine virtuali create con questa impostazione verranno inserite in questo account di archiviazione. È possibile creare un massimo di 20 account di archiviazione.
 
@@ -46,7 +46,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 	**Nota**: le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Collocando più macchine virtuali in un set di disponibilità è possibile garantire la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati.
 
-15.  In **Endpoint**verificare che i nuovi endpoint che verranno creati consentano le connessioni alla macchina virtuale, ad esempio tramite Desktop remoto o un client Secure Shell (SSH). È inoltre possibile aggiungere subito gli endpoint o crearli in un secondo momento. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](http://azure.microsoft.com/it-it/documentation/articles/virtual-machines-set-up-endpoints/). 
+15.  In **Endpoint**verificare che i nuovi endpoint che verranno creati consentano le connessioni alla macchina virtuale, ad esempio tramite Desktop remoto o un client Secure Shell (SSH). È inoltre possibile aggiungere subito gli endpoint o crearli in un secondo momento. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/). 
 
 16.  In **Agente di macchine virtuali** scegliere se installare l'agente VM. Tale agente offre l'ambiente per installare le estensioni che consentono di interagire con la macchina virtuale. Per informazioni dettagliate, vedere [Gestire le estensioni](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -58,7 +58,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 ##Passaggi successivi##
 Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal portale risulta che lo stato è in esecuzione, è possibile eseguire l'accesso alla macchina virtuale. Per istruzioni, vedere uno degli articoli seguenti:
 
-- [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines-linux-how-to-log-on)
-- [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server)
+- [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
+- [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md)
 
 

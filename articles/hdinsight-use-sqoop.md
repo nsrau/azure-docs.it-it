@@ -82,7 +82,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 		* Quando si usa SQL Server in una **macchina virtuale di Azure**, sarà possibile usare qualsiasi configurazione di rete virtuale a condizione che la macchina virtuale sulla quale è ospitato SQL Server sia un membro della stessa rete virtuale di HDInsight.
 
-	* Per **effettuare il provisioning di un cluster HDInsight in una rete virtuale**, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](/it-it/documentation/articles/hdinsight-provision-clusters/).
+	* Per **effettuare il provisioning di un cluster HDInsight in una rete virtuale**, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
 
 	> [AZURE.NOTE] SQL Server deve sempre consentire l'autenticazione SQL. Per la procedura descritta in questo articolo è necessario usare un account di accesso SQL.
 
@@ -363,7 +363,7 @@ In questa sezione, verrà usato Azure PowerShell per eseguire un comando di espo
 > [AZURE.NOTE] A parte le informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure oppure SQL Server. La procedura è stata verificata con la configurazione seguente:
 > 
 > * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale che connette il cluster HDInsight a un'istanza di SQL Server in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](http://msdn.microsoft.com/library/azure/dn133792.aspx).
-> * **Azure HDInsight 3.1**: vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](/it-it/documentation/articles/hdinsight-provision-clusters/) per informazioni sulla creazione di un cluster su una rete virtuale
+> * **Azure HDInsight 3.1**: vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md) per informazioni sulla creazione di un cluster su una rete virtuale
 > * **SQL Server 2014**: configurato per consentire l'autenticazione SQL e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
 
 **Per esportare il file di log log4j**

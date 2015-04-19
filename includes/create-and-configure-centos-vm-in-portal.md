@@ -74,6 +74,6 @@ Immettere di nuovo la password. Attendere il completamento dell'installazione de
 
   [Informazioni generali su Rete virtuale di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Creare una nuova macchina virtuale]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [password complessa]: http://msdn.microsoft.com/it-it/library/ms161962.aspx
+  [password complessa]: http://msdn.microsoft.com/library/ms161962.aspx
   [pagina di download]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-centos-vm-in-portal/putty.png

@@ -31,7 +31,7 @@ Questo articolo spiega cos'è WebJobs SDK, analizza alcuni scenari comuni in cui
 
 ## <a id="overview"></a>Informazioni generali
 
-I [processi Web](/it-it/documentation/articles/web-sites-create-web-jobs/) sono una funzionalità di Siti Web di Azure che consente di eseguire un programma o uno script nello stesso contesto di un sito Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
+I [processi Web](web-sites-create-web-jobs.md) sono una funzionalità di Siti Web di Azure che consente di eseguire un programma o uno script nello stesso contesto di un sito Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
 
 In WebJobs SDK sono inclusi i componenti seguenti:
 
@@ -45,7 +45,7 @@ Ecco alcuni scenario tipici che è possibile gestire più facilmente con Azure W
 
 * Elaborazione di immagini o altre operazioni con un uso intensivo della CPU. Una comune funzionalità dei siti Web è il caricamento di immagini o video. Spesso è necessario intervenire sul contenuto dopo averlo caricato, ma non si vuole far attendere l'utente nel frattempo.
 
-* Elaborazione di code. Per un front-end Web un modo comune di comunicare con un servizio back-end è usare le code. Quando il sito Web deve eseguire delle attività, effettua il push di un messaggio in una coda. Un servizio back-end effettua il pull dei messaggi dalla coda ed esegue le attività. È possibile usare le code per l'elaborazione delle immagini: ad esempio, dopo che l'utente ha caricato numerosi file, inserire i nomi dei file in un messaggio di coda da prelevare con il back-end per l'elaborazione. È possibile usare le code anche per migliorare la risposta del sito. Ad esempio, invece di scrivere direttamente in un database SQL, scrivere in una coda, informare l'utente che l'operazione è stata completata e lasciar gestire al servizio back-end il lavoro dei database relazionali con latenza elevata. Per un esempio di elaborazione di code con elaborazione di immagini, vedere l'esercitazione [Introduzione ad Azure WebJobs SDK](../websites-dotnet-webjobs-sdk-get-started/).
+* Elaborazione di code. Per un front-end Web un modo comune di comunicare con un servizio back-end è usare le code. Quando il sito Web deve eseguire delle attività, effettua il push di un messaggio in una coda. Un servizio back-end effettua il pull dei messaggi dalla coda ed esegue le attività. È possibile usare le code per l'elaborazione delle immagini: ad esempio, dopo che l'utente ha caricato numerosi file, inserire i nomi dei file in un messaggio di coda da prelevare con il back-end per l'elaborazione. È possibile usare le code anche per migliorare la risposta del sito. Ad esempio, invece di scrivere direttamente in un database SQL, scrivere in una coda, informare l'utente che l'operazione è stata completata e lasciar gestire al servizio back-end il lavoro dei database relazionali con latenza elevata. Per un esempio di elaborazione di code con elaborazione di immagini, vedere l'esercitazione [Introduzione ad Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
 
 * Aggregazione RSS. Se si ha un sito che gestisce un elenco di feed RSS, è possibile effettuare il pull di tutti gli articoli dai feed in un processo in background.
 

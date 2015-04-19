@@ -68,7 +68,7 @@ La figura seguente mostra le relazioni tra le risorse di archiviazione di Azure 
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Quando si è pronti a creare un account di archiviazione standard, vedere l'argomento relativo alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/) per altri dettagli.
+Quando si è pronti a creare un account di archiviazione standard, vedere l'argomento relativo alla [creazione, gestione o eliminazione di un account di archiviazione](storage-create-storage-account.md) per altri dettagli.
 
 ### Account di archiviazione premium (anteprima)
 
@@ -128,7 +128,7 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 
 Durante la creazione dell'account di archiviazione, vengono assegnate due chiavi di accesso private usate per l'autenticazione. La presenza di due chiavi garantisce la disponibilità dell'applicazione quando si rigenerano le chiavi nell'ambito delle normali operazioni di gestione delle chiavi di sicurezza.
 
-Se è necessario consentire agli utenti l'accesso controllato alle risorse di archiviazione, è possibile creare una [firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/). Una firma di accesso condiviso è un token che può essere aggiunto a un URL per consentire l'accesso delegato a un contenitore, BLOB, tabella o coda. Coloro che possiedono il token possono accedere alla risorsa a cui esso fa riferimento con le autorizzazioni specificate e per il periodo di validità del token stesso. Si noti che l'archiviazione file di Azure attualmente non supporta le firme di accesso condiviso.
+Se è necessario consentire agli utenti l'accesso controllato alle risorse di archiviazione, è possibile creare una [firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md). Una firma di accesso condiviso è un token che può essere aggiunto a un URL per consentire l'accesso delegato a un contenitore, BLOB, tabella o coda. Coloro che possiedono il token possono accedere alla risorsa a cui esso fa riferimento con le autorizzazioni specificate e per il periodo di validità del token stesso. Si noti che l'archiviazione file di Azure attualmente non supporta le firme di accesso condiviso.
 
 È infine possibile specificare che un contenitore e i relativi BLOB o che un BLOB specifico sia disponibile per l'accesso pubblico. Quando si indica che un contenitore o un BLOB è pubblico, qualsiasi utente lo potrà leggere in forma anonima, in quanto non è necessaria l'autenticazione.  I contenitori e i BLOB pubblici sono utili per esporre risorse come file multimediali e documenti ospitati in siti Web.  Per ridurre la latenza di rete per un pubblico globale, è possibile memorizzare nella cache i dati BLOB usati dai siti Web con la rete CDN di Azure.
 
@@ -183,38 +183,38 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 <h3>Per gli sviluppatori .NET</h3>
 
 - [Informazioni di riferimento sulla libreria client .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [Come usare l'archiviazione BLOB da .NET](../storage-dotnet-how-to-use-blobs/)
-- [Come usare l'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables/)
-- [Come usare l'archiviazione di accodamento da .NET](../storage-dotnet-how-to-use-queues/)
+- [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
+- [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
+- [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
 
 <h3>Per sviluppatori Java/Android</h3>
 
 - [Informazioni di riferimento sulla libreria client Java]()
-- [Come usare l'archiviazione BLOB da Java/Android](../storage-java-how-to-use-blob-storage/)
-- [Come usare l'archiviazione tabelle da Java/Android](../storage-java-how-to-use-table-storage/)
-- [Come usare l'archiviazione di accodamento da Java/Android](../storage-java-how-to-use-queue-storage/)
+- [Come usare l'archiviazione BLOB da Java/Android](storage-java-how-to-use-blob-storage.md)
+- [Come usare l'archiviazione tabelle da Java/Android](storage-java-how-to-use-table-storage.md)
+- [Come usare l'archiviazione di accodamento da Java/Android](storage-java-how-to-use-queue-storage.md)
 
 <h3>Per gli sviluppatori Node.js</h3>
 
-- [Come usare l'archiviazione BLOB da Node.js](../storage-nodejs-how-to-use-blob-storage/)
-- [Come usare l'archiviazione tabelle da Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [Come usare l'archiviazione di accodamento da Node.js](../storage-nodejs-how-to-use-queues/)
+- [Come usare l'archiviazione BLOB da Node.js](storage-nodejs-how-to-use-blob-storage.md)
+- [Come usare l'archiviazione tabelle da Node.js](storage-nodejs-how-to-use-table-storage.md)
+- [Come usare l'archiviazione di accodamento da Node.js](storage-nodejs-how-to-use-queues.md)
 
 <h3>Per gli sviluppatori PHP</h3>
 
-- [Come usare l'archiviazione BLOB da PHP](../storage-php-how-to-use-blobs/)
-- [Come usare l'archiviazione tabelle da PHP](../storage-php-how-to-use-table-storage/)
-- [Come usare l'archiviazione di accodamento da PHP](../storage-php-how-to-use-queues/)
+- [Come usare l'archiviazione BLOB da PHP](storage-php-how-to-use-blobs.md)
+- [Come usare l'archiviazione tabelle da PHP](storage-php-how-to-use-table-storage.md)
+- [Come usare l'archiviazione di accodamento da PHP](storage-php-how-to-use-queues.md)
 
 <h3>Per gli sviluppatori Ruby</h3>
 
-- [Come usare l'archiviazione BLOB da Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [Come usare l'archiviazione tabelle da Ruby](../storage-ruby-how-to-use-table-storage/)
-- [Come usare l'archiviazione di accodamento da Ruby](../storage-ruby-how-to-use-queue-storage/)
+- [Come usare l'archiviazione BLOB da Ruby](storage-ruby-how-to-use-blob-storage.md)
+- [Come usare l'archiviazione tabelle da Ruby](storage-ruby-how-to-use-table-storage.md)
+- [Come usare l'archiviazione di accodamento da Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 <h3>Per gli sviluppatori Python</h3>
 
-- [Come usare l'archiviazione BLOB da Python](../storage-python-how-to-use-blob-storage/)
-- [Come usare l'archiviazione tabelle da Python](../storage-python-how-to-use-table-storage/)
-- [Come usare l'archiviazione di accodamento da Python](../storage-python-how-to-use-queue-storage/)
+- [Come usare l'archiviazione BLOB da Python](storage-python-how-to-use-blob-storage.md)
+- [Come usare l'archiviazione tabelle da Python](storage-python-how-to-use-table-storage.md)
+- [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
 <!--HONumber=42-->

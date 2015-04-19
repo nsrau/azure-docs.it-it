@@ -18,9 +18,9 @@
 
 # Come usare il bus di servizio di Azure con WebJobs SDK
 
-Questa guida fornisce esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](../websites-dotnet-webjobs-sdk/) versione 1.x.
+Questa guida fornisce esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-Nella guida si presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](../websites-dotnet-webjobs-sdk-get-started/).
+Nella guida si presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 
 I frammenti di codice mostrano solo funzioni, non il codice che crea l'oggetto  `JobHost` come nel seguente esempio:
 
@@ -138,7 +138,7 @@ Per creare un messaggio su un argomento, usare l'attributo  `ServiceBus` con un 
 
 ## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure per le code di archiviazione
 
-Per informazioni sugli scenari di WebJobs SDK non specifici del bus di servizio, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Per informazioni sugli scenari di WebJobs SDK non specifici del bus di servizio, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tra gli argomenti trattati nell'articolo sono inclusi i seguenti:
 

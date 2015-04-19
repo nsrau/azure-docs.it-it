@@ -46,7 +46,7 @@ Le tabelle riportate nelle seguenti sezioni forniscono collegamenti a esercitazi
 
 In un servizio mobile back-end .NET le notifiche vengono inviate chiamando il metodo [SendAsync] sull'oggetto [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) ottenuto dalla proprietà [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notifica push inviata (nativa o modello) dipende dallo specifico oggetto derivato da [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) che viene passato al metodo [SendAsync], come mostrato nella seguente tabella: 
 
-|Piattaforma |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|Piattaforma |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Nativa|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -81,7 +81,7 @@ Quando si usano registrazioni client modello anziché registrazioni client nativ
 
 In un servizio mobile back-end JavaScript le notifiche vengono inviate chiamando il metodo **send** sull'oggetto specifico della piattaforma ottenuto dall'[oggetto push], globale, come mostrato nella seguente tabella: 
 
-|Piattaforma |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|Piattaforma |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Nativa|[oggetto apns](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[oggetto gcm](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[oggetto wns](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [oggetto mpns](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -163,7 +163,7 @@ Oltre a queste istruzioni di carattere generale, Visual Studio fornisce anche fu
 
 Visual Studio 2013 Update 2 include il supporto per progetti di app di Windows universali. Le app universali sono soluzioni che includono progetti di app di Windows Store 8.1 e Windows Phone Store 8.1, oltre a un progetto di codice condiviso. In questo tipo di progetto, il codice condiviso viene trattato come parte sia dei progetti Windows Store sia di quelli Windows Phone. Per altre informazioni, vedere [Creazione di app di Windows universali per tutti i dispositivi Windows]. Le app di Windows universali possono essere scritte sia in C#/XAML sia in JavaScript/HTML. 
 
-Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di gestione di Azure] genera, per iniziare, una versione "app di Windows universale" dell'app di esempio TodoList. È possibile scegliere di scaricare una versione C#/XAML o una versione JavaScript/HTML del progetto. Per altre informazioni, vedere [Introduzione a Servizi mobili](/documentation/articles/mobile-services-windows-store-get-started/). 
+Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di gestione di Azure] genera, per iniziare, una versione "app di Windows universale" dell'app di esempio TodoList. È possibile scegliere di scaricare una versione C#/XAML o una versione JavaScript/HTML del progetto. Per altre informazioni, vedere [Introduzione a Servizi mobili](mobile-services-windows-store-get-started.md). 
 
 >[AZURE.NOTE]La versione C# del progetto di app di guida introduttiva disponibile nella scheda Guida introduttiva del portale di gestione condivide la pagina code-behind MainPage.xaml.cs, ma non usa un modello di visualizzazione. Per un esempio dell'app TodoList come progetto di app di Windows universale in C# che usa MVVM, vedere l'argomento relativo a un [progetto di app di Windows universale per Servizi mobili di Azure mediante MVVM][Progetto di app di Windows universale per Servizi mobili di Azure tramite MVVM]. 
 
@@ -171,7 +171,7 @@ Per impostazione predefinita, la scheda Avvio rapido disponibile nel [portale di
 
 È possibile sfruttare al massimo l'esperienza di sviluppo in Visual Studio e C# usando Xamarin e Visual Studio o Xamarin Studio per creare app per iOS e Android. Xamarin usa un'implementazione multipiattaforma di .NET Framework che permette di usare codice C# per sviluppare app per iOS e Android. Con Xamarin è possibile riutilizzare il codice esistente di progetti Windows in cui la libreria client .NET di Servizi mobili viene usata per accedere al servizio mobile in uso.  Per altre informazioni, vedere [Sviluppo multipiattaforma in Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
 
-Per iniziare a creare app di Xamarin che usano Servizi mobili, vedere le esercitazioni con guide rapide di Xamarin ([iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
+Per iniziare a creare app di Xamarin che usano Servizi mobili, vedere le esercitazioni con guide rapide di Xamarin ([iOS](partner-xamarin-mobile-services-ios-get-started.md) / [Android](partner-xamarin-mobile-services-android-get-started.md)).
 
 
 ### App di Windows Store e Windows Phone Silverlight

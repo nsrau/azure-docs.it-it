@@ -66,7 +66,7 @@ Per completare questa sezione, assicurarsi innanzitutto di eseguire le attività
 3. Verificare che [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) sia installato nel computer in quanto è necessario per i progetti di esempio di avvio rapido di Azure. Se non si è certi di quale versione di .NET Framework è installata nel computer in uso, vedere [Procedura: determinare le versioni di .NET Framework installate](https://msdn.microsoft.com/vstudio/hh925568.aspx). In alternativa, premere il pulsante **Start** o il tasto Windows e digitare **Pannello di controllo**. Quindi, fare clic su **Programmi** > **Programmi e funzionalità**. Verificare se .NET Framework 4.5 è elencato nei programmi installati.
 4.	Ottenere una sottoscrizione di Azure (se non se ne ha già una) e creare inoltre un account di **archiviazione Standard**:
 	- Per ottenere una sottoscrizione di Azure, vedere [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), [le opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), e le [offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network e BizSpark e altri programmi Microsoft).
-	- Per creare un account di **archiviazione Standard** in Azure, vedere [Creare, gestire o eliminare un account di archiviazione](./storage-create-storage-account.md). **Nota:** sono disponibili due tipi di account di archiviazione: account di archiviazione Standard e account di archiviazione Premium. L'account di archiviazione Standard fornisce l'accesso all'archiviazione BLOB, tabelle e accodamento di Azure. L'account di archiviazione Premium è attualmente disponibile solo per l'archiviazione di dati sui dischi usati da Macchine virtuali di Azure. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](./storage-premium-storage-preview-portal.md).
+	- Per creare un account di **archiviazione Standard** in Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md). **Nota:** sono disponibili due tipi di account di archiviazione: account di archiviazione Standard e account di archiviazione Premium. L'account di archiviazione Standard fornisce l'accesso all'archiviazione BLOB, tabelle e accodamento di Azure. L'account di archiviazione Premium è attualmente disponibile solo per l'archiviazione di dati sui dischi usati da Macchine virtuali di Azure. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
 
 Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno dei progetti di esempio di avvio rapido di Azure in Visual Studio. Questa esercitazione si concentra sui progetti di esempio di **archiviazione BLOB di Azure**, **archiviazione tabelle di Azure** e **code di Archiviazione di Azure**. Per ogni progetto di esempio, si applicano le istruzioni seguenti fatta eccezione per il passaggio 3.a che prevede la scelta di un modello diverso:
 
@@ -88,7 +88,7 @@ A questo punto, eseguire l'applicazione di esempio:
 2.	Rimuovere i simboli di commento dalla stringa di connessione per il servizio di archiviazione di Azure e fornire il nome e la chiave di accesso dell'account di archiviazione nel file App.config:
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	Per trovare il nome e la chiave di accesso dell'account di storage, vedere la pagina [Informazioni sull'account di archiviazione](./storage-whatis-account.md). 
+	Per trovare il nome e la chiave di accesso dell'account di storage, vedere la pagina [Informazioni sull'account di archiviazione](storage-whatis-account.md). 
 
 3.	Dopo aver specificato il nome e la chiave di accesso dell'account di archiviazione nel file App.config, nel menu **File** fare clic su **Salva tutto** per salvare tutti i file di progetto. 
 4.	Nel menu **Compila** fare clic su **Compila soluzione**. 
@@ -100,10 +100,10 @@ In questa esercitazione si è appreso a programmare usando archiviazione BLOB di
 
 Per altre informazioni su queste funzionalità, visitare i collegamenti seguenti:
 
-* [Introduzione ad Archiviazione di Microsoft Azure](./storage-introduction.md)
-* [Come usare l'archiviazione BLOB da .NET](./storage-dotnet-how-to-use-blobs.md)
-* [Come usare l'archiviazione tabelle da .NET](./storage-dotnet-how-to-use-tables.md)
-* [Come usare l'archiviazione di accodamento da .NET](./storage-dotnet-how-to-use-queues.md)
+* [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
+* [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
+* [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
+* [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
 * [Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Riferimento MSDN ad Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Libreria client di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

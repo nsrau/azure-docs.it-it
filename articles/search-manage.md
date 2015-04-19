@@ -51,7 +51,7 @@ Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigl
 +	[Limitazioni e vincoli](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-Quando si è pronti per l'iscrizione, vedere [Introduzione a Ricerca di Azure](../search-get-started/).
+Quando si è pronti per l'iscrizione, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
 
 
 <h2 id="sub-2">Attività amministrative</h2>

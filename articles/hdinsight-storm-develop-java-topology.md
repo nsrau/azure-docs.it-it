@@ -454,16 +454,16 @@ Trident è un'astrazione generale fornita da Storm che supporta l'elaborazione c
 
 Per altre informazioni su Trident, vedere la <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">panoramica dell'API Trident</a>.
 
-Per un'applicazione Trident di esempio, vedere [Temi di tendenza Twitter con Apache Storm in HDInsight](../hdinsight-storm-twitter-trending/)
+Per un'applicazione Trident di esempio, vedere [Temi di tendenza Twitter con Apache Storm in HDInsight](hdinsight-storm-twitter-trending.md)
 
 ##Passaggi successivi
 
 A questo punto, dopo aver appreso come creare una topologia Storm con Java, è possibile passare ai seguenti argomenti:
 
-* [Distribuzione e gestione di topologie Apache Storm in HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+* [Distribuzione e gestione di topologie Apache Storm in HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [Analisi dei tempi di tendenza Twitter con Apache Storm in HDInsight](../hdinsight-storm-twitter-trending)
+* [Analisi dei tempi di tendenza Twitter con Apache Storm in HDInsight](hdinsight-storm-twitter-trending.md)
 
 <!--HONumber=47-->

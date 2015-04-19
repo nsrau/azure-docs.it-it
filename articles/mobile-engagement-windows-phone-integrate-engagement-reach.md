@@ -18,7 +18,7 @@
 
 #Come integrare l'SDK Copertura di Engagement in Windows Phone
 
-È necessario seguire la procedura di integrazione descritta nel documento [Come integrare Engagement in Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/) prima di seguire questa guida.
+È necessario seguire la procedura di integrazione descritta nel documento [Come integrare Engagement in Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md) prima di seguire questa guida.
 
 ##Incorporare l'SDK Copertura di Engagement nel progetto Windows Phone
 

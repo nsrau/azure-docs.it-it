@@ -63,7 +63,7 @@ Nonostante sia possibile trovare altre informazioni usando l'opzione -help in qu
 ## Passaggi successivi
 
  
-* [Computing Linux e open source in Azure](../virtual-machines-linux-opensource/)
-* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines-linux-how-to-log-on/)
+* [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
+* [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

@@ -31,7 +31,7 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare l'esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Introduzione ai dati] per collegare il progetto al servizio mobile. Se non è stato collegato alcun servizio mobile, la procedura guidata Aggiungi notifica push crea automaticamente la connessione. 
 
->[AZURE.NOTE]Per inviare notifiche push a un'app per Windows Phone 8.1 Store, vedere la versione per [app di Windows Store](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) dell'esercitazione.
+>[AZURE.NOTE]Per inviare notifiche push a un'app per Windows Phone 8.1 Store, vedere la versione per [app di Windows Store](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) dell'esercitazione.
 
 ##<a id="update-app"></a> Aggiornare l'app per la registrazione per le notifiche
 

@@ -42,7 +42,7 @@ Per completare questa esercitazione, sono necessari:
 
 * Microsoft Azure PowerShell
 
-* Se non si ha familiarità con Apache Storm, leggere la [panoramica su HDInsight Storm](/it-it/documentation/articles/hdinsight-storm-overview) prima di iniziare.
+* Se non si ha familiarità con Apache Storm, leggere la [panoramica su HDInsight Storm](hdinsight-storm-overview.md) prima di iniziare.
 
 ## <a id="provision"></a>Eseguire il provisioning di un cluster Storm nel portale di Azure
 
@@ -72,7 +72,7 @@ Per completare questa esercitazione, sono necessari:
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-8. Nella pagina **Azioni script** fare clic su **aggiungi azione script** per specificare i dettagli relativi allo script da eseguire per personalizzare un cluster, ad esempio quello da creare. È ad esempio possibile usare Azione script per personalizzare un cluster da installare. <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante Azione script](/it-it/documentation/articles/hdinsight-hadoop-customize-cluster/). 
+8. Nella pagina **Azioni script** fare clic su **aggiungi azione script** per specificare i dettagli relativi allo script da eseguire per personalizzare un cluster, ad esempio quello da creare. È ad esempio possibile usare Azione script per personalizzare un cluster da installare. <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). 
 	
 	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
 
@@ -197,9 +197,9 @@ Se immediatamente dopo questo comando viene visualizzata la pagina Web dell'inte
 
 	> [AZURE.NOTE] I documenti Java sono costituiti da pagine Web. Dopo l'estrazione dei file, usare un browser per visualizzare il file **index.html**.
 
-* [Analisi dei dati dei sensori con Storm e HDInsight](/it-it/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Analisi dei dati dei sensori con Storm e HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](/it-it/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

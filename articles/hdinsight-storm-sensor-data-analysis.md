@@ -1353,7 +1353,7 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 * Per altre informazioni su D3.js, vedere [D3.js - Data Driven Documents](http://d3js.org/)
 
-* Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](/it-it/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+* Per altre informazioni sulla creazione di topologie in .NET, vedere [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azureportal]: https://manage.windowsazure.com/
 <!--HONumber=42-->

@@ -24,7 +24,7 @@
 
 > Il servizio File di Azure attualmente non supporta Analisi archiviazione.
 
-> Per una guida approfondita sull'uso di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
+> Per una guida approfondita sull'uso di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 
 ##Sommario##

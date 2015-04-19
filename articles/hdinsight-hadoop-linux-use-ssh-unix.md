@@ -20,7 +20,7 @@
 
 I cluster HDInsight basati su Linux offrono la possibilità di proteggere l'accesso SSH usando una password o una chiave SSH. Questo documento fornisce informazioni sull'uso di SSH con HDInsight da client OS X, Unix o Linux.
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Sebbene questa procedura possa essere eseguita su un client Windows se è stato installato un pacchetto che fornisce `ssh` e `ssh-keygen`, ad esempio Git per Windows, per i client Windows è consigliabile eseguire la procedura descritta in [Usare SSH con HDInsight (Hadoop) basato su Linux da Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
+> [AZURE.NOTE] I passaggi descritti in questo articolo presuppongono l'uso di un client Linux, Unix o OS X. Sebbene questa procedura possa essere eseguita su un client Windows se è stato installato un pacchetto che fornisce `ssh` e `ssh-keygen`, ad esempio Git per Windows, per i client Windows è consigliabile eseguire la procedura descritta in [Usare SSH con HDInsight (Hadoop) basato su Linux da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ##Prerequisiti
 
@@ -229,10 +229,10 @@ Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la
 
 Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è possibile imparare a usare MapReduce con Hadoop in HDInsight.
 
-* [Usare Hive con HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con HDInsight](hdinsight-use-hive.md)
 
-* [Usare Pig con HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
-* [Usare processi MapReduce con HDInsight](../hdinsight-use-mapreduce/)
+* [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
  
 <!--HONumber=47-->

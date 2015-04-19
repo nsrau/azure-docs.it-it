@@ -522,7 +522,7 @@ Per installare gli strumenti da riga di comando, usare il comando seguente:
 	
 	npm install azure-cli -g
 
-> [AZURE.NOTE] Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](/it-it/documentation/articles/xplat-cli/);
+> [AZURE.NOTE] Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli.md);
 
 > [AZURE.NOTE] Anche se gli strumenti da riga di comando sono stati creati principalmente per gli utenti Mac e Linux, essendo basati su Node.js, dovrebbero funzionare in qualsiasi sistema in grado di eseguire Node.
 

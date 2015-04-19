@@ -313,7 +313,7 @@ del flusso di lavoro del modello di processo in Visual Studio TFS Team Build.
     privata e caricare i certificati per ogni servizio cloud di destinazione tramite il
     portale di gestione di Azure. Per altre informazioni, vedere
     l'articolo
-    [http://msdn.microsoft.com/it-it/library/windowsazure/gg443832.aspx][].
+    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Aggiorna distribuzione ed Elimina distribuzione -\> Nuova distribuzione**
 

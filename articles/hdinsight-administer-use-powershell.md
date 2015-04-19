@@ -79,7 +79,7 @@ Se si dispone già di un account di archiviazione, ma non si conosce il nome acc
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso* di [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account/).
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di gestione, vedere la sezione *Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso* di [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
 
 **Per creare il contenitore dell'archiviazione di Azure**
 

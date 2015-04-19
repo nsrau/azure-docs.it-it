@@ -18,7 +18,7 @@
 
 # Esecuzione di query su più partizioni
 ## Informazioni generali
-La funzionalità di **query su più partizioni** viene usata per attività che richiedono l'esecuzione di una query su più partizioni, ad esempio la raccolta o la creazione di report sui dati (a differenza del [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md), che opera su un'unica partizione). 
+La funzionalità di **query su più partizioni** viene usata per attività che richiedono l'esecuzione di una query su più partizioni, ad esempio la raccolta o la creazione di report sui dati (a differenza del [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md), che opera su un'unica partizione). 
 
 La libreria client di scalabilità elastica introduce un nuovo spazio dei nomi denominato **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, che consente di eseguire query su più partizioni usando una singola query con un unico risultato. Fornisce l'astrazione delle query su una raccolta di partizioni, nonché criteri di esecuzione alternativi, in particolare risultati parziali, per la gestione degli errori quando si eseguono query su molte partizioni.  
 

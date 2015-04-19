@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usare Python con Hive e Pig in Azure HDInsight" 
 	description="Informazioni su come usare le funzioni definite dall'utente di Python da Hive e Pig in Azure HDInsight." 
 	services="hdinsight" 
@@ -171,7 +171,7 @@ In queste procedure viene usato Windows Azure PowerShell. Se questo non è già 
 
 	Questo script recupera le informazioni relative al cluster HDInsight, quindi estrae l'account e la chiave dell'account di archiviazione predefinito e carica i file nella radice del contenitore.
 
-	> [AZURE.NOTE] Altri metodi per caricare gli script sono descritti nel documento [Caricare dati per processi Hadoop in HDInsight](/it-it/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] Altri metodi per caricare gli script sono descritti nel documento [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
 ###Uso del Dashboard di Hive (solo esempio di Hive)
 
@@ -267,10 +267,9 @@ Le informazioni di errore (STDERR) e il risultato del processo (STDOUT) vengono 
 <tr>
 <td>Processo</td><td>File nel contenitore BLOB da verificare</td>
 </tr>
-<tr>
-<td>Hive</td><td>/HivePython/stderr<br />/HivePython/stdout</td>
+<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
 </tr>
-<td>Pig</td><td>/PigPython/stderr<br />/PigPython/stdout</td>
+<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
 </tr>
 </table>
 

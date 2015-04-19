@@ -30,7 +30,7 @@ Il [portale di gestione di Azure](http://manage.windowsazure.com) consente di in
 
 L'opzione **Da raccolta** apre una procedura guidata che consente di configurare la macchina virtuale. L'ultima pagina della procedura guidata consente di installare l'agente di macchine virtuali e l'estensione di sicurezza Symantec. 
 
-Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial/). Quando si raggiunge l'ultima pagina della procedura guidata, eseguire le operazioni seguenti:
+Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows Server](virtual-machines-windows-tutorial.md). Quando si raggiunge l'ultima pagina della procedura guidata, eseguire le operazioni seguenti:
 
 1.	In Agente di macchine virtuali l'opzione **Installa agente di macchine virtuali** dovrebbe essere già selezionata.
 
@@ -45,7 +45,7 @@ Per istruzioni generali, vedere [Creare una macchina virtuale che esegue Windows
 
 Prima di iniziare, è necessario disporre di quanto segue:
 
-- Modulo Azure PowerShell 0.8.2 o versioni successive. Per verificare quale versione di Azure PowerShell è installata, è possibile usare il comando **Get-Module azure | format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell/).  
+- Modulo Azure PowerShell 0.8.2 o versioni successive. Per verificare quale versione di Azure PowerShell è installata, è possibile usare il comando **Get-Module azure | format-table version**. Per istruzioni e un collegamento alla versione più recente, vedere [Come installare e configurare Azure PowerShell](install-configure-powershell.md).  
 
 - Agente di macchine virtuali. 
 
@@ -67,13 +67,13 @@ Se l'agente di macchine virtuali è installato, eseguire questi comandi per inst
 
 Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia aggiornata:
 
-1.	Accedere alla macchina virtuale. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server/).
+1.	Accedere alla macchina virtuale. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md).
 2.	Per Windows Server 2008 R2, fare clic su **Start > Symantec Endpoint Protection**. Per Windows Server 2012 o Windows Server 2012 R2, nella schermata Start digitare **Symantec**, quindi fare clic su **Symantec Endpoint Protection**.
 3.	Nella scheda **Stato** della finestra **Stato - Symantec Endpoint Protection** applicare gli aggiornamenti o, se necessario, riavviare.
 
 ## Risorse aggiuntive
 
-[Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server/)
+[Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md)
 
 [Gestione delle estensioni](https://msdn.microsoft.com/library/dn606311.aspx)
 

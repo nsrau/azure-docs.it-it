@@ -49,7 +49,7 @@ Se tali opzioni non sono disponibili, è possibile generare **certificati autofi
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Ottenere il WDK dalla pagina Web [Windows 8.1: download di kit e strumenti](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers).
+* Ottenere il WDK dalla pagina Web [Windows 8.1: download di kit e strumenti](http://msdn.microsoft.com/windows/hardware/gg454513#drivers).
 
 ##    <a name="to-configure-ssl-cert"></a>Per configurare il certificato SSL
 Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:

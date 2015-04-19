@@ -20,7 +20,7 @@
 
 Vengono fornite informazioni su come usare Ambari per gestire e monitorare cluster HDInsight basati su Linux.
 
-> [AZURE.NOTE] Molte delle informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Linux. Per i cluster HDInsight basati su Windows, il monitoraggio è disponibile solo tramite l'API REST Ambari. Vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari](../hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Molte delle informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Linux. Per i cluster HDInsight basati su Windows, il monitoraggio è disponibile solo tramite l'API REST Ambari. Vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari](hdinsight-monitor-use-ambari-api.md).
 
 ## <a id="whatis"></a>Informazioni su Ambari
 

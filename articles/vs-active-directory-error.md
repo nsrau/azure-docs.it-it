@@ -16,15 +16,14 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# Errore durante il rilevamento dell'autenticazione
-
+###Errore durante il rilevamento dell'autenticazione 
 Durante il rilevamento di codice di autenticazione precedente, la procedura guidata ha rilevato un tipo di autenticazione non compatibile.   
 
 ###Elementi verificati
 
 ####Tipi di progetto
 
-La procedura guidata verifica il tipo di progetto di cui è in corso lo sviluppo in modo da potervi inserire la logica di autenticazione corretta.  Se nel progetto è presente un controller che deriva da  `ApiController`, verrà considerato come un progetto WebAPI.  Se nel progetto sono presenti solo controller che derivano da  `MVC.Controller`, verrà considerato come un progetto MVC.  Qualsiasi altro elemento verrà considerato come non supportato dalla procedura guidata.  I progetti WebForms non sono al momento supportati.
+La procedura guidata verifica il tipo di progetto di cui è in corso lo sviluppo in modo da potervi inserire la logica di autenticazione corretta.  Se nel progetto è presente un controller che deriva da `ApiController`, verrà considerato come un progetto WebAPI.  Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, verrà considerato come un progetto MVC.  Qualsiasi altro elemento verrà considerato come non supportato dalla procedura guidata.  I progetti WebForms non sono al momento supportati.
 
 #####Codice di autenticazione compatibile
 
@@ -52,7 +51,7 @@ La procedura guidata prova infine a rilevare le versioni del codice di autentica
 * Account dell'organizzazione 
  
 
-Per individuare Autenticazione Windows in un progetto MVC, la procedura guidata cerca l'elemento  `authentication` dal file **web.config**.
+Per rilevare Autenticazione Windows in un progetto MVC, la procedura guidata cerca l'elemento `authentication` dal file **web.config**.
 
 <PRE class="prettyprint">
 	&lt;configuration&gt;
@@ -62,7 +61,7 @@ Per individuare Autenticazione Windows in un progetto MVC, la procedura guidata 
 	&lt;/configuration&gt;
 </pre>
 
-Per individuare Autenticazione Windows in un progetto API Web, la procedura guidata cerca l'elemento  `IISExpressWindowsAuthentication` dal file **.csproj** del progetto:
+Per rilevare Autenticazione Windows in un progetto API Web, la procedura guidata cerca l'elemento `IISExpressWindowsAuthentication` dal file **.csproj** del progetto:
 
 <PRE class="prettyprint">
 	&lt;Project&gt;
@@ -72,7 +71,7 @@ Per individuare Autenticazione Windows in un progetto API Web, la procedura guid
 	&lt;/Project&gt;
 </PRE>
 
-Per individuare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package dal file **Packages.config**.
+Per rilevare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package dal file **Packages.config**.
 
 <PRE class="prettyprint">
 	&lt;packages&gt;
@@ -80,7 +79,7 @@ Per individuare l'autenticazione per singoli account utente, la procedura guidat
 	&lt;/packages&gt;
 </PRE>
 
-Per individuare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento dal file **web.config**:
+Per rilevare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento dal file **web.config**:
 
 <PRE class="prettyprint">
 	&lt;configuration*gt;
@@ -94,4 +93,4 @@ Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed ese
 
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

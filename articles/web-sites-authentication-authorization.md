@@ -39,7 +39,7 @@ In molti scenari, si richiede la personalizzazione del comportamento di autentic
 	-	L'AD di Azure delega la gestione delle applicazioni [relying party](http://en.wikipedia.org/wiki/Relying_party) a ruoli di non amministratore, mentre l'accesso dell'applicazione ai dati della directory sensibili deve essere configurato dagli amministratori globali.
 	-	Invia un set di scopi generali dei tipi di attestazioni per tutte le applicazioni relying party. Per l'elenco dei tipi di attestazioni, vedere [Tipi di attestazioni e token supportati](http://msdn.microsoft.com/library/azure/dn195587.aspx). Le attestazioni non sono personalizzabili.
 	-	[API Graph AD di Azure](http://msdn.microsoft.com/library/azure/hh974476.aspx) abilita l'accesso all'applicazione per i dati della directory nell'AD di Azure.
--	[Servizio token di sicurezza (STS) locale, come AD FS](../web-sites-dotnet-lob-application-adfs/) - È possibile implementare l'autenticazione e l'autorizzazione per l'app Web con un STS locale come AD FS. L'utilizzo di AD FS locale presenta le seguenti caratteristiche:
+-	[Servizio token di sicurezza (STS) locale, come AD FS](web-sites-dotnet-lob-application-adfs.md) - È possibile implementare l'autenticazione e l'autorizzazione per l'app Web con un STS locale come AD FS. L'utilizzo di AD FS locale presenta le seguenti caratteristiche:
 	-	La topologia AD FS deve essere distribuita in locale, con sovraccarico di costi e gestione.
 	-	È preferibile che i criteri aziendali richiedano che i dati dell'AD vengano archiviati in locale.
 	-	Solo gli amministratori AD FS possono configurare i [trust e le regole di attestazioni di relying party](http://technet.microsoft.com/library/dd807108.aspx).

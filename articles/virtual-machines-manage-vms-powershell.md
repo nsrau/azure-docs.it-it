@@ -18,7 +18,7 @@
 
 # Gestire le macchine virtuali con Azure PowerShell
 
-Prima di iniziare è necessario assicurarsi che Azure PowerShell sia installato. A tale scopo, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell/)
+Prima di iniziare è necessario assicurarsi che Azure PowerShell sia installato. A tale scopo, vedere [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
 ## Ottenere un'immagine
 

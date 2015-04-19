@@ -22,7 +22,7 @@
 
 #Distribuzioni di Linux supportate da Azure
 
-Le immagini di distribuzione disponibili nella raccolta di Azure vengono fornite dai partner seguenti e Microsoft collabora con le diverse community Linux per offrire un numero sempre maggiore di distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](../virtual-machines-linux-create-upload-vhd/).
+Le immagini di distribuzione disponibili nella raccolta di Azure vengono fornite dai partner seguenti e Microsoft collabora con le diverse community Linux per offrire un numero sempre maggiore di distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](virtual-machines-linux-create-upload-vhd.md).
 
 ## Canonical ##
  

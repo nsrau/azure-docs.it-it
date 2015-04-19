@@ -114,7 +114,7 @@ Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visua
 
 ## HDInsight Tools per Visual Studio
 
-HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei seguenti passaggi viene usata un'applicazione di esempio. Per informazioni sulla creazione delle proprie tipologie, vedere l'articolo relativo allo [sviluppo di topologie C# usando HDInsight Tools per Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei seguenti passaggi viene usata un'applicazione di esempio. Per informazioni sulla creazione delle proprie tipologie, vedere l'articolo relativo allo [sviluppo di topologie C# usando HDInsight Tools per Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Eseguire i seguenti passaggi per distribuire una topologia di esempio nel cluster Storm in HDInsight e quindi visualizzare e gestire tale topologia.
 
@@ -166,7 +166,7 @@ Le informazioni restituite dall'API REST possono essere usate solo nel cluster o
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso come distribuire e monitorare le topologie usando Storm Dashboard, è possibile passare agli argomenti relativi allo [sviluppo di topologie C# usando HDInsight Tools per Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)o allo [sviluppo di topologie basate su Java usando Maven](../hdinsight-storm-develop-java-topology/).
+A questo punto, dopo aver appreso come distribuire e monitorare le topologie usando Storm Dashboard, è possibile passare agli argomenti relativi allo [sviluppo di topologie C# usando HDInsight Tools per Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)o allo [sviluppo di topologie basate su Java usando Maven](hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

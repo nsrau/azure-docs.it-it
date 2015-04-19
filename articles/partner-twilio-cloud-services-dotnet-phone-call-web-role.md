@@ -174,7 +174,7 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'uso di Twi
 * Per altre informazioni su Twilio, visitare la pagina [https://www.twilio.com/docs][twilio_docs].
 
 ##<a name="seealso"></a>Vedere anche
-* [Come usare Twilio per le funzionalità voce ed SMS da Azure](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [Come usare Twilio per le funzionalità voce ed SMS da Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

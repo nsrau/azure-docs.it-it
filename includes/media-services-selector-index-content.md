@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [Portale](/documentation/articles/media-services-manage-content/)
-- [.NET SDK](/documentation/articles/media-services-index-content/)
+- [Portale](media-services-manage-content.md)
+- [.NET SDK](media-services-index-content.md)
 
 <!--HONumber=47-->

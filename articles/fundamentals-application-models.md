@@ -41,7 +41,7 @@ I dischi rigidi virtuali disponibili nella raccolta e nel sito Web VMDepot inclu
 
 
 
-Oltre al disco rigido virtuale, si specificano le dimensioni della nuova macchina virtuale.  Le statistiche complete di ogni dimensione sono elencate [nella raccolta di Azure](http://msdn.microsoft.com/it-it/library/windowsazure/dn197896.aspx).  
+Oltre al disco rigido virtuale, si specificano le dimensioni della nuova macchina virtuale.  Le statistiche complete di ogni dimensione sono elencate [nella raccolta di Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
 
 -	**Extra Small**, con una memoria centrale condivisa e 768 MB di memoria.
 -	**Small**, con 1 memoria centrale e 1,75 GB di memoria.

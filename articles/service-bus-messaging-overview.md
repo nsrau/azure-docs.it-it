@@ -31,10 +31,10 @@ La messaggistica del bus di servizio presenta due distinte funzionalità: code e
 
 Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
-- [Panoramica dell'architettura del bus di servizio di Azure](../fundamentals-service-bus-hybrid-solutions/)
+- [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
 
-- [Come usare le code del bus di servizio](../service-bus-dotnet-how-to-use-queues)
+- [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-- [Come usare gli argomenti del bus di servizio](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->

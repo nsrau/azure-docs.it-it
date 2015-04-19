@@ -18,7 +18,7 @@
 
 #Come usare l'API di Mobile Engagement su Android
 
-Questo documento costituisce un'integrazione al documento relativo all'[integrazione di Mobile Engagement in Android](../mobile-engagement-android-integrate-engagement/)e offre informazioni approfondite su come usare l'API di Mobile Engagement per rendere note le statistiche dell'applicazione.
+Questo documento costituisce un'integrazione al documento relativo all'[integrazione di Mobile Engagement in Android](mobile-engagement-android-integrate-engagement.md)e offre informazioni approfondite su come usare l'API di Mobile Engagement per rendere note le statistiche dell'applicazione.
 
 Tenere presente che se si preferisce che Mobile Engagement segnali solo informazioni tecniche e su sessioni, attività e arresti anomali dell'applicazione, il metodo più semplice a questo scopo consiste nel fare in modo che tutte le `Activity` sottoclassi ereditino dalla `EngagementActivity` classe corrispondente.
 
@@ -28,7 +28,7 @@ L'API di Mobile Engagement viene fornita dalla classe `EngagementAgent`. Un'ista
 
 ##Concetti relativi a Mobile Engagement
 
-Le sezioni seguenti contengono alcuni approfondimenti dei comuni [concetti relativi a Mobile Engagement](../mobile-engagement-concepts/)per la piattaforma Android.
+Le sezioni seguenti contengono alcuni approfondimenti dei comuni [concetti relativi a Mobile Engagement](mobile-engagement-concepts.md)per la piattaforma Android.
 
 ### `Sessione` e `attività`
 

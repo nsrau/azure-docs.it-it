@@ -45,7 +45,7 @@ Se non si dispone di una sottoscrizione Azure, è possibile iscriversi per otten
 
 ## Fase 1: Configurare l'ambiente cloud ibrido
 
-Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
+Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
 
 Questa è la configurazione corrente.
 
@@ -195,13 +195,13 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 
 [SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Farm di SharePoint Server](../virtual-machines-sharepoint-farm-azure-preview/)
+[Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

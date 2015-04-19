@@ -105,13 +105,13 @@ Come è possibile osservare, il comando Hive fornisce un modo semplice per esegu
 
 Per informazioni generali su Hive in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
-* [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

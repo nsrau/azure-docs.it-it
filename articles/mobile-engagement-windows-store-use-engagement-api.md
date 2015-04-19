@@ -18,7 +18,7 @@
 
 #Come utilizzare l'API Engagement in Windows 
 
-Questo documento è un componente aggiuntivo al documento [Come integrare Engagement in Windows](../mobile-engagement-windows-store-integrate-engagement/): fornisce informazioni approfondite su come utilizzare l'API Engagement per segnalare le statistiche dell'applicazione.
+Questo documento è un componente aggiuntivo al documento [Come integrare Engagement in Windows](mobile-engagement-windows-store-integrate-engagement.md): fornisce informazioni approfondite su come utilizzare l'API Engagement per segnalare le statistiche dell'applicazione.
 
 Tenere presente che se si desidera che Engagement segnali solo sessioni, attività, arresti anomali e informazioni tecniche dell'applicazione, il modo più semplice consiste nel far sì che tutte le sottoclassi  `Page` ereditino dalla classe  `EngagementPage`.
 
@@ -31,7 +31,7 @@ Anche se il modulo dell'agente non è stato inizializzato, ogni chiamata all'API
 
 ##Concetti di Engagement
 
-Le parti seguenti approfondiscono i [Concetti di Mobile Engagemet](../mobile-engagement-concepts/) per la piattaforma Windows.
+Le parti seguenti approfondiscono i [Concetti di Mobile Engagemet](mobile-engagement-concepts.md) per la piattaforma Windows.
 
 ### `Sessione` e  `Attività`
 

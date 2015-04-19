@@ -62,7 +62,7 @@ Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete
 >
 > È consigliabile definire una singola subnet per ogni cluster.
 
-Per altre informazioni sul provisioning di un cluster HDInsight in una rete virtuale, vedere l'articolo relativo al [provisioning di cluster Hadoop in HDInsight](/documentation/articles/hdinsight-provision-clusters/).
+Per altre informazioni sul provisioning di un cluster HDInsight in una rete virtuale, vedere l'articolo relativo al [provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
 
 ##<a id="tasks"></a>Attività e informazioni
 
@@ -74,7 +74,7 @@ Al cluster HDInsight verrà assegnato un nome di dominio completo specifico per 
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambar](/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambar](hdinsight-monitor-use-ambari-api.md).
 
 È necessario specificare il nome del cluster e un servizio e un componente in esecuzione nel cluster, ad esempio il gestore di risorse YARN.
 
@@ -82,7 +82,7 @@ Al cluster HDInsight verrà assegnato un nome di dominio completo specifico per 
 
 Ad esempio, per restituire il nome di dominio completo di un cluster HDInsight Hadoop, è possibile usare uno dei seguenti metodi per recuperare i dati per il gestore di risorse YARN.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -109,7 +109,7 @@ Per connettersi ad HBase in remoto tramite l'API Java, è necessario determinare
 
 Per ottenere l'indirizzo di quorum di Zookeeper, usare uno dei seguenti metodi per eseguire query nel servizio di gestione di Ambari.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -129,7 +129,7 @@ Per ottenere l'indirizzo di quorum di Zookeeper, usare uno dei seguenti metodi p
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambar](/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambar](hdinsight-monitor-use-ambari-api.md).
 
 Dopo aver ottenuto le informazioni sul quorum, usarle nell'applicazione client.
 
@@ -162,13 +162,13 @@ Se si verificano problemi di accesso a un servizio da HDInsight, consultare la d
 
 I seguenti esempi illustrano come usare HDInsight con Rete virtuale di Azure.
 
-* [Analizzare i dati del sensore in tempo reale con Storm e HBase in HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis/): illustra come configurare un cluster Storm e HBase in una rete virtuale, nonché come scrivere dati in remoto in HBase da Storm.
+* [Analizzare i dati del sensore in tempo reale con Storm e HBase in HDInsight](hdinsight-storm-sensor-data-analysis.md): illustra come configurare un cluster Storm e HBase in una rete virtuale, nonché come scrivere dati in remoto in HBase da Storm.
 
-* [Effettuare il provisioning di cluster HBase in Rete virtuale di Azure](/documentation/articles/hdinsight-hbase-provision-vnet/) : fornisce informazioni sul provisioning di un cluster HBase in una rete virtuale di Azure
+* [Effettuare il provisioning di cluster HBase in Rete virtuale di Azure](hdinsight-hbase-provision-vnet.md) : fornisce informazioni sul provisioning di un cluster HBase in una rete virtuale di Azure
 
-* [Effettuare il provisioning dei cluster Hadoop in HDInsight](/documentation/articles/hdinsight-provision-clusters/): fornisce informazioni sul provisioning dei cluster Hadoop, con informazioni sull'uso di Rete virtuale di Azure
+* [Effettuare il provisioning dei cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): fornisce informazioni sul provisioning dei cluster Hadoop, con informazioni sull'uso di Rete virtuale di Azure
 
-* [Usare Sqoop con Hadoop in HDInsight](/documentation/articles/hdinsight-use-sqoop/) : fornisce informazioni sull'uso di Sqoop per trasferire dati con SQL Server su una rete virtuale
+* [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md) : fornisce informazioni sull'uso di Sqoop per trasferire dati con SQL Server su una rete virtuale
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale di Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 

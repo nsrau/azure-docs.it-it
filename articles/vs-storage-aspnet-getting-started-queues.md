@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Risultati](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Per iniziare](vs-storage-aspnet-getting-started-queues.md)
+> - [Risultati](vs-storage-aspnet-what-happened.md)
 
 ## Introduzione all'Archiviazione di Azure (progetti ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [BLOB](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Code](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tabelle](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [BLOB](vs-storage-aspnet-getting-started-blobs.md)
+> - [Code](vs-storage-aspnet-getting-started-queues.md)
+> - [Tabelle](vs-storage-aspnet-getting-started-tables.md)
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Come usare l'archiviazione di accodamento da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/).
 

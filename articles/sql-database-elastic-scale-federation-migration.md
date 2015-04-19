@@ -65,7 +65,7 @@ Con le federazioni, la connessione a uno specifico membro di federazione viene s
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Con le API di scalabilità elastica, viene stabilita una connessione a una specifica partizione mediante il [routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md) con il metodo **OpenConnectionForKey** per la classe **RangeShardMap**. 
+Con le API di scalabilità elastica, viene stabilita una connessione a una specifica partizione mediante il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con il metodo **OpenConnectionForKey** per la classe **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Con le API di scalabilità elastica, viene stabilita una connessione a una speci
         } 
     }
 
-I passaggi descritti in questa sezione sono necessari, ma potrebbero non affrontare tutti i possibili scenari di migrazione. Per altre informazioni, vedere la [panoramica concettuale sulla scalabilità elastica](./sql-database-elastic-scale-introduction.md) e la [guida di riferimento sulle API](http://go.microsoft.com/?linkid=9862604).
+I passaggi descritti in questa sezione sono necessari, ma potrebbero non affrontare tutti i possibili scenari di migrazione. Per altre informazioni, vedere la [panoramica concettuale sulla scalabilità elastica](sql-database-elastic-scale-introduction.md) e la [guida di riferimento sulle API](http://go.microsoft.com/?linkid=9862604).
 
 ## Disattivare i membri di federazione esistenti 
 
@@ -102,7 +102,7 @@ L'utilità di migrazione federazioni offre la possibilità di:
 
 
 ## Confronto delle funzionalità  
-Anche se la scalabilità elastica offre molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](./sql-database-elastic-scale-multishard-querying.md), [divisione e unione di partizioni](./sql-database-elastic-scale-overview-split-and-merge.md), [elasticità di partizionamento](./sql-database-elastic-scale-elasticity.md), [memorizzazione nella cache sul lato client](./sql-database-elastic-scale-shard-map-management.md)e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate in Scalabilità elastica.
+Anche se la scalabilità elastica offre molte funzionalità aggiuntive (ad esempio [esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md), [divisione e unione di partizioni](sql-database-elastic-scale-overview-split-and-merge.md), [elasticità di partizionamento](sql-database-elastic-scale-elasticity.md), [memorizzazione nella cache sul lato client](sql-database-elastic-scale-shard-map-management.md)e molte altre), esistono alcune importanti funzionalità delle federazioni non supportate in Scalabilità elastica.
   
 
 - L'uso di **FILTERING=ON**. Attualmente Scalabilità elastica non supporta i filtri a livello di riga. Una possibile soluzione consiste nell'inserire la logica di filtro nella query eseguita sulla partizione, come illustrato di seguito: 

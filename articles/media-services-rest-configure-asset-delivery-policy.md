@@ -19,13 +19,13 @@
 # Procedura: Configurare i criteri di distribuzione degli asset
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
 Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common). 
 
 Questo argomento illustra perché e come creare i criteri di distribuzione degli asset. 
 
->[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md). 
 >
 >Inoltre, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.  
 
@@ -53,13 +53,13 @@ HDS:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere l'argomento relativo alla [creazione di un URL di streaming](../media-services-deliver-streaming-content).
+Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere l'argomento relativo alla [creazione di un URL di streaming](media-services-deliver-streaming-content.md).
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](../media-services-rest-how-to-use).
+>Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Installazione per lo sviluppo nell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](../media-services-rest-connect_programmatically/). 
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI, come descritto in [Connessione all'account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md). 
 
 
 ## Criteri di distribuzione degli asset Clear 
@@ -142,7 +142,7 @@ Risposta:
 
 ### Creare una chiave simmetrica di tipo EnvelopeEncryption e collegarla all'asset
 
-Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo EnvelopeEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](../media-services-rest-create-contentkey)).
+Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo EnvelopeEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md)).
 
 
 ### <a id="get_delivery_url"></a>Ottenere l'URL di distribuzione
@@ -235,7 +235,7 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 ### Creare una chiave simmetrica di tipo CommonEncryption e collegarla all'asset
 
-Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo CommonEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](../media-services-rest-create-contentkey)).
+Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo CommonEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md)).
 
 
 ### Ottenere l'URL di distribuzione

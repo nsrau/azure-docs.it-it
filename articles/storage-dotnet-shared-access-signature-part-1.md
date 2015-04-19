@@ -20,7 +20,7 @@
 
 # Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso
 
-Una firma di accesso condiviso costituisce un potente strumento per concedere ad altri client accesso limitato a BLOB, tabelle e code dell'account di archiviazione, senza dover esporre la chiave dell'account. Nella parte 1 di questa esercitazione sulle firme di accesso condiviso verranno fornite informazioni di carattere generale sul modello della firma di accesso condiviso e ne verranno esaminate le procedure consigliate. [La parte 2](../storage-dotnet-shared-access-signature-part-2/) dell'esercitazione illustrerà invece il processo di creazione delle firme di accesso condiviso tramite il servizio BLOB.
+Una firma di accesso condiviso costituisce un potente strumento per concedere ad altri client accesso limitato a BLOB, tabelle e code dell'account di archiviazione, senza dover esporre la chiave dell'account. Nella parte 1 di questa esercitazione sulle firme di accesso condiviso verranno fornite informazioni di carattere generale sul modello della firma di accesso condiviso e ne verranno esaminate le procedure consigliate. [La parte 2](storage-dotnet-shared-access-signature-part-2.md) dell'esercitazione illustrerà invece il processo di creazione delle firme di accesso condiviso tramite il servizio BLOB.
 
 ## Informazioni sulla firma di accesso condiviso ##
 
@@ -223,7 +223,7 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
 ## Next Steps ##
 
-[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../storage-dotnet-shared-access-signature-part-2/)
+[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
 
 [Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

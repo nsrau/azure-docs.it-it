@@ -86,7 +86,7 @@ Usare **Scambia** per convertire una distribuzione di gestione temporanea di un 
 
 Per visualizzare le dipendenze del servizio cloud da altre risorse, è possibile collegare un'istanza di database SQL di Azure o un account di archiviazione al servizio cloud. È possibile collegare o scollegare le risorse nella pagina **Risorse collegate** e monitorare quindi il relativo uso nel dashboard del servizio cloud. Se in un account di archiviazione collegato è attivato il monitoraggio, è possibile monitorare il totale delle richieste nel dashboard del servizio cloud.
 
-Usare **Collegamento** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile ridimensionare il database insieme al ruolo del servizio cloud che lo usa nella pagina **Scalabilità** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'uso). Per altre informazioni, vedere [Come scalare un servizio cloud e le risorse collegate](../cloud-services-how-to-scale/). 
+Usare **Collegamento** per collegare un'istanza di database SQL nuova o esistente o un account di archiviazione al servizio cloud. È quindi possibile ridimensionare il database insieme al ruolo del servizio cloud che lo usa nella pagina **Scalabilità** (un account di archiviazione viene scalato automaticamente man mano che aumenta l'uso). Per altre informazioni, vedere [Come scalare un servizio cloud e le risorse collegate](cloud-services-how-to-scale.md). 
 
 È inoltre possibile monitorare, gestire e ridimensionare il database nel nodo **Database** del portale di gestione. 
 
@@ -120,7 +120,7 @@ Nella seguente procedura viene descritto come collegare una nuova istanza di dat
 
 	![Link Progress](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png)
 
-	Terminato il collegamento, è possibile monitorare lo stato della risorsa collegata nel dashboard del servizio cloud. Per informazioni sul ridimensionamento di un database SQL collegato, vedere [Come scalare un servizio cloud e le risorse collegate](../cloud-services-how-to-scale/).
+	Terminato il collegamento, è possibile monitorare lo stato della risorsa collegata nel dashboard del servizio cloud. Per informazioni sul ridimensionamento di un database SQL collegato, vedere [Come scalare un servizio cloud e le risorse collegate](cloud-services-how-to-scale.md).
 
 ### Per scollegare una risorsa collegata###
 
@@ -158,7 +158,7 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla seguente pro
 5. Per eliminare il servizio cloud fare clic su **Elimina servizio cloud**. Quindi, alla richiesta di conferma fare clic su **Sì**.
 
 > [AZURE.NOTE]
-> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-how-to-monitor/">Come monitorare i servizi cloud</a>.
+> Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle di metriche, vedere "Procedura: Accedere ai dati di monitoraggio dettagliati all'esterno del portale di gestione" in <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Come monitorare i servizi cloud</a>.
 
 
 <!--HONumber=45--> 

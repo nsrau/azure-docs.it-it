@@ -25,7 +25,7 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Nota:** se è necessario installare Python o il [Pacchetto Python di Azure][], vedere la [guida all'installazione di Python](../python-how-to-install/).
+**Nota:** se è necessario installare Python o il [Pacchetto Python di Azure][], vedere la [guida all'installazione di Python](python-how-to-install.md).
 
 
 ## Come creare una coda

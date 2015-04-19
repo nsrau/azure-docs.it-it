@@ -30,11 +30,11 @@ Per questa procedura dettagliata, creare due macchine virtuali di Azure che eseg
 
 Sono inoltre necessari un account di archiviazione di Azure e una chiave di accesso che è possibile ottenere nel portale di Azure.
 
-Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare riferimento a [Creare una macchina virtuale che esegue Linux](../virtual-machines-linux-tutorial/).
+Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare riferimento a [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md).
 
 Sebbene i comandi di installazione specifici presuppongono l'utilizzo di Ubuntu, è possibile adattare i passaggi generali per qualsiasi distribuzione supportata.
 
-La macchina virtuale  *script-vm* richiede l'interfaccia xplat-cli installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli/).
+La macchina virtuale  *script-vm* richiede l'interfaccia xplat-cli installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli.md).
 
 ## Caricamento di uno script
 
@@ -104,6 +104,6 @@ Di seguito sono riportate alcune risorse aggiuntive per xplat-cli, Linux e l'est
 
 [Estensioni per Linux di Azure(GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Computing Linux e open source in Azure](../virtual-machines-linux-opensource/)
+[Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
 
 <!--HONumber=47-->

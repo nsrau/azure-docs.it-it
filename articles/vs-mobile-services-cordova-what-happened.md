@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introduzione](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [Risultati](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [Introduzione](vs-mobile-services-cordova-getting-started.md)
+> - [Risultati](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
 

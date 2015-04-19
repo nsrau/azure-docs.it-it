@@ -402,7 +402,7 @@ usare i collegamenti seguenti per ottenere altre informazioni.
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [offerta speciale]: https://www.sendgrid.com/windowsazure.html
-  [Creazione di un pacchetto per applicazioni PHP e relativa distribuzione in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/hh674499(v=VS.103).aspx
+  [Creazione di un pacchetto per applicazioni PHP e relativa distribuzione in Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl (funzione)]: http://php.net/curl
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions

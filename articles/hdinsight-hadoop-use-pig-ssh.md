@@ -145,12 +145,12 @@ Come si può notare, il comando Pig consente di eseguire operazioni MapReduce in
 
 Per informazioni generali su Pig in HDInsight.
 
-* [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
-* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
 <!--HONumber=47-->

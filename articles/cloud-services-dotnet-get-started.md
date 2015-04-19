@@ -34,7 +34,7 @@ L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.n
 
 ## Architettura alternativa: siti Web e processi Web
 
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [sito Web di Azure](/it-it/services/web-sites/) e si può usare la funzionalità[WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione ad Azure WebJobs SDK](/it-it/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [sito Web di Azure](/it-it/services/web-sites/) e si può usare la funzionalità[WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione ad Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Contenuto dell'esercitazione
 
@@ -47,7 +47,7 @@ Questa esercitazione mostra come eseguire front-end e back-end in un servizio cl
 
 ## Prerequisiti
 
-L'esercitazione presuppone che l'utente abbia familiarità con [i concetti di base relativi ai servizi cloud di Azure](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices), ad esempio con la terminologia *web role* e *worker role*.  L'esercitazione presuppone anche che l'utente sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form. 
+L'esercitazione presuppone che l'utente abbia familiarità con [i concetti di base relativi ai servizi cloud di Azure](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices), ad esempio con la terminologia *web role* e *worker role*.  L'esercitazione presuppone anche che l'utente sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form. 
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-it/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -795,7 +795,7 @@ L'applicazione Contoso Ads è intenzionalmente semplice, in modo da essere idone
 Di seguito sono indicate alcune applicazioni di esempio per servizi cloud che illustrano procedure di codifica più simili a quelle del mondo reale, elencate in ordine di complessità crescente:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Concettualmente simile a Contoso Ads, implementa però più funzionalità e procedure più simili a quelle del mondo reale.
-* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Presenta le tabelle di archiviazione di Azure, oltre ai BLOB e alle code, e include una [serie di esercitazioni dettagliate](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
+* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Presenta le tabelle di archiviazione di Azure, oltre ai BLOB e alle code, e include una [serie di esercitazioni dettagliate](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
 * [Nozioni fondamentali su Servizi cloud in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Un esempio completo che illustra una vasta gamma di procedure consigliate, creato dal gruppo Microsoft Patterns and Practices.
 
 Per informazioni generali sullo sviluppo per il cloud, vedere l'articolo relativo alla [creazione di applicazioni cloud funzionanti con Microsoft Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -807,7 +807,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Servizi cloud di Azure - Parte 1: Introduzione](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Servizi cloud di Azure](/it-it/documentation/services/cloud-services/)
 * [Archiviazione di Azure](/it-it/documentation/services/storage/)
-* [Come usare l'archiviazione BLOB da .NET](/it-it/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Come usare l'archiviazione di accodamento da .NET](/it-it/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
+* [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

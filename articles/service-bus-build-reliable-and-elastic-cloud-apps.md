@@ -20,7 +20,7 @@
  
 La domanda dinamica è un fattore da considerare per le nuove applicazioni.  Le applicazioni moderne devono essere in grado di affrontare senza problemi picchi di carico che possono essere inattesi o previsti, dalle richieste stagionali e variabili, alle tendenze impreviste dei social media. La natura di piattaforma distribuita come servizio (Platform as a Service, PaaS) del bus di servizio di Azure consente di creare applicazioni scalabili e di ripristinare le funzionalità in caso di picchi o di interruzione temporanea del funzionamento dei componenti.  
  
-[Compilare un'applicazione .NET multilivello che usa le code del bus di servizio](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[Compilare un'applicazione .NET multilivello che usa le code del bus di servizio](cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## Esplorazione
 - [Dati fondamentali del bus di servizio di Microsoft Azure](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)

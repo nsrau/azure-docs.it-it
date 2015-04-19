@@ -54,7 +54,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ## <a id="setup"> </a>Configurazione dell'ambiente di sviluppo
 
-**Nota:** se è necessario installare Python o si desidera usare le librerie client, vedere la [guida all'installazione di Python](../python-how-to-install/).
+**Nota:** se è necessario installare Python o si desidera usare le librerie client, vedere la [guida all'installazione di Python](python-how-to-install.md).
 
 Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, non sono installati Apache né Django.  Per connettersi alla macchina virtuale e installare Apache e Django, seguire questa procedura.
 

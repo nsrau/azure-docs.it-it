@@ -20,7 +20,7 @@
 
 Questa guida fornisce esempi di codice C# che illustrano come usare la versione di Azure WebJobs SDK 1.x con il servizio di archiviazione di accodamento di Azure.
 
-Nella guida si presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](../websites-dotnet-webjobs-sdk-get-started/).
+Nella guida si presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 
 La maggior parte dei frammenti di codice mostra solo le funzioni, non il codice che crea l'oggetto  `JobHost` come nel seguente esempio:
 
@@ -294,7 +294,7 @@ L'interfaccia  `IBinder` può essere usata anche con gli attributi  `Table` e  `
 
 ## <a id="blobs"></a> Come leggere e scrivere BLOB e tabelle durante l'elaborazione di un messaggio in coda
 
-Gli attributi  `Blob` e  `Table` consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per esempi di codice che illustrano come attivare processi quando vengono creati o aggiornati BLOB, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), mentre per esempi di codice che leggono e scrivono tabelle, vedere la pagina relativa all'[uso dell'archivio tabelle di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to/).
+Gli attributi  `Blob` e  `Table` consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per esempi di codice che illustrano come attivare processi quando vengono creati o aggiornati BLOB, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), mentre per esempi di codice che leggono e scrivono tabelle, vedere la pagina relativa all'[uso dell'archivio tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Messaggi di coda stringa che attivano operazioni BLOB
 
@@ -310,7 +310,7 @@ Il seguente esempio usa oggetti  `Stream` per leggere e scrivere i BLOB. Il mess
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-Il costruttore dell'attributo  `Blob` usa un parametro  `blobPath` che specifica il contenitore e il nome del BLOB. Per altre informazioni su questo segnaposto, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 
+Il costruttore dell'attributo  `Blob` usa un parametro  `blobPath` che specifica il contenitore e il nome del BLOB. Per altre informazioni su questo segnaposto, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
 
 Quando l'attributo assegna un oggetto  `Stream`, un altro parametro del costruttore specifica la modalità  `FileAccess` come lettura, scrittura o lettura/scrittura. 
 

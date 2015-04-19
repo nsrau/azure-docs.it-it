@@ -21,7 +21,7 @@
 # Crittografia dinamica: Configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
 ## Informazioni generali
 
@@ -29,7 +29,7 @@ Servizi multimediali di Microsoft Azure consente di distribuire contenuti critto
 
 È attualmente possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
 
-Se si vuole crittografare un asset per Servizi multimediali, è necessario associare una chiave di crittografia (**CommonEncryption** o **EnvelopeEncryption**) all'asset (come descritto [qui](../media-services-dotnet-create-contentkey/)) e anche configurare criteri di autorizzazione per la chiave, come descritto in questo articolo. 
+Se si vuole crittografare un asset per Servizi multimediali, è necessario associare una chiave di crittografia (**CommonEncryption** o **EnvelopeEncryption**) all'asset (come descritto [qui](media-services-dotnet-create-contentkey.md)) e anche configurare criteri di autorizzazione per la chiave, come descritto in questo articolo. 
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
@@ -47,8 +47,8 @@ Per altre informazioni, vedere
 
 ### Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints). 
-- L'asset deve contenere un set di file MP4 o Smooth Streaming a più velocità in bit. Per altre informazioni, vedere [Codificare un asset](../media-services-encode-asset/).  
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md). 
+- L'asset deve contenere un set di file MP4 o Smooth Streaming a più velocità in bit. Per altre informazioni, vedere [Codificare un asset](media-services-encode-asset.md).  
 - Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted**.
 - Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
 - Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
@@ -393,6 +393,6 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 
 ## Passaggi successivi
-Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](../media-services-dotnet-configure-asset-delivery-policy/) .
+Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md) .
 
 <!--HONumber=47-->

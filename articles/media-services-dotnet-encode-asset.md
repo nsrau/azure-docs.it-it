@@ -19,7 +19,7 @@
 
 # Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) . 
 
 ## Informazioni generali
 
@@ -207,7 +207,7 @@ Il seguente metodo **CreateChainedTaskEncodingJob** crea un processo contenente 
 
 
 ## Passaggi successivi
-Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](../media-services-check-job-progress/).
+Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-check-job-progress.md).
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Impostazioni per il codificatore]: http://msdn.microsoft.com/library/dn619392.aspx

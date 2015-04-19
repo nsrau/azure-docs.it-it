@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
-> - [Risultati](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Per iniziare](vs-storage-aspnet-getting-started-tables.md)
+> - [Risultati](vs-storage-aspnet-what-happened.md)
 
 ## Introduzione all'Archiviazione di Azure (progetti ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [BLOB](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Code](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tabelle](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [BLOB](vs-storage-aspnet-getting-started-blobs.md)
+> - [Code](vs-storage-aspnet-getting-started-queues.md)
+> - [Tabelle](vs-storage-aspnet-getting-started-tables.md)
 
 Il servizio di archiviazione tabelle di Azure permette di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.  Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 

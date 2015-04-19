@@ -21,7 +21,7 @@
 # Configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
 
 ## Informazioni generali
@@ -35,14 +35,14 @@ Quando un lettore richiede un flusso impostato per la crittografia dinamica, Ser
 
 Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL di **servizio di distribuzione di chiavi/licenze** diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare l'SDK di Servizi multimediali per .NET o le API REST.
 
-[Configurare i criteri di autorizzazione della chiave simmetrica mediante l'SDK di Servizi multimediali per .NET](../media-services-dotnet-configure-content-key-auth-policy/)
+[Configurare i criteri di autorizzazione della chiave simmetrica mediante l'SDK di Servizi multimediali per .NET](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali](../media-services-rest-configure-content-key-auth-policy/)
+[Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali](media-services-rest-configure-content-key-auth-policy.md)
 
 ### Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints). 
-- L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere [Codificare un asset](../media-services-encode-asset/).  
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md). 
+- L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere [Codificare un asset](media-services-encode-asset.md).  
 - Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
 
 
@@ -87,7 +87,7 @@ Quando si proteggono i contenuti con **PlayReady**, è necessario includere nei 
 È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ## Passaggi successivi
-Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](../media-services-manage-content#encrypt/) .
+Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](media-services-manage-content#encrypt.md) .
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

@@ -388,7 +388,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
 <!-- LINKS -->
-[Come configurare le dimensioni della macchina virtuale]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Configurare le dimensioni dei servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Procedura: Configurare un client della cache a livello di codice]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Procedura: Impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Procedura: Impostare la possibilità di inserire una pagina ASP.NET nella cache in modo dichiarativo]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
@@ -402,7 +402,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Provider di cache di output per Cache di Azure]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Direttiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Panoramica di Cache nel ruolo]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Provider di stato della sessione per Cache nel ruolo]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog del team]: http://blogs.msdn.com/b/windowsazure/
 [Diagnostica e risoluzione dei problemi di Cache nel ruolo]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Cache di Azure AppFabric: Stato della sessione di memorizzazione nella cache]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20

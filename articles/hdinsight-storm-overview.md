@@ -86,7 +86,7 @@ Il cluster Storm in HDInsight fornisce il supporto predefinito per .NET, Java e 
 
 SCP è un progetto che consente agli sviluppatori .NET di progettare e implementare una topologia (con Spout e Bolt). Il supporto per SCP viene fornito per impostazione predefinita con i cluster Storm.
 
-Per altre informazioni sullo sviluppo con SCP, vedere [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](/it-it/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application).
+Per altre informazioni sullo sviluppo con SCP, vedere [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md).
 
 ### Java
 
@@ -120,7 +120,7 @@ Nel seguente esempio Java, fieldsGrouping viene usato per indirizzare le tuple o
 
 La creazione di batch può essere eseguita in diversi modi. Con una topologia Storm Java di base è possibile usare un contatore semplice per creare un batch con un numero X di tuple prima di emetterle oppure usare un meccanismo a tempo interno noto come tupla tick per generare un batch ogni X secondi.
 
-Per un esempio relativo all'uso di tuple tick, vedere [Analisi dei dati dei sensori con Storm e HDInsight](/it-it/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
+Per un esempio relativo all'uso di tuple tick, vedere [Analisi dei dati dei sensori con Storm e HDInsight](hdinsight-storm-sensor-data-analysis.md.md)
 
 Trident invece si basa sull'elaborazione di batch di tuple.
 
@@ -138,9 +138,9 @@ Per un esempio, vedere [RollingTopWords](https://github.com/nathanmarz/storm-sta
 
 * [Introduzione a Storm in HDInsight][gettingstarted]
 
-* [Analisi dei dati dei sensori con Storm e HDInsight](/it-it/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Analisi dei dati dei sensori con Storm e HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](/it-it/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm in HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html

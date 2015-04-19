@@ -17,8 +17,8 @@
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
 
 > [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
-- [(Qualsiasi | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Qualsiasi | Javascript)](/it-it/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Qualsiasi | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Qualsiasi | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 Questo argomento illustra come usare la logica sul lato servizio per autorizzare gli utenti.  In questa esercitazione, vengono modificati i metodi di accesso ai dati in .NET, vengono filtrate le query in base agli ID utente e si consente agli utenti di accedere solo ai propri dati.
 
@@ -30,7 +30,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare [Migrazioni Code First](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare [Migrazioni Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. In Visual Studio espandere la cartella Controllers e aprire **TodoItemController.cs**. Individuare il metodo **PostTodoItem** e aggiungere il seguente codice all'inizio del metodo. Questo codice aggiunge l'ID utente dell'utente autenticato all'elemento, prima che venga inserito nella tabella TodoItem.
 

@@ -88,7 +88,7 @@ Assicurarsi prima di tutto di disporre di contenuto pubblico memorizzato nella c
 #Vedere anche
 
 
-[Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](./cdn-create-new-endpoint.md)  
+[Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](cdn-create-new-endpoint.md)  
 **Panoramica della rete CDN di Azure**
 
 

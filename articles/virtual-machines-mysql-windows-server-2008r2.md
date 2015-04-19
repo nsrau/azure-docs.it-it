@@ -38,7 +38,7 @@ Questa esercitazione illustra come:
 
 Dopo aver creato la macchina virtuale, facoltativamente è possibile collegare un disco dati aggiuntivo. L'operazione è consigliata per i carichi di lavoro di produzione e per evitare l'esaurimento dello spazio nell'unità del sistema operativo (C:), che attualmente è limitato a 127 GB e include il sistema operativo.
 
-Vedere [Come collegare un disco dati a una macchina virtuale Windows](../storage-windows-attach-disk/) e seguire le istruzioni per il collegamento di un disco vuoto. Impostare le preferenze della cache dell'host su **Nessuno** o **Sola lettura**.
+Vedere [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md) e seguire le istruzioni per il collegamento di un disco vuoto. Impostare le preferenze della cache dell'host su **Nessuno** o **Sola lettura**.
 
 ## Accesso alla macchina virtuale
 
@@ -91,7 +91,7 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 Se si desidera rendere disponibile il servizio MySQL Server per i computer client di MySQL su Internet è necessario configurare un endpoint per la porta TCP su cui è in ascolto il servizio MySQL Server e creare una nuova regola di Windows Firewall. Normalmente è la porta TCP 3306, a meno che non sia stata specificata una porta diversa nella pagina Type and Networking (passaggio 10 della procedura precedente). 
 
 
-> [AZURE.NOTE] È opportuno considerare con attenzione le implicazioni di sicurezza di questa operazione, poiché in questo modo il servizio MySQL Server diventa disponibile per tutti i computer su Internet. È possibile definire il set di indirizzi IP di origine che sono autorizzati a usare l'endpoint con un elenco di controllo di accesso (ACL). Per altre informazioni, vedere la pagina che illustra [come configurare gli endpoint a una macchina virtuale](../virtual-machines-set-up-endpoints/).
+> [AZURE.NOTE] È opportuno considerare con attenzione le implicazioni di sicurezza di questa operazione, poiché in questo modo il servizio MySQL Server diventa disponibile per tutti i computer su Internet. È possibile definire il set di indirizzi IP di origine che sono autorizzati a usare l'endpoint con un elenco di controllo di accesso (ACL). Per altre informazioni, vedere la pagina che illustra [come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
 
 Per configurare un endpoint per il servizio MySQL Server:

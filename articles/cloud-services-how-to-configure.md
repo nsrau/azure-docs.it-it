@@ -41,7 +41,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 	
 	Nella pagina **Configura** è possibile configurare il monitoraggio, aggiornare le impostazioni del ruolo e scegliere il sistema operativo guest e la famiglia di istanze del ruolo. 
 
-2. In **monitoraggio** impostare il livello di monitoraggio su Dettagliato o Minimo e configurare le stringhe di connessione di diagnostica necessarie per il monitoraggio dettagliato. Per istruzioni, vedere [Come monitorare i servizi cloud](../how-to-monitor-a-cloud-service/).
+2. In **monitoraggio** impostare il livello di monitoraggio su Dettagliato o Minimo e configurare le stringhe di connessione di diagnostica necessarie per il monitoraggio dettagliato. Per istruzioni, vedere [Come monitorare i servizi cloud](how-to-monitor-a-cloud-service.md).
 
 
 3. Per i ruoli del servizio (raggruppati per ruolo) è possibile aggiornare le seguenti impostazioni:

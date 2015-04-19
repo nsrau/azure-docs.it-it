@@ -232,7 +232,7 @@ Il valore per `id` deve essere univoco e non deve includere caratteri appartenen
 +  Caratteri stampabili: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
-È inoltre possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella usando il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'uso dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+È inoltre possibile usare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella usando il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene usato con l'interfaccia della riga di comando (CLI) per Azure. Per altre informazioni sull'uso dell'interfaccia della riga di comando, vedere [Comandi per la gestione delle tabelle di Servizi mobili](virtual-machines-command-line-tools.md/#Mobile_Tables).
 
 
 ### <a name="access-headers"></a>Procedura: Accedere ai parametri personalizzati

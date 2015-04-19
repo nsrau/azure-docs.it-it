@@ -19,13 +19,13 @@
 
 # Creare entità ContentKey mediante .NET
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) .  
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) .  
 
 Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](../media-services-dotnet-upload-files/)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](media-services-dotnet-upload-files.md)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
-Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](../media-services-dotnet-configure-asset-delivery-policy) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](media-services-dotnet-configure-asset-delivery-policy.md) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Gli asset crittografati devono essere associati alle entità **ContentKey**. Questo articolo descrive come creare una chiave simmetrica.
 

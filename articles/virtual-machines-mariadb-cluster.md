@@ -368,8 +368,8 @@ Può essere utile consultare gli articoli sul [metodo alternativo per creare un 
 [interfaccia della riga di comando (CLI) di Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [Riferimento agli strumenti da riga di comando di Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [creare una chiave SSH per l'autenticazione]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[strategia di ottimizzazione delle prestazioni]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[ottimizzare e testare le prestazioni di MySQL in macchine virtuali Linux di Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[strategia di ottimizzazione delle prestazioni]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[ottimizzare e testare le prestazioni di MySQL in macchine virtuali Linux di Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [problema noto n. 1268 relativo agli strumenti dell'interfaccia della riga di comando di Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

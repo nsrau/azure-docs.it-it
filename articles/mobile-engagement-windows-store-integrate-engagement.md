@@ -22,7 +22,7 @@
 
 In questa procedura viene descritto il modo più semplice per attivare le funzioni Analisi e Monitoraggio nell'applicazione Windows.
 
-I passaggi seguenti sono sufficienti per attivare il report dei log necessari per calcolare tutte le statistiche relative ad utenti, sessioni, attività, arresti anomali del sistema e informazioni tecniche. Il report dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve avvenire manualmente utilizzando l'API Engagement (vedere  [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Store](../mobile-engagement-windows-store-use-engagement-api/)) poiché queste statistiche dipendono dall'applicazione.
+I passaggi seguenti sono sufficienti per attivare il report dei log necessari per calcolare tutte le statistiche relative ad utenti, sessioni, attività, arresti anomali del sistema e informazioni tecniche. Il report dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve avvenire manualmente utilizzando l'API Engagement (vedere  [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Store](mobile-engagement-windows-store-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
 ##Versioni supportate
 

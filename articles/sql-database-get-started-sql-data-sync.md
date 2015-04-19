@@ -179,9 +179,9 @@ A questo punto è stato creato un gruppo di sincronizzazione che include sia un'
 ## Passaggi successivi
 Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
-* [Iscrizione per l'offerta Premium per il database SQL] (../sign-up-for-sql-database-premium/)
+* [Iscrizione per l'offerta Premium per il database SQL] (sign-up-for-sql-database-premium.md)
 * [Sincronizzazione dati SQL (portale Microsoft Azure)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Introduzione al database SQL di Azure](../getting-started-w-sql-databases/)
+* [Introduzione al database SQL di Azure](getting-started-w-sql-databases.md)
 * [Ciclo di vita del database di SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

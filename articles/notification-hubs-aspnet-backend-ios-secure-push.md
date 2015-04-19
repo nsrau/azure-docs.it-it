@@ -2,7 +2,7 @@
 	pageTitle="Push sicuro degli hub di notifica di Azure" 
 	description="Informazioni su come inviare notifiche push sicure a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#." 
 	documentationCenter="ios" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Push sicuro degli hub di notifica di Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
-
-##Informazioni generali
 
 Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura push di facile utilizzo, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
 
@@ -42,7 +40,7 @@ A livello generale, il flusso è il seguente:
 
 In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione relativa all'**invio di notifiche agli utenti con Hub di notifica**, sarà prima necessario completare i passaggi di tale esercitazione.
 
-> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione a Hub di notifica (iOS)](notification-hubs-ios-get-started.md).
+> [AZURE.NOTE] Questa esercitazione presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -101,7 +99,7 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
 		            if (error)
 		                completion(nil, error);
-		            else {
+		            else{
 		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
 		            }
 		        }
@@ -155,4 +153,4 @@ Per eseguire l'applicazione, seguire questa procedura:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

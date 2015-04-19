@@ -44,7 +44,7 @@ La demo introduce le funzionalità di Ricerca di Azure con alcune esercitazioni 
 <h2 id="sub-1">Prerequisiti</h2>
 
 +	Visual Studio 2012 o versione successiva con ASP.NET MVC 4 e SQL Server installati. Se non si ha già il software installato, è possibile scaricare le versioni Express gratuite: [Visual Studio 2013 Express](http://www.visualstudio.com/it-it/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un servizio di Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Vedere [Introduzione a Ricerca di Azure](../search-get-started/) per informazioni dettagliate.
++	Un servizio di Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Vedere [Introduzione a Ricerca di Azure](search-get-started.md) per informazioni dettagliate.
 +	[Progetto demo di Ricerca di Azure in Adventure Works su CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). Nella scheda Source fare clic su **Download** per scaricare un file compresso della soluzione. 
 
     ![][12]

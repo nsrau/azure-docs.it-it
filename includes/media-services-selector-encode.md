@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [Portale](/documentation/articles/media-services-manage-content#encode/)
-- [.NET SDK](/documentation/articles/media-services-dotnet-encode-asset/)
-- [API REST](/documentation/articles/media-services-rest-encode-asset/)
+- [Portale](media-services-manage-content#encode.md)
+- [.NET SDK](media-services-dotnet-encode-asset.md)
+- [API REST](media-services-rest-encode-asset.md)
 <!--HONumber=47-->

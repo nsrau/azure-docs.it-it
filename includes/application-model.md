@@ -269,7 +269,7 @@ esse.
 Come accennato in precedenza, il file di definizione del servizio (CSDEF) è un file XML
 in cui sono descritti i diversi ruoli che costituiscono l'applicazione
 completa. Lo schema completo per il file XML è disponibile qui:
-[http://msdn.microsoft.com/it-it/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 Il file CSDEF contiene un elemento WebRole o WorkerRole per ogni ruolo.
  che si desidera usare nell'applicazione. Se si distribuisce un ruolo come ruolo Web (mediante
 l'elemento WebRole), il codice verrà eseguito su un'istanza del ruolo
@@ -503,7 +503,7 @@ automatici selezionando una versione specifica del sistema operativo guest. Se a
  imposta l'attributo osVersion sul valore
  "WA-GUEST-OS-2.8\_201109-01", in tutte le istanze del ruolo si verificherà
  quanto descritto nella pagina Web all'indirizzo:
-    [http://msdn.microsoft.com/it-it/library/hh560567.aspx][]. Per altre
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. Per altre
  informazioni sulle versioni del sistema operativo guest, vedere [Gestire gli aggiornamenti al
  sistema operativo guest Azure ].
 
@@ -585,17 +585,17 @@ ruoli, vedere l'articolo relativo a[distribuzione e aggiornamento di applicazion
   [4]: ./media/application-model/application-model-7.jpg
   
   [Prezzi di Azure]: http://www.windowsazure.com/it-it/pricing/calculator/
-  [Gestione dei certificati in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/it-it/library/hh560567.aspx]: http://msdn.microsoft.com/it-it/library/hh560567.aspx
-  [Gestione degli aggiornamenti al sistema operativo guest Azure]: http://msdn.microsoft.com/it-it/library/ee924680.aspx
+  [Gestione dei certificati in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Gestione degli aggiornamenti al sistema operativo guest Azure]: http://msdn.microsoft.com/library/ee924680.aspx
   [Portale di gestione di Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Distribuzione e aggiornamento di applicazioni Azure]: http://www.windowsazure.com/it-it/develop/net/fundamentals/deploying-applications/
-  [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/it-it/library/gg432967.aspx
-  [Gestione di servizi ospitati in Azure]: http://msdn.microsoft.com/it-it/library/gg433038.aspx
-  [Migrazione di applicazioni ad Azure]: http://msdn.microsoft.com/it-it/library/gg186051.aspx
-  [Configurazione di un'applicazione Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405486.aspx
+  [Creazione di un servizio ospitato per Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Gestione di servizi ospitati in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migrazione di applicazioni ad Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configurazione di un'applicazione Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
 
 </td>
@@ -728,7 +728,7 @@ more useful items available to you:
 The service configuration (CSCFG) file is an XML file that describes
 settings that can be changed without redeploying your application. The
 complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 The CSCFG file contains a Role element for each role in your
 application. Here are some of the items you can specify in the CSCFG
 file:
@@ -745,7 +745,7 @@ file:
     setting the osVersion attribute to a value of
     "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
     what is described on this web page:
-    [http://msdn.microsoft.com/it-it/library/hh560567.aspx][]. For more
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
     Azure Guests OS].
 
@@ -827,14 +827,14 @@ article.<a id="Ref" name="Ref"></a>
   [4]: ./media/application-model/application-model-7.jpg
   
   [Azure Pricing]: http://www.windowsazure.com/it-it/pricing/calculator/
-  [Managing Certificates in Azure]: http://msdn.microsoft.com/it-it/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/it-it/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/it-it/library/hh560567.aspx]: http://msdn.microsoft.com/it-it/library/hh560567.aspx
-  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/it-it/library/ee924680.aspx
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Deploying and Updating Azure Applications]: http://www.windowsazure.com/it-it/develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/it-it/library/gg432967.aspx
-  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/it-it/library/gg433038.aspx
-  [Migrating Applications to Azure]: http://msdn.microsoft.com/it-it/library/gg186051.aspx
-  [Configuring an Azure Application]: http://msdn.microsoft.com/it-it/library/windowsazure/ee405486.aspx
+  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migrating Applications to Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuring an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

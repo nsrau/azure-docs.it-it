@@ -99,11 +99,11 @@ Come è possibile notare, il comando Hadoop fornisce un modo semplice per esegui
 
 Per informazioni generali sui processi MapReduce in HDInsight.
 
-* [Usare MapReduce in HDInsight Hadoop](../hdinsight-use-mapreduce/)
+* [Usare MapReduce in HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
-* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-* [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 <!--HONumber=47-->

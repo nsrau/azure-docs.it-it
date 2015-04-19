@@ -22,7 +22,7 @@ In questo articolo si apprenderà come creare un'applicazione line-of-business (
 
 Il tenant AAD usato può includere una directory di tipo solo Azure oppure può essere sincronizzato con la directory locale di Active Directory (AD) per creare un'esperienza Single Sign-On per gli utenti locali o remoti.
 
-Per una panoramica delle varie opzioni di autenticazione e autorizzazione aziendale per Siti Web di Azure, vedere [Autenticare e autorizzare gli utenti nelle applicazioni LOB in siti Web di Azure](../web-sites-authentication-authorization).
+Per una panoramica delle varie opzioni di autenticazione e autorizzazione aziendale per Siti Web di Azure, vedere [Autenticare e autorizzare gli utenti nelle applicazioni LOB in siti Web di Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Obiettivo di compilazione ##
@@ -339,8 +339,8 @@ Dopo avere configurato le autorizzazioni e le funzionalità LOB per le diverse a
 ## Altre risorse
 
 - [Proteggere l'applicazione con SSL e l'attributo Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Autenticare e autorizzare gli utenti nelle applicazioni LOB in Siti Web di Azure](../web-sites-authentication-authorization/)
-- [Creare un'applicazione line-of-business ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con ADFS](../web-sites-dotnet-lob-application-adfs/)
+- [Autenticare e autorizzare gli utenti nelle applicazioni LOB in Siti Web di Azure](web-sites-authentication-authorization.md)
+- [Creare un'applicazione line-of-business ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con ADFS](web-sites-dotnet-lob-application-adfs.md)
 - [Esempi e documentazione su Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 - [Blog di Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Eseguire la migrazione di un progetto Web di VS2013 da WIF a Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

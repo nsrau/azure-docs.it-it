@@ -32,7 +32,7 @@ Questa esercitazione include le sezioni seguenti:
 <a name="ExistingModel"></a>
 ## Esplorazione del modello di database esistente
 
-Per questa esercitazione verrà usato il database creato con il servizio mobile, ma non il modello predefinito creato. Verrà invece creato manualmente un modello arbitrario che rappresenterà una possibile applicazione esistente. Per informazioni complete su come connettersi invece a un database locale, vedere [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](/it-it/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+Per questa esercitazione verrà usato il database creato con il servizio mobile, ma non il modello predefinito creato. Verrà invece creato manualmente un modello arbitrario che rappresenterà una possibile applicazione esistente. Per informazioni complete su come connettersi invece a un database locale, vedere [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 1. Per iniziare, creare un progetto server di Servizi mobili in **Visual Studio 2013 Update 2** o usare il progetto di guida introduttiva che è possibile scaricare nella scheda Servizi mobili del servizio nel [portale di gestione di Azure](http://manage.windowsazure.com). Ai fini di questa esercitazione, si suppone che il nome del progetto server sia **ShoppingService**.
 

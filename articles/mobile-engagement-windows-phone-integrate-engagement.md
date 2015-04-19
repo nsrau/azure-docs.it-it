@@ -23,7 +23,7 @@
 
 In questa procedura viene descritto il modo più semplice per attivare le funzioni Analisi e Monitoraggio nell'applicazione Windows Phone.
 
-I passaggi seguenti sono sufficienti per attivare il report dei log necessari per calcolare tutte le statistiche relative ad utenti, sessioni, attività, arresti anomali e informazioni tecniche. Il report dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve avvenire manualmente utilizzando l'API Engagement (vedere  [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Phone ](../mobile-engagement-windows-phone-use-engagement-api/) ) poiché queste statistiche dipendono dall'applicazione.
+I passaggi seguenti sono sufficienti per attivare il report dei log necessari per calcolare tutte le statistiche relative ad utenti, sessioni, attività, arresti anomali e informazioni tecniche. Il report dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve avvenire manualmente utilizzando l'API Engagement (vedere  [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Phone ](mobile-engagement-windows-phone-use-engagement-api.md) ) poiché queste statistiche dipendono dall'applicazione.
 
 ##Versioni supportate
 
@@ -209,7 +209,7 @@ Se non è possibile o non si desidera eseguire l'overload delle classi  `PhoneAp
 
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, utilizzare gli altri metodi disponibili nella classe  `EngagementAgent`. L'API Engagement consente di utilizzare tutte le funzionalità avanzate di Engagement.
 
-Per ulteriori informazioni, vedere [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Phone](../mobile-engagement-windows-phone-use-the-engagement-api/).
+Per ulteriori informazioni, vedere [Come utilizzare l'API di tag Mobile Engagement avanzata nell'app Windows Phone](mobile-engagement-windows-phone-use-the-engagement-api.md).
 
 ##Configurazione avanzata
 

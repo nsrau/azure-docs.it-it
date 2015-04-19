@@ -23,7 +23,7 @@ Questo argomento descrive come creare un nuovo ambiente Windows Server Active Di
 
 Altri argomenti di interesse:
 
-- Facoltativamente, è possibile [configurare una VPN da sito a sito usando la procedura guidata del portale di gestione](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller).
+- Facoltativamente, è possibile [configurare una VPN da sito a sito usando la procedura guidata del portale di gestione](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 
@@ -65,7 +65,7 @@ Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo 
 	**Configurazione macchina virtuale**  | <p>Servizio cloud: Scegliere <b>Crea un nuovo servizio cloud</b> per la prima macchina virtuale e selezionare lo stesso nome di servizio cloud quando si creano più macchine virtuali che ospiteranno il ruolo di controller di dominio.</p><p>Nome DNS del servizio cloud: specificare un nome univoco globale</p><p>Area/Gruppo di affinità/Rete virtuale: specificare il nome di rete virtuale (ad esempio WestUSVNet).</p><p>Account di archiviazione: Scegliere <b>Usa un account di archiviazione generato automaticamente</b> per la prima macchina virtuale e quindi selezionare lo stesso nome account di archiviazione quando si creano più macchine virtuali che ospiteranno il ruolo di controller di dominio.</p><p>Set di disponibilità: scegliere <b>Crea set di disponibilità</b>.</p><p>Nome set di disponibilità: digitare un nome per il set di disponibilità impostato quando si crea la prima macchina virtuale e quindi selezionare lo stesso nome quando si creano più macchine virtuali.</p>
 	**Configurazione macchina virtuale**  | <p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p>
 2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare una dimensione per il disco (ad es. 10 GB) e lasciare **Preferenze cache dell'host** impostato su **Nessuna**. Dopo avere effettuato la prima connessione alla macchina virtuale, aprire **Server Manager** > **Servizi file e archiviazione** per creare un volume in questo disco usando NTFS.
-3. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](../powershell-install-configure) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
+3. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](powershell-install-configure.md) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -115,7 +115,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a usar
 
 -  [Configurare una VPN da sito a sito nel portale di gestione](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller)
+-  [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](virtual-networks-install-replica-active-directory-domain-controller.md)
 
 -  [Microsoft Azure IT Pro IaaS: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
@@ -123,7 +123,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a usar
 
 -  [Panoramica di Rete virtuale](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [Come installare e configurare Azure PowerShell](../powershell-install-configure/)
+-  [Come installare e configurare Azure PowerShell](powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

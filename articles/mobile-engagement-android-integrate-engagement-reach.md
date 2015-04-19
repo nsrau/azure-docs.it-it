@@ -155,8 +155,8 @@ Quando si esegue la procedura di integrazione descritta sopra, il servizio Engag
 
 Per usufruire dei vantaggi del push di dati in qualsiasi momento, è necessario usare uno o più servizi per il push nativo, in base ai dispositivi di destinazione:
 
-  - Dispositivi Google Play: Usare [Google Cloud Messaging], seguendo le informazioni disponibili nella [guida all'integrazione di GCM con Engagement](../mobile-engagement-android-gcm-integrate/) .
-  - Dispositivi Amazon: Usare [Amazon Device Messaging], seguendo le informazioni disponibili nella [guida all'integrazione di ADM con Engagement](../mobile-engagement-android-adm-integrate/) .
+  - Dispositivi Google Play: Usare [Google Cloud Messaging], seguendo le informazioni disponibili nella [guida all'integrazione di GCM con Engagement](mobile-engagement-android-gcm-integrate.md) .
+  - Dispositivi Amazon: Usare [Amazon Device Messaging], seguendo le informazioni disponibili nella [guida all'integrazione di ADM con Engagement](mobile-engagement-android-adm-integrate.md) .
 
 Per fare riferimento sia ai dispositivi Amazon che ai dispositivi Google Play, è possibile includere tutti gli elementi in un file AndroidManifest.xml/APK per lo sviluppo. È tuttavia possibile che l'applicazione venga rifiutata da Amazon, se viene rilevato il codice GCM.
 

@@ -18,11 +18,11 @@
 
 # Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK
 
-Questa guida fornisce esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](../websites-dotnet-webjobs-sdk/) versione 1.x.
+Questa guida fornisce esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-Per gli esempi di codice che illustrano come creare BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Per gli esempi di codice che illustrano come creare BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 		
-La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](../websites-dotnet-webjobs-sdk-get-started/).
+La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## Sommario
 
@@ -223,7 +223,7 @@ Se si desidera forzare la rielaborazione di un BLOB, è possibile eliminare manu
 
 ## <a id="queues"></a>Argomenti correlati trattati dall'articolo sulle code
 
-Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 

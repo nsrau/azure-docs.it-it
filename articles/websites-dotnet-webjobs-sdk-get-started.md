@@ -78,7 +78,7 @@ Se il traffico varia in base all'ora del giorno o al giorno della settimana e se
 * Eseguire il programma come processo Web in un'app Web diversa dedicata a tale scopo. Sarà quindi possibile scalare l'app Web back-end indipendentemente dall'app Web front-end.
 * Eseguire il programma in un ruolo di lavoro dei servizi cloud di Azure. Se si sceglie questa opzione, è possibile eseguire il front-end in un ruolo Web dei servizi cloud o in un'app Web.
 
-Questa esercitazione mostra come eseguire il front-end in un'app Web e il back-end come processo Web nella stessa app Web. Per informazioni su come scegliere l'ambiente migliore per lo scenario specifico, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](../choose-web-site-cloud-service-vm/).
+Questa esercitazione mostra come eseguire il front-end in un'app Web e il back-end come processo Web nella stessa app Web. Per informazioni su come scegliere l'ambiente migliore per lo scenario specifico, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](choose-web-site-cloud-service-vm.md).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

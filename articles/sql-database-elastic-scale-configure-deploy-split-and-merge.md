@@ -60,7 +60,7 @@ Per determinare la chiave di accesso, passare al [portale di gestione di Azure](
 6.    Immettere il nome dell'account di archiviazione e una delle chiavi di accesso fornite nei segnaposto della stringa di connessione al servizio di archiviazione. Questa stringa di connessione viene usata nelle sezioni dei ruoli **SplitMergeWeb** e **SplitMergeWorker** dell'impostazione **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Potenzialmente è possibile usare account di archiviazione diversi per ruoli diversi. 
 
 ### Configurazione della sicurezza 
-Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo relativo alle [configurazioni di sicurezza per la scalabilità elastica](./sql-database-elastic-scale-configure-security.md).
+Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, vedere l'articolo relativo alle [configurazioni di sicurezza per la scalabilità elastica](sql-database-elastic-scale-configure-security.md).
 
 Ai fini di  una semplice distribuzione di prova utile per il completamento di questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente la macchina/account che li esegue alla comunicazione con il servizio.
 
@@ -120,7 +120,7 @@ Per il ruolo di lavoro:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](./sql-database-elastic-scale-configure-security.md).
+Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](sql-database-elastic-scale-configure-security.md).
 
 ### Distribuzione del servizio di divisione e unione
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).

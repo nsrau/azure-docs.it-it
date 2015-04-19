@@ -28,7 +28,7 @@ L'applicazione di esempio illustra i comportamenti relativi ai punteggi usando d
 
 L'applicazione di esempio è scritta in C# con Visual Studio 2013. Provare a usare [Visual Studio 2013 Express Edition](http://www.visualstudio.com/it-it/products/visual-studio-express-vs.aspx), se non è già disponibile una copia di Visual Studio.
 
-Per completare l'esercitazione è necessario avere una sottoscrizione di Azure e un servizio di ricerca di Azure. Per informazioni sulla configurazione del servizio, vedere [Introduzione a Ricerca di Azure](../search-get-started/).
+Per completare l'esercitazione è necessario avere una sottoscrizione di Azure e un servizio di ricerca di Azure. Per informazioni sulla configurazione del servizio, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
 
 [WACOM.INCLUDE [Per completare l'esercitazione, è necessario un account Azure.](../includes/free-trial-note.md)]
 

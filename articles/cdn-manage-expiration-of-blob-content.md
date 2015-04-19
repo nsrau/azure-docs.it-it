@@ -94,6 +94,6 @@ Verificare che il BLOB sia disponibile tramite l'URL specifico della rete CDN. P
 
 #Vedere anche
 
-[Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN)](./cdn-manage-expiration-of-cloud-service-content.md) di Azure
+[Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN)](cdn-manage-expiration-of-cloud-service-content.md) di Azure
 
 <!--HONumber=49-->

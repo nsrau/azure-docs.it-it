@@ -18,17 +18,17 @@
 
 #2.0.0
 
-Iniziare da qui per ottenere tutti i dettagli su come integrare Azure Mobile Engagement in un'app Windows Store. Se si desidera effettuare prima una prova, eseguire l'[esercitazione di 15 minuti](../mobile-engagement-windows-store-dotnet-get-started/).
+Iniziare da qui per ottenere tutti i dettagli su come integrare Azure Mobile Engagement in un'app Windows Store. Se si desidera effettuare prima una prova, eseguire l'[esercitazione di 15 minuti](mobile-engagement-windows-store-dotnet-get-started.md).
 
-Fare clic per visualizzare il [Contenuto SDK](../mobile-engagement-windows-store-sdk-content/)
+Fare clic per visualizzare il [Contenuto SDK](mobile-engagement-windows-store-sdk-content.md)
 
 ##Procedure di integrazione
 
-1. Iniziare da qui: [Come integrare Mobile Engagement nell'app Windows Phone](../mobile-engagement-windows-store-integrate-engagement/)
+1. Iniziare da qui: [Come integrare Mobile Engagement nell'app Windows Phone](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. Per le notifiche: [Come integrare Copertura (Notifiche) nell'app Windows Store ](../mobile-engagement-windows-store-integrate-engagement-reach/)
+2. Per le notifiche: [Come integrare Copertura (Notifiche) nell'app Windows Store ](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. Implementazione del piano di tag: [Come utilizzare l'API di tag di Mobile Engagement avanzata nell'app Windows Store](../mobile-engagement-windows-store-use-engagement-api/)
+3. Implementazione del piano di tag: [Come utilizzare l'API di tag di Mobile Engagement avanzata nell'app Windows Store](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##Note sulla versione
 
@@ -39,13 +39,13 @@ Fare clic per visualizzare il [Contenuto SDK](../mobile-engagement-windows-store
 - La configurazione di appId/sdkKey viene sostituita da una configurazione della stringa di connessione.
 - Miglioramenti della protezione.
 
-Per la versione precedente, vedere le [note sulla versione complete](../mobile-engagement-windows-store-release-notes/)
+Per la versione precedente, vedere le [note sulla versione complete](mobile-engagement-windows-store-release-notes.md)
 
 ##Procedure di aggiornamento
 
 Se nell'applicazione è già stata integrata una versione precedente dell'SDK, è necessario considerare i seguenti punti quando si aggiorna l'SDK.
 
-Se sono state perse diverse versioni dell'SDK, è possibile che sia necessario seguire più procedure; vedere le [procedure di aggiornamento] complete.(../mobile-engagement-windows-store-upgrade-procedure/). Ad esempio, se si esegue la migrazione da 0.10.1 a 0.11.0, è necessario innanzitutto seguire la procedura "da 0.9.0 a 0.10.1", quindi la procedura "da 0.10.1 a 0.11.0".
+Se sono state perse diverse versioni dell'SDK, è possibile che sia necessario seguire più procedure; vedere le [procedure di aggiornamento] complete.(mobile-engagement-windows-store-upgrade-procedure.md). Ad esempio, se si esegue la migrazione da 0.10.1 a 0.11.0, è necessario innanzitutto seguire la procedura "da 0.9.0 a 0.10.1", quindi la procedura "da 0.10.1 a 0.11.0".
 
 ##Da 1.1.1 a 2.0.0
 

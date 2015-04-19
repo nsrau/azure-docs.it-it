@@ -19,7 +19,7 @@
 
 # Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB
 
-Nella [Parte 1](../storage-dotnet-shared-access-signature-part-1/) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per usarle. Nella parte 2 verrà spiegato come generare e quindi usare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'uso delle firme di accesso condiviso:
+Nella [Parte 1](storage-dotnet-shared-access-signature-part-1.md) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per usarle. Nella parte 2 verrà spiegato come generare e quindi usare le firme di accesso condiviso con il servizio BLOB di Azure. Negli esempi, scritti in C#, viene usata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'uso delle firme di accesso condiviso:
 
 - Generazione di una firma di accesso condiviso per un contenitore
 - Generazione di una firma di accesso condiviso per un BLOB
@@ -533,7 +533,7 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 
 # Passaggi successivi #
 
-[Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/)
+[Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 
 [Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

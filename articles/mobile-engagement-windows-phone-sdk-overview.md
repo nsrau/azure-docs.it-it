@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #SDK Windows Phone per Azure Mobile Engagement v2.0.0
-Iniziare da qui per ottenere tutti i dettagli su come integrare Azure Mobile Engagement in un'app Windows Phone. Se si desidera effettuare prima una prova, eseguire l'[esercitazione di 15 minuti](../mobile-engagement-windows-phone-get-started/).
+Iniziare da qui per ottenere tutti i dettagli su come integrare Azure Mobile Engagement in un'app Windows Phone. Se si desidera effettuare prima una prova, eseguire l'[esercitazione di 15 minuti](mobile-engagement-windows-phone-get-started.md).
 
-Fare clic per visualizzare il [contenuto SDK](../mobile-engagement-windows-phone-sdk-content/)
+Fare clic per visualizzare il [contenuto SDK](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Procedure di integrazione
 
-1. Iniziare da qui: [Come integrare Mobile Engagement nell'app Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/)
+1. Iniziare da qui: [Come integrare Mobile Engagement nell'app Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. Per le notifiche: [Come integrare Copertura (Notifiche) nell'app Windows Phone](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. Per le notifiche: [Come integrare Copertura (Notifiche) nell'app Windows Phone](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. Implementazione del piano di tag: [Come utilizzare l'API di tag di Mobile Engagement avanzata nell'app Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/)
+3. Implementazione del piano di tag: [Come utilizzare l'API di tag di Mobile Engagement avanzata nell'app Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##Note sulla versione
 
@@ -36,7 +36,7 @@ Fare clic per visualizzare il [contenuto SDK](../mobile-engagement-windows-phone
 - La configurazione di appId/sdkKey viene sostituita da una configurazione della stringa di connessione.
 - Miglioramenti della protezione.
 
-Per la versione precedente, vedere le [note sulla versione complete](../mobile-engagement-windows-phone-release-notes/)
+Per la versione precedente, vedere le [note sulla versione complete](mobile-engagement-windows-phone-release-notes.md)
 
 ##Procedure di aggiornamento
 

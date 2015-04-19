@@ -18,8 +18,8 @@
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
-Questo argomento non è più supportato. Non è più disponibile per il download dal portale un progetto di guida introduttiva a Windows Phone 8.0. Per aggiungere Servizi mobili a un'app per Windows Phone 8.0 o Windows Phone 8.1 Silverlight esistente, vedere l'argomento [Aggiungere Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-windows-phone-get-started-data/). 
+Questo argomento non è più supportato. Non è più disponibile per il download dal portale un progetto di guida introduttiva a Windows Phone 8.0. Per aggiungere Servizi mobili a un'app per Windows Phone 8.0 o Windows Phone 8.1 Silverlight esistente, vedere l'argomento [Aggiungere Servizi mobili a un'app esistente](mobile-services-windows-phone-get-started-data.md). 
 
-È disponibile per le app per Windows Phone Store 8.1 il download di un progetto di guida introduttiva come parte di un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+È disponibile per le app per Windows Phone Store 8.1 il download di un progetto di guida introduttiva come parte di un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 
 
 <!--HONumber=42-->

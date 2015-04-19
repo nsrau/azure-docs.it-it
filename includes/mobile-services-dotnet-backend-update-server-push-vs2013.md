@@ -47,5 +47,5 @@ Nella seguente procedura viene illustrato come creare un'[ApiController][ApiCont
     > [WACOM.NOTE]Poiché questo metodo POST può essere chiamato da qualsiasi client che dispone della chiave dell'applicazione, si tratta di una procedura poco sicura. Per proteggere l'endpoint, applicare l'attributo `[AuthorizeLevel(AuthorizationLevel.User)]` al metodo o alla classe per richiedere l'autenticazione.
 
   [ApiController]: http://go.microsoft.com/fwlink/p/?LinkId=512673
-  [TableController]: http://msdn.microsoft.com/it-it/library/azure/dn643359.aspx
+  [TableController]: http://msdn.microsoft.com/library/azure/dn643359.aspx
   [Finestra di dialogo Add Scaffold dell'API Web]: ./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png

@@ -22,7 +22,7 @@
 
 # Come gestire il contenuto in Servizi multimediali #
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md). 
 
 Questo argomento descrive come usare il portale di gestione di Azure per gestire i contenuti multimediali nell'account di Servizi multimediali.
 
@@ -85,7 +85,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti ch
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
-- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints/).
+- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md).
 
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
 
@@ -129,8 +129,8 @@ Questa sezione descrive la procedura per la codifica del contenuto con Azure Med
 Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali con una chiave AES o PlayReady DRM, assicurarsi di seguire questa procedura:
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti nella sezione [Codificare il contenuto](#encode) di questo argomento).
-- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints/).
-- Configurare "i criteri di servizio predefiniti relativi alla chiave AES" o "i criteri di servizio predefiniti relativi alla licenza". Per altre informazioni, vedere l'argomento relativo alla [configurazione dei criteri di autorizzazione della chiave simmetrica](../media-services-portal-configure-content-key-auth-policy).  
+- Ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md).
+- Configurare "i criteri di servizio predefiniti relativi alla chiave AES" o "i criteri di servizio predefiniti relativi alla licenza". Per altre informazioni, vedere l'argomento relativo alla [configurazione dei criteri di autorizzazione della chiave simmetrica](media-services-portal-configure-content-key-auth-policy.md).  
 
 
 	Quando si è pronti ad abilitare la crittografia, premere il pulsante **CRITTOGRAFIA** nella parte inferiore della pagina **CONTENUTO**.

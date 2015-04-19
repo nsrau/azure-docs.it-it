@@ -89,17 +89,17 @@ Come è possibile notare, gli strumenti di HDInsight per Visual Studio forniscon
 
 Per informazioni generali su Hive in HDInsight.
 
-* [Usare Hive con Hadoop in HDInsight](../hdinsight-use-hive/)
+* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
-* [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig/)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](../hdinsight-use-mapreduce/)
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
 Per altre informazioni sugli strumenti di HDInsight per Visual Studio.
 
-* [Guida introduttiva agli strumenti di HDInsight per Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [Guida introduttiva agli strumenti di HDInsight per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare Hub di notifica con Java" 
 	description="Informazioni su come usare Hub di notifica di Azure da un back-end Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,11 +14,11 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="01/12/2015" 
-	ms.author="yuaxu"/>
+	ms.author="piyushjo"/>
 
 # Come usare Hub di notifica da Java
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
+    	<a href="/it-it/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/it-it/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/it-it/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
 </div>
 
 Questo argomento descrive le funzionalità principali del nuovo ufficiale SDK per Java di Hub di notifica di Azure, completamente supportato. 
@@ -45,7 +45,7 @@ Usare [Maven]
 
 Per creare:
 
-	mvn package
+	pacchetto mvn
 
 ## Codice
 
@@ -121,13 +121,13 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
 	
 	hub.deleteRegistration(regid);
 
-**Effettuare query di registrazioni:**
+**Eseguire query sulle registrazioni:**
 
-* 	**Ottenere una registrazione singola:**
+* 	**Ottenere una registrazione:**
 	
 		hub.getRegistration(regid);
 	
-* 	**Ottenere tutte le registrazioni nell'hub:**
+* 	**Ottenere tutte le registrazioni in un hub:**
 	
 		hub.getRegistrations();
 	
@@ -135,7 +135,7 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
 	
 		hub.getRegistrationsByTag("myTag");
 	
-* 	**Ottenere registrazioni per canale:**
+* 	**Ottenere registrazioni in base al canale:**
 	
 		hub.getRegistrationsByChannel("devicetoken");
 
@@ -274,7 +274,7 @@ L'oggetto notifica è semplicemente un corpo con intestazioni ed esistono alcuni
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **Inviare a espressione tag**       
+* **Inviare all'espressione tag**
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -301,11 +301,11 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 
 [SDK per Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Esercitazione introduttiva]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Introduzione ad Hub di notifica]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Inviare le ultime notizie]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Inviare le ultime notizie localizzate]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Inviare notifiche agli utenti autenticati]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Inviare notifiche multipiattaforma agli utenti autenticati]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Introduzione ad Hub di notifica]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Inviare le ultime notizie]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
+[Inviare le ultime notizie localizzate]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Inviare notifiche agli utenti autenticati]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
+[Inviare notifiche multipiattaforma agli utenti autenticati]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

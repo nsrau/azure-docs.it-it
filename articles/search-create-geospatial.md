@@ -40,7 +40,7 @@ Questa esercitazione si basa sulla [demo Ricerca di Azure - Adventure Works](htt
 <h2 id="sub-1">Prerequisiti</h2>
 
 +	Visual Studio 2012 o versione successiva con ASP.NET MVC 4 e SQL Server installati. Se non si ha già il software installato, è possibile scaricare le versioni Express gratuite: [Visual Studio 2013 Express](http://www.visualstudio.com/it-it/products/visual-studio-express-vs.aspx) e [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un servizio Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Per informazioni, vedere [Introduzione a Ricerca di Azure](../search-get-started/).
++	Un servizio Ricerca di Azure. È necessario disporre del nome del servizio di ricerca e della chiave amministratore. Per informazioni, vedere [Introduzione a Ricerca di Azure](search-get-started.md).
 +	Un servizio mappe di Bing e una chiave per accedervi. Le istruzioni sono specificate nella sezione successiva.
 +	[Esempio di ricerca geografica in Ricerca di Azure su CodePlex](https://azuresearchgeospatial.codeplex.com/). Nella scheda Source fare clic su **Download** per scaricare un file compresso della soluzione. 
 

@@ -25,13 +25,13 @@ Questo argomento descrive come chiamare un'API personalizzata da un'app di Windo
 
 L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag completato su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata mediante l'esercitazione [Aggiunta di Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) . A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata mediante l'esercitazione [Aggiunta di Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md) . A questo scopo, verranno eseguiti i passaggi seguenti:
 
 1. [Definire l'API personalizzata]
 2. [Aggiornare l'app per chiamare l'API personalizzata]
 3. [Testare l'app] 
 
-Questa esercitazione è basata sull'esempio GetStartedWithData, una semplice app TodoList. Prima di iniziare questa esercitazione, è necessario completare [Aggiunta di Servizi mobili a un'app esistente](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+Questa esercitazione è basata sull'esempio GetStartedWithData, una semplice app TodoList. Prima di iniziare questa esercitazione, è necessario completare [Aggiunta di Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Definire l'API personalizzata
 

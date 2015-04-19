@@ -132,7 +132,7 @@ Per iniziare a usare Azure, vedere [Versione di valutazione gratuita di Microsof
 
 [Informazioni sull'account di archiviazione](storage-whatis-account.md)
 
-[Procedura: Creare un account di archiviazione](../storage-create-storage-account/)
+[Procedura: Creare un account di archiviazione](storage-create-storage-account.md)
 
 [Come monitorare un account di archiviazione](storage-monitor-storage-account.md)
 

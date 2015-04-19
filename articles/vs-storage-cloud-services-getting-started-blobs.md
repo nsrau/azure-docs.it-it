@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Per iniziare](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Risultati](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Per iniziare](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Risultati](vs-storage-cloud-services-what-happened.md)
 
 ## Introduzione all'Archiviazione di Azure (progetti del servizio cloud)
 
 > [AZURE.SELECTOR]
-> - [BLOB](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Code](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tabelle](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [BLOB](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Code](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tabelle](vs-storage-cloud-services-getting-started-tables.md)
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 

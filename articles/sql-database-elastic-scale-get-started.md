@@ -26,7 +26,7 @@ In questo documento viene presentata l'esperienza di sviluppo per la scalabilit�
 
 Per altre informazioni su questa funzionalità, vedere le [informazioni generali sulla scalabilità elastica](http://go.microsoft.com/?linkid=9862592).
 
-Per un elenco di tutti gli argomenti sulla scalabilità elastica, vedere la relativa [mappa documento](./sql-database-elastic-scale-documentation-map.md)
+Per un elenco di tutti gli argomenti sulla scalabilità elastica, vedere la relativa [mappa documento](sql-database-elastic-scale-documentation-map.md)
 
 ## Applicazione di esempio della scalabilità elastica
 
@@ -92,7 +92,7 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 ## Passaggi successivi
 Per altre informazioni sulla funzionalità di scalabilità elastica, vedere:
 
-* [Pagina di formazione sulla scalabilità elastica](./sql-database-elastic-scale-documentation-map.md) 
+* [Pagina di formazione sulla scalabilità elastica](sql-database-elastic-scale-documentation-map.md) 
 -    Esempi di codice: 
     -    [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Scalabilità elastica con il database SQL di Azure - Integrazione con Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

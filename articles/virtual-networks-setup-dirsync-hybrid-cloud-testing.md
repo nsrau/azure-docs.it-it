@@ -45,7 +45,7 @@ Se non si dispone di una sottoscrizione Azure, è possibile iscriversi per otten
 
 ## Fase 1: Configurare l'ambiente cloud ibrido
 
-Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
+Usare le istruzioni riportate in [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Poiché l'ambiente di test non richiede la presenza del server APP1 nella subnet Corpnet, è possibile arrestarlo per il momento.
 
 Questa è la configurazione corrente.
 
@@ -180,12 +180,12 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
 [Soluzioni con server Office e il cloud](http://technet.microsoft.com/library/dn262744.aspx)
 
-[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 <!--HONumber=47-->

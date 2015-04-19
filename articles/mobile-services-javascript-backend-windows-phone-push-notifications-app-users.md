@@ -28,7 +28,7 @@ In questa esercitazione viene descritto il processo seguente:
 + [Aggiornamento dell'app per accedere prima della registrazione]
 + [Testare l'app]
  
-Questa esercitazione supporta app per Windows Phone 8.0 e Windows Phone 8.1 ("Silverlight"). Per le app di Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](/it-it/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
+Questa esercitazione supporta app per Windows Phone 8.0 e Windows Phone 8.1 ("Silverlight"). Per le app di Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##Prerequisiti 
 

@@ -104,7 +104,7 @@ Il seguente processo pianificato ripulisce i record eliminati temporaneamente pi
         }
     }
 
-Per altre informazioni sui processi pianificati con Servizi mobili per il back-end .NET, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Per altre informazioni sui processi pianificati con Servizi mobili per il back-end .NET, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@ Il seguente processo pianificato di esempio elimina i record aggiornati prima di
         }});
     }
 
-Per altre informazioni sui processi pianificati con Servizi mobili per il back-end JavaScript, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Per altre informazioni sui processi pianificati con Servizi mobili per il back-end JavaScript, vedere: [Pianificare processi ricorrenti con Servizi mobili per il back-end JavaScript](mobile-services-schedule-recurring-tasks.md).
 
 
 

@@ -29,11 +29,11 @@ Il seguente diagramma illustra le parti principali della piattaforma di Servizi 
 ![Live workflow][live-overview]
 
 
-Per altre informazioni, vedere la [panoramica di Servizi multimediali](../media-services-overview).
+Per altre informazioni, vedere la [panoramica di Servizi multimediali](media-services-overview.md).
 
 ## Creare un account di Servizi multimediali
 
-Usare il **portale di gestione di Azure** per [creare un account di Servizi multimediali di Azure](../media-services-create-account/).
+Usare il **portale di gestione di Azure** per [creare un account di Servizi multimediali di Azure](media-services-create-account.md).
 
 ## Configurazione degli endpoint di streaming
 
@@ -82,7 +82,7 @@ Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di
 
 È possibile scalare **Servizi multimediali** specificando il numero di **unità riservate di streaming** di cui eseguire il provisioning nell'account in uso. 
 
-Per informazioni sul ridimensionamento delle unità di streaming, vedere le sezioni relative alla [scalabilità di unità di streaming](../media-services-manage-origins#scale_streaming_endpoints).
+Per informazioni sul ridimensionamento delle unità di streaming, vedere le sezioni relative alla [scalabilità di unità di streaming](media-services-manage-origins#scale_streaming_endpoints.md).
 
 
 

@@ -79,7 +79,7 @@ Twilio fornisce una libreria Node.js che copre vari aspetti di Twilio per fornir
 
 Per usare la libreria Node.js di Twilio nel servizio mobile, è necessario avvalersi del supporto per il modulo npm di Servizi mobili, archiviando a tale scopo gli script nel controllo del codice sorgente. 
 
-1. Completare l'esercitazione [Archiviare il codice del progetto nel controllo del codice sorgente](/it-it/documentation/articles/mobile-services-store-scripts-source-control/) che illustra come configurare il controllo del codice sorgente per Servizi mobili e come archiviare gli script del server in un repository Git.
+1. Completare l'esercitazione [Archiviare il codice del progetto nel controllo del codice sorgente](mobile-services-store-scripts-source-control.md) che illustra come configurare il controllo del codice sorgente per Servizi mobili e come archiviare gli script del server in un repository Git.
 
 2. Dopo avere configurato il controllo del codice sorgente per il servizio mobile, aprire il repository nel computer locale, selezionare la sottocartella  `\services`, aprire il file package.json in un editor di testo e aggiungere il campo seguente all'oggetto **dependencies**:
 

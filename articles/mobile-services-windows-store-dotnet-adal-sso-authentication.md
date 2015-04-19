@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva con Active Directory Authentication Library per supportare [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](/it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva con Active Directory Authentication Library per supportare [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
 
 Per poter autenticare gli utenti è necessario registrare l'app in Azure Active Directory. Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio mobile ed esporre le registrazioni sul servizio. In secondo luogo, è necessario registrare l'app di Windows Store e concederle accesso alle autorizzazioni.
 

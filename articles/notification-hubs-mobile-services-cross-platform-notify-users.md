@@ -18,5 +18,5 @@
 
 # Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
 
-Questo argomento è stato sostituito e non è più valido. Per informazioni su come usare Hub di notifica di Azure con Servizi mobili di Azure per inviare notifiche a utenti specifici, vedere l'argomento [Inviare notifiche push agli utenti autenticati](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
+Questo argomento è stato sostituito e non è più valido. Per informazioni su come usare Hub di notifica di Azure con Servizi mobili di Azure per inviare notifiche a utenti specifici, vedere l'argomento [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md). 
 <!--HONumber=47-->

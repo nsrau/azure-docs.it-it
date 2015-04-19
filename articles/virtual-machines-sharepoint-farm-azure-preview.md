@@ -32,7 +32,7 @@ La farm di SharePoint a disponibilità elevata è costituita da nove macchine vi
 
 È possibile usare questa configurazione di farm per testare carichi client più elevati, la disponibilità elevata del sito di SharePoint esterno e i gruppi di disponibilità AlwaysOn per una farm di SharePoint. È anche possibile usare questa configurazione per lo sviluppo di app SharePoint in un ambiente a disponibilità elevata.
  
-Per le informazioni di configurazione dettagliate di entrambe queste farm, vedere [Dettagli di configurazione della farm di SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/).
+Per le informazioni di configurazione dettagliate di entrambe queste farm, vedere [Dettagli di configurazione della farm di SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Procedura per la configurazione##
 
@@ -87,7 +87,7 @@ La funzionalità Farm di SharePoint Server usa Gestione risorse di Azure e scrip
 
 [SharePoint nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Dettagli di configurazione della farm di SharePoint Server](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[Dettagli di configurazione della farm di SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
 [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 

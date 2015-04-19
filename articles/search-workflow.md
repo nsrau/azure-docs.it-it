@@ -22,7 +22,7 @@
 
 Questo articolo contiene una guida di orientamento e alcune procedure consigliate per la creazione e la manutenzione del servizio di ricerca con i relativi indici. 
 
-Si suppone che sia già stato effettuato il provisioning del servizio. In caso contrario, per altre istruzioni vedere [Introduzione a Ricerca di Azure](../search-get-started/).
+Si suppone che sia già stato effettuato il provisioning del servizio. In caso contrario, per altre istruzioni vedere [Introduzione a Ricerca di Azure](search-get-started.md).
 
 + [Passaggio 1: Creare l'indice](#sub-1)
 + [Passaggio 2: Aggiungere i documenti](#sub-2)
@@ -35,7 +35,7 @@ Si suppone che sia già stato effettuato il provisioning del servizio. In caso c
 
 Le query sono mirate a un indice di ricerca contenente dati e attributi di ricerca. Il primo passaggio dopo il provisioning del servizio consiste quindi nel definire lo schema dell'indice in formato JSON e nell'eseguire una richiesta PUT HTTPS per creare l'indice nel servizio. 
 
-Gli indici vengono creati dal codice dell'applicazione. Non sono disponibili strumenti o editor predefiniti per la definizione di un indice in un'interfaccia utente. Per esempi relativi ad alcuni modi per creare l'indice, vedere [Creare la prima soluzione di ricerca con Ricerca di Azure](../search-create-first-solution/), in cui si specifica lo schema nel file Program.cs, e [Introduzione all'assegnazione di punteggi per i profili in Ricerca di Azure](../search-get-started-scoring-profiles), che fornisce un indice in un file di schema JSON autonomo. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/dn798941.aspx) su MSDN.
+Gli indici vengono creati dal codice dell'applicazione. Non sono disponibili strumenti o editor predefiniti per la definizione di un indice in un'interfaccia utente. Per esempi relativi ad alcuni modi per creare l'indice, vedere [Creare la prima soluzione di ricerca con Ricerca di Azure](search-create-first-solution.md), in cui si specifica lo schema nel file Program.cs, e [Introduzione all'assegnazione di punteggi per i profili in Ricerca di Azure](search-get-started-scoring-profiles.md), che fornisce un indice in un file di schema JSON autonomo. Per altre informazioni sulla creazione dell'indice, vedere [Creare l'indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/dn798941.aspx) su MSDN.
 
 <h2 id="sub-2">Passaggio 2: Aggiungere i documenti</h2>
 

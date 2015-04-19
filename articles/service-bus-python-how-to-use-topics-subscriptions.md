@@ -25,7 +25,7 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Nota:** se è necessario installare Python o il [Pacchetto Python di Azure][], vedere la [guida all'installazione di Python](../python-how-to-install/).
+**Nota:** se è necessario installare Python o il [Pacchetto Python di Azure][], vedere la [guida all'installazione di Python](python-how-to-install.md).
 
 
 ## Come creare un argomento

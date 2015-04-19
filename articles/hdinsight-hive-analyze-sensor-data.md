@@ -31,7 +31,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 ##Prerequisiti:
 
-* Un cluster HDInsight (Hadoop). Per informazioni sulla creazione di un cluster vedere [Provisioning di cluster Hadoop in HDInsight](/it-it/documentation/articles/hdinsight-provision-clusters/)
+* Un cluster HDInsight (Hadoop). Per informazioni sulla creazione di un cluster vedere [Provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
 
 * Microsoft Excel 2013
 

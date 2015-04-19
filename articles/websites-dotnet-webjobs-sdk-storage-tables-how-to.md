@@ -18,9 +18,9 @@
 
 # Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK
 
-Questa guida fornisce esempi di codice C# che illustrano come leggere e scrivere le tabelle di archiviazione di Azure usando [WebJobs SDK](../websites-dotnet-webjobs-sdk/) versione 1.x.
+Questa guida fornisce esempi di codice C# che illustrano come leggere e scrivere le tabelle di archiviazione di Azure usando [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](../websites-dotnet-webjobs-sdk-get-started/).
+La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 		
 Alcuni dei frammenti di codice illustrano l'attributo  `Table` usato nelle funzioni [chiamate manualmente](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), ovvero non mediante uno degli attributi di trigger. 
 
@@ -149,11 +149,11 @@ Il seguente esempio di codice usa un oggetto  `CloudTable` per aggiungere una si
 		    tableBinding.Execute(insertOperation);
 		}
 
-Per altre informazioni su come usare l'oggetto  `CloudTable`, vedere [Come usare l'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables/). 
+Per altre informazioni su come usare l'oggetto  `CloudTable`, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure sulle code
 
-Per informazioni su come gestire l'elaborazione delle tabelle attivata da un messaggio di coda o per gli scenari di WebJobs SDK non specifici dell'elaborazione delle tabelle, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Per informazioni su come gestire l'elaborazione delle tabelle attivata da un messaggio di coda o per gli scenari di WebJobs SDK non specifici dell'elaborazione delle tabelle, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Tra gli argomenti trattati nell'articolo sono inclusi i seguenti:
 

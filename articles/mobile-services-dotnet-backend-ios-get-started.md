@@ -76,7 +76,7 @@ In questa sezione si creerà una nuova app per iOS connessa al servizio mobile.
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per iOS con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal computer di sviluppo iOS. Per altre informazioni, vedere [Configurare il server Web locale per consentire le connessioni a un servizio mobile locale](/it-it/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+Viene mostrato come eseguire la nuova app client nel servizio mobile in esecuzione in Azure. Per poter testare l'app per iOS con il servizio mobile in esecuzione in un computer locale, è necessario configurare il server Web e il firewall in modo da consentire l'accesso dal computer di sviluppo iOS. Per altre informazioni, vedere [Configurare il server Web locale per consentire le connessioni a un servizio mobile locale](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:

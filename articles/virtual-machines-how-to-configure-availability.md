@@ -65,8 +65,8 @@ Per usare il portale di gestione:
 
 Se si desidera usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere il seguente argomento:
 
-- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
-- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 	>[AZURE.NOTE] Eseguire `Get-AzureVMImage` senza parametri per ottenere un elenco di tutte le immagini che si applicano alla propria sottoscrizione. Questa operazione potrebbe restituire un elenco di grandi dimensioni. Per abbreviare l'elenco, usare proprietà quali il nome della famiglia di immagini. Per suggerimenti ed esempi su come effettuare questa operazione per trovare un'immagine specifica, vedere [Gestire le immagini mediante Windows PowerShell](http://msdn.microsoft.com/library/azure/dn790330.aspx).
 

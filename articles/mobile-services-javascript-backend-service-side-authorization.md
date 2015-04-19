@@ -17,8 +17,8 @@
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
 
 > [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
-- [(Qualsiasi | .NET)](/it-it/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Qualsiasi | Javascript)](/it-it/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Qualsiasi | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Qualsiasi | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 Questo argomento illustra come usare gli script sul lato servizio per autorizzare gli utenti. In questa esercitazione, vengono registrati script con Servizi mobili di Azure, vengono filtrate le query in base agli ID utente e si consente agli utenti di accedere solo ai propri dati.
 

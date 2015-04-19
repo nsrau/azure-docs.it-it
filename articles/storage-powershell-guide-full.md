@@ -659,7 +659,7 @@ Una firma di accesso condiviso può assumere una delle due forme seguenti:
 - **Firma di accesso condiviso ad hoc**: Quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente. Questo tipo di firma di accesso condiviso può essere creato per un contenitore, un BLOB, una tabella e una coda e non è revocabile.
 - **Firma di accesso condiviso con criteri di accesso archiviati**: I criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati. Questo tipo di firma di accesso condiviso è revocabile.
 
-Per ulteriori informazioni, vedere [Firme di accesso condiviso](./storage-dotnet-shared-access-signature-part-1.md/), [Parte 1: informazioni sul modello di firma di accesso condiviso](./storage-dotnet-shared-access-signature-part-1.md/) e [Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx).
+Per ulteriori informazioni, vedere [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md), [Parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx).
 
 Nelle sezioni successive verrà illustrato come creare un token di firma di accesso condiviso e criteri di accesso archiviati per le tabelle di Azure. Azure PowerShell fornisce cmdlet simili per contenitori, BLOB e code. Per eseguire gli script in questa sezione, scaricare [Azure PowerShell versione 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o successiva.
 
@@ -721,7 +721,7 @@ Per usare Archiviazione di Azure con [Azure Government per il governo degli Stat
 
 Per altre informazioni, vedere:
 
-- [Guida per gli sviluppatori di Microsoft Azure Government](../azure-government-developer-guide/). 
+- [Guida per gli sviluppatori di Microsoft Azure Government](azure-government-developer-guide.md). 
 - [Note degli sviluppatori per le applicazioni di Azure in Cina](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## <a name="next"></a>Passaggi successivi

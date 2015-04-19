@@ -238,7 +238,7 @@ Il gestore delle mappe partizioni viene usato principalmente dalle applicazioni 
 
 Si noti che queste applicazioni, che usano l'oggetto **ShardMapManager** aperto con credenziali di sola lettura, non potranno apportare modifiche alle mappe o ai mapping.  A questo scopo è possibile creare applicazioni specifiche per l'amministrazione o script di PowerShell che forniscono credenziali con privilegi elevati, come illustrato in precedenza.   
 
-Per altri dettagli, vedere [Routing dipendente dai dati](./sql-database-elastic-scale-data-dependent-routing.md). 
+Per altri dettagli, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md). 
 
 ## Modifica di una mappa partizioni 
 
@@ -270,9 +270,9 @@ Questi metodi interagiscono tra loro come i blocchi predefiniti disponibili per 
 
 Le applicazioni devono spesso aggiungere semplicemente nuove partizioni per gestire i dati previsti dalle nuove chiavi o dai nuovi intervalli di chiavi, per una mappa partizioni già esistente. Ad esempio, è possibile che un'applicazione partizionata dall'ID tenant debba eseguire il provisioning di una nuova partizione per un nuovo tenant, oppure è possibile che i dati partizionati ogni mese richiedano il provisioning di una nuova partizione prima dell'inizio di ogni nuovo mese. 
 
-Se il nuovo intervallo di valori di chiave non è già incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o dell'intervallo a quella partizione risulteranno molto semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere l'articolo relativo all'[aggiunta di una nuova partizione](./sql-database-elastic-scale-add-a-shard.md).
+Se il nuovo intervallo di valori di chiave non è già incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o dell'intervallo a quella partizione risulteranno molto semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere l'articolo relativo all'[aggiunta di una nuova partizione](sql-database-elastic-scale-add-a-shard.md).
 
-Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione/unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione/unione, vedere la [panoramica relativa a tale servizio](./sql-database-elastic-scale-overview-split-and-merge.md) 
+Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione/unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione/unione, vedere la [panoramica relativa a tale servizio](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

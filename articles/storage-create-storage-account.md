@@ -95,7 +95,7 @@ Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, gli endp
 
 L'URL per accedere a un oggetto in un account di archiviazione viene formato aggiungendo la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo BLOB è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per i dettagli, vedere [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione](../storage-custom-domain-name/).
+È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per i dettagli, vedere [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione](storage-custom-domain-name.md).
 
 ### <a id="affinity-group"></a>Condivisione del percorso del servizio con un gruppo di affinità 
 
@@ -113,7 +113,7 @@ Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM 
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono usate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso dell'account di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere l'[esercitazione sulla firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/).
+> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso dell'account di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere l'[esercitazione sulla firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Nel [portale di gestione](http://manage.windowsazure.com) usare **Gestisci chiavi** nel dashboard o la pagina **Archiviazione** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione usate per accedere ai servizi BLOB, tabelle e di accodamento. 
 
