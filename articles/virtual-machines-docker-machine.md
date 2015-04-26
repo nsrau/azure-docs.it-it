@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
  pageTitle="Come usare Docker Machine in Azure" 
  description="Viene illustrato come avviare ed eseguire Docker Machine su Ubuntu in Azure." 
  services="virtual-machines" 
@@ -53,7 +53,8 @@ Se si ha esperienza con le distribuzioni Linux, è possibile che questi file sia
 		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+	A questo punto, immettere la password di esportazione per il certificato e acquisirla per un utilizzo successivo. Quindi digitare:
+
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 

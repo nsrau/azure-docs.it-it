@@ -229,4 +229,5 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

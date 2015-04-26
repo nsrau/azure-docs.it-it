@@ -169,4 +169,5 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [Estensione Xamarin]: http://xamarin.com/visual-studio
 
 
+
 <!--HONumber=42-->

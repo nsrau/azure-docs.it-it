@@ -29,7 +29,7 @@ applicazioni cloud scalabili in Azure. Consente la separazione, la gestione
 indipendente e la scalabilità dei componenti front-end e back-end dell'applicazione..  Servizi cloud 
 offre una potente macchina virtuale dedicata per ospitare ogni ruolo in modo affidabile.
 
-Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
 
 >[AZURE.TIP] Come creare un semplice sito Web Se si intende creare un semplice sito Web front-end, è possibile <a href="/it-it/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usare un sito Web di Azure semplificato.</a> È possibile procedere all'aggiornamento a un servizio cloud con facilità, in base alla crescita del sito Web e all'insorgere di nuove esigenze.
 

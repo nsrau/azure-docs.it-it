@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Creare un'area di lavoro di Machine Learning | Azure" 
-	description="Informazioni come creare un'area di lavoro per Azure Machine Learning Studio." 
+	description="Come creare un'area di lavoro per Azure Machine Learning Studio." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -18,10 +18,10 @@
 
 
 # Creare un'area di lavoro di Machine Learning di Azure 
-Un'area di lavoro di Machine Learning di Microsoft Azure (area di lavoro ML) contiene tutti gli strumenti necessari per la gestione e la pubblicazione di esperimenti. Per altre informazioni sull'area di lavoro di Machine Learning, vedere.
+Un'area di lavoro di Azure Machine Learning (area di lavoro ML) contiene tutti gli strumenti necessari per la gestione e la pubblicazione di test. Per altre informazioni sulle aree di lavoro Machine Learning, fare clic sul collegamento.
 ## Per creare un'area di lavoro ##
-1. Effettuare l'accesso con l'account Microsoft Azure.
-2. Nel pannello dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
+1. Accedere con il proprio account di Microsoft Azure.
+2. Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 
 ![][1]
  
@@ -29,9 +29,9 @@ Un'area di lavoro di Machine Learning di Microsoft Azure (area di lavoro ML) con
 1. Fare clic su **CREA UN'AREA DI LAVORO ML**.
 2. Nella pagina **CREAZIONE RAPIDA**:
 	1. immettere le informazioni sull'area di lavoro.    
-	NOTA: Il **PROPRIETARIO DELL'AREA DI LAVORO** corrisponde all'account Microsoft dell'utente (nome@outlook.com) o all'account dell'organizzazione.
+	> [AZURE.NOTE] Il **PROPRIETARIO DELL'AREA DI LAVORO** è il nome dell'account Microsoft (nome@outlook.com) o il nome dell'account dell'organizzazione.
 	2. Fare clic su **CREA UN'AREA DI LAVORO ML**.
-3. Dopo avere creato l'area di lavoro, questa sarà visualizzata nella pagina **machine learning**.
+3. Dopo avere creato l'area di lavoro Machine Learning, questa sarà visualizzata nella pagina **Machine Learning**.
  
 ![][2]
 
@@ -46,4 +46,4 @@ Un'area di lavoro di Machine Learning di Microsoft Azure (area di lavoro ML) con
 
 <!--Link references-->
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

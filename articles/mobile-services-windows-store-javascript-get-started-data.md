@@ -180,4 +180,5 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/documentation/articles/mobile-services-html-how-to-use-client-library/
 
 
+
 <!--HONumber=42-->

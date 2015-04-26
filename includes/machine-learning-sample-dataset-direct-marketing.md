@@ -1,2 +1,4 @@
 ﻿Il set di dati contiene i dati dei clienti e le indicazioni sulle risposte ottenute in seguito a una campagna di mailing diretto. Ogni riga rappresenta un cliente. Il set di dati contiene 9 caratteristiche sui dati personali degli utenti e sui comportamenti passati, oltre a tre 3 colonne con etichetta (visita, conversione e spesa).  La visita è una colonna binaria usata per indicare che un cliente è stato visitato dopo la campagna di marketing, la conversione indica che il cliente ha effettuato un acquisto e la spesa corrisponde all'importo speso.  Il set di dati è stato messo a disposizione da Kevin Hillstrom per MineThatData E-Mail Analytics And Data Mining Challenge.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

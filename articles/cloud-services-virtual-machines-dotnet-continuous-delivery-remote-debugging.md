@@ -17,7 +17,7 @@
 	ms.author="kempb"/>
 # Abilitazione del debug remoto con la distribuzione continua per la pubblicazione in Azure
 
-Per abilitare il debug remoto in Azure quando si usa la [distribuzione continua](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/) per la pubblicazione in Azure, seguire questa procedura.
+Per abilitare il debug remoto in Azure quando si usa la [distribuzione continua](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-continuous-delivery/) per la pubblicazione in Azure, seguire questa procedura.
 
 Contenuto dell'argomento:
 
@@ -39,7 +39,7 @@ Contenuto dell'argomento:
 
 <h2> <a name="virtualmachine"></a>Abilitare il debug remoto per le macchine virtuali</h2>
 
-1. Creare una macchina virtuale di Azure. Per informazioni, vedere l'articolo relativo alla [creazione di una macchina virtuale che esegue Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/) o quello relativo alla [creazione e gestione di macchine virtuali di Azure in Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
+1. Creare una macchina virtuale di Azure. Per informazioni, vedere l'articolo relativo alla [creazione di una macchina virtuale che esegue Windows Server](http://azure.microsoft.com/ documentation/articles/virtual-machines-windows-tutorial/) o quello relativo alla [creazione e gestione di macchine virtuali di Azure in Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Nella [pagina del portale Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851) visualizzare il dashboard della macchina virtuale per individuare "l'identificazione personale certificato RDP" della macchina virtuale. L'identificazione personale viene usata per il valore ServerThumbprint nella configurazione dell'estensione.
 3. Creare un certificato client come descritto nell'articolo relativo alla [creazione di un certificato di servizio per Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (conservare il file con estensione pfx e l'identificazione personale RDP).
 4. Installare [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (versione 0.7.4 o successive) dall'Area download Microsoft.

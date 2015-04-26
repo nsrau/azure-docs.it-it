@@ -130,3 +130,5 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

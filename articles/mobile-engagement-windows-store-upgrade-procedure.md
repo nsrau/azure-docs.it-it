@@ -1,6 +1,7 @@
 ﻿<properties 
-	pageTitle="Procedura di aggiornamento dell'SDK Windows Store per Azure Mobile Engagement" 
-	description="Ultimi aggiornamenti e procedure per l'SDK Windows Store per Azure Mobile Engagement" 					
+	pageTitle="Al termine di queste operazioni, è necessario sostituire i riferimenti di Capptain precedenti con i nuovi riferimenti di Engagement. 
+Procedura di aggiornamento dell'SDK Windows Store per Azure Mobile Engagement" 
+	description="Ultimi aggiornamenti e procedure per l'SDK Windows Store per Azure Mobile Egagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 

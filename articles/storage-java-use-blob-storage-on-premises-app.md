@@ -382,4 +382,5 @@ Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB
   [Come creare un account di archiviazione]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
   [Come gestire gli account di archiviazione]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
   [Come usare l'archiviazione BLOB da Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

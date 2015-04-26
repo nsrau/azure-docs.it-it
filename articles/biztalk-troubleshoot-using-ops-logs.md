@@ -115,3 +115,5 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -495,4 +495,5 @@ In questa esercitazione è stato installato HDInsight Emulator e sono stati eseg
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+
 <!--HONumber=42-->

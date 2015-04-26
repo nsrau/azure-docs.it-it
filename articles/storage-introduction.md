@@ -217,4 +217,5 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione BLOB da Python](storage-python-how-to-use-blob-storage.md)
 - [Come usare l'archiviazione tabelle da Python](storage-python-how-to-use-table-storage.md)
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
+
 <!--HONumber=42-->

@@ -290,4 +290,5 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 [Pacchetto NuGet SQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
 
+
 <!--HONumber=42-->

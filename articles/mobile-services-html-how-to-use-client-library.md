@@ -662,4 +662,5 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 
+
 <!--HONumber=42-->

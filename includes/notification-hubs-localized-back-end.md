@@ -1,4 +1,4 @@
-﻿
+
 
 Nell'app back-end è ora necessario passare all'invio di notifiche modello anziché di payload nativi. In questo modo il codice back-end verrà semplificato, in quanto non è necessario inviare più payload per diverse piattaforme.
 
@@ -52,4 +52,4 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
 	
 Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

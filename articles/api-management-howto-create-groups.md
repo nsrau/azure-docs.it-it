@@ -106,3 +106,5 @@ Dopo che uno sviluppatore è stato associato a un gruppo, potrà visualizzare i 
   [Come creare e pubblicare un prodotto in Gestione API di Azure]: ../api-management-howto-add-products
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -770,7 +770,7 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 - [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure][]
 - [Raccogliere dati di registrazione usando Diagnostica Azure][]
 - [Debug di un'applicazione Azure][]
-- [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](http://msdn.microsoft.com/library/windowsazure/dn186185.aspx)
+- [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure][]
 
   
 
@@ -791,9 +791,9 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 [Debug di un'applicazione Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Raccogliere dati di registrazione usando Diagnostica Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[Versione di valutazione gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Installare e configurare Azure PowerShell versione 0.8.7 o successiva]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
+[Versione di valutazione gratuita]: http://azure.microsoft.com/ pricing/free-trial/
+[Installare e configurare Azure PowerShell versione 0.8.7 o successiva]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
+[[installare e configurare Azure PowerShell versione 0.8.7 o successiva]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Schema di configurazione di Diagnostica Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Schema di configurazione di Diagnostica di Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx

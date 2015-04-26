@@ -195,3 +195,5 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

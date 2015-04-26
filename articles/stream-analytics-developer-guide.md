@@ -219,3 +219,5 @@ Per ulteriore supporto, vedere il [forum dedicato ad Analisi dei flussi di Azure
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

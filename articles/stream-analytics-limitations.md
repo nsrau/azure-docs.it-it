@@ -152,3 +152,5 @@ L'operazione LEFT OUTER JOIN è abilitata nel linguaggio di query di Analisi dei
 [Collegamento 3 a un altro argomento della documentazione di azure.microsoft.com]: ../storage-whatis-account/
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

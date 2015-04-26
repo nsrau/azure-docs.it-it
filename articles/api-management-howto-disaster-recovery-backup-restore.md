@@ -101,3 +101,5 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
   [API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

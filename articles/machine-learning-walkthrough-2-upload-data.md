@@ -86,3 +86,5 @@ I dati vengono caricati in un modulo Set di dati che è possibile usare in un es
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

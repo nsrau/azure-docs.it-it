@@ -1,6 +1,6 @@
 ﻿## Creare il progetto di API Web
 
-Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autenticare i client e generare le notifiche o modificare un back-end esistente da progetti precedenti o dall'esercitazione [Inviare notifiche push agli utenti autenticati](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autenticare i client e generare le notifiche o modificare un back-end esistente da progetti precedenti o dall'esercitazione [Inviare notifiche push agli utenti autenticati](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md) .
 
 > [AZURE.NOTE] **Importante**: prima di procedere con l'esercitazione, verificare di aver installato l'ultima versione di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Nel menu **Strumenti** fare clic su **Estensioni e aggiornamenti**. Cercare **Gestione pacchetti NuGet per Visual Studio 2013** e verificare che sia installata la versione 2.8.50313.46 o successiva. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
 > 
@@ -23,13 +23,13 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 5. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, quindi scegliere **Gestisci pacchetti NuGet**.
 
-6. Nella parte sinistra fare clic su **Online** e cercare **servicebus** usando la casella **Cerca**.
+6. Nella parte sinistra fare clic su **Online** e cercare **servicebus** nella casella di **ricerca**.
 
 7. Nell'elenco risultati fare clic su **Bus di servizio di Microsoft Azure** e quindi su **Installa**. Completare l'installazione e chiudere la finestra di Gestione pacchetti NuGet.
 
 	![][14]
 
-8. Verrà ora creata una nuova classe **Notifications.cs**. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, quindi scegliere **Aggiungi** e **Classe**. Dopo avere rinominato la nuova classe in **Notifications.cs**, fare clic su **Aggiungi** per generare la classe. Questo modulo rappresenta le diverse notifiche sicure che verranno inviate. In un'implementazione completa, le notifiche vengono archiviate in un database. Per semplicità, in questa esercitazione verrà archiviata in memoria.
+8. Verrà ora creata una nuova classe **Notifications.cs**. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, fare clic su **Aggiungi** e **Classe**. Dopo avere rinominato la nuova classe in **Notifications.cs**, fare clic su **Aggiungi** per generare la classe. Questo modulo rappresenta le diverse notifiche sicure che verranno inviate. In un'implementazione completa, le notifiche vengono archiviate in un database. Per semplicità, in questa esercitazione verrà archiviata in memoria.
 
 	![][6]
 
@@ -50,7 +50,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
             }
         }
 
-11. Verrà quindi creata una nuova classe **AuthenticationTestHandler.cs**. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, quindi scegliere **Aggiungi** e infine **Classe**. Assegnare alla nuova classe il nome **AuthenticationTestHandler.cs**, quindi fare clic su **Aggiungi** per generarla. Questa classe viene usata per autenticare gli utenti mediante l' *Basic Authentication*. Tenere presente che l'app può usare qualsiasi schema di autenticazione.
+11. Verrà quindi creata una nuova classe **AuthenticationTestHandler.cs**. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, fare clic su **Aggiungi** e **Classe**. Assegnare alla nuova classe il nome **AuthenticationTestHandler.cs** e fare clic su **Aggiungi** per generare la classe. Questa classe viene usata per autenticare gli utenti mediante l' *Basic Authentication*. Tenere presente che l'app può usare qualsiasi schema di autenticazione.
 
 12. In AuthenticationTestHandler.cs aggiungere le seguenti istruzioni `using`:
 
@@ -116,7 +116,7 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Verrà quindi creato un nuovo controller **RegisterController**. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi**, quindi **Controller**. Fare clic sull'elemento **Web API 2 Controller -- Empty** e quindi su **Aggiungi**. Assegnare alla nuova classe il nome **RegisterController** e fare di nuovo clic su **Aggiungi** per generare il controller.
+15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
 	![][7]
 
@@ -299,4 +299,4 @@ Seguire questi passaggi per creare un nuovo back-end WebAPI ASP.NET per autentic
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

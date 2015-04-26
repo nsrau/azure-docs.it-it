@@ -38,4 +38,5 @@ Nel file App.xaml.cs è stato creato un oggetto **MobileServiceClient** con l'UR
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

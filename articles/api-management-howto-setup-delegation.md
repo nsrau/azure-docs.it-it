@@ -166,3 +166,5 @@ I codici di esempio seguenti illustrano come usare la *chiave di convalida della
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

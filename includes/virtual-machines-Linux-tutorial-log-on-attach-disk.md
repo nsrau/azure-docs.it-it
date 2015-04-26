@@ -1,4 +1,4 @@
-
+﻿
 
 ## <a id="logon"> </a>Come accedere alla macchina virtuale dopo averla creata ##
 
@@ -30,11 +30,11 @@ In questa esercitazione viene illustrato l'uso del programma PuTTY per accedere 
 
 L'applicazione in uso potrebbe richiedere l'archiviazione di dati. Per impostare questa funzionalità è necessario collegare un disco dati alla macchina virtuale creata in precedenza. Il modo più semplice per procedere consiste nel collegare un disco dati vuoto alla macchina virtuale.
 
-In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, in Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`; in tal caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Per altre informazioni, vedere la [Guida dell'utente dell'agente Linux di Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/).
+In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, in Linux il kernel potrebbe assegnare al disco dati il nome  `/dev/sdc`; in tal caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Per altre informazioni, vedere la [Guida dell'utente dell'agente Linux di Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/).
 
 >[AZURE.NOTE] Non archiviare i dati nel disco risorse. Questo disco fornisce un'archiviazione temporanea per le applicazioni e i processi e viene usato per archiviare i dati che non è necessario conservare, ad esempio i file di scambio. I dischi di dati salvano l'archiviazione di Azure come file VHD nei BLOB di pagine e forniscono la ridondanza dell'archiviazione per proteggere i dati. Per i dettagli, vedere l'argomento relativo alla [gestione di dischi e immagini in Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
-1. Accedere al portale di gestione di Azure se questa operazione non è già stata eseguita.
+1. Se questa operazione non è già stata eseguita, accedere al portale di gestione di Azure.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale **MyTestVM1** creata in precedenza.
 
@@ -42,7 +42,7 @@ In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e vien
 	
 	Verrà visualizzata la finestra di dialogo **Connetti disco vuoto**.
 
-	![Definizione dei dettagli del disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. Le impostazioni **Nome macchina virtuale**, **Percorso di archiviazione** e **Nome file** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Dimensione**.
 
@@ -131,7 +131,7 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[AZURE.NOTE] blkid potrebbe non richiedere l'accesso sudo in tutti i casi ma potrebbe risultare più facile eseguirlo con `sudo -i` su distribuzioni in cui /sbin o /usr/sbin non sono presenti nei percorsi indicati in `$PATH`.
+	>[AZURE.NOTE] blkid potrebbe non richiedere l'accesso sudo in tutti i casi ma potrebbe risultare più facile eseguirlo con  `sudo -i` su distribuzioni in cui /sbin o /usr/sbin non sono presenti nei percorsi indicati in `$PATH`.
 
 	**Attenzione:** se il file /etc/fstab non viene modificato in modo corretto, il sistema potrebbe diventare instabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
@@ -152,7 +152,9 @@ Il disco dati appena collegato alla macchina virtuale è offline e non è inizia
 
 	Se il secondo comando restituisce un errore, verificare il file /etc/fstab per ottenere la sintassi corretta.
 
-	>[AZURE.NOTE] Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
+
+	>[AZURE.NOTE] Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni  `nofail` e/o  `nobootwait`, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

@@ -18,4 +18,5 @@ Quando il traffico raggiunge Gestione traffico, quest'ultimo lo indirizza al sit
 
 > [AZURE.NOTE] Alcuni registrar consentono di eseguire il mapping solo dei sottodomini se si usa un record CNAME, ad esempio **www.contoso.com**, e non dei nomi radice come **contoso.com**. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la <a href="http://en.wikipedia.org/wiki/CNAME_record">pagina di Wikipedia sui record CNAME</a> oppure il documento di <a href="http://tools.ietf.org/html/rfc1035">IETF relativo a implementazione e specifiche dei nomi di dominio</a>.
 
+
 <!--HONumber=42-->

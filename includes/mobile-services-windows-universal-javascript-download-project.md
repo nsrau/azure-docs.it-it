@@ -20,4 +20,6 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices](http://go
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 7. Ripetere i passaggi 3 e 4 per verificare se l'esempio si comporta nello stesso modo.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

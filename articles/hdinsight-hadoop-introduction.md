@@ -194,4 +194,5 @@ Per provare Hadoop in HDInsight, vedere gli articoli in "Informazioni di base" n
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
+
 <!--HONumber=42-->

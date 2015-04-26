@@ -411,4 +411,5 @@ L'esercitazione è stata completata.
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
 
+
 <!--HONumber=42-->

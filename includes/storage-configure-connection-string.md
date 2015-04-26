@@ -62,4 +62,5 @@ Per altre informazioni sulle stringhe di connessione di archiviazione, vedere [C
 [connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx<!--HONumber=42-->
+[Configurazione delle stringhe di connessione]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
+<!--HONumber=42-->

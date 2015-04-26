@@ -69,4 +69,5 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app di Windows St
 [Archiviare script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control
 
 
+
 <!--HONumber=42-->

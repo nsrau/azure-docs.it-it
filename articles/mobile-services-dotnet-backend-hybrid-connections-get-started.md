@@ -191,4 +191,5 @@ Il servizio mobile ha eseguito il push delle modifiche generate nell'app nel dat
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
 
 
+
 <!--HONumber=42-->

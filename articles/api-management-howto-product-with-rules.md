@@ -271,3 +271,5 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamati al minut
   [Introduzione alla configurazione API avanzata]: ../api-management-get-started-advanced
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

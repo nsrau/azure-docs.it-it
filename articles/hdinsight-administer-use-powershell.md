@@ -297,4 +297,5 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+
 <!--HONumber=42-->

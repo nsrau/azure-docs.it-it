@@ -244,3 +244,5 @@ Per eseguire il provisioning di Servizi BizTalk di Azure nel portale di gestione
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

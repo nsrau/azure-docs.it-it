@@ -139,3 +139,5 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

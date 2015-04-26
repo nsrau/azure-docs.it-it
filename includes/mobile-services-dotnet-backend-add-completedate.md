@@ -39,4 +39,6 @@
 5. Ricompilare il progetto di servizio back-end .NET todolist e verificare che non siano presenti errori di compilazione. 
 
 A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

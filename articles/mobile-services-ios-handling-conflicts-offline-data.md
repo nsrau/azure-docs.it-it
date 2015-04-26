@@ -472,4 +472,5 @@ Nel corso della procedura, si è aggiunta la classe helper **QSUIAlertViewWithBl
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-ios-get-started-data/
 
 
+
 <!--HONumber=42-->

@@ -128,4 +128,5 @@ Per completare questa esercitazione, è necessario soddisfare i seguenti requisi
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
 
+
 <!--HONumber=42-->

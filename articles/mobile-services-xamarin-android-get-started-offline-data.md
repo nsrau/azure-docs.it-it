@@ -173,4 +173,5 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [Componente aggiuntivo NuGet per Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 
 
+
 <!--HONumber=42-->

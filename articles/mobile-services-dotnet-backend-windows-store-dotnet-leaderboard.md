@@ -776,4 +776,5 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-dotnet
 
 
+
 <!--HONumber=42-->

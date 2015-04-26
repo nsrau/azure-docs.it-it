@@ -62,4 +62,5 @@ Prima di poter creare il servizio mobile, è necessario importare il file delle 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

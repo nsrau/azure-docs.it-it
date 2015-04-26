@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Distribuzione di processi Web usando Visual Studio" 
 	description="Informazioni su come distribuire processi Web di Azure in Servizio app per app Web di Azure." 
 	services="app-service\web" 
@@ -127,7 +127,7 @@ La finestra di dialogo **Aggiungi processo Web Azure** consente di immettere il 
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+I campi in questa finestra di dialogo corrispondono ai campi presenti nella finestra di dialogo **Nuovo processo** del portale di gestione di Azure. Per ulteriori informazioni, vedere [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 Per un processo Web pianificato (non per i processi Web in modalità continua), Visual Studio crea una raccolta di processi dell'[utilità di pianificazione di Azure](/services/scheduler/), se non ne esiste ancora una, e crea un processo nella raccolta:
 

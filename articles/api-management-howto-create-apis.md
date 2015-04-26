@@ -88,3 +88,5 @@ Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi con
   [Impostazioni dell'autenticazione di base]: ./media/api-management-howto-create-apis/api-management-api-settings-credentials.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -207,9 +207,9 @@ In questa sezione viene illustrato come eseguire il debug remoto con il progetto
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
+1. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto Web (non sul progetto processo Web), **Pubblica**.
 
-2. In the **Profile** drop-down list, select the same profile that you used in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+2. Nell'elenco a discesa **Profilo** selezionare il nome del profilo usato in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 3. Fare clic sulla scheda **Impostazioni**, sostituire **Configurazione** con **Debug** e quindi fare clic su **Pubblica**.
 

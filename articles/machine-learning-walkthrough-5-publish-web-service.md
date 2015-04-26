@@ -160,3 +160,5 @@ Nella scheda **CONFIGURAZIONE** fare clic su "SÌ" accanto a **PASSARE ALL'AMBIE
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

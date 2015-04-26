@@ -226,3 +226,5 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

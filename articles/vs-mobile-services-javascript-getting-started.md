@@ -92,4 +92,5 @@ Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

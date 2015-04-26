@@ -122,4 +122,5 @@ Ora che l'app client è stata aggiornata, tornare all'esercitazione relativa all
 [Introduzione ad Hub di notifica]: /it-it/manage/services/notification-hubs/get-started-notification-hubs-ios/
 
 
+
 <!--HONumber=42-->

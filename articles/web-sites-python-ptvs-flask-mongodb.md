@@ -236,4 +236,5 @@ Usare i seguenti collegamenti per altre informazioni su Python Tools per Visual 
 [Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 
+
 <!--HONumber=42-->

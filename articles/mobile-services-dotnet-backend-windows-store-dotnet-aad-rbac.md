@@ -317,4 +317,5 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [Libreria client Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
+
 <!--HONumber=42-->

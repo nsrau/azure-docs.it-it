@@ -126,4 +126,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Versione per back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 
 
+
 <!--HONumber=42-->

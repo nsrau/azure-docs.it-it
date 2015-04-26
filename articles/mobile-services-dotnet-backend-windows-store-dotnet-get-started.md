@@ -143,4 +143,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Risolvere i problemi relativi a un back-end .NET di servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
+
 <!--HONumber=42-->

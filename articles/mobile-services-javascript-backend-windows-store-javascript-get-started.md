@@ -97,4 +97,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Portale di gestione]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

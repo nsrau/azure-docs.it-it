@@ -41,7 +41,4 @@ In questa esercitazione è stato illustrato come creare una macchina virtuale ch
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

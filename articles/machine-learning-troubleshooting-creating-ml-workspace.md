@@ -69,3 +69,5 @@ Microsoft desidera semplificare al massimo l'esperienza di Machine Learning di A
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

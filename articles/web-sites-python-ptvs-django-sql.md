@@ -227,4 +227,5 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Database SQL]: /it-it/documentation/services/sql-database/
 
 
+
 <!--HONumber=42-->

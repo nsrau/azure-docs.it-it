@@ -145,3 +145,5 @@ Per altre informazioni sulla gestione del controllo degli accessi in base al ruo
 - [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

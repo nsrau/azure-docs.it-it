@@ -449,4 +449,5 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestShowMemberDb]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
 
+
 <!--HONumber=42-->

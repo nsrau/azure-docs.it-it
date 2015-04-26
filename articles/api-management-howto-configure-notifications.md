@@ -110,3 +110,5 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
   [Editor dei modelli di posta elettronica]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

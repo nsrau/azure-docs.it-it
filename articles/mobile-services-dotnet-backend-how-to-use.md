@@ -34,4 +34,5 @@ Il backend .NET di Servizi mobili fornisce un'astrazione del tipo a "tabella" un
 
 Alla base di questo modello di programmazione vi è la classe [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx), che è una normale API Web [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), personalizzata per un modello di accesso ai dati di tipo CRUD. Grazie a [Entity Framework](http://msdn.microsoft.com/data/ef.aspx), **TableController** può usare una varietà di archivi dati, compresi SQL, [Archiviazione tabelle di Azure](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org) o un archivio dati di propria scelta.
 
+
 <!--HONumber=42-->

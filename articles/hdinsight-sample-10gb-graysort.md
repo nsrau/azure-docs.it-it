@@ -443,4 +443,5 @@ Per le esercitazioni relative all'esecuzione di altri esempi in cui vengono forn
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
+
 <!--HONumber=42-->

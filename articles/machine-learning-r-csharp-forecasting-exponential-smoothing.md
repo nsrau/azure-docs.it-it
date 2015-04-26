@@ -138,3 +138,5 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [3]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img3.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -10,11 +10,11 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi  `IM
    
 * Per eseguire il pull dei dati da una tabella del server all'app, è stata effettuata la chiamata a  `IMobileServiceSyncTable.PullAsync`.
 
-    Un'operazione pull effettua sempre un'operazione push all'inizio in modo da garantire che tutte le tabelle nell'archivio locale e le eventuali relazioni siano coerenti.
+    Un'operazione pull effettua sempre un'operazione push all'inizio Lo scopo è assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti.
 
     Sono inoltre presenti overload di  `PullAsync()` che consentono di specificare una query in modo da filtrare i dati archiviati nel client. Se non viene passata una query,  `PullAsync()` effettuerà il pull di tutte le righe nella tabella (o query) corrispondente. È possibile passare la query per filtrare solo le modifiche necessarie per la sincronizzazione dell'app.
 
-* Per abilitare la sincronizzazione incrementale, passare un ID di query a  `PullAsync()`. L'ID di query viene usato per archiviare il timestamp più aggiornato dai risultati dell'ultima operazione di pull. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica nell'app. Se la query ha un parametro, lo stesso valore di parametro deve fare parte dell'ID di query.
+* Per abilitare la sincronizzazione incrementale, passare un ID di query a  `PullAsync()`. L'ID di query viene usato per archiviare il timestamp dell'ultimo aggiornamento dai risultati dell'ultima operazione di pull. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Se la query include un parametro, è necessario l'ID di query deve includere lo stesso valore di parametro.
 
     Ad esempio, se si applica un filtro in base all'ID utente, è necessario che questo faccia parte dell'ID di query:
 
@@ -23,4 +23,5 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi  `IM
     Se si desidera rifiutare esplicitamente la sincronizzazione incrementale, passare  `null` come ID di query. In questo caso, verranno recuperati tutti i record in ogni chiamata a  `PullAsync`, potenzialmente inefficace.
 
 * Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare  `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
-<!--HONumber=42-->
+
+<!--HONumber=49-->

@@ -38,13 +38,13 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 >[AZURE.NOTE] In questa esercitazione viene illustrato il flusso di autenticazione gestito da Servizi mobili usando vari provider di identità. Questo metodo è semplice da configurare e supporta più provider. Per usare in alternativa Live Connect con l'autenticazione gestita dal client e per offrire un ambiente Single Sign-On nella propria app per Windows Phone, vedere l'argomento [Autenticazione dell'app di Windows Store con l'accesso Single Sign-On di Live Connect]. L'uso dell'autenticazione gestita dal client consente all'app di accedere a dati utente aggiuntivi mantenuti dal provider di identità. È possibile ottenere gli stessi dati utente nel proprio servizio mobile chiamando la funzione **user.getIdentities()** negli script del server. Per altre informazioni, vedere [questo post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
+## <a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 
-##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
+## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -57,11 +57,11 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
-##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Archiviare i token di autorizzazione nel client
+## <a name="tokens"></a>Archiviare i token di autorizzazione nel client
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
@@ -87,6 +87,6 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Introduzione a Servizi mobili]: mobile-services-windows-phone-get-started.md
 [Autorizzare gli utenti con gli script]: mobile-services-windows-phone-authorize-users-in-scripts.md
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Single Sign-On per app di Windows Phone tramite Live Connect]: mobile-services-windows-phone-single-sign-on.md
+[Autenticazione dell'app di Windows Store con l'accesso Single Sign-On di Live Connect]: mobile-services-windows-phone-single-sign-on.md
 
 <!--HONumber=49-->

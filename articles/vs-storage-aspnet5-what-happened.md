@@ -42,4 +42,6 @@ Il pacchetto aggiunge i riferimenti a .NET seguenti:
 Nel file config.json del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
 Per altre informazioni, vedere [ASP.NET 5](http://www.asp.net/vnext).
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

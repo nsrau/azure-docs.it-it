@@ -357,7 +357,7 @@ A questo punto, dopo aver appreso le nozioni di base di Cache Redis di Azure, us
 [Procedura: Impostare la possibilità di inserire una pagina nella cache a livello di codice]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configurare una cache in Cache Redis di Azure]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[Modello di configurazione di StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[Modello di configurazione StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
 [Gestire gli oggetti .NET nella cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
@@ -378,8 +378,8 @@ A questo punto, dopo aver appreso le nozioni di base di Cache Redis di Azure, us
 
 [Redis]: http://redis.io/documentation
 [Tipi di dati Redis]: http://redis.io/topics/data-types
-[introduzione di 15 minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
+[introduzione di quindici minuti ai tipi di dati Redis]: http://redis.io/topics/data-types-intro
 
-[uso di stringhe di applicazione e stringhe di connessione in Siti Web di Microsoft Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[Uso di stringhe di applicazione e stringhe di connessione in Siti Web di Azure]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Collegare un disco a una macchina virtuale che esegue Linux in Azure" 
 	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso." 
 	services="virtual-machines" 
@@ -88,7 +88,7 @@
 
 	![Create file system](./media/virtual-machines-linux-how-to-attach-disk/DiskFileSystem.png)
 
-	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso in sola lettura ai file system ext4.  Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
+	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso di sola lettura ai file system ext4.  Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
 
 
 9. Creare una directory per il montaggio del nuovo file system. Ad esempio, digitare il comando seguente e quindi immettere la password dell'account:
@@ -142,7 +142,4 @@
 
 [logonlinux]: ../virtual-machines-linux-how-to-log-on/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

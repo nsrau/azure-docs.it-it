@@ -91,3 +91,5 @@ Una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza 
 - [Servizi BizTalk: Backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

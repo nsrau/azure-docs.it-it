@@ -256,4 +256,5 @@ Quando un push viene annullato,  `PushAsync` genererà un'eccezione  `MobileServ
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data/
 
 
+
 <!--HONumber=42-->

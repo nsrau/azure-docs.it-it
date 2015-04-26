@@ -210,4 +210,5 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche basate su modelli ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
 
 
+
 <!--HONumber=42-->

@@ -234,4 +234,5 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
+
 <!--HONumber=42-->

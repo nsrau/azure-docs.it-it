@@ -17,4 +17,5 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	>[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file TodoService.m.</p> 
  	</div>
+
 <!--HONumber=42-->

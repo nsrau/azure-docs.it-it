@@ -82,3 +82,5 @@ Nel grafico viene mostrata un'anteprima della soglia di avviso raffrontata alla 
 Si noti che le metriche visualizzate solo nel portale di anteprima non possono essere oggetto di avvisi nel portale completo. Di conseguenza, alcune regole relative agli avvisi del portale di anteprima non sono visibili nel portale completo.
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

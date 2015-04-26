@@ -137,3 +137,5 @@ Le aspettative di esecuzione rapida e flessibile in ambito aziendale sono in con
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

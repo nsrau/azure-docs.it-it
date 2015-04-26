@@ -284,4 +284,5 @@ Numeri di porta
 
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
 
+
 <!--HONumber=42-->

@@ -21,7 +21,7 @@
 Questo argomento descrive come caricare un sito Web Java personalizzato in Azure. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
 
 Si noti che Azure consente di creare siti Web Java usando l'interfaccia di configurazione di Azure e la raccolta di applicazioni di Azure, come illustrato in [Introduzione alla creazione di siti Web di Azure con Java
-](../web-sites-java-get-started). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione di Azure o la raccolta di applicazioni di Azure.  
+](web-sites-java-get-started.md). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione di Azure o la raccolta di applicazioni di Azure.  
 
 # Linee guida per la configurazione
 
@@ -231,6 +231,7 @@ Si noti che nel file web.config riportato sopra la variabile di ambiente JRE_HOM
 Dopo avere apportato le modifiche indicate, riavviare il sito Web che esegue Liferay, quindi aprire http://yoursite.  Il portale Liferay è disponibile dalla radice del sito Web. 
 
 Per altre informazioni su Liferay, vedere [http://www.liferay.com](http://www.liferay.com).
+
 
 
 

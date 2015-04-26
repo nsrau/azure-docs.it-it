@@ -179,4 +179,5 @@ panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei 
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
 
+
 <!--HONumber=42-->

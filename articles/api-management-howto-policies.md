@@ -115,3 +115,5 @@ Nota: un criterio globale policy non ha un criterio di livello superiore. L'elem
   [Save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -102,4 +102,5 @@ Per altre informazioni su cosa può fare Capptain per la propria app, visitare [
 [Livello standard di Servizi mobili]: /it-it/pricing/details/mobile-services/
 
 
+
 <!--HONumber=42-->

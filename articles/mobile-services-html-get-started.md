@@ -163,4 +163,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Condivisione di risorse tra le origini]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
+
 <!--HONumber=42-->

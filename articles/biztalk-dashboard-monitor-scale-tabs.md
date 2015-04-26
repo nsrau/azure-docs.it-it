@@ -381,3 +381,5 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

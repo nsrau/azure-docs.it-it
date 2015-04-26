@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Che cos'è RemoteApp?" 
+	ppageTitle="Che cos'è RemoteApp?" 
 	description="Informazioni su Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -75,5 +75,7 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 - [Domande frequenti su Azure RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-faq/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 
 
 <!--HONumber=46--> 

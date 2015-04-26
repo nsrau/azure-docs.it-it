@@ -96,4 +96,5 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app HTML, per alt
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-html-get-started
 [Introduzione ai dati]: /it-it/documentation/articles/mobile-services-html-get-started-data
 
+
 <!--HONumber=42-->

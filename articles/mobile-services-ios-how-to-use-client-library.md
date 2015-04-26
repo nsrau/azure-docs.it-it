@@ -530,4 +530,5 @@ Per altre informazioni vedere il nuovo argomento sull'elaborazione delle intesta
 [CLI per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
+
 <!--HONumber=42-->

@@ -151,4 +151,5 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
 
 
+
 <!--HONumber=42-->

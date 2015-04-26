@@ -121,4 +121,5 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 [Informazioni sul servizio tabelle]: /it-it/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [Pagina del componente aggiuntivo MongoLab]: /it-it/gallery/store/mongolab/mongolab
 
+
 <!--HONumber=42-->

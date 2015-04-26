@@ -154,3 +154,5 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
   [riferimento ai criteri di Gestione API]: ../api-management-policy-reference
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

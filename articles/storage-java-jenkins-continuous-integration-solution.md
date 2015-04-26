@@ -187,4 +187,5 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
+
 <!--HONumber=42-->

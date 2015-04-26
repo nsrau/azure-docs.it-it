@@ -305,15 +305,15 @@ Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus
 
 In questa guida dettagliata è stato illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP1.0 e l'API .NET del bus di servizio.
 
-È anche possibile usare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per altre informazioni, vedere la [guida per sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx).
+È anche possibile usare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà tramite AMQP 1.0 nel bus di servizio. Per altre informazioni, vedere la [guida per gli sviluppatori di AMQP 1.0 per il bus di servizio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 <h2>Altre informazioni</h2>
 
 * [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](http://aka.ms/pgr3dp)
 * [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](http://aka.ms/ll1fm3)
-* [AMQP 1.0 per bus di servizio - Guida per sviluppatori](http://msdn.microsoft.com/library/jj841071.aspx)
+* [AMQP 1.0 per Service Bus: Guida per gli sviluppatori](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Come usare le code del bus di servizio](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 [Come usare le code del bus di servizio]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

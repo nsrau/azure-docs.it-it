@@ -102,4 +102,5 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

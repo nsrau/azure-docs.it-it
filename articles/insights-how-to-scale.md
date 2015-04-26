@@ -86,3 +86,5 @@ Le regole multiple di scalabilità consentono di agire con maggiore decisione ne
 Con questa regola aggiuntiva, se il carico supera l'85% prima che si verifichi un ridimensionamento, si otterranno non una ma due istanze aggiuntive. 
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

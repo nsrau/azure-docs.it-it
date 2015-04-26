@@ -63,4 +63,6 @@
   	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
 	Viene visualizzata una finestra di messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata viene eseguita di nuovo cancellando tutti gli elementi dall'elenco.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

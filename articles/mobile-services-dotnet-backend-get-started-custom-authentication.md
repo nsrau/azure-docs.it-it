@@ -321,4 +321,5 @@ Nell'applicazione client, sarà necessario sviluppare una schermata di accesso p
 [Introduzione agli utenti]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 
+
 <!--HONumber=42-->

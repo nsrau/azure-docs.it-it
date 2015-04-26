@@ -122,4 +122,5 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
 
 
+
 <!--HONumber=42-->

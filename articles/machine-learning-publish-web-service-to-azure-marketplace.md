@@ -96,3 +96,5 @@ I passaggi seguenti consentono di pubblicare un servizio Web Azure ML in Azure M
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

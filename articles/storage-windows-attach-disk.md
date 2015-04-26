@@ -54,4 +54,5 @@
 > [AZURE.NOTE] Il numero massimo di dischi che è possibile collegare a una macchina virtuale varia in base alle dimensioni della macchina virtuale stessa. Ad esempio, è possibile collegare solo 4 dischi allo Standard A2, ma è possibile collegare 32 dischi allo Standard D14 e 64 dischi allo Standard G5. I dettagli sul numero di dischi che è possibile collegare in base alle dimensioni della macchina virtuale sono disponibili [a questo indirizzo](https://msdn.microsoft.com/it-it/library/azure/dn197896.aspx).
 
 
+
 <!--HONumber=42-->

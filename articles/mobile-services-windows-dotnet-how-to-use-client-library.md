@@ -756,4 +756,5 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
 
+
 <!--HONumber=42-->

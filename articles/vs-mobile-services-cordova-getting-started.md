@@ -93,4 +93,5 @@ Eliminare una voce nella tabella dati usando il metodo **del**. Chiamare il meto
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

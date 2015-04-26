@@ -1,2 +1,4 @@
 ﻿Revisioni di libri in Amazon, estratte dal sito Amazon dai ricercatori della University of Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). Vedere il documento di ricerca "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.<p> </p>Il set di dati originale ha 975.000 revisioni con classificazioni 1, 2, 3, 4 o 5. Le revisioni sono in inglese e vanno dal 1997 al 2007. Il set di dati è stato ridotto a 10.000 revisioni.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

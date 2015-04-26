@@ -27,4 +27,5 @@ La procedura seguente consente di creare un nuovo servizio mobile in Azure e di 
 7. Una volta creato il servizio mobile, selezionarlo dall'apposito elenco in Gestione servizi e fare clic su **OK**.
 
 	Una volta completata la procedura guidata, i pacchetti NuGet vengono installati, un riferimento alla libreria client per Servizi mobili viene aggiunto al progetto e il codice sorgente del progetto viene aggiornato.
+
 <!--HONumber=42-->

@@ -23,7 +23,7 @@
 
 Questa esercitazione illustra le operazioni iniziali per l'esecuzione di Python nel servizio Siti Web di Azure,  che offre hosting gratuito limitato e capacità di distribuzione rapida, oltre alla possibilità di usare Python.  Se la crescita dell'applicazione lo richiede, è possibile passare all'hosting a pagamento e avvalersi dell'integrazione con tutti gli altri servizi di Azure.
 
-Verrà creata un'applicazione usando il framework Web di Flask (vedere le versioni alternative di questa esercitazione per [Django](../web-sites-python-create-deploy-django-app) e [Bottle](../web-sites-python-create-deploy-bottle-app)).  Verrà creato il sito Web dalla raccolta di Azure, verrà configurata la distribuzione Git e verrà clonato l'archivio localmente.  Infine, verrà eseguita l'applicazione localmente, verranno apportate modifiche e ne verrà eseguito il commit e il push in Azure.  L'esercitazione illustra come eseguire queste operazioni da Windows o Mac/Linux.
+Verrà creata un'applicazione usando il framework Web di Flask (vedere le versioni alternative di questa esercitazione per [Django](web-sites-python-create-deploy-django-app.md) e [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Verrà creato il sito Web dalla raccolta di Azure, verrà configurata la distribuzione Git e verrà clonato l'archivio localmente.  Infine, verrà eseguita l'applicazione localmente, verranno apportate modifiche e ne verrà eseguito il commit e il push in Azure.  L'esercitazione illustra come eseguire queste operazioni da Windows o Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -424,6 +424,7 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 <!--External Link references-->
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentazione di Flask]: http://flask.pocoo.org/ 
+
 
 
 <!--HONumber=42-->

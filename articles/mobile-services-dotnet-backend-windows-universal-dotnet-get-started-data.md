@@ -151,4 +151,5 @@ Una volta completata la serie relativa ai dati, provare a eseguire una delle ese
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
+
 <!--HONumber=42-->

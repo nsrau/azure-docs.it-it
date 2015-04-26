@@ -316,3 +316,5 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
   [Come iniziare a usare l'SDK di Servizi BizTalk di Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302335
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

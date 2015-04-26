@@ -623,4 +623,5 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio. 
 
+
 <!--HONumber=42-->

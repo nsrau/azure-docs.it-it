@@ -355,3 +355,5 @@ Non è possibile sovrascrivere queste variabili definite dal sistema.
 È possibile recuperare il valore delle impostazioni di ambiente mediante l'operazione di ottenimento dell'attività.
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -1364,4 +1364,5 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+
 <!--HONumber=42-->

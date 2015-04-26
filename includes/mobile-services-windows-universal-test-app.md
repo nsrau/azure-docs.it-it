@@ -12,4 +12,6 @@
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
   Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

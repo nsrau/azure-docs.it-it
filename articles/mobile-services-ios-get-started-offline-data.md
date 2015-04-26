@@ -295,4 +295,5 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
+
 <!--HONumber=42-->

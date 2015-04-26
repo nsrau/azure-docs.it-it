@@ -51,3 +51,5 @@ Dopo avere apportato le modifiche desiderate agli stili dell'elemento selezionat
   [Modulo di pubblicazione]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

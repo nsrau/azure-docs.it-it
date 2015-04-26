@@ -31,4 +31,5 @@ La libreria di Servizi mobili di Microsoft Azure è stata aggiunta al progetto s
 Nella cartella `services\mobileServices\settings` è stato generato un nuovo file JavaScript (.js) con un client **MobileServiceClient** contenente l'URL e la chiave applicazione del servizio mobile selezionato.  
 
 
+
 <!--HONumber=42-->

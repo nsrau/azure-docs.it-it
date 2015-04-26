@@ -63,3 +63,5 @@ Dopo avere creato l'area di lavoro, questa sarà visualizzata nella pagina **mac
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -150,4 +150,5 @@ Per completare questa esercitazione, è necessario soddisfare i seguenti requisi
 [Estensione Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
+
 <!--HONumber=42-->

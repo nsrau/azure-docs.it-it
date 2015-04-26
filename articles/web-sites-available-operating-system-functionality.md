@@ -120,4 +120,5 @@ Le applicazioni dispongono di accesso in sola lettura alla maggior parte del reg
 L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista delle applicazioni, l'accesso in scrittura al registro in un ambiente cloud non deve mai essere considerato affidabile poiché le applicazioni sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'applicazione Web è la struttura della directory dei contenuti per sito Web archiviata nelle condivisioni UNC di Siti Web di Azure. 
 
 
+
 <!--HONumber=42-->
