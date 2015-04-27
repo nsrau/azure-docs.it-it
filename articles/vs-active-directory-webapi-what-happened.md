@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Descrive le modifiche apportate al progetto di Visual Studio dopo l’esecuzione della procedura guidata di Azure Active Directory." 
+	description="Vengono descritte le modifiche apportate al progetto di Visual Studio dopo l'esecuzione della procedura guidata di Azure Active Directory" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,8 +16,10 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Che cosa è successo al progetto?
+
 > [AZURE.SELECTOR]
-> - [Per iniziare](vs-active-directory-webapi-getting-started.md)
+> - [Guida introduttiva](vs-active-directory-webapi-getting-started.md)
 > - [Risultati](vs-active-directory-webapi-what-happened.md)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
@@ -50,11 +52,11 @@ Sono stati aggiunti dei riferimenti.
 
 #####Sono stati aggiunti file di codice al progetto 
 
-Al progetto è stata aggiunta una classe di avvio di autenticazione **App_Start/Startup.Auth.cs** contenente la logica di avvio per l'autenticazione di Azure AD. 
+Una classe di avvio di autenticazione, **App_Start/Startup.Auth.cs** è stata aggiunta al progetto contenente logica di avvio per l'autenticazione di Azure AD. 
 
-#####Al progetto è stato aggiunto codice di avvio 
+#####È stato aggiunto codice di avvio al progetto 
 
-Se nel progetto era già presente una classe Startup, il metodo **Configuration** è stato aggiornato per includere una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto. 
+Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato per includere una chiamata a  `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto. 
 
 
 #####Il file app.config o web.config include nuovi valori di configurazione.
@@ -72,6 +74,6 @@ Sono state aggiunte le voci di configurazione seguenti.
 Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD.
 
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Ulteriori informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

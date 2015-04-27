@@ -19,25 +19,25 @@
 #Uso di Hub di notifica di Azure per inviare notifiche agli utenti
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/it-it/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
-		<a href="/it-it/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end WebAPI ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE] Questa esercitazione presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
-> Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](mobile-services-javascript-backend-ios-push-notifications-app-users.md).
+> [AZURE.NOTE] In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione a Hub di notifica (iOS)](notification-hubs-ios-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md) .
+> Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](mobile-services-javascript-backend-ios-push-notifications-app-users.md) di questa esercitazione.
 
 
 ## Creare e configurare l'hub di notifica
 
-Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/). Per risorse aggiuntive sul provisioning di dispositivi iOS, vedere la guida [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Seguire le sezioni da 1 a 5 in [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md). Per risorse aggiuntive sul provisioning di dispositivi iOS, vedere la guida [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modificare l'app per iOS
 
-1. Aprire l'app di visualizzazione Single Page creata seguendo le sezioni da 1 a 5 in [Introduzione ad Hub di notifica (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/).
+1. Aprire l'app di visualizzazione Pagina singola creata seguendo le sezioni da 1 a 5 in [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md).
 
 > [AZURE.NOTE] In questa sezione si presuppone che il progetto sia configurato con un nome di organizzazione vuoto. In caso contrario, sarà necessario anteporre il nome dell'organizzazione a tutti i nomi di classi.
 
@@ -61,12 +61,12 @@ Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://az
 		- (IBAction)LogInAction:(id)sender;
 		- (IBAction)SendPushAction:(id)sender;
 
-4. Prima di tutto si creerà una classe RegisterClient per l'interfaccia con il back-end. Creare una classe Objective-C denominata RegisterClient che eredita da NSObject. Aggiungere quindi il seguente codice nella sezione di interfaccia di RegisterClient.h:
+4. Prima di tutto si creerà una classe RegisterClient per l'interfaccia con il back-end. Creare una classe Objective-C denominata RegisterClient che eredita da NSObject. Aggiungere quindi il codice seguente nella sezione di interfaccia di RegisterClient.h:
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
 		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
 
-5. In RegisterClient.m aggiungere la seguente sezione di interfaccia:
+5. In RegisterClient.m aggiungere la sezione di interfaccia seguente:
 
 		@interface RegisterClient ()
 
@@ -206,7 +206,7 @@ Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://az
 		    [dataTask resume];
 		}
 
-	Il codice riportato sopra implementa la logica illustrata nell'articolo di istruzioni [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx) usando NSURLSession per eseguire chiamate REST al back-end dell'app e NSUserDefaults per archiviare in locale l'ID registrazione restituito dall'hub di notifica.
+	Il codice riportato sopra implementa la logica illustrata nell'articolo di istruzioni [Registrazione del back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx) usando NSURLSession per eseguire chiamate REST al back-end dell'app e NSUserDefaults per archiviare in locale l'ID registrazione restituito dall'hub di notifica.
 
 	Si noti che per il corretto funzionamento di questa classe è necessario che sia impostata la relativa proprietà **authorizationHeader**. Questa proprietà viene impostata tramite la classe **ViewController** dopo l'accesso.
 
@@ -334,4 +334,4 @@ Seguire le sezioni da 1 a 5 di [Introduzione ad Hub di notifica (iOS)](http://az
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->
