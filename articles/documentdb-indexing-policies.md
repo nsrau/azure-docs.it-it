@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Criteri di indicizzazione di DocumentDB | Azure" 
 	description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare i criteri di indicizzazione." 
 	services="documentdb" 
@@ -152,7 +152,7 @@ Se sceglie un tipo di indice **Range**, è possibile eseguire query di intervall
 Se non sono richieste query di intervallo particolarmente efficienti, l'impostazione predefinita degli indici Hash offre un compromesso ottimale tra archiviazione e prestazioni. Si noti che per supportare query di intervallo è necessario specificare criteri di indicizzazione personalizzati.
 
 > [AZURE.NOTE] Gli indici Range sono supportati solo per i valori numerici.
-  
+  
 L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Nell'esempio viene usato un percorso speciale "/" che verrà descritto nella sezione successiva.
 
 
