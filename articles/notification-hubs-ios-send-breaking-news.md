@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - iOS" 
 	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi iOS." 
 	services="notification-hubs" 
@@ -104,7 +104,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 		self.notifications = [[Notifications alloc] init];
 
-	The initializes the Notification singleton.
+	Il singleton Notification verrà inizializzato.
 
 10. Nel metodo **didRegisterForRemoteNotificationsWithDeviceToken** di BreakingNewsAppDelegate.m, rimuovere la chiamata a **registerNativeWithDeviceToken** e aggiungere il seguente codice:
 

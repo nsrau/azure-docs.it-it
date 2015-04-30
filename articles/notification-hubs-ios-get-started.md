@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ad Hub di notifica di Azure" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
 	services="notification-hubs" 
@@ -281,6 +281,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [Guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guida alla programmazione di notifiche push e locali di Apple]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 
 <!--HONumber=49-->

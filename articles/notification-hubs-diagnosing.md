@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Hub di notifica di Azure - Linee guida sulla diagnostica" 
 	description="Linee guida sulla diagnostica dei problemi comuni relativi a Hub di notifica di Azure." 
 	services="notification-hubs" 
@@ -225,13 +225,17 @@ Per informazioni dettagliate:
  
 <!-- LINKS -->
 [Panoramica dell'Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
+[Hub di notifica di Azure]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
 [Esercitazioni introduttive]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[esercitazione introduttiva]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Linee guida sui modelli]: https://msdn.microsoft.com/library/dn530748.aspx 
 [Linee guida su APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Linee guida su GCM]: http://developer.android.com/google/gcm/adv.html
 [Esportazione/Importazione di registrazioni]: http://msdn.microsoft.com/library/dn790624.aspx
 [ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
+[Service Bus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
 [Codice di ServiceBus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[codice di Service Bus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Informazioni generali su Esplora server di Visual Studio]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
 [Post di blog su Esplora server di Visual Studio - 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [Post di blog su Esplora server di Visual Studio - 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 

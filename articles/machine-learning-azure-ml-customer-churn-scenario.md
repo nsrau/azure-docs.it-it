@@ -18,17 +18,17 @@
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
 
-##Informazioni generali
+## Informazioni generali
 In questo argomento viene illustrata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata utilizzando Azure Machine Learning Studio. Vengono illustrati i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.  
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
-##Il problema della varianza del cliente
+## Il problema della varianza del cliente
 Le aziende del mercato consumer, come tutte quelle dei settori commerciali, devono fare i conti con la varianza. In certi casi una varianza eccessiva può arrivare a influenzare i criteri decisionali. La soluzione tradizionale consiste nel prevedere i fattori con elevata propensione alla varianza e soddisfare le relative esigenze tramite un servizio di concierge, campagne di marketing o tramite l'applicazione di dispense speciali. Questi approcci possono variare da settore a settore e persino da un determinato gruppo di clienti a un altro all'interno di un settore (ad esempio quello delle telecomunicazioni). 
 
 Il fattore comune è che le aziende hanno necessità di ridurre al minimo questi sforzi speciali rivolti alla fidelizzazione. Pertanto, una metodologia consisterebbe nell'assegnazione di un punteggio a ogni cliente con probabilità di varianza per poi gestire i primi N classificati. I clienti principali potrebbero essere anche i più redditizi. Ad esempio, in scenari più sofisticati viene impiegata una funzione di redditività durante la selezione dei candidati per una dispensa speciale. Tuttavia, queste considerazioni rappresentano solo una parte della strategia olistica alla base della gestione della varianza. Le aziende devono inoltre tenere in considerazione il rischio (e la tolleranza al rischio associata), il livello e i costi dell'intervento e una segmentazione dei clienti plausibile.  
 
-##Prospettive e approcci di settore
+## Prospettive e approcci di settore
 La gestione sofisticata della varianza è un indicatore di maturità di un settore. L'esempio classico è dato dal settore delle telecomunicazioni, nel quale gli abbonati sono soliti passare frequentemente da un provider a un altro. Questa varianza volontaria rappresenta un motivo principale di preoccupazione. I provider, inoltre, hanno accumulato notevoli conoscenze riguardo i *churn drivers*, ovvero i fattori che spingono i clienti a cambiare. 
 
 La scelta dell'apparecchio o del dispositivo, ad esempio, è un fattore di varianza ben noto nel settore della telefonia mobile. Come risultato, un criterio diffuso è la sovvenzione promozionale di una parte del costo di un telefono per i nuovi abbonati e l'addebito del prezzo intero per i clienti esistenti o per un cambio di modello. Storicamente, tale criterio ha portato i clienti a passare da un provider all'altro per ottenere un nuovo sconto, il che, a sua volta, ha indotto i provider a raffinare le proprie strategie. 
@@ -39,7 +39,7 @@ Il risultato netto per l'uso dei modelli è l'impossibilità di implementare un 
 
 Usando set di Big Data sui clienti, le organizzazioni eseguono l'analisi di tali Big Data, sfruttandoli in modo particolare per quanto riguarda il rilevamento della varianza e individuando in questo metodo un efficace approccio al problema. Nella sezione Consigli su ETL, sono disponibili ulteriori informazioni sull'approccio dei Big Data al problema della varianza.  
 
-##Metodologia per generare un modello di varianza dei clienti
+## Metodologia per generare un modello di varianza dei clienti
 Un processo comune di risoluzione dei problemi legati alla varianza dei clienti è illustrato nelle figure 1-3:  
 
 1.	Un modello di rischio consente di considerare il modo in cui le azioni influiscono su probabilità e rischio.
@@ -61,7 +61,7 @@ Il ciclo generale di segmentazione/scomposizione di rischio-decisione-marketing 
 Un'aggiunta interessante in questo ambito è l'analisi dei Big Data. Negli attuali settori commerciali delle telecomunicazioni e della rivendita al dettaglio vengono raccolti dati esaurienti sui clienti e risulta immediatamente evidente come la necessità di connettività multi modello diverrà un trend comune, date le tendenze emergenti quali "Internet delle cose" e l'universalità dei dispositivi. Ciò che consentirà alle aziende di impiegare soluzioni intelligenti e organizzate su più livelli.  
 
  
-##Implementazione del sistema di modellazione in Machine Learning Studio 
+## Implementazione del sistema di modellazione in Machine Learning Studio 
 Dato il problema appena descritto, come è possibile implementare un modello integrato e un sistema di classificazione? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.  
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.  
@@ -74,7 +74,7 @@ Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro a
 
 Nelle sezioni seguenti vengono forniti ulteriori dettagli sul modello di valori del prototipo implementato tramite Machine Learning Studio.  
 
-###Selezione e preparazione dei dati
+### Selezione e preparazione dei dati
 I dati usati per creare i modelli e classificare i clienti sono stati ottenuti da una soluzione verticale CRM, con i dati offuscati per proteggere la privacy dei clienti. I dati contengono informazioni su 8.000 sottoscrizioni negli Stati Uniti e unisce tre origini: provisioning dei dati (metadati di sottoscrizione), dati dell'attività (utilizzo del sistema) e dati del supporto tecnico. I dati non includono informazioni commerciali sui clienti. Ad esempio, non sono inclusi metadati relativi alla fedeltà o ai valori del credito.  
 
 Per semplicità, i processi ETL e di pulizia dei dati sono esclusi dall'ambito, in quanto si presuppone che la preparazione dei dati sia già stata completata altrove.   
@@ -96,7 +96,7 @@ Nei diagrammi che seguono sono illustrati i dati impiegati:
  
 *Figura 7: Funzionalità estratte dall'origine dati*
  
-###Algoritmi usati nel prototipo
+### Algoritmi usati nel prototipo
 
 Per la realizzazione del prototipo sono stati impiegati i seguenti quattro algoritmi di Machine Learning (senza personalizzazione):  
 
@@ -113,15 +113,15 @@ Nel diagramma seguente viene illustrata una porzione dell'area di progettazione 
  
 *Figura 8: Creazione di modelli in Machine Learning Studio*  
 
-###Metodi di assegnazione delle valutazioni
+### Metodi di assegnazione delle valutazioni
 I quattro modelli sono stati classificati usando un set di dati di training etichettati.  
 
 Inoltre, il set di dati di valutazione è stato inviato a un modello analogo compilato utilizzando la versione desktop di SAS Enterprise Miner 12. È stata misurata l'accuratezza del modello SAS e di tutti i quattro modelli di Machine Learning Studio.  
 
-##Risultati 
+## Risultati 
 In questa sezione vengono presentati i risultati relativi all'accuratezza dei modelli in base al set di dati di punteggio.  
 
-###Accuratezza e precisione dei valori
+### Accuratezza e precisione dei valori
 In genere, in Machine Learning, l'accuratezza dell'implementazione si trova sotto il livello SAS di circa il 10-15% (Area sotto la curva o AUC).  
 
 Tuttavia, la metrica più importante della varianza è la frequenza di classificazione non corretta. Sulle varianze N come previsto dal classificatore, quali di essi **non** ha effettivamente varianza e ha già ricevuto un trattamento speciale? Nel diagramma seguente vengono confrontati tali tassi di errata classificazione per tutti i modelli:  
@@ -131,12 +131,12 @@ Tuttavia, la metrica più importante della varianza è la frequenza di classific
  
 *Figura 9: Area prototipo Passau sotto la curva* 
 
-###Uso di AUC per il confronto dei risultati
+### Uso di AUC per il confronto dei risultati
 L'area sotto la curva (AUC) è una metrica che rappresenta una misura globale di *separability* tra le distribuzioni delle valutazioni per popolazioni positive e negative. È simile al grafico ROC (Receiver Operator Characteristic) tradizionale, ma un'importante differenza è rappresentata dal fatto che la metrica AUC non richiede un valore soglia. Fornisce invece un riepilogo dei risultati di **tutte** le scelte possibili. Al contrario, il grafico ROC tradizionale mostra il tasso positivo sull'asse verticale e il tasso di falsi positivi su quello orizzontale, con conseguente variazione della soglia di classificazione.   
 
 La metrica AUC viene in genere usata come misura di valore per diversi algoritmi (o diversi sistemi) perché consente il confronto dei modelli mediante i relativi valori AUC. Si tratta di un approccio comune in settori come la meteorologia e la bioscienza. AUC rappresenta quindi uno strumento popolare per la gestione delle prestazioni dei classificatori.  
 
-###Confronto dei tassi di classificazione non corretta
+### Confronto dei tassi di classificazione non corretta
 I tassi di errata classificazione nel set di dati in questione sono stati confrontati usando i dati CRM di circa 8.000 sottoscrizioni.  
 
 -	Il tasso di errata classificazione SAS è risultato essere il 10-15%.
@@ -152,7 +152,7 @@ Il seguente diagramma disponibile su Wikipedia illustra la relazione in un grafi
  
 *Figura 10: Compromesso tra accuratezza e precisione*
 
-###Risultati di accuratezza e precisione per il modello di albero decisionale incrementato  
+### Risultati di accuratezza e precisione per il modello di albero decisionale incrementato  
 
 Il grafico seguente illustra i risultati non elaborati della valutazione usando il prototipo di Machine Learning per il modello di albero decisionale incrementato, che risulta essere il più accurato dei quattro modelli:  
 
@@ -160,7 +160,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 *Figura 11: Caratteristiche del modello di albero decisionale incrementato*
 
-##Confronto delle prestazioni 
+## Confronto delle prestazioni 
 È stata confrontata la velocità di assegnazione del punteggio usando i modelli di Machine Learning Studio e un modello paragonabile creato usando l'edizione desktop di SAS Enterprise Miner 12.1.  
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:  
@@ -173,7 +173,7 @@ Modello medio|	Modello migliore|	Prestazioni scarse|	Modello medio
 
 I modelli ospitati in Machine Learning Studio hanno superato il livello SAS del 15-25% in velocità di esecuzione ma l'accuratezza è risultata praticamente alla pari.  
 
-##Discussione e raccomandazioni
+## Discussione e raccomandazioni
 Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per l'analisi della varianza, tra cui:  
 
 -	Derivare metriche per quattro categorie fondamentali:
@@ -193,7 +193,7 @@ Un'altra funzionalità interessante di apprendimento automatico presente in Azur
 
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   
-##Conclusioni
+## Conclusioni
 In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Viene considerato un prototipo per la valutazione dei modelli ed è implementato utilizzando Azure Machine Learning. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
 
 **Per altre informazioni:**  
@@ -207,7 +207,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [Inviare commenti e suggerimenti](mailto:sqlfback@microsoft.com).
  
-##Riferimenti
+## Riferimenti
 [1] Analisi predittiva: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.  
 
 [2] [Accuratezza e precisione ](http://en.wikipedia.org/wiki/Accuracy_and_precision) su Wikipedia 
@@ -218,7 +218,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [5] [Marketing di Big Data: Attira i clienti e valorizza i tuoi prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
  
-##Appendice
+## Appendice
 
 ![][10]
  

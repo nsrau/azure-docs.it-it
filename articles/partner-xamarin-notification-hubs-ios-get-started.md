@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Introduzione ad Hub di notifica per le app per Xamarin iOS"
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin iOS."
 	services="notification-hubs"
@@ -466,7 +466,9 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-xamarin-ios
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[pagina relativa alle linee guida per gli hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[procedure di Hub di notifica per Android]: http://msdn.microsoft.com/library/jj927168.aspx
 [Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portale di provisioning per iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -474,6 +476,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Uso di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guida alla programmazione di notifiche push e locali di Apple]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/

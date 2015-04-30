@@ -105,7 +105,7 @@ Con IPython Notebook si consente agli utenti di caricare con facilità un IPytho
 ![Create workspace][23]
 
 
-##<a name="shutdown"></a>Arresto e de-allocazione della macchina virtuale quando non è in uso
+## <a name="shutdown"></a>Arresto e de-allocazione della macchina virtuale quando non è in uso
 
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si utilizza la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)**.
 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="BizTalk Rules" 
    description="Questo argomento illustra le funzionalità di BizTalk Rules e fornisce istruzioni sul suo utilizzo" 
    services="app-service\logic" 
@@ -113,7 +113,7 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
  
    ![Alt text][4]
 
-2. Quindi, fare clic su "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. Fare clic su "Aggiungi" per iniziare ad aggiungere nuove definizioni del vocabolario.
+2.Quindi, fare clic su "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. Fare clic su "Aggiungi" per iniziare ad aggiungere nuove definizioni del vocabolario.
 Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ## Definizione Valore letterale

@@ -302,6 +302,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Android SDK per Servizi mobili]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Riferimento a un progetto di libreria]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Informazioni aggiuntive su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx

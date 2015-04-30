@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'autenticazione per app mobili in Xamarin iOS" 
 	description="Informazioni su come usare le app mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
 	services="app-service\mobile" 
@@ -105,6 +105,8 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 [Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Creare un'app per Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Creare un'app per Xamarin iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+
 
 [Portale di gestione di Azure]: https://portal.azure.com
 

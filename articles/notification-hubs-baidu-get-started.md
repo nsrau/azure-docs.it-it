@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ad Hub di notifica di Azure" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
 	services="notification-hubs" 
@@ -477,6 +477,7 @@ Per testare l'app con l'emulatore:
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Android SDK per Servizi mobili]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Portale di Baidu]: http://www.baidu.com/
