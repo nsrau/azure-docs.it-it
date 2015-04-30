@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'Hub eventi" 
 	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure inviando gli eventi con Java e ricevendoli in un cluster di Apache Storm" 
 	services="service-bus" 
@@ -54,7 +54,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][4]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Listen* e fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Listen* e quindi fare clic su **Salva**.
 
    	![][5]
 
@@ -108,4 +108,5 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Panoramica di HDinsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Analisi dei dati dei sensori con Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

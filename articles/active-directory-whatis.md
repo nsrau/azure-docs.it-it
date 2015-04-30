@@ -46,4 +46,4 @@ Azure AD è composto da una serie di livelli di funzionalità, che vanno da una 
 * [Identità di Azure](/manage/windows/fundamentals/identity/)
 * [Documentazione di Azure AD su MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
-<!--HONumber=47-->
+<!--HONumber=52-->

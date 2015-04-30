@@ -1,26 +1,28 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK" 
 	description="Informazioni su come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK
 
-Questa guida fornisce esempi di codice C# che illustrano come usare la versione di Azure WebJobs SDK 1.x con il servizio di archiviazione di accodamento di Azure.
+## Informazioni generali
 
-Nella guida si presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
+Questa guida fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione di accodamento di Azure.
+
+La guida presuppone che si sappia [come creare un progetto di processo Web in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
 
 La maggior parte dei frammenti di codice mostra solo le funzioni, non il codice che crea l'oggetto  `JobHost` come nel seguente esempio:
 
@@ -30,24 +32,24 @@ La maggior parte dei frammenti di codice mostra solo le funzioni, non il codice 
 		    host.RunAndBlock();
 		}
 		
-## Sommario
+La guida include i seguenti argomenti:
 
--   [Come attivare una funzione quando viene ricevuto un messaggio di coda](#trigger)
+-   [Come attivare una funzione quando viene ricevuto un messaggio in coda](#trigger)
 	- Messaggi stringa in coda
 	- Messaggi di coda POCO
 	- Funzioni asincrone
 	- Tipi usati dall'attributo QueueTrigger
 	- Algoritmo di polling
-	- Istanze multiple
+	- Più istanze
 	- Esecuzione parallela
-	- Ottenere i metadati della coda o del messaggio di coda
+	- Ottenere i metadati della coda o del messaggio in coda
 	- Arresto normale
 -   [Come creare un messaggio di coda durante l'elaborazione di un messaggio di coda](#createqueue)
 	- Messaggi stringa in coda
 	- Messaggi di coda POCO
 	- Creare più messaggi o in funzioni asincrone
 	- Tipi usati dall'attributo Queue
-	- Usare gli attributi WebJobs SDK nel corpo di una funzione
+	- Usare gli attributi di WebJobs SDK nel corpo di una funzione
 -   [Come leggere e scrivere BLOB durante l'elaborazione di un messaggio di coda](#blobs)
 	- Messaggi stringa in coda
 	- Messaggi di coda POCO
@@ -57,19 +59,19 @@ La maggior parte dei frammenti di codice mostra solo le funzioni, non il codice 
 	- Gestione manuale dei messaggi non elaborabili
 -   [Come impostare le opzioni di configurazione](#config)
 	- Impostare le stringhe di connessione SDK nel codice
-	- Configurare le impostazioni QueueTrigger
+	- Configurare le impostazioni di QueueTrigger
 	- Impostare i valori per i parametri del costruttore WebJobs SDK nel codice
 -   [Come attivare manualmente una funzione](#manual)
 -   [Come scrivere i log](#logs)
 -   [Passaggi successivi](#nextsteps)
 
-## <a id="trigger"></a> Come attivare una funzione quando viene ricevuto un messaggio di coda
+## <a id="trigger"></a> Come attivare una funzione quando viene ricevuto un messaggio in coda
 
-Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevuto un messaggio di coda, usare l'attributo  `QueueTrigger`. Il costruttore di attributo accetta un parametro di stringa che specifica il nome della coda di cui eseguire il polling. È anche possibile [impostare il nome della coda in modo dinamico](#config).
+Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevuto un messaggio di coda, usare l'attributo  `QueueTrigger`. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della coda di cui eseguire il polling. È anche possibile [impostare il nome della coda in modo dinamico](#config).
 
 ### Messaggi stringa in coda
 
-Nel seguente esempio la coda contiene un messaggio stringa in modo che l'attributo  `QueueTrigger` venga applicato a un parametro di stringa denominato  `logMessage` che include il contenuto del messaggio di coda. La funzione [scrive un messaggio di log nel dashboard)]#logs).
+Nel seguente esempio la coda contiene un messaggio stringa in modo che l'attributo  `QueueTrigger` venga applicato a un parametro di stringa denominato  `logMessage` che include il contenuto del messaggio di coda. La funzione [scrive un messaggio di log nel dashboard](#logs).
  
 
 		public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -77,7 +79,7 @@ Nel seguente esempio la coda contiene un messaggio stringa in modo che l'attribu
 		    logger.WriteLine(logMessage);
 		}
 
-Oltre al parametro  `string`, il parametro può essere una matrice di byte, un oggetto  `CloudQueueMessage` o un oggetto POCO definito dall'utente.
+Oltre a  `string`, il parametro può essere una matrice di byte, un oggetto  `CloudQueueMessage` o un oggetto POCO definito dall'utente.
 
 ### Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
@@ -96,7 +98,7 @@ L'SDK usa il [pacchetto Newtonsoft.Json NuGet](http://www.nuget.org/packages/New
 
 ### Funzioni asincrone
 
-La seguente funzione asincrona [scrive un log nel dashboard)]#logs).
+La seguente funzione asincrona [scrive un log nel dashboard](#logs).
 
 		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
 		{
@@ -127,9 +129,9 @@ Le funzioni asincrone possono usare un [token di annullamento](http://www.asp.ne
 
 L'SDK implementa un algoritmo di backoff esponenziale casuale per ridurre l'effetto del polling delle code inattive sui costi delle transazioni di archiviazione.  Quando viene trovato un messaggio, l'SDK attende due secondi e controlla la presenza di un altro messaggio. Quando non viene trovato alcun messaggio, rimane in attesa per circa quattro secondi prima di riprovare. Dopo alcuni tentativi non riusciti per ottenere un messaggio nella coda, il tempo di attesa continua ad aumentare finché non raggiunge il tempo massimo di attesa, che per impostazione predefinita è di un minuto. [Il tempo di attesa massimo è configurabile](#config).
 
-### <a id="instances"></a> Istanze multiple
+### <a id="instances"></a> Più istanze
 
-Se il sito Web viene eseguito in più istanze, i processi Web verranno eseguiti in ogni computer e ogni computer attenderà i trigger e proverà a eseguire le funzioni. Poiché in alcuni scenari è possibile che per questo motivo alcune funzioni elaborino gli stessi dati due volte, le funzioni dovrebbero essere idempotenti (scritte in modo tale che, anche se chiamate più volte con gli stessi dati di input, non generano risultati duplicati).  
+Se l'app Web viene eseguita in più istanze, in ogni computer i processi Web verranno eseguiti in modalità continua e ogni computer attenderà i trigger e proverà a eseguire le funzioni. Poiché in alcuni scenari è possibile che per questo motivo alcune funzioni elaborino gli stessi dati due volte, le funzioni dovrebbero essere idempotent (scritte in modo tale che, anche se chiamate più volte con gli stessi dati di input, non generano risultati duplicati).  
 
 ### <a id="parallel"></a> Esecuzione parallela
 
@@ -137,21 +139,21 @@ Se si dispongono di più funzioni in ascolto in code diverse, l'SDK le chiamerà
 
 Lo stesso vale quando si ricevono più messaggi per una singola coda. Per impostazione predefinita, l'SDK ottiene un batch di 16 messaggi in coda alla volta ed esegue la funzione che li elabora in parallelo. [La dimensione del batch è configurabile](#config). Quando il numero elaborato viene ridotto alla metà della dimensione del batch, l'SDK ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è pari a una volta e mezza la dimensione del batch. Questo limite si applica separatamente a ogni funzione caratterizzata da un attributo  `QueueTrigger`. Se non si vuole avviare l'esecuzione parallela per i messaggi ricevuti su una coda, impostare le dimensioni del batch su 1.
 
-### <a id="queuemetadata"></a>Ottenere i metadati della coda o del messaggio di coda
+### <a id="queuemetadata"></a>Ottenere i metadati della coda o del messaggio in coda
 
-Con l'aggiunta di parametri alla firma del metodo, è possibile ottenere le seguenti proprietà del messaggio:
+Con l'aggiunta di parametri alla firma del metodo, è possibile ottenere le proprietà del messaggio seguenti:
 
 * `DateTimeOffset` expirationTime
 * `DateTimeOffset` insertionTime
 * `DateTimeOffset` nextVisibleTime
-* `string` queueTrigger (contiene il testo del messaggio)
+* `string` queueTrigger (contains message text)
 * `string` id
 * `string` popReceipt
 * `int` dequeueCount
 
-Se si vuole usare direttamente l'API di archiviazione di Azure, è anche possibile aggiungere un parametro  `CloudStorageAccount`.
+Se si desidera usare direttamente l'API di archiviazione di Azure, è anche possibile aggiungere un parametro  `CloudStorageAccount`.
 
-Nel seguente esempio tutti questi metadati vengono scritti in un log applicazione INFO. Nell'esempio, gli attributi logMessage e queueTrigger includono il contenuto del messaggio in coda.
+Nell'esempio seguente tutti questi metadati vengono scritti in un log applicazione INFO. Nell'esempio, gli attributi logMessage e queueTrigger includono il contenuto del messaggio in coda.
 
 		public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
 		    DateTimeOffset expirationTime,
@@ -192,9 +194,9 @@ Ecco un log di esempio scritto dal codice di esempio:
 
 ### <a id="graceful"></a>Arresto normale
 
-Una funzione che viene eseguita in un processo Web continuo può accettare un parametro  `CancellationToken` che consente al sistema operativo di notificare la funzione quando il processo Web sta per essere terminato. È possibile usare questa notifica per assicurarsi che la funzione non termini in modo imprevisto lasciando i dati in uno stato incoerente.
+Una funzione eseguita in un processo Web continuo può accettare un parametro  `CancellationToken` che consente al sistema operativo di notificare alla funzione quando il processo Web sta per essere terminato. È possibile usare questa notifica per assicurarsi che la funzione non termini in modo imprevisto lasciando i dati in uno stato incoerente.
 
-Il seguente esempio illustra come controllare la chiusura imminente di un processo Web in una funzione.
+L'esempio seguente illustra come controllare la chiusura imminente di un processo Web in una funzione.
 
 	public static void GracefulShutdownDemo(
 	            [QueueTrigger("inputqueue")] string inputText,
@@ -213,17 +215,17 @@ Il seguente esempio illustra come controllare la chiusura imminente di un proces
 	    }
 	}
 
-**Nota:** è possibile che nel dashboard non vengano mostrati correttamente lo stato e il risultato delle funzioni che sono state interrotte.
+**Nota:** è possibile che il dashboard non mostri correttamente lo stato e il risultato delle funzioni che sono state interrotte.
  
 Per altre informazioni, vedere l'articolo sull'[arresto normale dei processi Web](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
 ## <a id="createqueue"></a> Come creare un messaggio di coda durante l'elaborazione di un messaggio di coda
 
-Per scrivere una funzione che crea un nuovo messaggio di coda, usare l'attributo  `Queue`. Come per l'attributo  `QueueTrigger`, è possibile passare il nome della coda come stringa oppure [configurare dinamicamente il nome della coda](#config).
+Per scrivere una funzione che crea un nuovo messaggio di coda, usare l'attributo  `Queue`. Come per l'attributo  `QueueTrigger`, è possibile passare il nome della coda come stringa oppure [impostare dinamicamente il nome della coda](#config).
 
 ### Messaggi stringa in coda
 
-Il seguente esempio di codice non asincrono crea un nuovo messaggio di coda nella coda denominata "outputqueue" con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, usare  `IAsyncCollector<T>` come illustrato più avanti in questa sezione.
+Il seguente esempio di codice non asincrono crea nella coda denominata "outputqueue" un nuovo messaggio di coda con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, usare  `IAsyncCollector<T>` come illustrato più avanti in questa sezione.
 
 
 		public static void CreateQueueMessage(
@@ -248,7 +250,7 @@ L'SDK deserializza automaticamente l'oggetto in JSON. Viene sempre creato un mes
 
 ### Creare più messaggi o in funzioni asincrone
 
-Per creare più messaggi, verificare il tipo di parametro per la coda di output  `ICollector<T>` o  `IAsyncCollector<T>`, come illustrato nel seguente esempio.
+Per creare più messaggi, impostare il tipo di parametro per la coda di output  `ICollector<T>` o  `IAsyncCollector<T>`, come illustrato nel seguente esempio.
 
 		public static void CreateQueueMessages(
 		    [QueueTrigger("inputqueue")] string queueMessage,
@@ -269,16 +271,16 @@ Ogni messaggio di coda viene creato immediatamente quando viene chiamato il meto
 * `out string` (crea il messaggio di coda se il valore del parametro è diverso da null quando termina la funzione)
 * `out byte[]` (funziona come  `string`) 
 * `out CloudQueueMessage` (funziona come  `string`) 
-* `out POCO` (tipo serializzabile, crea un messaggio con un oggetto null, se il parametro è null quando termina la funzione)
+* `out POCO` (tipo serializzabile, crea un messaggio con un oggetto null se il parametro è null quando termina la funzione)
 * `ICollector`
 * `IAsyncCollector`
 * `CloudQueue` (per la creazione manuale dei messaggi direttamente con l'API di archiviazione di Azure)
 
-### <a id="ibinder"></a>Usare gli attributi WebJobs SDK nel corpo di una funzione
+### <a id="ibinder"></a>Usare gli attributi di WebJobs SDK nel corpo di una funzione
 
-Se è necessario eseguire alcune operazioni nella funzione prima di usare un attributo WebJobs SDK come  `Queue`,  `Blob` o  `Table`, è possibile usare l'interfaccia  `IBinder`.
+Se è necessario eseguire alcune operazioni nella funzione prima di usare un attributo di WebJobs SDK come  `Queue`,  `Blob` o  `Table`, è possibile usare l'interfaccia  `IBinder`.
 
-Nel seguente esempio viene accettato un messaggio di coda di input e creato un nuovo messaggio con lo stesso contenuto in una coda di output. Il nome della coda di output viene impostato dal codice nel corpo della funzione.
+Nell'esempio seguente viene accettato un messaggio di coda di input e creato un nuovo messaggio con lo stesso contenuto in una coda di output. Il nome della coda di output viene impostato dal codice nel corpo della funzione.
 
 		public static void CreateQueueMessage(
 		    [QueueTrigger("inputqueue")] string queueMessage,
@@ -294,7 +296,7 @@ L'interfaccia  `IBinder` può essere usata anche con gli attributi  `Table` e  `
 
 ## <a id="blobs"></a> Come leggere e scrivere BLOB e tabelle durante l'elaborazione di un messaggio in coda
 
-Gli attributi  `Blob` e  `Table` consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per esempi di codice che illustrano come attivare processi quando vengono creati o aggiornati BLOB, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), mentre per esempi di codice che leggono e scrivono tabelle, vedere la pagina relativa all'[uso dell'archivio tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Gli attributi  `Blob` e  `Table` consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per gli esempi di codice che illustrano come attivare processi quando vengono creati o aggiornati BLOB, vedere [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)e per gli esempi di codice che leggono e scrivono tabelle, vedere [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Messaggi di coda stringa che attivano operazioni BLOB
 
@@ -310,9 +312,9 @@ Il seguente esempio usa oggetti  `Stream` per leggere e scrivere i BLOB. Il mess
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-Il costruttore dell'attributo  `Blob` usa un parametro  `blobPath` che specifica il contenitore e il nome del BLOB. Per altre informazioni su questo segnaposto, vedere la pagina relativa all'[uso dell'archivio BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
+Il costruttore dell'attributo  `Blob` usa un parametro  `blobPath` che specifica il contenitore e il nome del BLOB. Per altre informazioni su questo segnaposto, vedere [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md). 
 
-Quando l'attributo assegna un oggetto  `Stream`, un altro parametro del costruttore specifica la modalità  `FileAccess` come lettura, scrittura o lettura/scrittura. 
+Quando l'attributo decora un oggetto  `Stream`, un altro parametro del costruttore specifica la modalità  `FileAccess` come lettura, scrittura o lettura/scrittura. 
 
 Il seguente esempio usa un oggetto  `CloudBlockBlob` per eliminare un BLOB. Il messaggio di coda è il nome del BLOB.
 
@@ -325,7 +327,7 @@ Il seguente esempio usa un oggetto  `CloudBlockBlob` per eliminare un BLOB. Il m
 
 ### <a id="pocoblobs"></a> Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-Per un oggetto POCO archiviato nel formato JSON nel messaggio di coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro  `blobPath` dell'attributo  `Queue`. È inoltre possibile usare i [nomi di proprietà dei metadati di coda](#queuemetadata) come segnaposto. 
+Per un oggetto POCO archiviato come JSON nel messaggio di coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro  `blobPath` dell'attributo  `Queue`. È anche possibile usare i [nomi di proprietà dei metadati di coda](#queuemetadata) come segnaposto. 
 
 Il seguente esempio copia un BLOB in un nuovo BLOB con un'estensione diversa. Il messaggio di coda è un oggetto  `BlobInformation` che include le proprietà  `BlobName` e  `BlobNameWithoutExtension`. I nomi delle proprietà vengono usati come segnaposto nel percorso BLOB per gli attributi  `Blob`. 
  
@@ -349,13 +351,13 @@ Se è necessario eseguire alcune operazioni nella funzione prima di associare un
  
 L'attributo  `Blob` può essere usato con i seguenti tipi:
 
-* `Stream`(lettura o scrittura, specificata tramite il parametro del costruttore FileAccess)
+* `Stream` (lettura o scrittura, specificata tramite il parametro del costruttore FileAccess)
 * `TextReader`
 * `TextWriter`
 * `string` (lettura)
-* `out string`(scrittura, crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione restituisce un valore)
+* `out string` (scrittura; crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione restituisce un valore)
 * POCO (lettura)
-* out POCO (scrittura, crea sempre un BLOB come oggetto null se il parametro POCO è null quando la funzione restituisce un valore)
+* out POCO (scrittura; crea sempre un BLOB come oggetto null se il parametro POCO è null quando la funzione restituisce un valore)
 * `CloudBlobStream` (scrittura)
 * `ICloudBlob` (lettura o scrittura)
 * `CloudBlockBlob` (lettura o scrittura) 
@@ -371,7 +373,7 @@ L'SDK chiamerà una funzione fino a 5 volte per elaborare un messaggio nella cod
 
 La coda non elaborabile è denominata *{originalqueuename}*-poison. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale. 
 
-Nel seguente esempio la funzione  `CopyBlob` non riesce quando un messaggio di coda contiene il nome di un BLOB inesistente. In questo caso, il messaggio viene spostato dalla coda copyblobqueue alla coda non elaborabile copyblobqueue-poison.  `ProcessPoisonMessage` registra quindi il messaggio non elaborabile.
+Nel seguente esempio la funzione  `CopyBlob` ha esito negativo quando un messaggio di coda contiene il nome di un BLOB inesistente. In questo caso, il messaggio viene spostato dalla coda copyblobqueue alla coda copyblobqueue-poison.  `ProcessPoisonMessage` registra quindi il messaggio non elaborabile.
 
 		public static void CopyBlob(
 		    [QueueTrigger("copyblobqueue")] string blobName,
@@ -387,13 +389,13 @@ Nel seguente esempio la funzione  `CopyBlob` non riesce quando un messaggio di c
 		    logger.WriteLine("Failed to copy blob, name=" + blobName);
 		}
 
-Nella seguente figura viene illustrato l'output della console di queste funzioni quando viene elaborato un messaggio non elaborabile.
+Nella figura seguente viene illustrato l'output di console di queste funzioni quando viene elaborato un messaggio non elaborabile.
 
-![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
+![Output di console per la gestione dei messaggi non elaborabili](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
 
 ### Gestione manuale dei messaggi non elaborabili
 
-È possibile ottenere il numero di volte in cui un messaggio è stato selezionato per l'elaborazione aggiungendo alla funzione un parametro  `int` denominato  `dequeueCount`. Sarà quindi possibile controllare il conteggio di rimozione dalla coda nel codice della funzione ed eseguire la gestione dei messaggi non elaborabili quando il numero supera una certa soglia, come illustrato nel seguente esempio.
+È possibile ottenere il numero di volte in cui un messaggio è stato selezionato per l'elaborazione aggiungendo alla funzione un parametro  `int` denominato  `dequeueCount`. Sarà quindi possibile controllare il conteggio di rimozione dalla coda nel codice della funzione ed eseguire la gestione dei messaggi non elaborabili quando il numero supera una certa soglia, come illustrato nell'esempio seguente.
 
 		public static void CopyBlob(
 		    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
@@ -421,7 +423,7 @@ Nella seguente figura viene illustrato l'output della console di queste funzioni
 
 ### <a id="setconnstr"></a>Impostare le stringhe di connessione SDK nel codice
 
-Impostare le stringhe di connessione SDK nel codice per poter usare i propri nomi di stringa di connessione nei file di configurazione o nelle variabili di ambiente, come illustrato nel seguente esempio.
+Impostare le stringhe di connessione SDK nel codice per poter usare i propri nomi di stringa di connessione nei file di configurazione o nelle variabili di ambiente, come illustrato nell'esempio seguente.
 
 		static void Main(string[] args)
 		{
@@ -442,7 +444,7 @@ Impostare le stringhe di connessione SDK nel codice per poter usare i propri nom
 		    host.RunAndBlock();
 		}
 
-### <a id="configqueue"></a>Configurare le impostazioni QueueTrigger
+### <a id="configqueue"></a>Configurare le impostazioni di QueueTrigger
 
 È possibile configurare le seguenti impostazioni valide per l'elaborazione del messaggio di coda:
 
@@ -450,7 +452,7 @@ Impostare le stringhe di connessione SDK nel codice per poter usare i propri nom
 - Numero massimo di tentativi prima che un messaggio nella coda venga inviato a una coda non elaborabile (il valore predefinito è 5).
 - Tempo massimo di attesa prima di eseguire nuovamente il polling quando una coda è vuota (il valore predefinito è 1 minuto).
 
-Il seguente esempio illustra come configurare queste impostazioni:
+L'esempio seguente illustra come configurare queste impostazioni:
 
 		static void Main(string[] args)
 		{
@@ -466,16 +468,16 @@ Il seguente esempio illustra come configurare queste impostazioni:
 
 A volte si desidera specificare un nome di coda, un nome di BLOB o un contenitore oppure un nome di tabella nel codice anziché impostarlo come hardcoded. È ad esempio possibile specificare il nome della coda per  `QueueTrigger` in una variabile di ambiente o in un file di configurazione. 
 
-A tale scopo, passare un oggetto  `NameResolver` al tipo  `JobHostConfiguration`. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri di costruttore di attributo WebJobs SDK e il codice  `NameResolver` specifica i valori effettivi da usare in sostituzione di questi segnaposto.
+A tale scopo, passare un oggetto  `NameResolver` al tipo  `JobHostConfiguration`. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri del costruttore dell'attributo di WebJobs SDK e il codice  `NameResolver` specifica i valori effettivi da usare in sostituzione di questi segnaposto.
 
-Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'ambiente di test e una coda denominata logqueueprod nell'ambiente di produzione. Invece di impostare un nome di coda come hardcoded, è possibile specificare il nome di una voce nella raccolta  `appSettings` con il nome della coda effettivo. Se la chiave  `appSettings` è logqueue, la funzione potrebbe essere simile al seguente esempio.
+Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'ambiente di testing e una coda denominata logqueueprod nell'ambiente di produzione. Invece di impostare un nome di coda come hardcoded, è possibile specificare il nome di una voce nella raccolta  `appSettings` con il nome effettivo della coda. Se la chiave  `appSettings` è logqueue, la funzione potrebbe essere simile al seguente esempio.
 
 		public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 		{
 		    Console.WriteLine(logMessage);
 		}
 
-La classe  `NameResolver` può quindi ottenere il nome della coda dalla raccolta  `appSettings`, come illustrato nel seguente esempio:
+La classe `NameResolver` potrebbe quindi ottenere il nome della coda dalla raccolta `appSettings`, come illustrato nell'esempio seguente:
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -499,7 +501,7 @@ Passare la classe  `NameResolver` all'oggetto  `JobHost`, come illustrato nel se
 
 ## <a id="manual"></a>Come attivare manualmente una funzione
 
-Per attivare manualmente una funzione, usare il metodo  `Call` o  `CallAsync` sull'oggetto  `JobHost` e l'attributo  `NoAutomaticTrigger` nella funzione, come illustrato nel seguente esempio. 
+Per attivare manualmente una funzione, usare il metodo  `Call` o  `CallAsync` per l'oggetto  `JobHost` e l'attributo  `NoAutomaticTrigger` per la funzione, come illustrato nel seguente esempio. 
 
 		public class Program
 		{
@@ -524,21 +526,21 @@ Per attivare manualmente una funzione, usare il metodo  `Call` o  `CallAsync` su
 
 Il dashboard visualizza i log in due posizioni: la pagina del processo Web e la pagina di una particolare chiamata al processo Web. 
 
-![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![Log nella pagina del processo Web](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![Log nella pagina di una chiamata di funzione](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-L'output dei metodi Console chiamati in una funzione o nel metodo  `Main()` viene visualizzato nella pagina Dashboard del processo Web, non nella pagina di una chiamata a un metodo specifico. L'output dell'oggetto TextWriter ottenuto da un parametro nella firma del metodo viene visualizzato nella pagina Dashboard di una chiamata al metodo.
+L'output dei metodi Console chiamati in una funzione o nel metodo  `Main()` viene visualizzato nella pagina Dashboard del WebJob, non nella pagina di una chiamata a un metodo specifico. L'output dell'oggetto TextWriter ottenuto da un parametro nella firma del metodo viene visualizzato nella pagina Dashboard di una chiamata al metodo.
 
-L'output di Console non può essere collegato a una chiamata a un metodo particolare poiché Console è a thread singolo, mentre potrebbero essere in esecuzione più funzioni nello stesso momento. Per questo motivo l'SDK fornisce a ogni chiamata di funzione il proprio oggetto writer di log univoco.
+L'output di Console non può essere collegato a una chiamata a un metodo particolare perché Console è a thread singolo, mentre potrebbero essere in esecuzione più funzioni di processo contemporaneamente. Per questo motivo l'SDK fornisce a ogni chiamata di funzione il proprio oggetto writer di log univoco.
 
-Per scrivere [log di traccia dell'applicazione](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview), usare  `Console.Out` (crea log contrassegnati come INFO) e  `Console.Error` (crea log contrassegnati come ERROR). In alternativa, è possibile usare [Trace o TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), che fornisce livelli dettagliati, di avviso e critici, oltre ai livelli di informazioni e di errore. I log di traccia dell'applicazione vengono visualizzati nei file di log del sito Web, nelle tabelle di Azure o nei BLOB di Azure a seconda di come è configurato il sito Web di Azure. Come per tutti gli output di Console, anche i 100 registri applicazioni più recenti vengono visualizzati nella pagina Dashboard del processo Web e non nella pagina di una chiamata di funzione. 
+Per scrivere [log di traccia dell'applicazione](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), usare  `Console.Out` (crea log contrassegnati come INFO) e  `Console.Error` (crea log contrassegnati come ERROR). In alternativa, è possibile usare [Trace o TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), che fornisce livelli dettagliati, di avviso e critici, oltre ai livelli di informazioni e di errore. I log di traccia dell'applicazione vengono visualizzati nei file di log dell'app Web, nelle tabelle di Azure o nei BLOB di Azure a seconda di come è configurata l'app Web di Azure. Come per tutti gli output di Console, anche i 100 registri applicazioni più recenti vengono visualizzati nella pagina Dashboard del processo Web e non nella pagina di una chiamata di funzione. 
 
 L'output di Console viene visualizzato nel dashboard solo se il programma viene eseguito in un processo Web di Azure e non se il programma viene eseguito localmente o in un altro ambiente.
 
 È possibile disabilitare la registrazione [impostando la stringa di connessione del dashboard su null](#config).
 
-Il seguente esempio illustra diversi modi per scrivere log:
+Nell'esempio seguente vengono illustrati diversi modi per scrivere log:
 
 		public static void WriteLog(
 		    [QueueTrigger("logqueue")] string logMessage,
@@ -550,37 +552,36 @@ Il seguente esempio illustra diversi modi per scrivere log:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-Nel dashboard di WebJobs SDK viene visualizzato l'output dell'oggetto  `TextWriter` quando si visita la pagina relativa a una chiamata di funzione specifica e si fa clic su **Toggle Output**:
+Nel dashboard di WebJobs SDK l'output dell'oggetto  `TextWriter` viene visualizzato quando si visita la pagina relativa a una chiamata di funzione specifica e si fa clic su **Toggle Output**:
 
-![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
+![Fare clic sul collegamento della chiamata di funzione](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![Log nella pagina di una chiamata di funzione](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-Nel dashboard di WebJobs SDK vengono visualizzate le 100 righe più recenti dell'output di Console quando si visita la pagina relativa al processo Web (non alla chiamata di funzione) e si fa clic su **Toggle Output**.
+Nel dashboard di WebJobs SDK le 100 righe più recenti dell'output di Console vengono visualizzate quando si visita la pagina relativa al processo Web (non alla chiamata di funzione) e si fa clic su **Toggle Output**.
  
-![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![Fare clic su Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-In un processo Web continuo i registri applicazioni vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job_log.txt nel file system del sito Web.
+In un processo Web continuo i registri applicazioni vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job_log.txt nel file system dell'app Web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
 In un BLOB di Azure l'aspetto dei log dell'applicazione è simile al seguente:
+
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
 		2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 In una tabella di Azure i log  `Console.Out` e  `Console.Error` hanno un aspetto simile al seguente:
 
-![Info log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
+![Log delle informazioni nella tabella](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
 
-![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+![Log degli errori nella tabella](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
 ## <a id="nextsteps"></a> Passaggi successivi
 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante il portale" 
 	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica." 
 	services="media-services" 
@@ -21,7 +21,7 @@
 # Configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md). 
 
 
 ## Informazioni generali
@@ -41,7 +41,7 @@ Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL 
 
 ### Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md). 
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints). 
 - L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere [Codificare un asset](media-services-encode-asset.md).  
 - Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
 
@@ -84,14 +84,14 @@ Quando si proteggono i contenuti con **PlayReady**, è necessario includere nei 
 	  </LicenseTemplates>
 	</PlayReadyLicenseResponseTemplate>
 
-È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+È possibile fare clic sul pulsante **importa xml criteri** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ## Passaggi successivi
-Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](media-services-manage-content#encrypt.md) .
+Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](media-services-manage-content#encrypt.md).
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

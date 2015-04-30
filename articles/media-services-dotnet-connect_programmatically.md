@@ -19,7 +19,7 @@
 
 # Connessione a un account di Servizi multimediali mediante l'SDK di Servizi multimediali per .NET
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
 Questo argomento descrive come ottenere una connessione a Servizi multimediali di Microsoft Azure a livello di codice quando si programma con l'SDK di Servizi multimediali per .NET.
 
@@ -117,7 +117,7 @@ A partire dalla versione 3.0.0.0 dell'SDK di Servizi multimediali, è possibile 
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Aggiornare la copia del token, nel caso in cui il token sia stato aggiornato da Media Services SDK. 
+	Aggiornare la copia del token, nel caso in cui il token sia stato aggiornato dall'SDK di Servizi multimediali. 
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -166,7 +166,7 @@ Ad esempio:
 
 ## Archiviazione dei valori di connessione nella configurazione
 
-È consigliabile archiviare i valori di connessione, in particolare quelli sensibili come nome account e password, all'interno della configurazione, e anche crittografare i dati di configurazione sensibili. È possibile crittografare l'intero file di configurazione tramite il sistema EFS (Encrypting File System) di Windows. Per abilitare il sistema EFS per un file, fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e abilitare la crittografia nella scheda delle impostazioni **Avanzate**. In alternativa, è possibile creare una soluzione personalizzata per crittografare parti selezionate di un file di configurazione tramite la configurazione protetta. Vedere [Crittografia delle informazioni di configurazione utilizzando la configurazione protetta](https://msdn.microsoft.com/library/53tyfkaw.aspx).
+È consigliabile archiviare i valori di connessione, in particolare quelli sensibili come nome account e password, all'interno della configurazione, e anche crittografare i dati di configurazione sensibili. È possibile crittografare l'intero file di configurazione tramite il sistema EFS (Encrypting File System) di Windows. Per abilitare il sistema EFS per un file, fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e abilitare la crittografia nella scheda delle impostazioni **Avanzate**. In alternativa, è possibile creare una soluzione personalizzata per crittografare parti selezionate di un file di configurazione tramite la configurazione protetta. Vedere l'argomento relativo alla [crittografia delle informazioni di configurazione usando la configurazione protetta](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 Il file App.config contiene i valori di configurazione necessari. I valori nell'elemento <appSettings> sono i valori necessari ottenuti durante il processo di configurazione dell'account di Servizi multimediali.
 
@@ -191,4 +191,4 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

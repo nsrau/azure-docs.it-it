@@ -19,12 +19,12 @@
 
 # Procedura: Gestire gli asset in archivio
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
 
 
 Dopo avere creato gli asset multimediali, è possibile accedervi e gestirli sul server. Sul server è possibile gestire anche altri oggetti che fanno parte di Servizi multimediali, tra cui processi, attività, criteri di accesso, localizzatori e altro ancora.
 
-Nell'esempio seguente viene mostrato come eseguire una query per ottenere un asset in base all'ID asset. 
+Nel seguente esempio viene mostrato come eseguire una query per ottenere un asset in base all'ID asset. 
 
 	static IAsset GetAsset(string assetId)
 	{
@@ -77,7 +77,7 @@ Per elencare tutti gli asset disponibili sul server, è possibile usare il metod
 	    Console.Write(builder.ToString());
 	}
 
-Il frammento di codice seguente elimina tutti gli asset dall'account di Servizi multimediali. Si noti che se un asset è associato a un programma, è innanzitutto necessario eliminare il programma.
+Il seguente frammento di codice elimina tutti gli asset dall'account di Servizi multimediali. Si noti che se un asset è associato a un programma, è innanzitutto necessario eliminare il programma.
 
 	foreach (IAsset asset in _context.Assets)
 	{
@@ -85,4 +85,4 @@ Il frammento di codice seguente elimina tutti gli asset dall'account di Servizi 
 	}
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

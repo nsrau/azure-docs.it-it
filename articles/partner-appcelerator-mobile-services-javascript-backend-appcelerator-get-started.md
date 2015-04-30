@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Introduzione a Servizi mobili di Azure per Appcelerator Titanium" 
+	pageTitle="Introduzione a servizi mobili di Azure per Appcelerator Titanium" 
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Appcelerator." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
@@ -22,7 +22,7 @@
 
 Questa esercitazione illustra come sfruttare Servizi mobili di Mobile nelle applicazioni compilate con Appcelerator.
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato viene usato JavaScript per la logica di business sul lato server.
+In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato viene usato JavaScript per la logica di business sul lato server.
 
 Per completare questa esercitazione, è necessario disporre di [Appcelerator Titanium].
 
@@ -64,7 +64,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
     ![][2]
 
-4.	Verrà infine visualizzato il progetto selezionato nella sezione dei progetti. Facoltativamente è possibile selezionare l'opzione &quot;Copy projects into workspace&quot; che consente di copiare il progetto scaricato nell'area di lavoro. Infine, fare clic su Finish per aprire il progetto in Titanium Studio.
+4.	Verrà infine visualizzato il progetto selezionato nella sezione dei progetti. Facoltativamente è possibile selezionare l'opzione &quot;Copy projects into workspace&quot;, che consente di copiare nell'area di lavoro il progetto scaricato. Infine, fare clic su Finish per aprire il progetto in Titanium Studio.
 
     ![][3]
 
@@ -78,7 +78,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
     ![][5]
 
-8.	Nella schermata successiva fare clic sull'icona con il segno più (+) e digitare un testo completo e comprensibile, ad esempio &quot;Completare l'esercitazione&quot; quindi fare clic su Save.<br />
+8.	Nella schermata successiva fare clic sull'icona con il segno più (+) e digitare un testo completo e comprensibile, ad esempio &quot;Completare l'esercitazione&quot; quindi fare clic sul pulsante Save.<br />
 
     ![][6]
 
@@ -127,9 +127,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 <!-- URLs. -->
 [Applicazione Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Introduzione all'autenticazione]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Introduzione alle notifiche push]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Introduzione all'autenticazione]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Introduzione alle notifiche push]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

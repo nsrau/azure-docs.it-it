@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Crittografia dinamica:  Configurare i criteri di autorizzazione della chiave simmetrica mediante .NET" 
 	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica." 
 	services="media-services" 
@@ -18,22 +18,22 @@
 
 
 
-# Crittografia dinamica: Configurare i criteri di autorizzazione della chiave simmetrica 
+#Crittografia dinamica: Configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
-## Informazioni generali
+##Informazioni generali
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati (dinamicamente) con AES (Advanced Encryption Standard), mediante chiavi di crittografia a 128 bit, e con PlayReady DRM. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi e licenze PlayReady ai client autorizzati. 
 
-È attualmente possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
+È attualmente possibile crittografare i seguenti formati di streaming: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
 
 Se si vuole crittografare un asset per Servizi multimediali, è necessario associare una chiave di crittografia (**CommonEncryption** o **EnvelopeEncryption**) all'asset (come descritto [qui](media-services-dotnet-create-contentkey.md)) e anche configurare criteri di autorizzazione per la chiave, come descritto in questo articolo. 
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo **open**, **token** o **IP**. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Token** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT).  
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo **open**, **token** o **IP**. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT).  
 
 Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione Token, come descritto in questo articolo. Il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica.
 
@@ -45,19 +45,19 @@ Per altre informazioni, vedere
 
 [Uso del Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
-### Considerazioni applicabili:
+###Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins#scale_streaming_endpoints.md). 
-- L'asset deve contenere un set di file MP4 o Smooth Streaming a più velocità in bit. Per altre informazioni, vedere [Codificare un asset](media-services-encode-asset.md).  
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints). 
+- L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere [Codificare un asset](media-services-encode-asset.md).  
 - Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted**.
 - Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
 - Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
 - Se si aggiungono o si aggiornano i criteri di distribuzione dell'asset, è necessario eliminare l'eventuale localizzatore esistente e creare un nuovo localizzatore.
 
 
-## Crittografia dinamica AES-128 
+##Crittografia dinamica AES-128 
 
-### Restrizione Open
+###Restrizione Open
 
 Se si applica una restrizione Open, il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
 
@@ -100,13 +100,13 @@ Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla c
 	}
 
 
-### Restrizione Token
+###Restrizione Token
 
 Questa sezione descrive come creare un criterio di autorizzazione per una chiave simmetrica e associarlo a tale chiave. I criteri di autorizzazione definiscono i requisiti di autorizzazione che devono essere soddisfatti per determinare se l'utente è autorizzato a ricevere la chiave (ad esempio, se l'elenco di chiavi di verifica contiene la chiave con cui è stato firmato il token).
 
-Per configurare l'opzione di restrizione Token, è necessario usare un file XML per descrivere i requisiti di autorizzazione del token. Il file XML di configurazione della restrizione Token deve essere conforme allo schema XML seguente.
+Per configurare l'opzione di restrizione Token, è necessario usare un file XML per descrivere i requisiti di autorizzazione del token. Il file XML di configurazione della restrizione Token deve essere conforme al seguente schema XML.
 
-#### <a id="schema"></a>Schema di restrizione Token
+####<a id="schema"></a>Schema di restrizione Token
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -155,9 +155,9 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-Quando si configurano i criteri di restrizione **Token**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token e il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
+Quando si configurano i criteri di restrizione **Token**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
 
-Se si usa **Media Services SDK per .NET**, è possibile usare la classe **TokenRestrictionTemplate** per generare il token della restrizione.
+Se si usa l'**SDK di Servizi multimediali per .NET**, è possibile usare la classe **TokenRestrictionTemplate** per generare il token della restrizione.
 Il seguente esempio crea un criterio di autorizzazione con una restrizione Token. In questo esempio il client deve presentare un token contenente i seguenti dati: chiave di firma (VerificationKey), autorità emittente del token e attestazioni richieste.
 	
 	public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -214,9 +214,9 @@ Il seguente esempio crea un criterio di autorizzazione con una restrizione Token
 	    return TokenRestrictionTemplateSerializer.Serialize(template);
 	}
 
-#### <a id="test"></a>Token di test
+####<a id="test"></a>Token di test
 
-Per ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave, eseguire le operazioni seguenti.
+Per ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave, seguire questa procedura.
 	
 	// Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
 	// back into a TokenRestrictionTemplate class instance.
@@ -235,13 +235,13 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 	Console.WriteLine();
 
 
-## Crittografia dinamica PlayReady 
+##Crittografia dinamica PlayReady 
 
 Servizi multimediali consente di configurare i diritti e le restrizioni che il runtime di PlayReady DRM deve applicare quando l'utente prova a riprodurre contenuti protetti. 
 
-Quando si proteggono i contenuti con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). Per definire più facilmente questo modello, è possibile usare le classi **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** incluse in Media Services SDK per .NET. 
+Quando si proteggono i contenuti con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). Per definire più facilmente questo modello, è possibile usare le classi **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** incluse nell'SDK di Servizi multimediali per .NET. 
 
-### Restrizione Open
+###Restrizione Open
 	
 Se si applica una restrizione Open, il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
 
@@ -284,7 +284,7 @@ Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla c
 	    contentKey = contentKey.UpdateAsync().Result;
 	}
 
-### Restrizione Token
+###Restrizione Token
 
 Per configurare l'opzione di restrizione Token, è necessario usare un file XML per descrivere i requisiti di autorizzazione del token. Il file XML di configurazione della restrizione Token deve essere conforme allo schema XML illustrato in [questa sezione](#schema) .
 	
@@ -362,9 +362,9 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
 
 Per ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave, vedere [questa sezione](#test) . 
 
-## <a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
+##<a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
 
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -372,7 +372,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
         IPRestricted = 2,
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
     public enum ContentKeyDeliveryType
     {
@@ -381,7 +381,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
         BaselineHttp = 2,
     }
 
-### <a id="TokenType"></a>TokenType
+###<a id="TokenType"></a>TokenType
 
     public enum TokenType
     {
@@ -392,7 +392,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 
 
-## Passaggi successivi
+##Passaggi successivi
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md) .
 
-<!--HONumber=47-->
+<!--HONumber=52-->

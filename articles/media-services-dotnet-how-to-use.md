@@ -16,22 +16,22 @@
 	ms.date="02/02/2015" 
 	ms.author="juliako"/>
 
-# Sviluppo di applicazioni di Servizi multimediali con .NET 
+#Sviluppo di applicazioni di Servizi multimediali con .NET 
 
 Questo argomento illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET. 
 
 La libreria dell'**SDK di Servizi multimediali per .NET** consente di programmare per Servizi multimediali usando .NET. Per facilitare ancora di più lo sviluppo con .NET, è disponibile la libreria delle **estensioni dell'SDK di Servizi multimediali di Azure**, contenente un set di funzioni di supporto e metodi di estensione che semplificano il codice .NET. Entrambe le librerie sono disponibili tramite **NuGet** e **GitHub**.
  
 
-## Prerequisiti
+##Prerequisiti
 
 -   Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
 -   Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
--   .NET Framework 4.5.
+-   .NET Framework 4,5.
 -   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
   
 
-## Creare e configurare un progetto di Visual Studio 
+##Creare e configurare un progetto di Visual Studio 
 
 In questa sezione viene illustrato come creare un progetto in Visual Studio e configurarlo per lo sviluppo in Servizi multimediali.  In questo caso, il progetto è un'applicazione console Windows C#, ma la stessa procedura di configurazione si applica ad altri tipi di progetti che è possibile creare per le applicazioni Servizi multimediali, ad esempio un'applicazione Windows Forms o un'applicazione Web ASP.NET.
 
@@ -48,13 +48,13 @@ In alternativa, è possibile ottenere i bit più recenti dell'SDK di Servizi mul
 	
 	2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere Gestisci pacchetti NuGet.
 	
-		The Manage NuGet Packages dialog box appears.
+		Viene visualizzata la finestra di dialogo Gestione pacchetti NuGet.
 
 	3. Nella raccolta Online eseguire la ricerca di Azure MediaServices Extensions, scegliere Azure Media Services .NET SDK Extensions e fare clic sul pulsante Installa.
  
 		Il progetto verrà modificato e verranno aggiunti riferimenti all'SDK di Servizi multimediali per .NET, alle relative estensioni e ad altri assembly dipendenti.
 
-	4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere [NuGet Package Restore"](http://docs.nuget.org/consume/package-restore).
+	4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](http://docs.nuget.org/consume/package-restore).
 
 3. Aggiungere un riferimento all'assembly **System.Configuration**, che contiene la classe System.Configuration.**ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config. 
 
@@ -97,4 +97,4 @@ In alternativa, è possibile ottenere i bit più recenti dell'SDK di Servizi mul
 
 A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Servizi multimediali.    
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

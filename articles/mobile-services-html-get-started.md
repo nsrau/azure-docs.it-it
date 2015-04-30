@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione a Servizi mobili di Azure per le app HTML 5" 
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo HTML." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
@@ -23,9 +23,9 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app <em>Elenco attività</em> che archivia i dati dell'app nel nuovo servizio mobile. È inoltre possibile visualizzare una versione video dell'esercitazione facendo clic sul fotogramma a destra.</p>
+<p>In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app HTML mediante Servizi mobili di Azure. In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app <em>To do list</em> che archivia i dati dell'app nel nuovo servizio mobile. È inoltre possibile visualizzare una versione video dell'esercitazione facendo clic sul fotogramma a destra.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">guarda l'esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">03:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a> <span class="time">03:51</span></div>
 </div>
  
 Di seguito è riportata una schermata dell'app completata:
@@ -34,11 +34,11 @@ Di seguito è riportata una schermata dell'app completata:
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Servizi mobili relative ad app HTML. 
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
+> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
-###Requisiti aggiuntivi
+### Requisiti aggiuntivi
 
-+ Per completare questa esercitazione, è necessario che nel computer locale sia in esecuzione uno dei server Web seguenti:
++ Per completare questa esercitazione, è necessario che nel computer locale sia in esecuzione uno dei seguenti server Web:
 
 	+  **In Windows**: IIS Express. IIS Express viene installato tramite l'[Installazione guidata piattaforma Web Microsoft].   
 	+  **In MacOS X**: Python, che dovrebbe essere già installato.
@@ -86,7 +86,7 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
 La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nuova app nel computer locale.
 
-1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi avviare uno dei file di comando seguenti dalla sottocartella **server**.
+1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli nel computer in uso, quindi avviare uno dei seguenti file di comando dalla sottocartella **server**.
 
 	+ **launch-windows** (computer Windows) 
 	+ **launch-mac.command** (computer Mac OS X)
@@ -98,7 +98,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
 2. Aprire l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in un Web browser per avviare l'app.
 
-3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, in **Enter new task** e quindi fare clic su **Add**.
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_ in **Enter new task** e quindi fare clic su **Add**.
 
    	![][10]
 
@@ -106,7 +106,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
 	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.
 
-4. Tornare al portale di gestione, fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
+4. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
    	![][11]
 
@@ -118,7 +118,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
 * **[Introduzione ai dati]**
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+  <br/>Ulteriori informazioni sull'archiviazione e le query dei dati tramite Servizi mobili.
   
 * **[Chiamare un'API personalizzata da un'applicazione HTML]**
   <br/>Connettere l'applicazione HTML a un'API personalizzata ospitata in Servizi mobili.
@@ -152,16 +152,14 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-html
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-html
-[Chiamare un'API personalizzata da un'applicazione HTML]: /it-it/documentation/articles/mobile-services-html-call-custom-api 
+[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-html
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-html
+[Chiamare un'API personalizzata da un'applicazione HTML]: mobile-services-html-call-custom-api.md 
 
 [Portale di gestione]: https://manage.windowsazure.com/
 [Installazione guidata piattaforma Web Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
-[ultima versione di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /it-it/develop/mobile/how-to-guides/work-with-html-js-client
+[versione più recente di Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
+[Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Condivisione di risorse tra le origini]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

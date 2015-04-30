@@ -1,4 +1,6 @@
-1.  Aprire il file di progetto default.js e nell'overload del metodo **app.OnActivated** sostituire l'ultima chiamata al metodo **refreshTodoItems** con il codice seguente:
+
+
+1. Aprire il file di progetto default.js e nell'overload del metodo **app.OnActivated** sostituire l'ultima chiamata al metodo **refreshTodoItems** con il seguente codice: 
 
         // Define a member variable for storing the signed-in user.
         var userId = null;
@@ -30,16 +32,16 @@
             authenticate();
         });
 
-    Se si utilizza un provider di identità diverso da Facebook, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: *microsoftaccount*, *twitter*, *google* o *windowsazureactivedirectory*.
+	Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo di <strong>login</strong> riportato in precedenza con uno dei seguenti: _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_.
 
-    > [WACOM.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo [login][login] specificando il valore **true** per il parametro *useSingleSignOn*. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
+    >[AZURE.NOTE] Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con Servizi mobili, è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
 
-2.  Nel progetto dell'app di Windows Store, aprire il file di progetto default.html e aggiungere il seguente elemento **button** esattamente prima dell'elemento che definisce il pulsante **save**:
+2. Nel progetto dell'app di Windows Store, aprire il file di progetto default.html e aggiungere l'elemento **button** seguente esattamente prima dell'elemento che definisce il pulsante **save**:
 
-        <button id="buttonLogin" style="margin-left: 5px">Sign in</button>
+      	<button id="buttonLogin" style="margin-left: 5px">Sign in</button>
 
-3.  Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato.
+3. Premere F5 per eseguire l'app e accedervi con il provider di identità desiderato. 
 
-    Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-  [login]: http://go.microsoft.com/fwlink/p/?LinkId=322050
+<!--HONumber=52-->

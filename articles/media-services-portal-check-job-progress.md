@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Come controllare lo stato dei processi mediante il portale di gestione di Azure" 
 	description="Informazioni su come controllare lo stato dei processi mediante il portale di gestione di Azure." 
 	services="media-services" 
@@ -18,7 +18,7 @@
 
 # Procedura: Controllare lo stato dei processi
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md). 
 
 ## Usare il portale per controllare lo stato dei processi
 
@@ -31,9 +31,9 @@ Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Serviz
 
 ## Passaggi successivi
 
-Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un asset](../media-services-manage-content#publish). 
+Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un asset](media-services-manage-content#publish.md). 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -6,24 +6,24 @@
 
 3. Selezionare **Open an existing Android Studio project**, passare al percorso del progetto e quindi fare clic su **OK.** 
 
- 	![][14]
+ 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
 4. Nella finestra **Project Explorer** a sinistra assicurarsi che sia selezionata la scheda *Project*, quindi aprire **app**, **src**, **java** e fare doppio clic su **ToDoactivity**,
 
-   	![][8]
+   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
 
 
-4. Se è stata scaricata la versione 2.0 dell'SDK, è necessario aggiornare il codice con l'URL e la chiave del servizio mobile:
+5. Se è stata scaricata la versione 2.0 dell'SDK, è necessario aggiornare il codice con l'URL e la chiave del servizio mobile:
 	- 	Trovare il metodo **OnCreate** in **TodoActivity.java** e individuare il codice che crea un'istanza del client di Servizi mobili. Il codice è visibile nell'immagine precedente.
 	- 	Sostituire "MobileServiceUrl" con l'URL effettivo del servizio mobile.
 	- 	Sostituire "AppKey" con la chiave del servizio mobile.
-	- 	Per informazioni dettagliate, vedere l'esercitazione <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Aggiungere Servizi mobili a un'app esistente</a>. 
+	- 	Per informazioni dettagliate, vedere l'esercitazione relativa all'[aggiunta di Servizi mobili a un'app esistente](../articles/mobile-services-android-get-started-data.md). 
 
-5. Dal menu **Run** scegliere **Run** per avviare il progetto nell'emulatore di Android.
+6. Dal menu **Run** scegliere **Run** per avviare il progetto nell'emulatore di Android.
 
 	> [AZURE.IMPORTANT] Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
 
-6. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic su **Add**.
+7. Nell'app, digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic su **Aggiungi**.
 
    	![][10]
 
@@ -31,13 +31,13 @@
 
 	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.java.
 
-6. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
+8. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
-   	![][11]
+   	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
    	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
-   	![][12]
+   	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
 <!-- Images. -->
@@ -52,12 +52,13 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introduzione ai dati]: /documentation/articles/mobile-services-android-get-started-data/
-[Introduzione all'autenticazione]: /documentation/articles/mobile-services-android-get-started-users/
-[Introduzione alle notifiche push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Aggiunta di Servizi mobili a un'app esistente]: ../articles/mobile-services-android-get-started-data.md
+[Introduzione all'autenticazione]: ../articles/mobile-services-android-get-started-users.md
+[Introduzione alle notifiche push]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portale di gestione]: https://manage.windowsazure.com/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

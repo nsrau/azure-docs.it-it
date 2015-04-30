@@ -1,5 +1,6 @@
-﻿> [AZURE.SELECTOR]
-- [Portale](media-services-portal-check-job-progress.md)
-- [.NET SDK](media-services-check-job-progress.md)
-- [API REST](media-services-rest-check-job-progress.md)
-<!--HONumber=47-->
+> [AZURE.SELECTOR]
+- [Portale](../articles/media-services-portal-check-job-progress.md)
+- [.NET SDK](../articles/media-services-check-job-progress.md)
+- [API REST](../articles/media-services-rest-check-job-progress.md)
+
+<!--HONumber=52-->

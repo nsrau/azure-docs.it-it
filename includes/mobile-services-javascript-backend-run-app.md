@@ -5,9 +5,9 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Premere **F5** per ricompilare il progetto e avviare l'app.
 
-3. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Insert a TodoItem** e quindi fare clic su **Save**.
+3. Nell'app digitare un testo significativo, ad esempio  *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-   Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
+   	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
 4. (Facoltativo) In una soluzione universale Windows, cambiare il progetto di avvio predefinito specificando l'altra app ed eseguire di nuovo l'app.
 
@@ -15,11 +15,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
  
 4. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png)
-
-   In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
+   	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-phonegap" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -108,7 +108,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	> [AZURE.IMPORTANT] Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
 
-4. Tornare al portale di gestione e fare clic sulla scheda <strong>Dati</strong> e quindi sulla tabella <strong>TodoItems</strong>.
+4. Tornare al portale di gestione e fare clic sulla scheda <strong>Data</strong> e quindi sulla tabella <strong>TodoItem</strong>.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -123,23 +123,23 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Verificare che tutti gli strumenti della piattaforma di destinazione siano accessibili nel percorso di sistema. 
 
-2. Aprire un prompt dei comandi nella directory radice del progetto ed eseguire uno dei comandi seguenti, specifici della piattaforma: 
+2. Aprire un prompt dei comandi nella directory radice del progetto ed eseguire uno dei seguenti comandi, specifici della piattaforma: 
 
 	+ **Windows Phone**
 
-		Eseguire il comando seguente al prompt dei comandi per gli sviluppatori Visual Studio:
+		Eseguire il seguente comando al prompt dei comandi per gli sviluppatori Visual Studio:
 
     		phonegap local build wp8
 
 	+ **iOS**
  
-		Aprire il terminale ed eseguire il comando seguente:
+		Aprire il terminale ed eseguire il seguente comando:
 
     		phonegap local build ios
 
 	+ **Android**
 
-		Aprire un prompt dei comandi o una finestra del terminale ed eseguire il comando seguente. 
+		Aprire un prompt dei comandi o una finestra del terminale ed eseguire il seguente comando. 
 
 		    phonegap local build android
 
@@ -152,7 +152,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
 * [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+  <br/>Ulteriori informazioni sull'archiviazione e le query dei dati tramite Servizi mobili.
 
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
@@ -165,15 +165,13 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-html-get-started-data
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-html-get-started-users
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Introduzione ai dati]: mobile-services-html-get-started-data.md
+[Introduzione all'autenticazione]: mobile-services-html-get-started-users.md
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portale di gestione]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

@@ -56,7 +56,7 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][4]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Listen* e fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regol denominata **ReceiveRule** con diritti *Listenn* e quindi fare clic su **Salva**.
 
    	![][5]
 
@@ -101,4 +101,4 @@ A questo punto è possibile eseguire le applicazioni.
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

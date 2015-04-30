@@ -42,7 +42,7 @@ Nella procedura riportata di seguito viene descritto come ottenere l'applicazion
 
     `git clone https://github.com/WindowsAzure/azure-media-player-framework`
 
-2. Aprire il progetto in `azure-media-player-framework/src/iOS/HLSClient/`: **SamplePlayer.xcodeproj**.
+2. Aprire il progetto disponibile in `azure-media-player-framework/src/iOS/HLSClient/`: **SamplePlayer.xcodeproj**.
 
  
 3. Di seguito è illustrata la struttura del lettore di esempio:
@@ -54,7 +54,7 @@ Nella procedura riportata di seguito viene descritto come ottenere l'applicazion
 6. La logica dell'applicazione principale risiede in **SamplePlayerViewController.m** nella cartella  `Shared`. La maggior parte dei frammenti di codice descritta di seguito si trova in questo file. 
 
 ## Informazioni sul layout dell'interfaccia utente
-L'interfaccia del lettore è definita tramite due file con estensione xib. Nella sezione seguente verrà usato il layout di un dispositivo iPad come esempio, tuttavia, il layout dell'iPhone è molto simile e i principi sono gli stessi.
+L'interfaccia del lettore è definita tramite due file con estensione xib. Nella seguente sezione verrà usato il layout di un dispositivo iPad come esempio, tuttavia, il layout dell'iPhone è molto simile e i principi sono gli stessi.
 ### SamplePlayerViewController_iPad.xib
 ![Sample Player Address Bar](http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png)
 
@@ -75,7 +75,7 @@ L'interfaccia del lettore è definita tramite due file con estensione xib. Nella
 
 * I pulsanti **SkipFroward e SkipBackward** al momento non funzionano come previsto. A breve verrà rilasciata una versione aggiornata.
 
-* Se si preme il pulsante **Schedule Now** mentre è in corso la riproduzione del contenuto principale, viene inserito un annuncio (è possibile definire l'URL di origine dell'annuncio nel code-behind). Nota: nella versione corrente non è possibile programmare un annuncio mentre è in corso la riproduzione di un altro annuncio. 
+* Se si preme il pulsante **Schedule Now button** mentre è in corso la riproduzione del contenuto principale, viene inserito un annuncio (è possibile definire l'URL di origine dell'annuncio nel code-behind). Nota: nella versione corrente non è possibile programmare un annuncio mentre è in corso la riproduzione di un altro annuncio. 
 
 ### Come programmare il contenuto principale
 Programmazione di un video clip da 0 a 80 secondi:
@@ -98,11 +98,11 @@ Nel codice di esempio precedente:
 * **clipBeginMediaTime** indica l'ora di inizio per l'avvio della riproduzione del video. Se, ad esempio **clipBeginMediaTime**= 5 il video clip viene avviato al 5° secondo del video clip.
 * **clipEndMediaTime** indica l'ora di fine per la riproduzione di un video. Se **clipEndMediaTime**=100, la riproduzione del video termina al 100° secondo del video clip.
 *Verrà quindi programmata la durata del contenuto multimediale **MediaTime** chiedendo al framework di aggiungere il clip del contenuto multimediale tramite **appendContentClip**. Nell'esempio precedente l'URL del contenuto principale è disponibile in `[NSURL URLWithString:url]` e la programmazione per questo contenuto multimediale viene impostata tramite **withMedia**:
- `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
+ `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])`.
 
 **Nota:** programmare sempre il contenuto principale prima di pianificare eventuali annunci, inclusi gli annunci preroll. 
 
-### Variante: Se è in corso la riproduzione di due video di contenuto principali, è possibile programmare la riproduzione del secondo contenuto dopo il primo usando il codice seguente:
+### Variante: Se è in corso la riproduzione di due video di contenuto principali, è possibile programmare la riproduzione del secondo contenuto dopo il primo usando il seguente codice:
 
     //Schedule second content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -155,7 +155,7 @@ L'oggetto **AdInfo** rappresenta tutte le informazioni relative al clip dell'ann
 
 #### Programmazione di annunci midroll
 
-Se si aggiunge `adLinearTime.startTime = 23;` all'esempio di codice precedente, la riproduzione dell'annuncio viene avviata al 23° secondo della sequenza temporale del contenuto principale.
+Se si aggiunge `adLinearTime.startTime = 23;` all'esempio di codice precedente, la riproduzione dell'annuncio viene avviata al 23° secondo della sequenza temporale del contenuto principale..
 
 #### Programmazione di annunci postroll
 
@@ -208,8 +208,8 @@ I podcast annuncio sono costituiti da un'interruzione di un annuncio con più an
         [self logFrameworkError];
     }
 
-Prendere nota delle informazioni seguenti:
-* Per il primo clip, **appendTo** è -1. Quando viene chiamato `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex` riceve un valore univoco che indica la fine del primo clip nel podcast annuncio. Per il secondo clip nel podcast annuncio, allineare l'inizio del secondo annuncio con la fine del primo impostando **appendTo** come `adpodInfo2.appendTo = adIndex;` che specifica la posizione di fine del primo come la posizione di inizio del secondo clip. 
+Prendere nota delle seguenti informazioni:
+* Per il primo clip, **appendTo** è -1. Quando si chiama `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex` riceve un valore univoco che indica la fine di questo primo clip nel podcast annuncio. Per il secondo clip nel podcast annuncio, allineare l'inizio del secondo annuncio con la fine del primo impostando **appendTo** come `adpodInfo2.appendTo = adIndex;` che specifica la posizione di fine del primo come la posizione di inizio del secondo clip. 
 * È quindi necessario impostare il tipo come  `AdType_Pod` per indicare che si tratta di un podcast annuncio. 
 
 ### Come programmare un annuncio a riproduzione singola o a più riproduzioni
@@ -217,6 +217,6 @@ Prendere nota delle informazioni seguenti:
     oneTimeInfo.deleteAfterPlay = YES;
 
 Come illustrato nell'esempio di codice precedente, se si imposta **deleteAfterPlay** su **YES**, l'annuncio viene riprodotto solo una volta. Se invece si imposta **deleteAfterPlay** su **NO**, l'annuncio viene riprodotto in modo continuo, ovvero "a più riproduzioni".
-### Per altre informazioni, fare riferimento al [wiki di Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
+### Per altre informazioni, fare riferimento al wiki di [Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

@@ -1,6 +1,6 @@
-﻿##<a name="update-app"></a>Aggiornamento dell'app per chiamare l'API personalizzata
+## <a name="update-app"></a>Aggiornare l'app per chiamare l' API personalizzata
 
-1. In Visual Studio 2012 Express per Windows Phone aprire il file MainPage.xaml nel progetto di guida introduttiva, individuare l'elemento **Button** denominato  `ButtonRefresh` e sostituirlo con il codice XAML seguente: 
+1. In Visual Studio aprire il file MainPage.xaml nel progetto di guida introduttiva, individuare l'elemento **Button** denominato  `ButtonRefresh` e sostituirlo con il seguente codice XAML: 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 
@@ -11,22 +11,22 @@
 
 	Verrà aggiunto un nuovo pulsante nella pagina. 
 
-2. Aprire il file di codice MainPage.xaml.cs e aggiungere il codice di definizione di classe seguente:
+2. Aprire il file di codice MainPage.xaml.cs e aggiungere il seguente codice di definizione della classe:
 
 	    public class MarkAllResult
 	    {
 	        public int Count { get; set; }
 	    }
 
-	Questa classe viene utilizzata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
+	Questa classe viene usata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
 
-3. Individuare il metodo **RefreshTodoItems** nella classe **MainPage** e assicurarsi che l'elemento  `query` venga definito usando il metodo **Where** seguente:
+3. Individuare il metodo **RefreshTodoItems** nella classe **MainPage** e assicurarsi che l'elemento  `query` venga definito usando il seguente metodo **Where**:
 
         .Where(todoItem => todoItem.Complete == false)
 
 	Gli elementi verranno filtrati in modo che quelli completati non vengano restituiti dalla query.
 
-3. Nella classe **MainPage** aggiungere il metodo seguente:
+3. Nella classe **MainPage** aggiungere il seguente metodo:
 
 		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
 		{
@@ -64,5 +64,4 @@
 
 	Viene visualizzata una finestra di messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata viene eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

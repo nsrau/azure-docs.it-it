@@ -1,5 +1,5 @@
-﻿## Inviare messaggi all'hub eventi
-In questa sezione si scriverà un'app di console Windows per inviare eventi all'hub eventi.
+﻿## Inviare messaggi ad Hub eventi
+In questa sezione si scriverà un'app di console Windows che invia eventi all'hub eventi.
 
 1. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Sender**.
 
@@ -19,7 +19,7 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Aggiungere i seguenti campi `static` per la classe **Program**, sostituendo i valori con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione con i diritti **send**:
+5. Aggiungere i seguenti campi per la classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione con i diritti **Send**:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -48,7 +48,7 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
             }
         }
 
-	Questo metodo invierà continuamente gli eventi all'hub eventi con un ritardo di 200 ms.
+	Questo metodo invia continuamente gli eventi all'hub eventi con un ritardo di 200 ms.
 
 7. Aggiungere infine le seguenti righe al metodo **Main**:
 
@@ -60,5 +60,4 @@ In questa sezione si scriverà un'app di console Windows per inviare eventi all'
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=52-->

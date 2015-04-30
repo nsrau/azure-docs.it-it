@@ -1,43 +1,34 @@
-﻿<properties 
+<properties 
 	pageTitle="Cos'è Azure WebJobs SDK" 
 	description="Introduzione ad Azure WebJobs SDK. Spiega che cos'è l'SDK e gli scenari tipici in cui è utile con alcuni esempi di codice." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Cos'è Azure WebJobs SDK
 
-Questo articolo spiega cos'è WebJobs SDK, analizza alcuni scenari comuni in cui si rivela utile e traccia una panoramica della sua modalità di utilizzo nel codice personalizzato.
-
-## Sommario
-
-- [Informazioni generali](#overview)
-- [Scenari](#scenarios)
-- [Esempi di codice](#code)
-- [Uso di WebJobs SDK al di fuori dei processi Web](#workerrole)
-- [Uso di WebJobs SDK per richiamare una funzione](#nostorage)
-- [Passaggi successivi](#nextsteps)
-
 ## <a id="overview"></a>Informazioni generali
 
-I [processi Web](web-sites-create-web-jobs.md) sono una funzionalità di Siti Web di Azure che consente di eseguire un programma o uno script nello stesso contesto di un sito Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
+Questo articolo spiega cos'è WebJobs SDK, analizza alcuni scenari comuni in cui si rivela utile e traccia una panoramica della sua modalità di utilizzo nel codice personalizzato.
+
+I [processi Web](web-sites-create-web-jobs.md) sono una funzionalità di Servizio app di Azure che consente di eseguire un programma o uno script nello stesso contesto di un'app Web. Lo scopo di WebJobs SDK è semplificare l'attività di scrittura del codice che viene eseguita come processo Web e usa code, BLOB e tabelle di archiviazione di Azure e code del bus di servizio.
 
 In WebJobs SDK sono inclusi i componenti seguenti:
 
 * **Pacchetti NuGet**. I pacchetti NuGet aggiunti a un progetto di applicazione console di Visual Studio forniscono un framework usato dal codice per lavorare con le code dei servizi di archiviazione di Azure o del bus del servizio.   
   
-* **Dashboard**. Parte di WebJobs SDK è inclusa in Siti Web di Azure e fornisce monitoraggio e diagnostica avanzati per i programmi che usano i pacchetti NuGet. Non è necessario scrivere il codice per usare queste funzionalità di monitoraggio e diagnostica.
+* **Dashboard**. Parte di WebJobs SDK, questo componente è incluso in Servizio app di Azure e fornisce monitoraggio e diagnostica avanzati per i programmi che usano i pacchetti NuGet. Non è necessario scrivere il codice per usare queste funzionalità di monitoraggio e diagnostica.
 
 ## <a id="scenarios"></a>Scenari
 
@@ -45,7 +36,7 @@ Ecco alcuni scenario tipici che è possibile gestire più facilmente con Azure W
 
 * Elaborazione di immagini o altre operazioni con un uso intensivo della CPU. Una comune funzionalità dei siti Web è il caricamento di immagini o video. Spesso è necessario intervenire sul contenuto dopo averlo caricato, ma non si vuole far attendere l'utente nel frattempo.
 
-* Elaborazione di code. Per un front-end Web un modo comune di comunicare con un servizio back-end è usare le code. Quando il sito Web deve eseguire delle attività, effettua il push di un messaggio in una coda. Un servizio back-end effettua il pull dei messaggi dalla coda ed esegue le attività. È possibile usare le code per l'elaborazione delle immagini: ad esempio, dopo che l'utente ha caricato numerosi file, inserire i nomi dei file in un messaggio di coda da prelevare con il back-end per l'elaborazione. È possibile usare le code anche per migliorare la risposta del sito. Ad esempio, invece di scrivere direttamente in un database SQL, scrivere in una coda, informare l'utente che l'operazione è stata completata e lasciar gestire al servizio back-end il lavoro dei database relazionali con latenza elevata. Per un esempio di elaborazione di code con elaborazione di immagini, vedere l'esercitazione [Introduzione ad Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+* Elaborazione di code. Per un front-end Web un modo comune di comunicare con un servizio back-end è usare le code. Quando il sito Web deve eseguire delle attività, effettua il push di un messaggio in una coda. Un servizio back-end effettua il pull dei messaggi dalla coda ed esegue le attività. È possibile usare le code per l'elaborazione delle immagini: ad esempio, dopo che l'utente ha caricato numerosi file, inserire i nomi dei file in un messaggio di coda da prelevare con il back-end per l'elaborazione. È possibile usare le code anche per migliorare la risposta del sito. Ad esempio, invece di scrivere direttamente in un database SQL, scrivere in una coda, informare l'utente che l'operazione è stata completata e lasciar gestire al servizio back-end il lavoro dei database relazionali con latenza elevata. Per un esempio di elaborazione di code con elaborazione di immagini, vedere l'[esercitazione di introduzione a WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
 
 * Aggregazione RSS. Se si ha un sito che gestisce un elenco di feed RSS, è possibile effettuare il pull di tutti gli articoli dai feed in un processo in background.
 
@@ -53,7 +44,7 @@ Ecco alcuni scenario tipici che è possibile gestire più facilmente con Azure W
 
 * Ingresso alle tabelle di Azure. È probabile che siano stati archiviati file e BLOB da analizzare per poi archiviare i dati nelle tabelle. La funzione di ingresso potrebbe scrivere molte righe (milioni, in alcuni casi) e WebJobs SDK rende possibile implementare facilmente questa funzionalità. L'SDK fornisce anche il monitoraggio in tempo reale degli indicatori di stato come il numero di righe scritte nella tabella.
 
-* Altre attività con esecuzione prolungata da eseguire in un thread in background, ad esempio l'[invio di messaggi di posta elettronica](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
+* Altre attività con esecuzione prolungata da eseguire in un thread in background, ad esempio l'[invio di e-mail](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
 
 ## <a id="code"></a> Esempi di codice
 
@@ -93,26 +84,24 @@ Le funzionalità di trigger e di binder di WebJobs SDK semplificano notevolmente
 
 WebJobs SDK consente di usare l'archiviazione di Azure in molti modi diversi. Ad esempio, se il parametro con cui si associa l'attributo  `QueueTrigger` è una matrice di byte o un tipo personalizzato, viene automaticamente deserializzato da JSON. È inoltre possibile usare un attributo  `BlobTrigger` per attivare un processo quando viene creato un nuovo BLOB in un account di archiviazione di Azure. Tenere presente che, mentre  `QueueTrigger` trova i nuovi messaggi di coda in pochi secondi,  `BlobTrigger` può impiegare fino a 20 minuti per rilevare un nuovo BLOB.  `BlobTrigger` cerca i BLOB quando  `JobHost` viene avviato e quindi controlla periodicamente i log di archiviazione di Azure per rilevare nuovi BLOB.
 
-## <a id="workerrole"></a>Uso di WebJobs SDK al di fuori dei processi Web
+## <a id="workerrole"></a>Usare WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK è un'applicazione console standard e può essere eseguito ovunque e non obbligatoriamente come processo Web. È possibile testare il programma a livello locale sul computer di sviluppo e, in fase di produzione, eseguirlo in un ruolo di lavoro del servizio cloud oppure un servizio Windows, se si preferisce uno di questi ambienti. 
+Un programma che usa WebJobs SDK è un'applicazione console standard che può essere eseguita ovunque, non obbligatoriamente come processo Web. È possibile testare il programma a livello locale sul computer di sviluppo e, in fase di produzione, eseguirlo in un ruolo di lavoro del servizio cloud oppure un servizio Windows, se si preferisce uno di questi ambienti. 
 
-Tuttavia il dashboard è disponibile solo come estensione del sito per un sito Web di Azure. Se si vuole eseguirlo all'esterno di un processo Web ma usare comunque il dashboard, è possibile configurare un sito Web di Azure in modo da usare lo stesso account di archiviazione a cui fa riferimento la stringa di connessione del dashboard di WebJobs SDK, nel quale verranno quindi visualizzati i dati relativi all'esecuzione della funzione dal programma che viene eseguito altrove. È possibile accedere al dashboard usando l'URL https://*{websitename}*.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere il post di blog riguardo [l'accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un nome meno recente per la stringa di connessione. 
+Tuttavia il dashboard è disponibile solo come estensione per un'app Web di Servizio app di Azure. Per l'esecuzione all'esterno di un processo Web usando comunque il dashboard, è possibile configurare un'app Web in modo da usare lo stesso account di archiviazione a cui fa riferimento la stringa di connessione del dashboard di WebJobs SDK, nel quale verranno quindi visualizzati i dati relativi all'esecuzione della funzione dal programma che viene eseguito altrove. È possibile accedere al dashboard usando l'URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere il post di blog relativo all'[accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un nome meno recente per la stringa di connessione. 
 
-## <a id="nostorage"></a>Uso di WebJobs SDK per richiamare una funzione
+## <a id="nostorage"></a>Usare WebJobs SDK per richiamare una funzione
 
 WebJobs SDK offre diversi vantaggi, anche se non è necessario lavorare direttamente con le code, le tabella o i BLOB di Archiviazione di Azure oppure con le code del bus di servizio:
 
 * È possibile richiamare le funzioni dal dashboard.
 * È possibile riprodurre le funzioni dal dashboard.
-* È possibile visualizzare nel dashboard i log collegati a un particolare processo Web (registri applicazioni) oppure a una particolare chiamata di funzioni che li ha generati (log dei parametri `TextWriter` ). 
+* È possibile visualizzare nel dashboard log collegati al particolare processo Web (registri applicazioni scritti usando Console.Out, Console.Error, Trace e così via) oppure alla particolare chiamata di funzione che li ha generati (log scritti usando l'oggetto  `TextWriter` passato alla funzione come parametro dall'SDK). 
 
-* Per altre informazioni, vedere le sezioni [Come attivare manualmente una funzione](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) e [Come scrivere i log](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) .
+* Per altre informazioni, vedere gli argomenti relativi a [come richiamare manualmente una funzione](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e [come scrivere log](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). 
 
 ## <a id="nextsteps"></a>Passaggi successivi
 
-Per altre informazioni su WebJobs SDK, vedere [Risorse consigliate per Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Per altre informazioni su WebJobs SDK, vedere [Risorse per Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Come codificare un asset mediante Azure Media Encoder" 
 	description="Informazioni su come usare Azure Media Encoder per codificare contenuti multimediali in Servizi multimediali. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	services="media-services" 
@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-# Come codificare un asset mediante Azure Media Encoder
+#Come codificare un asset mediante Azure Media Encoder
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md). 
 
-## Informazioni generali
+##Informazioni generali
 
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
@@ -29,12 +29,13 @@ I processi di codifica sono tra le operazioni di elaborazione più frequenti in 
 
 Si consiglia di codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere l'articolo relativo alla [configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## Creare un processo con una singola attività di codifica 
+##Creare un processo con una singola attività di codifica 
 
 Quando si esegue la codifica mediante Azure Media Encoder, è possibile usare i set di impostazioni di attività specificati [qui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 
-### Usare l'SDK di Servizi multimediali per .NET  
+###Usare l'SDK di Servizi multimediali per .NET  
 
 Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codifica e aggiunge una singola attività di codifica al processo. Nell'attività viene usato "Azure Media Encoder" per la codifica in "H264 Adaptive Bitrate MP4 Set 720p". 
 
@@ -105,7 +106,7 @@ Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codific
         return processor;
     }
 
-### Usare le estensioni dell'SDK di Servizi multimediali per .NET
+###Usare le estensioni dell'SDK di Servizi multimediali per .NET
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
     {
@@ -137,7 +138,7 @@ Il seguente metodo **EncodeToAdaptiveBitrateMP4Set** crea un processo di codific
         return outputAsset;
     } 
 
-## Creare un processo con attività concatenate 
+##Creare un processo con attività concatenate 
 
 In molti scenari di applicazione, gli sviluppatori desiderano creare una serie di attività di elaborazione. In Servizi multimediali è possibile creare una serie di attività concatenate. Ogni attività esegue diversi passaggi di elaborazione e può usare processori di contenuti multimediali differenti. Le attività concatenate possono trasferire un asset da un'attività a un'altra e consentono quindi l'esecuzione delle attività dell'asset in sequenza lineare. Tuttavia, non è necessario che le attività eseguite in un processo siano in sequenza. Quando si crea un'attività concatenata, gli oggetti **ITask** concatenati vengono creati in un singolo oggetto **IJob**.
 
@@ -206,8 +207,7 @@ Il seguente metodo **CreateChainedTaskEncodingJob** crea un processo contenente 
     }
 
 
-## Passaggi successivi
-Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-check-job-progress.md).
+##Passaggi successivi
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Impostazioni per il codificatore]: http://msdn.microsoft.com/library/dn619392.aspx
@@ -217,4 +217,4 @@ Dopo avere creato un processo per la codifica di un asset, passare all'argomento
 [Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

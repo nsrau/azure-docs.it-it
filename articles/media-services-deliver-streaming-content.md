@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Come distribuire contenuti in streaming da Servizi multimediali - Azure" 
 	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	authors="juliako" 
@@ -17,20 +17,20 @@
 	ms.author="juliako"/>
 
 
-# Procedura: Distribuire contenuti in streaming
+#Procedura: Distribuire contenuti in streaming
 
 
-Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e [Flusso di lavoro Live Streaming di Servizi multimediali](../media-services-live-streaming-workflow).  
+Questo articolo fa parte della serie [Flusso di lavoro Video On Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
 
-## Informazioni generali
+##Informazioni generali
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](../media-services-encode-asset) mostra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](../media-services-dotnet-configure-asset-delivery-policy) argomento. 
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Prima di creare un localizzatore, è consigliabile configurare i criteri di distribuzione degli asset, come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento. 
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
 
 Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo. 
   	 
-## Creare un localizzatore di streaming OnDemand
+##Creare un localizzatore di streaming OnDemand
 
 Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
@@ -42,7 +42,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
    4. Creare URL che puntano al file manifesto o ai file MP4. 
    
 
-### Usare l'SDK di Servizi multimediali per .NET 
+###Usare l'SDK di Servizi multimediali per .NET 
 
 Creare URL di streaming 
 
@@ -131,9 +131,9 @@ Output del codice:
 	
 	. . . 
 
-### Usare le estensioni dell'SDK di Servizi multimediali per .NET
+###Usare le estensioni dell'SDK di Servizi multimediali per .NET
 
-Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
+Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
 
 	// Create a loctor.
 	_context.Locators.Create(
@@ -151,4 +151,4 @@ Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

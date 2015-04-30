@@ -1,7 +1,7 @@
-﻿
-##<a name="update-app"></a>Aggiornamento dell'app per chiamare l'API personalizzata
 
-1. In Visual Studio aprire il file MainPage.xaml nel progetto di guida introduttiva, individuare l'elemento **Button** denominato  `ButtonRefresh` e sostituirlo con il codice XAML seguente: 
+## <a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
+
+1. In Visual Studio aprire il file MainPage.xaml nel progetto di guida introduttiva, individuare l'elemento **Button** denominato  `ButtonRefresh` e sostituirlo con il seguente codice XAML: 
 
 		<StackPanel Orientation="Horizontal">
 	        <Button Margin="72,0,0,0" Name="ButtonRefresh" 
@@ -12,22 +12,22 @@
 
 	Verrà aggiunto un nuovo pulsante nella pagina. 
 
-2. Aprire il file di codice MainPage.xaml.cs e aggiungere il codice di definizione di classe seguente:
+2. Aprire il file di codice MainPage.xaml.cs e aggiungere il seguente codice di definizione di classe:
 
 	    public class MarkAllResult
 	    {
 	        public int Count { get; set; }
 	    }
 
-	Questa classe viene utilizzata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
+	Questa classe viene usata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
 
-3. Individuare il metodo **RefreshTodoItems** nella classe **MainPage** e assicurarsi che l'elemento  `query` venga definito usando il metodo **Where** seguente:
+3. Individuare il metodo **RefreshTodoItems** nella classe **MainPage** e assicurarsi che l'elemento  `query` venga definito usando il seguente metodo **Where**:
 
         .Where(todoItem => todoItem.Complete == false)
 
 	Gli elementi verranno filtrati in modo che quelli completati non vengano restituiti dalla query.
 
-3. Nella classe **MainPage** aggiungere il metodo seguente:
+3. Nella classe **MainPage** aggiungere il seguente metodo:
 
 		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
 		{
@@ -67,4 +67,4 @@
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-<!--HONumber=42-->
+<!--HONumber=52-->

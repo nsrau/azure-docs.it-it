@@ -26,7 +26,7 @@ Questo articolo fa parte di una serie di articoli dedicati alla programmazione i
 
 Questo argomento descrive come creare un localizzatore per contenuti basati sul protocollo Apple HTTP Live Streaming (HLS) in un server di origine di Servizi multimediali. Questo approccio consente di creare un URL per il contenuto Apple HLS e fornirlo ai dispositivi Apple iOS. L'approccio di base alla creazione dell'URL del localizzatore è lo stesso. Creare un localizzatore del percorso dell'asset Apple Live Streaming (HLS) in un server di origine e quindi l'URL completo che punta al manifesto per i contenuti in streaming.
 
-Nell'esempio di codice seguente si suppone che sia già stato ottenuto un riferimento a un asset in streaming HLS e che nel codice si faccia riferimento alla variabile denominata **assetToStream**. Dopo l'esecuzione del codice per la generazione di un localizzatore di origine sull'asset, è possibile usare l'URL risultante per riprodurre i contenuti in streaming in un dispositivo iOS, ad esempio un iPad o un iPhone.
+Il seguente esempio di codice suppone che sia già stato ottenuto un riferimento a un asset in streaming HLS e che nel codice si faccia riferimento alla variabile denominata **assetToStream**. Dopo l'esecuzione del codice per la generazione di un localizzatore di origine sull'asset, è possibile usare l'URL risultante per riprodurre i contenuti in streaming in un dispositivo iOS, ad esempio un iPad o un iPhone.
 
 Per creare un localizzatore per contenuti in streaming Apple HLS:
 
@@ -35,7 +35,7 @@ Per creare un localizzatore per contenuti in streaming Apple HLS:
    3. Creare il localizzatore di origine mediante una chiamata al metodo CreateLocator
    4. Creare un URL del file manifesto
 
-Il codice seguente illustra come implementare i passaggi:
+Il seguente codice illustra come implementare i passaggi:
 
 <pre><code>
 static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
@@ -79,13 +79,13 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Per altre informazioni sulla distribuzione di asset, vedere:
 <ul>
-<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Distribuzione di asset con l'SDK di Servizi multimediali per .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Recapito di asset con l'SDK di Servizi multimediali per .NET</a></li>
 <li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Distribuzione di asset con l'API REST di Servizi multimediali</a></li>
 </ul>
 
 <h2>Passaggi successivi</h2>
 
-Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di Azure. È stato illustrato come configurare il computer per lo sviluppo di Servizi multimediali e per l'esecuzione di attività di programmazione comuni. Per altre informazioni sulla programmazione di Servizi multimediali, vedere le risorse seguenti:
+Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di Azure. È stato illustrato come configurare il computer per lo sviluppo di Servizi multimediali e per l'esecuzione di attività di programmazione comuni. Per altre informazioni sulla programmazione di Servizi multimediali, vedere le seguenti risorse:
 
 -   [Documentazione di Servizi multimediali di Azure][]
 -   [Introduzione all'SDK di Servizi multimediali per .NET][]
@@ -99,6 +99,6 @@ Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di A
 [Introduzione all'SDK di Servizi multimediali per .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Creazione di applicazioni con l'API REST di Servizi multimediali]: http://go.microsoft.com/fwlink/?linkid=252967
 [Creazione di applicazioni con l'SDK di Servizi multimediali per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

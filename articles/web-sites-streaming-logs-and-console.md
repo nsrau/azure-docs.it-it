@@ -1,14 +1,14 @@
-﻿<properties 
+<properties 
 	pageTitle="Log di streaming e console" 
 	description="Informazioni su console e log in streaming" 
 	authors="adamabdelhamed" 
 	manager="wpickett" 
 	editor="" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
@@ -16,17 +16,17 @@
 	ms.date="11/17/2014" 
 	ms.author="adamab"/>
 
-#Log di streaming e console
+# Log di streaming e console
 
 ### Log di streaming ###
 
-Il portale di anteprima di Microsoft Azure fornisce un log di streaming integrato che consente di visualizzare gli eventi di traccia dai siti Web in tempo reale.  
+Il portale di Microsoft Azure fornisce un log di streaming integrato che consente di visualizzare gli eventi di traccia dalle app Web di Servizio app di Azure in tempo reale.  
 
 L'impostazione di questa funzionalità richiede alcuni semplici passaggi:
 
 - Scrittura delle tracce nel codice
-- Abilitazione della diagnostica applicazioni dal portale Azure Preview
-- Selezione della parte relativa ai log di streaming nel pannello del sito Web
+- Abilitazione della diagnostica applicazioni dal portale di Azure
+- Selezione della parte relativa ai log di streaming nel pannello dell'app Web
 
 ### Come scrivere le tracce nel codice ###
 
@@ -54,23 +54,23 @@ console.log("My trace statement").
 
 ### Come abilitare e visualizzare i log di streaming ###
 
-La diagnostica viene abilitata a livello di sito Web individuale.  Dal [portale](https://portal.azure.com) fare clic sul pulsante **Sfoglia** sulla barra dei menu a sinistra, quindi scegliere **Siti Web** per visualizzare un elenco di tutti i siti Web.  
+La diagnostica viene abilitata a livello di singola app Web.  Dall'interno del [portale](https://portal.azure.com) fare clic sul pulsante **Sfoglia** nella barra dei menu visualizzata a sinistra, quindi fare clic su **App Web** per visualizzare un elenco di tutte le app Web.  
 
 ![][BrowseSitesScreenshot]
 
-Fare clic sul nome del sito Web da configurare.  Fare quindi clic sulla parte denominata **LOG DI DIAGNOSTICA** e impostare l'interruttore **Registrazione applicazioni (file system)** sulla posizione **ON**.  Viene visualizzata l'opzione **Livello**, che consentirà di modificare il livello di gravità delle tracce da acquisire.  Impostare il livello su **Dettagliato** se si sta solo acquisendo familiarità con la funzionalità, poiché questa impostazione garantirà la registrazione di tutte le istruzioni di traccia.
+Fare clic sul nome dell'app Web da configurare.  Fare quindi clic sulla parte denominata **LOG DI DIAGNOSTICA** e impostare **Registrazione applicazioni (file system)** su **ATTIVATO**.  Viene visualizzata l'opzione **Livello**, che consentirà di modificare il livello di gravità delle tracce da acquisire.  Impostare il livello su **Dettagliato** se si sta solo acquisendo familiarità con la funzionalità perché questa impostazione garantirà la registrazione di tutte le istruzioni di traccia.
 
 Fare clic su **SALVA** nella parte superiore del pannello per visualizzare i log.
 
-Per visualizzare i log di streaming dall'interno del portale, fare clic sulla parte **LOG DI STREAMING** nel pannello del sito Web.  Se il sito sta scrivendo attivamente istruzioni di traccia, queste dovrebbero essere visibili nella finestra risultante in tempo quasi reale.
+Per visualizzare i log di streaming dall'interno del portale, fare clic sulla parte denominata **LOG DI STREAMING** nel pannello dell'app Web.  Se l'app sta scrivendo attivamente istruzioni di traccia, queste dovrebbero essere visibili nella finestra risultante in tempo quasi reale.
 
 ![][StreamingLogsScreenshot]
 
 ## Console ##
 
-Il portale di Anteprima di Azure consente di accedere mediante una console all'ambiente dei siti Web. È possibile esplorare il file system del sito Web ed eseguire script Powershell/cmd.  Quando si eseguono i comandi della console, si opera con le stesse autorizzazioni impostate per il codice del sito Web in esecuzione. Non si sarà in grado di accedere a directory protette né di eseguire script che richiedono autorizzazioni elevate.  
+Il portale di Azure fornisce accesso all'ambiente delle app Web mediante console. È possibile esplorare il file system dell'app Web ed eseguire script Powershell/cmd.  Quando si eseguono i comandi della console, si opera con le stesse autorizzazioni impostate per il codice dell'app Web in esecuzione. Non si sarà in grado di accedere a directory protette né di eseguire script che richiedono autorizzazioni elevate.  
 
-Per accedere alla console, passare a un sito Web come descritto nella sezione precedente.  Fare clic sulla parte **Console** per aprire la console.
+Per accedere alla console, passare a un'app Web come descritto nella sezione precedente.  Fare clic sulla parte denominata **Console** per aprire la console.
 
 ![][ConsoleScreenshot]
 
@@ -93,6 +93,4 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!--HONumber=52-->

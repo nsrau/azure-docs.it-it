@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Introduzione all'Hub eventi" 
-	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# usando EventProcessorHost" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+﻿<properties
+	pageTitle="Introduzione all'Hub eventi"
+	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# usando EventProcessorHost"
+	services="service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="hero-article"
+	ms.date="04/13/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -22,15 +22,13 @@
 
 ## Introduzione
 
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di elaborare milioni di eventi al secondo, che permette all'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'Hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione. Per altre informazioni sugli hub eventi, vedere [Guida per gli sviluppatori di Hub eventi di Azure]. 
+Hub eventi è un servizio che consente di elaborare grandi quantità di dati eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e di raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose.
 
-Per altre informazioni, vedere [Panoramica di Hub eventi].
-
-Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# e come recuperarli in parallelo usando la libreria dell'[Host processore di eventi] in C#.
+Questa esercitazione illustra come usare il portale di gestione di Azure per creare un Hub di eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console in C# e come recuperarli in parallelo usando la libreria dell'[Host processore di eventi] in C#.
 
 Per completare questa esercitazione, sono necessari i seguenti elementi:
 
-+ Microsoft Visual Studio Express 2013 per Windows
++ Microsoft Visual Studio 2013 o Microsoft Visual Studio Express 2013 per Windows.
 
 + Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
@@ -54,11 +52,11 @@ Per completare questa esercitazione, sono necessari i seguenti elementi:
 
    	![][4]
 
-6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Manage, Send, Listen* e fare clic su **Salva**.
+6. Fare clic sulla scheda **Configura** nella parte superiore, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regol denominata **ReceiveRule** con diritti *Manage, Send, Listen* e quindi fare clic su **Salva**.
 
    	![][5]
 
-7. Fare clic sulla scheda **Dashboard** nella parte superiore della pagina e quindi su **Informazioni di connessione**. Prendere nota delle due stringhe di connessione.
+7. Fare clic sulla scheda **Dashboard** nella parte superiore della pagina e quindi su **Informazioni di connessione**. Prendere nota di due stringhe di connessione o copiarle in un punto per usarle in un secondo momento in questa esercitazione.
 
    	![][6]
 
@@ -81,6 +79,14 @@ A questo punto è possibile eseguire le applicazioni.
 
    	![][22]
 
+## Passaggi successivi
+
+Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
+
+- Un'[applicazione di esempio completa che usa Hub eventi].
+- L'esempio per la [scalabilità orizzontale di eventi elaborati con Hub eventi].
+- Una [soluzione di messaggistica accodata] usando le code di Bus di servizio.
+
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
 [2]: ./media/service-bus-event-hubs-getstarted/create-event-hub2.png
@@ -96,5 +102,8 @@ A questo punto è possibile eseguire le applicazioni.
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[applicazione di esempio che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[scalabilità orizzontale di eventi elaborati con Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[soluzione di messaggistica accodata]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

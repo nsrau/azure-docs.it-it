@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Guide introduttive a Servizi multimediali" 
 	description="Configurare il computer per lo sviluppo con Servizi multimediali di Azure" 
 	services="media-services" 
@@ -18,7 +18,7 @@
 
 # Guide introduttive a Servizi multimediali
 
-## <a id="vod_quickstart"></a>Video on demand 
+## <a id="vod_quickstart"></a>Video on Demand 
 
 Scegliere di visualizzare la guida introduttiva implementata con .NET o REST.
  
@@ -30,4 +30,4 @@ Scegliere di visualizzare la guida introduttiva implementata con .NET o REST.
 [Per iniziare con .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

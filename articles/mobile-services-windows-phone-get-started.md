@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/22/2014" 
@@ -22,5 +22,4 @@ Questo argomento non è più supportato. Non è più disponibile per il download
 
 È disponibile per le app per Windows Phone Store 8.1 il download di un progetto di guida introduttiva come parte di un progetto Windows universale. Per altre informazioni, vedere [Introduzione a Servizi mobili](mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

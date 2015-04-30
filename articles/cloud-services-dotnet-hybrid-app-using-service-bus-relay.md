@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Applicazione ibrida cloud/locale (.NET) - Azure" 
 	description="Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure." 
 	services="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+	ms.date="03/17/2015" 
 	ms.author="sethm"/>
 
 
@@ -21,46 +21,50 @@
 
 
 
-# Uso di Inoltro del bus di servizio per creare applicazioni ibride cloud/locali .NET
+#Uso di Inoltro del bus di servizio per creare applicazioni ibride cloud/locali .NET
 
-## Introduzione
+##Introduzione
 
-Azure consente di sviluppare applicazioni cloud ibride con la stessa semplicità offerta da Visual Studio 2013 e Azure SDK gratuito per .NET. In questa guida si presuppone che l'utente non abbia mai usato Azure. In meno di 30 minuti si otterrà un'applicazione in esecuzione nel cloud e che usa più risorse di Azure.
+Microsoft Azure consente di sviluppare applicazioni cloud ibride con la stessa semplicità offerta da
+Visual Studio 2013 e Azure SDK gratuito per .NET. In questa guida si presuppone che l'utente non abbia mai usato Azure. In meno di 30 minuti si otterrà un'applicazione in esecuzione nel cloud e che usa più risorse di Azure.
 
 Si apprenderà come:
 
--   Creare o adattare un servizio Web esistente utilizzabile in una soluzione Web.
--   Usare Inoltro del bus di servizio per condividere dati tra un'applicazione Azure e un servizio Web ospitato altrove.
+-   Creare o adattare un servizio Web esistente utilizzabile in una
+    soluzione Web.
+-   Usare l'inoltro del bus di servizio di Azure per condividere dati tra
+    un'applicazione Azure e un servizio web ospitato altrove.
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## Vantaggi derivanti dall'uso di inoltro del bus di servizio con le soluzioni ibride
+##Vantaggi derivanti dall'uso di inoltro del bus di servizio con le soluzioni ibride
 
 Le soluzioni aziendali sono in genere costituite da una combinazione di codice personalizzato appositamente scritto in risposta a specifici requisiti aziendali e da funzionalità esistenti fornite da soluzioni e sistemi già implementati.
 
 Da qualche tempo gli architetti di soluzioni hanno iniziato a usare il cloud per semplificare la gestione dei requisiti di scalabilità e ridurre i costi operativi. Nell'adottare un tale approccio hanno quindi scoperto che le risorse di servizi esistenti che desiderano sfruttare come blocchi predefiniti delle soluzioni si trovano all'interno del firewall aziendale e quindi non sono facilmente raggiungibili dalla soluzione cloud. Molti servizi interni non sono creati né vengono ospitati in modo tale da consentirne una agevole esposizione al perimetro della rete aziendale.
 
-Il servizio  *Inoltro del bus di servizio* è progettato per i casi di utilizzo in cui i servizi Web WCF (Windows Communication Foundation) vengono resi accessibili in modo sicuro a soluzioni che risiedono all'esterno del perimetro aziendale senza richiedere modifiche di notevole impatto all'infrastruttura di rete aziendale. Tali servizi di Inoltro del bus di servizio sono comunque ospitati all'interno dell'ambiente esistente, ma delegano l'ascolto delle sessioni e delle richieste in ingresso al bus di servizio ospitato nel cloud. Il bus di servizio usa inoltre Azure AD Access Control per proteggere tali servizi da accessi non autorizzati.
+L' *Service Bus Relay* è progettato per i casi di uso in cui i
+servizi Web WCF (Windows Communication Foundation) vengono resi accessibili in modo sicuro a soluzioni che risiedono all'esterno del perimetro aziendale senza richiedere modifiche di notevole impatto all'infrastruttura di rete aziendale. Tali servizi di inoltro del bus di servizio sono comunque ospitati all'interno dell'ambiente esistente, ma delegano l'ascolto delle sessioni e delle richieste in ingresso al bus di servizio ospitato nel cloud. Il bus di servizio usa inoltre l'autenticazione della [firma di accesso condivisa](https://msdn.microsoft.com/library/dn170478.aspx) per proteggere tali servizi da accessi non autorizzati.
 
-## Scenario della soluzione
+##Scenario della soluzione
 
-In questa esercitazione si creerà un sito Web ASP.NET MVC 4 che consentirà di visualizzare un elenco di prodotti nella pagina dell'inventario dei prodotti.
+In questa esercitazione si creerà un sito Web ASP.NET MVC che consentirà di visualizzare un elenco di prodotti nella pagina dell'inventario dei prodotti.
 
 ![][0]
 
-Ai fini dell'esercitazione si presuppone che le informazioni sui prodotti siano già disponibili in un sistema locale esistente e che per accedere a tale sistema venga usato Inoltro del bus di servizio. Tale operazione viene simulata da un servizio Web in esecuzione in una semplice applicazione console ed è supportata da un insieme di prodotti in memoria. Sarà quindi possibile eseguire questa applicazione console nel computer in uso e distribuire il ruolo Web in Azure. In tal modo sarà possibile osservare che il ruolo Web in esecuzione nel data center di Azure verrà effettivamente chiamato nel computer in uso, anche se quest'ultimo sarà quasi certamente protetto da almeno un firewall e un livello NAT (Network Address Translation).
+Ai fini dell'esercitazione si presuppone che le informazioni sui prodotti siano già disponibili in un sistema locale esistente e che per accedere a tale sistema venga usato Inoltro del bus di servizio. Tale operazione viene simulata da un servizio Web eseguito in una semplice applicazione console ed è supportata da un insieme di prodotti in memoria. Sarà quindi possibile eseguire questa applicazione console nel computer in uso e distribuire il ruolo Web in Azure. In tal modo sarà possibile osservare che il ruolo Web in esecuzione nel data center di Azure verrà effettivamente chiamato nel computer in uso, anche se quest'ultimo sarà quasi certamente protetto da almeno un firewall e un livello NAT (Network Address Translation).
 
 Di seguito è riportata una schermata relativa alla pagina iniziale dell'applicazione Web completata.
 
 ![][1]
 
-## Configurare l'ambiente di sviluppo
+##Configurare l'ambiente di sviluppo
 
-Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere gli strumenti idonei e configurare l'ambiente di sviluppo.
+Prima di iniziare a sviluppare l'applicazione Azure, è necessario ottenere gli strumenti idonei e configurare l'ambiente di sviluppo:
 
 1.  Per installare Azure SDK per .NET, fare clic sul collegamento seguente.
 
-    [Get Tools and SDK][]
+    [Strumenti ed SDK][]
 
 2. 	Fare clic su **Installare l'SDK** per la versione di Visual Studio in uso. Nelle procedure incluse in questa esercitazione viene usato Visual Studio 2013.
 
@@ -74,7 +78,11 @@ Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere g
 
     ![][3]
 
-6.  Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio. Se Visual Studio non è ancora installato, l'SDK installerà anche la versione gratuita di Visual Studio Express.
+6.  Al termine dell'installazione, saranno disponibili tutti gli strumenti
+    necessari per avviare lo sviluppo. L'SDK include strumenti che consentono di
+    sviluppare facilmente applicazioni Azure in Visual Studio. Se non
+    è installato Visual Studio, l'SDK installerà anche la versione gratuita
+    Visual Studio Express.
 
 ## Creare uno spazio dei nomi del servizio
 
@@ -86,18 +94,23 @@ Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitu
 
 1.  Accedere al [portale di gestione di Azure][].
 
-2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su
+    **Bus di servizio**.
 
 3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.   
     ![][5]
 
-4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.   
-
+4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi.
+    Verrà effettuato immediatamente un controllo sulla disponibilità del nome.   
     ![][6]
 
-5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
+5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il
+    paese o la regione in cui deve essere ospitato lo spazio dei nomi (assicurarsi di
+    usare lo stesso paese o la stessa regione in cui si stanno distribuendo
+    le risorse di calcolo).
 
-    IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+    IMPORTANTE: selezionare la **stessa regione** che si intende scegliere per
+    distribuire l'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6.	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -124,7 +137,7 @@ Per eseguire operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare
 	![][45]
     
 
-4.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
+4.  Prendere nota di queste credenziali oppure copiarle negli Appunti.
 
 ## Gestire uno spazio dei nomi servizio tramite Esplora server di Visual Studio
 
@@ -139,43 +152,63 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti.
 
 In primo luogo, si creerà un sistema di catalogo prodotti locale fittizio. Si tratta di un sistema locale abbastanza semplice che intende rappresentare un catalogo prodotti effettivo che include una superficie completa di servizi da integrare.
 
-Questo progetto, avviato come applicazione console di Visual Studio, usa il pacchetto NuGet del bus di servizio per includere le librerie e le impostazioni di configurazione del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacchetto NuGet del bus di servizio][Uso del pacchetto NuGet per Service Bus].
+Questo progetto si avvia come applicazione console di Visual Studio. Usa il pacchetto NuGet del bus di servizio per includere le librerie e le impostazioni di configurazione del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacchetto NuGet del bus di servizio][].
 
 ### Creare il progetto
 
-1.  Usando privilegi di amministratore, avviare Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**.
-2.  In Visual Studio, nel menu **File**, fare clic su **Nuovo** e quindi su **Progetto**.
+1.  Usando privilegi di amministratore, avviare Microsoft Visual
+    Studio 2013 o Microsoft Visual Studio Express. Per
+    avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su
+    **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**.
+
+2.  In Visual Studio scegliere **Nuovo** dal menu **File**, quindi
+    fare clic su **Progetto**.
 
     ![][10]
 
-3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione console**. Nella casella **Nome** digitare il nome **ProductsServer**:
+3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione
+    console**. Nella casella **Nome** digitare il nome
+    **ProductsServer**:
 
     ![][11]
 
 4.  Fare clic su **OK** per creare il progetto **ProductsServer**.
 
-5.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ProductsServer**, quindi scegliere **Proprietà**.
-6.  Fare clic sulla scheda **Applicazione** a sinistra, quindi verificare che **.NET Framework 4** o **.NET Framework 4.5** venga visualizzato nell'elenco a discesa **Framework di destinazione:**. In caso contrario, selezionarlo dall'elenco a discesa e fare clic su **Sì** quando viene richiesto di ricaricare il progetto.
+5.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ProductsServer**, quindi
+    scegliere **Proprietà**.
+
+6.  Fare clic sulla scheda **Applicazione** a sinistra, quindi verificare che venga visualizzato **.NET
+    Framework 4** o **.NET Framework 4.5** nell'elenco a discesa **Framework di destinazione**. In caso contrario, selezionarlo dall'elenco a discesa, quindi fare clic su **Sì**
+    quando viene richiesto di ricaricare il progetto.
 
     ![][12]
 
 7.  Se Gestione pacchetti NuGet per Visual Studio è già stato installato, continuare con il passaggio successivo. In caso contrario, visitare [NuGet][] e fare clic sull'opzione per [installare NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Seguire le istruzioni visualizzate per installare Gestione pacchetti NuGet, quindi riavviare Visual Studio.
 
-7.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Gestisci pacchetti NuGet**.
+7.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere
+    **Gestisci pacchetti NuGet**...
+
 8.  Nella colonna di sinistra della finestra di dialogo di NuGet fare clic su **Online**.
 
-9. 	Nella colonna di destra fare clic sulla casella **Ricerca**, digitare "**Bus di servizio**" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+9. 	Nella colonna di destra fare clic sulla casella **Cerca**, digitare "**Bus di servizio**" e selezionare l'elemento **Bus di servizio
+    di Microsoft Azure**. Fare clic su **Installa** per completare
+    l'installazione, quindi chiudere questa finestra di dialogo.
 
     ![][13]
 
     I riferimenti agli assembly client necessari sono ora disponibili.
 
-9.  Aggiungere una nuova classe per il contratto dei prodotti. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ProductsServer**, scegliere **Aggiungi**, quindi fare clic su **Classe**.
+9.  Aggiungere una nuova classe per il contratto dei prodotti. In **Esplora soluzioni**
+    fare clic con il pulsante destro del mouse sul progetto **ProductsServer** e scegliere **Aggiungi**, quindi fare clic su
+    **Classe**.
 
     ![][14]
 
-10. Nella casella **Nome** digitare il nome **ProductsContract.cs**. Fare quindi clic su **Aggiungi**.
-11. In **ProductsContract.cs** sostituire la definizione dello spazio dei nomi con il codice seguente, che consente di definire il contratto per il servizio:
+10. Nella casella **Nome** digitare il nome **ProductsContract.cs**. Quindi
+    fare clic su **Aggiungi**.
+
+11. In **ProductsContract.cs** sostituire la definizione dello spazio dei nomi con
+    il seguente codice, che definisce il contratto per il servizio:
 
         namespace ProductsServer
         {
@@ -210,7 +243,8 @@ Questo progetto, avviato come applicazione console di Visual Studio, usa il pacc
             }
         }
 
-12. In Program.cs sostituire la definizione dello spazio dei nomi con il codice seguente, che consente di aggiungere il servizio profili e l'host relativo:
+12. In Program.cs sostituire la definizione dello spazio dei nomi con il seguente
+    codice, che aggiunge il servizio profili e il relativo host:
 
         namespace ProductsServer
         {
@@ -263,15 +297,20 @@ Questo progetto, avviato come applicazione console di Visual Studio, usa il pacc
             }
         }
 
-13. In **Esplora soluzioni** fare doppio clic sul file **App.config** per aprirlo nell'editor di **Visual Studio**. Sostituire il contenuto di **&lt;system.ServiceModel&gt;** con il seguente codice XML. Assicurarsi di sostituire  *yourServiceNamespace* con il nome dello spazio dei nomi servizio e  *yourKey* con la chiave SAS recuperata in precedenza dal portale di gestione di Azure:
+13. In **Esplora soluzioni** fare doppio clic sul file **App.config** per
+    aprirlo nell'editor di **Visual Studio**. Sostituire il contenuto di
+    **&lt;system.ServiceModel&gt;** con il seguente codice XML. Assicurarsi di
+    sostituire  *yourServiceNamespace* con lo spazio dei nomi
+    del servizio e  *yourKey* con la chiave della firma di accesso condiviso recuperata precedentemente
+    dal portale di gestione di Azure:
 
         <system.serviceModel>
           <extensions>
              <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </behaviorExtensions>
               <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </bindingExtensions>
           </extensions>
           <services>
@@ -301,25 +340,34 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 ### Creare il progetto
 
-1.  Assicurarsi che Visual Studio sia in esecuzione con privilegi di amministratore. In caso contrario, per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Microsoft Azure, illustrato più avanti in questa guida, è necessario che Visual Studio sia avviato con privilegi di amministratore.
+1.  Assicurarsi che Visual Studio sia in esecuzione con privilegi di amministratore. In caso contrario, per
+    avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su
+    **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**. L'emulatore di calcolo di Microsoft Azure, illustrato più avanti in questa Guida, richiede
+    l'avvio di Visual Studio con privilegi di amministratore.
 
-2.  In Visual Studio, nel menu **File**, fare clic su **Nuovo** e quindi su **Progetto**.
+2.  In Visual Studio scegliere **Nuovo** dal menu **File**, quindi
+    fare clic su **Progetto**.
 
-3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione Web ASP.NET**. Assegnare al progetto il nome **ProductsPortal**. Fare quindi clic su **OK**.
+3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione Web ASP.NET**. Assegnare al progetto il nome **ProductsPortal**. Specificare
+    Fare clic su **OK**.
 
     ![][15]
 
-4.  Nell'elenco **Select a template** fare clic su **MVC**, quindi su **OK**.
+4.  Nell'elenco **Seleziona modello** selezionare **MVC**,
+    quindi fare clic su **OK**.
 
     ![][16]
 
-5.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi** e infine **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
+5.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli** e scegliere **Aggiungi**,
+    quindi fare clic su **Classe**. Nella casella **Nome** digitare il nome
+    **Product.cs**. Fare quindi clic su **Aggiungi**.
 
     ![][17]
 
 ### Modificare l'applicazione web
 
-1.  Nel file Product.cs in Visual Studio sostituire la definizione dello spazio dei nomi esistente con il codice seguente:
+1.  Nel file Product.cs in Visual Studio sostituire la definizione
+    dello spazio dei nomi esistente con il seguente codice:
 
         // Declare properties for the products inventory
         namespace ProductsWeb.Models
@@ -332,7 +380,8 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
             }
         }
 
-2.  Nel file HomeController.cs in Visual Studio sostituire la definizione dello spazio dei nomi esistente con il codice seguente:
+2.  Nel file HomeController.cs in Visual Studio sostituire la definizione
+    dello spazio dei nomi esistente con il seguente codice:
 
         namespace ProductsWeb.Controllers
         {
@@ -405,14 +454,17 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 		</table>
 
 
-9.  Per verificare l'accuratezza di quanto creato finora, premere **F6** o **CTRL+MAIUSC+B** per compilare il progetto.
+9.  Per verificare la correttezza del lavoro svolto fino a questo momento, è possibile premere **F6** o
+    **CTRL+MAIUSC+B** per compilare il progetto.
 
 
 ### Eseguire l'applicazione in locale
 
 Eseguire l'applicazione per verificarne il funzionamento.
 
-1.  Assicurarsi che il progetto attivo sia **ProductsPortal**. Fare clic con il pulsante destro del mouse sul nome del progetto in **Esplora soluzioni**, quindi scegliere **Imposta come progetto di avvio**
+1.  Assicurarsi che il progetto attivo sia **ProductsPortal**. Fare clic con il pulsante destro del mouse
+    sul nome del progetto in **Esplora soluzioni** e scegliere **Imposta come
+    progetto di avvio**.
 2.  In **Visual Studio** premere **F5**.
 3.  L'applicazione dovrebbe risultare in esecuzione in un browser:
 
@@ -430,19 +482,29 @@ Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere all
 
 2.  Per testare l'applicazione, premere **F5**.
 
-3.  Verrà avviato l'emulatore di calcolo di Azure. Tale emulatore usa il computer locale per emulare l'applicazione in esecuzione in Azure. Per verificare se l'emulatore è stato avviato, osservare la barra delle applicazioni:
+3.  Verrà avviato l'emulatore di calcolo di Azure. L'emulatore
+        di calcolo usa il computer locale per emulare l'applicazione
+        in esecuzione in Azure. È possibile verificare che l'emulatore
+        si sia avviato esaminando la barra delle applicazioni:
 
        ![][23]
 
-4.  L'applicazione in esecuzione in locale sarà ancora visibile in un browser e l'aspetto e il funzionamento saranno analoghi a quelli di quando è stata eseguita come una normale applicazione ASP.NET MVC 4.
+4.  Un browser continuerà a visualizzare l'applicazione in esecuzione in locale
+        e avrà lo stesso aspetto o lo stesso funzionamento di quando è stato eseguito
+        precedentemente come normale applicazione ASP.NET MVC 4.
 
 ## Combinare i diversi componenti
 
 Il passaggio successivo consiste nel collegare il server dei prodotti locale con l'applicazione ASP.NET MVC.
 
-1.  Se non è già aperto, in Visual Studio riaprire il progetto **ProductsPortal** creato nella sezione "Creazione di un'applicazione ASP.NET MVC".
+1.  Se non è già aperto, in Visual Studio aprire nuovamente il
+        progetto **ProductsPortal** creato nella sezione "Creare
+        un'applicazione ASP.NET MVC".
 
-2.  Analogamente a quanto descritto nella sezione "Creazione di un server locale", aggiungere il pacchetto NuGet al progetto Riferimenti. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Gestisci pacchetti NuGet**.
+2.  Analogamente al passaggio descritto nella sezione "Creare un server locale",
+        aggiungere il pacchetto NuGet ai riferimenti del progetto. In
+        Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere
+        **Gestisci pacchetti NuGet**.
 
 3.  Cercare "Bus di servizio" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Completare quindi l'installazione e chiudere la finestra di dialogo.
 
@@ -452,7 +514,7 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
 	![][24]
 
-6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il seguente codice. Assicurarsi di sostituire  *yourServiceNamespace* con il nome dello spazio dei nomi servizio e  *yourKey* con la chiave SAS. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
+6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il seguente codice. Assicurarsi di sostituire  *yourServiceNamespace* con il nome dello spazio dei nomi del servizio e  *yourKey* con la chiave della firma di accesso condiviso. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
 
             namespace ProductsWeb.Controllers
             {
@@ -491,19 +553,31 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
                     }
                 }
             }
-7.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal**, quindi scegliere **Aggiungi** e infine **Progetto esistente**.
+7.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal**,
+        scegliere **Aggiungi**, quindi fare clic su **Progetto esistente**.
 
-8.  Individuare il progetto **ProductsServer**, quindi fare doppio clic sulla soluzione **ProductsServer.csproj** per aggiungerla.
+8.  Passare al progetto **ProductsServer**, quindi fare doppio clic
+        sul file di soluzione **ProductsServer.csproj** per aggiungerlo.
 
-9.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal** e scegliere **Proprietà**.
+9.  In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **ProductsPortal**
+        e scegliere **Proprietà**.
 
-10. Sul lato sinistro fare clic su **Progetto di avvio**. Sul lato destro fare clic su **Progetti di avvio multipli**. Assicurarsi che **ProductsServer**, **ProductsPortal.Azure** e **ProductsPortal** siano visualizzati in quest'ordine e che per **ProductsServer** e **ProductsPortal.Azure** sia impostata l'azione **Avvia**, mentre per **ProductsPortal** sia impostata l'azione **Nessuna**. Ad esempio:
+10. Sul lato sinistro fare clic su **Progetto di avvio**. Sul
+        lato destro fare clic su **Progetti di avvio multipli**. Assicurarsi che
+        **ProductsServer**, **ProductsPortal.Azure** e
+        **ProductsPortal** vengano visualizzati in questo stesso ordine, con l'azione **Avvio** impostata
+        per **ProductsServer** e **ProductsPortal.Azure**
+        e l'azione **Nessuno** impostata per **ProductsPortal**. Ad
+        esempio:
 
       ![][25]
 
-11. Sempre nella finestra Proprietà fare clic su **ProjectDependencies** sul lato sinistro.
+11. Sempre nella finestra di dialogo Proprietà fare clic su **ProjectDependencies** sul
+        lato sinistro.
 
-12. Nell'elenco a discesa **Projects** fare clic su **ProductsServer**. Assicurarsi che **ProductsPortal** sia deselezionato e che **ProductsPortal.Azure** sia selezionato. Fare quindi clic su **OK**.
+12. Nell'elenco a discesa **Progetti** selezionare
+        **ProductsServer**. Verificare che **ProductsPortal** sia deselezionato
+        e **ProductsPortal.Azure** sia selezionato. Fare quindi clic su **OK**.
 
     ![][26]
 
@@ -511,13 +585,19 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
 1.  Nel menu **File** di Visual Studio fare clic su **Salva tutto**.
 
-2.  Premere **F5** per compilare ed eseguire l'applicazione. Il server locale, ovvero l'applicazione console **ProductsServer**, dovrebbe essere avviato per primo. Verrà quindi avviata l'applicazione **ProductsWeb** in una finestra del browser, come illustrato nella schermata seguente. Questa volta si noterà che nell'inventario dei prodotti sono elencati i dati recuperati dal sistema locale del servizio dei prodotti.
+2.  Premere **F5** per compilare ed eseguire l'applicazione. Il server
+        locale (applicazione console **ProductsServer**) deve avviarsi per
+        primo, quindi deve avviarsi l'applicazione **ProductsWeb** in una
+        finestra del browser, come illustrato nella seguente schermata. Questa volta si
+        noterà che nell'inventario dei prodotti sono elencati i dati recuperati dal
+        sistema locale del servizio dei prodotti.
 
     ![][1]
 
 ## Distribuire l'applicazione in Azure
 
-1.  Fare clic con il pulsante destro del mouse sul progetto **ProductsPortal** in **Esplora soluzioni**, quindi scegliere **Pubblica in Azure**.
+1.  Fare clic con il pulsante destro del mouse sul progetto **ProductsPortal** in **Esplora
+        soluzioni** e scegliere **Pubblica in Azure**.
 
 2.  Per visualizzare tutte le sottoscrizioni, potrebbe essere necessario effettuare l'accesso.
 
@@ -525,30 +605,53 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
     ![][27]
 
-3.  Effettuare l'accesso con l'account Microsoft.
+3.  Accedere usando l'account Microsoft.
 
 
-8.  Fare clic su **Avanti**. Se la sottoscrizione non contiene già servizi ospitati, verrà chiesto di crearne uno. Il servizio ospitato funge da contenitore per l'applicazione all'interno della sottoscrizione di Azure. Immettere un nome che identifichi l'applicazione e selezionare l'area per la quale ottimizzare l'applicazione. I tempi di caricamento saranno presumibilmente più rapidi per gli utenti che accedono dall'area specificata.
+8.  Fare clic su **Avanti**. Se la sottoscrizione non contiene già servizi
+        ospitati, verrà chiesto di crearne uno. Il servizio ospitato
+        funziona come contenitore per l'applicazione nella 
+        sottoscrizione Azure. Immettere un nome che identifichi
+        l'applicazione e scegliere la regione per cui l'applicazione
+        deve essere ottimizzata. I tempi di caricamento saranno presumibilmente più rapidi per
+        gli utenti che accedono dalla regione specificata.
 
-9.  Selezionare il servizio ospitato in cui pubblicare l'applicazione. Mantenere i valori predefiniti illustrati di seguito per le rimanenti impostazioni. Fare clic su **Avanti**.
+9.  Selezionare il servizio ospitato in cui si desidera pubblicare
+        l'applicazione. Mantenere le impostazioni predefinite, come illustrato di seguito per le
+        altre impostazioni. Fare clic su **Avanti**.
 
     ![][33]
 
-10. Nell'ultima pagina fare clic su **Pubblica** per avviare il processo di distribuzione:
+10. Nell'ultima pagina fare clic su **Pubblica** per avviare il processo di
+        distribuzione:
 
     ![][34]
 
-L'operazione richiederà all'incirca 5-7 minuti. Poiché si tratta della prima pubblicazione, in Azure verrà eseguito il provisioning di una macchina virtuale, verrà applicata la protezione avanzata, verrà creato un ruolo Web nella macchina virtuale in cui ospitare l'applicazione, verrà distribuito il codice a tale ruolo Web e infine verranno configurati il bilanciamento del carico e la rete per rendere l'applicazione disponibile al pubblico.
+L'operazione richiederà all'incirca 5-7 minuti. Poiché si tratta della
+        prima pubblicazione, Azure eseguirà il provisioning di una
+        macchina virtuale, applicherà la protezione avanzata, creerà un ruolo Web
+        nella macchina virtuale in cui ospitare l'applicazione, distribuirà il codice
+        in tale ruolo Web e infine configurerà il bilanciamento del carico e
+        la rete per rendere l'applicazione disponibile al pubblico.
 
-11. Durante la pubblicazione è possibile monitorare le attività nella finestra **Log attività di Azure**, in genere ancorata alla parte inferiore della finestra di Visual Studio o di Visual Web Developer:
+11. Durante la pubblicazione è possibile monitorare
+        l'attività nella finestra **Log attività di Microsoft Azure**,
+        generalmente ancorata alla parte inferiore di Visual Studio o Visual Web
+        Developer:
 
     ![][35]
 
-12. Al termine della distribuzione, per visualizzare il sito Web fare clic sul collegamento **URL sito Web** nella finestra di monitoraggio.
+12. Una volta completata la distribuzione, è possibile visualizzare il sito Web
+        facendo clic sul collegamento **URL del sito Web** nella finestra di monitoraggio.
 
     ![][36]
 
-    Il sito Web dipende dal server locale, pertanto, per il corretto funzionamento del sito Web è necessario eseguire l'applicazione **ProductsServer** in locale. Durante l'esecuzione di richieste sul sito Web del cloud è possibile notare la presenza di richieste in arrivo nell'applicazione console locale sono, come indicato dal messaggio "GetProducts called" visualizzato nella schermata seguente.
+    Poiché il sito Web dipende dal server locale, è necessario
+        eseguire l'applicazione **ProductsServer** in locale per garantire il corretto
+        funzionamento del sito Web. Quando si eseguono le richieste nel sito Web
+        del cloud, è possibile osservare le richieste in arrivo nell'applicazione console
+        locale, come indicato dall'output "GetProducts called"
+        visualizzato nella seguente schermata.
 
     ![][37]
 
@@ -563,9 +666,10 @@ Un account gratuito include 750 ore mensili (31 giorni al mese) di tempo del ser
 
 Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicazione.
 
-1.  Accedere al [portale di gestione di Azure], fare clic su Servizi cloud e quindi sul nome del servizio.
+1.  Accedere al [portale di gestione di Azure], fare clic su **Servizi cloud**, quindi fare clic sul nome del servizio.
 
-2.  Fare clic sulla scheda **Dashboard** e quindi su **Stop** per sospendere temporaneamente l'applicazione. Per riavviarla, è sufficiente fare clic su Start. Fare clic su **Elimina** per rimuovere completamente l'applicazione da Azure senza poterla più ripristinare.
+2.  Fare clic sulla scheda **Dashboard** e quindi su **Stop** per sospendere temporaneamente l'applicazione. Sarà
+        possibile avviarla di nuovo semplicemente facendo clic su Start. Fare clic su **Elimina** per rimuovere completamente l'applicazione da Azure senza poterla più ripristinare.
 
 	![][43]
 
@@ -580,13 +684,13 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
   [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Strumenti ed SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
   
   
-  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [Portale di gestione di Azure]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
   
@@ -635,4 +739,4 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
-<!--HONumber=47-->
+<!--HONumber=52-->

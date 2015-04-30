@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Come compilare un'app AngularJS con singole pagine con Azure AD" 
 	description="Illustra l'uso di Active Directory Authentication Library (ADAL) per JavaScript per proteggere un'app con singole pagine basata su AngularJS, implementata con un back-end di API Web ASP.NET, che chiama un'altra API Web ASP.NET mediante CORS." 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,13 +13,13 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
 # Come compilare un'app AngularJS con singole pagine con Azure AD 
 
-Questa esercitazione illustra l'uso di Active Directory Authentication Library (ADAL) per JavaScript per proteggere un'app con singole pagine basata su AngularJS, implementata con un back-end di API Web ASP.NET, che chiama un'altra API Web ASP.NET mediante CORS. Per vedere l'esempio di codice usato per questa esercitazione, vedere [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) in GitHub.
+Questa esercitazione illustra l'uso di Active Directory Authentication Library (ADAL) per JavaScript per proteggere un'app con singole pagine basata su AngularJS, implementata con un back-end di API Web ASP.NET, che chiama un'altra API Web ASP.NET mediante CORS. Per vedere l'esempio di codice usato per questa esercitazione, vedere [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) su GitHub.
 
 ADAL per JavaScript è una libreria open source.  Per opzioni di distribuzione, codice sorgente e contributi, vedere il [repository JS per ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
@@ -40,7 +40,7 @@ A ogni sottoscrizione di Azure è associato un tenant di Azure Active Directory 
 Dalla shell o dalla riga di comando:
 `git clone https://github.com/AzureADSamples/SinglePageApp-WebAPI-AngularJS-DotNet.git`
 
-## Registrare il servizio "To Go API" nel tenant di Azure Active Directory 
+## Registrare il servizio "To Go API" nel tenant di Azure Active Directory
 
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Active Directory** nel pannello di navigazione a sinistra.
@@ -50,7 +50,7 @@ Dalla shell o dalla riga di comando:
 6. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 7. Immettere un nome descrittivo per l'applicazione, ad esempio "To Go API", selezionare **Applicazione Web** e/o **API Web**, quindi fare clic su **Avanti**.
 8. Come URL di accesso immettere l'URL di base per l'esempio, che per impostazione predefinita è `https://localhost:44327/`.
-9. Come URI ID app immettere `https://<your_directory_name>/ToGoAPI`, sostituendo `<your_directory_name>` con il nome della directory di Azure AD.  Salvare la configurazione.
+9. Come URI ID app immettere `https://<your_directory_name>/ToGoAPI`, sostituendo `<your_directory_name>` con il nome della directory di Azure AD. Salvare la configurazione.
 
 La procedura è stata completata.  Prima di procedere al passaggio successivo, è necessario individuare l'URI ID app dell'API specifica.
 
@@ -60,12 +60,12 @@ La procedura è stata completata.  Prima di procedere al passaggio successivo, �
 ## Configurare il servizio "To Go API" per l'uso del tenant di Azure Active Directory
 
 1. Aprire la soluzione in Visual Studio 2013.
-2. Nel progetto ToGoAPI, aprire il file `web.config`.
-3. Individuare la chiave dell'app `ida:Tenant` e sostituire il valore con il nome del tenant di Azure AD.
-4. Individuare la chiave dell'app `ida:Audience` e sostituire il valore con l'URI ID app copiato dal portale di Azure.
-5. Nel progetto ToGoAPI aprire il file `Controllers/ToGoListController.cs`.  Nell'attributo `[EnableCors...]` immettere il percorso del client To Do SPA.  Per impostazione predefinita, è `https://localhost:44326`.  Assicurarsi di omettere la barra finale.
+2. Nel progetto ToGoAPI aprire il file `web.config`.
+3. Trovare la chiave dell'app `ida:Tenant` e sostituire il valore con il nome del tenant di Azure AD.
+4. Trovare la chiave dell'app `ida:Audience` e sostituire il valore con l'URI ID app copiato dal portale di Azure.
+5. Nel progetto ToGoAPI aprire inoltre il file `Controllers/ToGoListController.cs`.  Nell'attributo `[EnableCors...]` immettere il percorso del client To Do SPA.  Per impostazione predefinita, è `https://localhost:44326`.  Assicurarsi di omettere la barra finale.
 5. Nel progetto TodoSPA aprire il file `App/Scripts/App.js` e individuare la dichiarazione dell'oggetto `endpoints`.
-6. Immettere un mapping del percorso dell'endpoint di To Go API con il relativo identificatore di risorsa o URI ID app.  Il nome della proprietà dell'oggetto `endpoints` deve corrispondere al percorso di To Go API.  Per impostazione predefinita, è `https://localhost:44327/`.  Il valore di questa proprietà deve essere l'URI ID app copiato dal portale, ad esempio  `https://<your_tenant_name>/ToGoAPI`.
+6. Immettere un mapping del percorso dell'endpoint di To Go API con il relativo identificatore di risorsa o URI ID app.  Il nome della proprietà dell'oggetto `endpoints` deve corrispondere al percorso di To Go API.  Per impostazione predefinita, il percorso è `https://localhost:44327/`. Il valore di questa proprietà deve corrispondere all'URI ID app copiato dal portale, ad esempio `https://<your_tenant_name>/ToGoAPI`.
 8. Non occorre impostare ancora gli altri valori di configurazione. Verranno configurati successivamente.
 9. Nel progetto TodoSPA aprire il file `App/Scripts/toGoListSvc.js`.  Sostituire il valore della variabile `apiEndpoint` con il percorso di To Go API.  Per impostazione predefinita, è `https://localhost:44327/`.
 
@@ -73,7 +73,7 @@ La procedura è stata completata.  Prima di procedere al passaggio successivo, �
 
 1. Accedere di nuovo al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Active Directory** nel pannello di navigazione a sinistra.
-3. Fare clic sul tenant della directory in cui si vuole registrare l'applicazione di esempio.
+3. Fare clic sul tenant in cui si desidera registrare l'applicazione di esempio.
 4. Fare clic sulla scheda **Applicazioni**.
 5. Nel pannello fare clic su **Aggiungi**.
 6. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
@@ -101,8 +101,8 @@ Per impostazione predefinita, le applicazioni sottoposte a provisioning in Azure
 
 1. Aprire la soluzione in Visual Studio 2013.
 2. Nel progetto TodoSPA aprire il file `web.config`.
-3. Individuare la chiave dell'app `ida:Tenant` e sostituire il valore con il nome della directory di Azure AD.
-4. Individuare la chiave dell'app `ida:Audience` e sostituire il valore con l'ID client dal portale di Azure.
+3. Trovare la chiave dell'app `ida:Tenant` e sostituire il valore con il nome della directory di Azure AD.
+4. Trovare la chiave dell'app `ida:Audience` e sostituire il valore con l'ID client dal portale di Azure.
 5. Nel progetto TodoSPA aprire di nuovo il file `App/Scripts/App.js` e individuare la riga `adalAuthenticationServiceProvider.init(`.
 6. Sostituire il valore di `tenant` con il nome della directory di Azure AD.
 7. Sostituire il valore di `clientId` con l'ID client dal portale di Azure.
@@ -122,7 +122,7 @@ Per distribuire To Do SPA e To Go API in Siti Web di Azure, creare due siti Web,
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic su **Siti Web** nel pannello di navigazione a sinistra.
 3. Fare clic su **Nuovo** nell'angolo inferiore sinistro, selezionare **Calcolo** > **Sito Web** > **Creazione personalizzata**, selezionare il piano e l'area di hosting e specificare un nome per il sito Web, ad esempio togo-contoso.azurewebsites.net.  Selezionare un database da usare o crearne uno nuovo.  Fare clic su **Crea sito Web**.
-4. Dopo la creazione del sito Web, farvi clic per gestirlo.  Per questa procedura, scaricare il file con estensione publishsettings e salvarlo.  È anche possibile usare altri meccanismi di distribuzione, ad esempio un controllo del codice sorgente. Per altre informazioni sull'uso di un file con estensione publishsettings, vedere [Procedura: Eseguire la connessione alla sottoscrizione](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
+4. Dopo la creazione del sito Web, farvi clic per gestirlo.  Per questa procedura, scaricare il file con estensione publishsettings e salvarlo.  È anche possibile usare altri meccanismi di distribuzione, ad esempio un controllo del codice sorgente. Per altre informazioni sull'uso di un file con estensione publishsettings, vedere la [procedura relativa alla connessione alla sottoscrizione](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
 
 ### Creare il sito Web di Azure per To Do SPA
 
@@ -134,8 +134,8 @@ Per distribuire To Do SPA e To Go API in Siti Web di Azure, creare due siti Web,
 ### Aggiornare entrambi i progetti per l'uso di Siti Web di Azure
 
 1. In Visual Studio passare al progetto TodoSPA.
-2. Sono necessarie due modifiche.  In `App\Scripts\app.js` sostituire il nome della proprietà dell'oggetto `endpoints` con il nuovo percorso di To Go API, ad esempio `https://togo-contoso.azurewebsites.net/`.  In `App\Scripts\toGoListSvc.js`, sostituire la variabile `apiEndpoint` con lo stesso valore.
-3. Nel progetto ToGoAPI è necessaria solo una modifica. In `Controllers\ToGoListController.cs` aggiornare l'attributo `[EnableCors...]` in modo da rispecchiare il nuovo percorso di To Do SPA, ad esempio `https://todo-contoso.azurewebsites.net`.  Assicurarsi di nuovo di omettere la barra finale.
+2. Sono necessarie due modifiche.  In `App\Scripts\app.js` sostituire il nome della proprietà dell'oggetto `endpoints` con il nuovo percorso di To Go API, ad esempio `https://togo-contoso.azurewebsites.net/`.  In `App\Scripts\toGoListSvc.js` sostituire la variabile `apiEndpoint` con lo stesso valore.
+3. Nel progetto ToGoAPI è necessaria solo una modifica. In `Controllers\ToGoListController.cs` aggiornare l'attributo `[EnableCors...]` in modo che il nuovo percorso corrisponda a quello di To Do SPA, ad esempio `https://todo-contoso.azurewebsites.net`.  Assicurarsi di nuovo di omettere la barra finale.
 
 ### Pubblicare To Go API in Siti Web di Azure
 
@@ -156,7 +156,7 @@ Per distribuire To Do SPA e To Go API in Siti Web di Azure, creare due siti Web,
 1. Passare al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Nel pannello di navigazione a sinistra fare clic su **Active Directory** e selezionare il tenant.
 3. Nella scheda **Applicazioni** selezionare l'applicazione **To Do SPA**.
-4. Nella scheda **Configura** aggiornare i campi **URL Single Sign-On** e **URL di risposta** specificando l'indirizzo della SPA, ad esempio https://todo-contoso.azurewebsites.net.  Salvare la configurazione.
+4. Nella scheda **Configura** aggiornare i campi **URL accesso** e **URL di risposta** specificando l'indirizzo della SPA, ad esempio https://todo-contoso.azurewebsites.net.  Salvare la configurazione.
 
 ## Informazioni sul codice
 
@@ -175,7 +175,7 @@ Un ringraziamento speciale a @matvelloso per il contributo alla creazione di que
 
 ## Passaggi successivi
 
-Le risorse aggiuntive seguenti illustrano come usare Azure AD per l'aggiunta di autenticazione e autorizzazione alle applicazioni Web e alle API Web: 
+Le seguenti risorse aggiuntive illustrano come usare Azure AD per l'aggiunta di autenticazione e autorizzazione alle applicazioni Web e alle API Web: 
 
 + [Esempi di codice di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Scenari di autenticazione per Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
@@ -183,4 +183,4 @@ Le risorse aggiuntive seguenti illustrano come usare Azure AD per l'aggiunta di 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

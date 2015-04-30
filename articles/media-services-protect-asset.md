@@ -19,18 +19,19 @@
 
 # Procedura: Crittografare un asset dinamicamente con PlayReady o AES-128
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) .
+Questo articolo fa parte delle serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
   
 ## Informazioni generali
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati (dinamicamente) con AES (Advanced Encryption Standard), mediante chiavi di crittografia a 128 bit, e con PlayReady DRM. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi e licenze PlayReady ai client autorizzati. Per distribuire contenuti protetti, è necessario configurare i criteri di autorizzazione della chiave simmetrica e i criteri di distribuzione degli asset.
 
-## Configurazione
+## Configurare
 
 Per informazioni su come configurare i criteri di autorizzazione della chiave simmetrica, fare clic su uno dei seguenti pulsanti: 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Per informazioni su come configurare i criteri di distribuzione degli asset, fare clic su uno dei seguenti pulsanti:
+Configurare i criteri di distribuzione degli asset
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

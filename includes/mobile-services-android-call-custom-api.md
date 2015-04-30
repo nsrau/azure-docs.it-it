@@ -42,7 +42,7 @@
 
 
 
-5. In Package Explorer fare clic con il pulsante destro del mouse sul nome del progetto nella cartella *src* (`com.example.{your projects name}`), scegliere **New** e quindi **Class**. Nella finestra di dialogo immettere **MarkAllResult** nel campo del nome della classe, scegliere OK e sostituire la definizione della classe risultante con il seguente codice:
+5. In Esplora progetti fare clic con il pulsante destro del mouse sul nome del progetto nella cartella *src* (`com.example.{your projects name}`), scegliere **Nuovo** quindi **Classe**. Nella finestra di dialogo immettere **MarkAllResult** nel campo del nome della classe, scegliere OK e sostituire la definizione della classe risultante con il seguente codice:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -59,7 +59,7 @@
 			}
 		}
 
-	Questa classe viene utilizzata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
+	Questa classe viene usata per contenere il valore del conteggio di righe restituito dall'API personalizzata. 
 
 6. Individuare il metodo **refreshItemsFromTable** nel file **ToDoActivity.java** e assicurarsi che la prima riga di codice del blocco `try` inizi come indicato di seguito:
 
@@ -75,7 +75,7 @@
 
 8. Nel file **ToDoActivity.java** aggiungere il seguente metodo:
 
-		public void completeItem(View view) {
+	    public void completeItem(View view) {
 	    
 	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
 	    	
@@ -95,7 +95,7 @@
 	
 	Questo metodo gestisce l'evento **Click** per il nuovo pulsante. Il metodo **invokeApi** viene chiamato sul client che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori.
 
-## Test dell'app
+## Testare l'app
 
 1. Nel menu **Run** scegliere **Run app** per avviare il progetto nell'emulatore di Android o in un dispositivo Android connesso.
 
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
-<!--HONumber=47-->
+
+<!--HONumber=52-->

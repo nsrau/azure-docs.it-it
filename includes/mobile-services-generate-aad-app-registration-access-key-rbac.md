@@ -1,29 +1,40 @@
-1.  Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure][portale di gestione di Azure].
+﻿1. Fare clic sulla scheda **Applicazioni** nella pagina della directory nel [portale di gestione di Azure](https://manage.windowsazure.com/).
+  
+2. Fare clic sulla registrazione dell'applicazione integrata.
 
-2.  Fare clic sulla registrazione dell'applicazione integrata.
+3. Fare clic su **Configura** nella pagina dell'applicazione, quindi scorrere verso il basso fino alla sezione **Chiavi** della pagina. 
+4. Selezionare la durata di**1 anno** per una nuova chiave. Fare quindi clic su **Salva**. Il valore della nuova chiave sarà visualizzato nel portale.
+5. Copiare i valori per **ID client** e **Chiave** mostrati dopo il salvataggio. Si noti che il valore della chiave sarà mostrato una sola volta dopo il salvataggio. 
 
-3.  Fare clic su **Configura** nella pagina dell'applicazione, quindi scorrere verso il baso fino alla sezione **chiavi** della pagina.
-4.  Selezionare la durata di **1 anno** per una nuova chiave. Fare quindi clic su **Salva**. Il valore della nuova chiave sarà visualizzato nel portale.
-5.  Copiare i valori per **ID client** e **Chiave** mostrati dopo il salvataggio. Si noti che il valore della chiave sarà mostrato una sola volta dopo il salvataggio.
+    ![](./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png)
 
-    ![][0]
+6. Scorrere verso il basso fino alla fine della pagina di configurazione dell'applicazione integrata e abilitare l'autorizzazione **Lettura dati directory** per l'applicazione, quindi fare clic su **Salva**.
 
-6.  Scorrere verso il basso fino alla fine della pagina di configurazione dell'applicazione integrata e abilitare l'autorizzazione **Lettura dati directory** per l'applicazione, quindi fare clic su **Salva**.
+    ![](./media/mobile-services-generate-aad-app-registration-access-key-rbac/app-perms.png)
 
-    ![][1]
 
-7.  Nel [portale di gestione di Azure][portale di gestione di Azure] tornare al servizio mobile e fare clic sulla scheda **Configura**. Scorrere verso il basso fino alla sezione **Impostazioni app**, quindi aggiungere le impostazioni seguenti per l'app e fare clic su **Salva**.
+7. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) tornare al servizio mobile e fare clic sulla scheda **Configura**. Scorrere verso il basso fino alla sezione **Impostazioni app**, quindi aggiungere le impostazioni seguenti per l'app e fare clic su **Salva**. 
 
-    | Nome dell'impostazione dell'app | Descrizione                                                                |
-    |---------------------------------|----------------------------------------------------------------------------|
-    | AAD\_CLIENT\_ID                 | ID client copiato dall'app integrata nei passaggi precedenti.              |
-    | AAD\_CLIENT\_KEY                | Chiave dell'app generata nell'app integrata AAD nei passaggi precedenti.   |
-    | AAD\_TENANT\_DOMAIN             | Nome di dominio AAD. Dovrebbe essere analogo a "mydomain.onmicrosoft.com". |
-    | AAD\_GROUP\_ID                  | ID del gruppo annotato per il gruppo Sales nella sezione precedente.       |
+    <table border="1">
+    <tr>
+    <th>Nome dell'impostazione dell'app</th><th>Descrizione</th>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_ID</td><td>ID client copiato dall'app integrata nei passaggi precedenti.</td>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_KEY</td><td>Chiave dell'app generata nell'app integrata AAD nei passaggi precedenti.</td>
+    </tr>
+    <tr>
+    <td>AAD_TENANT_DOMAIN</td><td>Nome di dominio AAD. Dovrebbe essere analogo a "mydomain.onmicrosoft.com".</td>
+    </tr>
+    <tr>
+    <td>AAD_GROUP_ID</td><td>ID del gruppo annotato per il gruppo Sales nella sezione precedente.</td>
+    </tr>
+    </table><br/>
 
-    ![][2]
+ 
+    ![](./media/mobile-services-generate-aad-app-registration-access-key-rbac/aad-app-settings.png)
+  
 
-  [portale di gestione di Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png
-  [1]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/app-perms.png
-  [2]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/aad-app-settings.png
+<!--HONumber=52-->

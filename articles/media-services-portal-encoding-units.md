@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Come scalare le unità riservate di codifica" 
 	description="Informazioni su come scalare servizi multimediali specificando il numero di unità riservate di streaming on demand e di unità riservate di codifica di cui eseguire il provisioning nell'account in uso." 
 	services="media-services" 
@@ -19,15 +19,15 @@
 
 # Come scalare la codifica
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) .
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
 ## Informazioni generali
 
-Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità di elaborazione dei processi di codifica. È possibile scegliere uno dei tipi di unità riservata seguenti: **Basic**, **Standard** o **Premium**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **Standard** rispetto a quando si usa il tipo **Basic**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](http://azure.microsoft.com/blog/author/milanga).
+Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità di elaborazione dei processi di codifica. È possibile scegliere uno dei seguenti tipi di unità riservata: **Basic**, **Standard** o **Premium**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **Standard** rispetto a quando si usa il tipo **Basic**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](http://azure.microsoft.com/blog/author/milanga).
 
 Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con unità riservate di codifica. Il numero delle unità riservate di codifica sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account. Se, ad esempio, il proprio account dispone di cinque unità riservate, è possibile eseguire simultaneamente cinque attività multimediali, purché siano presenti attività da elaborare. Le attività rimanenti verranno messe in coda e prelevate in sequenza per l'elaborazione non appena un'attività in esecuzione viene completata. Se per un account non sono state fornite unità riservate, le attività verranno prelevate in sequenza. In questo caso, il tempo di attesa tra il completamento di un'attività e l'avvio di quella successiva dipende dalle risorse disponibili nel sistema.
 
-Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica, effettuare le seguenti operazioni:
+Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica, seguire questa procedura:
 
 1. Nel [portale di gestione](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
@@ -51,10 +51,10 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 
 ## Quote e limitazioni
 
-Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](../media-services-quotas-and-limitations).
+Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 
 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

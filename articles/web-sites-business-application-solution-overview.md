@@ -1,127 +1,128 @@
-﻿<properties 
-	pageTitle="Creazione di un'applicazione line-of-business in Siti Web di Azure" 
-	description="Questa guida fornisce informazioni tecniche generali sull'uso di Siti Web di Azure per la creazione di applicazioni line-of-business intranet. Sono inclusi le strategie di autenticazione, l'inoltro del bus di servizio e il monitoraggio. 
+<properties 
+	pageTitle="Creazione di un'app Web line-of-business in Servizio app di Azure" 
+	description="Questa guida fornisce informazioni generali di carattere tecnico su come usare le app Web di Servizio app di Azure per creare applicazioni line-of-business Intranet. Sono inclusi le strategie di autenticazione, l'inoltro del bus di servizio e il monitoraggio." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2014" 
+	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
 
 
-# Creazione di un'applicazione line-of-business in Siti Web di Azure
+# Creazione di un'app Web line-of-business in Servizio app di Azure
 
-[Siti Web di Azure] è la scelta ideale per applicazioni line-of-business. Tali applicazioni sono applicazioni Intranet che devono essere protette per uso aziendale interno. Di solito richiedono l'autenticazione, in genere in una directory aziendale, e alcune l'accesso o l'integrazione con servizi e dati locali. 
+Le app Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) costituiscono una soluzione ottimale per le applicazioni line-of-business. Tali applicazioni sono applicazioni Intranet che devono essere protette per uso aziendale interno. Di solito richiedono l'autenticazione, in genere in una directory aziendale, e alcune l'accesso o l'integrazione con servizi e dati locali. 
 
-Lo spostamento delle applicazioni line-of-business in Siti Web di Azure presenta diversi vantaggi, tra cui:
+Lo spostamento delle applicazioni line-of-business nelle app Web di Servizio app di Azure presenta diversi vantaggi, tra cui:
 
 -  Possibilità di implementare la scalabilità verticale e orizzontale con carichi di lavoro dinamici, ad esempio un'applicazione che gestisce le valutazioni delle prestazioni annuali. Durante il periodo di verifica, il traffico raggiunge livelli elevati nelle aziende di grandi dimensioni. Azure offre opzioni che garantiscono all'azienda la scalabilità orizzontale per gestire il carico durante il periodo di verifica con traffico elevato e di risparmiare denaro tornando alla scala iniziale per la parte restante dell'anno. 
 -  Possibilità di concentrarsi più sullo sviluppo delle applicazioni e meno sull'acquisizione e sulla gestione dell'infrastruttura.
 -  Maggiore supporto per i dipendenti e i partner nell'uso dell'applicazione da qualsiasi postazione. Non è necessario che gli utenti siano connessi alla rete aziendale per poter usare l'applicazione e il gruppo IT evita di dover implementare soluzioni complesse con proxy inverso. Sono disponibili molte opzioni di autenticazione per proteggere l'accesso alle applicazioni aziendali.
 
-Di seguito è riportato un esempio di un'applicazione line-of-business in esecuzione in Siti Web di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo Siti Web di Azure con altri servizi. **Fare clic su un elemento nella topografia per visualizzare altre informazioni su di esso.** 
+Di seguito è riportato un esempio di un'applicazione line-of-business in esecuzione nelle app Web di Servizio app di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo le app Web con altri servizi. **Fare clic su un elemento nella topografia per visualizzare altre informazioni su di esso.** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-<div class="dev-callout">
-<strong>Nota</strong>
-<p>Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. In Siti Web di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere anche le altre guide relative alla <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presenza Web globale</a> e alle <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagne di marketing digitali</a>.</p>
-</div>
+> [AZURE.NOTE]
+> Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. Nelle app Web di Servizio app di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere anche le altre guide relative alla [presenza Web globale](web-sites-global-web-presence-solution-overview.md) e alle[campagne di marketing digitali](web-sites-digital-marketing-application-solution-overview.md).
 
-### Trasferire le risorse esistenti
+## Trasferire gli asset esistenti
 
-È possibile trasferire in Siti Web di Azure le risorse Web esistenti create con una vasta gamma di linguaggi e framework.
+È possibile trasferire nelle app Web di Servizio app di Azure gli asset Web esistenti creati con una vasta gamma di linguaggi e framework.
 
-Siti Web di Azure supporta l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node. js o Python. Il trasferimento in Siti Web di Azure può essere eseguito mediante gli strumenti [FTP] già noti o il sistema di gestione del controllo del codice sorgente di cui si dispone. Siti Web di Azure supporta la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via.
+Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. Il trasferimento nelle app Web può essere effettuato mediante strumenti [FTP] con cui si ha già familiarità o il sistema di gestione del controllo del codice sorgente di cui si dispone. Le app Web supportano la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
-### Proteggere le risorse
+## Proteggere gli asset
 
-È possibile proteggere le risorse mediante crittografia, autenticare gli utenti aziendali locali o remoti e autorizzarne l'uso delle risorse. 
+È possibile proteggere gli asset mediante crittografia, autenticare gli utenti aziendali locali o remoti e autorizzarli all'uso degli asset. 
 
-Proteggere le risorse interne da utenti non autorizzati tramite [HTTPS]. Il nome di dominio **\*.azurewebsites.net** viene già fornito con un certificato SSL e, se si usa il proprio dominio personalizzato, è possibile trasferire il relativo certificato SSL in Siti Web di Azure. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Siti Web].
+Proteggere gli asset interni da utenti non autorizzati tramite [HTTPS]. Il nome di dominio **\*.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL nelle app Web di Servizio app di Azure. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Servizio app di Azure].
 
-[Autenticare gli utenti] nella directory aziendale. Siti Web di Azure è in grado di autenticare gli utenti con i provider di identità locali, ad esempio Active Directory Federation Services (ADFS) o con un tenant di Azure Active Directory sincronizzato con la distribuzione di Active Directory aziendale. Gli utenti possono accedere alle proprietà Web in Siti Web di Azure tramite Single Sign-On quando sono in sede e quando sono fuori sede. I servizi esistenti, come Office 365 o Windows Intune, già usano Azure Active Directory. Tramite [Easy Auth] è molto semplice attivare l'autenticazione con lo stesso tenant di Azure Active Directory per il proprio sito Web. 
+[Autenticare gli utenti] nella directory aziendale. Le app Web di Servizio app di Azure sono in grado di autenticare gli utenti con i provider di identità locali, ad esempio Active Directory Federation Services (ADFS) o con un tenant di Azure Active Directory sincronizzato con la distribuzione di Active Directory aziendale. Gli utenti possono accedere alle proprietà Web nella app Web tramite Single Sign-On quando sono in sede e quando sono fuori sede. I servizi esistenti, come Office 365 o Windows Intune, già usano Azure Active Directory. Tramite [Easy Auth] è molto semplice attivare l'autenticazione con lo stesso tenant di Azure Active Directory per la propria app Web. 
 
-[Autorizzare gli utenti] per l'uso delle proprietà Web. Con un'aggiunta minima di codice, è possibile trasferire in Siti Web di Azure lo stesso modello di codifica ASP.NET locale usando, ad esempio, la decoration '[Authorize]'. È possibile controllare l'accesso in modo specifico con la stessa flessibilità con cui si gestiscono le applicazioni in locale.
+[Autorizzare gli utenti] per l'uso delle proprietà Web. Con un'aggiunta minima di codice, è possibile trasferire nelle app Web di Servizio app di Azure lo stesso modello di codifica ASP.NET locale usando, ad esempio, la decoration `[Authorize]`. È possibile controllare l'accesso in modo specifico con la stessa flessibilità con cui si gestiscono le applicazioni in locale.
 
-### Connettersi alle risorse locali ###
+## Connettersi alle risorse locali ##
 
-È possibile effettuare la connessione ai dati o alle risorse del proprio sito Web, sia che si trovi nel cloud per avere migliori prestazioni sia che si trovi in locale per motivi di conformità. Per altre informazioni sulla conservazione dei dati in Azure, vedere [Centro protezione Microsoft Azure]. 
+È possibile effettuare la connessione ai dati o alle risorse della propria app Web, sia che si trovi nel cloud per avere migliori prestazioni sia che si trovi in locale per motivi di conformità. Per altre informazioni sulla conservazione dei dati in Azure, vedere [Centro protezione Microsoft Azure]. 
 
-È possibile scegliere tra vari back-end di database in Azure per soddisfare le esigenze del sito Web, inclusi [database SQL di Azure] e [MySQL]. L'archiviazione sicura in Azure fa sì che i dati siano geograficamente vicini al sito Web e ne ottimizza le prestazioni.
+È possibile scegliere tra vari back-end di database in Azure per soddisfare le esigenze dell'app Web, inclusi [database SQL di Azure] e [MySQL]. L'archiviazione sicura in Azure fa sì che i dati siano geograficamente vicini all'app Web e ne ottimizza le prestazioni.
 
-L'azienda può tuttavia richiedere che i dati vengano mantenuti in locale. Siti Web di Azure consente di configurare facilmente una [connessione ibrida] alla risorsa locale, ad esempio un back-end di database. Se si desidera una gestione unificata delle connessioni locali, è possibile integrare molti siti Web di Azure con una [Rete virtuale di Azure] che dispone di una VPN da sito a sito. È quindi possibile accedere alle risorse locali come se i siti Web di Azure fossero in locale. [Enterprise Pizza - Connessione di siti Web all'ambiente locale tramite bus di servizio][enterprisepizza]
+L'azienda può tuttavia richiedere che i dati vengano mantenuti in locale. Le app Web di Servizio app di Azure consentono di configurare facilmente una [connessione ibrida] alla risorsa locale, ad esempio un back-end di database. Se si desidera una gestione unificata delle connessioni locali, è possibile integrare molte app Web con una [Rete virtuale di Azure] che dispone di una VPN da sito a sito. È quindi possibile accedere alle risorse locali come se le app Web fossero in locale.
 
-### Eseguire l'ottimizzazione
+## Eseguire l'ottimizzazione
 
 Ottimizzare l'applicazione line-of-business scalandola automaticamente mediante Scalabilità automatica, effettuando la memorizzazione nella cache con Cache Redis di Azure, eseguendo le attività in background con Processi Web e mantenendo una disponibilità elevata con Gestione traffico di Azure.
 
-L'implementazione della [scalabilità verticale e orizzontale] offerta da Siti Web di Azure risponde alle esigenze dell'applicazione line-of-business, indipendentemente dalla dimensione del carico di lavoro. È possibile scalare in orizzontale il sito Web manualmente tramite il [portale di gestione di Azure], a livello di codice tramite l'[API di gestione del servizio] o gli script di [PowerShell] oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel piano di hosting **Standard** tale funzionalità consente di scalare in orizzontale un sito Web automaticamente in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per scalare rapidamente i siti Web con Azure].
+L'implementazione della [scalabilità verticale e orizzontale] offerta dalle app Web di Servizio app di Azure risponde alle esigenze dell'applicazione line-of-business, indipendentemente dalla dimensione del carico di lavoro. È possibile eseguire la scalabilità orizzontale dell'app Web manualmente tramite il [portale di gestione di Azure], a livello di codice tramite l'[API di gestione del servizio] o [gli script di PowerShell] oppure automaticamente tramite la funzionalità Scalabilità automatica. Nel livello **Standard** tale funzionalità consente di implementare la scalabilità orizzontale di un'app Web automaticamente in base all'uso della CPU. Per le procedure consigliate, vedere l'articolo di [Troy Hunt] relativo ai [10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure].
 
-Aumentare la velocità di risposta del sito Web con la [Cache Redis di Azure]. Usarla per memorizzare nella cache i dati dei database back-end e altri elementi quali lo [stato della sessione ASP.NET] e la [cache di output].
+È possibile aumentare la velocità di risposta dell'app Web con [Cache Redis di Azure]. Usare questa funzionalità per memorizzare nella cache i dati dei database back-end e altri elementi come lo [stato della sessione ASP.NET] e la [cache di output].
 
-Mantenere un'elevata disponibilità del sito Web mediante [Gestione traffico di Azure]. Tramite il metodo **Failover**, Gestione traffico instrada automaticamente il traffico a un sito secondario se si verifica un problema nel sito primario.
+È possibile mantenere un'elevata disponibilità dell'app Web mediante [Gestione traffico di Azure]. Tramite il metodo **Failover**, Gestione traffico instrada automaticamente il traffico a un sito secondario se si verifica un problema nel sito primario.
 
-### Eseguire il monitoraggio e l'analisi
+## Eseguire il monitoraggio e l'analisi
 
-Per restare aggiornati sul livello di prestazioni del sito Web, è possibile usare Azure o strumenti di terze parti. È inoltre possibile ricevere avvisi sugli eventi critici relativi al sito Web, nonché ottenere facilmente informazioni sugli utenti con Application Insight o analizzare i log Web con HDInsight. 
+Tramite Azure o strumenti di terze parti è possibile mantenersi aggiornati sulle prestazioni dell'app Web e ricevere avvisi su eventi critici nell'app Web. Inoltre, con Application Insights o mediante l'analisi dei log Web di HDInsight, è possibile ottenere facilmente informazioni dettagliate sugli utenti. 
 
-Mediante il dashboard di Siti Web di Azure, è anche possibile ottenere un [riepilogo rapido] delle metriche delle prestazioni correnti del sito Web e delle quote relative alle risorse. Per avere informazioni generali complete sull'applicazione in termini di disponibilità, prestazioni e uso, avvalersi di [Azure Application Insights], che offre potenti e rapide funzioni per la risoluzione dei problemi, la diagnostica e il recupero dei dati sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per i siti Web.
+Il pannello dell'app Web nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) offre un [riepilogo rapido] delle metriche delle prestazioni e delle quote delle risorse correnti dell'app Web. Per informazioni complete sulla disponibilità, le prestazioni e l'uso dell'applicazione, usare [Azure Application Insights], che offre potenti e rapidi strumenti per la risoluzione dei problemi, la diagnostica e il recupero delle informazioni sull'uso. In alternativa, usare uno strumento di terze parti come [New Relic] per fornire dati di monitoraggio avanzati per le app Web.
 
-Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di risposta, è possibile ricevere notifiche via e-mail ogni volta che il sito smette di rispondere. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
+Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app e ricevere notifiche tramite e-mail nel caso in cui l'app non risponda. Per altre informazioni, vedere [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure].
 
 ## Altre risorse
 
-- [Documentazione di Siti Web di Azure](/it-it/documentation/services/websites/)
-- [Mappa di formazione per Siti Web di Azure](websites-learning-map.md)
+- [Documentazione relativa alle app Web di Servizio app di Azure](/services/app-service/web/)
+- [Mappa di formazione per app Web di Servizio app di Azure](websites-learning-map.md)
 - [Blog Web di Azure](/blog/topics/web/)
 
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Servizio app di Azure e relativo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida sul passaggio dal vecchio al nuovo portale, vedere: [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[Siti Web di Azure]:/it-it/services/websites/
+[Servizio app di Azure]: /services/app-service/web/
 
-[FTP]:/it-it/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/it-it/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/it-it/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/it-it/documentation/articles/web-sites-publish-source-control/
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[HTTPS]:/it-it/documentation/articles/web-sites-configure-ssl-certificate/
-[Dettagli sui prezzi di Siti Web]:/it-it/pricing/details/web-sites/#service-ssl
-[Autenticare gli utenti]:/it-it/documentation/articles/web-sites-authentication-authorization/
+[HTTPS]:web-sites-configure-ssl-certificate.md
+[dettagli sui prezzi di Servizio app di Azure]: /pricing/details/app-service/#ssl-connections
+[Autenticare gli utenti]:web-sites-authentication-authorization.md
 [Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Autorizzare gli utenti]:/it-it/documentation/articles/web-sites-authentication-authorization/
+[Autorizzare gli utenti]:web-sites-authentication-authorization.md
 
-[Centro protezione di Azure]:/it-it/support/trust-center/
-[MySQL]:/it-it/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Database SQL di Azure]:/it-it/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[connessione ibrida]:/it-it/documentation/articles/web-sites-hybrid-connection-get-started/
-[Rete virtuale di Azure]:/it-it/documentation/articles/web-sites-integrate-with-vnet/
+[Centro protezione Microsoft Azure]:/support/trust-center/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Database SQL di Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[connessione ibrida]:web-sites-hybrid-connection-get-started.md
+[Rete virtuale di Azure]:web-sites-integrate-with-vnet.md
 
-[scalabilità verticale e orizzontale]:/it-it/manage/services/web-sites/how-to-scale-websites/
+[scalabilità verticale e orizzontale]:web-sites-scale.md
 [Portale di gestione di Azure]:http://manage.windowsazure.com/
 [API di gestione del servizio]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [script di PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
-[10 elementi appresi per scalare rapidamente i siti Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[10 elementi appresi per implementare rapidamente la scalabilità delle app Web con Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis di Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[stato della sessione ASP.NET]:https://msdn.microsoft.com/it-it/library/azure/dn690522.aspx
-[cache di output]:https://msdn.microsoft.com/it-it/library/azure/dn798898.aspx
+[stato della sessione ASP.NET]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[cache di output]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[riepilogo rapido]:/it-it/manage/services/web-sites/how-to-monitor-websites/
+[riepilogo rapido]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/it-it/develop/net/how-to-guides/new-relic/
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
 [Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

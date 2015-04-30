@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Configurare i criteri di distribuzione degli asset mediante .NET" 
 	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti." 
 	services="media-services" 
@@ -16,22 +16,22 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-# Procedura: Configurare i criteri di distribuzione degli asset
+#Procedura: Configurare i criteri di distribuzione degli asset
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) e il [flusso di lavoro di streaming live di Servizi multimediali](../media-services-live-streaming-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) . 
 
 Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei criteri di distribuzione degli asset che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common). 
 
 Questo argomento illustra perché e come creare i criteri di distribuzione degli asset. 
 
->[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere [Come scalare un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints). 
 >
 >Inoltre, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.      
 
 È possibile applicare criteri differenti allo stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth Streaming e la crittografia envelope AES (Advanced Encryption Standard) a MPEG DASH e HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
-Tenere presente che, se si desidera distribuire un asset con crittografia di archiviazione, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia envelope AES, impostare il tipo di criteri su **DynamicEnvelopeEncryption**. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su **NoDynamicEncryption**. Gli esempi seguenti mostrano come configurare questi tipi di criteri. 
+Tenere presente che, se si desidera distribuire un asset con crittografia di archiviazione, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia envelope AES, impostare il tipo di criteri su **DynamicEnvelopeEncryption**. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su **NoDynamicEncryption**. I seguenti esempi mostrano come configurare questi tipi di criteri. 
 
 A seconda della modalità di configurazione dei criteri di distribuzione degli asset, sarà possibile creare dinamicamente i pacchetti, applicare la crittografia in modalità dinamica e trasmettere in streaming i contenuti mediante i seguenti protocolli: Smooth Streaming, HLS, MPEG DASH e HDS.  
 
@@ -53,9 +53,9 @@ HDS:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere l'argomento relativo alla [creazione di un URL di streaming](../media-services-deliver-streaming-content).
+Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere l'argomento relativo alla [creazione di un URL di streaming](media-services-deliver-streaming-content.md).
 
-## Criteri di distribuzione degli asset Clear 
+##Criteri di distribuzione degli asset Clear 
 
 Il seguente metodo **ConfigureClearAssetDeliveryPolicy** specifica di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. 
   
@@ -71,10 +71,10 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         asset.DeliveryPolicies.Add(policy);
     }
 
-## Criteri di distribuzione degli asset DynamicCommonEncryption 
+##Criteri di distribuzione degli asset DynamicCommonEncryption 
 
 
-Il seguente metodo **CreateAssetDeliveryPolicy** crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia common dinamica (**DynamicCommonEncryption**) a un protocollo Smooth Streaming (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, ovvero l'asset a cui applicare i criteri, e **IContentKey**, ovvero la chiave simmetrica del tipo **CommonEncryption**. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](../media-services-dotnet-create-contentkey#common_contentkey)).
+Il seguente metodo **CreateAssetDeliveryPolicy** crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia common dinamica (**DynamicCommonEncryption**) a un protocollo Smooth Streaming (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, ovvero l'asset a cui applicare i criteri, e **IContentKey**, ovvero la chiave simmetrica del tipo **CommonEncryption**. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) . 
 
@@ -105,9 +105,9 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 
 
-## Criteri di distribuzione degli asset DynamicEnvelopeEncryption 
+##Criteri di distribuzione degli asset DynamicEnvelopeEncryption 
 
-Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli HLS e DASH (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, ovvero l'asset a cui applicare i criteri, e **IContentKey**, ovvero la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](../media-services-dotnet-create-contentkey#envelope_contentkey)).
+Il seguente metodo **CreateAssetDeliveryPolicy** crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli HLS e DASH (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, ovvero l'asset a cui applicare i criteri, e **IContentKey**, ovvero la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .   
@@ -150,9 +150,9 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
     }
 
 
-## <a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types"></a>Tipi usati nella definizione di AssetDeliveryPolicy
 
-### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -191,7 +191,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         All = 0xFFFF
     }
 
-### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -225,7 +225,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         DynamicCommonEncryption
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -248,7 +248,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         BaselineHttp
     }
 
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -290,4 +290,5 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         /// </summary>
         EnvelopeEncryptionIV,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

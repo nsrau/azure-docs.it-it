@@ -18,26 +18,28 @@
 
 
 
-# Caricamento di file in un account di Servizi multimediali mediante .NET
+#Caricamento di file in un account di Servizi multimediali mediante .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow) . 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md. [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md)
 
 In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi (e anche i metadati relativi a questi file).  Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
-I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
+I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene i contenuti multimediali effettivi.
 
 Quando si creano asset, è possibile specificare le seguenti opzioni di crittografia. 
 
-- **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+- **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, i contenuti non sono protetti durante il transito, né nell'archiviazione locale.
 Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
 - **CommonEncryption**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 - **EnvelopeEncrypted**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
-- **StorageEncrypted**: crittografa il contenuto non crittografato localmente usando la crittografia a 256 bit AES, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+- **StorageEncrypted**: crittografa i contenuti non crittografati localmente usando la crittografia a 256 bit AES, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica. Se necessario, inoltre, possono essere ricrittografati prima del successivo caricamento come nuovo asset di output. La crittografia di archiviazione viene usata principalmente per proteggere file multimediali di input di alta qualità archiviati su disco applicando una crittografia avanzata.
 
-	Si noti che Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
+	Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
 
-Se si specifica di crittografare l'asset con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a un'entità **ContentKey**. Per altre informazioni, vedere [come creare un'entità ContentKey](../media-services-dotnet-create-contentkey). 
+	Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere l'articolo relativo alla [configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
+
+Se si specifica di crittografare l'asset con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a un'entità **ContentKey**. Per altre informazioni, vedere [come creare un'entità ContentKey](media-services-dotnet-create-contentkey.md).
 
 Se si specifica di crittografare l'asset con un'opzione **StorageEncrypted**, l'SDK di Servizi multimediali per .NET creerà un'entità **ContentKey** **StorageEncrypted** per l'asset.
 
@@ -92,9 +94,9 @@ Nel seguente codice di esempio viene usato l'SDK per .NET per eseguire le seguen
             return inputAsset;
 		}
 
-### Caricare più file
+###Caricare più file
 
-Il codice seguente illustra come creare un asset e caricare più file.
+Il seguente codice illustra come creare un asset e caricare più file.
 
 Il codice esegue le seguenti attività:
 	
@@ -179,7 +181,7 @@ Quando si carica un numero elevato di asset, prendere in considerazione quanto s
  
 - Mantenere su 10 l'impostazione predefinita di ParallelTransferThreadCount.
  
-### Inserimento di asset in blocco 
+###Inserimento di asset in blocco 
 
 Il caricamento di file di asset di grandi dimensioni costituisce un collo di bottiglia nella creazione di asset. L'inserimento di asset in blocco prevede il disaccoppiamento del processo di creazione di asset da quello di caricamento. Per usare un approccio di inserimento in blocco, creare un manifesto (IngestManifest) in cui vengono descritti l'asset e i relativi file associati. Usare quindi il metodo di caricamento che si preferisce per caricare i file associati nel contenitore BLOB del manifesto. Servizi multimediali di Microsoft Azure controlla il contenitore BLOB associato al manifesto. Dopo che un file è stato caricato nel contenitore BLOB, Servizi multimediali di Microsoft Azure completa la creazione dell'asset in base alla configurazione dell'asset nel manifesto (IngestManifestAsset).
 
@@ -190,7 +192,7 @@ Per creare una nuova entità IngestManifest, chiamare il metodo Create esposto d
 
 Creare gli asset che verranno associati all'entità IngestManifest in blocco. Configurare le opzioni di crittografia desiderate nell'asset per l'inserimento in blocco.
 
-	// Create the assets that will be associated with this bulk ingest manifest
+	// Creare gli asset che verranno associati al manifesto di inserimento in blocco.
 	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
 	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
@@ -276,7 +278,7 @@ Il seguente esempio illustra il polling di un'entità IngestManifest in base all
 	
 
 
-## Caricare file mediante le estensioni dell'SDK per .NET 
+##Caricare file mediante le estensioni dell'SDK per .NET 
 
 Il seguente esempio mostra come caricare un singolo file mediante le estensioni dell'SDK per .NET. In questo caso viene usato il metodo **CreateFromFile**, ma è disponibile anche la versione asincrona (**CreateFromFileAsync**). Il metodo **CreateFromFile** consente di specificare il nome del file, l'opzione di crittografia e un callback per visualizzare l'avanzamento del caricamento del file.
 
@@ -302,9 +304,9 @@ Il seguente esempio esegue una chiamata alla funzione UploadFile e specifica la 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-## Passaggi successivi
+##Passaggi successivi
 Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Come ottenere un'istanza del processore di contenuti multimediali][].
 
-[Come ottenere un'istanza del processore di contenuti multimediali]: ../media-services-get-media-processor/
+[Come ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-
+﻿
 È ora necessario modificare la modalità di registrazione delle notifiche push per assicurarsi che l'utente sia autenticato prima che si provi a eseguire la registrazione. 
 
 1. In Visual Studio, in Esplora soluzioni aprire il file di progetto app.xaml.cs e nel gestore eventi **Application_Launching** rimuovere i simboli di commento o eliminare la chiamata al metodo **AcquirePushChannel**. 
@@ -14,5 +14,4 @@
             RefreshTodoItems();
         }
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

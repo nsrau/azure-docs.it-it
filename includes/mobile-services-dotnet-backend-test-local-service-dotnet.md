@@ -1,4 +1,4 @@
-﻿
+
 Il progetto di servizio mobile scaricato consente di eseguire il nuovo servizio mobile direttamente sul computer locale o sulla macchina virtuale, al fine di semplificare il debug del codice del servizio ancor prima di pubblicarlo in Azure.
 
 In questa sezione la nuova app verrà testata nel servizio mobile in esecuzione localmente.
@@ -18,6 +18,4 @@ In questa sezione la nuova app verrà testata nel servizio mobile in esecuzione 
 4. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, in **Insert a TodoItem**, quindi fare clic su **Save**.
 
 	Verrà inviata una richiesta POST al servizio mobile locale. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

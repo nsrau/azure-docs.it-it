@@ -1,6 +1,6 @@
-﻿> [AZURE.SELECTOR]
-- [Portale](media-services-manage-content.md)
-- [.NET SDK](media-services-dotnet-upload-files.md)
-- [API REST](media-services-rest-upload-files.md)
+> [AZURE.SELECTOR]
+- [Portale](../articles/media-services-manage-content.md)
+- [.NET SDK](../articles/media-services-dotnet-upload-files.md)
+- [API REST](../articles/media-services-rest-upload-files.md)
 
-<!--HONumber=47-->
+<!--HONumber=52-->

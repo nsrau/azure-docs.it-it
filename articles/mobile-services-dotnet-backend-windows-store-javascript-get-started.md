@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introduzione a servizi mobili per applicazioni Windows Store | Mobile Dev Center" 
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Windows Store in C#, VB o JavaScript." 
 	services="mobile-services" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app  *To do list* in HTML e JavaScript che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per JavaScript di questo argomento.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure. In questa esercitazione si creeranno un nuovo servizio mobile e una semplice app *To do list* in HTML e JavaScript che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per JavaScript di questo argomento.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione, sono necessari i seguenti elementi:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. È disponibile una versione di valutazione gratuita.
@@ -62,14 +62,14 @@ In questa sezione si creerà una nuova app di Windows universale connessa al ser
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
 
->[AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
+>[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
 
 ## Pubblicare il servizio mobile
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 <ol start="4">
-<li><p>Nel progetto di codice condiviso aprire il file default.js, individuare il codice che crea un'istanza di <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a>, impostare come commento il codice per la creazione del client usando <em>localhost</em>, quindi rimuovere i simboli di commento dal codice per la creazione del client usando l'URL del servizio mobile, simile al seguente:</p>
+<li><p>Nel progetto di codice condiviso aprire il file default.js, individuare il codice che crea un'istanza di <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a>, impostare come commento il codice per la creazione del client usando <em>localhost</em>, quindi rimuovere i simboli di commento dal codice per la creazione del client usando l'URL del servizio mobile remoto, simile al seguente:</p>
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://todolist.azure-mobile.net/",
@@ -80,7 +80,7 @@ In questa sezione si creerà una nuova app di Windows universale connessa al ser
 
 <li><p>Premere <strong>F5</strong> per ricompilare il progetto e avviare l'app.</p></li>
 
-<li><p>Nell'app digitare un testo significativo, ad esempio <em>Completare l'esercitazione</em>, in <strong>Insert a TodoItem</strong>, quindi fare clic su <strong>Salva</strong>.</p>
+<li><p>Nell'app digitare un testo significativo, ad esempio <em>Completare l'esercitazione</em>, in <strong>Insert a TodoItem</strong> e quindi fare clic su <strong>Save</strong>.</p>
 
 <p>Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure.</p>
 </li>
@@ -89,20 +89,7 @@ In questa sezione si creerà una nuova app di Windows universale connessa al ser
 	<p>Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.</p></li>
 </ol>
 
-
-## Passaggi successivi
-Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
-
-* [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
-
-* [Introduzione all'autenticazione]
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-
-* [Introduzione alle notifiche push]
-  <br/>Informazioni sull'invio di una notifica push di base all'app.
-
-Per altre informazioni sulle app di Windows universali, vedere [Supporto di piattaforme per più dispositivi da un singolo servizio mobile](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
+Per altre informazioni sulle app di Windows universali, vedere [Supporto di piattaforme per più dispositivi da un singolo servizio mobile](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Introduzione a Servizi mobili]:#getting-started
@@ -123,16 +110,14 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 
 
 <!-- URLs. -->
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
+[Introduzione ai dati]: mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
+[Introduzione all'autenticazione]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Introduzione alle notifiche push]: mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript e HTML]: mobile-services-win8-javascript/
 [Portale di gestione]: https://manage.windowsazure.com/
-[Versione JavaScript]: /it-it/documentation/articles/mobile-services-windows-store-get-started
-[Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: /it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Versione JavaScript]: mobile-services-windows-store-get-started.md
+[Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

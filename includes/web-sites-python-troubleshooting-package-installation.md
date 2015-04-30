@@ -1,4 +1,4 @@
-﻿Alcuni pacchetti potrebbero non essere installati tramite pip se eseguiti su Azure.  Il motivo può essere semplicemente dovuto al fatto che il pacchetto non è disponibile nell'indice del pacchetto Python.  Potrebbe essere necessario un compilatore (se non è disponibile alcun compilatore nel computer che esegue il sito Web di Azure).
+Alcuni pacchetti potrebbero non essere installati tramite pip se eseguiti su Azure.  Il motivo può essere semplicemente dovuto al fatto che il pacchetto non è disponibile nell'indice del pacchetto Python.  Potrebbe essere necessario un compilatore (se non è disponibile alcun compilatore nel computer che esegue il sito Web di Azure).
 
 In questa sezione vengono esaminati alcuni metodi utili per risolvere questo problema.
 
@@ -24,7 +24,7 @@ Per creare i file wheel, sarà necessario il pacchetto wheel:
 
     env\scripts\pip install wheel
 
-Usare  `pip wheel` per compilare una dipendenza:
+Usare `pip wheel` per compilare una dipendenza:
 
     env\scripts\pip wheel azure==0.8.4
 
@@ -64,8 +64,7 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 È preferibile eliminare l'ambiente virtuale nel sito, per evitare la presenza di file rimasti in seguito alla gestione automatica dell'ambiente virtuale.
 
 
-[Creazione di una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilatore Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
-[Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-<!--HONumber=49-->
+[compilatore Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+<!--HONumber=52-->

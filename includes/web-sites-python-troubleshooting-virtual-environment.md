@@ -20,5 +20,4 @@ Ecco un'alternativa che sfrutta il fatto che lo script di distribuzione eliminer
 ### Opzione 3: personalizzare lo script di distribuzione
 
 Se lo script di distribuzione è stato personalizzato, è possibile modificare il codice in deploy.cmd per forzare l'eliminazione della cartella env.
-
-<!--HONumber=49-->
+<!--HONumber=52-->

@@ -19,13 +19,13 @@
 
 # Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](../media-services-video-on-demand-workflow). 
+Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) . 
 
 ## Informazioni generali
 
 In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore di contenuti multimediali viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
-Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori di contenuti multimediali disponibili.
+La seguente tabella riporta il nome e la descrizione di tutti i processori di contenuti multimediali disponibili.
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -38,8 +38,18 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
   <tbody>
     <tr>
        <td>Azure Media Encoder</td>
-       <td>Consente di eseguire attività di codifica usando il codificatore multimediale.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+       <td>Consente di eseguire attività di codifica usando Azure Media Encoder.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Stringhe di set di impostazioni di attività per Azure Media Encoder</a></td>
+    </tr>
+    <tr>
+       <td>Flusso di lavoro Premium del codificatore multimediale</td>
+       <td>Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codifica con il flusso di lavoro Premium del codificatore multimediale.</a></td>
+    </tr>    
+	<tr>
+        <td>Azure Media Indexer</td>
+        <td>Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indicizzazione di file multimediali con Azure Media Indexer</a>.</td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
@@ -52,11 +62,6 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
         <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Stringhe di set di impostazioni di attività per Azure Media Packager</a></td>
     </tr>
     <tr>
-        <td>Azure Media Indexer</td>
-        <td>Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.</td>
-		<td>N/D</td>
-    </tr>
-    <tr>
         <td>Storage Decryption</td>
         <td>Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.</td>
 		<td>N/D</td>
@@ -67,7 +72,7 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 
 ## Ottenere un'istanza di MediaProcessor
 
-Il metodo seguente illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice].
+Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice].
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -83,7 +88,8 @@ Il metodo seguente illustra come ottenere un'istanza del processore di contenuti
 ## Passaggi successivi
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset][] che illustra come usare Azure Media Encoder per codificare un asset.
 
-[Come codificare un asset]: ../media-services-encode-asset/
+[Come codificare un asset]: media-services-encode-asset.md
 [Stringhe di set di impostazioni di attività per Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

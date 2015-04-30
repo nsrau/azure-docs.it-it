@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Formati e codec del Codificatore multimediale di Azure" 
-	description="Questo argomento fornisce una panoramica dei formati e dei codec del Codificatore multimediale di Azure" 
+﻿<properties 
+	pageTitle="Formati e codec di Azure Media Encoder" 
+	description="Questo argomento fornisce una panoramica dei formati e dei codec di Azure Media Encoder." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -16,15 +16,15 @@
 	ms.date="02/27/2015" 
 	ms.author="juliako"/>
 
-# Formati e codec del Codificatore multimediale di Azure
+#Formati e codec di Azure Media Encoder
 
 I codificatori comprimono i file multimediali digitali mediante l'uso di codec. In genere nei codificatori sono disponibili diverse impostazioni, che permettono di specificare le proprietà dei file multimediali generati, ad esempio i codec usati, il formato dei file, la risoluzione e la velocità in bit. I formati di file sono contenitori che includono il video compresso, oltre a informazioni sui codec usati per la compressione del video. 
 
-I codec consistono in due componenti: un componente per la compressione dei file multimediali digitali per la trasmissione e un altro per la decompressione dei file multimediali digitali per la riproduzione. Sono disponibili codec audio per la compressione e la decompressione di audio e codec video per la compressione e decompressione di video. I codec possono usare la compressione con o senza perdita di dati. I codec senza perdita di dati conservano tutte le informazioni durante la compressione. Quando il file è decompresso, si ottiene un file identico al file multimediale di input. I codec senza perdita di dati sono quindi ideali per l'archiviazione. I codec con perdita di dati perdono alcune informazioni durante la codifica e producono file di dimensioni minori rispetto all'originale, ma con una riduzione della qualità del video. Sono ideali per la trasmissione in flusso su Internet. I due principali codec usati dal Codificatore multimediale di Azure per la codifica sono h. 264 e VC-1. Altri codec possono essere disponibili nell'ecosistema dei codificatori dei partner.
+I codec consistono in due componenti: un componente per la compressione dei file multimediali digitali per la trasmissione e un altro per la decompressione dei file multimediali digitali per la riproduzione. Sono disponibili codec audio per la compressione e la decompressione di audio e codec video per la compressione e decompressione di video. I codec possono usare la compressione con o senza perdita di dati. I codec senza perdita di dati conservano tutte le informazioni durante la compressione. Quando il file è decompresso, si ottiene un file identico al file multimediale di input. I codec senza perdita di dati sono quindi ideali per l'archiviazione. I codec con perdita di dati perdono alcune informazioni durante la codifica e producono file di dimensioni minori rispetto all'originale, ma con una riduzione della qualità del video. Sono ideali per la trasmissione in streaming su Internet. I due principali codec usati da Azure Media Encoder per la codifica sono h. 264 e VC-1. Altri codec possono essere disponibili nell'ecosistema dei codificatori dei partner.
 
-È importante comprendere la differenza tra codec e formati di file. I codec sono costituiti da software che implementa gli algoritmi di compressione/decompressione, mentre i formati di file sono contenitori che includono il video compresso. Per altre informazioni, vedere l'articolo di blog relativo al [confronto tra le funzionalità di codifica e di creazione dei pacchetti](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+È importante comprendere la differenza tra codec e formati di file. I codec sono costituiti da software che implementa gli algoritmi di compressione/decompressione, mentre i formati di file sono contenitori che includono il video compresso. Per altre informazioni, vedere il post di blog relativo al [confronto tra le funzionalità di codifica e di creazione pacchetti](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
 
-Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con il Codificatore multimediale di Azure.
+Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Azure Media Encoder.
 
 
 [Formati di importazione del Codificatore multimediale ](#import_formats)
@@ -32,11 +32,11 @@ Questo documento contiene un elenco dei formati di file di importazione ed espor
 [Formati di esportazione del Codificatore multimediale](#export_formats)
 
 
-## <a id="import_formats"></a>Formati di importazione del Codificatore multimediale 
+##<a id="import_formats"></a>Formati di importazione del Codificatore multimediale 
 
 La sezione seguente include l'elenco dei codec e dei formati di file supportati per l'importazione.
 
-### Codec video
+###Codec video
 
 - H.264 (Baseline, Main e High Profile)
 - MPEG-1 (incluso MPEG-PS)
@@ -47,14 +47,14 @@ La sezione seguente include l'elenco dei codec e dei formati di file supportati 
 - DV (DVC, DVHD, DVSD, DVSL)
 - Grass Valley HQ/HQX
  
-### Codec audio
+###Codec audio
 
 - AC-3 (audio Dolby Digital)
 - AAC (AAC-LC, HE-AAC v1 con AAC-LC core e HE-AAC v2 con AAC-LC core)
 - MP3
 - Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional e Windows Media Audio Lossless)
 
-### Formati di file video
+###Formati di file video
  
 <table border="1">
 <tr><th>Formato file</th><th>Estensioni file</th></tr>
@@ -75,7 +75,7 @@ La sezione seguente include l'elenco dei codec e dei formati di file supportati 
 
 Sono supportati alcuni formati non compressi. Per altre informazioni, vedere [Formati video non compressi supportati](#uncompressed)
 
-### Formati di file audio
+###Formati di file audio
 
 <table border="1">
 <tr><th>Formato file</th><th>Estensioni file</th></tr>
@@ -89,7 +89,7 @@ Sono supportati alcuni formati non compressi. Per altre informazioni, vedere [Fo
 <tr><td>Windows Media Audio</td><td>.wma</td></tr>   
 </table>
 
-### Formati di file di immagine
+###Formati di file di immagine
 
 <table border="1">
 <tr><th>Formato file</th><th>Estensioni file</th></tr>
@@ -102,7 +102,7 @@ Sono supportati alcuni formati non compressi. Per altre informazioni, vedere [Fo
 </table>
 
 
-## <a id="export_formats"></a>Formati di esportazione del Codificatore multimediale
+##<a id="export_formats"></a>Formati di esportazione del codificatore multimediale
 
 La tabella seguente include l'elenco dei codec e dei formati di file supportati per l'esportazione.
 
@@ -118,7 +118,7 @@ AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
 
 Per codec e filtri aggiuntivi in Servizi multimediali, vedere l'articolo relativo ai [filtri di Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
-## <a id="uncompressed"></a>Formati video non compressi supportati 
+##<a id="uncompressed"></a>Formati video non compressi supportati 
 
 Servizi multimediali di Azure fornisce il supporto per l'importazione di dati video non compressi.
 
@@ -137,4 +137,4 @@ Questo è un elenco parziale dei formati non compressi supportati.
 <tr><td>Formato YVU9 prodotto da Indeo</td><td>Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.</td></tr>
 </table>
 
-<!--HONumber=47-->
+<!--HONumber=52-->

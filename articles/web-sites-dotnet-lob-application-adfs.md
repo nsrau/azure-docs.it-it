@@ -1,51 +1,54 @@
 ﻿<properties 
-	pageTitle="App LOB in Siti Web di Azure con ADFS" 
-	description="Informazioni su come creare un'applicazione LOB ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato ADFS come destinazione del servizio token di sicurezza locale." 
-	services="web-sites" 
+	pageTitle="Creare un'app Web .NET MVC in Servizio app di Azure con l'autenticazione ADFS" 
+	description="Informazioni su come creare un'applicazione line-of-business ASP.NET MVC nelle app Web di Servizio app di Azure che esegue l'autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato ADFS come destinazione del servizio token di sicurezza locale." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="02/12/2015" 
+	ms.date="04/09/2015" 
 	ms.author="cephalin"/>
 
-# Creare un'applicazione line-of-business ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con ADFS #
+# Creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione ADFS
 
-In questo articolo si apprenderà come creare un'applicazione line-of-business (LOB) ASP.NET MVC in [Siti Web di Azure](http://azure.microsoft.com/services/websites/) usando una distribuzione locale di [Active Directory Federation Services](http://technet.microsoft.com/ library/hh831502.aspx) come provider di identità. Questo scenario può essere usato quando si vogliono creare applicazioni LOB in Siti Web di Azure ma l'organizzazione richiede che tutti i dati vengano archiviati localmente.
+In questo articolo si apprenderà come creare un'applicazione line-of-business ASP.NET MVC nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando una distribuzione locale di [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) come provider di identità. Questo scenario è applicabile nei casi in cui si desidera creare applicazioni line-of-business in app Web di Servizio app di Azure mentre l'organizzazione richiede che tutti i dati vengano archiviati localmente.
 
-Per una panoramica delle varie opzioni di autenticazione e autorizzazione aziendale per Siti Web di Azure, vedere [Autenticare e autorizzare gli utenti nelle applicazioni LOB in siti Web di Azure](web-sites-authentication-authorization).
+>[AZURE.NOTE] Per informazioni generali sulle diverse opzioni di autenticazione e autorizzazione aziendali per le app Web di Servizio app di Azure, vedere la pagina relativa all'[uso di Active Directory per l'autenticazione in Servizio app di Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Obiettivo di compilazione ##
 
-Si creerà un'applicazione ASP.NET di base in Siti Web di Azure con le funzionalità seguenti:
+Si creerà un'applicazione ASP.NET di base nelle app Web di Servizio app di Azure con le seguenti funzionalità:
 
 - Autenticazione degli utenti in ADFS
-- Uso di `[Authorize]` per autorizzare gli utenti per l'esecuzione di azioni diverse
-- Configurazione statica per il debug in Visual Studio e la pubblicazione in Siti Web di Azure (creazione della configurazione una sola volta, esecuzione del debug e pubblicazione in qualsiasi momento)  
+- Uso di '[Authorize]' per autorizzare gli utenti per diverse azioni
+- Configurazione statica per il debug in Visual Studio e pubblicazione nelle app Web di Servizio app di Azure (creazione della configurazione una sola volta, esecuzione del debug e pubblicazione in qualsiasi momento)  
 
 <a name="bkmk_need"></a>
 ## Prerequisiti ##
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 Per completare questa esercitazione sarà necessario quanto segue:
 
 - Distribuzione locale di ADFS (per una procedura dettagliata end-to-end dell'ambiente di testing in uso, vedere [Test Lab: Istanza autonoma di STS con AD FS in Azure VM (solo per i test)](TODO))
 - Autorizzazioni per creare una o più attendibilità della relying party nel componente di gestione di ADFS
 - Visual Studio 2013
+- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o versioni successive
 
 <a name="bkmk_sample"></a>
-## Usare l'applicazione di esempio per il modello LOB ##
+## Usare l'applicazione di esempio per il modello line-of-business ##
 
-L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), è stata creata dal team di Azure Active Directory. Poiché ADFS supporta WS-Federation, è possibile usare l'applicazione come modello per creare nuove applicazioni LOB in modo semplice. L'applicazione presenta le seguenti funzionalità:
+L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), è stata creata dal team di Azure Active Directory. Poiché ADFS supporta la specifica WS-Federation, è possibile usarla come modello per creare nuove applicazioni line-of-business in modo semplice. L'applicazione presenta le seguenti funzionalità:
 
 - Uso di [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) per eseguire l'autenticazione con una distribuzione di ADFS locale
 - Funzionalità di accesso e di disconnessione
@@ -62,7 +65,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet)]
 
 	Si noterà che il codice genera semplicemente una richiesta di autenticazione per l'utente mediante WS-Federation. Tutte le autenticazioni sono configurate in App_Start\Startup.Auth.cs.
 
-4.  Aprire App_Start\Startup.Auth.cs. Nel metodo `ConfigureAuth` notare la riga seguente:
+4.  Aprire App_Start\Startup.Auth.cs. Nel metodo  `ConfigureAuth` notare la seguente riga:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -73,8 +76,8 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet)]
 
 	In ambito OWIN questo è il minimo indispensabile per configurare l'autenticazione con WS-Federation. Si tratta di un metodo più semplice ed elegante rispetto a WIF, dove Web.config viene inserito con XML un po' ovunque. Le uniche informazioni realmente necessarie sono l'identificatore della relying party e l'URL del file di metadati del servizio ADFS. Ad esempio:
 
-	-	Identificatore della relying party: `https://contoso.com/MyLOBApp`
-	-	Indirizzo dei metadati: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+	-	Identificatore della relying party:  `https://contoso.com/MyLOBApp`
+	-	Indirizzo dei metadati:  `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
 5.	In App_Start\Startup.Auth.cs, modificare le definizioni delle stringhe statiche come evidenziato di seguito:  
 	<pre class="prettyprint">
@@ -110,40 +113,40 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet)]
 È tutto. Ora l'applicazione di esempio è pronta per l'uso con ADFS. Più avanti, sarà anche necessario configurare un'attendibilità della relying party con l'applicazione in ADFS.
 
 <a name="bkmk_deploy"></a>
-## Distribuire l'applicazione di esempio in Siti Web di Azure
+## Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
 
-In questa esercitazione si pubblicherà l'applicazione in un sito Web di Azure mantenendo l'ambiente di debug. Si noti che si pubblicherà l'applicazione prima che questa disponga di un'attendibilità della relying party con ADFS, pertanto l'autenticazione non sarà ancora funzionante. Tuttavia, procedendo con questa operazione adesso, si otterrà l'URL del sito Web da usare anche per la successiva configurazione dell'attendibilità della relying party.
+In questo scenario si pubblicherà l'applicazione in un'app Web nelle app Web di Servizio app di Azure mantenendo l'ambiente di debug. Si noti che si pubblicherà l'applicazione prima che questa disponga di un'attendibilità della relying party con ADFS, pertanto l'autenticazione non sarà ancora funzionante. Se tuttavia si procede con questa operazione adesso, si otterrà l'URL dell'app Web da usare anche per la successiva configurazione dell'attendibilità della relying party.
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Selezionare **Siti Web di Microsoft Azure**.
+2. Selezionare **App Web di Microsoft Azure**.
 3. Se non è stato effettuato l'accesso ad Azure, fare clic su **Accedi** e usare l'account Microsoft per l'accesso alla sottoscrizione di Azure.
-4. Dopo l'accesso, fare clic su **Nuovo** per creare un nuovo sito Web.
-5. Compilare tutti i campi obbligatori. Poiché la connessione ai dati locali avverrà in un secondo tempo, non si procederà alla creazione di un database per questo sito Web.
+4. Dopo l'accesso, fare clic su **Nuovo** per creare una nuova app Web.
+5. Compilare tutti i campi obbligatori. Poiché la connessione ai dati locali avverrà in un secondo tempo, non si procederà alla creazione di un database per questa app Web.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 
-6. Fare clic su **Crea**. Dopo la creazione del sito Web, verrà aperta la finestra di dialogo Pubblica sul Web.
+6. Fare clic su **Crea**. Dopo la creazione dell'app Web, verrà aperta la finestra di dialogo Pubblica sito Web.
 7. In **URL di destinazione** modificare **http** in **https**. Copiare l'intero URL in un editor di testo. Verrà usato successivamente. Fare quindi clic su **Pubblica**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
-11. In Visual Studio aprire **Web.Release.config** nel progetto. Inserire il seguente codice XML nel tag `<configuration>` e sostituire il valore della chiave con l'URL del sito Web di pubblicazione.  
+11. In Visual Studio aprire **Web.Release.config** nel progetto. Inserire il seguente codice XML nel tag '<configuration>' e sostituire il valore della chiave con l'URL dell'app Web di pubblicazione.  
 	<pre class="prettyprint">
 &lt;appSettings&gt;
    &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
 &lt;/appSettings&gt;</pre>
 
-Al termine, saranno disponibili due identificatori della relying party configurati nel progetto, uno per l'ambiente di debug in Visual Studio e uno per il sito Web pubblicato in Azure. Si procederà all'impostazione di un'attendibilità della relying Party per ciascuno dei due ambienti in ADFS. Durante il debug, le impostazioni dell'app in Web.config vengono usate per permettere il funzionamento della configurazione **Debug** con ADFS. In caso di pubblicazione (per impostazione predefinita la configurazione **Release** è pubblicata), viene caricato un file Web.config trasformato che incorpora le modifiche alle impostazioni dell'app nel file Web.Release.config.
+Al termine, saranno disponibili due identificatori della relying party configurati nel progetto, uno per l'ambiente di debug in Visual Studio e uno per l'app Web pubblicata in Azure. Si procederà all'impostazione di un'attendibilità della relying Party per ciascuno dei due ambienti in ADFS. Durante il debug, le impostazioni dell'app in Web.config vengono usate per permettere il funzionamento della configurazione **Debug** con ADFS. In caso di pubblicazione (per impostazione predefinita la configurazione **Release** è pubblicata), viene caricato un file Web.config trasformato che incorpora le modifiche alle impostazioni dell'app nel file Web.Release.config.
 
-Se si vuole collegare il sito Web pubblicato al debugger (ad esempio se è necessario caricare i simboli di debug del codice nel sito Web pubblicato), è possibile creare un clone della configurazione Debug per il debug di Azure, ma con una trasformazione Web.config personalizzata (ad esempio Web.AzureDebug.config) che usa le impostazioni dell'app disponibili in Web.Release.config. Ciò permette di mantenere una configurazione statica in ambienti diversi.
+Se si desidera collegare l'app Web pubblicata di Azure al debugger (ad esempio se è necessario caricare i simboli di debug del codice nell'app Web pubblicata), è possibile creare un clone della configurazione Debug per il debug di Azure, ma con una trasformazione Web.config personalizzata (ad esempio Web.AzureDebug.config) che usa le impostazioni dell'app disponibili in Web.Release.config. Ciò permette di mantenere una configurazione statica in ambienti diversi.
 
 <a name="bkmk_rptrusts"></a>
-## Configurare l'attendibilità della relying party nel componente di gestione di ADFS ##
+## Configurare le attendibilità della relying party nel componente di gestione di ADFS ##
 
-È ora necessario configurare un'attendibilità della relying party nel componente di gestione di ADFS prima di poter effettivamente autenticare l'applicazione di esempio con lo stesso ADFS. Sarà necessario impostare due attendibilità della relying party separate, una per l'ambiente di debug e una per il sito Web pubblicato.
+È ora necessario configurare un'attendibilità della relying party nel componente di gestione di ADFS prima di poter effettivamente autenticare l'applicazione di esempio con lo stesso ADFS. Sarà necessario impostare due attendibilità della relying party separate, una per l'ambiente di debug e una per l'app Web pubblicata.
 
 > [AZURE.NOTE] Assicurarsi di ripetere i passaggi riportati sotto per entrambi gli ambienti.
 
@@ -170,7 +173,7 @@ Se si vuole collegare il sito Web pubblicato al debugger (ad esempio se è neces
 
 	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-	> [AZURE.NOTE] L'URL specifica dove inviare il client dopo la riuscita dell'autenticazione. Per l'ambiente di debug, l'URL dovrebbe essere <code>https://localhost:&lt;porta&gt;/</code>. Per il sito Web pubblicato, l'URL è l'URL del sito Web.
+	> [AZURE.NOTE] L'URL specifica dove inviare il client dopo la riuscita dell'autenticazione. Per l'ambiente di debug, deve essere <code>https://localhost:&lt;porta&gt;/</code>. Per l'app Web pubblicata, deve corrispondere all'URL dell'app Web.
 
 7.	Nella pagina **Configure Identifiers** verificare che l'URL SSL del progetto sia già elencato, quindi fare clic su **Next**. Fare clic su **Next** fino al termine della procedura guidata, accettando le impostazioni predefinite.
 
@@ -178,10 +181,10 @@ Se si vuole collegare il sito Web pubblicato al debugger (ad esempio se è neces
 
 8.	A questo punto la configurazione dell'applicazione relying party per il progetto in ADFS è completa. Si procederà quindi alla configurazione di tale applicazione per l'invio delle attestazioni richieste dalla propria applicazione. La finestra di dialogo **Edit Claim Rules** si apre per impostazione predefinita al termine della procedura guidata e sarà pertanto possibile iniziare immediatamente. Configurare almeno le attestazioni seguenti (con gli schemi tra parentesi):
 
-	-	Nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - usata da ASP.NET per attivare `User.Identity.Name`.
+	-	Nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - usato da ASP.NET per attivare  `User.Identity.Name`.
 	-	Nome dell'entità utente (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - usata per identificare in modo univoco gli utenti nell'organizzazione.
-	-	Appartenenze a gruppi come ruoli (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - può essere usata con l'effetto `[Authorize(Roles="role1, role2,...")]` per autorizzare controller/azioni. In realtà, questo potrebbe non rappresentare l'approccio più efficiente per l'autorizzazione dei ruoli, in particolare se gli utenti di AD appartengono regolarmente a centinaia di gruppi di sicurezza, il che significa centinaia di attestazioni di ruolo nel token SAML. Un approccio alternativo consiste nell'inviare una singola attestazione di ruolo in modo condizionale in base all'appartenenza dell'utente a un determinato gruppo. Tuttavia, ai fini della presente esercitazione si manterrà una configurazione semplice.
-	-	ID nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - può essere usata per la convalida antifalsificazione. Per altre informazioni su come usare l'attestazione come convalida antifalsificazione, vedere la sezione relativa all'**aggiunta di funzionalità line-of-business** in [Creare un'applicazione line-of-business ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con ADFS](../web-sites-dotnet-lob-application-adfs/#bkmk_crud).
+	-	Appartenenze a gruppi come ruoli (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - possono essere usate con la decoration '[Authorize(Roles="role1, role2,...")]' per autorizzare controller/azioni. In realtà, questo potrebbe non rappresentare l'approccio più efficiente per l'autorizzazione dei ruoli, in particolare se gli utenti di AD appartengono regolarmente a centinaia di gruppi di sicurezza, il che significa centinaia di attestazioni di ruolo nel token SAML. Un approccio alternativo consiste nell'inviare una singola attestazione di ruolo in modo condizionale in base all'appartenenza dell'utente a un determinato gruppo. Tuttavia, ai fini della presente esercitazione si manterrà una configurazione semplice.
+	-	ID nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - può essere usata per la convalida antifalsificazione. Per altre informazioni su come farlo funzionare con la convalida antifalsificazione, vedere la sezione sull'**aggiunta della funzionalità line-of-business all'applicazione di esempio** nella pagina relativa alla [creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione di Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
 	> [AZURE.NOTE] I tipi di attestazione da configurare per la propria applicazione sono determinati dai requisiti dell'applicazione stessa. Per un elenco delle attestazioni supportate dalle applicazioni Azure Active Directory (ovvero le attendibilità della relying party), vedere ad esempio [Token e tipi di attestazioni supportati](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
@@ -190,7 +193,7 @@ Se si vuole collegare il sito Web pubblicato al debugger (ad esempio se è neces
 
 	![](./media/web-sites-dotnet-lob-application-adfs/5-ldap-claims.png)
 
-	Successivamente, si creerà un'attestazione ID nome temporanea usando i passaggi riportati in [Identificatori di nome nelle asserzioni SAML](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
+	Successivamente, si creerà un'attestazione ID nome temporanea usando i passaggi riportati nel post relativo agli [identificatori di nome nelle asserzioni SAML](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
 9.	Fare nuovamente clic su **Add Rule**.
 10.	Selezionare **Send Claims Using a Custom Rule** e fare clic su **Next**.
@@ -219,13 +222,13 @@ Se si vuole collegare il sito Web pubblicato al debugger (ad esempio se è neces
 
 	![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)
 
-	Per informazioni dettagliate sui passaggi da eseguire per l'attestazione ID nome temporanea sopra, vedere [Identificatori di nome nelle asserzioni SAML](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
+	Per informazioni dettagliate sui passaggi da eseguire per l'attestazione ID nome temporanea di cui sopra, vedere il post relativo agli [identificatori di nome nelle asserzioni SAML](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
 12.	Fare clic su **Apply** nella finestra di dialogo **Edit Claim Rules**, che dovrebbe ora essere simile a quella riportata di seguito:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
-	> [AZURE.NOTE] Assicurarsi di ripetere questi passaggi per entrambi gli ambienti: quello di debug e quello del sito Web pubblicato.
+	> [AZURE.NOTE] Assicurarsi di ripetere questi passaggi sia per l'ambiente di debug che per l'app Web pubblicata.
 
 <a name="bkmk_test"></a>
 ## Testare l'autenticazione federata per la propria applicazione
@@ -234,13 +237,13 @@ Si è ora pronti per testare la logica di autenticazione dell'applicazione in AD
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
 
-Per testare l'autenticazione nel debugger, sarà sufficiente premere `F5`. Se si vuole testare l'autenticazione nel sito Web pubblicato, passare all'URL del sito.
+Per testare l'autenticazione nel debugger, sarà sufficiente premere 'F5'. Se si desidera testare l'autenticazione nell'app Web pubblicata, passare all'URL dell'app.
 
 Dopo il caricamento dell'applicazione Web, fare clic su **Accedi**. Dovrebbe ora venire visualizzata una finestra di dialogo di accesso o la pagina di accesso presentata da ADFS, a seconda del metodo di autenticazione scelto da ADFS. Di seguito è riportato ciò che viene visualizzato in Internet Explorer 11.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-Dopo avere eseguito l'accesso come un utente nel dominio AD della distribuzione di ADFS, dovrebbe venire visualizzata nuovamente la home page con **Hello, <Nome utente>!** in alto a destra. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
+Dopo l'accesso come utente nel dominio AD della distribuzione di ADFS, dovrebbe visualizzarsi nuovamente la home page con **Hello, <Nome utente>!** in alto a destra. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -250,17 +253,17 @@ Finora, sono stati raggiunti gli obiettivi seguenti:
 - ADFS ha correttamente autenticato un utente AD e ha reindirizzato l'utente alla home page dell'applicazione
 - ADFS ha correttamente inviato l'attestazione basata su nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) all'applicazione, come indicato dal fatto che il nome utente viene visualizzato in alto a destra. 
 
-Se l'attestazione basata su nome fosse stata mancante, sarebbe stato visualizzato solo **Hello, !**. Se si verifica nel file Views\Shared\_LoginPartial.cshtml, si noterà che viene usato `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta `System.Security.Claims.Current.Claims`.
+Se l'attestazione basata su nome fosse stata mancante, sarebbe stato visualizzato solo **Hello, !**. Se si esamina il file Views\Shared\_LoginPartial.cshtml, si noterà che viene usato  `User.Identity.Name` per la visualizzazione del nome utente. Come già accennato, ASP.NET attiva questa proprietà con l'attestazione nome dell'utente autenticato, se disponibile nel token SAML. Per visualizzare tutte le attestazioni inviate da ADFS, inserire un punto di interruzione in Controllers\HomeController.cs, nel metodo di azione Index. Dopo l'autenticazione dell'utente, controllare la raccolta  `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
 
 <a name="bkmk_authorize"></a>
 ## Autorizzare utenti per controller o azioni specifiche
 
-Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ruolo nella configurazione dell'attendibilità della relying party, è ora possibile usarle direttamente nell'effetto `[Authorize(Roles="...")]` per controller e azioni. In un'applicazione line-of-business in cui si usa il modello Create-Read-Update-Delete (CRUD) è possibile autorizzare ruoli specifici per accedere a ogni azione. Per il momento, si sperimenterà questa funzionalità nel controller Home esistente.
+Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ruolo nella configurazione dell'attendibilità della relying party, è ora possibile usarle direttamente nella decoration [Authorize(Roles="...")] per controller e azioni. In un'applicazione line-of-business in cui si usa il modello Create-Read-Update-Delete (CRUD) è possibile autorizzare ruoli specifici per accedere a ogni azione. Per il momento, si sperimenterà questa funzionalità nel controller Home esistente.
 
 1. Aprire Controllers\HomeController.cs.
-2. Decorare i metodi di azione `About` e `Contact` in modo simile a quanto illustrato di seguito, usando e appartenenze ai gruppi di sicurezza di cui dispone l'utente autenticato.  
+2. Assegnare i metodi di azione  `About` e  `Contact` in modo simile a quanto illustrato di seguito, usando le appartenenze ai gruppi di sicurezza di cui dispone l'utente autenticato.  
 	<pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
     public ActionResult About()
@@ -279,9 +282,9 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
     }
 	</pre>
 
-	Poiché nell'ambiente ADFS in questo esempio è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in `About`. Per `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
+	Poiché nell'ambiente lab ADFS è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in  `About`. Per  `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
 
-3. Avviare il debugger digitando `F5` ed eseguire l'accesso, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina `~/About/Index` correttamente, se l'utente autenticato è autorizzato per quell'azione.
+3. Avviare il debugger premendo 'F5' e accedere, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina '~/About/Index' correttamente, se l'utente autenticato è autorizzato per tale azione.
 4. Ora fare clic su **Contact**, che nel caso di questo esempio non autorizza **Test User** per l'azione. Tuttavia, il browser viene reindirizzato ad ADFS, che visualizzerà un messaggio analogo al seguente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
@@ -295,7 +298,7 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
 	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
 	</pre>
 
-	Il motivo di ciò è che, per impostazione predefinita, MVC restituisce un codice 401 Unauthorized quando i ruoli di un utente non sono autorizzati. Questo attiva una richiesta di ri-autenticazione al provider di identità (ovvero ADFS). Poiché l'utente è già autenticato, ADFS torna alla stessa pagina, che a sua volta invia un nuovo codice 401, creando un ciclo di reindirizzamento. Verrà sovrascritto il metodo AuthorizeAttribute `HandleUnauthorizedRequest` con logica semplice visualizzare qualcosa di più sensato di un continuo ciclo di reindirizzamento.
+	Il motivo di ciò è che, per impostazione predefinita, MVC restituisce un codice 401 Unauthorized quando i ruoli di un utente non sono autorizzati. Questo attiva una richiesta di ri-autenticazione al provider di identità (ovvero ADFS). Poiché l'utente è già autenticato, ADFS torna alla stessa pagina, che a sua volta invia un nuovo codice 401, creando un ciclo di reindirizzamento. Verrà eseguito l'override del metodo  `HandleUnauthorizedRequest` di AuthorizeAttribute con una logica semplice per visualizzare qualcosa di sensato anziché continuare il ciclo di reindirizzamento.
 
 5. Creare un file nel progetto denominato AuthorizeAttribute.cs, quindi incollare in tale file il codice di seguito.
 
@@ -322,31 +325,35 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
 		    }
 		}
 
-	Il codice di override invia HTTP 403 (Forbidden) invece di HTTP 401 (Unauthorized) per i cai in cui vi è autenticazione ma non autorizzazione.
+	Il codice di override invia HTTP 403 (accesso negato) invece di HTTP 401 (non autorizzato) per i casi in cui vi è autenticazione ma non autorizzazione.
 
-6. Eseguire nuovamente il debug con `F5`. Facendo clic su **Contact** verrà visualizzato un messaggio di errore più informativo (anche se graficamente meno elegante):
+6. Eseguire nuovamente il debug con 'F5'. Facendo clic su **Contact** verrà visualizzato un messaggio di errore più informativo (anche se graficamente meno elegante):
 
 	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
-7. Pubblicare nuovamente l'applicazione nel sito Web di Azure, quindi testare il comportamento dell'applicazione live.
+7. Pubblicare nuovamente l'applicazione nelle app Web di Servizio app di Azure, quindi testare il comportamento dell'applicazione attiva.
 
 <a name="bkmk_data"></a>
 ## Connettersi ai dati locali
 
-Un motivo per cui si potrebbe voler implementare la propria applicazione line-of-business in ADFS anziché in Azure Active Directory potrebbe essere correlato a questioni di conformità nella conservazione dei dati dell'organizzazione all'esterno dell'organizzazione stessa. Questo può anche significare che il sito Web di Azure deve accedere a database locali, poiché non si è autorizzati a usare il [database SQL](http://azure.microsoft.com/services/sql-database/) come livello dati per i siti Web.
+Un motivo per cui si potrebbe voler implementare la propria applicazione line-of-business in ADFS anziché in Azure Active Directory potrebbe essere correlato a questioni di conformità nella conservazione dei dati dell'organizzazione all'esterno dell'organizzazione stessa. Questo può anche significare che l'app Web in Azure deve accedere ai database locali, poiché non si è autorizzati a usare [Database SQL](/services/sql-database/) come livello dati per le app Web.
 
-Siti Web di Azure supporta l'accesso di database locali mediante l'impiego di due approcci: [connessioni ibride](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview/) e [reti virtuali](http://azure.microsoft.com/documentation/articles/web-sites-integrate-with-vnet/). Per altre informazioni, vedere la pagina relativa all'[uso dell'integrazione VNET e delle connessioni ibride con Siti Web di Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Le app Web di Servizio app di Azure supportano l'accesso ai database locali mediante due approcci: [connessioni ibride](integration-hybrid-connection-overview.md) e [reti virtuali](web-sites-integrate-with-vnet.md). Per altre informazioni, vedere il post relativo all'[uso dell'integrazione con una rete virtuale e delle connessioni ibride con le app Web di Servizio app di Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Altre risorse
 
-- [Proteggere l'applicazione con SSL e l'attributo Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Autenticare e autorizzare gli utenti nelle applicazioni LOB in Siti Web di Azure](web-sites-authentication-authorization.md)
-- [Creare un'applicazione line-of-business ASP.NET MVC in Siti Web di Azure che esegue l'autenticazione con Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
+- [Protezione dell'applicazione con SSL e l'attributo Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+- [Utilizzare Active Directory per l'autenticazione in Servizio app di Azure](web-sites-authentication-authorization.md)
+- [Creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione di Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 - [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Blog di Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Eseguire la migrazione di un progetto Web di VS2013 da WIF a Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Panoramica di Active Directory Federation Services](http://technet.microsoft.com/ library/hh831502.aspx)
+- [Informazioni generali su Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx)
 - [Specifica WS-Federation 1.1](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
 
-<!--HONumber=45--> 
+## Modifiche apportate
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Servizio app di Azure e relativo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida sul passaggio dal vecchio al nuovo portale, vedere: [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+<!--HONumber=52-->

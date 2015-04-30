@@ -5,13 +5,11 @@
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
-  Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure.
+	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure.
 
 3. Interrompere il debug e cambiare il progetto di avvio predefinito nella soluzione Windows universale sostituendolo con l'app di Windows Phone Store, quindi premere di nuovo F5.
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
-  Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
-
-
-<!--HONumber=42-->
+	Si noti che i dati salvati dal passaggio precedente saranno caricati dal servizio mobile dopo l'avvio dell'app.
+<!--HONumber=52-->

@@ -6,12 +6,12 @@
 	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
@@ -33,9 +33,9 @@
 
 Per completare questa esercitazione, è necessario disporre di [Xamarin.Android], che installa Xamarin Studio e un plug-in di Visual Studio (in Windows), nonché della piattaforma Android più recente. È necessario Android 4.2 SDK o una versione successiva. 
 
-Il progetto di Guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Questo progetto richiede Android 4.2 o versione successiva, invece l'SDK di Servizi mobili richiede solo Android 2.2 o versione successiva.
+Il progetto di Guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Questo progetto richiede Android 4.2 o versioni successive, mentre l'SDK di Servizi mobili richiede solo Android 2.2 o versioni successive.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -49,7 +49,7 @@ In questa sezione si creerà una nuova app di Xamarin.Android connessa al serviz
 
 1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
-2. Nella scheda Avvio rapido fare clic su **Xamarin.Android** in **Scegli piattaforma** ed espandere **Crea una nuova app Android**.
+2. Nella scheda Guida introduttiva fare clic su **Xamarin.Android** in **Scegli una piattaforma** ed espandere **Crea una nuova app Android**.
 
 	![][6]
 
@@ -59,7 +59,7 @@ In questa sezione si creerà una nuova app di Xamarin.Android connessa al serviz
 
 3. Fare clic su **Crea tabella TodoItem** per creare una tabella in cui archiviare i dati dell'app.
 
-4. In **Scaricare ed eseguire l'applicazione** fare clic su **Download**. 
+4. In **Scaricare ed eseguire l'applicazione** fare clic su **Scarica**. 
 
 	Verrà scaricato il progetto per l'applicazione _To do list_ di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
@@ -79,14 +79,14 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	> [AUZRE.NOTE] Per poter eseguire il progetto nell'emulatore di Android, è necessario definire almeno un dispositivo AVD (Android Virtual Device). Usare AVD Manager per creare e gestire questi dispositivi.
 
-4. Nell'app digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic su **Add**.
+4. Nell'app, digitare un testo significativo, ad esempio _Completare l'esercitazione_, quindi fare clic su **Add**.
 
 	![][10]
 
 	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
 	> [AZURE.NOTE] 
-   	> È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati trovati nel file ToDoActivity.cs in C#.
+   	> È possibile esaminare il codice che accede al servizio mobile per eseguire query e inserire i dati trovati nel file ToDoActivity.cs in C#.
 
 6. Tornare al portale di gestione e fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItems**.
 
@@ -100,7 +100,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili: 
 
 * [Introduzione alla sincronizzazione dei dati offline]
-  <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+  <br/>Informazioni su come l'avvio rapido usa la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
 * [Introduzione all'autenticazione]
   <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
@@ -131,15 +131,13 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 
 <!-- URLs. -->
-[Introduzione ai dati]: /it-it/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Introduzione alla sincronizzazione dei dati offline]: /it-it/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[Introduzione all'autenticazione]: /it-it/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Introduzione alle notifiche push]: /it-it/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introduzione alla sincronizzazione dei dati offline]: mobile-services-xamarin-android-get-started-offline-data.md
+[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[WindowsAzure.com]: http://azure.microsoft.com/
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Creare entità ContentKey mediante .NET" 
 	description="Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset." 
 	services="media-services" 
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Creare entità ContentKey mediante .NET
+#Creare entità ContentKey mediante .NET
 
-Questo articolo fa parte della serie [Flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e il [flusso di lavoro di streaming live di Servizi multimediali](media-services-live-streaming-workflow.md) .  
+Questo articolo fa parte della serie [Flusso di lavoro Video On Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e [Flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).  
 
 Servizi multimediali consente di creare nuovi asset crittografati e distribuirli. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
-Quando si crea un nuovo asset (ad esempio, prima di [caricare i file](media-services-dotnet-upload-files.md)), è possibile specificare le opzioni di crittografia seguenti: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Quando si crea un nuovo asset (ad esempio, prima di [caricare file](media-services-dotnet-upload-files.md)), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
 Quando si distribuiscono asset ai client, è possibile [configurarli per la crittografia dinamica](media-services-dotnet-configure-asset-delivery-policy.md) con una delle due seguenti opzioni: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
@@ -31,7 +31,7 @@ Gli asset crittografati devono essere associati alle entità **ContentKey**. Que
 
 >[AZURE.NOTE] Quando si crea un nuovo asset **StorageEncrypted** mediante l'SDK di Servizi multimediali per .NET, l'entità **ContentKey** viene creata automaticamente e collegata all'asset.
 
-## ContentKeyType
+##ContentKeyType
 
 Uno dei valori che è necessario impostare quando si crea una chiave simmetrica è quello relativo al tipo. È possibile scegliere uno dei seguenti valori. 
 
@@ -67,9 +67,9 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
         EnvelopeEncryption = 4
     }
 
-## <a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
+##<a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 
-Il frammento di codice seguente crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
+Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
@@ -99,15 +99,15 @@ Il frammento di codice seguente crea una chiave simmetrica con tipo di crittogra
         return randomBytes;
     }
 
-chiamare
+call
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-## <a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common    
+##<a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common    
 
-Il frammento di codice seguente crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
+Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
@@ -139,7 +139,8 @@ Il frammento di codice seguente crea una chiave simmetrica con tipo di crittogra
 
         return returnValue;
     }
-chiamare
+call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-<!--HONumber=47-->
+
+<!--HONumber=52-->
