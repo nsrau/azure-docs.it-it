@@ -4,8 +4,7 @@
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
-	manager="timlt" 
-	/>
+	manager="timlt"/>
 
 <tags 
 	ms.service="service-bus" 

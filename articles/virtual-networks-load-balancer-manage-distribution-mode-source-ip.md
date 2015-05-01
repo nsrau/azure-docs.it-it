@@ -5,8 +5,7 @@
 	manager="jefco" 
 	pageTitle="Gestione: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)" 
 	description="Funzionalità di gestione per la modalità di distribuzione del servizio di bilanciamento del carico di Azure" 
-	services="virtual-network" 
- />
+	services="virtual-network" />
 
 <tags
 	ms.author="danecke"
@@ -15,16 +14,12 @@
 	ms.service="virtual-network"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
- />
+	ms.workload="infrastructure-services" />
+
+<!--HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
+
  
 # Gestione della rete virtuale: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
-=======
- /> 
- 
-# Gestione della rete virtuale: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 
 **Affinità IP di origine** (nota anche come **affinità sessione** o **affinità del client IP**) è una modalità di distribuzione del servizio di bilanciamento del carico di Azure che consente di associare connessioni da un singolo client a un singolo server ospitato di Azure, anziché distribuire ogni connessione client in modo dinamico ai diversi server ospitati di Azure (comportamento predefinito del servizio di bilanciamento carico).
 

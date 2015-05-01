@@ -4,7 +4,6 @@
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
 	authors="RickSaling" 
-	Writer="ricksal" 
 	manager="dwrede" 
 	editor=""/>
 

@@ -1,10 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Chiamata di un'API personalizzata da un client di Windows Store - Servizi mobili" 
 	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Windows Store che usa Servizi mobili di Microsoft Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	Writer="glenga" 
 	manager="dwrede" 
 	editor=""/>
 

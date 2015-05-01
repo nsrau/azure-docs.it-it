@@ -1,9 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="Usare Servizi mobili per caricare i dati nell'archiviazione BLOB (iOS) | Servizi mobili" 
 	description="Informazioni su come usare Servizi mobili per caricare i dati nell'archiviazione BLOB di Azure." 
 	documentationCenter="ios" 
 	authors="ysxu" 
-	Writer="yuaxu" 
 	manager="dwrede" 
 	services="mobile-services, storage" 
 	editor=""/>

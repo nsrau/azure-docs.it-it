@@ -1,10 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Chiamare un'API personalizzata da un client HTML - Servizi mobili" 
 	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app HTML che usa Servizi mobili di Microsoft Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	Writer="jparrel" 
 	manager="dwrede" 
 	editor=""/>
 

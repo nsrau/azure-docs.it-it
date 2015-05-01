@@ -4,8 +4,7 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
-	manager="wpickett" 	
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 

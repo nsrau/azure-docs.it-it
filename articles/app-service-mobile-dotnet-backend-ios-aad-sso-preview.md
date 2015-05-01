@@ -4,15 +4,16 @@
         documentationCenter="Mobile" 
         authors="mattchenderson" 
         services="app-service\mobile" 
-        manager="dwrede" />
+        manager="dwrede"/>
 
-<tags ms.service="app-service"
+<tags 
+	ms.service="app-service"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="02/20/2015" 
-	ms.author="mahender" />
+	ms.author="mahender"/>
 
 # Aggiungere Single Sign-On di Azure Active Directory alla propria app iOS
 

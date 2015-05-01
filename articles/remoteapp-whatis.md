@@ -1,5 +1,5 @@
-﻿<properties 
-	ppageTitle="Che cos'è RemoteApp?" 
+<properties 
+	pageTitle="Che cos'è RemoteApp?" 
 	description="Informazioni su Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
