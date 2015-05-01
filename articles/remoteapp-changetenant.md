@@ -46,4 +46,5 @@ Se si desidera usare un tenant differente, completare i seguenti passaggi per mo
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in RemoteApp.
 
+
 <!--HONumber=52-->

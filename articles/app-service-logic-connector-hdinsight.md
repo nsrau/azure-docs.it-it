@@ -123,4 +123,5 @@ HDInsight Connector può essere usato solo come azione in un'app per la logica. 
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
+
 <!--HONumber=52-->

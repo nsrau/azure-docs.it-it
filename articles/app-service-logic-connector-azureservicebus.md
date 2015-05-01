@@ -79,4 +79,5 @@ Dopo aver creato l'app per le API, è possibile usare Azure Service Bus Connecto
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
+
 <!--HONumber=52-->

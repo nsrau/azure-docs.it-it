@@ -41,4 +41,5 @@ D: Servizi multimediali di Azure supporta anche l'archiviazione di immagini?
 
 R: Se si desidera archiviare immagini JPEG o PNG, è consigliabile memorizzarle nell'Archiviazione BLOB di Azure. Aggiungerle all'account di Servizi multimediali non comporta infatti alcun vantaggio, a meno che non si desideri tenerle associate ai propri asset audio o video o sia necessario usarle come sovrimpressioni nel codificatore video. Il codificatore di Servizi multimediali supporta infatti la sovrimpressione di immagini nella parte superiore dei video ed è per questo che i formati JPEG e PNG sono elencati tra i formati di input supportati. Per altre informazioni, vedere [Creazione di sovrimpressioni](https://msdn.microsoft.com/library/azure/dn640496.aspx).
 
+
 <!--HONumber=52-->

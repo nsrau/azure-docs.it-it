@@ -58,4 +58,5 @@ Usare questi passaggi per importare la nuova immagine RemoteApp:
 
 Ora è possibile creare la nuova raccolta, [cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md), in base alle proprie esigenze.
 
+
 <!--HONumber=52-->

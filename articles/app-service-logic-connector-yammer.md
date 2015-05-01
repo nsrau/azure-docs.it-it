@@ -100,4 +100,5 @@ Dopo aver creato l'app per le API, è possibile usare Yammer Connector come trig
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
+
 <!--HONumber=52-->

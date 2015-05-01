@@ -56,4 +56,5 @@ Se sono presenti entrambi i problemi, sarà necessario installare SQL Server 200
 Dopo l'installazione del Service Pack, i dati di Operational Insights per il server dovrebbero essere visualizzati entro 24 ore.
 
 
+
 <!--HONumber=52-->

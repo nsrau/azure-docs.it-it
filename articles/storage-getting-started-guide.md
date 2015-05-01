@@ -112,4 +112,5 @@ Per altre informazioni su queste funzionalità, visitare i seguenti collegamenti
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
+
 <!--HONumber=52-->

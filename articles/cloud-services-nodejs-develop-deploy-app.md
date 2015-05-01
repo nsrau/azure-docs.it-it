@@ -217,4 +217,5 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [Come eliminare un account di archiviazione da una sottoscrizione di Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->

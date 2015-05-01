@@ -101,4 +101,5 @@ Questo argomento conclude la serie dedicata all'uso di Servizi multimediali di A
 [Creazione di applicazioni con l'SDK di Servizi multimediali per .NET]: http://go.microsoft.com/fwlink/?linkid=247821
 [Forum su Servizi multimediali]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
+
 <!--HONumber=52-->

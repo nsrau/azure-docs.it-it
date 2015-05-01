@@ -106,4 +106,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Portale di gestione]: https://manage.windowsazure.com/
 [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
+
 <!--HONumber=52-->

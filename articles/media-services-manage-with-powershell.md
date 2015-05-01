@@ -106,4 +106,5 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
 
+
 <!--HONumber=52-->

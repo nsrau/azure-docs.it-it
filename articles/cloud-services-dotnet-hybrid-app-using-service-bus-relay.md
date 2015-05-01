@@ -739,4 +739,5 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
+
 <!--HONumber=52-->

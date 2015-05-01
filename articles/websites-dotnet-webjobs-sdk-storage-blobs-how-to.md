@@ -229,4 +229,5 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
+
 <!--HONumber=52-->

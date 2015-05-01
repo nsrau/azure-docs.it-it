@@ -245,4 +245,5 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 [Introduzione al dispositivo fisico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
 
+
 <!--HONumber=52-->

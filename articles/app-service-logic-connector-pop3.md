@@ -75,4 +75,5 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
+
 <!--HONumber=52-->

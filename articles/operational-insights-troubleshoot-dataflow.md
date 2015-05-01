@@ -121,4 +121,5 @@ Il drill-down passa alla ricerca e mostra il timestamp dei dati indicizzati più
 
 Questa pagina include anche informazioni sulle misurazioni (queste informazioni non usano l'indice di ricerca ma il sistema di fatturazione e vengono aggiornate ogni due ore circa) relative alle quantità di dati inviati al servizio suddivise in base ai diversi Intelligence Pack.
 
+
 <!--HONumber=52-->

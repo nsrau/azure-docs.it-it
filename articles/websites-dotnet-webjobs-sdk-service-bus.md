@@ -156,4 +156,5 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso del bus di servizio di Azure. Per altre informazioni su come usare la funzionalità Processi Web di Azure e WebJobs SDK, vedere [Risorse per Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
+
 <!--HONumber=52-->

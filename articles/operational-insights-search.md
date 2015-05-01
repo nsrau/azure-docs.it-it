@@ -52,4 +52,5 @@ Le query di ricerca più comuni sono visualizzate nella maggior parte delle pagi
 - [Equivalenti della funzione di ricerca di Operational Insights rispetto alle regole di avviso relative agli eventi del Management Pack di IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Raccolta di query di ricerca utili di Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

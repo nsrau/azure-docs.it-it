@@ -489,4 +489,5 @@ Aggiungere criteri di autorizzazione alla chiave simmetrica, come mostrato [qui]
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
 
+
 <!--HONumber=52-->

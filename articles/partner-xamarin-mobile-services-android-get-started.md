@@ -140,4 +140,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portale di gestione]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

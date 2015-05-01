@@ -7,4 +7,5 @@ Espandere la distribuzione desiderata:
 Fare clic su **Visualizza registro** per visualizzare l'output dello script di distribuzione personalizzato:
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
+
 <!--HONumber=52-->

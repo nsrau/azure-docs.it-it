@@ -31,4 +31,5 @@ Per ottenere subito altre informazioni, guardare un video rapido su come [creare
 Per eventuali commenti, pubblicare le domande [nei forum di discussione](http://feedback.azure.com/forums/247748-azure-remoteapp). Se si dispone di un [piano di supporto di Azure](http://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum relativo a commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp).  
 
 
+
 <!--HONumber=52-->

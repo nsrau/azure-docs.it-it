@@ -97,4 +97,5 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 
+
 <!--HONumber=52-->

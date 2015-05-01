@@ -161,4 +161,5 @@ Grazie allo strumento di proiezione è possibile visualizzare le tendenze cronol
 4. Nello strumento **Projection** spostare il dispositivo di scorrimento per visualizzare una proiezione della capacità che verrà usata nella data scelta.
 
 
+
 <!--HONumber=52-->

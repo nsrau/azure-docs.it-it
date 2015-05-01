@@ -39,4 +39,5 @@
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
+
 <!--HONumber=52-->

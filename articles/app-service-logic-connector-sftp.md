@@ -116,4 +116,5 @@ Dopo aver creato l'app per le API, è possibile usare SFTP Connector come trigge
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
+
 <!--HONumber=52-->

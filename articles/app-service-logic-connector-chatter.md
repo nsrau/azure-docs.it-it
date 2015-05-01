@@ -95,4 +95,5 @@ Dopo aver creato l'app per le API, è possibile usare Chatter Connector come tri
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
+
 <!--HONumber=52-->

@@ -133,4 +133,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
+
 <!--HONumber=52-->

@@ -56,4 +56,5 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 3. Se un gruppo di gestione non invia dati, è possibile fare clic su **Troubleshoot** per ottenere informazioni dettagliate sulla risoluzione dei problemi. Se non si vuole più mantenere un gruppo di gestione e tutti gli agenti che vi fanno riferimento, fare clic su **Remove**.
 
 
+
 <!--HONumber=52-->

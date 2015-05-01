@@ -30,4 +30,5 @@ Scegliere di visualizzare la guida introduttiva implementata con .NET o REST.
 [Per iniziare con .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
+
 <!--HONumber=52-->

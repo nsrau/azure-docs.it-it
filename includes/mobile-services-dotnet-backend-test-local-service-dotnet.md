@@ -18,4 +18,5 @@ In questa sezione la nuova app verrà testata nel servizio mobile in esecuzione 
 4. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, in **Insert a TodoItem**, quindi fare clic su **Save**.
 
 	Verrà inviata una richiesta POST al servizio mobile locale. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
+
 <!--HONumber=52-->

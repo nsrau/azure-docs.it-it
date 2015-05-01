@@ -100,4 +100,5 @@ Ad esempio, presupponendo dimensioni di caricamento giornaliere di 100 KB per og
 Per analizzare i dati di server in diverse posizioni geografiche, considerare la configurazione di un gruppo di gestione per posizione. Questo approccio può migliorare le prestazioni per il trasferimento dei dati dall'agente al gruppo di gestione.
 
 
+
 <!--HONumber=52-->

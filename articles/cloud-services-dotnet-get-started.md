@@ -814,4 +814,5 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
 * [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

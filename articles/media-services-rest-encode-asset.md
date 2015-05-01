@@ -122,4 +122,5 @@ Dopo avere creato un processo per la codifica di un asset, passare all'argomento
 [Come controllare lo stato dei processi]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Set di impostazioni per Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
+
 <!--HONumber=52-->

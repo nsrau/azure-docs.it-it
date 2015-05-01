@@ -5,4 +5,5 @@ Dopo la propagazione dei record per il nome di dominio, sarà possibile usare il
 Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è necessario eseguire questa operazione per consentire il funzionamento della risoluzione dei nomi, perché il nome di dominio personalizzato viene instradato a Gestione traffico. Gestione traffico viene quindi instradato all'app Web. Usare le informazioni della sezione [Aggiungere o eliminare endpoint](http://msdn.microsoft.com/library/windowsazure/hh744839.aspx) per aggiungere l'app Web come endpoint nel profilo di Gestione traffico.
 
 > [AZURE.NOTE] Se l'app Web non è elencata quando si aggiunge un endpoint, verificare che sia configurata per la modalità di piano di servizio app **Standard**. Per usare Gestione traffico, è necessario che l'app Web sia impostata sulla modalità **Standard**.
+
 <!--HONumber=52-->

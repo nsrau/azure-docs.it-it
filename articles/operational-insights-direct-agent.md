@@ -82,4 +82,5 @@ Se l'ambiente include server proxy o firewall che limitano l'accesso a Internet,
 - [Post di blog: Abilitare Operational Insights per Macchine virtuali di Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

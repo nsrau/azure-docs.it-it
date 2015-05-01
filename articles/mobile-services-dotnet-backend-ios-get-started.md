@@ -105,4 +105,5 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end JavaScript]: mobile-services-ios-get-started.md
 
+
 <!--HONumber=52-->

@@ -18,4 +18,5 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
    	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+
 <!--HONumber=52-->

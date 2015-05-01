@@ -395,4 +395,5 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 ##Passaggi successivi
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md) .
 
+
 <!--HONumber=52-->

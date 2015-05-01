@@ -137,4 +137,5 @@ Questo è un elenco parziale dei formati non compressi supportati.
 <tr><td>Formato YVU9 prodotto da Indeo</td><td>Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.</td></tr>
 </table>
 
+
 <!--HONumber=52-->

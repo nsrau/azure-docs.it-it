@@ -171,4 +171,5 @@ In questa sezione viene descritta una semplice app per la logica che esegue il p
 [Configurazione del Client Oracle]: https://msdn.microsoft.com/it-it/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->

@@ -120,4 +120,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Versione JavaScript]: mobile-services-windows-store-get-started.md
 [Introduzione ai dati in Servizi mobili tramite Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
+
 <!--HONumber=52-->

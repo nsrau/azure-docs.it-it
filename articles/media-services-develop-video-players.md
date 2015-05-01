@@ -65,4 +65,5 @@ Gli annunci possono essere inseriti in qualsiasi punto della sequenza temporale 
 
 Per informazioni sul supporto di sottotitoli codificati e annunci nei video in streaming live, vedere, [Sottotitoli codificati supportati e standard per l'inserimento di annunci](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
+
 <!--HONumber=52-->

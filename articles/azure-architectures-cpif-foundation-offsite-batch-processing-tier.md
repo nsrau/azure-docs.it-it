@@ -53,4 +53,5 @@ Questo documento illustra un modello per l'elaborazione batch esterna che usa le
 [Livello Ricerca di Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) 
 
 
+
 <!--HONumber=52-->

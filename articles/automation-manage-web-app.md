@@ -42,4 +42,5 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 
 * Vedere l'[esercitazione introduttiva](automation-create-runbook-from-samples.md) di Automazione di Azure
 
+
 <!--HONumber=52-->

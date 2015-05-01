@@ -87,4 +87,5 @@ Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi ope
 
 Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
 
+
 <!--HONumber=52-->

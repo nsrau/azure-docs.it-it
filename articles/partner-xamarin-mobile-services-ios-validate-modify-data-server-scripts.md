@@ -147,4 +147,5 @@ Gli script del server vengono inoltre usati per l'autorizzazione degli utenti e 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
 
+
 <!--HONumber=52-->

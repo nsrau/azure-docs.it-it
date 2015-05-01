@@ -106,4 +106,5 @@ Per le esercitazioni complete, visitare la pagina delle [esercitazioni nel Centr
 [Servizio app Prezzi]: /pricing/details/app-service/
 [Scalare un'app Web in Servizio app di Azure]: web-sites-scale.md
 
+
 <!--HONumber=52-->

@@ -357,4 +357,5 @@ Il metodo **Delete** consente di eliminare il processo, nonché le risorse secon
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
+
 <!--HONumber=52-->

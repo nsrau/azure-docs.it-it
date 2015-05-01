@@ -495,4 +495,5 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione di asset di Servizi multimediali su più account di archiviazione]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Gestione delle notifiche dei processi di Servizi multimediali]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

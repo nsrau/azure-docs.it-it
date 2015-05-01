@@ -91,4 +91,5 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [Definizione delle API di OneDrive]: https://msdn.microsoft.com/it-it/library/dn974227.aspx
 
+
 <!--HONumber=52-->

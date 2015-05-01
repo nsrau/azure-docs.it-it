@@ -93,4 +93,5 @@ Per altre informazioni sulle app di Windows universali, vedere [Supporto di piat
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portale di gestione]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

@@ -52,4 +52,5 @@ Dopo l'installazione, è possibile visualizzare il riepilogo delle modifiche rel
 
 4. In una pagina di ricerca qualsiasi è possibile **esportare** i dettagli dei risultati in un file con estensione CSV, che può essere aperto in Excel o in un'altra applicazione per la visualizzazione o la modifica.
 
+
 <!--HONumber=52-->

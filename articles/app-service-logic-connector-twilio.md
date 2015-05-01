@@ -77,4 +77,5 @@ Dopo aver creato l'app per le API, è possibile usare Twilio Connector come trig
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
+
 <!--HONumber=52-->

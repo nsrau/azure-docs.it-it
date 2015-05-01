@@ -219,4 +219,5 @@ Prendere nota delle seguenti informazioni:
 Come illustrato nell'esempio di codice precedente, se si imposta **deleteAfterPlay** su **YES**, l'annuncio viene riprodotto solo una volta. Se invece si imposta **deleteAfterPlay** su **NO**, l'annuncio viene riprodotto in modo continuo, ovvero "a più riproduzioni".
 ### Per altre informazioni, fare riferimento al wiki di [Media Player Framework di Azure](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
+
 <!--HONumber=52-->

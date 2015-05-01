@@ -55,4 +55,5 @@ Se si verifica uno degli errori riportati in precedenza, verificare quanto segue
 - Verificare che le credenziali per l'aggiunta a un dominio siano corrette o di disporre delle autorizzazioni per l'aggiunta a un dominio appropriate
 - Verificare che l'unità organizzativa sia formattata correttamente e non esista in Active Directory.
 
+
 <!--HONumber=52-->

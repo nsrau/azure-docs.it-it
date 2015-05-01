@@ -162,4 +162,5 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
+
 <!--HONumber=52-->

@@ -208,4 +208,5 @@ Insieme, la firma di accesso condiviso e i criteri di accesso archiviati devono 
 
 Per revocare l'accesso alle firme di accesso condiviso che usano lo stesso criterio di accesso archiviato, rimuovere il criterio archiviato dalla risorsa di archiviazione sovrascrivendo l'elenco dei criteri archiviati con un nuovo elenco che non contiene il nome del criterio. Per modificare le impostazioni di accesso di un criterio di accesso archiviato, sovrascrivere l'elenco dei criteri archiviati con un nuovo elenco contenente un criterio dello stesso nome con nuovi dettagli di controllo di accesso.
 
+
 <!--HONumber=52-->

@@ -14,4 +14,5 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
    	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
  	</div>
+
 <!--HONumber=52-->

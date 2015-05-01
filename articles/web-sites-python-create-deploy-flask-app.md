@@ -422,4 +422,5 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentazione di Flask]: http://flask.pocoo.org/ 
 
+
 <!--HONumber=52-->

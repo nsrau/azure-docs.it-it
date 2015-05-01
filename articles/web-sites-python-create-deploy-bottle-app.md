@@ -421,4 +421,5 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
 
+
 <!--HONumber=52-->

@@ -274,4 +274,5 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi  `IM
 [Azure Mobile App SDK per NuGet]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [NuGet SQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

@@ -162,4 +162,5 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Condivisione di risorse tra le origini]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
+
 <!--HONumber=52-->

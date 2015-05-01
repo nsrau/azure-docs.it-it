@@ -109,4 +109,5 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Analisi dei dati dei sensori con Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
 
+
 <!--HONumber=52-->

@@ -93,4 +93,5 @@ Dopo aver creato l'app per le API, è possibile usare File Connector come trigge
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [Definizione delle API di File Connector]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

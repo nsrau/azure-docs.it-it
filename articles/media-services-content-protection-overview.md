@@ -115,4 +115,5 @@ Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST*
 
 [content-protection]: ./media/media-services-content-protection/media-services-content-protection.png
 
+
 <!--HONumber=52-->

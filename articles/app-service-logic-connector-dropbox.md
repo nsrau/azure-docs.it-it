@@ -80,4 +80,5 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
+
 <!--HONumber=52-->

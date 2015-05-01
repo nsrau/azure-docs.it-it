@@ -37,4 +37,5 @@ RemoteApp usa un'immagine di Windows Server 2012 R2 per ospitare tutti i program
 - L'immagine deve essere preparata con SYSPREP usando i parametri **/oobe /generalize /shutdown** (NON usare il parametro **/mode:vm**).
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
 
+
 <!--HONumber=52-->

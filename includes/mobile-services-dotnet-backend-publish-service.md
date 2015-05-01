@@ -15,4 +15,5 @@ Dopo avere testato l'app rispetto al servizio mobile locale, la fase finale dell
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
 	Se la pubblicazione ha esito positivo, verrà visualizzata di nuovo la pagina di conferma, che indica che il servizio mobile è attivo e in esecuzione, questa volta in Azure.
+
 <!--HONumber=52-->

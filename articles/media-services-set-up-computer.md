@@ -36,4 +36,5 @@ Scegliere **.NET** o **API REST** per connettersi a livello di codice a Servizi 
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
+
 <!--HONumber=52-->

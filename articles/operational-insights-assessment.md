@@ -132,4 +132,5 @@ Prima di poter usare l'Intelligence Pack per la valutazione in Microsoft Azure O
 
 4. Effettuare le azioni correttive suggerite in **Suggested Actions**. Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
+
 <!--HONumber=52-->
