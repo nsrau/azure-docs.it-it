@@ -318,10 +318,11 @@ Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere dis
 - [Analisi dei sentimenti Twitter con HBase in HDInsight][hbase-twitter-sentiment]:
 istruzioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
-[hdinsight-hbase-overview]: ../hdinsight-hbase-overview/
-[hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

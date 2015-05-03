@@ -4,7 +4,7 @@
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
-	author="nitinme" 
+	authors="nitinme" 
 	documentationCenter=""/>
 
 <tags 
