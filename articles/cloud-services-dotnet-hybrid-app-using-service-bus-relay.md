@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Applicazione ibrida cloud/locale (.NET) - Azure" 
 	description="Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure." 
 	services="service-bus" 
@@ -21,9 +21,9 @@
 
 
 
-#Uso di Inoltro del bus di servizio per creare applicazioni ibride cloud/locali .NET
+# Uso di Inoltro del bus di servizio per creare applicazioni ibride cloud/locali .NET
 
-##Introduzione
+## Introduzione
 
 Microsoft Azure consente di sviluppare applicazioni cloud ibride con la stessa semplicità offerta da
 Visual Studio 2013 e Azure SDK gratuito per .NET. In questa guida si presuppone che l'utente non abbia mai usato Azure. In meno di 30 minuti si otterrà un'applicazione in esecuzione nel cloud e che usa più risorse di Azure.
@@ -37,7 +37,7 @@ Si apprenderà come:
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-##Vantaggi derivanti dall'uso di inoltro del bus di servizio con le soluzioni ibride
+## Vantaggi derivanti dall'uso di inoltro del bus di servizio con le soluzioni ibride
 
 Le soluzioni aziendali sono in genere costituite da una combinazione di codice personalizzato appositamente scritto in risposta a specifici requisiti aziendali e da funzionalità esistenti fornite da soluzioni e sistemi già implementati.
 
@@ -46,7 +46,7 @@ Da qualche tempo gli architetti di soluzioni hanno iniziato a usare il cloud per
 L' *Service Bus Relay* è progettato per i casi di uso in cui i
 servizi Web WCF (Windows Communication Foundation) vengono resi accessibili in modo sicuro a soluzioni che risiedono all'esterno del perimetro aziendale senza richiedere modifiche di notevole impatto all'infrastruttura di rete aziendale. Tali servizi di inoltro del bus di servizio sono comunque ospitati all'interno dell'ambiente esistente, ma delegano l'ascolto delle sessioni e delle richieste in ingresso al bus di servizio ospitato nel cloud. Il bus di servizio usa inoltre l'autenticazione della [firma di accesso condivisa](https://msdn.microsoft.com/library/dn170478.aspx) per proteggere tali servizi da accessi non autorizzati.
 
-##Scenario della soluzione
+## Scenario della soluzione
 
 In questa esercitazione si creerà un sito Web ASP.NET MVC che consentirà di visualizzare un elenco di prodotti nella pagina dell'inventario dei prodotti.
 
@@ -58,7 +58,7 @@ Di seguito è riportata una schermata relativa alla pagina iniziale dell'applica
 
 ![][1]
 
-##Configurare l'ambiente di sviluppo
+## Configurare l'ambiente di sviluppo
 
 Prima di iniziare a sviluppare l'applicazione Azure, è necessario ottenere gli strumenti idonei e configurare l'ambiente di sviluppo:
 
@@ -696,7 +696,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   
   
   
-  [Uso del pacchetto NuGet per Service Bus]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [uso del pacchetto NuGet del bus di servizio]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
@@ -738,6 +738,5 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
-
 
 <!--HONumber=52-->

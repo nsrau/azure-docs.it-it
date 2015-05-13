@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="In che modo può essere utile il servizio app per gli utenti di Servizi mobili?"
 	description="Informazioni sui vantaggi che il servizio app può portare ai progetti di Servizi mobili esistenti."
 	services="app-service\mobile"
@@ -18,8 +18,8 @@
 
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
 
-##Informazioni generali
-Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi sono tuttavia alcuni vantaggi per le app mobili, offerti dalla piattaforma di *servizi app di Azure*, ad oggi non disponibili in Servizi mobili:  
+##Panoramica
+Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi sono tuttavia alcuni vantaggi per le app per dispositivi mobili, offerti dalla piattaforma del *servizio app di Azure*, a oggi non disponibili in Servizi mobili:
 
 - Offerte semplificate e più economiche per app che includono client sia Web che mobili.
 - Nuove funzionalità host che includono processi Web, CName personalizzati e monitoraggio migliorato.
@@ -33,7 +33,7 @@ Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi
 - Funzionalità predefinite di gestione temporanea, backup, rollback e test in ambiente di produzione. 
 
 ## Nuove funzionalità di hosting
-Nei *servizi app di Azure* il codice back-end delle *app mobili* viene eseguito nello stesso contenitore usato per le app Web e per le API. È pertanto possibile sfruttare tutte le funzionalità disponibili in questo contenitore, comprese alcune di quelle non attualmente presenti in Servizi mobili: 
+Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili* viene eseguito nello stesso contenitore dell'app Web e dell'app per le API. È pertanto possibile sfruttare tutte le funzionalità disponibili in questo contenitore, comprese alcune di quelle non attualmente presenti in Servizi mobili:
 
 - Aggiunta di logica back-end in continua esecuzione tramite processi Web 
 - Garanzia che il codice back-end sia sempre in esecuzione
@@ -41,31 +41,31 @@ Nei *servizi app di Azure* il codice back-end delle *app mobili* viene eseguito 
 - Scalabilità geografica dell'app con Gestione traffico
 
 
-##Possibilità di connettere l'*app mobile* ad API SaaS
-Il *servizio app di Azure* semplifica la connessione dell'app mobile ad API SaaS come Office 365, Dynamics, Salesforce, SAP e altre ancora. Il *servizio app di Azure* offre autenticazione chiavi in mano per conto dell'utente e consente di effettuare Single Sign-On reale in tutte le API SaaS in uso, grazie all'associazione di token per API SaaS individuali alla propria identità primaria.
+##Connettere un'*app per dispositivi mobili* all'API SaaS
+Il *servizio app di Azure* semplifica la connessione dell'app per dispositivi mobili alle API SaaS, ad esempio Office 365, Dynamics, Salesforce, SAP, e altre ancora. Il *servizio app di Azure* offre un'esperienza di autenticazione chiavi in mano per conto dell'utente e consente di implementare l'autenticazione Single Sign-On in tutte le API SaaS in uso, grazie all'associazione di token per le singole API SaaS alla propria identità primaria.
 
 ##Accesso ai dati locali tramite reti virtuali
-Con Servizi mobili è oggi già possibile usare connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure*, è possibile usare la rete virtuale di Azure per il codice del back-end per app mobili.
+Con Servizi mobili è oggi già possibile usare connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure*, è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
 
-##Uso del linguaggio di back-end preferito
-Il *servizio app di Azure* offre un supporto più ampio e completo per le piattaforme degli sviluppatori tra cui Java, PHP e Python, oltre al supporto per .NET e Node.js già esistente in Servizi mobili.
+##Uso del linguaggio back-end preferito
+Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piattaforme di sviluppo tra cui Java, PHP e Python, oltre al supporto per .NET e Node.js già disponibile in Servizi mobili.
 
 ##Impostazione della scalabilità automatica
-In Servizi mobili, tutte le istanze del codice del back-end vengono eseguite in VM di piccole dimensioni. Il *servizio app di Azure* consente di selezionare le dimensioni delle VM da un set di opzioni molto più ampio. È anche possibile aumentare o eseguire la scalabilità orizzontale per gestire qualsiasi carico di lavoro dei clienti in ingresso, sulla base di varie metriche delle prestazioni. 
+Con Servizi mobili, tutte le istanze del codice back-end vengono eseguite in macchine virtuali del tipo Piccola. Il *servizio app di Azure* permette di selezionare le dimensioni delle macchine virtuali da un set di opzioni molto più ampio. È anche possibile aumentare il numero di istanze o scalare orizzontalmente per gestire qualsiasi carico di lavoro dei clienti in ingresso, in base a varie metriche delle prestazioni.
 
-##Sempre in controllo
-Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di avanzate funzionalità analitiche e di monitoraggio fornite da New Relic e AppInsights consentono di ottenere informazioni ancora più complete sulle prestazioni dell'app mobile. Con il *servizio app di Azure* è ora possibile configurare avvisi a livello di codice e tramite portale sulla base di una varietà di metriche delle prestazioni.
+##Tutto sotto controllo
+Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di avanzate funzionalità analitiche e di monitoraggio fornite da New Relic e AppInsights consentono di ottenere informazioni ancora più complete sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi a livello di codice e tramite portale in base a diverse metriche delle prestazioni.
 
 ##Asset sempre al sicuro
 Backup automatico del back-end e del database. Il codice e i dati sono sempre al sicuro in situazioni di emergenza e possono essere facilmente ripristinati, consentendo la conduzione del business in tutta serenità.
 
 ##Sviluppo, test, produzione
-Con il *servizio app di Azure* è ora possibile creare più ambienti privati di test e gestione temporanea per le app mobili. Questi possono essere usati per testare le app prima della distribuzione. Passaggio alla produzione con tempo di inattività pari a zero. Le app Web sono precaricate per garantire la miglior esperienza utente possibile.
+Con il *servizio app di Azure* è ora possibile creare più ambienti privati di test e staging per le app per dispositivi mobili. Usare questi ambienti per testare le app prima della distribuzione. Passaggio alla produzione con tempo di inattività pari a zero. Le app Web sono precaricate per garantire la miglior esperienza utente possibile.
 
 
 
-Quando il *servizio app di Azure* verrà reso generalmente disponibile, per chi sceglie di eseguire il passaggio, verrà fornita una soluzione per migrare in modo trasparente i servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare i *servizi app di Azure* e sfruttarne i vantaggi per il proprio servizio mobile esistente seguendo la relativa esercitazione. [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
+Al momento del passaggio dell'*app per dispositivi mobili del servizio app di Azure* alla fase di disponibilità generale, verrà fornita una soluzione per eseguire la migrazione dei servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare il *servizio app* e sperimentando i vantaggi nel proprio servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).**
 
 
 
-<!--HONumber=49-->
+<!--HONumber=52-->

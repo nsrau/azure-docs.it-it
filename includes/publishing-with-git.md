@@ -1,4 +1,4 @@
-﻿# Distribuzione continua tramite GIT in Servizio app di Azure
+# Distribuzione continua tramite GIT in Servizio app di Azure
 
 [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta la distribuzione continua a App Web da strumenti di repository e controllo del codice sorgente come BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. È possibile utilizzare questi strumenti per gestire il contenuto e il codice dell'applicazione e quindi effettuare il push delle modifiche all'app Web di Azure in modo rapido e immediato.
 
@@ -50,7 +50,7 @@ In App Web sono supportate applicazioni create in diversi linguaggi di programma
 
 		git commit -m "Adding index.html to the repository"
 
-	You should see output similar to the following:
+	L'output dovrebbe essere simile al seguente:
 
 		[master (root-commit) 369a79c] Adding index.html to the repository
 		 1 file changed, 1 insertion(+)
@@ -278,6 +278,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 * Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Centro per sviluppatori di Azure]: http://azure.microsoft.com/develop/overview/
+[Centro per sviluppatori Azure]: http://azure.microsoft.com/develop/overview/
 [Portale di Azure]: https://portal.azure.com
 [Sito Web Git]: http://git-scm.com
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -298,10 +299,15 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
 [git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
 [Creare un repository (GitHub)]: https://help.github.com/articles/create-a-repo
+[creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [Uso di Git con CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Creare un repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[creazione di repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Guida introduttiva - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
+[guida introduttiva di Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso di Dropbox per condividere i repository Git]: https://gist.github.com/trey/2722927
+[uso di Dropbox per la condivisione di repository Git]: https://gist.github.com/trey/2722927
 [Recapito continuo in Azure usando Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Distribuzione continua in Azure tramite Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione a Servizi cloud di Azure e ASP.NET" 
 	description="Informazioni sulla creazione di un'app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure." 
 	services="cloud-services, storage" 
@@ -51,7 +51,7 @@ Questa esercitazione mostra come eseguire front-end e back-end in un servizio cl
 
 ## Prerequisiti
 
-Nell'esercitazione si presuppone che si conoscano i [concetti di base relativi ai servizi cloud di Azure],(fundamentals-application-models.md#CloudServices) ad esempio la terminologia  *web role* e  *worker role*.  L'esercitazione presuppone anche che l'utente sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form. 
+Nell'esercitazione si presuppone che si conoscano i [concetti di base relativi ai servizi cloud di Azure](fundamentals-application-models.md#CloudServices), ad esempio la terminologia  *web role* e  *worker role*.  L'esercitazione presuppone anche che l'utente sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form. 
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per una valutazione gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -313,7 +313,7 @@ Il file  *ServiceConfiguration.Cloud.cscfg* invece include i valori immessi per 
 
 L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azure eseguirà il codice del ruolo di lavoro. La sezione [Passaggi successivi](#next-steps) include collegamenti ad altre informazioni sulla scalabilità orizzontale di un servizio cloud.
 
-###  Distribuzione del progetto in Azure
+### Distribuzione del progetto in Azure
 
 3.	In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto cloud **ContosoAdsCloudService**, quindi scegliere **Pubblica**.
 
@@ -813,6 +813,5 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Archiviazione di Azure](/documentation/services/storage/)
 * [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
 * [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
-
 
 <!--HONumber=52-->

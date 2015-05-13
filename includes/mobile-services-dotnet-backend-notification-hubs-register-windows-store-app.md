@@ -1,59 +1,59 @@
-﻿
 
-1. Se l'app non è ancora stata registrata, passare alla pagina relativa all'[invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
+1. Se l'app non è ancora stata registrata, passare alla pagina relativa all'[invio di app] nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **App name**.
+
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
 2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-   	Verrà creata una nuova registrazione a Windows Store per l'app.
+   Verrà creata una nuova registrazione a Windows Store per l'app.
 
 3. In Visual Studio aprire il progetto dell'app di Windows Store creato dopo aver completato l'esercitazione **Introduzione a Servizi mobili**.
 
-4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**. 
+4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, scegliere **Store** e quindi fare clic su **Associa applicazione a Store**.
 
-  	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
+  ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store** Wizard.
+   Verrà visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
 
-5. Nella procedura guidata fare clic su **Accedi**, quindi accedere con il proprio account Microsoft.
+5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft.
 
-6.  Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti**, quindi su **Associa**.
+6. Selezionare l'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.    
+   Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
 
-7. (Facoltativo) Ripetere i passaggi da 4 a 6 per registrare anche il progetto Windows Phone Store di un'app di Windows universale.
+7. \(Facoltativo\) Ripetere i passaggi da 4 a 6 per registrare anche il progetto Windows Phone Store di un'app di Windows universale.
 
-8. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**. 
+8. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png)
 
 9. Nella pagina Servizi fare clic su **Sito di servizi Live** in **Servizi mobili di Azure**.
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Segreto client** e **Identificatore di sicurezza del pacchetto (SID)**. 
+10. Fare clic su **Autenticazione del servizio** e prendere nota dei valori di **Segreto client** e **Identificatore di sicurezza del pacchetto \(SID\)**.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    <div class="dev-callout"><b>Nota sulla sicurezza</b>
-	<p>Il segreto client e il SID di pacchetto sono credenziali di sicurezza importanti. Non condividere questi valori con altri né distribuirli con l'app.</p>
-    </div> 
+    > [AZURE.NOTE] El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No comparta esta información con nadie ni la distribuya con su aplicación.
 
-11. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sull'app.
+11. Accedere al [portale di gestione di Azure], fare clic su **Mobile Services** e quindi sull'app.
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-12.  Fare clic sulla scheda **Push**, immettere i valori di **Segreto client** e **SID pacchetto** ottenuti da WNS nel passaggio 4, quindi fare clic su **Salva**.	
+12. Fare clic sulla scheda **Push**, immettere i valori di **Segreto client** e **SID pacchetto** ottenuti da WNS nel passaggio 4, quindi fare clic su **Salva**.	
 
-   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png)
+   ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
-	> [WACOM.NOTE]Le credenziali WNS per le notifiche push avanzate configurate nella scheda **Push** del portale vengono condivise con Hub di notifica per configurare l'hub di notifica per l'app.
+	>[AZURE.NOTE]Al configurar las credenciales de WNS para las notificaciones de inserción mejoradas en la pestaña Insertar del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones para la aplicación.
 
 <!-- URLs. -->
-[Pagina per l'invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[invio di app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=52-->

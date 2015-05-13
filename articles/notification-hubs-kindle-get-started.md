@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ad Hub di notifica di Azure" 
 	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push." 
 	services="notification-hubs" 
@@ -20,17 +20,16 @@
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-##Informazioni generali
+##Panoramica
 
-In questo argomento viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. 
-In questa esercitazione verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging (ADM).
+In questo argomento viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. In questa esercitazione verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging \(ADM\).
 
 ##Prerequisiti
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ Android SDK (si presuppone che verrà usato Eclipse), che è possibile scaricare facendo clic su <a href="http://go.microsoft.com/fwlink/?LinkId=389797">questo collegamento</a>.
-+ Seguire la procedura riportata <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">in questa pagina</a> per impostare l'ambiente di sviluppo per Kindle.
++ Android SDK \(si presuppone che verrà usato Eclipse\), che è possibile scaricare da <a href="http://go.microsoft.com/fwlink/?LinkId=389797">questa pagina</a>.
++ Attenersi alla procedura riportata in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">questa pagina</a> per impostare l'ambiente di sviluppo per Kindle.
 
 ##Aggiunta di una nuova app al portale per sviluppatori
 
@@ -42,11 +41,11 @@ Per completare questa esercitazione, è necessario disporre di:
 
 	![][1]
 
-3. Nel portale fare clic sul nome dell'app, quindi fare clic sulla scheda **Device Messaging**.
+3. Nel portale, fare clic sul nome dell'app, quindi fare clic sulla scheda **Device Messaging**.
 
 	![][2]
 
-4. Fare clic su **Create a New Security Profile**, quindi creare un nuovo profilo di sicurezza (ad esempio il **profilo di sicurezza TestAdm**). Fare quindi clic su **Save**.
+4. Fare clic su **Create a New Security Profile**, quindi creare un nuovo profilo di sicurezza \(ad esempio il **profilo di sicurezza TestAdm**\). Fare quindi clic su **Salva**.
 
 	![][3]
 
@@ -54,11 +53,11 @@ Per completare questa esercitazione, è necessario disporre di:
 
 	![][4]
 
-## Creare una chiave API
+## Creazione di una chiave API
 
 1. Aprire un prompt dei comandi con privilegi di amministratore.
 2. Passare alla cartella Android SDK.
-3. Immettere il seguente comando:
+3. Immettere il comando seguente:
 
     	keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
 
@@ -67,22 +66,21 @@ Per completare questa esercitazione, è necessario disporre di:
 4.  Per la password **keystore**, digitare **android**.
 
 5.  Copiare l'ID digitale **MD5**.
-6.  Nel portale per sviluppatori, nella scheda **Messaging**, fare clic su **Android/Kindle** e immettere il nome del pacchetto per l'app (ad esempio, **com.sample.notificationhubtest**), il valore **MD5** e fare clic su **Generate API Key**.
+6.  Nel portale per sviluppatori, fare clic su **Android/Kindle** nella scheda **Messaging**, immettere il nome del pacchetto per l'app \(ad esempio, **com.sample.notificationhubtest**\) e il valore **MD5**, quindi fare clic su **Generate API Key**.
 
-## Aggiungere credenziali all'hub
+## Aggiunta di credenziali all'hub
 
 Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configure** dell'hub di notifica.
 
-## Configurare l'applicazione
+## Configurazione dell'applicazione
 
-> [AZURE.NOTE] Quando si crea un'applicazione, usare come requisito minimo il livello API 17.
+> [AZURE.NOTE]Quando si crea un'applicazione, usare come requisito minimo il livello API 17.
 
 Aggiungere le librerie ADM al progetto Eclipse.
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
-2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quini selezionare la scheda **Libraries **nella parte superiore. Fare clic su **Aggiungi contenitore esterno**, quindi selezionare il file  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
-3. Scaricare NotificationHubs Android SDK (collegamento).
-4. Decomprimere il pacchetto, quindi trascinare il file  `notification-hubs-sdk.jar` nella cartella `libs `in Eclipse.
+2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.3. Scaricare NotificationHubs Android SDK \(collegamento\).
+4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs ` in Eclipse.
 
 Modificare il manifesto dell'app per supportare ADM:
 
@@ -108,7 +106,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Inserire il seguente elemento come primo figlio dell'elemento dell'applicazione. Ricordarsi di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto usato per creare l'app.
+3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva \(incluso il pacchetto\) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto usato per creare l'app.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -135,11 +133,11 @@ Modificare il manifesto dell'app per supportare ADM:
 
 ## Creazione del gestore di messaggi ADM:
 
-1. Creare una nuova classe che eredita `com.amazon.device.messaging.ADMMessageHandlerBase` e denominarla `MyADMMessageHandler`, come mostrato nella figura seguente:
+1. Creare una nuova classe che eredita da `com.amazon.device.messaging.ADMMessageHandlerBase` e denominarla `MyADMMessageHandler`, come mostrato nella figura seguente:
 
 	![][6]
 
-2. Aggiungere le istruzioni  `import` seguenti:
+2. Aggiungere le istruzioni `import` seguenti:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -149,19 +147,12 @@ Modificare il manifesto dell'app per supportare ADM:
 		import com.amazon.device.messaging.ADMMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. Aggiungere il seguente codice alla classe creata. Ricordare di sostituire il nome dell'hub e la stringa di connessione (ascolto):
+3. Aggiungere il codice seguente alla classe creata. Ricordare di sostituire il nome dell'hub e la stringa di connessione \(ascolto\):
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
 		NotificationCompat.Builder builder;
-      	private static NotificationHub hub;
-		public static NotificationHub getNotificationHub(Context context) {
-			Log.v("com.wa.hellokindlefire", "getNotificationHub");
-			if (hub == null) {
-				hub = new NotificationHub("[hub name]", "[listen connection string]", context);
-			}
-			return hub;
-		}
+		private static NotificationHub hub; public static NotificationHub getNotificationHub\(Context context\) { Log.v\("com.wa.hellokindlefire", "getNotificationHub"\); if \(hub == null\) { hub = new NotificationHub\("[hub name]", "[listen connection string]", context\); } return hub; }
 
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
@@ -178,8 +169,7 @@ Modificare il manifesto dell'app per supportare ADM:
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
 		
-	   		 mNotificationManager = (NotificationManager)
-	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+	   mNotificationManager = \(NotificationManager\) ctx.getSystemService\(Context.NOTIFICATION\_SERVICE\);
 
 	    	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
 	          	new Intent(ctx, MainActivity.class), 0);
@@ -196,12 +186,12 @@ Modificare il manifesto dell'app per supportare ADM:
 	     	mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-4. Aggiungere il seguente codice al metodo  `OnMessage()`:
+4. Aggiungere il codice seguente al metodo `OnMessage()`:
 	
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
  
-5. Aggiungere il seguente codice al metodo  `OnRegistered`:
+5. Aggiungere il codice seguente al metodo `OnRegistered`:
 
 			try {
 		getNotificationHub(getApplicationContext()).register(registrationId);
@@ -209,7 +199,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
 			}
 
-6.	Aggiungere il seguente codice al metodo  `OnUnregistered`:
+6.	Aggiungere il codice seguente al metodo `OnUnregistered`:
 
 			try {
 				getNotificationHub(getApplicationContext()).unregister();
@@ -217,11 +207,11 @@ Modificare il manifesto dell'app per supportare ADM:
 				Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
 			}
 
-7. Quindi, nel metodo  `MainActivity`, aggiungere la seguente istruzione import:
+7. Quindi, nel metodo `MainActivity`, aggiungere l'istruzione import seguente:
 
 		import com.amazon.device.messaging.ADM;				
 
-8. Alla fine del metodo  `OnCreate` aggiungere il seguente codice:
+8. Alla fine del metodo `OnCreate` aggiungere il codice seguente:
 
 		final ADM adm = new ADM(this);
 		if (adm.getRegistrationId() == null)
@@ -243,7 +233,7 @@ Modificare il manifesto dell'app per supportare ADM:
 
 ## Aggiunta della chiave API all'app
 
-1. In Eclipse, creare un nuovo file denominato **api_key.txt** negli asset della directory del progetto.
+1. In Eclipse creare un nuovo file denominato **api\_key.txt** negli asset della directory del progetto.
 2. Aprire il file e copiare la **chiave API** generata nel portale per sviluppatori Amazon.
 
 ## Esecuzione dell'app
@@ -252,7 +242,7 @@ Modificare il manifesto dell'app per supportare ADM:
 2. Nell'emulatore, scorrere dall'alto e fare clic su **Settings**, quindi fare clic su **My account** ed effettuare la registrazione usando un account Amazon valido.
 3. In Eclipse eseguire l'app.
 
-> [AZURE.NOTE] Se si verifica un problema, controllare l'ora dell'emulatore (o del dispositivo). Il valore dell'ora deve essere accurato. Per modificare l'ora dell'emulatore Kindle, è possibile eseguire il seguente comando dalla directory di strumenti della piattaforma Android SDK: 
+> [AZURE.NOTE]Se si verifica un problema, controllare l'ora dell'emulatore \(o del dispositivo\). Il valore dell'ora deve essere accurato. Per modificare l'ora dell'emulatore Kindle è possibile eseguire il comando seguente dalla directory di strumenti della piattaforma Android SDK:
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -270,7 +260,7 @@ Per inviare un messaggio usando .NET:
 ![][7]
 
 <!-- URLs. -->
-[portale per sviluppatori]: https://developer.amazon.com/home.html
+[portale per gli sviluppatori]: https://developer.amazon.com/home.html
 [scaricare l'SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -282,4 +272,4 @@ Per inviare un messaggio usando .NET:
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=49-->
+<!--HONumber=52-->

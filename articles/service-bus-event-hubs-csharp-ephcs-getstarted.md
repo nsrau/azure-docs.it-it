@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Introduzione all'Hub eventi"
 	description="Seguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# usando EventProcessorHost"
 	services="service-bus"
@@ -102,9 +102,8 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[applicazione di esempio che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [scalabilità orizzontale di eventi elaborati con Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
-
 
 <!--HONumber=52-->

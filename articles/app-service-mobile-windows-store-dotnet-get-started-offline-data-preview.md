@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Uso di dati offline con App mobili di Azure (Windows Store) | Dev Center di Servizi mobili"
 	description="Informazioni su come usare App mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Windows Store"
 	documentationCenter="windows"
@@ -224,7 +224,7 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end di App
 6. Premere di nuovo il pulsante di **aggiornamento** per chiamare `SyncAsync`. `SyncAsync` chiama sia un'operazione push che un'operazione pull, ma in questo caso si sarebbe potuta rimuovere la chiamata a `PushAsync`. Questo avviene perché **un'operazione pull effettua sempre un'operazione push all'inizio** Lo scopo è assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti.
 
 
-##Riepilogo
+## Riepilogo
 
 Per supportare le funzionalità offline di Servizi mobili è stata usata l'interfaccia  `IMobileServiceSyncTable` e inizializzato  `MobileServiceClient.SyncContext` con un archivio locale. In questo caso l'archivio locale era un database SQLite.
 
@@ -272,7 +272,6 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi  `IM
 [SQLite per Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 
 [Azure Mobile App SDK per NuGet]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[NuGet SQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
-
+[NuGetSQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
 <!--HONumber=52-->

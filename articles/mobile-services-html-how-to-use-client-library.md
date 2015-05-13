@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Come usare un client HTML - Servizi mobili di Azure" 
 	description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." 
 	services="mobile-services" 
@@ -659,8 +659,8 @@ Dopo aver completato questo argomento di riferimento per i concetti e le procedu
 [Autenticare un'app con Single-Sign-On]: /it-it/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Comandi per la gestione delle tabelle di Servizi mobili]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
 
 
 <!--HONumber=42-->

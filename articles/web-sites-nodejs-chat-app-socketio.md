@@ -28,8 +28,7 @@ Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client
 
 ## Scaricare l'esempio di chat
 
-Per questo progetto, verrà usato l'esempio di chat del [repository GitHub
-Socket.IO]. Seguire questa procedura per scaricare l'esempio
+Per questo progetto, verrà usato l'esempio di chat del [repository GitHub Socket.IO]. Seguire questa procedura per scaricare l'esempio
 e aggiungerlo al progetto creato in precedenza.
 
 1.  Scaricare una [versione archiviata ZIP o GZ][versione] del progetto Socket.IO (per questo documento è stata utilizzata la versione 1.3.5)
@@ -278,6 +277,7 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 [Socket.IO GitHub repository]: https://github.com/Automattic/socket.io
+[repository GitHub Socket.IO]: https://github.com/Automattic/socket.io
 [versione]: https://github.com/Automattic/socket.io/releases
 [serviziocloud]: /develop/nodejs/tutorials/app-using-socketio/
 

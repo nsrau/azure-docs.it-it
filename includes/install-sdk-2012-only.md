@@ -1,8 +1,8 @@
-﻿<h2><a name="setupdevenv"></a>Configurare l'ambiente di sviluppo</h2>
+<h2><a name="setupdevenv"></a>Configurare l'ambiente di sviluppo</h2>
 
 Per iniziare, installare Azure SDK per .NET per configurare l'ambiente di sviluppo.
 
-1. Per installare l'SDK, fare clic sul collegamento seguente. Per completare questa esercitazione, è necessario disporre di Visual Studio 2012. Se non è presente, verrà installato Visual Studio Express per il Web insieme all'SDK.
+1. Per installare l'SDK, fare clic sul collegamento seguente. Per completare questa esercitazione, è necessario disporre di Visual Studio 2012. Se Visual Studio non è ancora installato, insieme all'SDK verrà installato anche Visual Studio Express per il Web.
 
 	- [Azure SDK per Visual Studio 2012][]
 
@@ -10,11 +10,13 @@ Per iniziare, installare Azure SDK per .NET per configurare l'ambiente di svilup
 
 2. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
 
-3. Nella finestra Installazione guidata piattaforma Web fare clic su **Installa** e procedere con l'installazione.
+3. Nell'Installazione guidata piattaforma Web fare clic su **Installa** e procedere con l'installazione.
 
-	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk]
+	![Installazione guidata piattaforma Web - Azure SDK per .NET][WebPIAzureSdk]
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
 
 [Azure SDK per Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
 [WebPIAzureSdk]: ./media/install-sdk-2012-only/WebPI46-2012.png
+
+<!--HONumber=52-->

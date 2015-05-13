@@ -67,10 +67,10 @@ Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding d
         **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: 
         File specifici di Azure necessari per la pubblicazione dell'applicazione.
 		Per altre informazioni, vedere
-        [Overview of Creating a Hosted Service for Azure][].
+        [informazioni generali sulla creazione di un servizio ospitato per Azure][].
 
-	-   **deploymentSettings.json**: Stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json**: archivia le impostazioni locali utilizzate dai cmdlet di 
+	    distribuzione di Azure PowerShell.
 
 4.  Immettere il seguente comando per aggiungere un nuovo ruolo Web:
 
@@ -216,6 +216,5 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [Output completo dello stato del comando Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [Come eliminare un account di archiviazione da una sottoscrizione di Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
-
 
 <!--HONumber=52-->

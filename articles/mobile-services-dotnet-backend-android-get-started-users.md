@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'autenticazione (Android) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -77,6 +77,7 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Introduzione all'autenticazione]: mobile-services-dotnet-backend-android-get-started-users.md
 [Introduzione alle notifiche push]: mobile-services-dotnet-backend-android-get-started-push.md
 [Autorizzare gli utenti con gli script]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
+[Autorizzazione di utenti con script]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /develop/mobile/how-to-guides/work-with-net-client-library

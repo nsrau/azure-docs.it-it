@@ -425,6 +425,7 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Preparare il progetto di Visual Studio per usare la memorizzazione nella cache di Azure]: #prepare-vs
 [Configurare l'applicazione in modo da usare la memorizzazione nella cache]: #configure-app
 [Introduzione al Servizio cache gestita]: #getting-started-cache-service
+[Introduzione a Cache nel ruolo]: #getting-started-cache-service
 [Creare la cache]: #create-cache
 [Configurare la cache]: #enable-caching
 [Configurare i client della cache]: #NuGet

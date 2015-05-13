@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creazione di un servizio REST usando l'API Web ASP.NET e il database SQL in Servizio app di Azure" 
 	description="Un'esercitazione che illustra come distribuire un'app che usa l'API Web ASP.NET in un'app Web di Azure tramite Visual Studio." 
 	services="app-service\web" 
@@ -45,7 +45,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 1. Avviare Visual Studio 2013.
 1. Scegliere **Nuovo progetto** dal menu **File**.
-3. Nella finestra di dialogo **Nuovo progetto **, espandere **Visual C#** e selezionare **Web** , quindi selezionare **Applicazione Web ASP.NET MVC 5**. Assegnare all'applicazione il nome **ContactManager** e fare clic su **OK**.
+3. Nella finestra di dialogo **Nuovo progetto**, espandere **Visual C#** e selezionare **Web** , quindi selezionare **Applicazione Web ASP.NET MVC 5**. Assegnare all'applicazione il nome **ContactManager** e fare clic su **OK**.
 
 	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
@@ -554,7 +554,7 @@ La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro 
 
 Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
 
-Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF).
+Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ContactManager**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 

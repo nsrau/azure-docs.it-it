@@ -1,11 +1,8 @@
-﻿Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macchina virtuale che esegue CentOS Linux.
+Attenersi alla procedura seguente per installare ed eseguire MongoDB in una macchina virtuale che esegue CentOS Linux.
 
-<div class="dev-callout">
-<b>Avviso</b>
-<p>Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e il binding di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione.  Vedere <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">sicurezza e autenticazione</a> per altre informazioni.</p>
-</div>
+> [AZURE.WARNING]Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
-1. Configurare il sistema di gestione dei pacchetti (YUM) in modo da poter installare MongoDB. Creare un file */etc/yum.repos.d/10gen.repo* per conservare le informazioni relative al repository e aggiungere quanto segue:
+1. Configurare il sistema di gestione dei pacchetti \(YUM\) in modo da poter installare MongoDB. Creare un file */etc/yum.repos.d/10gen.repo* per conservare le informazioni relative all'archivio e aggiungere quanto segue:
 
 		[10gen]
 		name=10gen Repository
@@ -23,12 +20,12 @@
 
 	Attendere fino al termine del download e dell'installazione di MongoDB.
 
-4. Creare una directory dati. Per impostazione predefinita, MongoDB archivia i dati nella directory */data/db*, ma è innanzitutto necessario crearla. Per crearla, eseguire:
+4. Creare una directory dati. Per impostazione predefinita, Mongo DB archivia i dati nella directory */data/db*, ma è innanzitutto necessario crearla. Per crearla, eseguire:
 
 		$ sudo mkdir -p /srv/datadrive/data
 		$ sudo chown `id -u` /srv/datadrive/data
 
-	Per altre informazioni sull'installazione di MongoDB su Linux, vedere la [guida introduttiva a Unix][QuickstartUnix].
+	Per altre informazioni sull'installazione di MongoDB su Linux, vedere [Avvio rapido in Unix][QuickstartUnix].
 
 5. Per avviare il database, eseguire:
 
@@ -50,13 +47,13 @@
 
 	Il database viene creato dall'istruzione insert.
 
-7. Dopo l'installazione di MongoDB, è necessario configurare un endpoint in modo da potervi accedere in remoto. Nel portale di gestione fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
+7. Dopo l'installazione di MongoDB, è necessario configurare un endpoint in modo da potervi accedere in remoto. Nel portale di gestione fare clic su **Virtual Machines**, quindi sul nome della nuova macchina virtuale e infine su **Endpoints**.
 	
-	![Endpoints][Image7]
+	![Endpoint][Image7]
 
-8. Fare clic su **Aggiungi endpoint** nella parte inferiore della pagina.
+8. Fare clic su **Add Endpoint** nella parte inferiore della pagina.
 	
-	![Endpoints][Image8]
+	![Endpoint][Image8]
 
 9. Aggiungere un endpoint con le impostazioni seguenti:
 
@@ -69,10 +66,10 @@
 
 
 
-[Guida introduttiva a Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
 
 
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=35.1-->
+<!--HONumber=52-->
