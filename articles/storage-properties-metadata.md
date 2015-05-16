@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Set and retrieve Properties and Metadata for Blob Storage \| Microsoft Azure" 
-	description="Learn how to set and retrieve properties and metadata for Azure Storage containers and blobs." services="storage" 
+﻿<properties 
+	pageTitle="Set and retrieve Properties and Metadata for Blob Storage | Microsoft Azure" 
+	description="Learn how to set and retrieve properties and metadata for Azure Storage containers and blobs." 
+	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
 	manager="adinah" 
@@ -9,7 +10,7 @@
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
-	ms.tgt\_pltfrm="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
