@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Definito dall&#39;utente IP Cenni preliminari sull&#39;inoltro e route"
-   description="Route (UDR) definito dall&#39;utente e Cenni preliminari sull&#39;inoltro IP"
+   pageTitle="Definito dall'utente IP Cenni preliminari sull'inoltro e route"
+   description="Route (UDR) definito dall'utente e Cenni preliminari sull'inoltro IP"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"

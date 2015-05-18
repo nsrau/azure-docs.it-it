@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Creare un&#39;immagine di RemoteApp"
+    pageTitle="Creare un'immagine di RemoteApp"
     description="Informazioni sulle opzioni disponibili per la creazione di immagini per RemoteApp" 
     services="remoteapp" 
     solutions="" 

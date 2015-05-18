@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un&#39;applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
-	description="Informazioni su come usare DocumentDB con .NET per creare un&#39;applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un&#39;applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
+	pageTitle="Creare un'applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
+	description="Informazioni su come usare DocumentDB con .NET per creare un'applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 

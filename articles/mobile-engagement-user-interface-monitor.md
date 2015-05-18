@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Interfaccia utente di Azure Mobile Engagement - Monitoraggio" 
-   description="Informazioni su come monitorare in tempo reale i dati dell&#39;applicazione usando Azure Mobile Engagement" 
+   description="Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 

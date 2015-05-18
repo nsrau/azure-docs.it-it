@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get Started with Azure Automation" 
-	description="Learn how to import and run an automation job in Azure." 
+	pageTitle="Introduzione all'automazione di Azure" 
+	description="Informazioni sull'importazione e sull'esecuzione di un processo di automazione in Azure." 
 	services="automation" 
 	documentationCenter="" 
 	authors="bwren" 
@@ -138,5 +138,4 @@ Microsoft e la community di Automazione di Azure mettono a disposizione runbook 
 
 ## Commenti e suggerimenti
 
-<strong>Gli utenti sono invitati a fornire commenti e suggerimenti.</strong> Se si è in cerca di una soluzione runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie. 
-<!--HONumber=52-->
+<strong>Gli utenti sono invitati a fornire commenti e suggerimenti.</strong> Se si è in cerca di una soluzione runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie. <!--HONumber=52-->

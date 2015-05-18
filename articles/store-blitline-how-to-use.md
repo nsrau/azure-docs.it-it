@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come usare Blitline per l&#39;elaborazione delle immagini - Guida alle funzionalità di Azure" 
-	description="Informazioni su come usare il servizio Blitline per elaborare immagini all&#39;interno di un&#39;applicazione Azure." 
+	pageTitle="Come usare Blitline per l'elaborazione delle immagini - Guida alle funzionalità di Azure" 
+	description="Informazioni su come usare il servizio Blitline per elaborare immagini all'interno di un'applicazione Azure." 
 	services="" 
 	documentationCenter=".net" 
 	authors="blitline-dev" 

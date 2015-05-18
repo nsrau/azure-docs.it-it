@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un pacchetto dell&#39;app per le API" 
-	description="Informazioni su come creare un pacchetto dell&#39;app per le API." 
+	pageTitle="Creare un pacchetto dell'app per le API" 
+	description="Informazioni su come creare un pacchetto dell'app per le API." 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"

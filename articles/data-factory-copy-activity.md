@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Copiare i dati con Data factory di Azure" 
-	description="Informazioni su come usare l&#39;attività di copia in Data factory di Azure per copiare dati tra origini dati." 
+	description="Informazioni su come usare l'attività di copia in Data factory di Azure per copiare dati tra origini dati." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 

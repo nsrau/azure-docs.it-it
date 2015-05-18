@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usare il portale di gestione per creare canali che ricevono il flusso live a più velocità in bit da codificatori locali" 
-	description="Questa esercitazione illustra la procedura per implementare un&#39;applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale." 
+	description="Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 

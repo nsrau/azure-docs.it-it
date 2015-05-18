@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usare un&#39;app per le API nel servizio app di Azure da un client .NET" 
-	description="Informazioni su come usare un&#39;app per le API da un client .NET con App Service SDK." 
+	pageTitle="Usare un'app per le API nel servizio app di Azure da un client .NET" 
+	description="Informazioni su come usare un'app per le API da un client .NET con App Service SDK." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 

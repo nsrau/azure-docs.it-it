@@ -1,6 +1,6 @@
 <properties
 	 pageTitle="Elaborare i dati del sensore veicolo con gli hub eventi di Azure e Apache Storm in HDInsight"
-	 description="Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight Durante l&#39;elaborazione, i dati vengono arricchiti cercando le informazioni sul modello del veicolo in DocumentDB. Infine i dati vengono scritti in Archiviazione di Azure."
+	 description="Informazioni su come elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight Durante l'elaborazione, i dati vengono arricchiti cercando le informazioni sul modello del veicolo in DocumentDB. Infine i dati vengono scritti in Archiviazione di Azure."
 	 services="hdinsight"
 	 documentationCenter=""
 	 authors="Blackmist"

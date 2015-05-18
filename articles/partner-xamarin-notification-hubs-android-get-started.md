@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione ad Hub di notifica per le app per Xamarin.Android"
-	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un&#39;applicazione per Xamarin Android."
+	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin Android."
 	authors="ysxu"
 	manager="dwrede"
 	editor=""

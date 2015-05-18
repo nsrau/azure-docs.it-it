@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione ad Hub di notifica per le app per Xamarin iOS"
-	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un&#39;applicazione per Xamarin iOS."
+	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin iOS."
 	services="notification-hubs"
 	documentationCenter="xamarin"
 	authors="ysxu"

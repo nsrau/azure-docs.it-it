@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione alle app per dispositivi mobili in Xamarin iOS"
-	description="Informazioni sull&#39;uso di Xamarin iOS per creare un&#39;app per dispositivi mobili di Azure con il servizio app di Azure."
+	description="Informazioni sull'uso di Xamarin iOS per creare un'app per dispositivi mobili di Azure con il servizio app di Azure."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="christopheranderson"

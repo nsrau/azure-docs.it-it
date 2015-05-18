@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire un&#39;app per le API" 
+	pageTitle="Gestire un'app per le API" 
 	description="Informazioni su come gestire le app per le API nel portale di anteprima di Azure e in Esplora server in Visual Studio." 
 	services="app-service\api" 
 	documentationCenter="" 

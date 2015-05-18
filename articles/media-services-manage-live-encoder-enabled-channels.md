@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso di canali abilitati per l&#39;esecuzione della codifica live con Servizi multimediali di Azure" 
+	pageTitle="Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure" 
 	description="Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 

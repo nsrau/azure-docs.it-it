@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un&#39;applicazione Node.js con DocumentDB | Azure" 
-	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare e accedere ai dati da un&#39;applicazione Web Node.js Express ospitata in Siti Web di Azure." 
+	pageTitle="Creare un'applicazione Node.js con DocumentDB | Azure" 
+	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 

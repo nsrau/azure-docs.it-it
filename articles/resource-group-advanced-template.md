@@ -1,6 +1,6 @@
 <properties
    pageTitle="Operazioni avanzate con i modelli di Gestione risorse di Azure"
-   description="Descrive come usare i modelli annidati e l&#39;operazione di copia in un modello di Gestione risorse di Azure quando si distribuiscono app in Azure."
+   description="Descrive come usare i modelli annidati e l'operazione di copia in un modello di Gestione risorse di Azure quando si distribuiscono app in Azure."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"

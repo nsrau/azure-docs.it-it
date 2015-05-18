@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Applicazione .NET multilivello - Esercitazione di Azure"
-	description="Un&#39;esercitazione che consente di sviluppare un&#39;applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli. Esempi in .NET."
+	description="Un'esercitazione che consente di sviluppare un'applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli. Esempi in .NET."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"

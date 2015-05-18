@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Autenticazione di un&#39;entità servizio con Gestione risorse di Azure"
-   description="Descrive come concedere l&#39;accesso e autenticare un&#39;entità servizio mediante il controllo degli accessi in base al ruolo. Mostra come eseguire queste attività con PowerShell e l&#39;interfaccia della riga di comando di Azure."
+   pageTitle="Autenticazione di un'entità servizio con Gestione risorse di Azure"
+   description="Descrive come concedere l'accesso e autenticare un'entità servizio mediante il controllo degli accessi in base al ruolo. Mostra come eseguire queste attività con PowerShell e l'interfaccia della riga di comando di Azure."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"

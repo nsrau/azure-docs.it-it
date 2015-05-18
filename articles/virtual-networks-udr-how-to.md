@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Come creare route e attivare l&#39;inoltro IP in Azure"
-   description="Come creare route e attivare l&#39;inoltro IP in Azure"
+   pageTitle="Come creare route e attivare l'inoltro IP in Azure"
+   description="Come creare route e attivare l'inoltro IP in Azure"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"

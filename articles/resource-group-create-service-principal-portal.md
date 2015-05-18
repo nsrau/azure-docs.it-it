@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare una nuova entità servizio di Azure usando il portale di Azure"
-   description="Descrive come creare una nuova entità servizio di Azure che è possibile usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&#39;accesso alle risorse."
+   description="Descrive come creare una nuova entità servizio di Azure che è possibile usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
