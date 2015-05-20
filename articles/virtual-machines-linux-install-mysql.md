@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come installare MySQL in Azure"
-	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l'installazione in Ubuntu o CentOS."
+	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l&#39;installazione in Ubuntu o CentOS."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"

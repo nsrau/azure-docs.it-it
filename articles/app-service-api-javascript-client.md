@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Accedere a un'app per le API di Azure usando HTML e JavaScript" 
-	description="Informazioni su come accedere al back-end dell'app per le API usando HTML e JavaScript" 
+	pageTitle="Accedere a un&#39;app per le API di Azure usando HTML e JavaScript" 
+	description="Informazioni su come accedere al back-end dell&#39;app per le API usando HTML e JavaScript" 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="bradygaster"

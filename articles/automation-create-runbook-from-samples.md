@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'automazione di Azure" 
-	description="Informazioni sull'importazione e sull'esecuzione di un processo di automazione in Azure." 
+	pageTitle="Introduzione all&#39;automazione di Azure" 
+	description="Informazioni sull&#39;importazione e sull&#39;esecuzione di un processo di automazione in Azure." 
 	services="automation" 
 	documentationCenter="" 
 	authors="bwren" 

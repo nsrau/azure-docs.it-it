@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introduzione a DocumentDB .NET SDK | Azure" 
-	description="Informazioni su come creare e configurare un account DocumentDB, creare database, creare raccolte e archiviare documenti JSON nell'account del database di documenti NoSQL." 
+	description="Informazioni su come creare e configurare un account DocumentDB, creare database, creare raccolte e archiviare documenti JSON nell&#39;account del database di documenti NoSQL." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="AndrewHoh" 

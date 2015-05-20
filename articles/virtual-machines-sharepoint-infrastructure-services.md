@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SharePoint nei servizi infrastruttura di Azure" 
-	description="Ottenere i principali argomenti che descrivono come impostare un sviluppo/test o produzione farm di SharePoint 2013 nei servizi dell'infrastruttura di Azure." 
+	description="Ottenere i principali argomenti che descrivono come impostare un sviluppo/test o produzione farm di SharePoint 2013 nei servizi dell&#39;infrastruttura di Azure." 
 	documentationCenter="" 
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 

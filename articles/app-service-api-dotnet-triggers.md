@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Trigger delle app per le API del servizio app di Azure" 
-	description="Questo articolo illustra come implementare i trigger in un'app per le API" 
+	description="Questo articolo illustra come implementare i trigger in un&#39;app per le API" 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="guangyang"

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come creare un'app Web in un ambiente del servizio app" 
+	pageTitle="Come creare un&#39;app Web in un ambiente del servizio app" 
 	description="Esame del flusso di creazione per app Web e piani di servizio app per un ambiente del servizio app" 
 	services="app-services-web" 
 	documentationCenter="" 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'ambiente del servizio app" 
-	description="Informazioni sulla funzionalità Ambiente del servizio app che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app." 
+	pageTitle="Introduzione all&#39;ambiente del servizio app" 
+	description="Informazioni sulla funzionalità Ambiente del servizio app che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l&#39;esecuzione di tutte le app." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 

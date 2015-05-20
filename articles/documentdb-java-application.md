@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creazione di un'applicazione Web Java con DocumentDB" 
-	description="Questa esercitazione illustra come usare il servizio Azure DocumentDB per memorizzare e accedere ai dati da un'applicazione Java ospitata in Siti Web di Azure." 
+	pageTitle="Creazione di un&#39;applicazione Web Java con DocumentDB" 
+	description="Questa esercitazione illustra come usare il servizio Azure DocumentDB per memorizzare e accedere ai dati da un&#39;applicazione Java ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 

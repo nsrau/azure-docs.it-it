@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creare un pacchetto dell'app per le API" 
-	description="Informazioni su come pubblicare un pacchetto dell'app per le API in Azure Marketplace." 
+	pageTitle="Creare un pacchetto dell&#39;app per le API" 
+	description="Informazioni su come pubblicare un pacchetto dell&#39;app per le API in Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"

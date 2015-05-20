@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Documentazione relativa all'API Recommendations di Azure Machine Learning" 
-	description="Documentazione relativa all'API Recommendations di Azure Machine Learning" 
+	pageTitle="Documentazione relativa all&#39;API Recommendations di Azure Machine Learning" 
+	description="Documentazione relativa all&#39;API Recommendations di Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 

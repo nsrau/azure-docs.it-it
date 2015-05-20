@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come ridimensionare un'app Web in un ambiente del servizio app" 
-	description="Ridimensionamento di un'app Web in un ambiente del servizio app" 
+	pageTitle="Come ridimensionare un&#39;app Web in un ambiente del servizio app" 
+	description="Ridimensionamento di un&#39;app Web in un ambiente del servizio app" 
 	services="app-services\web" 
 	documentationCenter="" 
 	authors="ccompy" 

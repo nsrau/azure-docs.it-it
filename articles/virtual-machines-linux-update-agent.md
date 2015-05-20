@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come aggiornare l'agente Linux di Azure alla versione più recente da Github"
-	description="Informazioni su come aggiornare l'agente Linux di Azure da Github per VM Linux in Azure."
+	pageTitle="Come aggiornare l&#39;agente Linux di Azure alla versione più recente da Github"
+	description="Informazioni su come aggiornare l&#39;agente Linux di Azure da Github per VM Linux in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"

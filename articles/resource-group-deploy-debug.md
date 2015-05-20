@@ -1,6 +1,6 @@
 <properties
    pageTitle="Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure"
-   description="Descrive i problemi frequenti di distribuzione delle risorse in Azure e spiega come usare il portale di Azure, l'interfaccia della riga di comando di Azure per Mac, Linux e Windows e PowerShell per esaminare le distribuzioni e rilevare eventuali problemi."
+   description="Descrive i problemi frequenti di distribuzione delle risorse in Azure e spiega come usare il portale di Azure, l&#39;interfaccia della riga di comando di Azure per Mac, Linux e Windows e PowerShell per esaminare le distribuzioni e rilevare eventuali problemi."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"

@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Compilare e distribuire un'app per le API Node.js API nel servizio app di Azure" 
 	description="Informazioni su come creare un pacchetto dell'app per le API e distribuirlo nel servizio app di Azure." 
-	services="app-service\api" 
+	services="app-service-api" 
 	documentationCenter="nodejs" 
 	authors="pkefal" 
 	manager="", 
