@@ -103,7 +103,7 @@ Trovare tutti gli elementi con lo stesso valore della proprietà:
 
 Ottenere il tempo di risposta di tutte le richiesta \> 5s. I tempi sono rappresentati in tick: 10 000 tick = 1 ms.
 
-!\["Response time":\(threshold TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
