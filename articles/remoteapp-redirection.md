@@ -25,8 +25,8 @@ RemoteApp usa il protocollo RDP \(Remote Desktop Protocol\) e RemoteFX per il re
 ## Quale reindirizzamento è abilitato per impostazione predefinita?
 Quando si usa RemoteApp, i reindirizzamenti seguenti sono abilitati per impostazione predefinita. Le informazioni tra parentesi mostrano l'impostazione RDP.
 
-- Riproduzione di suoni sul computer locale \(\*\*Riproduci nel computer locale\*\*\). \(audiomode:i:0\)
-- Acquisizione di audio dal computer locale e invio al computer remoto \(\*\*Registra da questo computer\*\*\). \(audiocapturemode:i:1\)
+- Riproduzione di suoni sul computer locale \(**Riproduci nel computer locale\**). \(audiomode:i:0\)
+- Acquisizione di audio dal computer locale e invio al computer remoto \(**Registra da questo computer**). \(audiocapturemode:i:1\)
 - Stampa su stampanti locali \(redirectprinters:i:1\)
 - Porte COM \(redirectcomports:i:1\)
 - Dispositivo smart card \(redirectsmartcards:i:1\)
@@ -47,7 +47,7 @@ Usare quindi un comando simile al seguente per impostare le proprietà RDP perso
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
     
-\(Si noti che *'n* viene usato come delimitatore tra le singole proprietà\)
+\(Si noti che *`n* viene usato come delimitatore tra le singole proprietà\)
 
 Per un elenco delle proprietà RDP configurate, eseguire il cmdlet seguente. Si noti che solo le proprietà personalizzate vengono visualizzate come risultati di output, non le proprietà predefinite:
 
@@ -77,7 +77,8 @@ Se si desidera usare il reindirizzamento USB su un computer che si connette a Re
 > [AZURE.NOTE]Il reindirizzamento USB con Azure RemoteApp è supportato solo per i computer Windows.
 
 ### Abilitare il reindirizzamento USB per la raccolta di RemoteApp
-Usare il cmdlet seguente per abilitare il reindirizzamento USB a livello di raccolta: Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:\*"
+Usare il cmdlet seguente per abilitare il reindirizzamento USB a livello di raccolta:
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Abilitare il reindirizzamento USB per il computer client
 
@@ -102,4 +103,5 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 6. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 8. Fare clic su **OK**. 
+
 <!--HONumber=54-->
