@@ -144,7 +144,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
    ![][20]
 
-	This creates a new console application project.
+	Verrà creato un nuovo progetto di applicazione console.
 
 2. Scegliere **Gestione pacchetti libreria** dal menu **Strumenti**, quindi fare clic su **Console di Gestione pacchetti**.
 
