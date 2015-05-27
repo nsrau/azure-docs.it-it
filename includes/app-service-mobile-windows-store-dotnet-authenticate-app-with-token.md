@@ -1,5 +1,5 @@
-﻿
-Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio app ogni volta che l'app viene avviata. Non solo questo metodo è inefficiente, ma si potrebbero riscontrare problemi relativi all'uso qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dal servizio app e provare a usare questo prima di usare un accesso basato su provider. 
+
+Nell'esempio precedente è stato illustrato un accesso standard, che richiede al client di contattare sia il provider di identità sia il servizio app ogni volta che l'app viene avviata. Non solo questo metodo è inefficiente, ma si potrebbero riscontrare problemi relativi all'uso qualora molti clienti provassero ad avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dal servizio app e provare a usare questo prima di usare un accesso basato su provider.
 
 >[AZURE.NOTE]È possibile memorizzare nella cache il token rilasciato dai Servizi app indipendentemente dal fatto che si usi l'autenticazione gestita dal client o gestita dal servizio. In questa esercitazione viene usata l'autenticazione gestita dal servizio.
 
@@ -8,7 +8,7 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. Sostituire il metodo  **AuthenticateAsync** con il codice seguente:
+2. Sostituire il metodo **AuthenticateAsync** con il codice seguente:
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -83,12 +83,11 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
             }
         }
 
-	In questa versione di **AuthenticateAsync**, l'app tenta di utilizzare credenziali archiviate in **PasswordVault** per accedere all'app mobile. Viene inviata una semplice query per verificare che il token archiviato non sia scaduto. Quando viene restituito 401, viene effettuato un normale tentativo di accesso basato su provider. Un accesso normale viene eseguito anche quando non sono disponibili credenziali archiviate.
+	In questa versione di **AuthenticateAsync**, l'app tenta di usare credenziali archiviate in **PasswordVault** per accedere all'app per dispositivi mobili. Viene inviata una semplice query per verificare che il token archiviato non sia scaduto. Quando viene restituito 401, viene effettuato un normale tentativo di accesso basato su provider. Un accesso normale viene eseguito anche quando non sono disponibili credenziali archiviate.
 
-	>[AZURE.NOTE]Questa app verifica la presenza di token scaduti durante l'accesso, ma la scadenza del token può avvenire dopo l'autenticazione mentre l'app è in uso. Per una soluzione relativa alla gestione degli errori di autorizzazione relativi ai token scaduti, vedere il post sulla [memorizzazione nella cache e la gestione dei token scaduti nell'SDK per il codice gestito di Servizi mobili di Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]Questa app verifica la presenza di token scaduti durante l'accesso, ma la scadenza del token può avvenire dopo l'autenticazione mentre l'app è in uso. Per una soluzione relativa alla gestione degli errori di autorizzazione relativi ai token scaduti, vedere il post sulla [memorizzazione nella cache e la gestione dei token scaduti nell'SDK per il codice gestito di Servizi mobili di Azure ](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 
 3. Riavviare l'app due volte.
 
-	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato. 
-
-<!--HONumber=49-->
+	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato.
+<!--HONumber=54-->

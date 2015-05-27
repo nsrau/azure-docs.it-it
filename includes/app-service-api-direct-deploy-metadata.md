@@ -1,4 +1,8 @@
-La maggior parte delle proprietà nel file *apiapp.json* e i file nella cartella *Metadata* influiscono sul modo in cui un pacchetto dell'app per le API viene presentato in Azure Marketplace. Le sezioni seguenti spiegano il modo in cui le proprietà e i file influiscono sulle app per le API quando si distribuisce direttamente il codice invece di installare un'app per le API direttamente da Azure Marketplace.
+## Metadati dell'app per le API
+
+Questa sezione fornisce informazioni aggiuntive sui metadati delle app per le API che possono essere personalizzati.
+
+La maggior parte delle proprietà nel file *apiapp.json* e i file nella cartella *Metadata* influiscono sul modo in cui un pacchetto dell'app per le API viene presentato in Azure Marketplace. Le sezioni seguenti spiegano il modo in cui le proprietà e i file influiscono sulle app per le API quando si distribuisce direttamente il codice in un'app per le API nella sottoscrizione di Azure.
 
 ### ID app per le API 
 
@@ -35,4 +39,4 @@ Escludere `endpoints.apiDefinition` dal file *apiapp.json* o impostarne il valor
 Per altre informazioni sul file *apiapp.json* e sulla cartella *Metadata*, vedere [Creare un pacchetto dell'app per le API](app-service-api-create-package.md).
 
 
-<!--HONumber=52-->
+<!--HONumber=54-->

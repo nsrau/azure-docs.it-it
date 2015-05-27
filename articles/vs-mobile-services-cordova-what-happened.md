@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Viene descritto cosa è successo al progetto Servizi mobili di Azure in Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Che cosa è successo al progetto?
 
 > [AZURE.SELECTOR]
-> - [Introduzione](vs-mobile-services-cordova-getting-started.md)
-> - [Risultati](vs-mobile-services-cordova-what-happened.md)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
 
@@ -28,7 +30,7 @@
   
 #####Valori della stringa di connessione per Servizi mobili
 
-In `services\mobileServices\settings` è stato generato un nuovo file JavaScript (.js) con un client **MobileServiceClient**, contenente l'URL e la chiave applicazione del servizio mobile selezionato. Il file include l'inizializzazione dell'oggetto client di Servizi mobili, che usa codice analogo al seguente.
+In `services\mobileServices\settings` è stato generato un nuovo file JavaScript (.js) con un **MobileServiceClient** contenente l'URL e la chiave applicazione del servizio mobile selezionato. Il file include l'inizializzazione dell'oggetto client di Servizi mobili, che usa codice analogo al seguente.
 
 	var mobileServiceClient;
 	document.addEventListener("deviceready", function() {
@@ -38,6 +40,4 @@ In `services\mobileServices\settings` è stato generato un nuovo file JavaScript
 	    );
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Utilizzo dei connettori" 
    description="Utilizzo dei connettori" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="prkumar" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -16,21 +16,59 @@
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
+#Connettori#
+I connettori sono app per le API che consentono di connettersi ai dati e ai servizi in esecuzione nel cloud oppure in locale. I connettori consentono di accedere ai dati con un'ampia gamma di trigger predefiniti e azioni cui è possibile accedere facilmente nelle app per la logica e altro ancora.
 
-#Utilizzo dei connettori#
+Azure App Service fornisce una serie di connettori predefiniti:
 
-I connettori sono app per le API che consentono di connettersi ai servizi in esecuzione nel cloud oppure in locale per ottenere o inserire dati o eseguire azioni. È possibile usarli in tutti i Servizi app di Azure, dalle app Web, alle app mobili e per la logica.
+##Connettori Standard##
+* [Connettore del Bus di servizio di Azure]
+* [Connettore BLOB di archiviazione di Azure]
+* Connettore WebJobs di Azure
+* [Connettore Box]
+* [Connettore Chatter]
+* [Connettore DropBox]
+* [Connettore Facebook]
+* [Connettore File]
+* [Connettore FTP]
+* [Connettore HDInsight]
+* [Connettore HTTP]
+* [Connettore Office 365]
+* [Connettore OneDrive]
+* [Connettore Oracle]
+* [Connettore POP3]
+* [Connettore QuickBooks]
+* [Connettore Salesforce]
+* [Connettore SFTP]
+* [Connettore Sharepoint]
+* [Connettore Slack]
+* [Connettore SMTP]
+* [Connettore SQL]
+* [Connettore SugarCRM]
+* [Connettore Twilio]
+* [Connettore Twitter]
+* Connettore Wait
+* [Connettore Yammer]
 
-I Servizi app di Azure forniscono diversi connettori predefiniti che aiutano a connettersi ai servizi che interessano all'utente, concentrando gli sforzi sull'effettiva logica di business dell'applicazione. Inoltre, la piattaforma è facilmente estendibile tramite la scrittura di app per le API personalizzate per connettersi alle proprie applicazioni legacy.
-
-Alcune delle funzionalità principali dei connettori BizTalk sono elencate di seguito:
-
-1. Gestire la protezione OAuth per la connessione a servizi SaaS popolari (Facebook, Twitter, Office 365, SalesForce)
-2. Connettività agli asset locali tramite un Inoltro del bus di servizio.
-3. Connettività per i protocolli comuni per ricevere e inviare dati.
+##Connettori Premium e app per le API##
+* AS2 Connector
+* BizTalk EDIFACT
+* BizTalk Flat File Encoder
+* BizTalk Transform Service
+* BizTalk Rules
+* BizTalk X12
+* BizTalk XPath Extractor
+* BizTalk XML Validator
+* DB2 Connector
+* Informix Connector
+* Oracle Database Connector
+* MQ Connector
+* [SAP connector]
+ 
+Per altre informazioni, vedere i riferimenti ai connettori e alle API [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Connettori e app per la logica##
-Le app per la logica sono costituite da trigger e da azioni. Alcuni connettori possono essere usati come trigger per identificare l'eventuale disponibilità di nuovi dati e attivare un'app per la logica con tali dati come input. È anche possibile usare i connettori come un'azione nell'ambito di un'app per la logica per la ricerca di dati, la scrittura di dati o l'esecuzione di altre azioni supportate dal connettore.
+Le app per la logica sono costituite da trigger e da azioni. Alcuni connettori possono essere usati come trigger per creare un'istanza di un flusso di lavoro in base a un evento o alla disponibilità di alcuni dati. I connettori vengono anche usati come azioni per la lettura e scrittura dei dati o per eseguire altre azioni supportate dal connettore.
 
 ###Connettori come trigger###
 Diversi connettori forniscono i trigger per le app per la logica. Tali trigger sono di due tipi:
@@ -39,37 +77,37 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 2. Trigger di push: tali trigger restano in attesa di dati su un endpoint oppure che si verifichi un evento che attivi una nuova istanza dell'app per la logica. Esempi di tali connettori sono i listener HTTP e Twitter.
 
 ###Connettori come azioni###
-È anche possibile usare i connettori come azioni come parte dell'app per la logica. Ciò può rivelarsi utile per cercare nell'app per la logica i dati da usare nell'esecuzione; ad esempio, può essere necessario cercare in un database SQL alcune informazioni aggiuntive riguardo un cliente quando si elabora un ordine inoltrato dal cliente in un'app per la logica. In alternativa, può essere necessario scrivere, aggiornare o eliminare i dati in una destinazione, per cui è possibile usare le azioni fornite dai connettori.
-
-##Come usare i connettori##
-Gli articoli seguenti offrono esempi di come usare alcuni connettori predefiniti.
-
-* [Utilizzo del connettore HTTP]
-* [Utilizzo del connettore FTP]
-* [Utilizzo del connettore Box]
-* [Utilizzo del connettore BLOB Archiviazione di Azure]
-* [Utilizzo del connettore Facebook]
-* [Utilizzo del connettore Twitter]
-* [Utilizzo del connettore SalesForce]
-* [Utilizzo del connettore Office 365]
-* [Utilizzo del connettore Sharepoint]
-* [Utilizzo del connettore SAP]
-
-Per altre informazioni, consultare i riferimenti ai connettori e alle API [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
+È anche possibile usare i connettori come azioni come parte dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione; ad esempio, può essere necessario cercare in un database SQL altre informazioni riguardo un cliente quando si elabora un ordine. In alternativa, può essere necessario scrivere, aggiornare o eliminare i dati in una destinazione, per cui è possibile usare le azioni fornite dai connettori. Le azioni eseguono il mapping a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
 
 
 <!-- Links -->
 
-[Utilizzo del connettore Box]: app-service-logic-connector-box.md
-[Utilizzo del connettore Facebook]: app-service-logic-connector-facebook.md
-[Utilizzo del connettore SalesForce]: app-service-logic-connector-salesforce.md
-[Utilizzo del connettore Twitter]: app-service-logic-connector-twitter.md
-[Utilizzo del connettore SAP]: app-service-logic-connector-sap.md
-[Utilizzo del connettore FTP]: app-service-logic-connector-ftp.md
-[Utilizzo del connettore HTTP]: app-service-logic-connector-http.md
-[Utilizzo del connettore BLOB Archiviazione di Azure]: app-service-logic-connector-azurestorageblob.md
-[Utilizzo del connettore Office 365]: app-service-logic-connector-office365.md
-[Utilizzo del connettore SharePoint]: app-service-logic-connector-sharepoint.md
+[Connettore Box]: app-service-logic-connector-box.md
+[Connettore Facebook]: app-service-logic-connector-facebook.md
+[Connettore Salesforce]: app-service-logic-connector-salesforce.md
+[Connettore Twitter]: app-service-logic-connector-twitter.md
+[SAP connector]: app-service-logic-connector-sap.md
+[Connettore FTP]: app-service-logic-connector-ftp.md
+[Connettore HTTP]: app-service-logic-connector-http.md
+[Connettore BLOB di archiviazione di Azure]: app-service-logic-connector-azurestorageblob.md
+[Connettore Office 365]: app-service-logic-connector-office365.md
+[Connettore Sharepoint]: app-service-logic-connector-sharepoint.md
+[Connettore SugarCRM]: app-service-logic-connector-sugarcrm.md
+[Connettore QuickBooks]: app-service-logic-connector-quickbooks.md
+[Connettore Yammer]: app-service-logic-connector-yammer.md
+[Connettore Twilio]: app-service-logic-connector-twilio.md
+[Connettore SMTP]: app-service-logic-connector-smtp.md
+[Connettore SFTP]: app-service-logic-connector-sftp.md
+[Connettore POP3]: app-service-logic-connector-pop3.md
+[Connettore DropBox]: app-service-logic-connector-dropbox.md
+[Connettore Chatter]: app-service-logic-connector-chatter.md
+[Connettore HDInsight]: app-service-logic-connector-hdinsight.md
+[Connettore del Bus di servizio di Azure]: app-service-logic-connector-azureservicebus.md
+[Connettore Oracle]: app-service-logic-connector-oracle.md
+[Connettore SQL]: app-service-logic-connector-sql.md
+[Connettore OneDrive]: app-service-logic-connector-onedrive.md
+[Connettore File]: app-service-logic-connector-file.md
+[Connettore Slack]: app-service-logic-connector-slack.md
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

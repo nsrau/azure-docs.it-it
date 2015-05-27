@@ -35,13 +35,13 @@
             }
         }
 
-    Questo utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il valore del provider.
+    Questo utente viene autenticato tramite un account di accesso di Facebook. Se si utilizza un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il nome del provider.
 
 3. Impostare come commento o eliminare la chiamata al metodo **RefreshTodoItems** nell'override del metodo **OnNavigatedTo** esistente.
 
 	Ciò impedisce il caricamento dei dati prima dell'autenticazione dell'utente.
 
-	>[AZURE.NOTE]Per eseguire correttamente l'autenticazione da un'app di Windows Phone Store 8.1, è necessario chiamare LoginAsync dopo che è il metodo **OnNavigated** è stato chiamato e dopo che l'evento **Loaded** della pagina è stato generato. In questa esercitazione tale operazione viene svolta tramite l'aggiunta di un pulsante **Sign in** all'app.
+	>[AZURE.NOTE]Per eseguire correttamente l'autenticazione da un'app di Windows Phone Store 8.1, è necessario chiamare LoginAsync dopo che il metodo **OnNavigated** è stato chiamato e dopo che l'evento **Loaded** della pagina è stato generato. In questa esercitazione tale operazione viene svolta tramite l'aggiunta di un pulsante **Sign in** all'app.
 
 4. Aggiungere il seguente frammento di codice alla classe MainPage:
 
@@ -52,7 +52,7 @@
 
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 5. Nel progetto dell'app di Windows Store, aprire il file di progetto MainPage.xaml e aggiungere il seguente elemento **Button** giusto prima dell'elemento che definisce il pulsante **Save**:
@@ -62,7 +62,7 @@
 
 6. Ripetere il passaggio precedente per il progetto dell'app di Windows Phone Store, questa volta aggiungendo l'elemento **Button** in **TitlePanel**, dopo l'elemento **TextBlock**.
 
-5. Aprire il file del progetto App.xaml.cs condiviso e, se non è già presente, aggiungere l'istruzione using:
+5. Aprire il file del progetto App.xaml.cs condiviso e aggiungere l'istruzione using seguente, se non è già presente:
 
         using Microsoft.WindowsAzure.MobileServices;  
  
@@ -83,12 +83,11 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	Se il metodo **OnActivated** è già presente, aggiungere solamente il blocco di codice `#if...#endif`.
 
-8. Premere F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato. 
+8. Premere il tasto F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato.
 
-   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
-9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.  
-
-<!--HONumber=49-->
+9. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
+<!--HONumber=54-->

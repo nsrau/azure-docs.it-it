@@ -1,3 +1,3 @@
-> [AZURE.NOTE]Microsoft sta lavorando all’integrazione di Operational Insights nella nuova [Microsoft Operations Management Suite](http://microsoft.com/oms). Anche se Operational Insights rimane un servizio di Azure e le funzionalità descritte in questo articolo rimangono le stesse, si noterà che i riferimenti a Operational Insights verranno presto sostituiti con Microsoft Operations Management Suite.
+> [AZURE.NOTE]Microsoft sta lavorando all'integrazione di Operational Insights nella nuova [Microsoft Operations Management Suite](http://microsoft.com/oms). Anche se Operational Insights rimane un servizio di Azure e le funzionalità descritte in questo articolo rimangono le stesse, si noterà che i riferimenti a Operational Insights verranno presto sostituiti con Microsoft Operations Management Suite.
 
 <!--HONumber=54-->

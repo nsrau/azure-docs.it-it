@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione ai dati (Android) | Mobile Dev Center" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android." 
 	services="mobile-services" 
@@ -13,46 +13,39 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="05/06/2015" 
+	ms.author="ricksal"/>
 
-# Aggiunta di Servizi mobili a un'app esistente
+# Aggiungere Servizi mobili a un'app esistente
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data-EC.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dati in un'app per Android. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.</p>
+<p>Questo argomento illustra come usare Servizi mobili di Azure per sfruttare i dati in un'app per Android. In questa esercitazione si scaricherà un'app che archivia dati in memoria, si creerà un nuovo servizio mobile e lo si integrerà con l'app e quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate ai dati durante l'esecuzione dell'app.</p>
 
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a><span class="time">15:32</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a><span class="time">15:32:00</span></div>
 </div>
 
-> [AZURE.NOTE] In questa esercitazione viene descritto come è possibile usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Android e vengono pertanto riproposte molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se questa è la prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](/develop/mobile/tutorials/get-started-android-EC).
+> [AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Android e ripropone quindi molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](get-started-android-EC.md).
 > 
 > Per visualizzare il codice sorgente dell'app completata, fare clic [qui](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-Questa esercitazione spiega come eseguire le operazioni di base seguenti:
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-android-get-started-data-EC%2F). 
 
-1. [Download del progetto dell'app per Android] 
-2. [Creazione del servizio mobile]
-3. [Aggiunta di una tabella dati per l'archiviazione]
-4. [Aggiornamento dell'app per l'uso di Servizi mobili]
-5. [Test dell'app in Servizi mobili]
++ [Mobile Services SDK per Android], <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a> che include l'IDE (Integrated Development Environment) di Eclipse, il plug-in Android Developer Tools (ADT) e Android 4.2 o versione successiva.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
-
-Questa esercitazione richiede l'[SDK Android per Servizi mobili], l'<a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">SDK Android</a>, che include l'ambiente di sviluppo integrato Eclipse (IDE) e il pug-in ADT (Android Developer Tools) e Android 4.2 o versione successiva. 
-
-> [AZURE.NOTE] In questa esercitazione vengono fornite le istruzioni per installare Android SDK e Mobile Services Android SDK. Il progetto GetStartedWithData scaricato richiede Android 4.2 o versione successiva invece con Mobile Services SDK è richiesto solo Android 2.2 o versione successiva.
+> [AZURE.NOTE]Questa esercitazione fornisce istruzioni per installare Android SDK e Mobile Services SDK per Android. Il progetto GetStartedWithData scaricato richiede Android 4.2 o versione successiva invece con Mobile Services SDK è richiesto solo Android 2.2 o versione successiva.
 
 <!-- -->
 
-> [AZURE.NOTE] In questa esercitazione viene usata la versione più recente di Mobile Services SDK. È possibile trovare una versione precedente <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126">qui</a> per motivi di compatibilità con le versioni precedenti, ma il codice contenuto in queste esercitazioni non funzionerà.
+> [AZURE.NOTE]Questa esercitazione usa la versione più recente di Mobile Services SDK. È possibile trovare una versione precedente <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126">qui</a> per motivi di compatibilità con le versioni precedenti, ma il codice contenuto in queste esercitazioni non funzionerà.
 
-<h2><a name="download-app"></a>Scaricare il progetto GetStartedWithData</h2>
+##<a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
 ###Scaricare il codice di esempio
 
@@ -60,75 +53,64 @@ Questa esercitazione richiede l'[SDK Android per Servizi mobili], l'<a href="htt
 
 ###Verificare la versione di Android SDK
 
-[AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Verificare l'SDK](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
 ###Esaminare ed eseguire il codice di esempio
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code-EC.md)]
 
-<h2><a name="create-service"></a>Creare un nuovo servizio mobile nel portale di gestione</h2>
+##<a name="create-service"></a>Creare un nuovo servizio mobile nel portale di gestione
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a>Aggiungere una nuova tabella al servizio mobile</h2>
+##<a name="add-table"></a>Aggiungere una nuova tabella al servizio mobile
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati</h2>
+##<a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
-
-<h2><a name="test-app"></a>Testare l'app nel nuovo servizio mobile</h2>
+##<a name="test-app"></a>Testare l'app nel nuovo servizio mobile
 
 Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili usando l'emulatore di Android o un telefono Android.
 
-1. Dal menu **Run** scegliere **Run** per avviare il progetto.
+1. Nel menu **Run** scegliere **Run** per avviare il progetto.
 
-	L'app, compilata tramite Android SDK che usa la libreria client per inviare una query che restituisce gli elementi per il servizio mobile, verrà eseguita.
+	L'app, compilata tramite Android SDK, che usa la libreria client per inviare una query che restituisce gli elementi per il servizio mobile, verrà eseguita.
 
 5. Come in precedenza, digitare un testo significativo e quindi fare clic su **Add**.
 
- 	Un nuovo elemento verrà inviato come inserimento al servizio mobile.
+   	Un nuovo elemento verrà inviato come inserimento al servizio mobile.
 
 3. Nel [portale di gestione] fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
 4. Fare clic sulla scheda **Dati** e quindi su **Sfoglia**.
 
- 	![][9]
- 
- 	Si noti che la tabella **TodoItem** ora contiene dati, con alcuni valori generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
+   	![][9]
+  
+   	Si noti che la tabella **TodoItem** ora contiene dati, con alcuni valori generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
 
 L'esercitazione **Introduzione ai dati** per Android è terminata.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per Android di usare dati in Servizi mobili. 
+Questa esercitazione ha illustrato le nozioni di base per consentire a un'app per Android di usare dati in Servizi mobili.
 
-In seguito, è consigliabile eseguire una delle esercitazioni seguenti, basate sull'app GetStartedWithData creata in questa esercitazione:
+Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 
-* [Usare script per la convalida e la modifica di dati]
- <br/>Come utilizzare script del server in Servizi mobili per convalidare e modificare i dati inviati dall'app.
+* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Usare il paging per ridefinire le query]
- <br/>Informazioni su come usare il paging nelle query per controllare la quantità di dati gestiti in un'unica richiesta.
-
-Una volta completata la serie relativa ai dati, provare a eseguire le esercitazioni per Android seguenti:
-
-* [Introduzione all'autenticazione] 
-	<br/>Informazioni sull'autenticazione degli utenti dell'app.
-
-* [Introduzione alle notifiche push] 
- <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
+* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
 <!-- Anchors. -->
-[Download del progetto dell'app per Android]: #download-app
-[Creazione del servizio mobile]: #create-service
-[Aggiunta di una tabella dati per l'archiviazione]: #add-table
-[Aggiornamento dell'app per l'uso di Servizi mobili]: #update-app
-[Test dell'app in Servizi mobili]: #test-app
-[Passaggi successivi]:#next-steps
+[Download the Android app project]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [8]: ./media/mobile-services-android-get-started-data/mobile-dashboard-tab.png
@@ -140,17 +122,13 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 
 
 <!-- URLs. -->
-[Usare script per la convalida e la modifica di dati]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Usare il paging per ridefinire le query]: /develop/mobile/tutorials/add-paging-to-data-android
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-android
-[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-android
-[Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-android
-[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-android
+[Introduzione all'autenticazione]: mobile-services-android-get-started-users.md
+[Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push-EC.md
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Portale di gestione]: https://manage.windowsazure.com/
-[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+[Azure Management Portal]: https://manage.windowsazure.com/
+[portale di gestione]: https://manage.windowsazure.com/
+[Mobile Services SDK per Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=47-->
+<!--HONumber=54-->

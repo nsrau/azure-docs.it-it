@@ -22,7 +22,7 @@ Usando il connettore SAP è possibile connettere le app Web, mobili e per la log
 	
 Il server SAP può persino essere protetto dal firewall locale. In caso di server locale, la connettività viene stabilita attraverso un listener ibrido, come illustrato:
 
-![Hybrid connectivity flow][1]
+![Flusso di connettività ibrida][1]
 
 Un connettore SAP nel cloud non può connettersi direttamente a un server SAP protetto da firewall. Il listener ibrido colma il divario ospitando un endpoint di inoltro che consente al connettore di stabilire in modo sicuro la connettività al server SAP.
 
@@ -42,26 +42,26 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui �
 ## Creare un nuovo adapter per SAP
 1. Accedere al portale di gestione di Microsoft Azure. 
 2. Selezionare **Nuovo**.
-3. Nel pannello di creazione, selezionare **Calcolo** > **Azure Marketplace**.
+3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
 4. Nel pannello Marketplace, selezionare **App per le API**, quindi cercare SAP nella barra di ricerca:
 	
-	![SAP Connector API App][2]	
+	![App per le API del connettore SAP][2]	
 5. Selezionare il **connettore SAP** pubblicato da Microsoft.
-6. Nel pannello del connettore SAP, selezionare **Crea**.
+6. Nel pannello Connettore SAP selezionare **Crea**.
 7. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:
 	1. **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 	2. **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	3. **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
 	4. **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 	5. **Piano tariffario**: scegliere un piano tariffario per il connettore
-	6. **Nome**: assegnare un nome al connettore FTP
+	6. **Nome**: assegnare un nome al connettore SAP
 	7. **Impostazioni pacchetto**
 		- **Nome server**: immettere il nome del server SAP. Esempio: "ServerSAP" o "ServerSAP.nomedominio.com".
 		- **Nome utente**: immettere un nome utente valido per connettersi al server SAP.
 		- **Password**: immettere una password valida per connettersi al server SAP.
 		- **Numero sistema**: immettere il numero sistema del server applicazioni SAP.
-		- **Lingua**: immettere la lingua di accesso, ad esempio "IT". Se non viene immesso alcun valore, l'impostazione predefinita sarà "EN".
-		- **Locale**: indicare se il server SAP locale è protetto da firewall o no. Se impostato su TRUE, è necessario installare un agente listener in un server che può accedere al server SAP. Per installare l'agente, passare alla pagina di riepilogo dell'app per le API e selezionare 'Hybrid Connection'
+		- **Lingua**: immettere la lingua di accesso, ad esempio "IT". Se non viene immesso alcun valore, l'impostazione predefinita sarà "IT".
+		- **Locale**: indicare se il server SAP locale è protetto da firewall o no. Se impostato su TRUE, è necessario installare un agente listener in un server che può accedere al server SAP. Per installare l'agente, passare alla pagina di riepilogo dell'app per le API e fare clic su 'Connessione ibrida'.
 		- **Stringa di connessione per il bus di servizio**: immettere questo parametro se il server SAP è locale. Deve trattarsi di una stringa di connessione valida allo spazio dei nomi del bus di servizio.
 		- **RFC**: immettere in SAP gli RFC che il connettore può richiamare.
 		- **TRFC**: immettere in SAP i TRFC che il connettore può richiamare.
@@ -75,30 +75,30 @@ Per passare al connettore SAP creato, scegliere **Sfoglia** > **App per le API**
 
 Nel pannello del connettore, notare che lo stato di connessione ibrida è in sospeso. Selezionare Connessione ibrida. Viene visualizzato il pannello Connessione ibrida.
 
-![Hybrid connection blade][3]
+![Pannello Connessione ibrida][3]
 
 Copiare la stringa di configurazione del gateway primario. Verrà usata in seguito come parte della configurazione di installazione del listener ibrido.
 
 Selezionare **Scarica e configura** ed eseguire il programma di installazione Click Once:
 
-![Hybrid connection click once installer][4]
+![Programma di installazione Click Once di Connessione ibrida][4]
 
 Selezionare **installa**, quindi immettere l'impostazione di configurazione del gateway copiata in precedenza:
 
-![Relay listen connection string][5]
+![Stringa di connessione del listener di inoltro][5]
 
 Selezionare **Installa** per completare la configurazione della Gestione connessioni ibride:
 
-![Hybrid connection manager installation in progress][6]
+![Installazione della gestione della connessione ibrida in corso][6]
 
-![Hybrid connection manager installation completed][7]
+![Installazione della gestione della connessione ibrida completata][7]
 
 ## Convalidare la connessione ibrida
 Per passare al connettore SAP creato, scegliere **Sfoglia** > **App per le API** > *nome del connettore*
 
-Nel pannello del connettore, notare che lo stato di connessione ibrida è *Connected*:
+Nel pannello del connettore, notare che lo stato di connessione ibrida è *Connesso*:
 
-![Hybrid connection status - connected][8]
+![Stato di Connessione ibrida - connesso][8]
 
 
 ## Uso del connettore SAP nelle app per la logica
@@ -106,16 +106,16 @@ Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di
 
 Per creare una nuova app per la logica, scegliere **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati per l'app per la logica, incluso il gruppo di risorse.
 
-Selezionare **Trigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
+Selezionare T**rigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
 
-Selezionare il connettore SAP dal riquadro a destra e selezionare un'azione dalla scheda Azioni. 
+Selezionare il connettore SAP dal riquadro a destra e selezionare un'azione dalla scheda Azioni.
 
-> [AZURE.NOTE] L'elenco di azioni è basato sulla configurazione immessa quando è stato creato il connettore SAP. 
+> [AZURE.NOTE]L'elenco di azioni è basato sulla configurazione immessa quando è stato creato il connettore SAP.
 
 Per l'azione selezionata verranno visualizzati i parametri di input e output. È possibile immettere gli input per l'azione e usare l'output dell'azione corrente in altre app per le API, possibilmente per ulteriori processi decisionali nell'ambito del flusso di lavoro.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG	
+[1]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG
 [2]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.APIApp.PNG
 [3]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.PNG
 [4]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.PNG
@@ -128,4 +128,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

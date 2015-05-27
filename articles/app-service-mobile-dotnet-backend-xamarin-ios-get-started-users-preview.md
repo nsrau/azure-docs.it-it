@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione per app mobili in Xamarin iOS" 
-	description="Informazioni su come usare le app mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS" 
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -22,20 +22,20 @@
 
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app mobile, viene visualizzato il valore dell'ID utente.
 
-Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È inoltre necessario completare prima l'esercitazione [Creare un'app per Xamarin iOS]. 
+Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anche necessario completare prima l'esercitazione [Creare un'app per Xamarin iOS].
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare i servizi app
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>Limitazione delle autorizzazioni agli utenti autenticati
+##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="7">
 <li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
    
-   	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app mobile come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
+   	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
 </ol>
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
@@ -50,7 +50,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Aggiungere un nuovo metodo **Autenticate** a **QSTodoService** con la definizione seguente:
+2. Aggiungere un nuovo metodo **Autenticazione** a **QSTodoService** con la definizione seguente:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -64,7 +64,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
             }
         }
 
-> [AZURE.NOTE] Se si usa un provider di identità diverso da un account Facebook, sostituire il valore passato al metodo **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo **ViewDidLoad** per rimuovere la chiamata a **RefreshAsync()** verso la fine:
 
@@ -96,18 +96,16 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 		}
 		// rest of RefreshAsync method
 	
-5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati. 
+5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati.
 
 	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
  
 <!-- URLs. -->
-[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Creare un'app per Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Creare un'app per Xamarin iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
+[Azure Management Portal]: https://portal.azure.com
 
-[Portale di gestione di Azure]: https://portal.azure.com
-
-<!--HONumber=49-->
+<!--HONumber=54-->

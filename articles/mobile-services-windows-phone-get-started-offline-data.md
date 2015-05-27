@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso di dati offline in Servizi mobili (Windows Phone) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per sincronizzare i dati offline nell'applicazione per Windows Phone" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
+	documentationCenter="mobile-services" 
+	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
@@ -13,38 +13,38 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/16/2015" 
+	ms.author="wesmc;donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 
-Questo argomento descrive come usare le funzionalità offline di Servizi mobili di Azure. Servizi mobili di Azure consente di interagire con un database locale quando si usa un servizio mobile in modalità offline. Le funzionalità offline consentono di sincronizzare le modifiche locali con il servizio mobile usato quando si torna online. 
+Questo argomento descrive come usare le funzionalità offline di Servizi mobili di Azure. Servizi mobili di Azure consente di interagire con un database locale quando si usa un servizio mobile in modalità offline. Le funzionalità offline consentono di sincronizzare le modifiche locali con il servizio mobile usato quando si torna online.
 
-In questa esercitazione verrà aggiornata l'app creata nell'esercitazione [Introduzione ai dati] per supportare le funzionalità offline di Servizi mobili di Azure. Quindi, verranno aggiunti dati in uno scenario offline, verrà effettuata la sincronizzazione degli elementi con il database online, quindi si effettuerà l'accesso al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
+Questa esercitazione consente di aggiornare l'app creata nell'esercitazione [Introduzione ai dati] per supportare le funzionalità offline di Servizi mobili di Azure. Consente inoltre di aggiungere i dati in uno scenario offline, eseguire la sincronizzazione degli elementi con il database online e di accedere al portale di gestione di Azure per visualizzare le modifiche apportate durate l'esecuzione dell'app.
 
 
->[AZURE.NOTE] In questa esercitazione viene descritto come usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Windows Phone. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dalle esercitazioni [Introduzione a Servizi mobili] e [Introduzione ai dati]. 
+>[AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Windows Phone. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dalle esercitazioni [Introduzione a Servizi mobili] e [Introduzione ai dati].
 
-Questa esercitazione spiega come eseguire le operazioni di base seguenti:
+Questa esercitazione descrive le operazioni di base seguenti:
 
 1. [Aggiornare l'app per supportare le funzionalità offline]
 2. [Testare l'app in uno scenario offline] 
 3. [Aggiornare l'app per la riconnessione al servizio mobile]
 4. [Testare l'app connessa al servizio mobile]
 
-Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
+Per completare questa esercitazione, è necessario disporre di:
 
 * Visual Studio 2012
 * [Windows Phone 8 SDK]
 * Completamento dell'esercitazione [Introduzione ai dati].
-* [Azure Mobile Services SDK versione 1.3.0 (o successiva)][Pacchetto NuGet Mobile Services SDK]
-* [Azure Mobile Services SQLite Store versione 1.0.0 (o successiva)][Pacchetto NuGet SQLite store]
+* [Azure Mobile Services SDK 1.3.0 o versione successiva][Mobile Services SDK Nuget]
+* [Azure Mobile Services SQLite Store 1.0.0 o versione successiva][SQLite store nuget]
 * [SQLite per Windows Phone 8]
 
->[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
 
@@ -52,22 +52,22 @@ Servizi mobili di Azure consente di interagire con un database locale quando si 
 
 In questa sezione viene usato SQLite come archivio locale per le funzionalità offline.
 
->[AZURE.NOTE] È possibile ignorare questa sezione e limitarsi a scaricare una versione del progetto introduttivo che dispone già di supporto offline.  Per scaricare un progetto con il supporto offline abilitato, vedere l'[esempio introduttivo offline per Windows Phone].
+>[AZURE.NOTE]È possibile ignorare questa sezione e limitarsi a scaricare una versione del progetto introduttivo che dispone già di supporto offline. Per scaricare un progetto con il supporto offline abilitato, vedere l'[esempio introduttivo offline per Windows Phone].
 
 
 1. Installare SQLite per i progetti Windows Phone 8. È possibile installarlo direttamente dal collegamento [SQLite for Windows Phone 8].
 
-    >[AZURE.NOTE] Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido usando l'estensione vsix anziché zip. Fare quindi doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
+    >[AZURE.NOTE]Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
 
-2. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** sotto il progetto e aggiungere un riferimento a **SQLite for Windows Phone** in **Windows Phone**>**Estensioni**. 
+2. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** sotto il progetto e aggiungere un riferimento a **SQLite per Windows Phone** in **Windows Phone**>**Estensioni**.
 
     ![][1]
 
-3. Per l'esecuzione del runtime SQLite è necessario che sia impostata l'architettura di processore **x86**, **x64** o **ARM** per il progetto creato. **Qualsiasi CPU** non è supportata. Modificare l'architettura del processore in una delle impostazioni supportate da testare.
+3. SQLite Runtime richiede la modifica dell'architettura del processore per il progetto creato in **x86**, **x64** o **ARM**. **Qualsiasi CPU** non è supportata. Modificare l'architettura del processore in una delle impostazioni supportate da testare.
 
     ![][11]
 
-4. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto di app e scegliere **Gestisci pacchetti NuGet** per eseguire Gestione pacchetti NuGet. Cercare **SQLiteStore** per installare il pacchetto **WindowsAzure.MobileServices.SQLiteStore**.
+4. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto di app e scegliere **Gestisci pacchetti NuGet** per eseguire Gestione pacchetti NuGet. Cercare **SQLiteStore** per installare il pacchetto **Azure.MobileServices.SQLiteStore**.
 
     ![][2]
 
@@ -96,7 +96,7 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
         }
 
 
-8. In MainPage.xaml.cs aggiornare il gestore eventi `OnNavigatedTo` in modo che sia un metodo `async` e inizializzi il contesto di sincronizzazione del client con un archivio SQLite. L'archivio SQLite viene creato con una tabella che corrisponde allo schema della tabella di Servizi mobili, ma deve contenere la proprietà di sistema **Version** aggiunta nel passaggio precedente.
+8. In MainPage.xaml.cs aggiornare il gestore di eventi `OnNavigatedTo` in modo che si tratti di un metodo `async` e inizializzi il contesto di sincronizzazione del client con un archivio SQLite. L'archivio SQLite viene creato con una tabella che corrisponde allo schema della tabella di Servizi mobili, ma deve contenere la proprietà di sistema **Version** aggiunta nel passaggio precedente.
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -109,9 +109,9 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
             RefreshTodoItems();
         }
 
-9. In Esplora soluzioni di Visual Studio aprire il file MainPage.xaml. Trovare la definizione del pulsante per il pulsante **Aggiorna**. Sostituirla con la definizione di pannello Stack seguente. 
+9. In Esplora soluzioni di Visual Studio aprire il file MainPage.xaml. Individuare la definizione del pulsante per il pulsante **Refresh**. Sostituirla con la definizione di pannello Stack seguente.
 
-    Questo codice aggiunge due controlli di pulsante con i gestori eventi clic per le operazioni **Push** e **Pull**. I pulsanti si trovano sono allineati in orizzontale al pulsante di aggiornamento. Salvare il file.
+    Questo codice aggiunge due controlli di pulsante con i gestori di eventi clic per le operazioni **Push** e **Pull**. I pulsanti si trovano sono allineati in orizzontale al pulsante di aggiornamento. Salvare il file.
 
         <StackPanel  Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
           <Button Name="ButtonRefresh" Click="ButtonRefresh_Click" Width="160">Refresh</Button>
@@ -125,7 +125,7 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
         
 
 
-10. In MainPage.xaml.cs aggiungere i gestori eventi clic per i pulsanti **Push** and **Pull**, quindi salvare il file.
+10. In MainPage.xaml.cs aggiungere i gestori di eventi clic per i pulsanti **Push** e**Pull**, quindi salvare il file.
 
         private async void ButtonPull_Click(object sender, RoutedEventArgs e)
         {
@@ -175,17 +175,17 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
 
 In questa sezione verrà interrotta la connessione dell'app al servizio mobile per simulare uno scenario offline. Quindi, verranno aggiunti alcuni elementi di dati che saranno conservati nell'archivio locale.
 
-Si noti che in questa sezione l'app non deve essere connessa ad alcun servizio mobile. Pertanto, se vengono testati, i pulsanti **Push** e **Pull** genereranno eccezioni. Nella sezione successiva si connetterà di nuovo questa app client al servizio mobile per testare le operazioni **push** e **pull** allo scopo di sincronizzare l'archivio con il database del servizio mobile.
+Si noti che in questa sezione l'app non deve essere connessa ad alcun servizio mobile. Pertanto, se vengono testati, i pulsanti **Push** e **Pull** genereranno eccezioni. Nella sezione successiva verrà effettuata di nuovo la connessione di questa app client al servizio mobile per testare le operazioni **push** e **pull** allo scopo di sincronizzare l'archivio con il database del servizio mobile.
 
 
-1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Impostare un indirizzo non valido per l'inizializzazione di **MobileServiceClient** sostituendo "**azure-mobile.net**" con "**azure-mobile.xxx**" per l'URL. Salvare il file.
+1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Modificare l'inizializzazione di **MobileServiceClient** impostandola su un indirizzo non valido mediante la sostituzione di "**azure-mobile.net**" con "**azure-mobile.xxx**" per l'URL. Salvare il file.
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.xxx/",
             "AppKey"
         );
 
-2. In Visual Studio premere **F5** per compilare ed eseguire l'app. Immettere un nuovo elemento Todo e fare clic su **Salva**. I nuovi elementi todo esistono solo nell'archivio locale fino a quando è possibile effettuarne il push al servizio mobile. L'app client si comporta come se fosse connessa al servizio mobile, supportando tutte le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione).
+2. In Visual Studio premere **F5** per compilare ed eseguire l'applicazione. Immettere un nuovo elemento Todo e fare clic su **Salva**. I nuovi elementi todo esistono solo nell'archivio locale fino a quando è possibile effettuarne il push al servizio mobile. L'app client si comporta come se fosse connessa al servizio mobile, supportando tutte le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione).
 
     ![][4]
 
@@ -196,7 +196,7 @@ Si noti che in questa sezione l'app non deve essere connessa ad alcun servizio m
 In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il servizio mobile.
 
 
-1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Ripristinare l'indirizzo corretto per l'inizializzazione di **MobileServiceClient** sostituendo "**azure-mobile.xxx**" con "**azure-mobile.net**" per l'URL. Salvare il file.
+1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Modificare nuovamente l'inizializzazione di **MobileServiceClient** impostandola sull'indirizzo corretto mediante la sostituzione di "**azure-mobile.xxx**" con "**azure-mobile.net**" per l'URL. Salvare il file.
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.net/",
@@ -213,7 +213,7 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 
     ![][4]
 
-2.  Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript per i servizi mobili, è possibile visualizzare i dati dalla scheda **Dati** del servizio mobile. 
+2.  Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript per i servizi mobili, è possibile visualizzare i dati dalla scheda **Data** del servizio mobile.
 
     Se si usa il back-end .NET per il servizio mobile, in Visual Studio passare a **Esplora server** -> **Azure** -> **Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**.
 
@@ -221,9 +221,9 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 
     ![][6]
 
-3. Nell'app scegliere il pulsante **Push**. L'app effettuerà la chiamata a `MobileServiceClient.SyncContext.PushAsync` e quindi a `RefreshTodoItems` in modo da effettuare l'aggiornamento con gli elementi dell'archivio locale. Con questa operazione push il database del servizio mobile riceve i dati dall'archivio. Tuttavia, l'archivio locale non riceve gli elementi dal database del servizio mobile.
+3. Nell'app, premere il pulsante **Push**. L'app effettuerà la chiamata a `MobileServiceClient.SyncContext.PushAsync` e qundi a `RefreshTodoItems`, in modo da eseguire l'aggiornamento con gli elementi dell'archivio locale. Con questa operazione push il database del servizio mobile riceve i dati dall'archivio. Tuttavia, l'archivio locale non riceve gli elementi dal database del servizio mobile.
 
-    Un'operazione push viene eseguita da `MobileServiceClient.SyncContext` invece che da `IMobileServicesSyncTable` ed esegue il push delle modifiche a tutte le tabelle associate a tale contesto di sincronizzazione. Questa operazione serve per gli scenari in cui sono presenti relazioni tra tabelle.
+    Un'operazione push viene eseguita da `MobileServiceClient.SyncContext` anziché da `IMobileServicesSyncTable` ed esegue il push delle modifiche in tutte le tabelle associate a tale contesto di sincronizzazione. Questa operazione serve per gli scenari in cui sono presenti relazioni tra tabelle.
 
     ![][7]
 
@@ -231,16 +231,16 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 
     ![][8]
 
-5. Questa volta premere il pulsante **Pull** nell'app. L'app chiama solo `IMobileServiceSyncTable.PullAsync()` e `RefreshTodoItems`.  Si noti che tutti i dati provenienti dal database del servizio mobile sono stati estratti nell'archivio locale e vengono mostrati nell'app. Tuttavia, si noti anche che tutti i dati dell'archivio locale sono stati comunque sottoposti a push nel database del servizio mobile. Questo avviene perché **un'operazione pull effettua sempre un'operazione push all'inizio**
+5. Questa volta premere il pulsante **Pull** nell'app. L'app chiama solo `IMobileServiceSyncTable.PullAsync()` e `RefreshTodoItems`. Si noti che tutti i dati provenienti dal database del servizio mobile sono stati estratti nell'archivio locale e vengono mostrati nell'app. Tuttavia, si noti anche che tutti i dati dell'archivio locale sono stati comunque sottoposti a push nel database del servizio mobile. Questo perché un'operazione **pull effettua sempre un'operazione push all'inizio**.
  
     In questo esempio vengono recuperati tutti i record presenti nella tabella `todoTable` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-    >[AZURE.NOTE] Per supportare la sincronizzazione dei record eliminati con la sincronizzazione dei dati offline, è consigliabile abilitare l'[eliminazione temporanea]. In caso contrario, è necessario chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+    >[AZURE.NOTE]Per supportare la sincronizzazione dei record eliminati con la sincronizzazione dei dati offline, è consigliabile abilitare l'[eliminazione temporanea]. In caso contrario, è necessario chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
  
     ![][9]
 
-    ![][10] 
+    ![][10]
   
 
 ##Riepilogo
@@ -253,14 +253,14 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 
 * [Gestione dei conflitti con il supporto offline per Servizi mobili]
 
-* [Uso dell'eliminazione temporanea in Servizi mobili][Eliminazione temporanea]
+* [Uso dell'eliminazione temporanea in Servizi mobili][Soft Delete]
 
 <!-- Anchors. -->
 [Aggiornare l'app per supportare le funzionalità offline]: #enable-offline-app
 [Testare l'app in uno scenario offline]: #test-offline-app
 [Aggiornare l'app per la riconnessione al servizio mobile]: #update-online-app
 [Testare l'app connessa al servizio mobile]: #test-online-app
-[Passaggi successivi]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-phone-get-started-data-vs2013/mobile-todoitem-data-browse.png
@@ -278,17 +278,17 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 [12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
-[Gestione dei conflitti con il supporto offline per Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
-[Esempio introduttivo offline per Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-get-started/
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Gestione dei conflitti con il supporto offline per Servizi mobili]: mobile-services-windows-phone-handling-conflicts-offline-data.md
+[esempio introduttivo offline per Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
+[Introduzione a Servizi mobili]: mobile-services-windows-phone-get-started.md
+[Introduzione ai dati]: mobile-services-windows-phone-get-started-data.md
+[SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [SQLite per Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[Eliminazione temporanea]: /it-it/documentation/articles/mobile-services-using-soft-delete/
+[Soft Delete]: mobile-services-using-soft-delete.md
+[eliminazione temporanea]: mobile-services-using-soft-delete.md
 
-[Pacchetto NuGet Mobile Services SDK]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
-[Pacchetto NuGet SQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

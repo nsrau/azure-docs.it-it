@@ -1,34 +1,34 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Vengono descritti i passaggi i primi passaggi che consentono di iniziare a utilizzare i Servizi mobili di Azure in un progetto Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Introduzione a Servizi mobili (progetti Cordova)
 
 > [AZURE.SELECTOR]
-> - [Introduzione](vs-mobile-services-cordova-getting-started.md)
-> - [Risultati](vs-mobile-services-cordova-what-happened.md)
-
-## Introduzione a Servizi mobili (progetti Cordova)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 Il primo passaggio da eseguire per attenersi al codice riportato in questi esempi dipende dal tipo di servizio mobile a cui si è connessi.
 
-Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem.  Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
+Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem. Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
 
 Se invece si è connessi a un servizio mobile back-end .NET, nel modello di progetto predefinito creato da Visual Studio è già presente una tabella TodoItem, che deve però essere pubblicata in Azure. Per eseguire la pubblicazione, aprire il menu di scelta rapida per il progetto del servizio mobile in Esplora soluzioni e scegliere **Pubblica sito Web**. Accettare le impostazioni predefinite, quindi scegliere **Pubblica**.
   
->[AZURE.NOTE]**Nei progetti Cordova compilati mediante Visual Studio 2015 Preview, usare questa [soluzione](http://go.microsoft.com/fwlink/?LinkId=518765) per l'utilizzo con Servizi mobili di Azure. La soluzione non è necessaria per i progetti che usano versioni più recenti di Visual Studio 2015.**
+>[AZURE.NOTE]** In Cordova per i progetti che vengono compilati mediante Visual Studio 2015 Preview, viene impiegata questa [soluzione alternativa](http://go.microsoft.com/fwlink/?LinkId=518765) per l'utilizzo di Servizi mobili di Azure. La soluzione non è necessaria per i progetti nei quali vengono utilizzate le versioni più recenti di Visual Studio 2015. **
 
 #####Ottenere un riferimento a una tabella
 
@@ -36,7 +36,7 @@ Il codice seguente ottiene un riferimento a una tabella contenente i dati per To
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Per il corretto funzionamento di questi esempio, le autorizzazioni della tabella devono essere impostate su **Chiunque con la chiave applicazione**. È possibile configurare l'autenticazione in un secondo momento. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
+Per il corretto funzionamento di questi esempio, le autorizzazioni della tabella devono essere impostate su **Chiunque con la chiave applicazione**. È possibile configurare l'autenticazione in un secondo momento. Vedere [Introduzione all'autenticazione](mobile-services-html-get-started-users.md).
 
 #####Aggiungere una voce 
 
@@ -72,7 +72,7 @@ Il codice seguente esegue in una tabella una query relativa a tutti gli elementi
                 items = results.slice();
              });
 
-Per altri esempi di query disponibili per l'uso, vedere la pagina relativa all'oggetto [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)).
+Per altri esempi di query disponibili per l'utilizzo, vedere la pagina relativa all'oggetto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Aggiornare una voce
 
@@ -85,13 +85,11 @@ Aggiornare una riga in una tabella dati. In questo codice, l'elemento viene rimo
 
 #####Eliminare una voce
 
-Eliminare una voce nella tabella dati usando il metodo **del**. Chiamare il metodo [done]() sull'oggetto [Promise]() restituito per ottenere una copia dell'oggetto inserito e gestire eventuali errori.
+Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il metodo [done]() sull'oggetto [Promise]() restituito per ottenere una copia dell'oggetto inserito e gestire eventuali errori.
 
 	todoTable.del(todoItem).done(function (item) {
         items.splice(items.indexOf(todoItem), 1);
 	});
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

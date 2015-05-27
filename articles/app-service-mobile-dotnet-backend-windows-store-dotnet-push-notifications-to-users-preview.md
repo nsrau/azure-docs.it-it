@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Invio di notifiche multipiattaforma a un utente specifico con client Windows Store"
 	description="Informazioni su come inviare notifiche push a tutti i dispositivi di un utente specifico."
 	services="app-service\mobile" 
@@ -22,7 +22,7 @@
 
 Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. È stato introdotto il concetto di [modelli], che offre alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. L'operazione di invio raggiunge tutte le piattaforme grazie a questi segnaposto, abilitando le notifiche multipiattaforma.
 
-> [AZURE.NOTE] Affinché il push funzioni con i client multipiattaforma, sarà necessario completare questa esercitazione per ogni piattaforma che si vuole abilitare. Sarà necessario effettuare l'[aggiornamento del back-end mobile](#backend) solo una volta per i client che condividono lo stesso back-end mobile.
+> [AZURE.NOTE]Affinché il push funzioni con i client multipiattaforma, sarà necessario completare questa esercitazione per ogni piattaforma che si vuole abilitare. Sarà necessario effettuare l'[aggiornamento del back-end mobile](#backend) solo una volta per i client che condividono lo stesso back-end mobile.
  
 ##Prerequisiti 
 
@@ -41,7 +41,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
  
             // building templates for wns
-            var toastTemplate = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
+            var toastTemplate = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
             JObject templateBody = new JObject();
             templateBody["body"] = toastTemplate;
  
@@ -97,13 +97,13 @@ L'app è ora impostata per registrare il dispositivo dell'utente con le informaz
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-##<a name="test"></a>Testare l'app
+##<a name="test"></a>Test dell'app
 
 Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi delle app client impostate. Quando viene inserito l'elemento, il back-end invierà le notifiche a tutte le app client alle quali l'utente è connesso.
 
 <!-- URLs. -->
 [Introduzione all'autenticazione]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Introduzione alle notifiche push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
-[Modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
+[modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
 
-<!--HONumber=49-->
+<!--HONumber=54-->

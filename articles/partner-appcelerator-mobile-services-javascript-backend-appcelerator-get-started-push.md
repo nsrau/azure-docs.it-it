@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione alle notifiche push (Appcelerator) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app Appcelerator." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -18,19 +18,13 @@
 
 # Introduzione alle notifiche push in Servizi mobili (push legacy)
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/it-it/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-	<a href="/it-it/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/it-it/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/it-it/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a> <a href="/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a> <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a> <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a> <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a> <!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> --> <a href="partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
 Questo argomento descrive come usare Servizi mobili di Microsoft Azure per inviare notifiche push ad app per iOS e Android sviluppate con Appcelerator Titanium Studio. In questa esercitazione si useranno il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) e Google Cloud Messaging per aggiungere notifiche push al progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
->[AZURE.NOTE] Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. In questo argomento sono supportati servizi mobili esistenti che non sono stati ancora aggiornati per l'uso dell'integrazione di Hub di notifica. Quando si crea un nuovo servizio mobile, questa funzionalità integrata viene abilitata automaticamente. È consigliabile aggiornare il servizio per l'uso di Hub di notifica quando possibile. **A breve verrà resa disponibile un'esercitazione per il push di Hub di notifica con Appcelerator.**
+>[AZURE.NOTE]Servizi mobili è integrato con Hub di notifica di Azure per supportare altre funzionalità di notifica push, ad esempio modelli, più piattaforme e maggiore scalabilità. In questo argomento sono supportati servizi mobili esistenti che non sono stati ancora aggiornati per l'uso dell'integrazione di Hub di notifica. Quando si crea un nuovo servizi mobile, questa funzionalità integrata è abilitata automaticamente. È consigliabile aggiornare il servizio per l'uso di Hub di notifica quando possibile. **A breve verrà resa disponibile un'esercitazione per il push di Hub di notifica con Appcelerator.**
 
 1.	[Generare la richiesta di firma del certificato]
 2.	[Registrare l'app e abilitare le notifiche push]
@@ -40,7 +34,7 @@ Questo argomento descrive come usare Servizi mobili di Microsoft Azure per invia
 6.	[Configurare Servizi mobili]
 7.	[Aggiungere notifiche push all'app]
 8.	[Aggiornare gli script per l'invio di notifiche push]
-9.	[Inserire dati per la ricezione di notifiche]
+9.	[Inserire i dati per la ricezione delle notifiche]
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -50,11 +44,11 @@ Per completare questa esercitazione, è necessario disporre di:
 * Iscrizione a iOS Developer Program
 * Un account Google attivo
 
-> [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
+> [AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
 
-[AZURE.INCLUDE [Abilitare le notifiche push Apple](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Abilitare le notifiche push per Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Abilitare Google Cloud Messaging
 
@@ -67,9 +61,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ### Preparazione di Appcelerator Titanium Studio per la creazione di moduli
 
-Se si intende creare moduli per Android, è necessario installare il supporto Java all'interno di Appcelerator Titanium Studio. Se questa operazione non è stata ancora completata, per una breve procedura, vedere l'argomento relativo all'[installazione degli strumenti di sviluppo Java di Appcelerator].
+Se si intende creare moduli per Android, è necessario installare il supporto Java all'interno di Appcelerator Titanium Studio. Se questa operazione non è stata ancora completata, per una breve procedura, vedere l'argomento relativo all'[installazione degli strumenti di sviluppo Java] di Appcelerator.
 
-È necessario installare Android NDK. Scaricare il file ZIP appropriato da [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) ed estrarlo in una directory del disco. Prendere nota di tale directory. 
+È necessario installare Android NDK. Scaricare il file zip appropriato da [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) ed estrarlo in una directory del disco. Prendere nota di tale directory.
 
 ### Creazione di un nuovo modulo
 
@@ -79,15 +73,15 @@ Se si intende creare moduli per Android, è necessario installare il supporto Ja
 
     ![][0]
 
-3. Nella finestra successiva immettere i dati relativi alle impostazioni del progetto: 
+3. Nella finestra successiva immettere i dati relativi alle impostazioni del progetto:
 
-    * **Nome del progetto:** in questo caso verrà usato &quot;notificationhub&quot; (può essere uguale).
+    * **Project name:** in questo caso verrà usato &quot;notificationhub&quot; (può essere uguale).
 
-    * **ID del modulo:** in questo caso verrà usato &quot;com.winwire.notificationhub&quot;. L'ID del modulo deve corrispondere all'"ID applicazione".
+    * **Module Id:** in questo caso verrà usato &quot;com.winwire.notificationhub&quot;. Questa impostazione deve essere uguale al valore dell'ID applicazione.
 
-    * **Destinazioni di distribuzione:** in questo caso verrà selezionato Android.
+    * **Deployment Targets:** in questo caso verrà selezionato Android.
 
-    > [AZURE.NOTE] È importante che il nome dell'area di lavoro non contenga spazi; in caso contrario, si verificheranno problemi durante la creazione della compilazione.
+    > [AZURE.NOTE]È importante che il nome dell'area di lavoro non contenga spazi; in caso contrario, si verificheranno problemi durante la creazione della compilazione.
 
     ![][1]
 
@@ -137,11 +131,11 @@ Se si intende creare moduli per Android, è necessario installare il supporto Ja
 
 
 
-> [AZURE.NOTE] Nel codice precedente è necessario sostituire tutte le istanze del testo *com.winwire.notificationhub* con il nome del pacchetto dell'applicazione (ID del modulo).
+> [AZURE.NOTE]Nel codice precedente è necessario sostituire tutte le istanze del testo *com.winwire.notificationhub* con il nome del pacchetto dell'applicazione (Module Id).
 
-7. Nel modulo Hub di notifica fare clic con il pulsante destro del mouse sulla cartella &quot;src&quot; e passare a &quot;Nuovo&quot;, quindi selezionare &quot;cartella&quot;. Assegnare alla cartella il nome com.google.android.gcm.
+7. Nel modulo Hub di notifica fare clic con il pulsante destro del mouse sulla cartella &quot;src&quot; e passare a &quot;Nuovo&quot;, quindi selezionare &quot;Cartella&quot;. Assegnare alla cartella il nome com.google.android.gcm.
 
-> [AZURE.NOTE] Se l'opzione &quot;cartella&quot; non è visibile in &quot;Nuovo&quot;, selezionare &quot;Altro&quot; ed espandere Generale, quindi selezionare &quot;Cartella&quot;.
+> [AZURE.NOTE]Se l'opzione &quot;cartella&quot; non è visibile in &quot;Nuovo&quot;, selezionare &quot;Altro&quot; ed espandere Generale, quindi selezionare &quot;Cartella&quot;.
 
 8. Scaricare ora i file &quot;.java&quot; (gcm.zip) da questa posizione e copiarli nella nuova cartella creata (com.google.android.gcm).
 
@@ -216,11 +210,11 @@ Se si intende creare moduli per Android, è necessario installare il supporto Ja
 
 12. Scaricare ora module.zip e copiare i file nella cartella il cui nome è uguale a quello indicato in Module Id.
 
-> [AZURE.NOTE] Nei file precedenti è necessario sostituire tutte le istanze del testo *com.winwire.notificationhub* con il nome del pacchetto dell'applicazione (ID del modulo). Sostituire anche &quot;NotificationhubModule&quot; con NomeProgetto+Modulo(ad esempio &quot;NotificationhubModule&quot;).
+> [AZURE.NOTE]Nei file precedenti è necessario sostituire tutte le istanze del testo *com.winwire.notificationhub* con il nome del pacchetto dell'applicazione (Module Id). Sostituire anche &quot;NotificationhubModule&quot; con NomeProgetto+Module (ad esempio &quot;NotificationhubModule&quot;).
 
 ### Compilazione/Creazione del pacchetto di un modulo
 
-Scegliere **Deploy > Package - Android Module**. Non è possibile compilare il modulo BlackBerry con Studio; usare gli strumenti CLI di BlackBerry NDK o Momentics IDE. 
+Scegliere **Deploy > Package - Android Module**. Non è possibile compilare il modulo BlackBerry con Studio; usare gli strumenti CLI di BlackBerry NDK o Momentics IDE.
 
 ![][3]
 
@@ -229,7 +223,7 @@ Scegliere **Deploy > Package - Android Module**. Non è possibile compilare il m
 
 - Per tutti i progetti: il file zip del modulo viene rilasciato nella radice del percorso di installazione di Titanium SDK. 
 
-- Per un progetto specifico: il file module .zip viene rilasciato nella radice del progetto. 
+- Per un progetto specifico: il file zip del modulo viene rilasciato nella radice del progetto.
 
 
 ## <a name="configure"></a>Configurare Servizi mobili per l'invio di richieste push
@@ -254,35 +248,35 @@ Il servizio mobile è ora configurato per funzionare con APNS e GCM.
         <property name="ApplicationId.icon type="int">2130837504</property>
         <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
->[AZURE.NOTE] Nel codice precedente è necessario sostituire **ModuleId** e **ApplicationId**, ovvero il valore di Module ID, assegnato durante la creazione del modulo GCM, e il valore di Application Id, immesso durante la creazione del progetto.  Assicurarsi inoltre che i valori di **ModuleId** e **ApplicationId** siano uguali. È inoltre necessario cambiare **ApplicationId.AppNameActivity** in modo che sia simile a com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
+>[AZURE.NOTE]Nel codice precedente è necessario sostituire **ModuleId**, **ApplicationId**, ovvero il valore di Module ID, assegnato durante la creazione del modulo GCM, e il valore di Application Id, immesso durante la creazione del progetto. Assicurarsi inoltre che i valori di **ModuleId** e **ApplicationId** siano uguali. È inoltre necessario cambiare **ApplicationId.AppNameActivity** in modo che sia simile a com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
 
 
 2.	Copiare il modulo GCM creato in precedenza e inserirlo nel percorso indicato di seguito.	
 
     <table><tr>
-    <td>OSX
-    </td>
-    <td>/Library/Application Support/Titanium o ~/Library/Application Support/Titanium
-    </td>
-    </tr>
-    <td>Windows 7
-    </td>
-    <td>C:\Utenti\nomeutente\AppData\Roaming (o C:\ProgramData\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
-    </td>
-    </tr><td>Windows XP
-    </td>
-    <td>C:\Documents and Settings\nomeutente\Application Data (o C:\Documents and Settings\All Users\Application Data\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
-    </td>
-    </tr><td>Linux
-    </td>
-    <td>~/.titanium
-    </td>
-    </tr>
-    </tr>
-    
-    </table>
+<td>OSX
+</td>
+<td>/Library/Application Support/Titanium o ~/Library/Application Support/Titanium
+</td>
+</tr>
+<td>Windows 7
+</td>
+<td>C:\Utenti\nomeutente\AppData\Roaming (o C:\ProgramData\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
+</td>
+</tr><td>Windows XP
+</td>
+<td>C:\Documents and Settings\nomeutente\Application Data (o C:\Documents and Settings\All Users\Application Data\Titanium in Titanium Studio 1.0.1 e versioni precedenti)
+</td>
+</tr><td>Linux
+</td>
+<td>~/.titanium
+</td>
+</tr>
+</tr>
 
->[AZURE.NOTE]  In Mac OS Library è una cartella nascosta. Per renderla visibile è necessario eseguire il comando seguente e quindi riavviare il Finder: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
+</table>
+
+>[AZURE.NOTE]In Mac OS Library è una cartella nascosta. Per renderla visibile è necessario eseguire il comando seguente e quindi riavviare il Finder: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	In Appcelerator Titanium Studio aprire il file index.js e aggiungere il codice seguente nella parte finale. Questo codice consentirà di registrare il dispositivo per le notifiche push.
 
@@ -372,11 +366,7 @@ Il servizio mobile è ora configurato per funzionare con APNS e GCM.
 
 5.	Per Android sostituire il codice precedente con quello seguente:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+       var request = { 'text' : alertTextField.getValue(), 'complete' : false, 'handle' : Alloy.Globals.tempRegId };
     
     
 
@@ -391,11 +381,7 @@ Il servizio mobile è ora configurato per funzionare con APNS e GCM.
 
 7.	Per iOS sostituire il codice precedente con quello seguente:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+       var request = { 'text' : alertTextField.getValue(), 'complete' : false, 'deviceToken' : Alloy.Globals.tempRegId };
     
  
 L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme iOS e Android.
@@ -403,11 +389,11 @@ L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme i
 
 ## <a name="update-scripts"></a>Aggiornare lo script insert registrato nel portale di gestione
 
-1.	Nel portale di gestione fare clic sulla scheda Dati, quindi sulla tabella TodoItem.
+1.	Nel portale di gestione fare clic sulla scheda Dati e quindi sulla tabella TodoItem.
 
     ![][5]
 
-2.	In todoitem fare clic sulla scheda Script e selezionare Inserisci.
+2.	In todoitem fare clic sulla scheda Script, quindi selezionare Inserisci.
 
     ![][6]
 
@@ -431,7 +417,7 @@ L'app è ora aggiornata per il supporto delle notifiche push nelle piattaforme i
             }, 2500);
         }
   
-   	> [AZURE.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica push.  
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
 
 **Per Android:**
 
@@ -474,15 +460,13 @@ Verrà registrato un nuovo script insert, che usa l'[oggetto push di Servizi mob
 [Configurare Servizi mobili]: #configure
 [Aggiungere notifiche push all'app]: #add-push
 [Aggiornare gli script per l'invio di notifiche push]: #update-scripts
-[Inserire dati per la ricezione di notifiche]: #test
+[Inserire i dati per la ricezione delle notifiche]: #test
 
 <!-- URLs. -->
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[Uso di moduli Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Portale di gestione di Microsoft Azure]: https://manage.windowsazure.com/
-[Oggetto push di Servizi mobili]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
-[Installazione degli strumenti di sviluppo Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
+[Introduzione a Servizi mobili]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[uso di moduli Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Microsoft Azure Management Portal]: https://manage.windowsazure.com/
+[oggetto push di Servizi mobili]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[installazione degli strumenti di sviluppo Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

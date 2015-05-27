@@ -1,6 +1,7 @@
-﻿<properties 
+
+<properties 
 	pageTitle="Inviare notifiche push agli utenti autenticati" 
-	description="Informazioni su come inviare notifiche push a specifici" 
+	description="Informazioni su come inviare notifiche push a utenti specifici" 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
 	authors="wesmc7777" 
@@ -13,51 +14,48 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
+
 
 # Inviare notifiche push agli utenti autenticati
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione sulle [notifiche push][Introduzione alle notifiche push] in questa esercitazione i servizi mobili vengono modificati in modo da richiedere che un utente venga autenticato prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine lo script del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
+##Panoramica
 
-In questa esercitazione viene descritto il processo seguente:
+Questo argomento descrive come inviare notifiche push a un utente autenticato su un dispositivo registrato. A differenza della precedente esercitazione sulle [notifiche push][Get started with push notifications], in questa esercitazione il servizio mobile viene modificato in modo da richiedere l'autenticazione di un utente prima che il client possa effettuare la registrazione con l'hub di notifica per le notifiche push. Anche la registrazione viene modificata per poter aggiungere un tag in base all'ID utente assegnato. Infine lo script del server viene aggiornato per inviare la notifica solo all'utente autenticato invece che a tutte le registrazioni.
 
-+ [Aggiornamento del servizio per richiedere l'autenticazione per la registrazione]
-+ [Aggiornamento dell'app per accedere prima della registrazione]
-+ [Testare l'app]
- 
 Questa esercitazione supporta le app Android.
 
 ##Prerequisiti 
 
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
-+ [Introduzione all'autenticazione]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
++ [Aggiungere l'autenticazione all'app di Servizi mobili]<br/>Aggiunge un requisito di accesso all'app di esempio TodoList.
 
-+ [Introduzione alle notifiche push]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica. 
++ [Introduzione alle notifiche push]<br/>Configura l'app di esempio TodoList per le notifiche push con Hub di notifica.
 
 Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utenti non autenticati di effettuare la registrazione per le notifiche push dal servizio mobile.
 
-##<a name="register"></a>Aggiornare il servizio per richiedere l'autenticazione per la registrazione
+##Aggiornare il servizio per richiedere l'autenticazione per la registrazione
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
 <ol start="5"><li><p>Sostituire la funzione insert con il codice seguente, quindi fare clic su <strong>Salva</strong>:</p>
 <pre><code>function insert(item, user, request) {
 
-    // Define a payload for the Google Cloud Messaging toast notification.
+    // Definire un payload per una notifica di tipo avviso popup di Google Cloud Messaging.
     var payload = 
         '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
 
-    // Get the ID of the logged-in user.
+    // Ottenere l'ID dell'utente che ha eseguito l'accesso.
     var userId = user.userId;		
 
     request.execute({
         success: function() {
-            // If the insert succeeds, send a notification to all devices 
-            // registered to the logged-in user as a tag.
+            // Se l'inserimento ha esito positivo, inviare una notifica a tutti i dispositivi 
+            // registrati con l'utente che ha eseguito l'accesso come tag.
             push.gcm.send(userId, payload, {
                 success: function(pushResponse) {
                     console.log("Sent push with " + userId + " tag:", pushResponse, payload);
@@ -78,32 +76,25 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 <p>Questo script insert usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni Google Cloud Messaging create dall'utente connesso.</p></li></ol>
 
-##<a name="update-app"></a>Aggiornare l'app per accedere prima della registrazione
+##Aggiornare l'app per accedere prima della registrazione
 
 [AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)] 
 
-##<a name="test"></a>Testare l'app
+##Testare l'app
 
 [AZURE.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)] 
 
-<!---## <a name="next-steps"> </a>Passaggi successivi
+<!---##Next steps
 
-Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Autorizzazione di utenti con script], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà usato per filtrare i dati restituiti da Servizi mobili. Per altre informazioni su come usare Servizi mobili con .NET, vedere [Riferimento per i concetti e le procedure di .NET per Servizi mobili]-->
-
-<!-- Anchors. -->
-[Aggiornamento del servizio per richiedere l'autenticazione per la registrazione]: #register
-[Aggiornamento dell'app per accedere prima della registrazione]: #update-app
-[Testare l'app]: #test
-[Passaggi successivi]:#next-steps
+In the next tutorial, [Service-side authorization of Mobile Services users](mobile-services-javascript-backend-service-side-authorization.md), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
 
 
 <!-- URLs. -->
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-android-get-started-users/
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Aggiungere l'autenticazione all'app di Servizi mobili]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
+[Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Riferimento per i concetti e le procedure di .NET per Servizi mobili]: /it-it/develop/mobile/how-to-guides/work-with-net-client-library
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

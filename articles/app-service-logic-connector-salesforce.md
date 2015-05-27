@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Connettore Salesforce" 
    description="Come usare il connettore Salesforce" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="sutalasi"/>
 
 
-# Uso del connettore Salesforce nell'app per la logica#
+#Uso del connettore Salesforce nell'app per la logica#
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. Il connettore Salesforce consente di creare e modificare entità diverse, ad esempio account, clienti potenziali e così via. Di seguito sono elencati i tipici scenari di integrazione relativi a Salesforce.
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. Il connettore Salesforce permette di creare e modificare diverse entità, ad esempio account, lead e così via. Di seguito sono riportati gli scenari di integrazione tipici relativi a Salesforce.
 
 - Sincronizzazione degli account tra Salesforce e i sistemi ERP, ad esempio SAP e QuickBooks	
 
@@ -39,8 +39,19 @@ Tra le impostazioni del pacchetto del connettore, l'utente può specificare le e
 - Esegui query: usare questa azione per eseguire una query SELECT scritta in SOQL (Salesforce Object Query Language)
 
 
-## Creare un'app per la logica##
-Per usare un connettore Salesforce nell'app per la logica, l'app per le API del connettore deve essere già stata creata. Se necessario, è possibile crearne una al momento nell'app per la logica. È meglio creare un'app per la logica semplice che crea un account in Salesforce e aggiorna i dettagli dell'indirizzo di fatturazione dello stesso account.
+##Creare un'app per le API per il connettore SalesForce##
+1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
+2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "SalesForce".
+3.	Configurare il connettore SalesForce specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API.
+
+	![][15]
+4. Configurare le entità SalesForce da leggere/scrivere in 'Impostazioni pacchetto'.
+
+A questo punto è possibile creare un'app per le API per il connettore SalesForce.
+
+
+##Creare un'app per la logica##
+È meglio creare un'app per la logica semplice che crea un account in Salesforce e aggiorna i dettagli dell'indirizzo di fatturazione dello stesso account.
 
 1.	Accedere al portale di Azure e fare clic su "Nuovo -> Web e dispositivi mobili -> App per la logica"
 
@@ -58,16 +69,12 @@ Per usare un connettore Salesforce nell'app per la logica, l'app per le API del 
 
     ![][4]
 
-5.	Espandere "Crea nuovo" nella raccolta per visualizzare tutte le app per le API disponibili. Selezionare "Salesforce" nella raccolta per aggiungere "Salesforce Connector" al flusso.
+5.	Espandere la sezione relativa alle app per le API nel gruppo di risorse nella raccolta per visualizzare tutte le app per le API disponibili. Selezionare "Salesforce" nella raccolta per aggiungere "Salesforce Connector" al flusso.
 
-
-6.	Il valore predefinito per "Entità Salesforce" è "Account, Cliente potenziale, Opportunità, Caso, Contatto". È possibile aggiungere altre entità, incluse le entità personalizzate disponibili nell'account Salesforce, e fare clic su ✓.
 
 	![][5]
 
-7.	Verrà creata una nuova app per le API "Salesforce Connector" nello stesso gruppo di risorse dell'app per la logica. La creazione dell'app per le API richiederà circa 30 secondi.
-
-8.	Una volta creata l'app, fare clic su "Autorizza" per immettere le credenziali di accesso di Salesforce.
+8.	Per autorizzare l'app per la logica ad accedere all'account SalesForce, fare clic su 'Autorizza' per fornire le credenziali di accesso di Salesforce.
 
 	![][6]
 
@@ -85,7 +92,7 @@ Per usare un connettore Salesforce nell'app per la logica, l'app per le API del 
 
 	![][10]
 
-12.	Specificare il "Nome account" e fare clic su ✓. 
+12.	Specificare il "Nome account" e fare clic su ✓.
 
 	![][11]
 
@@ -95,7 +102,7 @@ Per usare un connettore Salesforce nell'app per la logica, l'app per le API del 
 
 	![][12]
 
-15.	Fare clic su "+" accanto a "ID record" per selezionare il valore dell'ID nell'output dell'azione "Crea account". 
+15.	Fare clic su "+" accanto a "ID record" per selezionare il valore dell'ID nell'output dell'azione "Crea account".
 
 	![][13]
 
@@ -103,9 +110,9 @@ Per usare un connettore Salesforce nell'app per la logica, l'app per le API del 
 
 	![][14]
 
-17. Fare clic su OK nella schermata dell'editor dell'app per la logica e quindi fare clic su 'Create'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
+17. Fare clic su OK nella schermata dell'editor dell'app per la logica, quindi fare clic su 'Crea'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
 
-18. Andare all'app per la logica appena creata e fare clic su 'Run' per avviare l'esecuzione.
+18. Passare all'app per la logica appena creata e fare clic su 'Esegui' per avviare l'esecuzione.
 
 19. È possibile controllare che un nuovo account con nome 'Contoso' venga creato nell'account Salesforce.
 
@@ -124,7 +131,8 @@ Per usare un connettore Salesforce nell'app per la logica, l'app per le API del 
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -3,24 +3,22 @@
    description="Modificare il numero di nodi dati in un cluster in esecuzione in HDInsight senza eliminare e ricreare il cluster."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
-   ms.author="bradsev"/>
+   ms.date="04/02/2015"
+   ms.author="jgao"/>
 
-# Scalabilità del cluster in HDInsight
+#Scalabilità del cluster in HDInsight
 
-La funzionalità di scalabilità del cluster consente di modificare il numero di nodi dati usato da un cluster, in esecuzione in HDInsight, senza dover eliminare e ricreare il cluster. L'operazione può essere eseguita tramite PowerShell, HDInsight SDK o dal portale Azure.
-
-> [WACOM.NOTE] Solo i tipi di cluster Hadoop e Storm sono supportati nella versione corrente. Il supporto per il cluster HBase verrà aggiunto a breve. 
+La funzionalità di scalabilità del cluster consente di modificare il numero di nodi dati usati da un cluster in esecuzione in Azure HDInsight senza dover eliminare e ricreare il cluster. L'operazione può essere eseguita tramite Azure PowerShell, HDInsight SDK o il portale Azure.
 
 ## Informazioni sulle funzionalità
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
@@ -31,21 +29,21 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 ## Hadoop 
 
-### Aggiungere nodi dati
+### Aggiunta di nodi dati
 È possibile aumentare facilmente il numero di nodi dati in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
 
-### Rimuovere nodi dati
-Quando un cluster Hadoop viene scalato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. In questo modo, tutti i processi in esecuzione e in attesa daranno esito negativo dopo il completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
+### Rimozione di nodi dati
+Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. In questo modo, tutti i processi in esecuzione e in attesa daranno esito negativo dopo il completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
 
 ## Storm
-È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di scalabilità, è necessario bilanciare nuovamente la topologia.
+È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
 
-Questa procedura può essere eseguita mediante:
+A tale scopo, è possibile scegliere tra due opzioni:
 
 * Interfaccia utente Web di Storm
-* Strumento CLI 
+* Interfaccia della riga di comando (CLI) 
 
-Per altre informazioni, fare riferimento alla [documentazione di Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+Per altre informazioni, fare riferimento alla [documentazione su Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
@@ -54,45 +52,49 @@ L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
 	## Reconfigure the topology "mytopology" to use 5 worker processes,
-	## the spout "blue-spout" to use 3 executors and
-	## the bolt "yellow-bolt" to use 10 executors.
+	## the spout "blue-spout" to use 3 executors, and
+	## the bolt "yellow-bolt" to use 10 executors
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-## HBase
-L'operazione di scalabilità del cluster non è attualmente supportata per i cluster di tipo HBase.
+##HBase
+È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
 
-## Prerequisiti:
+	>pushd %HBASE_HOME%\bin
+	>hbase shell
+	>balancer
 
-* Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è sicuri della versione del cluster, è possibile verificarla dal portale di Azure facendo clic sul nome del cluster HDInsight o eseguendo il comando  `Get-AzureHDInsightCluster -name <clustername>` da Azure PowerShell.
+## Prerequisiti
 
-* Per eseguire l'operazione da PowerShell, è necessario Azure PowerShell versione 0.8.14 o successive. È possibile scaricare la versione più recente di PowerShell dalla sezione degli strumenti da riga di comando nel sito Web dei [download di Azure](http://azure.microsoft.com/downloads/). È possibile verificare la versione di Azure PowerShell installata con il seguente comando da una finestra di PowerShell: `(get-module Azure).Version`
+* Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è sicuri della versione del cluster, è possibile verificarla dal portale di Azure facendo clic sul nome del cluster HDInsight o eseguendo il comando `Get-AzureHDInsightCluster –name <clustername>` da Azure PowerShell.
+
+* Per eseguire l'operazione da Azure PowerShell, è necessario disporre di Azure PowerShell versione 0.8.14 o successive. È possibile scaricare la versione più recente di Azure PowerShell dalla sezione **Strumenti da riga di comando** nel sito Web dei [download di Azure](http://azure.microsoft.com/downloads/). È possibile verificare la versione di Azure PowerShell installata usando il comando seguente da una finestra di Azure PowerShell: `(get-module Azure).Version`
 
 ## Come usare la scalabilità del cluster
 
 ### Portale di Azure
-La dimensione di un cluster in esecuzione può essere modificata mediante la scheda **Scala** del dashboard del cluster di Azure HDInsight.
+Le dimensioni di un cluster in esecuzione possono essere modificate mediante la scheda **SCALABILITÀ** del dashboard del cluster Azure HDInsight.
 
 ![](http://i.imgur.com/u5Mewwx.png)
 
-### PowerShell
-Per modificare la dimensione del cluster Hadoop mediante PowerShell, attivare il seguente comando da un computer client:
+### Azure PowerShell
+Per modificare le dimensioni del cluster Hadoop mediante Azure PowerShell, eseguire il comando seguente da un computer client:
 
 	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>	
 
-> [WACOM.NOTE] Per usare questo comando, nel computer client deve essere installato Azure PowerShell versione 0.8.14 o successive.
+> [AZURE.NOTE]Per usare questo comando, nel computer client deve essere installato Azure PowerShell versione 0.8.14 o successive.
 
 ### SDK
-Per modificare la dimensione del cluster Hadoop usando HDInsight SDK, usare uno dei seguenti metodi: 
+Per modificare le dimensioni del cluster Hadoop mediante HDInsight SDK, usare uno dei metodi seguenti:
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
 
-oppure 
+oppure
 
 	ChangeClusterSizeAsync(string dnsName, string location, int newSize) 
 
 
-Le versioni sincrona e asincrona del metodo restituiscono l'oggetto [ClusterDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx).
+Entrambe le versioni, sincrona e asincrona, di questo metodo restituiscono un oggetto [ClusterDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx).
 
 Di seguito sono riportati alcuni esempi di codice che illustrano come usare la versione sincrona del metodo:
 
@@ -115,10 +117,10 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 	            string certfriendlyname = "<CertificateFriendlyName>";     
 	            string subscriptionid = "<SubscriptionID>";
 	            string clustername = "<ClusterDNSName>";
-	     		string location = "<ClusterLocation>"";
+	     		string location = "<ClusterLocation>”";
 				int newSize = <NewClusterSize>;
 	
-	            // Get the certificate object from certificate store using the friendly name to identify it
+	            // Get the certificate object from certificate store by using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
@@ -129,7 +131,7 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 	
 	            Console.WriteLine("Rescaling HDInsight cluster ...");
 	
-	            // Change cluster size
+	            // Change the cluster size
 	     		ClusterDetails cluster = client.ChangeClusterSize(clustername, location, newSize);
 	            
 	            Console.WriteLine("Cluster Rescaled: {0} \n New Cluster Size = {1}", cluster.ConnectionUrl, cluster.ClusterSizeInNodes);
@@ -140,5 +142,6 @@ Di seguito sono riportati alcuni esempi di codice che illustrano come usare la v
 	}
 
 
-Per altre informazioni sull'uso di HDInsight .NET SDK, fare riferimento all'argomento relativo al [provision di cluster Hadoop in HDInsight con opzioni personalizzate](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/).
-<!--HONumber=47-->
+Per altre informazioni sull'uso di HDInsight .NET SDK, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
+
+<!--HONumber=54-->

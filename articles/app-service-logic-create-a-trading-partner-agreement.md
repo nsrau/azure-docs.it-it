@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Creazione di un accordo tra partner commerciali nel servizio app di Microsoft Azure" 
    description="Creare accordi tra partner commerciali" 
    services="app-service\logic" 
@@ -19,7 +19,7 @@
 
 # Creazione di un accordo tra partner commerciali   
 
-I partner commerciali sono le entità coinvolte nelle comunicazioni B2B (Business to Business). La relazione stabilita da due partner viene detta *Agreement*. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto. I diversi protocolli e trasporti B2B supportati  dal servizio app di Azure includono:
+I partner commerciali sono le entità coinvolte nelle comunicazioni B2B (Business to Business). Quando due partner stabiliscono una relazione, questa è definita un *Contratto*. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto. I diversi protocolli e trasporti B2B supportati da Azure App Service includono:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
@@ -77,5 +77,4 @@ Per creare accordi tra partner commerciali:
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

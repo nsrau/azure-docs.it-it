@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'autenticazione (Appcelerator) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per iOS tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -22,7 +22,7 @@
 
 Questo argomento descrive come autenticare gli utenti in Servizi mobili di Microsoft Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
-In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
+Questa esercitazione descrive le operazioni di base per abilitare l'autenticazione in un'app:
 
 1.  [Registrare l'app per l'autenticazione e configurare Servizi mobili]
 2.  [Limitare le autorizzazioni per la tabella agli utenti autenticati]
@@ -36,7 +36,7 @@ Per completare questa esercitazione, è necessario disporre di Appcelerator Tita
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Limitare le autorizzazioni agli utenti autenticati
+##<a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -94,7 +94,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
             }
         });
 
->[AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato a **authorizeClient** con uno dei seguenti: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
+>[AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato a **authorizeClient** con uno dei valori seguenti: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
 
 4.	Fare clic su Esegui per compilare il progetto, avviare l'app nel simulatore iPhone o in un emulatore Android e quindi fare clic sull'opzione con account di accesso per accedere con il provider di identità.
 
@@ -111,6 +111,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
-<!--HONumber=49--> 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

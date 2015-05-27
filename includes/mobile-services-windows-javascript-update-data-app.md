@@ -1,25 +1,12 @@
-﻿
 
-1. Nel file di script default.js situato proprio sotto la riga di codice che definisce l'elenco todoItems, aggiungere la seguente definizione di funzione:
- 
-        // Add a filter that adds a header to prevent caching. This makes sure that the 
-		// latest data is returned when the 'Refresh; button is clicked.        
-        var noCachingFilter = function (request, next, callback) {
-            if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
-                request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
-            }
-            next(request, callback);
-        };
 
-	In questo modo si definisce una funzione di filtro che aggiunge l'intestazione  `If-Modified-Since` per impedire la memorizzazione nella cache sul client.
- 
-2. Successivamente, rimuovere il commento o aggiungere la seguente riga di codice e sostituire `<yourClient>` con la variabile aggiunta al file service.js al momento della connessione del progetto al servizio mobile:
+1. Successivamente, rimuovere il commento o aggiungere la riga di codice seguente e sostituire `<yourClient>` con la variabile aggiunta al file service.js al momento della connessione del progetto al servizio mobile:
 
-		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
+   	Questo codice crea un oggetto proxy (**todoTable**) per la nuova tabella di database, usando il filtro per la memorizzazione nella cache.
 
-3. Replace the **InsertTodoItem** function with the following code:
+2. Sostituire la funzione **InsertTodoItem** con il codice seguente:
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes
@@ -43,7 +30,7 @@
             });
         };
 
-   	In questo modo verrà impostata l'associazione alla raccolta di elementi in todoTable, che contiene tutti gli oggetti **TodoItem** restituiti dal servizio mobile. 
+   	In questo modo verrà impostata l'associazione alla raccolta di elementi in todoTable, che contiene tutti gli oggetti **TodoItem** restituiti dal servizio mobile.
 
 4. Sostituire la funzione **UpdateCheckedTodoItem** con il codice seguente:
         
@@ -56,7 +43,6 @@
 
    	In questo modo un aggiornamento dell'elemento verrà inviato al servizio mobile.
 
-Una volta aggiornata l'app per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
+Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Plug-in Smooth Streaming per Open Source Media Framework" 
 	description="Informazioni su come usare il plug-in Smooth Streaming di Servizi multimediali di Azure per Adobe Open Source Media Framework." 
 	services="media-services" 
@@ -20,7 +20,7 @@
 
 # Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework #
 
-##Informazioni generali ##
+##Panoramica ##
 Il plug-in Microsoft Smooth Streaming per Open Source Media Framework 2.0 (SS per OSMF) estende le funzionalità predefinite di OSMF e aggiunge la funzionalità di riproduzione del contenuto Smooth Streaming ai lettori OSMF nuovi ed esistenti. Il plug-in aggiunge inoltre funzionalità di riproduzione Smooth Streaming a Strobe Media Playback (SMP).
 
 In Smooth Streaming per OSMF sono incluse due versioni di plug-in:
@@ -55,16 +55,16 @@ Di seguito sono riportate le funzionalità non supportate:
 
 Di seguito è riportato un elenco di problemi noti:
 
-- Si rilevano problemi nella riproduzione di contenuti Smooth Streaming con tracce audio a 48 KHz. Si verifica un errore di runtime Flash durante il rendering di contenuti audio a 48 KHz. A causa di questo problema, i contenuti Smooth Streaming codificati con impostazioni a 48 KHz potrebbero non funzionare come previsto. Per altre informazioni, vedere [Uso di Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3  -  Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964).
+- Si rilevano problemi nella riproduzione di contenuti Smooth Streaming con tracce audio a 48 KHz. Si verifica un errore di runtime Flash durante il rendering di contenuti audio a 48 KHz. A causa di questo problema, i contenuti Smooth Streaming codificati con impostazioni a 48 KHz potrebbero non funzionare come previsto. Per altre informazioni, vedere [Uso di Flash Player](http://forums.adobe.com/message/4483498#4483498) e [Adobe Flash Player 11.3 - Bug 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964).
 - La riproduzione di più contenuti Smooth Streaming in una singola pagina può causare problemi. Si tratta di un problema noto di OSMF.
 - La riproduzione del video stage potrebbe provocare problemi e non visualizzare alcun video in determinati computer. Per risolvere il problema, disabilitare l'accelerazione hardware o il video stage.
 
 ## Caricamento del plug-in
 I plug-in OSMF possono essere caricati in modo statico (in fase di compilazione) o dinamico (in fase di esecuzione). Nel download del plug-in Smooth Streaming per OSMF sono incluse entrambe le versioni statica e dinamica.
 
-- Caricamento statico: Per eseguire il caricamento in modo statico, è necessario un file di libreria statica (SWC). I plug-in statici vengono aggiunti come riferimento ai progetti e vengono uniti all'interno del file di output finale in fase di compilazione.
+- Caricamento statico: per eseguire il caricamento in modo statico, è necessario un file di libreria statica (SWC). I plug-in statici vengono aggiunti come riferimento ai progetti e vengono uniti all'interno del file di output finale in fase di compilazione.
 
-- Caricamento dinamico: Per eseguire il caricamento dinamico, è necessario un file precompilato (SWF). I plug-in dinamici vengono caricati in fase di esecuzione e non sono inclusi nell'output del progetto. (Output compilato) I plug-in dinamici possono essere caricati tramite i protocolli HTTP e FILE.
+- Caricamento dinamico: per eseguire il caricamento dinamico, è necessario un file precompilato (SWF). I plug-in dinamici vengono caricati in fase di esecuzione e non sono inclusi nell'output del progetto. (Output compilato) I plug-in dinamici possono essere caricati tramite i protocolli HTTP e FILE.
 
 Per altre informazioni sul caricamento statico e dinamico, vedere la [pagina ufficiale del plug-in OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
@@ -343,7 +343,7 @@ package
 </code></pre>
 
 ##Strobe Media Playback con plug-in dinamico SS per OSMF
-Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). È possibile usare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
+Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). È possibile utilizzare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
 
 1.	Passare alla [pagina di installazione di Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
 2.	Impostare l'elemento src su un'origine Smooth Streaming, ad esempio http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest. 
@@ -402,6 +402,6 @@ Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media P
 6. 	Salvare la pagina HTML e pubblicarla in un server Web. Passare alla pagina Web pubblicata usando un browser Internet compatibile con Flash&reg; Player, ad esempio Internet Explorer, Chrome, Firefox e così via.
 7. 	Riprodurre il contenuto Smooth Streaming in Adobe&reg; Flash&reg; Player.
 
-Per altre informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](http://osmf.org/resources.html).
+Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](http://osmf.org/resources.html).
 
-<!--HONumber=49-->
+<!--HONumber=54-->

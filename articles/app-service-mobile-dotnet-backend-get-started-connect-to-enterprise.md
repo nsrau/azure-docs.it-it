@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connettere un'app mobile a una soluzione aziendale SaaS | Mobile Dev Center" 
 	description="Informazioni su come effettuare chiamate a risorse aziendali come SharePoint Online" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ In questa esercitazione si connetterà la propria app mobile a una soluzione Saa
 
 Per completare questa esercitazione, è necessario disporre di:
 
-* Visual Studio 2013 in esecuzione in Windows 8.1
-* Una sottoscrizione attiva a [SharePoint Online]
+* Disporre di Visual Studio 2013 in esecuzione in Windows 8.1
+* Disporre di una sottoscrizione attiva a [SharePoint Online]
 * Aver completato l'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]. Usare il tenant fornito dalla sottoscrizione a SharePoint.
 
 ## <a name="configure-permissions"></a>Configurare l'applicazione per l'accesso delegato a SharePoint
@@ -37,7 +37,7 @@ Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni
 
 A questo punto si è configurato AAD per il rilascio di un token di accesso di SharePoint al servizio app.
 
-## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app mobile
+## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app per dispositivi mobili 
 
 Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece impostati come impostazioni applicazione del codice dell'app mobile.
 
@@ -47,11 +47,11 @@ Per poter effettuare una chiamata a SharePoint, è necessario specificare gli en
 
 3. Nella sezione relativa al codice dell'app mobile del portale di gestione passare alla scheda Configura e scorrere verso il basso fino a Impostazioni app. In questa finestra è possibile fornire una coppia chiave-valore per facilitare il riferimento alle credenziali necessarie.
 
-* Impostare SP_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato seguente:  `https://login.windows.net/contoso.onmicrosoft.com`
+* Impostare SP_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato `https://login.windows.net/contoso.onmicrosoft.com`
 
 * Impostare SP_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
 
-* Impostare SP_SharePointURL specificando l'URL del sito di SharePoint ed è espresso nel formato seguente:  `https://contoso-my.sharepoint.com`
+* Impostare SP_SharePointURL specificando l'URL del sito di SharePoint ed è espresso nel formato `https://contoso-my.sharepoint.com`
 
 A questo punto sarà possibile ottenere di nuovo i valori nel codice usando ApiServices.Settings.
 
@@ -63,7 +63,9 @@ Per poter accedere a SharePoint, è necessario uno speciale token di accesso la 
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. Nel progetto di codice dell'app mobile creare una nuova classe denominata SharePointUploadContext. Aggiungere alla classe il codice seguente:
+2. In Gestione pacchetti NuGet fare clic su **Online**. Immettere **Microsoft.Azure.Mobile.Server.AppService** come termine di ricerca. Fare clic su **Installa** per installare il pacchetto [estensione del servizio app back-end .NET per app per dispositivi mobili]. Questo pacchetto fornisce metodi di estensione per usare le informazioni sull'utente attualmente connesso.
+
+2. Nel progetto di codice dell'app per dispositivi mobili creare una nuova classe denominata SharePointUploadContext. Aggiungere un'istruzione `using Microsoft.Azure.Mobile.Server.AppService;` al file. Aggiungere quindi i dati seguenti alla classe:
 
         private String accessToken;
         private String mySiteApiPath;
@@ -178,9 +180,10 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 
 <!-- URLs. -->
 
-[Anteprima del portale di gestione di Azure]: https://portal.azure.com/
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/it-it/sharepoint/
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

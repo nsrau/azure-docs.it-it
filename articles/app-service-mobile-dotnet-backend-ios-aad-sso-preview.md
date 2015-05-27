@@ -4,20 +4,19 @@
         documentationCenter="Mobile" 
         authors="mattchenderson" 
         services="app-service\mobile" 
-        manager="dwrede"/>
+        manager="dwrede" />
 
-<tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="mahender"/>
+<tags ms.service="app-service"
+ms.workload="mobile"
+ms.tgt_pltfrm="mobile-ios" 
+ms.devlang="objective-c" 
+ms.topic="article" 
+ms.date="02/20/2015" 
+ms.author="mahender" />
 
 # Aggiungere Single Sign-On di Azure Active Directory alla propria app iOS
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
 Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library.
 
@@ -26,13 +25,13 @@ Per poter autenticare gli utenti è necessario registrare l'applicazione nel pro
 Per completare questa esercitazione, è necessario disporre di:
 
 * XCode 4.5 e iOS 6.0 (o versioni successive)
-* Completamento dell'esercitazione [Introduzione al servizio per app mobili].
-* Mobile Services SDK di Microsoft Azure
+* Completamento dell'esercitazione [Introduzione ad App per dispositivi mobili].
+* SDK di Servizi mobili di Microsoft Azure
 * [Active Directory Authentication Library per iOS]
 
 ## <a name="register-application"></a>Registrare l'applicazione con Azure Active Directory
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
 ## <a name="require-authentication"></a>Configurare l'applicazione in modo che richieda l'autenticazione
 
@@ -42,9 +41,9 @@ Per completare questa esercitazione, è necessario disporre di:
 
 1. Scaricare [Active Directory Authentication Library per iOS].
 
-2. Nello strumento di navigazione di Xcode selezionare il progetto e fare clic su **File** quindi sull'opzione per **l'aggiunta di file**. Passare alla posizione in cui è stata scaricata la libreria e selezionare **ADALiOS.xcodeproj**.
+2. Nello strumento di navigazione di Xcode selezionare il progetto e fare clic su **File** quindi sull'opzione **Add Files to...**. Passare alla posizione in cui è stata scaricata la libreria e selezionare**ADALiOS.xcodeproj**.
 
-3. Selezionare nuovamente il progetto e aprire la scheda relativa alle **impostazioni di compilazione**. Passare alla sezione delle opzioni di **collegamento** e aggiungere `-ObjC` nell'area per gli **altri flag del linker**.
+3. Selezionare nuovamente il progetto e aprire la scheda relativa alle **impostazioni di compilazione**. Passare alla sezione **Collegamento** e aggiungere `-ObjC` a **Other Linker Flags**.
 
 4. Selezionare la scheda relativa alle **fasi di compilazione**. Nell'area relativa alle **dipendenze della destinazione**, aggiungere `ADALiOS`.
 
@@ -93,15 +92,15 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
             }];
         }
 
-4. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione, nel formato https://login.windows.net/nome-tenant.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di gestione di Azure].
+4. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione, nel formato https://login.windows.net/tenant-name.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di gestione di Azure].
 
-5. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-RESOURCE-URI-HERE** con l'**URI ID app** dell'app mobile. Se sono state seguite le istruzioni riportate nell'argomento sulla [modalità di configurazione di un'app mobile con Azure Active Directory], l'URI ID app dovrebbe essere simile a https://contosogateway.azurewebsites.net/login/aad.
+5. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-RESOURCE-URI-HERE** con l'**URI ID app** dell'app per dispositivi mobili . Se sono state seguite le istruzioni riportate nell'argomento [Come configurare un'app mobile con Azure Active Directory], l'URI ID app dovrebbe essere simile a https://contosogateway.azurewebsites.net/login/aad.
 
 6. Nel codice per il metodo `loginAndGetData` precedente sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
 
 7. Nel codice per il metodo `loginAndGetData` precedente, sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint /login/done del gateway del servizio app. Questo valore dovrebbe essere simile a https://contosogateway.azurewebsites.net/login/done.
 
-8. In QSTodoListViewController, modificare `ViewDidLoad` sostituendo `[self refresh]` con la riga seguente:
+8. In QSTodoListViewController modificare `viewDidLoad` sostituendo `[self refresh]` con quanto segue:
 
         [self loginAndGetData];
 
@@ -112,9 +111,9 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
 3. L'app esegue l'autenticazione e restituisce gli elementi todo.
 
 <!-- URLs. -->
-[modalità di configurazione di un'app mobile con Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Come configurare un'app mobile con Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Introduzione al servizio per app mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

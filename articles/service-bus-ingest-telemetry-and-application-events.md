@@ -1,24 +1,24 @@
-﻿<properties 
+<properties 
 	pageTitle="Inserire una scala di telemetria ed eventi applicazione" 
 	description="Informazioni su come inserire una scala di telemetria ed eventi applicazione nelle soluzioni aziendali." 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="mattshel"/>
+	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/18/2015" 
 	ms.author="sethm"/>
 
 # Inserire una scala di telemetria ed eventi applicazione
  
-Le applicazioni moderne creano una gran quantità di informazioni quando sono in esecuzione. Indipendentemente dal fatto che si tratti di azioni dell'utente in un'app mobile o di dati clickstream su un sito Web, i dati di telemetria sono preziosi sia per l'analisi a lungo termine sia per il monitoraggio dell'integrità in tempo reale o per il supporto decisionale. Il bus di servizio fornisce gli strumenti necessari ad acquisire ed elaborare queste informazioni.
+Le applicazioni moderne creano una gran quantità di informazioni quando sono in esecuzione. Indipendentemente dal fatto che si tratti di azioni dell'utente in un'app per dispositivi mobili o di dati clickstream su un sito Web, i dati di telemetria sono preziosi sia per l'analisi a lungo termine sia per il monitoraggio dell'integrità in tempo reale o per il supporto decisionale. Il bus di servizio fornisce gli strumenti necessari ad acquisire ed elaborare queste informazioni.
 
 
 ## Esplorazione
@@ -27,11 +27,11 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
 - [Modello di origine evento](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## Compilazione
-- [Informazioni di riferimento sulle API REST dell'hub eventi](http://go.microsoft.com/fwlink/?LinkId=403977)
-- [Esempi di codice degli hub eventi](http://go.microsoft.com/fwlink/?LinkID=402449)
+- [Informazioni di riferimento sulle API REST dell'hub eventi](https://msdn.microsoft.com/library/dn790674.aspx)
+- [Esempi di codice degli hub eventi](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Servizi correlati
-- [Archiviazione](http://azure.microsoft.com/documentation/services/storage/)
+- [Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

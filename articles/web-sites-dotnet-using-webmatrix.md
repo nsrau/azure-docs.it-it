@@ -1,27 +1,27 @@
-﻿<properties 
-	pageTitle="Sito Web .NET con WebMatrix - Esercitazioni di Azure" 
-	description="Informazioni su come sviluppare e distribuire un sito Web di Azure con WebMatrix." 
-	services="web-sites" 
+<properties 
+	pageTitle="Sviluppo e distribuzione di un'app Web con Microsoft WebMatrix." 
+	description="Informazioni su come sviluppare e distribuire un'applicazione web ASP.NET per applicazioni di Azure applicazione servizio Web con Microsoft WebMatrix." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
+	ms.date="04/21/2015" 
 	ms.author="tomfitz"/>
 
 
+# Sviluppo e distribuzione di un'app Web con Microsoft WebMatrix.
 
+## Panoramica
 
-
-#Sviluppare e distribuire un sito Web con Microsoft WebMatrix
-In questa guida viene descritto come usare Microsoft WebMatrix per creare e distribuire un sito Web in Azure.  Verrà usata un'applicazione di esempio da un modello di sito WebMatrix.
+In questa guida viene descritto come usare Microsoft WebMatrix per creare e distribuire un sito Web .NET in App Web in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Verrà utilizzata un'applicazione di esempio da un modello di sito WebMatrix.
 
 Si apprenderà come:
 
@@ -29,39 +29,39 @@ Si apprenderà come:
 * Creare un sito usando un modello predefinito con WebMatrix 
 * Distribuire il sito Web personalizzato direttamente da WebMatrix in Azure
 
-> [AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://azure.microsoft.com/pricing/free-trial/">iscriversi per una versione di valutazione gratuita</a>.
-> Per iniziare a usare Siti Web di Azure prima di iscriversi per ottenere un account, visitare la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Siti Web di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Accesso ad Azure
 
 1. Avviare WebMatrix.
-2. Se è la prima volta che si usa WebMatrix 3, verrà richiesto di effettuare l'accesso ad Azure.  In caso contrario, è possibile fare clic sul pulsante **Accedi** e scegliere **Aggiungi account**.  Scegliere **Accedi** usando il proprio account Microsoft.
+2. Se è la prima volta che si utilizza WebMatrix 3, verrà richiesto di effettuare l'accesso ad Azure. In caso contrario, è possibile fare clic sul pulsante **Sign In** e scegliere **Add Account**. Scegliere **Sign in** utilizzando il proprio account Microsoft.
 
-	![Add Account][addaccount]
+	![Aggiunta di un account][addaccount]
 
 3. Se è stata effettuata l'iscrizione per un account Azure, è possibile accedere con il proprio account Microsoft:
 
-	![Sign into Azure][signin]	
+	![Accesso ad Azure][signin]
 
 
-## Creazione di un sito usando un modello predefinito per Azure
+## Creazione di un sito utilizzando un modello predefinito per Azure
 
-1. Nella schermata Start fare clic sul pulsante **Nuovo** e scegliere **Raccolta modelli** per creare un nuovo sito dalla raccolta modelli:
+1. Nella schermata Start fare clic sul pulsante **New** e scegliere **Template Gallery** per creare un nuovo sito dalla raccolta modelli:
 
-	![New site from Template Gallery][sitefromtemplate]
+	![Nuovo sito dalla raccolta modelli][sitefromtemplate]
 
-2. La raccolta modelli contiene un elenco dei modelli disponibili che è possibile eseguire in locale in Azure.  Selezionare **Bakery** nell'elenco di modelli, immettere **bakerysample** per **Site Name** e fare clic su **Next**.
+2. La raccolta modelli contiene un elenco dei modelli disponibili che è possibile eseguire in locale in Azure. Selezionare **Bakery** nell'elenco di modelli, immettere **bakerysample** per **Site Name** e fare clic su **Avanti**.
 
-	![Create Site from Template][sitefromtemplatedetails]
+	![Creazione del sito da modello][sitefromtemplatedetails]
 
-3. Se è stato effettuato l'accesso ad Azure, a questo punto è possibile creare un sito Web di Azure per il sito locale.  Scegliere un nome univoco e selezionare il data center in cui si desidera venga creato il sito: 
+3. Se è stato effettuato l'accesso ad Azure, a questo punto è possibile creare un sito Web di Azure per il sito locale. Scegliere un nome univoco e selezionare il data center in cui si desidera venga creata l'istanza di servizio app per app Web:
 
-	![Create site on Azure][sitefromtemplateazure]
+	![Creazione del sito in Azure][sitefromtemplateazure]
 
-	Dopo la creazione del sito Web con WebMatrix, verrà visualizzato l'ambiente IDE WebMatrix:
+	Dopo la creazione del sito locale e l'istanza di applicazioni Web in Azure, viene visualizzato l'IDE di WebMatrix:
 
-	![WebMatrix IDE][howtowebmatrixide] 
+	![IDE WebMatrix][howtowebmatrixide]
 
 ## Configurare la posta elettronica
 
@@ -71,24 +71,24 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 2. Aggiungere il pacchetto NuGet di SendGrid al progetto WebMatrix. Prima fare clic sul pulsante NuGet.
 
-    ![Add SendGrid][addsendgrid]
+    ![Aggiungere SendGrid][addsendgrid]
 
     Cercare SendGrid e installarlo.
 
-    ![Install SendGrid][installsendgrid]
+    ![Installare SendGrid][installsendgrid]
 
     Al termine dell'installazione del pacchetto, si noti che sono stati aggiunti gli assembly di SendGrid a bin.
 
-    ![SendGrid added][binsendgrid]
+    ![Aggiunta di SendGrid][binsendgrid]
 
-3. Aprire la pagina  *Order.cshtml* facendo doppio clic sul nome file.
+3. Aprire la pagina *Order.cshtml* facendo doppio clic sul nome file.
 
 	![][modify2]
 
 4. All'inizio del file aggiungere il codice seguente:
 
         @using SendGrid;
-        @using System.Net.Mail;	
+        @using System.Net.Mail;
 
 4. Trovare il commento //SMTP Configuration for Hotmail ed eliminare o impostare come commento tutto il codice per l'uso della posta sul Web.
 
@@ -156,27 +156,27 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 ## Distribuire il sito Web personalizzato da WebMatrix in Azure
 
-1. In WebMatrix fare clic su **Publish** sulla barra multifunzione **Home** per visualizzare la finestra di dialogo **Publish Preview** per il sito Web.
+1. In WebMatrix fare clic su **Publish** sulla barra multifunzione **Home** per visualizzare la finestra di dialogo **Publish Preview** relativa al sito Web.
 
-	![WebMatrix Publish Preview][howtopublishpreview]
+	![Anteprima della pubblicazione in WebMatrix][howtopublishpreview]
 
-2. Fare clic per selezionare la casella di controllo accanto a bakery.sdf e quindi fare clic su **Continue**.  Al termine della pubblicazione, nella parte inferiore dell'IDE WebMatrix viene visualizzato l'URL del sito Web aggiornato in Azure.  
+2. Fare clic per selezionare la casella di controllo accanto a bakery.sdf e quindi fare clic su **Continue**. Quando la pubblicazione viene completata, nella parte inferiore dell'IDE WebMatrix viene visualizzato l'URL del sito Web aggiornato in Azure.
 
-	![Publishing Complete][publishcomplete]
+	![Pubblicazione completata][publishcomplete]
 
-3. Fare clic sul collegamento per aprire il sito Web nel browser:
+3. Fare clic sul collegamento per aprire il sito Web (un'istanza di applicazioni Web in Azure) nel browser:
 
-	![Bakery Sample Site][bakerysample]
+	![Sito di esempio Bakery][bakerysample]
 
-	Per trovare l'URL del sito Web, è anche possibile fare clic su **Siti Web** nel portale Azure per visualizzare tutti i siti Web disponibili per la sottoscrizione. L'URL per ciascun sito Web è visualizzato nella colonna URL della pagina Siti Web.
+	L'URL per l'istanza di applicazioni Web sono disponibili anche nel [portale Azure](https://portal.azure.com) facendo clic su **Sfoglia** > **applicazioni Web** per visualizzare tutte le istanze di applicazioni Web per la sottoscrizione, quindi selezionare un'applicazione web. Viene visualizzato l'URL per l'applicazione web blade dell'applicazione web.
 
-## Modificare il sito Web e ripubblicarlo nel sito Web di Azure
+## Modificare il sito Web e ripubblicarlo per applicazioni Web
 
-È possibile usare WebMatrix per modificare il sito e ripubblicarlo nel sito Web di Azure. Nella procedura seguente verrà aggiunta una casella di controllo per indicare che l'ordine è un regalo.
+È possibile utilizzare WebMatrix per modificare il sito e ripubblicarlo nel sito Web di Azure. Nella procedura seguente verrà aggiunta una casella di controllo per indicare che l'ordine è un regalo.
 
-1. Aprire la pagina  *Order.cshtml*.
+1. Aprire la pagina *Order.cshtml*.
 
-2. Individuare la definizione del modulo della classe "shiping". Inserire il seguente codice dopo il blocco &lt;li&gt;.
+2. Individuare la definizione del modulo della classe "shiping". Inserire il codice seguente dopo il blocco <li>.
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -187,7 +187,7 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 	![][modify5]
 
-3. Individuare la riga "var shipping = Request["orderShipping"];"  nel file e inserire subito dopo la seguente riga di codice.
+3. Individuare la riga "var shipping = Request["orderShipping"];" nel file e inserire subito dopo la riga di codice seguente.
 
 		var gift = Request["isGift"];
 
@@ -197,7 +197,7 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 			body += "This is a gift." + "<br/>";
 		}
 
-	L'aspetto del file  *order.cshtml* dovrebbe essere simile al seguente.
+	L'aspetto del file *order.cshtml* dovrebbe essere simile al seguente.
 
 	![][modify6]
 
@@ -211,14 +211,13 @@ L'esempio bakery include un modulo d'ordine simulato che invia un messaggio di p
 
 8. Fare clic sul collegamento per aprire il sito Web nel browser e testare l'aggiornamento nel sito Web di Azure.
 
-# Passaggi successivi
-
-Si è appreso come creare e distribuire un sito Web da WebMatrix in Azure. Per altre informazioni su WebMatrix, fare riferimento alle risorse seguenti:
-
-* [WebMatrix per Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+## Passaggi successivi
 
 * [Sito Web di WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
+## Modifiche apportate
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -250,6 +249,4 @@ Si è appreso come creare e distribuire un sito Web da WebMatrix in Azure. Per a
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

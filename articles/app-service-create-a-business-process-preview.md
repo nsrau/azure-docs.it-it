@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creare un processo aziendale" 
 	description="Creare un processo aziendale" 
 	authors="stepsic-microsoft-com" 
@@ -47,7 +47,7 @@ Come con il flusso di base, viene restituito un elenco di tweet. Quindi, per usa
 
 ### Condizionale
 
-A questo punto, il flusso potrebbe presentare ancora problemi perché determinerà l'invio di una notevole quantità di messaggi di posta elettronica. È possibile aggiungere più logica in modo da ricevere un messaggio di posta elettronica solo quando la persona che effettua il tweet dispone di un determinato numero di follower. A questo scopo, fare clic sull'icona della freccia circolare nella parte superiore dell'azione. 
+A questo punto, il flusso potrebbe presentare ancora problemi perché determinerà l'invio di una notevole quantità di messaggi di posta elettronica. È possibile aggiungere più logica in modo da ricevere un messaggio di posta elettronica solo quando la persona che effettua il tweet dispone di un determinato numero di follower. A questo scopo, fare clic sull'icona della freccia circolare nella parte superiore dell'azione.
 
 All'interno della casella di testo digitare:
 
@@ -63,11 +63,11 @@ Fare clic sul servizio XXXXXX nel riquadro di destra. Verrà aggiunto questo ser
 
 ### Passaggio di dati tra azioni
 
-Per usare più azioni in un flusso, è necessario passare dati tra le azioni. A questo scopo, usare la funzione actions(). 
+Per usare più azioni in un flusso, è necessario passare dati tra le azioni. A questo scopo, usare la funzione actions().
 
 Dopo aver aggiunto l'azione XXXXXX, digitare:
 
-    @actions('SendMail').outputs.YYYYYY
+    @actions(‘SendMail’).outputs.YYYYYY
 
 In questo modo la proprietà YYYYYY verrà trasmessa dagli output dell'azione SendMail. È sempre possibile visualizzare il nome di un'azione guardando direttamente sotto l'icona relativa a tale l'azione. Analogamente, è possibile visualizzare tutti gli output per l'azione nella parte inferiore della finestra.
 
@@ -81,15 +81,11 @@ Un editor di testo può semplificare determinate operazioni; ad esempio, è poss
 
 Sono inoltre disponibili alcune funzionalità che sono esposte solo nella visualizzazione codice, ad esempio i parametri. I parametri semplificano il riutilizzo dei valori in un flusso. Ad esempio, se si dispone di un indirizzo e-mail che si vuole includere in diverse azioni, è possibile trasformarlo in un parametro.
 
-Per definire i parametri, passare all'oggetto {} dei parametri e aggiungere al suo interno:
-    "emailAddress" : {
-	    "type" : "string",
-	    "defaultValue" : "me@example.com"
-    }
+Per definire i parametri, passare all'oggetto {} dei parametri e aggiungere al suo interno: "emailAddress" : { "type" : "string", "defaultValue" : "me@example.com" }
 
 A questo punto, scorrere fino all'azione di invio tramite posta elettronica. Verrà visualizzato l'input per l'invio tramite posta elettronica; sostituire l'indirizzo e-mail con:
 
-    @parameters('emailAddress')
+    @parameters(‘emailAddress’)
 
 I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto.
 
@@ -105,10 +101,10 @@ Alcuni trigger eseguono un controllo su un'app per le API in base a un determina
 
 ### Trigger di callback
 
-Altri trigger chiamano di nuovo il flusso quando hanno una nuova richiesta. In questo caso è necessario assegnare al trigger l'URI di callback del flusso. Per ottenere questa copia accedere all'endpoint dal pannello Proprietà della schermata Impostazioni quando si passa a un flusso. 
+Altri trigger chiamano di nuovo il flusso quando hanno una nuova richiesta. In questo caso è necessario assegnare al trigger l'URI di callback del flusso. Per ottenere questa copia accedere all'endpoint dal pannello Proprietà della schermata Impostazioni quando si passa a un flusso.
 
 ### Chiamata manuale
 
-In terzo luogo, è possibile eseguire manualmente un flusso. Nel portale è disponibile un pulsante Esegui che è possibile selezionare per avviare un flusso. 
+In terzo luogo, è possibile eseguire manualmente un flusso. Nel portale è disponibile un pulsante Esegui che è possibile selezionare per avviare un flusso.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

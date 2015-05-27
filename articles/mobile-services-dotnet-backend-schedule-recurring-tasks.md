@@ -17,63 +17,63 @@
 	ms.date="2/26/2015" 
 	ms.author="glenga"/>
 
-# Pianificare processi ricorrenti in Servizi mobili 
+# Pianificare i processi ricorrenti in Servizi mobili 
 
-> [AZURE.SELECTOR-LIST (Piattaforma | Back-end)]
-- [(Qualsiasi | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Qualsiasi | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
-Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
+Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
 + Archiviazione di record di dati obsoleti o duplicati.
 + Richiesta e archiviazione di dati esterni, ad esempio tweet, voci RSS e informazioni sulla posizione.
 + Elaborazione o ridimensionamento delle immagini archiviate.
 
-In questa esercitazione vengono descritte le procedure per usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
+Questa esercitazione descrive le procedure per usare la pianificazione processi per creare un processo pianificato che richiede i dati dei tweet da Twitter e li archivia in una nuova tabella Updates:
 
-1. [Registrarsi per l'accesso a Twitter e archiviare le credenziali]
+1. [Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]
 2. [Scaricare e installare la libreria LINQ to Twitter]
 3. [Creare la nuova tabella Updates]
 4. [Creare un nuovo processo pianificato]
-5. [Testare il processo pianificato localmente]
+5. [Testare a livello locale il processo pianificato]
 6. [Pubblicare il servizio e registrare il processo]
 
->[AZURE.NOTE] In questa esercitazione viene usata la libreria LINQ to Twitter di terze parti per semplificare l'accesso OAuth 2.0 alle API di Twitter v1.1 . Per completare questa esercitazione è necessario scaricare e installare il pacchetto NuGet della libreria LINQ to Twitter. Per altre informazioni, vedere il [progetto CodePlex di LINQ to Twitter].
+>[AZURE.NOTE]Questa esercitazione usa la libreria LINQ to Twitter di terze parti per semplificare l'accesso OAuth 2.0 alle API di Twitter 1.1 . Per completare questa esercitazione è necessario scaricare e installare il pacchetto NuGet della libreria LINQ to Twitter. Per altre informazioni vedere il [progetto CodePlex di LINQ to Twitter].
 
-##<a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter v1.1 e archiviare le credenziali
+##<a name="get-oauth-credentials"></a>Registrarsi per l'accesso alle API di Twitter 1.1 e l'archiviazione delle credenziali
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 <ol start="7">
-<li><p>In Visual Studio, in Esplora soluzioni aprire il file web.config relativo al progetto di servizio mobile, individuare le impostazioni dell'app <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e sostituire i valori di queste chiavi con i valori di chiave e segreto consumer di Twitter configurate nel portale.</p></li>
+<li><p>In Esplora soluzioni di Visual Studio aprire il file web.config relativo al progetto di servizio mobile, individuare le impostazioni dell'app <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e sostituire i valori di queste chiavi con i valori di chiave e segreto consumer di Twitter configurate nel portale.</p></li>
 
 <li><p>Nella stessa sezione, aggiungere le nuove impostazioni dell'app elencate di seguito, sostituendo i segnaposto con i valori di token di accesso e di segreto token di accesso configurati come impostazioni app nel portale:</p>
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**token_di_accesso**" /&gt;
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**segreto_token_di_accesso**" /&gt;</code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
 
-<p>Il servizio mobile usa le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile usa invece i valori configurati nel portale, ignorando le impostazioni di progetto.  </p></li>
+<p>Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori configurati nel portale, ignorando le impostazioni di progetto.  </p></li>
 </ol>
 
 ##<a name="install-linq2twitter"></a>Scaricare e installare la libreria LINQ to Twitter
 
-1. In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Manage NuGet Packages**.
 
-2. Nel riquadro sinistro selezionare la categoria **Online**, cercare  `linq2twitter`, fare clic su **Installa** nel pacchetto **linqtotwitter**, quindi leggere e accettare il contratto di licenza. 
+2. Nel riquadro sinistro selezionare la categoria **Online**, cercare `linq2twitter`, fare clic su **Installa** nel pacchetto **linqtotwitter**, quindi leggere e accettare il contratto di licenza.
 
   	![][1]
 
-  	La libreria Linq to Twitter verrà aggiunta al progetto di servizio mobile.
+  	La libreria LINQ to Twitter verrà aggiunta al progetto di servizio mobile.
 
 In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
 ##<a name="create-table"></a>Creare la nuova tabella Updates
 
-1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla cartella DataObjects, espandere **Aggiungi**, fare clic su **Classe**   digitare `Updates` in **Nome**, quindi fare clic su **Aggiungi**.
+1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla cartella DataObjects, espandere **Aggiungi**, fare clic su **Classe**, digitare `Updates` nella sezione **Nome** e quindi fare clic su **Aggiungi**.
 
 	Viene creato un nuovo file di progetto per la classe Updates.
 
-2. Fare clic con il pulsante destro del mouse su **Riferimenti**, scegliere **Aggiungi riferimenti**, selezionare **Framework** in **Assemblies**, selezionare **System.ComponentModel.DataAnnotations**, quindi fare clic su **OK**.
+2. Fare clic con il pulsante destro del mouse su **Riferimenti**, scegliere **Aggiungi riferimento**, selezionare **Framework** in **Assembly**, selezionare **System.ComponentModel.DataAnnotations**, quindi fare clic su **OK**.
 
 	![][7]
 
@@ -96,13 +96,13 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 	        public DateTime Date { get; set; }
     	}
 
-4. Espandere la cartella Models, aprire il contesto modello di dati (denominato <em>nome_servizio</em>Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet** tipizzata:
+4. Espandere la cartella Models, aprire il file del contesto modello di dati (denominato <em>service_name</em>Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet** tipizzata:
 
 		public DbSet<Updates> Updates { get; set; }
 
-	La tabella Updates, creata nel database al primo accesso alla classe DbSet, viene usata per archiviare i dati dei tweet.  
+	La tabella Updates, creata nel database al primo accesso alla classe DbSet, viene utilizzata per archiviare i dati dei tweet.
 
-	>[AZURE.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-use-code-first-migrations.md).  
+	>[AZURE.NOTE]Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 Sarà quindi possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
@@ -222,13 +222,13 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		    }
 		}
 
-	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente <em>nome&#95;servizio&#95;mobile</em>Service e <em>nome&#95;servizio&#95;mobile</em>Context.  
+	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente <em>nome&#95;servizio&#95;mobile</em>Service e <em>nome&#95;servizio&#95;mobile</em>Contex.
    	
-	Inoltre, il metodo di override **ExecuteAsync** chiama l'API query Twitter usando credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
+	Inoltre, il metodo di override **ExecuteAsync** chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
-##<a name="run-job-locally"></a>Testare il processo pianificato localmente
+##<a name="run-job-locally"></a>Testare a livello locale il processo pianificato
 
-È possibile testare a livello locale i processi pianificati prima della relativa pubblicazione in Azure e la registrazione sul portale. 
+È possibile testare a livello locale i processi pianificati prima della relativa pubblicazione in Azure e la registrazione sul portale.
 
 1. In Visual Studio, con il progetto di servizio mobile configurato come progetto di avvio, premere F5.
 
@@ -238,41 +238,41 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 
 	![][8]
  
-4. Fare clic su **Prova**, digitare `Sample` come valore del parametro **{jobName}**, quindi fare clic su **Invia**.
+4. Fare clic su **Prova**, digitare `Sample` come valore del parametro **{jobName}** e quindi fare clic su **Invia**.
 
 	![][9]
 
 	Viene inviata una nuova richiesta POST all'endpoint dei processi Sample. Nel servizio locale viene avviato il metodo **ExecuteAsync**. In questo metodo è possibile impostare un punto di interruzione per il debug del codice.
 
-3. In Esplora server espandere **Connessioni dati**, **MSTableConnectionString** e **tabelle**; fare clic con il pulsante destro del mouse su **Aggiornamenti** e scegliere **Mostra dati tabella**.
+3. In Esplora server, espandere **Connessioni dati**, **MSTableConnectionString** e **Tabelle**; fare clic con il pulsante destro del mouse su **Aggiornamenti** e fare clic su **Mostra dati tabella**.
 
 	I nuovi tweet verranno immessi come righe nella tabella dati.
 
 ##<a name="register-job"></a>Pubblicare il servizio e registrare il nuovo processo 
 
-È necessario registrare il processo nella scheda **Utilità di pianificazione** in modo che sia possibile eseguirlo in base alla pianificazione definita dall'utente in Servizi mobili.
+È necessario registrare il processo nella scheda **Scheduler** in modo che sia possibile eseguirlo in base alla pianificazione definita dall'utente in Servizi mobili.
 
 3. Ripubblicare il progetto di servizio mobile in Azure. 
 
-4. Nel [portale di gestione di Azure] fare clic su Servizi mobili e quindi sull'app.
+4. Nel [portale di gestione di Azure], fare clic su Mobile Services e quindi sull'app.
 
-2. Fare clic sulla scheda **Utilità di pianificazione**, quindi su **+Crea**. 
+2. Fare clic sulla scheda **Utilità di pianificazione** e quindi su **+Crea**.
 
-    >[AZURE.NOTE]Quando si esegue il servizio mobile nel livello <em>Free</em> , è possibile eseguire solo un processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
+    >[AZURE.NOTE]Quando si esegue il servizio mobile nella modalità <em>Gratuita</em>, è possibile eseguire un solo processo pianificato alla volta. Nelle modalità a pagamento è invece possibile eseguire fino a dieci processi pianificati contemporaneamente.
 
-3. Nella finestra di dialogo dell'utilità di pianificazione immettere _Sample_ per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta. 
+3. Nella finestra di dialogo dell'utilità di pianificazione immettere _Sample_ per **Nome processo**, impostare le unità e l'intervallo di pianificazione e quindi fare clic sul segno di spunta.
    
    	![][4]
 
-   	Viene creato un nuovo processo denominato **Sample**. 
+   	Viene creato un nuovo processo denominato **Sample**.
 
-4. are clic sul nuovo processo appena creato e quindi su **Esegui una volta** per testare lo script. 
+4. Fare clic sul nuovo processo appena creato e quindi su **Run Once** per testare lo script.
 
    	Il processo verrà eseguito pur rimanendo disabilitato nell'utilità di pianificazione. Da questa pagina è possibile abilitare il processo e modificarne la pianificazione in qualsiasi momento.
 
 	>[AZURE.NOTE]È comunque possibile usare una richiesta POST per avviare il processo pianificato. Per impostazione predefinita, l'autorizzazione è concessa all'utente, quindi la richiesta dovrà includere la chiave applicazione nell'intestazione.
 
-4. (Facoltativo) Nel [portale di gestione di Azure] fare clic su Gestisci per il database associato al servizio mobile.
+4. (Facoltativo) Nel [portale di gestione di Azure] fare clic su Manage per il database associato al servizio mobile.
 
     ![][6]
 
@@ -283,13 +283,13 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 In questa esercitazione è stato creato un nuovo processo pianificato nel servizio mobile. Il processo verrà eseguito come pianificato fino a quando non verrà disabilitato o modificato.
 
 <!-- Anchors. -->
-[Registrarsi per l'accesso a Twitter e archiviare le credenziali]: #get-oauth-credentials
+[Registrarsi per l'accesso a Twitter e l'archiviazione delle credenziali]: #get-oauth-credentials
 [Scaricare e installare la libreria LINQ to Twitter]: #install-linq2twitter
 [Creare la nuova tabella Updates]: #create-table
 [Creare un nuovo processo pianificato]: #add-job
-[Testare il processo pianificato localmente]: #run-job-locally
+[Testare a livello locale il processo pianificato]: #run-job-locally
 [Pubblicare il servizio e registrare il processo]: #register-job
-[Passaggi successivi]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
@@ -303,10 +303,9 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Registrare le app per l'autenticazione di Twitter con Servizi mobili]: mobile-services-how-to-register-twitter-authentication.md
-[Sviluppatori di Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-
-<!--HONumber=49-->
+<!--HONumber=54-->

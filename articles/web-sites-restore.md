@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Ripristino di un'app Web in Azure App Service" 
-	description="Informazioni su come ripristinare l'app Web da un backup." 
+<properties 
+	pageTitle="Ripristinare un'app Web in Azure App Service" 
+	description="description=&quot;Informazioni su come ripristinare l'app Web da un backup.&quot;" 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -19,25 +19,24 @@
 
 # Ripristinare un'app Web in Azure App Service
 
-In questo articolo viene illustrato come ripristinare un'app Web in precedenza sottoposta a un backup tramite la funzionalità di backup delle [app Web di App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Per ulteriori informazioni, vedere [Backup delle app Web di App Service](web-sites-backup.md). 
+In questo articolo viene illustrato come ripristinare un'app Web in precedenza sottoposta a un backup tramite la funzionalità di backup delle [app Web di App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Per ulteriori informazioni, vedere [Backup delle app Web di App Service](web-sites-backup.md).
 
 La funzionalità di ripristino delle app Web consente di ripristinare su richiesta lo stato precedente dell'app Web o di creare una nuova app Web in base ai backup dell'app Web originale. Creare un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
-La funzionalità di ripristino delle app Web, disponibile nel pannello **Backup** del [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è disponibile solo nelle modalità Standard e Premium. Per informazioni su come ridimensionare l'app in modalità Standard o Premium, vedere [Scalare un'app Web in Azure App Service](web-sites-scale.md). 
-Si noti che la modalità Premium consente di eseguire un maggior numero di backup giornalieri rispetto alla modalità Standard.
+La funzionalità di ripristino delle app Web, disponibile nel pannello **Backup** del [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), è disponibile solo nelle modalità Standard e Premium. Per informazioni su come ridimensionare l'app in modalità Standard o Premium, vedere [Scalare un'app Web in Azure App Service](web-sites-scale.md). Si noti che la modalità Premium consente di eseguire un maggior numero di backup giornalieri rispetto alla modalità Standard.
 
 <a name="PreviousBackup"></a>
 ## Per ripristinare un'app Web da un backup eseguito in precedenza
 
 1. Nel pannello **Impostazioni** dell'app Web nel portale di Azure, fare clic sull'opzione **Backup** per visualizzare il pannello **Backup**. Scorrere nel pannello e selezionare una delle voci di backup in base all'**ORA DEL BACKUP** e allo **STATO** dall'elenco dei backup.
 	
-	![Scegliere un'origine per il backup][ChooseBackupSource]
+	![Choose backup source][ChooseBackupSource]
 	
-2. Selezionare **Ripristina ora** nella parte superiore del pannello **Backup**. 
+2. Selezionare **Ripristina ora** nella parte superiore del pannello **Backup**.
 
-	![Scegliere ripristina ora][ChooseRestoreNow]
+	![Scegliere Ripristina][ChooseRestoreNow]
 
-3. Nel pannello **Ripristina**, per ripristinare l'app Web esistente, verificare tutti i dettagli visualizzati e fare clic su **OK**. 
+3. Nel pannello **Ripristina**, per ripristinare l'app Web esistente, verificare tutti i dettagli visualizzati e fare clic su **OK**.
 	
 È inoltre possibile ripristinare l'app Web in una nuova app selezionando **APP WEB** dal pannello **Ripristina** e selezionando **Creare una nuova app Web**.
 	
@@ -46,7 +45,7 @@ Si noti che la modalità Premium consente di eseguire un maggior numero di backu
 	
 1. Dal pannello principale **Sfoglia** del portale di Azure, selezionare **Account di archiviazione**.
 	
-	Verrà visualizzato un elenco degli account di archiviazione esistenti. 
+	Verrà visualizzato un elenco degli account di archiviazione esistenti.
 	
 2. Selezionare l'account di archiviazione che contiene il backup che si desidera scaricare o eliminare.
 	
@@ -56,11 +55,11 @@ Si noti che la modalità Premium consente di eseguire un maggior numero di backu
 	
 	Verrà visualizzato un elenco dei contenitori. In questo elenco verranno inoltre mostrati l'URL e la data in cui il contenitore è stato modificato l'ultima volta.
 	
-	![Visualizzare i contenitori][ViewContainers]
+	![Contenitori di visualizzazione][ViewContainers]
 
 4. Nell'elenco, selezionare il contenitore e visualizzare il pannello in cui viene mostrato un elenco dei nomi di file, insieme alle dimensioni di ciascun file.
 	
-5. Selezionando un file, è possibile scegliere di **scaricarlo** oppure **eliminarlo**. Si noti che esistono due tipi di file principali, i file ZIP e gli XML. 
+5. Selezionando un file, è possibile scegliere di **scaricarlo** oppure **eliminarlo**. Si noti che esistono due tipi di file principali, i file ZIP e gli XML.
 
 <a name="OperationLogs"></a>
 ## Visualizzare i log di controllo
@@ -74,11 +73,11 @@ Si noti che la modalità Premium consente di eseguire un maggior numero di backu
 	
 Nel pannello dei dettagli verranno visualizzate le informazioni disponibli correlate all'operazione.
 	
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrare un account di Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) dove è possibile creare immediatamente un'app Web di base e temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 	
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere: [Il servizio app di Azure e il suo impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal vecchio al nuovo portale, vedere: [Riferimenti per esplorare il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
@@ -97,4 +96,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Usare Pig con Hadoop in HDInsight | Azure"
-   description="Informazioni su come usare Pig con Hadoop in HDInsight mediante SSH."
+<properties
+   pageTitle="Usare Pig di Hadoop con SSH in un cluster HDInsight | Microsoft Azure"
+   description="Informazioni su come connettersi a un cluster Hadoop basato su Linux con SSH e quindi usare il comando Pig per eseguire istruzioni Pig Latin in modo interattivo o come processo batch."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,14 +9,14 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
  
-#Eseguire processi Pig usando il comando Pig (SSH)
+#Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -24,7 +24,7 @@ Questo documento illustra in dettaglio il processo di connessione a un cluster H
 
 Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">informazioni utili su Hadoop in HDInsight basato su Linux</a>.
+> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere <a href="../hdinsight-hadoop-linux-information/" target="_blank">Informazioni utili su Hadoop basato su Linux in HDInsight</a>.
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -32,9 +32,9 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
 
-* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
+* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>.
 
-##<a id="ssh"></a>Connettersi tramite SSH
+##<a id="ssh"></a>Connettersi con SSH
 
 Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**.
 
@@ -46,13 +46,13 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 **Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
 
-###Putty (client basati su Windows)
+###PuTTY (client basati su Windows)
 
-Windows non fornisce un client SSH incorporato. È consigliabile usare **Putty**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>.
 
-Per altre informazioni sull'uso di Putty, vedere la sezione sull'**uso di Putty per la connessione a un computer Linux** nella pagina relativa all' <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">uso di SSH con Linux in Azure</a>.
+Per altre informazioni sull'uso di PuTTY, vedere la sezione **Usare PuTTY per connettersi a un computer Linux** in <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Come usare SSH con Linux in Azure</a>.
 
-> [AZURE.NOTE] Se è stato usato un certificato per l'autenticazione SSH per il cluster HDInsight, sarà necessario anche leggere la sezione sulla **creazione di una chiave privata PPK per Putty** nella pagina relativa all'<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">uso di SSH con Linux in Azure</a>
+> [AZURE.NOTE]Se è stato usato un certificato per l'autenticazione SSH per il cluster HDInsight, sarà necessario anche leggere la sezione **Creare una chiave privata PPK per PuTTY** in <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Come usare SSH con Linux in Azure</a>.
 
 ##<a id="pig"></a>Usare il comando Pig
 
@@ -60,7 +60,7 @@ Per altre informazioni sull'uso di Putty, vedere la sezione sull'**uso di Putty 
 
         pig
 
-	Dopo qualche istante verrà visualizzato un `grunt>` prompt dei comandi.
+	Dopo qualche istante verrà visualizzato un prompt dei comandi `grunt>`.
 
 3. Immettere la seguente istruzione.
 
@@ -79,28 +79,28 @@ Per altre informazioni sull'uso di Putty, vedere la sezione sull'**uso di Putty 
 5. Continuare ad applicare le trasformazioni usando le seguenti istruzioni. Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
 
 	<table>
-	<tr>
-	<th>Istruzione</th><th>Risultato</th>
-	</tr>
-	<tr>
-	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Rimuove le righe che contengono un valore null per il livello di registrazione e memorizza i risultati in FILTEREDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Raggruppa le righe in base al livello di registrazione e memorizza i risultati in GROUPEDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuovo set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Viene archiviato in FREQUENCIES.</td>
-	</tr>
-	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione per conteggio (decrescente) e archivia li archivia in RESULT.</td>
-	</tr>
-	</table>
+<tr>
+<th>Istruzione</th><th>Risultato</th>
+</tr>
+<tr>
+<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Rimuove le righe che contengono un valore null per il livello di registrazione e memorizza i risultati in FILTEREDLEVELS.</td>
+</tr>
+<tr>
+<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Raggruppa le righe in base al livello di registrazione e memorizza i risultati in GROUPEDLEVELS.</td>
+</tr>
+<tr>
+<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuovo set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Viene archiviato in FREQUENCIES.</td>
+</tr>
+<tr>
+<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione per conteggio (decrescente) e archivia li archivia in RESULT.</td>
+</tr>
+</table>
 
 6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, la seguente istruzione salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE] I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
+	> [AZURE.NOTE]I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
 
 7. Per uscire dal prompt grunt, immettere la seguente istruzione.
 
@@ -153,4 +153,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

@@ -1,49 +1,49 @@
 <properties 
-	pageTitle="Invio di messaggi e-mail mediante SendGrid - Servizi mobili di Azure" 
-	description="Informazioni su come usare il servizio SendGrid per inviare messaggi e-mail dall'app Servizi mobili di Azure." 
+	pageTitle="Inviare posta elettronica usando SendGrid - Servizi mobili di Azure" 
+	description="Informazioni su come usare il servizio SendGrid per inviare messaggi di posta elettronica dall'app Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="thinkingserious" 
+	authors="Erikre" 
 	manager="sendgrid" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
+	ms.date="04/24/2015" 
+	ms.author="Erikre"/>
 
 
-# Invio di messaggi e-mail da Servizi mobili con SendGrid
+# Invio di posta elettronica da Servizi mobili con SendGrid
 
-In questo argomento viene illustrato come aggiungere funzionalità di posta elettronica a un servizio mobile. In questa esercitazione si apprenderà come aggiungere script sul lato server per inviare messaggi e-mail tramite SendGrid. Al termine dell'esercitazione, il servizio mobile invierà un messaggio e-mail ogni volta che viene inserito un record.
+In questo argomento viene illustrato come aggiungere funzionalità di posta elettronica a un servizio mobile. In questa esercitazione si apprenderà come aggiungere script sul lato server per inviare messaggi di posta elettronica tramite SendGrid. Al termine dell'esercitazione, il servizio mobile invierà un messaggio di posta elettronica ogni volta che viene inserito un record.
 
-SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi e-mail transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Per altre informazioni, vedere <http://sendgrid.com>.
+SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Per altre informazioni, vedere <http://sendgrid.com>.
 
-Questa esercitazione descrive le operazioni di base per abilitare le funzionalità di posta elettronica:
+In questa esercitazione vengono descritte le operazioni di base per abilitare le funzionalità di posta elettronica:
 
 1. [Creare un account SendGrid]
-2. [Aggiungere uno script per l'invio di messaggi e-mail]
-3. [Inserire dati per la ricezione di messaggi e-mail]
+2. [Aggiungere uno script per l'invio di posta elettronica]
+3. [Inserire dati per la ricezione di posta elettronica]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili]. 
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione a Servizi mobili].
 
-<h2><a name="sign-up"></a>Creare un nuovo account SendGrid</h2>
+## <a name="sign-up"></a>Creare un nuovo account SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a>Registrare un nuovo script per l'invio di messaggi e-mail</h2>
+## <a name="add-script"></a>Registrare un nuovo script per l'invio di posta elettronica
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
-2. Nel portale di gestione fare clic sulla scheda **Dati**, quindi sulla tabella **TodoItem**. 
+2. Nel portale di gestione fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
 	![][1]
 
-3. In **todoitem** fare clic sulla scheda **Script** e selezionare **Inserisci**.
+3. In **todoitem** fare clic sulla scheda **Script**, quindi selezionare **Insert**.
    
 	![][2]
 
@@ -84,44 +84,41 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 	- **_username_ e _password_**: le credenziali di SendGrid identificate in [Creare un account SendGrid].
 
-	- **_email-address_**: l'indirizzo a cui inviare il messaggio e-mail. In un'app effettiva è possibile usare tabelle per archiviare e recuperare indirizzi e-mail. Durante il test dell'app, usare il proprio indirizzo e-mail.
+	- **_email-address_**: l'indirizzo a cui inviare il messaggio di posta elettronica. In un'app effettiva è possibile utilizzare tabelle per archiviare e recuperare indirizzi di posta elettronica. Durante il test dell'app, utilizzare il proprio indirizzo di posta elettronica.
 
-	- **_from-address_**: l'indirizzo di origine del messaggio e-mail. È consigliabile usare l'indirizzo di un dominio registrato appartenente all'organizzazione dell'utente. 
+	- **_from-address_**: l'indirizzo di origine del messaggio di posta elettronica. È consigliabile utilizzare l'indirizzo di un dominio registrato appartenente all'organizzazione dell'utente.
 
-     > [AZURE.NOTE] Se non si dispone di un dominio registrato, è possibile usare il dominio del servizio mobile in uso nel formato *notifications@_your-mobile-service_.azure-mobile.net*. I messaggi inviati al dominio del servizio mobile, tuttavia, vengono ignorati.
+     >[AZURE.NOTE]Se non si dispone di un dominio registrato, è possibile usare il dominio del servizio mobile in uso nel formato *notifications@_your-mobile-service_.azure-mobile.net*. I messaggi inviati al dominio del servizio mobile, tuttavia, vengono ignorati.
 
-6. Fare clic su **Salva**. È stato configurato un script per l'invio di un messaggio e-mail ogni volta che viene inserito un record nella tabella **TodoItem**.
+6. Fare clic sul pulsante **Salva**. È stato configurato uno script per l'invio di un messaggio di posta elettronica ogni volta che viene inserito un record nella tabella **TodoItem**.
 
-<h2><a name="insert-data"></a>Inserire dati di prova per la ricezione di messaggi e-mail</h2>
+## <a name="insert-data"></a>Inserire dati di prova per la ricezione di posta elettronica
 
 1. Nel progetto di app client eseguire l'app di guida introduttiva. 
 
-	In questo argomento viene usata la versione dell'app di guida introduttiva disponibile in Windows Store.
+	In questo argomento viene utilizzata la versione dell'app di guida introduttiva disponibile in Windows Store.
 
 2. Nell'app digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
 	![][3]
 
-3. Si riceverà un messaggio e-mail simile a quello mostrato nella seguente notifica. 
+3. Si riceverà un messaggio di posta elettronica simile a quello mostrato nella notifica di seguito.
 
 	![][4]
 
-	In questa esercitazione si è appreso come configurare un servizio mobile per l'invio di messaggi e-mail tramite SendGrid.
+	In questa esercitazione si è appreso come configurare un servizio mobile per l'invio di posta elettronica tramite SendGrid.
 
 ## <a name="nextsteps"> </a>Passaggi successivi
 
-Dopo avere sperimentato quanto sia semplice usare il servizio di posta elettronica SendGrid con Servizi mobili, usare
-i collegamenti seguenti per altre informazioni su SendGrid.
+Dopo avere sperimentato quanto sia semplice utilizzare il servizio di posta elettronica SendGrid con Servizi mobili, utilizzare i collegamenti seguenti per ulteriori informazioni su SendGrid.
 
--   Documentazione sull'API SendGrid:
-    <https://sendgrid.com/docs>
--   Offerta speciale SendGrid per i clienti di Azure:
-    <https://sendgrid.com/windowsazure.html>
+-   Documentazione sull'API SendGrid: <https://sendgrid.com/docs>
+-   Offerta speciale SendGrid per i clienti di Azure: <https://sendgrid.com/windowsazure.html>
 
 <!-- Anchors. -->
 [Creare un account SendGrid]: #sign-up
-[Aggiungere uno script per l'invio di messaggi e-mail]: #add-script
-[Inserire dati per la ricezione di messaggi e-mail]: #insert-data
+[Aggiungere uno script per l'invio di posta elettronica]: #add-script
+[Inserire dati per la ricezione di posta elettronica]: #insert-data
 
 <!-- Images. -->
 [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
@@ -130,14 +127,12 @@ i collegamenti seguenti per altre informazioni su SendGrid.
 [4]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png
 
 <!-- URLs. -->
-[Introduzione a Servizi mobili]: /it-it/develop/mobile/tutorials/get-started
-[pagina di iscrizione]: https://sendgrid.com/windowsazure.html
-[Pagina delle credenziali per più utenti]: https://sendgrid.com/credentials
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started
+[sign up page]: https://sendgrid.com/windowsazure.html
+[Multiple User Credentials page]: https://sendgrid.com/credentials
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
-[recapito affidabile di messaggi e-mail transazionali]: https://sendgrid.com/transactional-email
+[recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per Android) | Mobile Dev Center" 
-	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Xamarin Android" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
-	services=""/>
+<properties
+	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per Android) | Mobile Dev Center"
+	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Xamarin Android"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
+	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/25/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="04/20/2015"
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
@@ -29,31 +29,30 @@ La sincronizzazione offline ha diversi usi potenziali:
 * Permettere agli utenti finali di creare e modificare i dati anche in mancanza di accesso di rete, supportando scenari con connettività scarsa o assente
 * Sincronizzare i dati tra più dispositivi e rilevare i conflitti quando lo stesso record viene modificato da due dispositivi
 
->[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>. 
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
 >
 > Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
-Questa esercitazione spiega come eseguire le operazioni di base seguenti:
+Questa esercitazione descrive le operazioni di base seguenti:
 
 1. [Esaminare il codice di sincronizzazione di Servizi mobili]
 2. [Aggiornare il comportamento di sincronizzazione dell'app]
 3. [Aggiornare l'app per la riconnessione al servizio mobile]
 
-Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
+Per completare questa esercitazione, è necessario disporre di:
 
-* Visual Studio con l'[estensione Xamarin] **o** [Xamarin Studio] 
-* Completamento dell'esercitazione [Introduzione a servizi mobili]
+* Visual Studio con [estensione Xamarin] ** o ** [Xamarin Studio]
+* Esercitazione [Introduzione a Servizi mobili] completata
 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
 
-La sincronizzazione offline di Servizi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, inizializzare `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. 
-Questa sezione illustra il codice correlato alla sincronizzazione offline in `ToDoActivity.cs`.
+La sincronizzazione offline di Servizi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, inizializzare `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. Questa sezione illustra il codice correlato alla sincronizzazione offline in `ToDoActivity.cs`.
 
 1. In Visual Studio o Xamarin Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili]. Aprire il file `ToDoActivity.cs`.
 
 2. Notare che il tipo del membro `toDoTable` è `IMobileServiceSyncTable`. La sincronizzazione offline usa questa interfaccia della tabella di sincronizzazione anziché `IMobileServiceTable`. Quando si usa una tabella di sincronizzazione, tutte le operazioni vengono inviate all'archivio locale e vengono sincronizzate con il servizio remoto solo mediante operazioni push e pull esplicite.
 
-    Per ottenere un riferimento a una tabella di sincronizzazione, usare il metodo `GetSyncTable()`. Per rimuovere la funzionalità di sincronizzazione offline, usare invece `GetTable()`.
+    Per ottenere un riferimento a una tabella di sincronizzazione, viene usato il metodo `GetSyncTable()`. Per rimuovere la funzionalità di sincronizzazione offline, usare invece `GetTable()`.
 
 3. Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Questa operazione viene effettuata nel metodo `InitLocalStoreAsync`:
 
@@ -74,9 +73,9 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline in `To
             await client.SyncContext.InitializeAsync(store);
         }
 
-    Verrà creato un archivio locale usando la classe `MobileServiceSQLiteStore`, disponibile in Mobile Services SDK. È anche possibile fornire un'implementazione di archivio locale diversa, implementando `IMobileServiceLocalStore`.
+    Viene creato un archivio locale usando la classe `MobileServiceSQLiteStore`, disponibile in Mobile Services SDK. È anche possibile fornire un'implementazione di archivio locale diversa, implementando `IMobileServiceLocalStore`.
 
-    Il metodo `DefineTable` crea nell'archivio locale una tabella corrispondente ai campi del tipo specificato, in questo caso `ToDoItem`. Il tipo non deve includere tutte le colonne presenti nel database remoto, è possibile anche archiviare solo un subset di colonne.
+    Il metodo `DefineTable` crea nell'archivio locale una tabella corrispondente ai campi del tipo specificato, `ToDoItem` in questo caso. Il tipo non deve includere tutte le colonne presenti nel database remoto, è possibile anche archiviare solo un subset di colonne.
 
     Questo overload di `InitializeAsync` usa il gestore di conflitti predefinito, che non consente l'esecuzione di operazioni in caso di conflitto. Per fornire un gestore di conflitti personalizzato, vedere l'esercitazione [Gestione dei conflitti con il supporto offline per Servizi mobili].
 
@@ -88,17 +87,17 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline in `To
             await toDoTable.PullAsync("allTodoItems", toDoTable.CreateQuery()); // query ID is used for incremental sync
         }
 
-    Prima di tutto, viene eseguita una chiamata a `IMobileServiceSyncContext.PushAsync()`. Questo metodo fa parte di `IMobileServicesSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle: Solo i record che sono stati in qualche modo modificati localmente (tramite le operazioni CUD) verranno inviati al server.
+    Prima di tutto, viene eseguita una chiamata a `IMobileServiceSyncContext.PushAsync()`. Questo metodo fa parte di `IMobileServicesSyncContext` invece che della tabella di sincronizzazione perché effettuerà il push delle modifiche in tutte le tabelle. Solo i record che sono stati in qualche modo modificati localmente (tramite le operazioni CUD) verranno inviati al server.
 
     Successivamente, il metodo chiama `IMobileServiceSyncTable.PullAsync()` per eseguire il pull dei dati da una tabella del server all'app. Si noti che se nel contesto di sincronizzazione sono presenti modifiche in sospeso, un'operazione pull effettua sempre un'operazione push all'inizio. Lo scopo è assicurare che tutte le tabelle nell'archivio locale e le relazioni siano coerenti. In questo caso, è stata effettuata una chiamate esplicita a push.
 
     In questo esempio vengono recuperati tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync()` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-    >[AZURE.NOTE] Per rimuovere i record dall'archivio locale del dispositivo dopo l'eliminazione dal database del servizio mobile, è consigliabile abilitare l'[eliminazione temporanea]. In caso contrario, l'app dovrebbe chiamare periodicamente `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+    >[AZURE.NOTE]Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
-    Si noti che `MobileServicePushFailedException` può verificarsi per un'operazione sia push che pull. La prossima esercitazione, [Gestione dei conflitti con il supporto offline per Servizi mobili], illustra come gestire queste eccezioni correlate alla sincronizzazione.
+    Si noti che può verificarsi `MobileServicePushFailedException` per un'operazione sia push che pull. L'esercitazione successiva, [Gestione dei conflitti con il supporto offline per Servizi mobili], mostra come gestire queste eccezioni relative alla sincronizzazione.
 
-5. Nella classe `ToDoActivity`, il metodo `SyncAsync()` viene chiamato dopo le operazioni che modificano i dati, `AddItem()` e `CheckItem()`. Viene inoltre chiamato da `OnRefreshItemsSelected()`, in modo che gli utenti ottengano i dati più recenti ogni volta che premono il pulsante per l'**aggiornamento**. L'app esegue anche una sincronizzazione all'avvio, in quanto `ToDoActivity.OnCreate()` chiama `OnRefreshItemsSelected()`.
+5. Nella classe `ToDoActivity` il metodo `SyncAsync()` viene chiamato dopo le operazioni che modificano i dati, `AddItem()` e `CheckItem()`. Viene inoltre chiamato da `OnRefreshItemsSelected()`, in modo che gli utenti ottengano i dati più recenti ogni volta che premono il pulsante per l'aggiornamento****. L'app esegue anche una sincronizzazione all'avvio, in quanto `ToDoActivity.OnCreate()` chiama `OnRefreshItemsSelected()`.
 
     Poiché ogni volta che vengono modificati i dati viene chiamato `SyncAsync()`, quest'app presuppone che l'utente sia online quando modifica i dati. Nella sezione successiva, l'app verrà aggiornata in modo che gli utenti possano apportare modifiche anche offline.
 
@@ -125,17 +124,17 @@ In questa sezione si procederà alla modifica dell'app in modo che non effettui 
 
 ## <a name="update-online-app"></a>Aggiornare l'app per la riconnessione al servizio mobile
 
-In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il servizio mobile. Quando si preme il pulsante di **aggiornamento**, i dati verranno sincronizzati con il servizio mobile.
+In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il servizio mobile. Quando si preme il pulsante di aggiornamento, i dati vengono sincronizzati con il servizio mobile****.
 
 1. Aprire `ToDoActivity.cs`. Rimuovere l'URL del servizio mobile non valido e aggiungere nuovamente l'URL e la chiave dell'app corretti.
 
 2. Ricompilare ed eseguire l'app. Si noti che i dati appaiono uguali a quelli dello scenario offline nonostante l'app sia ora connessa al servizio mobile. Il motivo è che l'app usa sempre l'interfaccia `IMobileServiceSyncTable` che fa riferimento all'archivio locale.
 
-3. Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript, è possibile visualizzare i dati dalla scheda **Dati** del servizio mobile. 
+3. Accedere al portale di gestione di Microsoft Azure ed esaminare il database relativo al servizio mobile. Se il servizio usa il back-end JavaScript, è possibile visualizzare i dati dalla scheda **Dati** del servizio mobile.
 
     Se si usa il back-end .NET per il servizio mobile, in Visual Studio passare a **Esplora server** -> **Azure** -> **Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**.
 
-    Si noti che i dati *not* sono stati sincronizzati tra il database e l'archivio locale.
+    Si noti che i dati *non* sono stati sincronizzati tra il database e l'archivio locale.
 
 4. Nell'app premere il pulsante di aggiornamento. Verrà chiamato `OnRefreshItemsSelected()`, che a sua volta chiama `SyncAsync()`. Verranno eseguite le operazioni push e pull, prima inviando gli elementi dell'archivio locale al servizio mobile, quindi recuperando i nuovi dati dal servizio mobile.
 
@@ -160,18 +159,16 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 
 <!-- URLs. -->
-[Gestione dei conflitti con il supporto offline per Servizi mobili]: /it-it/documentation/articles/mobile-services-xamarin-android-handling-conflicts-offline-data/ 
-[Introduzione ai dati]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/partner-xamarin-mobile-services-android-get-started/
-[Come usare il componente client Xamarin per Servizi mobili di Azure]: /it-it/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
-[Eliminazione temporanea]: /it-it/documentation/articles/mobile-services-using-soft-delete/
+[Gestione dei conflitti con il supporto offline per Servizi mobili]: mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[Get started with data]: partner-xamarin-mobile-services-android-get-started-data.md
+[Introduzione a Servizi mobili]: partner-xamarin-mobile-services-android-get-started.md
+[Come usare il componente client Xamarin per Servizi mobili di Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
+[eliminazione temporanea]: mobile-services-using-soft-delete.md
 
-[Pacchetto NuGet Mobile Services SDK]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
-[Pacchetto NuGet SQLite Store]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+[Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
-[Estensione Xamarin]: http://xamarin.com/visual-studio
-[Componente aggiuntivo NuGet per Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
+[estensione Xamarin]: http://xamarin.com/visual-studio
+[NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿## <a name="register-mobile-service-aad"></a>Registrare il servizio mobile in Azure Active Directory
+## <a name="register-mobile-service-aad"></a>Registrare il servizio mobile in Azure Active Directory
 
 
 In questa sezione verrà registrato il servizio mobile in Azure Active Directory e verranno configurate le autorizzazioni per consentire la rappresentazione Single Sign-On.
@@ -9,7 +9,7 @@ In questa sezione verrà registrato il servizio mobile in Azure Active Directory
 
 3. Fare clic sulla scheda **Applicazioni** e quindi sull'applicazione creata.
 
-4. Fare clic su **Gestisci manifesto**. Fare quindi clic su **Scarica manifesto** e salvare il manifesto dell'applicazione in una directory locale.
+4. Fare clic su **Gestisci manifesto** e quindi su **Scarica manifesto** e salvare il manifesto dell'applicazione in una directory locale.
 
    ![](./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png)
 
@@ -33,11 +33,9 @@ In questa sezione verrà registrato il servizio mobile in Azure Active Directory
             }
         ],
 
-6. Nel portale di gestione di Azure fare di nuovo clic su **Gestisci manifesto** per l'applicazione e quindi su **Carica manifesto**.  Passare al percorso del manifesto dell'applicazione appena aggiornato e caricare il manifesto.
+6. Nel portale di gestione di Azure fare di nuovo clic su **Gestisci manifesto** per l'applicazione e quindi su **Carica manifesto**. Passare al percorso del manifesto dell'applicazione appena aggiornato e caricare il manifesto.
 
 <!-- URLs. -->
-[Come eseguire la registrazione ad Azure Active Directory]: /it-it/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=42-->
+[Come eseguire la registrazione ad Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+<!--HONumber=54-->

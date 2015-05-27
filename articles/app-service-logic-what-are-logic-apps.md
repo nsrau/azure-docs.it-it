@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Cosa sono le app per la logica?" 
 	description="Informazioni sulle App per la logica del servizio app" 
 	authors="joshtwist" 
@@ -18,21 +18,21 @@
 
 #Cosa sono le app per la logica?
 
-Il servizio app di Azure è un'offerta di piattaforma interamente gestita come servizio (PaaS) per sviluppatori professionisti che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le app per la logica fanno parte della suite di servizi app e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
+Azure App Service è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori e facilita la creazione di app Web, mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
 
-Ancora più importante, è possibile combinare le app per la logica con le app per le API e i connettori del Marketplace per contribuire a risolvere facilmente anche i più complessi scenari di integrazione.
+Ancora più importante, è possibile combinare le app per la logica con le app per le API e i [connettori][connectors] del Marketplace per contribuire a risolvere facilmente anche i più complessi scenari di integrazione.
 
-![Flow app designer](./media/app-service-learn-about-flows-preview/Designer.png)
+![Finestra di progettazione del flusso di app](./media/app-service-learn-about-flows-preview/Designer.png)
 
-##Diffusione dei sistemi SaaS, PaaS e ibridi
-
-L'era del cloud ha prodotto un'ampia diffusione dell'uso dei sistemi SaaS e PaaS, mettendo sempre più a dura prova le capacità degli sviluppatori in ogni dove. Nel frattempo, mentre i backlog delle applicazioni dei reparti IT si allungano, queste eterogenee soluzioni distribuite presentano nuove sfide per l'integrazione.  Per di più, le aziende devono sfruttare i dati e i servizi locali nelle proprie soluzioni, e farlo in modo sicuro.
-
-La creazione di soluzioni che comprendano tutti questi sistemi presenta sfide non irrilevanti per i team di sviluppo, che richiedono molto tempo e sono soggette a errori.
+Se si vogliono replicare automaticamente nuovi record nel database SQL e inviarli alla reception o automaticamente trovare tweet negativi e inviarli a un canale slack
 
 ##Perché usare le app per la logica?
 
-Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro che esprimano chiaramente il loro scopo tramite un trigger e una serie di passaggi, ciascuno dei quali richiama un servizio app per app per le API e, al contempo, si occupa in modo sicuro dell'autenticazione e delle procedure consigliate, ad esempio l'esecuzione durevole.
+Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi eseguono una serie di passaggi, ognuno dei quali richiama un'app per le API del servizio app e, al contempo, si occupa in modo sicuro dell'autenticazione e delle procedure consigliate, ad esempio il checkpoint e l'esecuzione durevole.
+
+Se si vuole automatizzare qualsiasi processo aziendale (ad esempio, individuare tweet negativi e pubblicarli nel canale slack interno o replicare nuovi record del cliente da SQL, appena arrivano, nel sistema CRM), le app logiche facilitano l'integrazione di diverse origini dati, dal cloud a un'infrastruttura locale. Controllare i [connettori][connectors] per altre informazioni e [iniziare][create] ora per scoprire le attività che è possibile eseguire.
+
+Inoltre, con le app[API BizTalk][biztalk] è possibile scalare a scenari di integrazione avanzati con la potenza di un [motore regole][rules], della [gestione dei partner trader][tpm] e altro ancora.
 
 - **Strumenti di progettazione facili da usare**: è possibile progettare le app per la logica in modalità end-to-end nel browser. Iniziare con un trigger: da una semplice pianificazione a un momento qualsiasi in cui compare un tweet relativo alla propria azienda. Quindi, gestire un numero qualsiasi di azioni usando la raccolta completa di connettori.
 
@@ -46,24 +46,26 @@ Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro
 
 ## Concetti delle app per la logica
 
-Di seguito sono riportate alcune informazioni fondamentali per comprendere appieno l'esperienza delle app per la logica. 
+Di seguito sono riportate alcune informazioni fondamentali per comprendere appieno l'esperienza delle app per la logica.
 
 - **Flusso di lavoro**: le app per la logica consentono di modellare graficamente i processi aziendali come una serie di passaggi, o flusso di lavoro.
-- **Connettori**: le app per la logica devono accedere ai dati e ai servizi. Un connettore è un tipo speciale di app per le API, che viene creato in maniera specifica per assistere l'utente durante la connessione ai dati e la successiva elaborazione. Leggere altre informazioni sul [funzionamento dei connettori][biztalk].
+- **[Connettori][connectors]**: le app per la logica devono accedere ai dati e ai servizi. Un connettore è un tipo speciale di app per le API, che viene creato in maniera specifica per assistere l'utente durante la connessione ai dati e la successiva elaborazione. Visualizzare l'elenco dei connettori ora disponibile in [uso dei connettori][connectors].
 - **Trigger**: alcuni connettori possono anche fungere da trigger. Un trigger avvia una nuova istanza di un flusso di lavoro basata su un evento specifico, ad esempio l'arrivo di un messaggio di posta elettronica oppure una modifica nell'account di archiviazione di Azure.
-- **BizTalk**: per altri scenari di integrazione più avanzati, i Servizi app di Azure includono le capacità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Le app per le API di BizTalk consentono di includere facilmente la convalida, la trasformazione, le regole e molto altro nei flussi di lavoro dell'app per la logica. Leggere altre informazioni sul [funzionamento delle app per le API di BizTalk][biztalk].
+-  **Azioni**: ogni passaggio dopo il trigger in un flusso di lavoro viene chiamato azione. Ogni azione viene in genere mappata a un'operazione sul connettore o app per le API personalizzate.
+- **BizTalk**: per altri scenari di integrazione più avanzati, Azure App Service include le capacità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Le app per le API di BizTalk consentono di includere facilmente la convalida, la trasformazione, le regole e molto altro nei flussi di lavoro dell'app per la logica. Leggere altre informazioni sul [funzionamento delle app per le API di BizTalk][biztalk].
 
 ## Introduzione
 
 Per iniziare a usare le app per la logica, seguire l'esercitazione [Creare una nuova app per la logica][create].
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere l'articolo relativo al [servizio app di Azure][appservice].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][appservice].
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
+[connectors]: app-service-logic-use-biztalk-connectors.md
+[tpm]: app-service-logic-create-a-trading-partner-agreement
+[rules]: app-service-logic-use-biztalk-rules
 
 
-
-
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="App per le API Twitter Connector" 
    description="Come usare il connettore Twitter" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,18 +19,18 @@
 
 # Uso del connettore Twitter nell'app per la logica #
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. 
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
 Il connettore Twitter consente di inviare tweet e ricevere tweet dalla timeline, dagli amici e dai follower dal proprio account Twitter.
 
 - Il trigger del connettore Twitter recupererà i nuovi tweet associati alla parola chiave specificata. Quando un nuovo tweet viene recuperato, attiva una nuova istanza del flusso e passa i dati ricevuti nella richiesta al flusso per l'elaborazione. 
-- Le azioni del connettore Twitter consentono di inviare tweet, cercarli, fare retweet, recuperare timeline utente e così via. Queste azioni ricevono una risposta e la rendono disponibile per le azioni nel flusso per l'utilizzo.
+- Le azioni del connettore Twitter consentono di inviare tweet, cercarli, fare retweet, recuperare timeline utente e così via. Queste azioni ricevono una risposta e la rendono disponibile per le azioni nel flusso per l'uso.
 
 ## Creazione di un connettore Twitter per l'app per la logica ##
 Per usare il connettore Twitter, prima è necessario creare un'istanza dell'app per le API Twitter Connector. Attenersi alla procedura riportata di seguito:
 
 1. Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
-1. Andare a "Web e dispositivi mobili > App per le API" e cercare "Twitter Connector".
+1. Andare a "App per le API" e cercare "Twitter Connector".
 1. Configurare il connettore Twitter nel modo seguente:
 
 	![][1]
@@ -47,7 +47,7 @@ Una volta creata l'app per le API, si può usare il connettore Twitter come trig
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore Twitter.
  	
 	![][2]
-2.	Aprire "Trigger e azioni" per aprire la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  	
 	![][3]
 3.	Il connettore Twitter apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
@@ -73,4 +73,4 @@ Una volta creata l'app per le API, si può usare il connettore Twitter come trig
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

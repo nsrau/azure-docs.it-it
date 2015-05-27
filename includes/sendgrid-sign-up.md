@@ -1,10 +1,10 @@
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e [a tutte le API][] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina relativa alle [funzionalità di SendGrid][].
+I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina di [funzionalità di SendGrid][].
 
 ### Per iscriversi a un account SendGrid
 
 1. Accedere al [portale di gestione di Azure][].
 
-2. Nel riquadro inferiore del portale di gestione fare clic su **Nuovo**.
+2. Nel riquadro inferiore del portale di gestione fare clic su **New**.
 
 	![command-bar-new][command-bar-new]
 
@@ -24,7 +24,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 8. Fare clic sulla freccia destra.
 
-9. Nella scheda **Rivedi acquisto** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, verrà avviato il [processo di provisioning dell'account SendGrid].
+9. Nella scheda **Review Purchase** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, verrà avviato il [processo di provisioning dell'account SendGrid].
 
 	![store-screen-3][store-screen-3]
 
@@ -32,29 +32,29 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-	Il provisioning dell'account SendGrid verrà eseguito immediatamente e verrà visualizzato un messaggio di **completamento dell'acquisto dell'account SendGrid**. A questo punto la creazione di account e credenziali è stata completata ed è possibile inviare posta elettronica. 
+	Il provisioning dell'account SendGrid verrà eseguito immediatamente e verrà visualizzato il messaggio **Successfully purchased Add-On SendGrid**. A questo punto la creazione di account e credenziali è stata completata ed è possibile inviare posta elettronica.
 
-	Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid. 
+	Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
 	Per inviare posta elettronica tramite SendGrid, è necessario specificare le credenziali dell'account, ovvero nome utente e password.
 
-### Per trovare le credenziali di SendGrid ###
+### Per individuare le credenziali di SendGrid ###
 
-1. Fare clic su **Informazioni di connessione**.
+1. Fare clic su **Connection Info**.
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. Nella finestra di dialogo *Connection info* copiare i valori di **Password** e nome utente da usare più avanti nell'esercitazione.
+2. Nella finestra di dialogo *Connection info* copiare i valori di **Password** e nome utente da utilizzare più avanti nell'esercitazione.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Per configurare le impostazioni di recapito della posta, fare clic sul pulsante **Gestisci**. Verrà visualizzata l'interfaccia Web Sendgrid.com, in cui è possibile effettuare l'accesso e aprire il pannello di controllo SendGrid. 
+	Per impostare le impostazioni di recapito della posta, fare clic sul pulsante **Manage**. Verrà visualizzata l'interfaccia Web Sendgrid.com, in cui è possibile effettuare l'accesso e aprire il pannello di controllo SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
-	Per ulteriori informazioni introduttive su SendGrid, vedere la [guida introduttiva di SendGrid][].
+	Per altre informazioni introduttive su SendGrid, vedere la [guida introduttiva a SendGrid][].
 
 <!--images-->
 
@@ -70,13 +70,11 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 <!--Links-->
 
-[Funzionalità di SendGrid]: http://sendgrid.com/features
-[Portale di gestione di Azure]: https://manage.windowsazure.com
-[Guida introduttiva di SendGrid]: http://sendgrid.com/docs
-[Processo di provisioning di SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[funzionalità di SendGrid]: http://sendgrid.com/features
+[portale di gestione di Azure]: https://manage.windowsazure.com
+[guida introduttiva a SendGrid]: http://sendgrid.com/docs
 [processo di provisioning dell'account SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
-[Tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
-[a tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
+[tutte le API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

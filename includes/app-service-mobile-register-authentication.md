@@ -1,4 +1,4 @@
-﻿
+
 
 Per poter autenticare gli utenti, è necessario registrare la propria app presso un provider di identità. È quindi necessario registrare il segreto client generato dal provider con Servizi app.
 
@@ -11,14 +11,16 @@ Per poter autenticare gli utenti, è necessario registrare la propria app presso
 3. Scegliere un provider di identità supportato nell'elenco riportato di seguito e seguire la procedura per configurare l'app con tale provider:
 
  - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/" target="_blank">Azure Active Directory</a>
- - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication-preview/" target="_blank">Accesso Facebook</a>
- - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-google-authentication-preview/" target="_blank">Accesso Google</a>
+ - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication-preview/" target="_blank">Account di accesso di Facebook</a>
+ - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-google-authentication-preview/" target="_blank">Account di accesso di Google</a>
  - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication-preview/" target="_blank">Account Microsoft</a>
- - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-twitter-authentication-preview/" target="_blank">Accesso Twitter</a>
+ - <a href="/it-it/documentation/articles/app-service-mobile-how-to-configure-twitter-authentication-preview/" target="_blank">Account di accesso di Twitter</a>
 
 	L'applicazione è ora configurata per interagire con il provider di autenticazione scelto.
 
-<!-- URLs. -->
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+4. (Facoltativo) Ripetere il passaggio precedente per configurare tutti gli altri provider di identità che si vuole vengano supportati dall'app. 
 
-<!--HONumber=49-->
+<!-- URLs. -->
+[portale di gestione di Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=54-->

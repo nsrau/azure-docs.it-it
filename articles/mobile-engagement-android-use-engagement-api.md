@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Come usare l'API di Mobile Engagement su Android" 
-	description="Android SDK più recente - Come usare l'API di Mobile Engagement su Android"
+<properties 
+	pageTitle="Come usare l'API di Engagement in Android" 
+	description="Android SDK più recente - Come usare l'API di Engagement in Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kapiteir" 
@@ -16,31 +16,31 @@
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
 
-#Come usare l'API di Mobile Engagement su Android
+#Come usare l'API di Engagement in Android
 
-Questo documento costituisce un'integrazione al documento relativo all'[integrazione di Mobile Engagement in Android](mobile-engagement-android-integrate-engagement.md)e offre informazioni approfondite su come usare l'API di Mobile Engagement per rendere note le statistiche dell'applicazione.
+Questo documento è complementare all'articolo [Come integrare Engagement in Android](mobile-engagement-android-integrate-engagement.md) e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
-Tenere presente che se si preferisce che Mobile Engagement segnali solo informazioni tecniche e su sessioni, attività e arresti anomali dell'applicazione, il metodo più semplice a questo scopo consiste nel fare in modo che tutte le `Activity` sottoclassi ereditino dalla `EngagementActivity` classe corrispondente.
+Tenere presente che, se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `Activity` ereditino dalla classe `EngagementActivity` corrispondente.
 
-In caso invece di esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementActivity`, è necessario usare l'API di Mobile Engagement.
+Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementActivity`, è necessario usare l'API di Engagement.
 
-L'API di Mobile Engagement viene fornita dalla classe `EngagementAgent`. Un'istanza di questa classe può essere recuperata chiamando il metodo statico `EngagementAgent.getInstance(Context)`. L'oggetto `EngagementAgent` restituito è un singleton.
+L'API di Engagement viene fornita dalla classe `EngagementAgent`. Un'istanza di questa classe può essere recuperata chiamando il metodo statico `EngagementAgent.getInstance(Context)` (tenere presente che l'oggetto `EngagementAgent` restituito è un singleton).
 
 ##Concetti relativi a Mobile Engagement
 
-Le sezioni seguenti contengono alcuni approfondimenti dei comuni [concetti relativi a Mobile Engagement](mobile-engagement-concepts.md)per la piattaforma Android.
+Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Concetti relativi ad Azure Mobile Engagement](mobile-engagement-concepts.md) per la piattaforma Android.
 
-### `Sessione` e `attività`
+### `Session` e `Activity`
 
 Se l'utente resta inattivo per più di due secondi tra due *attività*, la sequenza di *attività* viene divisa in due *sessioni* distinte. Questi pochi secondi vengono chiamati "timeout della sessione".
 
-Una *attività* è in genere associata a una schermata dell'applicazione, ovvero ** inizia quando la schermata viene visualizzata e si arresta quando la schermata viene chiusa. Si tratta dei casi in cui viene integrato Mobile Engagement SDK usando classi `EngagementActivity`.
+Un'*attività* è in genere associata a una schermata dell'applicazione, ovvero l'*attività* inizia quando la schermata viene visualizzata e si arresta quando la schermata viene chiusa. Questo avviene quando l'SDK di Engagement è integrato mediante le classi `EngagementActivity`.
 
-Le *attività* possono tuttavia essere controllate anche manualmente usando l'API di Mobile Engagement. In questo modo, è possibile dividere una schermata specifica in diverse parti secondarie per ottenere maggiori dettagli sull'utilizzo della schermata, ad esempio per definire la frequenza e la durata in base alle quali le finestre di dialogo vengono usate all'interno della schermata.
+Le *attività* possono tuttavia essere controllate anche manualmente usando l'API di Engagement. In questo modo, è possibile dividere una schermata specifica in diverse parti secondarie per ottenere maggiori dettagli sull'utilizzo della schermata, ad esempio per definire la frequenza e la durata in base alle quali le finestre di dialogo vengono usate all'interno della schermata.
 
 ##Segnalazione di attività
 
-> [AZURE.IMPORTANT] Non è necessario segnalare le attività nel modo indicato in questa sezione se si usa la classe `EngagementActivity` e le sue varianti in base alle istruzioni disponibili nel documento sull'integrazione di Mobile Engagement in Android.
+> [AZURE.IMPORTANT]Non è necessario segnalare le attività nel modo indicato in questa sezione se si usa la classe `EngagementActivity` e le sue varianti in base alle istruzioni disponibili nell'articolo relativo all'integrazione di Engagement in Android.
 
 ### L'utente inizia una nuova attività
 
@@ -49,15 +49,15 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 È necessario chiamare `startActivity()` ogni volta che l'attività dell'utente cambia. La prima chiamata a questa funzione avvia una nuova sessione utente.
 
-Il punto migliore in cui chiamare questa funzione è a ogni richiamata di `onResume` dell'attività.
+Il punto migliore in cui chiamare questa funzione corrisponde a ogni callback `onResume` dell'attività.
 
 ### L'utente termina l'attività corrente
 
 			EngagementAgent.getInstance(this).endActivity();
 
-È necessario chiamare `endActivity()` almeno una volta quando l'utente termina la sua ultima attività. In questo modo, si indica a Mobile Engagement SDK che l'utente è attualmente inattivo e che la sessione utente deve essere chiusa allo scadere del timeout della sessione. Se si chiama `startActivity()` prima dello scadere del timeout della sessione, la sessione viene semplicemente ripresa.
+È necessario chiamare `endActivity()` almeno una volta quando l'utente termina la sua ultima attività. In questo modo, si indica all'SDK di Engagement che l'utente è attualmente inattivo e che la sessione utente deve essere chiusa allo scadere del timeout. Se si chiama `startActivity()` prima dello scadere del timeout, la sessione viene semplicemente ripresa.
 
-Il punto migliore in cui chiamare questa funzione è a ogni richiamata di `onPause` dell'attività.
+Il punto migliore in cui chiamare questa funzione corrisponde a ogni callback `onPause` dell'attività.
 
 ##Segnalazione di eventi
 
@@ -173,8 +173,7 @@ Gli errori possono essere correlati a un processo in esecuzione invece che alla 
 
 Si supponga di voler segnalare un errore durante il processo di accesso:
 
-[...]
-public void signIn(Context context, ...) {
+[...] public void signIn(Context context, ...) {
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
@@ -234,9 +233,9 @@ Se l'utente riceve messaggi dagli amici, si tratta di un evento di processo.
 
 Questi dati possono essere strutturati, usando la classe Bundle di Android (in realtà, funziona come i parametri aggiuntivi negli intenti di Android). Notare che una classe Bundle può contenere matrici o altre istanze Bundle.
 
-> [AZURE.IMPORTANT] Se si inseriscono parametri parcellizzabili o serializzabili, assicurarsi che venga implementato il rispettivo metodo `toString()` per restituire una stringa leggibile. Le classi serializzabili che contengono campi non temporanei non serializzabili provocano l'arresto anomalo di Android quando si chiama `bundle.putSerializable("key",value);`
+> [AZURE.IMPORTANT]Se si inseriscono parametri parcellizzabili o serializzabili, assicurarsi che venga implementato il rispettivo metodo `toString()` per restituire una stringa leggibile. Le classi serializzabili che contengono campi non temporanei non serializzabili provocano l'arresto anomalo di Android quando si chiama `bundle.putSerializable("key",value);`
 
-> [AZURE.WARNING] Le matrici di tipo sparse non sono supportate nei parametri aggiuntivi, ovvero non vengono serializzate come matrice. Prima di usarle nei parametri aggiuntivi, è consigliabile convertirle in matrici standard.
+> [AZURE.WARNING]Le matrici di tipo sparse non sono supportate nei parametri aggiuntivi, ovvero non vengono serializzate come matrice. Prima di usarle nei parametri aggiuntivi, è consigliabile convertirle in matrici standard.
 
 ### Esempio
 
@@ -253,23 +252,23 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
-#### Dimensioni
+#### Dimensione
 
-I parametri aggiuntivi sono limitati a **1024** caratteri per ogni chiamata, una volta codificati in JSON dal servizio Mobile Engagement.
+I dati aggiuntivi sono limitati a **1024** caratteri per chiamata, una volta codificati in JSON dal servizio Engagement.
 
 Nell'esempio precedente il codice JSON inviato al server è lungo 58 caratteri:
 
-			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
+			{"ref_click":"http://foobar.com/blog","video_id":"123"}
 
 ##Segnalazione di informazioni sull'applicazione
 
-È possibile segnalare manualmente informazioni di monitoraggio (o informazioni specifiche dell'applicazione di qualsiasi altro tipo) usando la funzione `sendAppInfo()`.
+È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione `sendAppInfo()`.
 
 Queste informazioni possono essere inviate in modo incrementale: viene mantenuto solo l'ultimo valore per una determinata chiave per ogni dispositivo specifico.
 
-Come per gli eventi aggiuntivi, la classe Bundle viene usata per astrarre le informazioni sull'applicazione. Tenere presente che le matrici o i bundle secondari vengono trattati come stringhe flat (usando la serializzazione JSON).
+Come per i dati aggiuntivi degli eventi, la classe Bundle viene usata per astrarre le informazioni sull'applicazione. Tenere presente che le matrici o i bundle secondari vengono trattati come stringhe flat (usando la serializzazione JSON).
 
 ### Esempio
 
@@ -288,14 +287,14 @@ Ogni chiave in `Bundle` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
 
-#### Dimensioni
+#### Dimensione
 
-Le informazioni sull'applicazione sono limitate a **1024** caratteri per ogni chiamata, una volta codificate in JSON dal servizio Mobile Engagement.
+Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamata, una volta codificate in JSON dal servizio Engagement.
 
 Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
 			{"expiration":"2016-12-07","status":"premium"}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

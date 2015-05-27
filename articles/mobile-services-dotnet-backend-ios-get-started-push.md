@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Introduzione alle notifiche push (iOS) | Mobile Dev Center" 
+	pageTitle="Aggiungere notifiche push all'app di Servizi mobili (iOS) | Mobile Dev Center" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app per iOS." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services,notification-hubs" 
 	documentationCenter="ios" 
 	manager="dwrede" 
 	editor="" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/24/2015" 
 	ms.author="krisragh"/>
 
 
@@ -21,10 +21,10 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per iOS. In questa esercitazione si userà il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) per aggiungere notifiche push al progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per iOS. In questa esercitazione si userà il servizio di notifiche push di Apple (Apple Push Notification Service, APNS) per aggiungere notifiche push al progetto di guida introduttiva. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 
-In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
+Questa esercitazione descrive le operazioni di base per abilitare le notifiche push:
 
 1. [Generare la richiesta di firma del certificato]
 2. [Registrare l'app e abilitare le notifiche push]
@@ -32,22 +32,22 @@ In questa esercitazione vengono descritte le operazioni di base per abilitare le
 4. [Aggiornare il server per l'invio di notifiche push](#update-server)
 5. [Pubblicare il servizio mobile in Azure]
 6. [Aggiungere notifiche push all'app]
-7. [Abilitare le notifiche push per test locali](#local-testing)
-8. [Testare l'app nel servizio mobile pubblicato]
+7. [Abilitare le notifiche push per i test locali](#local-testing)
+8. [Testare l'app sul servizio mobile pubblicato]
 
-Per completare questa esercitazione, è necessario soddisfare i seguenti requisiti:
+Per completare questa esercitazione, è necessario disporre di:
 
 + [Mobile Services SDK per iOS]
-+ [XCode 4.5][Installare Xcode]
++ [XCode 4.5][Install Xcode]
 + Dispositivo con iOS 6.0 o versione successiva
 + Iscrizione a iOS Developer Program
 
-   > [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
+   >[AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente][Introduzione ai dati].
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili all'app][Get started with data].
 
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Abilitare le notifiche push per Apple](../includes/enable-apple-push-notifications.md)]
 
 
 ## Configurare Servizi mobili per l'invio di richieste push
@@ -63,7 +63,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		using System;
 		using System.Collections.Generic;
 
-2. Aggiornare la definizione del metodo `PostTodoItem` con il codice seguente:  
+2. Aggiornare la definizione del metodo `PostTodoItem` con il codice seguente:
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -86,7 +86,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
     Questo codice invierà una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
 
 
-<h2><a name="publish-the-service"></a>Pubblicare il servizio mobile in Azure</h2>
+##<a name="publish-the-service"></a>Pubblicare il servizio mobile in Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -130,7 +130,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-5. In QSAppDelegate.m aggiungere il seguente metodo del gestore all'interno dell'implementazione:  
+5. In QSAppDelegate.m aggiungere il seguente metodo del gestore all'interno dell'implementazione:
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -143,27 +143,27 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
             [alert show];
         }
 
-   > [AZURE.NOTE] È necessario aggiungere questo codice prima di chiamare il metodo <strong>addItem</strong>.
+   >[AZURE.NOTE]È necessario aggiungere questo codice prima di chiamare il metodo <strong>addItem</strong>.
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
-##<a id="local-testing"></a> Abilitare le notifiche push per test locali
+##<a id="local-testing"></a> Abilitare le notifiche push per i test locali
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## Testare le notifiche push nell'app
 
-1. Fare clic sul pulsante **Esegui** per compilare il progetto e avviare l'app in un dispositivo con iOS e quindi fare clic su **OK** per accettare le notifiche push.
+1. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
 
   	![][23]
 
-    > [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+    > [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un testo significativo, ad esempio _A new Mobile Services task_ e fare clic sull'icona con il segno PIÙ (**+**).
+2. Nell'app digitare un testo significativo, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (**+**).
 
   	![][24]
 
-3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per ignorarla.
+3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
   	![][25]
 
@@ -175,43 +175,39 @@ L'esercitazione è stata completata.
 
 ## Passaggi successivi
 
-In questa esercitazione sono state illustrate le nozioni di base per consentire a un'app per iOS di usare Servizi mobili e Hub di notifica per inviare notifiche push. In seguito, provare a eseguire l'esercitazione [Inviare notifiche push agli utenti autenticati], che illustra come usare i tag per inviare notifiche push da un servizio mobile a un solo utente autenticato.
+Questa esercitazione ha illustrato le nozioni di base per consentire a un'app per iOS di usare Servizi mobili e Hub di notifica per inviare notifiche push. In seguito si consiglia di passare all'esercitazione seguente, [Invio di notifiche push agli utenti autenticati], che spiega come utilizzare i tag per inviare notifiche push da un servizio mobile unicamente agli utenti autenticati.
 
-<!--+ [Inviare notifiche push agli utenti autenticati]
-	<br/>Informazioni su come usare i tag per inviare notifiche push da un servizio mobile a un solo utente autenticato.
+<!--+ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori]
-	<br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie cui sono interessati.
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Inviare notifiche basate su modelli ai sottoscrittori]
-	<br/>Informazioni su come usare i modelli per inviare notifiche push da un servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Introduzione ai dati]
-  <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+* [Introduzione ai dati] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione all'autenticazione]
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi mediante servizi mobili.
+* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
-* [Informazioni su Hub di notifica]
-  <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
+* [Informazioni su Hub di notifica] <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
-* [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni Hub di notifica. 
+* [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive sulla risoluzione dei problemi e sul debug di soluzioni di Hub di notifica.
 
 <!-- Anchors.  -->
 [Generare la richiesta di firma del certificato]: #certificates
 [Registrare l'app e abilitare le notifiche push]: #register
 [Creare un profilo di provisioning per l'app]: #profile
-[Configurare Servizi mobili]: #configure
-[Aggiornare gli script per l'invio di notifiche push]: #update-scripts
+[Configure Mobile Services]: #configure
+[Update scripts to send push notifications]: #update-scripts
 [Aggiungere notifiche push all'app]: #add-push
-[Inserire dati per la ricezione di notifiche]: #test
-[Testare l'app nel servizio mobile pubblicato]: #test-app
-[Passaggi successivi]:#next-steps
-[Scaricare il servizio in locale]: #download-the-service-locally
-[Testare il servizio mobile]: #test-the-service
+[Insert data to receive notifications]: #test
+[Testare l'app sul servizio mobile pubblicato]: #test-app
+[Next Steps]: #next-steps
+[Download the service locally]: #download-the-service-locally
+[Test the mobile service]: #test-the-service
 [Pubblicare il servizio mobile in Azure]: #publish-mobile-service
 
 <!-- Images. -->
@@ -252,23 +248,22 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Installare Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portale di provisioning per iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services SDK per iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Introduzione ai dati]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Introduzione all'autenticazione]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-[Inviare notifiche push agli utenti autenticati]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
+[Invio di notifiche push agli utenti autenticati]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[Informazioni su Hub di notifica]: /it-it/documentation/articles/notification-hubs-overview/
-[Inviare notifiche di trasmissione ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Inviare notifiche basate su modelli ai sottoscrittori]: /it-it/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[Informazioni su Hub di notifica]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

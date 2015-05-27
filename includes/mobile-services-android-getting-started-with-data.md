@@ -1,6 +1,6 @@
-﻿Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale. 
+Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che gli elementi vengano archiviati in Servizi mobili anziché nella raccolta locale.
 
-1. Verificare che le seguenti righe siano presenti nel tag **dependencies** nel file *build.gradle (Module app)*. Se non sono presenti, aggiungerle. Verranno aggiunti i riferimenti all'SDK di Servizi mobili per il client Android.
+1. Verificare che le righe seguenti siano presenti nel tag **dependencies** nel file *build.gradle (Module app)*. Se non sono presenti, aggiungerle. In questo modo, vengono aggiunti i riferimenti a Mobile Services Android Client SDK.
 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. In Esplora pacchetti, aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle seguenti righe di codice: 
+5. In Project Explorer aprire il file TodoActivity.java disponibile nella cartella **GetStartedWithData => app => src => java** e rimuovere i simboli di commento dalle righe di codice seguenti:
 
 
 
@@ -37,7 +37,7 @@
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-5. Rimuovere quindi i simboli di commento dalle righe seguenti:
+5. Impostare come commento le righe seguenti:
 
 		import java.util.ArrayList;
 		import java.util.List;
@@ -46,14 +46,14 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Salvare il file. Gli errori di compilazione verranno indicati nel progetto. Cercare le altre tre posizioni in cui viene usata la variabile  `toDoItemList` e impostare come commento le sezioni indicate. In questo modo l'elenco in memoria viene rimosso completamente. 
+7. Salvare il file. Gli errori di compilazione verranno indicati nel progetto. Cercare le altre tre posizioni in cui viene usata la variabile `toDoItemList` e impostare come commento le sezioni indicate per procedere alla rimozione completa dell'elenco in memoria.
 
 8. Ora si procederà all'aggiunta del servizio mobile. Rimuovere quindi i simboli di commento dalle righe di codice seguenti:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. Individuare la classe *ProgressFilter* verso la fine del file e rimuovere i simboli di commento. Questa classe visualizza un indicatore 'loading' mentre *MobileServiceClient* esegue le operazioni di rete.
+9. Trovare la classe *ProgressFilter* verso la fine del file e rimuovere i simboli di commento. Questa classe visualizza un indicatore 'loading' mentre *MobileServiceClient* esegue le operazioni di rete.
 
 
 10. Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
@@ -80,9 +80,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Verrà creata una nuova istanza di *MobileServiceClient* usata per accedere al servizio mobile. Verrà inoltre creata l'istanza di *MobileServiceTable* usata per comunicare con l'archiviazione dati nel servizio mobile.
+  	Viene creata una nuova istanza di *MobileServiceClient* usata per accedere al servizio mobile. Viene creata anche l'istanza di *MobileServiceTable* usata per comunicare con l'archiviazione dati nel servizio mobile.
 
-13. Nel codice precedente, sostituire  `MobileServiceUrl` e  `AppKey` con l'URL e la chiave applicazione del sevizio mobile, in quest'ordine.
+13. Nel codice precedente sostituire `MobileServiceUrl` e `AppKey` con l'URL e la chiave applicazione del servizio mobile, in quest'ordine.
 
 
 
@@ -165,5 +165,4 @@
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-
-<!--HONumber=49-->
+<!--HONumber=54-->

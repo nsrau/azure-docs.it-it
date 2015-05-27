@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Integrazione dell'SDK Windows Phone per Azure Mobile Engagement" 
-	description="Informazioni sul contenuto dell'SDK Windows Phone SDK per Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Contenuto dell'SDK per Windows Phone Silverlight" 
+	description="Informazioni sul contenuto di Azure Mobile Engagement SDK per Windows Phone Silverlight" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,79 +11,29 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 	
-#Contenuto SDK
+#Contenuto dell'SDK per Windows Phone Silverlight
 
-In questo documento viene elencato e descritto il contenuto dell'archivio SDK.
+Questo documento elenca e descrive il contenuto distribuito dall'SDK nell'applicazione.
 
-##Cartella  `Root`
+##Cartella `/Resources`
 
-Questa cartella contiene copie delle licenze software e un collegamento alla documentazione in linea.
+Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È inoltre possibile personalizzarle in modo da adattarle all'app.
 
-`documentation.html` : Contiene un collegamento alla documentazione in linea dell'SDK Engagement per Windows Phone.
+- `EngagementIconNotification.png`: l'icona del marchio visualizzata a sinistra di una notifica. Sostituirla con un'icona personalizzata.
 
-Questa cartella contiene inoltre i file di licenza.
+- `EngagementIconOk.png`: l'icona "Ok" della barra delle applicazioni delle pagine Reach.
+ 
+- `EngagementIconCancel.png`: l'icona "Annulla" della barra delle applicazioni delle pagine Reach.
+ 
+- `EngagementIconCloseLight.png`: l'icona "Chiudi" della notifica Reach di Mobile Engagement per il tema chiaro di Windows Phone.
+ 
+- `EngagementIconCloseDark.png`: l'icona "Chiudi" della notifica Reach di Mobile Engagement per il tema scuro di Windows Phone.
 
-##Cartella  `/lib`
+- `EngagementConfiguration.xml`: il file di configurazione di Mobile Engagement, in cui è possibile personalizzare le impostazioni di Engagement (stringa di connessione di Engagement, segnalazione di arresto anomalo e così via).
 
-Questa cartella contiene informazioni su dove ottenere l'SDK Engagement.
-
-`azuresdk-mobileengagement-windowsphone-X.X.X.nupkg` : Pacchetto NuGet per l'integrazione SDK.
-
-##Cartella  `/Resources`
-
-Questa cartella contiene tutte le risorse richieste da Engagement. È inoltre possibile personalizzarle in modo da adattarle all'app.
-
-`EngagementIconNotification.png` : L'icona del marchio visualizzata a sinistra di una notifica.
-
-`EngagementIconOk.png` : L'icona "Ok" della barra delle applicazioni delle pagine di copertura.
-
-`EngagementIconCancel.png` : L'icona "Annulla" della barra delle applicazioni delle pagine di copertura.
-
-`EngagementIconCloseLight.png` : L'icona "Chiudi" della notifica di copertura di Engagement per il tema chiaro di Windows Phone.
-
-`EngagementIconCloseDark.png` : L'icona "Chiudi" della notifica di copertura di Engagement per il tema scuro di Windows Phone.
-
-`EngagementConfiguration.xml` : Il file di configurazione di Engagement, dove è possibile personalizzare le impostazioni di Engagement (stringa di connessione di Engagement, report di arresto anomalo...).
-
-##Cartella  `/src/agent`
-
-Questa cartella contiene EngagementPage.
-
-`EngagementPage.cs` : La classe base per le pagine che consentono di segnalare automaticamente un'attività a Engagement.
-
-##Cartella  `/src/reach`
-
-Infine, in questa cartella, è possibile trovare l'XAML predefinito (e le relative controparti C\#) di ogni pagina.
-
-È possibile utilizzarle come base per le proprie pagine. Seguire i commenti per sapere come procedere esattamente.
-
-### Annuncio TextView
-
-`EngagementDefaultTextViewAnnouncementPage.xaml`
-
-`EngagementDefaultTextViewAnnouncementPage.xaml.cs`
-
-### Annuncio WebView
-
-`EngagementDefaultWebViewAnnouncementPage.xaml`
-
-`EngagementDefaultWebViewAnnouncementPage.xaml.cs`
-
-### Sondaggio
-
-`EngagementDefaultPollPage.xaml`
-
-`EngagementDefaultPollPage.xaml.cs`
-
-### Notifica
-
-`EngagementBasicNotificationView.xaml`
-
-`EngagementBasicNotificationView.xaml.cs`
-
-<!--HONumber=47-->
+<!--HONumber=54-->

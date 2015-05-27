@@ -1,37 +1,37 @@
-﻿<properties 
+<properties 
 	pageTitle="Chiamare un'API personalizzata da un'app di Windows Phone - Servizi mobili" 
-	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Windows Phone che usa Servizi mobili di Microsoft Azure." 
+	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Windows Phone che usa Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	Writer="glenga" 
+	writer="glenga" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="04/24/2015" 
 	ms.author="glenga"/>
 
 # Chiamare un'API personalizzata dal client
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
-Questo argomento descrive come chiamare un'API personalizzata da un'app di Windows Phone. Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'uso di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
+Questo argomento descrive come chiamare un'API personalizzata da un'app per Windows Phone. Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
-L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il flag completato su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
+L'API personalizzata creata in questo argomento consente di inviare una singola richiesta POST che imposta il contrassegno di completamento su `true` per tutti gli elementi todo nella tabella. Senza l'API personalizzata, il client dovrebbe inviare singole richieste per aggiornare il flag per ogni elemento Todo nella tabella.
 
-Questa funzionalità verrà aggiunta all'app creata mediante l'esercitazione [Aggiunta di Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md) . A questo scopo, verranno eseguiti i passaggi seguenti:
+Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md). A questo scopo, verranno eseguiti i passaggi seguenti:
 
 1. [Definire l'API personalizzata]
-2. [Aggiornare l'app per chiamare l'API personalizzata]
+2. [Aggiornare l'app per la chiamata all'API personalizzata]
 3. [Testare l'app] 
 
-Questa esercitazione è basata sull'esempio GetStartedWithData, una semplice app TodoList. Prima di iniziare questa esercitazione, è necessario completare [Aggiunta di Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
+Questa esercitazione è basata sull'esempio GetStartedWithData, una semplice app TodoList. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Definire l'API personalizzata
 
@@ -42,31 +42,27 @@ Questa esercitazione è basata sull'esempio GetStartedWithData, una semplice app
 
 ## Passaggi successivi
 
-Dopo avere creato un'API personalizzata e averla chiamata dall'app per Windows Phone, per altre informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
+Dopo avere creato un'API personalizzata e averla chiamata dall'app per Windows Phone, per ulteriori informazioni, vedere anche gli argomenti relativi a Servizi mobili seguenti:
 
-* [Informazioni di riferimento sugli script del server di Servizi mobili]
-  <br/>Altre informazioni sulla creazione di API personalizzate.
+* [Riferimento per gli script del server di Servizi mobili] <br/>Ulteriori informazioni sulla creazione di API personalizzate.
 
-* [Archiviare script del server nel controllo del codice sorgente]
-  <br/> Informazioni su come usare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo più facile e sicuro il codice di script dell'API personalizzata.
+* [Archiviazione degli script del server nel controllo del codice sorgente] <br/> Ulteriori informazioni su come utilizzare la funzionalità di controllo del codice sorgente per sviluppare e pubblicare in modo facile e sicuro il codice di script dell'API personalizzata.
 
 <!-- Anchors. -->
 [Definire l'API personalizzata]: #define-custom-api
-[Aggiornare l'app per chiamare l'API personalizzata]: #update-app
+[Aggiornare l'app per la chiamata all'API personalizzata]: #update-app
 [Testare l'app]: #test-app
-[Passaggi successivi]: #next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-windows-phone-get-started/
-[Introduzione ai dati]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Introduzione all'autenticazione]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
-[Archiviare script del server nel controllo del codice sorgente]: /it-it/documentation/articles/mobile-services-store-scripts-source-control
+[Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,5 +1,5 @@
-﻿
-1. In Esplora soluzioni di Visual Studio espandere la cartella **Controllers** del progetto del servizio mobile. Aprire TodoItemController.cs e aggiornare la definizione del metodo  `PostTodoItem` con il codice seguente:  
+
+1. In Esplora soluzioni di Visual Studio espandere la cartella **Controller** nel progetto del servizio mobile. Aprire TodoItemController.cs e aggiornare la definizione del metodo `PostTodoItem` con il codice seguente:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -28,10 +28,10 @@
 
     Questo codice invia una notifica push (con il testo dell'elemento inserito) dopo l'inserimento di un elemento Todo. In caso di errore, il codice aggiungerà una voce di log errori visualizzabile nella scheda **Log** del servizio mobile nel portale di gestione.
 
-	>[AZURE.NOTE] È possibile usare le notifiche modello per inviare una singola notifica push ai client di più piattaforme. Per altre informazioni, vedere la pagina relativa al [supporto di più piattaforme per dispositivi da un singolo servizio mobile](/it-it/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service/#push).
+	>[AZURE.NOTE]È possibile usare le notifiche modello per inviare una singola notifica push ai client di più piattaforme. Per altre informazioni, vedere la pagina relativa al [supporto di più piattaforme per dispositivi da un singolo servizio mobile](../articles/mobile-services-how-to-use-multiple-clients-single-service.md#push).
 
 2. Ripubblicare il progetto di servizio mobile in Azure.
 
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

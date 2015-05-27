@@ -1,11 +1,9 @@
-﻿
+
 È quindi necessario modificare la modalità di registrazione delle notifiche push, per assicurarsi che l'utente sia autenticato prima del tentativo di registrazione. Gli aggiornamenti dell'app client dipendono dalla modalità di implementazione delle notifiche push.
 
 ###Uso della procedura guidata Aggiungi notifica push in Visual Studio 2013 Update 2 o versione successiva
 
 Con questo metodo la procedura guidata genera un nuovo file push.register.cs nel progetto.
-
->[AZURE.NOTE]La procedura guidata Aggiungi notifica push è attualmente supportata solo per un servizio mobile back-end .NET.
 
 1. In Esplora soluzioni di Visual Studio aprire il file di progetto app.xaml.cs e nel gestore eventi **OnLaunched** impostare come commento o eliminare la chiamata al metodo **UploadChannel**. 
 
@@ -40,7 +38,7 @@ Con questo metodo la procedura guidata genera un nuovo file push.register.cs nel
             RefreshTodoItems();
         }
 
-	In questo codice è necessario sostituire il nome della classe push generato (`todolistPush`) con il nome della classe generato dalla procedura guidata, in genere nel formato <code><em>mobile_service</em>Push</code>.
+	In questo codice è necessario sostituire il nome della classe push generato (`todolistPush`) con il nome della classe generato dalla procedura guidata, in genere nel formato <code><em>servizio_mobile</em>Push</code>.
 
 ###Notifiche push abilitate manualmente		
 
@@ -48,7 +46,7 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 
 1. In Esplora soluzioni di Visual Studio aprire il file di progetto app.xaml.cs e nel gestore eventi **OnLaunched** impostare come commento o eliminare la chiamata al metodo **InitNotificationsAsync**. 
  
-2. Modificare l'accessibilità del metodo **InitNotificationsAsync** da  `private` in  `public` e aggiungere il modificatore  `static`. 
+2. Modificare l'accessibilità del metodo **InitNotificationsAsync** da `private` a `public` e aggiungere il modificatore `static`.
 
 3. Aprire il file di progetto MainPage.xaml.cs e sostituire l'override del metodo **OnNavigatedTo** con il seguente:
 
@@ -58,6 +56,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

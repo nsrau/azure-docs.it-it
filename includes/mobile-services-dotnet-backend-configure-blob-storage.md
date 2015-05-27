@@ -1,10 +1,11 @@
-﻿##<a name="storage-client-server"></a>Installare il client di archiviazione nel progetto di servizio mobile
 
-Per poter utilizzare una firma di accesso condiviso per caricare immagini nel servizio di archiviazione BLOB, è necessario innanzitutto aggiungere il pacchetto NuGet che consente di installare la libreria client di archiviazione nel progetto di servizio mobile. 
+##<a name="storage-client-server"></a>Installare il client di archiviazione nel progetto di servizio mobile
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto di servizio mobile e quindi scegliere **Gestisci pacchetti NuGet**.
+Per poter usare una firma di accesso condiviso per caricare immagini nel servizio di archiviazione BLOB, è necessario innanzitutto aggiungere il pacchetto NuGet che consente di installare la libreria client di archiviazione nel progetto di servizio mobile.
 
-2. Nel riquadro sinistro selezionare la categoria **Online**, selezionare **Solo stabili**, cercare **WindowsAzure.Storage**, fare clic su **Installa** nel pacchetto **Archiviazione di Azure**, quindi accettare il contratto di licenza. 
+1. In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto di servizio mobile e quindi scegliere **Gestisci pacchetti NuGet**.
+
+2. Nel riquadro sinistro selezionare la categoria **Online**, selezionare **Solo stabili**, cercare **WindowsAzure.Storage**, fare clic su **Installa** nel pacchetto **Archiviazione di Azure** e quindi accettare il contratto di licenza.
 
   	![](./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
@@ -23,25 +24,21 @@ La classe TodoItem definisce l'oggetto dati ed è necessario aggiungere a questa
 		public string sasQueryString { get; set; }
 		public string imageUri { get; set; } 
 
-	Queste proprietà consentono di generare la firma di accesso condiviso e di archiviare le informazioni sulle immagini. Si noti che la convenzione per l'utilizzo di maiuscole e minuscole di queste proprietà corrisponde alla versione back-end di JavaScript. 
+	Queste proprietà consentono di generare la firma di accesso condiviso e di archiviare le informazioni sulle immagini. Si noti che la convenzione per l'utilizzo di maiuscole e minuscole di queste proprietà corrisponde alla versione back-end di JavaScript.
 
-	>[AZURE.NOTE] Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare Migrazioni Code First. L'inizializzatore predefinito non può essere usato su un database SQL in Azure. Per altre informazioni, vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE]Quando si utilizza l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database quando rileva una modifica nel modello di dati nella definizione Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Aggiornamento del controller TodoItem per generare una firma di accesso condiviso 
+##<a name="update-scripts"></a>Aggiornare il controller TodoItem per generare una firma di accesso condiviso 
 
-L'elemento **TodoItemController** esistente viene aggiornato in modo che il metodo **PostTodoItem** generi una firma di accesso condiviso quando viene inserito un nuovo elemento Todo. Inoltre: 
+L'elemento **TodoItemController** viene aggiornato in modo che il metodo **PostTodoItem** generi una firma di accesso condiviso quando viene inserito un nuovo elemento TodoItem. Inoltre:
 
 0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione].
 
-1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione, quindi su **Gestisci chiavi**. 
-
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
+1. Nel portale di gestione fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
 2. Prendere nota dei valori di **Nome account di archiviazione** e **Chiave di accesso**.
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
-
-3. Nel servizio mobile fare clic sulla scheda **Configura**, scorrere fino a **Impostazioni app** e immettere una coppia **Nome** e **Valore** per ognuno degli elementi seguenti ottenuti dall'account di archiviazione, quindi fare clic su **Salva**.
+ 
+3. Nel servizio mobile fare clic sulla scheda **Configura**, scorrere fino a **Impostazioni app** e immettere una coppia **Nome** e **Valore** per ognuno degli elementi seguenti ottenuti dall'account di archiviazione e quindi fare clic su **Salva**.
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
@@ -50,14 +47,14 @@ L'elemento **TodoItemController** esistente viene aggiornato in modo che il meto
 
 	La chiave di accesso all'account di archiviazione è archiviata in formato crittografato nelle impostazioni dell'app. È possibile accedere a questa chiave da qualsiasi script del server in fase di esecuzione. Per altre informazioni, vedere [Impostazioni app].
 
-4. In Esplora soluzioni di Visual Studio aprire il file Web.config relativo al progetto di servizio mobile e aggiungere le nuove impostazioni app seguenti, sostituendo i segnaposto con il nome dell'account di archiviazione e la chiave di accesso appena specificati nel portale:
+4. In Esplora soluzioni di Visual Studio aprire il file Web.config relativo al progetto di servizio mobile e aggiungere le nuove app settings seguenti, sostituendo i segnaposto con il nome dell'account di archiviazione e la chiave di accesso appena specificati nel portale:
 
 		<add key="STORAGE_ACCOUNT_NAME" value="**your_account_name**" />
 		<add key="STORAGE_ACCOUNT_ACCESS_KEY" value="**your_access_token_secret**" />
 
-	Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il codice prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori delle impostazioni dell'app configurati nel portale, ignorando le impostazioni di progetto. 
+	Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il codice prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori delle impostazioni dell'app configurati nel portale, ignorando le impostazioni di progetto.
 
-7.  Nella cartella Controllers aprire il file TodoItemController.cs e aggiungere le direttive **using** seguenti:
+7.  Nella cartella Controller aprire il file TodoItemController.cs e aggiungere le direttive **using** seguenti:
 
 		using System;
 		using Microsoft.WindowsAzure.Storage.Auth;
@@ -121,10 +118,9 @@ L'elemento **TodoItemController** esistente viene aggiornato in modo che il meto
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-   	Il nuovo POST ora genera una nuova firma di accesso condiviso per l'elemento inserito, valida per 5 minuti, quindi assegna il valore della firma generata alla proprietà  `sasQueryString` dell'elemento restituito. La proprietà  `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
+   	Il nuovo POST ora genera una nuova firma di accesso condiviso per l'elemento inserito, valida per 5 minuti, quindi assegna il valore della firma generata alla proprietà `sasQueryString` dell'elemento restituito. La proprietà `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-	>[AZURE.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">metodo generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il metodo <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature</a> con un nome risorse BLOB vuoto, ad esempio: <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funzionalità di caricamento delle immagini mediante la firma di accesso condiviso generata per l'inserimento.
  
@@ -144,7 +140,7 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 [10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[Come creare un account di archiviazione]: /it-it/manage/services/storage/how-to-create-a-storage-account
+[Come creare un account di archiviazione]: /manage/services/storage/how-to-create-a-storage-account
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=42-->
+<!--HONumber=54-->

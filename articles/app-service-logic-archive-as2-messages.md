@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Archiviare messaggi AS2" 
    description="Questo argomento descrive l'archiviazione dei messaggi AS2" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="hariag"/>
 
 
-# Archiviare messaggi AS2
+#Archiviare messaggi AS2
 
-**Il connettore AS2** espone la possibilità di archiviare messaggi. L'archiviazione consente di archiviare il messaggio nel **contenitore BLOB di Azure** che fa parte delle impostazioni del pacchetto. 
+Il **connettore AS2** espone la possibilità di archiviare messaggi. L'archiviazione consente di archiviare il messaggio nel **contenitore BLOB di Azure** che fa parte delle impostazioni del pacchetto.
 
 L'archiviazione è esposta in due punti per i messaggi e gli acknowledgement (MDN):
 
@@ -28,9 +28,9 @@ L'archiviazione è esposta in due punti per i messaggi e gli acknowledgement (MD
 
 ##Procedura: Recuperare l'URL archiviato del messaggio
 
-Passare all'istanza dell'app per le API relativa al connettore AS2 e fare clic su 'Tracking'. Limitare le informazioni di verifica mediante i parametri di filtro. Quando il messaggio è visibile, fare clic per visualizzarne i dettagli. L'URL archiviato per il messaggio verrà visualizzato in questa vista dettagliata.
+Passare all'istanza dell'app per le API relativa al connettore AS2 e fare clic su 'Rilevamento'. Limitare le informazioni di verifica mediante i parametri di filtro. Quando il messaggio è visibile, fare clic per visualizzarne i dettagli. L'URL archiviato per il messaggio verrà visualizzato in questa vista dettagliata.
 
-![][1]  
+![][1]
 
 ##Procedura: Recuperare il messaggio archiviato
 
@@ -40,4 +40,4 @@ Usare l'URL recuperato sopra per recuperare il messaggio archiviato dall'archivi
 <!--Image references-->
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
 
-<!--HONumber=49-->
+<!--HONumber=54-->

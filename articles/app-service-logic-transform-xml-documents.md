@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Trasformare i documenti XML" 
 	description="Informazioni su come trasformare i documenti XML da uno schema a un altro." 
 	authors="anuragdalmia" 
@@ -20,11 +20,11 @@
 
 
 ## Panoramica dell'app per le API BizTalk Transform
-In parole semplici, l'app per le API BizTalk Transform converte i dati da un formato a un altro. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato  *YearMonthDay* può essere opportuno riformattarla nel formato *MonthDayYear*. 
+In parole semplici, l'app per le API BizTalk Transform converte i dati da un formato a un altro. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
 
-A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform o Map consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo. 
+A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform o Map consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo.
 
-Le app per le API Map vengono create in Visual Studio usando l'[SDK Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Al termine della creazione e del test della mappa, caricare il relativo file con estensione trfm nell'app per le API BizTalk Transform.
+Le mappe vengono create in Visual Studio usando i [SDK di Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Al termine della creazione e del test della mappa, caricare il relativo file con estensione trfm nell'app per le API BizTalk Transform.
 
 Le altre funzionalità includono:
 
@@ -51,7 +51,7 @@ Le altre funzionalità includono:
  
 3.	Cercare BizTalk Transform digitando **Transform** e selezionare **Servizio BizTalk Transform**:
 
-	   ![][4] 
+	   ![][4]
  
 4.	Nel pannello **Servizio BizTalk Transform** selezionare **Crea**:
 
@@ -67,7 +67,7 @@ Le altre funzionalità includono:
 	
 	   ![][6]
 
-6.	Selezionare **Crea**. Entro pochi minuti verranno create le app per le API BizTalk Transform. 
+6.	Selezionare **Crea**. Entro pochi minuti verranno create le app per le API BizTalk Transform.
 
 
 ## Scaricare schemi dalle app per le API per i connettori
@@ -77,9 +77,9 @@ Le altre funzionalità includono:
 
 
 ## Creare e aggiungere la mappa
-Le app per le API Transform o Map vengono create in Visual Studio usando il download gratuito dell'[SDK Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). 
+Le app per le API Transform o Map vengono create in Visual Studio usando il download gratuito dell'[SDK Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087).
 
-Per assistenza nella creazione di una mappa, vedere [Creare una mappa in Visual Studio](http://aka.ms/createamapinvs). Dopo aver creato la mappa pronta per la produzione, è possibile aggiungere il file trfm all'app per le API BizTalk Transform creata nel portale di gestione di Azure. 
+Per assistenza nella creazione di una mappa, vedere [Creare una mappa in Visual Studio](http://aka.ms/createamapinvs). Dopo aver creato la mappa pronta per la produzione, è possibile aggiungere il file trfm all'app per le API BizTalk Transform creata nel portale di gestione di Azure.
 
 Se la mappa cambia o subisce modifiche dopo il caricamento, è possibile caricare la mappa aggiornata che sostituirà quella esistente nell'app per le API Transform.
 
@@ -109,7 +109,7 @@ Se la mappa cambia o subisce modifiche dopo il caricamento, è possibile caricar
 
 
 ## Usare un'app per le API BizTalk Transform in un'app per la logica
-Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli utenti possono creare una nuova app per la logica (**Nuovo** -> **App per la logica**).
+Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli utenti possono creare una nuova app per la logica (Nuovo -> **App per la logica**).
 
 1. All'interno dell'app per la logica, BizTalk Transform è disponibile nella raccolta a destra. Selezionare **Servizio BizTalk Transform** dalla raccolta. L'API Transform viene aggiunta al flusso:
 
@@ -122,7 +122,7 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli ut
 3. Immettere i parametri seguenti per completare la configurazione dell'azione **Transform**:
 		 
 	- XML di input
-		- Immettere il contenuto XML valido che sia conforme allo schema di origine di una mappa nell'app per le API Transform. Può trattarsi di un output di un'azione precedente nell'app per la logica, come ad esempio 'Call RFC - SAP' o 'Insert Into Table - SQL'.
+		- Immettere il contenuto XML valido che sia conforme allo schema di origine di una mappa nell'app per le API Transform. Può trattarsi di un output di un'azione precedente nell'app per la logica, come ad esempio ‘Call RFC – SAP’ o ‘Insert Into Table – SQL’.
 		
 	- Nome mappa (facoltativo)
 		- Immettere un nome valido per la mappa già caricata nell'app per le API Transform. Se non si inserisce alcuna mappa, questa verrà automaticamente selezionata in base allo schema di origine a cui l'XML di input è conforme.
@@ -149,4 +149,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso. Gli ut
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

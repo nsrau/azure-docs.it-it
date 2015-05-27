@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introduzione all'autenticazione in Servizi mobili per app per Xamarin iOS - Servizi mobili di Azure" 
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Xamarin iOS tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
@@ -10,25 +10,25 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="04/13/2015" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento descrive come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
-In questa esercitazione vengono descritte le operazioni di base per abilitare l'autenticazione in un'app:
+Questa esercitazione descrive le operazioni di base per abilitare l'autenticazione in un'app:
 
 1. [Registrare l'app per l'autenticazione e configurare Servizi mobili]
 2. [Limitare le autorizzazioni per la tabella agli utenti autenticati]
 3. [Aggiungere l'autenticazione all'app]
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili]. 
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili].
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
@@ -43,7 +43,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 <ol start="6">
 <li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
    
-   	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
+   	<p>L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
 </ol>
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
@@ -58,7 +58,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Aggiungere un nuovo metodo **Autenticate** a **QSTodoService** con la definizione seguente:
+2. Aggiungere un nuovo metodo **Autenticazione** a **QSTodoService** con la definizione seguente:
 
         private async Task Authenticate(UIViewController view)
         {
@@ -72,7 +72,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
             }
         }
 
-> [AZURE.NOTE] Se si usa un provider di identità diverso da un account Facebook, sostituire il valore passato al metodo **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo **ViewDidLoad** per rimuovere la chiamata a **RefreshAsync()** verso la fine:
 
@@ -108,7 +108,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 		}
 		// rest of RefreshAsync method
 	
-5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati. 
+5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati.
 
 	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
@@ -116,24 +116,23 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
- 
 <!-- Anchors. -->
 [Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
 [Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
 [Aggiungere l'autenticazione all'app]: #add-authentication
-[Passaggi successivi]:#next-steps
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Pagina Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
-[Introduzione all'autenticazione]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
-[Introduzione alle notifiche push]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
-[Autorizzare gli utenti con gli script]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript e HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with authentication]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

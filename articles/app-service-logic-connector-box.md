@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Uso del connettore Box nell'app per la logica" 
    description="Uso del connettore Box nell'app per la logica" 
    services="app-service\logic" 
@@ -20,7 +20,7 @@
 
  
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. In alcuni scenari potrebbe essere necessario usare un connettore Box, che consente di condividere i dati in modo sicuro con chiunque, anche con chi è all'esterno del firewall.
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. In alcuni scenari potrebbe essere necessario usare un connettore Box, che consente di condividere i dati in modo sicuro con chiunque, anche con chi è all'esterno del firewall.
 
  
 
@@ -32,120 +32,114 @@ L'app della raccolta Box fornisce il trigger e le azioni come meccanismi per int
 
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso della cartella in cui è presente il file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo file</td>
-	    <td>Specifica se il file è di testo o binario.</td>
-	    <td>No</td>
-	  </tr>
-	  <tr>
-	    <td>Frequenza</td>
-	    <td>Specifica il tipo di frequenza. È necessario selezionarne uno dai tipi elencati. Può essere uno dei seguenti: Anni, Mesi, Settimane, Giorni, Ore, Minuti o Secondi</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Intervallo</td>
-	    <td>Specifica l'unità per la frequenza.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso della cartella in cui è presente il file.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Tipo file</td>
+    <td>Specifica se il file è di testo o binario.</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Frequenza</td>
+    <td>Specifica il tipo di frequenza. È necessario selezionarne uno dai tipi elencati. Può essere uno dei seguenti: Anni, Mesi, Settimane, Giorni, Ore, Minuti o Secondi.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Interval</td>
+    <td>Specifica l'unità per la frequenza.</td>
+    <td>Sì</td>
+  </tr>
+</table>
 
 
  
 
-2. **Azioni**: Le azioni consentono di eseguire azioni predefinite sull'account Box configurato con l'app per la logica. Di seguito sono riportate le azioni che è possibile eseguire sull'account Box con il connettore Box:
+2. **Azioni**: le azioni consentono di eseguire azioni predefinite sull'account Box configurato con l'app per la logica. Di seguito sono riportate le azioni che è possibile eseguire sull'account Box con il connettore Box:
 
-	a. *List Files:* questa operazione restituirà le informazioni di tutti i file di una cartella. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+	a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso cartella</td>
-	    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
-
-	*Nota: non restituisce i contenuti dei file.*
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso cartella</td>
+    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
+    <td>Sì</td>
+  </tr>
+</table>*Nota: non restituisce i contenuti dei file.*
 
  
 
-    b. *Get File:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+    b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso della cartella in cui è presente il file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo file</td>
-	    <td>Specifica se il file è di testo o binario.</td>
-	    <td>No</td>
-	  </tr>
-	</table>
-	*Nota: questa operazione non eliminerà il file dopo averlo letto.*
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso della cartella in cui è presente il file.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Tipo file</td>
+    <td>Specifica se il file è di testo o binario.</td>
+    <td>No</td>
+  </tr>
+</table>*Nota: questa operazione non eliminerà il file dopo averlo letto.*
 
  
 
     c. Carica file: come indicato dal nome, l'azione carica il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso del file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Contenuto file</td>
-	    <td>Contenuto del file da caricare.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Codifica trasferimento contenuto</td>
-	    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-
-    d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso del file.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Contenuto file</td>
+    <td>Contenuto del file da caricare.</td>
+    <td>Sì</td>
+  </tr>
+  <tr>
+    <td>Codifica trasferimento contenuto</td>
+    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
+    <td> </td>
+  </tr>
+</table>d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
 
  	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso della cartella in cui è presente il file.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
+  <tr>
+    <td><b>Nome parametro</b></td>
+    <td><b>Descrizione</b></td>
+    <td><b>Obbligatorio</b></td>
+  </tr>
+  <tr>
+    <td>Percorso file</td>
+    <td>Percorso della cartella in cui è presente il file.</td>
+    <td>Sì</td>
+  </tr>
+</table>
 
 
  
@@ -158,7 +152,7 @@ Per usare il connettore Box, prima è necessario creare un'istanza dell'app per 
 
 2. Andare a "Web e dispositivi mobili > App per le API" e cercare "Box Connector".
 
-3. Configurare il connettore Box e fare clic su  Crea:
+3. Configurare il connettore Box e fare clic su Crea:
 
 	![][1]
 
@@ -184,11 +178,11 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come tri
 
 	![][3]
 
-6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per conto dell'utente. 
+6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per conto dell'utente.
 
 	![][4]
 
-7. Se il connettore Box viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni ed è possibile scegliere l'operazione appropriata da eseguire.  
+7. Se il connettore Box viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni ed è possibile scegliere l'operazione appropriata da eseguire.
 
 	![][5]
 
@@ -201,4 +195,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come tri
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

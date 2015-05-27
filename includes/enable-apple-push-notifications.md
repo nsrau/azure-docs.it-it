@@ -3,7 +3,7 @@ Il servizio APNS usa i certificati per autenticare il servizio mobile. Seguire l
 
 ## <a id="certificates"></a>Generare il file della richiesta di firma del certificato
 
-È necessario innanzitutto generare il file della richiesta di firma del certificato \(CSR, Certificate Signing Request\) che viene usato da Apple per la generazione di un certificato firmato.
+È necessario innanzitutto generare il file della richiesta di firma del certificato (CSR, Certificate Signing Request) che viene usato da Apple per la generazione di un certificato firmato.
 
 1. Dalla cartella Utility eseguire lo strumento Accesso Portachiavi.
 
@@ -15,7 +15,7 @@ Il servizio APNS usa i certificati per autenticare il servizio mobile. Seguire l
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
 
-4. Digitare un nome per il file della richiesta di firma del certificato \(CSR\) in **Salva col nome**, selezionare il percorso in **Percorso**, quindi fare clic su **Salva**.
+4. Digitare un nome per il file della richiesta di firma del certificato (CSR) in **Salva col nome**, selezionare il percorso in **Percorso**, quindi fare clic su **Salva**.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png)
 
@@ -66,7 +66,7 @@ Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessar
 
    	Verrà visualizzato l'assistente "Add iOS Certificate".
 
-    > [AZURE.NOTE]In questa esercitazione si usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato in Servizi mobili.
+    > [AZURE.NOTE]In questa esercitazione viene usato un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Verificare di impostare lo stesso tipo di certificato quando si carica il certificato in Servizi mobili.
 
 5. Fare clic su **Choose File**, passare al percorso in cui è stato salvato il file CSR creato durante la prima attività, quindi fare clic su **Generate**.
 
@@ -80,9 +80,9 @@ Per poter inviare notifiche push a un'app per iOS da Servizi mobili, è necessar
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
-    > [AZURE.NOTE]Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato **aps\_development.cer**.
+    > [AZURE.NOTE]Per impostazione predefinita, il file scaricato di un certificato di sviluppo è denominato **aps_development.cer**.
 
-7. Fare doppio clic sul certificato push scaricato **aps\_development.cer**.
+7. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
 
    	Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
 
@@ -126,7 +126,7 @@ Questo certificato verrà usato in un secondo momento per generare un file con e
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
 
-9. In **Targets** fare clic su **Quickstart**, espandere **Code Signing Identity**, quindi in **Debug** selezionare il nuovo profilo. Per effetto di questa operazione, il progetto Xcode utilizzerà il nuovo profilo per la firma del codice. A questo punto, è necessario caricare il certificato in Azure.
+9. In **Targets** fare clic su **Quickstart**, espandere **Code Signing Identity**, quindi in **Debug** selezionare il nuovo profilo. Per effetto di questa operazione, il progetto Xcode userà il nuovo profilo per la firma del codice. A questo punto, è necessario caricare il certificato in Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
 

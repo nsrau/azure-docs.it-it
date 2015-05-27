@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Viene descritto cosa è successo al progetto in Visual Studio .NET di Servizi mobili di Azure" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Che cosa è successo al progetto?
 
 > [AZURE.SELECTOR]
-> - [Introduzione](vs-mobile-services-dotnet-getting-started.md)
-> - [Risultati](vs-mobile-services-dotnet-what-happened.md)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">Che cosa è successo al progetto?</span>
 
@@ -34,9 +36,7 @@ Il pacchetto NuGet per Servizi mobili di Azure è stato aggiunto al progetto. So
 
 #####Valori della stringa di connessione per Servizi mobili
 
-Nel file App.xaml.cs è stato creato un oggetto **MobileServiceClient** con l'URL applicazione e la chiave applicazione del servizio mobile selezionato. 
+Nel file App.xaml.cs è stato creato un oggetto **MobileServiceClient** con l'URL e la chiave applicazione del servizio mobile selezionato.
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

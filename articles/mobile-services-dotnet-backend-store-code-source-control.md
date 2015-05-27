@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Archiviazione del codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" 
+	pageTitle="Archiviare il codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" 
 	description="Informazioni su come archiviare il progetto back-end per .NET e pubblicarlo nel computer da un repository Git locale." 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,25 +10,25 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/5/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/it-it/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">Back-end .NET</a> | <a href="/it-it/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">Back-end JavaScript</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end .NET" class="current">Back-end .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end JavaScript">Back-end JavaScript</a>
 </div>
 
-# Archiviazione del codice del progetto nel controllo del codice sorgente
+# Archiviare il codice del progetto nel controllo del codice sorgente
 
-Questo argomento descrive come usare il controllo del codice sorgente fornito da Servizi mobili di Azure per archiviare il progetto di servizio back-end .NET. Per pubblicare il progetto è sufficiente caricarlo nel servizio mobile di produzione dal repository Git locale. 
+Questo argomento descrive come usare il controllo del codice sorgente fornito da Servizi mobili di Azure per archiviare il progetto di servizio back-end .NET. Per pubblicare il progetto è sufficiente caricarlo nel servizio mobile di produzione dal repository Git locale.
 
-Questa esercitazione descrive come:
+Questa esercitazione descrive le operazioni seguenti:
 
 1. [Abilitare il controllo del codice sorgente nel servizio mobile].
 2. [Installare Git e creare il repository locale].
-3. [Pubblicazione del progetto mediante Git].
+3. [Pubblicare il progetto mediante Git].
 
 Per completare l'esercitazione, è necessario avere già creato un servizio mobile in base alle procedure descritte nell'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
 
@@ -40,16 +40,15 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 1. Installare Git nel computer locale. 
 
-	I passaggi necessari per installare Git variano a seconda del sistema operativo. Per informazioni aggiuntive specifiche del sistema operativo sulle distribuzioni e l'installazione, vedere la pagina relativa all'[installazione di Git].
+	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
-	> [AZURE.NOTE]
-	> In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si usa la versione da riga di comando.
+	> [AZURE.NOTE]In alcuni sistemi operativi sono disponibili versioni di Git sia da riga di comando che tramite GUI. Nelle istruzioni fornite in questo articolo si utilizza la versione da riga di comando.
 
-2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi operativi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
+2. Aprire una riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale**.
 
-3. Dalla riga di comando passare alla directory in cui verranno archiviati gli script, Ad esempio, `cd SourceControl`.
+3. Dalla riga di comando passare alla directory in cui verranno archiviati gli script, ad esempio `cd SourceControl`.
 
-4. Usare il comando seguente per creare una copia locale del nuovo repository Git, sostituendo `<your_git_URL>` con l'URL del repository Git per il servizio mobile:
+4. Usare il seguente comando per creare una copia locale del nuovo repository Git, sostituendo `<your_git_URL>` con l'URL del repository Git per il servizio mobile:
 
 		git clone <your_git_URL>
 
@@ -60,11 +59,11 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 		remote: Total 8 (delta 1), reused 0 (delta 0)
 		Unpacking objects: 100% (8/8), done.
 
-6. Passare alla directory da cui si è eseguito il comando `git clone` e osservare che è stata creata una nuova directory con il nome del servizio mobile. Per un servizio mobile back-end .NET, il repository Git è inizialmente vuoto. 
+6. Passare alla directory da cui si è eseguito il comando `git clone` e osservare che è stata creata una nuova directory con il nome del servizio mobile. Per un servizio mobile back-end .NET, il repository Git è inizialmente vuoto.
 
 Una volta creato il repository locale, è possibile pubblicare il progetto di servizio back-end .NET da questo repository.
 
-##<a name="deploy-scripts"></a>Pubblicazione del progetto mediante Git
+##<a name="deploy-scripts"></a>Pubblicare il progetto mediante Git
 
 1. Creare un nuovo progetto di servizio mobile back-end .NET in Visual Studio 2013 o spostare un progetto esistente nel nuovo repository locale.  
 
@@ -72,7 +71,7 @@ Una volta creato il repository locale, è possibile pubblicare il progetto di se
 
 2. Rimuovere le cartelle dei pacchetti NuGet, lasciando il file packages.config.
 
-	Servizi mobili ripristinerà automaticamente i pacchetti NuGet in base al file packages.config. È anche possibile definire un file con estensione gitignore per impedire l'aggiunta di directory dei pacchetti. 
+	Servizi mobili ripristinerà automaticamente i pacchetti NuGet in base al file packages.config. È anche possibile definire un file con estensione gitignore per impedire l'aggiunta di directory dei pacchetti.
  
 3. Al prompt dei comandi di Git, digitare il comando seguente per iniziare a monitorare il nuovo file di script:
 
@@ -90,37 +89,33 @@ Una volta creato il repository locale, è possibile pubblicare il progetto di se
 
 6. Passare all'URL del servizio mobile back-end .NET. Dovrebbe essere visualizzata la schermata seguente:
 
-	![Mobile Services startup page](./media/mobile-services-dotnet-backend-store-code-source-control/mobile-service-startup.png)
+	![Pagina di avvio di servizi mobili](./media/mobile-services-dotnet-backend-store-code-source-control/mobile-service-startup.png)
 
 A questo punto, il progetto di servizio mobile viene gestito nel controllo del codice sorgente ed è possibile pubblicare gli aggiornamenti del servizio tramite il semplice push dal repository locale. Per informazioni sulla modifica del modello di dati in un servizio mobile back-end .NET che usa un database SQL, vedere [Come modificare un modello di dati in un servizio mobile back-end .NET].
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sui servizi mobili, vedere: 
+In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sui servizi mobili, vedere:
 
-+ [Come modificare un modello di dati in un servizio mobile back-end .NET]
-	<br/> Mostra come usare Migrazioni Code First di Entity Framework per apportare modifiche al modello di dati in un database SQL esistente di Azure ed evitare la perdita di dati esistenti. 	
++ [Come modificare un modello di dati in un servizio mobile back-end .NET] <br/> Illustra come usare Migrazioni Code First di Entity Framework per apportare modifiche al modello di dati in un database SQL esistente di Azure ed evitare la perdita di dati esistenti. 	
 
-+ [Chiamare un'API personalizzata dal client] 
-	<br/> Mostra come creare API personalizzate che possono essere chiamate dal client.
++ [Chiamare un'API personalizzata dal client] <br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
 
 <!-- Anchors. -->
 [Abilitare il controllo del codice sorgente nel servizio mobile]: #enable-source-control
 [Installare Git e creare il repository locale]: #clone-repo
-[Pubblicazione del progetto mediante Git]: #deploy-scripts
+[Pubblicare il progetto mediante Git]: #deploy-scripts
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Sito Web di Git]: http://git-scm.com
-[Controllo del codice sorgente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Git website]: http://git-scm.com
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Aggiungere Servizi mobili a un'app esistente]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
-[Chiamare un'API personalizzata dal client]: /it-it/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/
-[Come modificare un modello di dati in un servizio mobile back-end .NET]: /it-it/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+[Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
+[Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Chiamare un'API personalizzata dal client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

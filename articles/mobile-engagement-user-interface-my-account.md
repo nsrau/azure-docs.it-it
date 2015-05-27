@@ -1,78 +1,50 @@
-﻿<properties 
- pageTitle="Interfaccia utente di Azure Mobile Engagement - Account personale " 
- description="Panoramica dell'interfaccia utente per la sezione Account personale di Azure Mobile Engagement " 
- services="mobile-engagement" 
- documentationCenter="mobile" 
- authors="v-micada" 
- manager="mattgre" 
- editor=""/>
+<properties 
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Account personale" 
+   description="Informazioni su come gestire il profilo dell'account e i dispositivi di test usando Azure Mobile Engagement" 
+   services="mobile-engagement" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
- ms.service="mobile-engagement"
- ms.devlang="Java"
- ms.topic="article"
- ms.tgt_pltfrm="mobile"
- ms.workload="required" 
- ms.date="02/17/2015"
- ms.author="v-micada"/>
+   ms.service="mobile-engagement"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
+   ms.date="02/17/2015"
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - Interfaccia utente
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduzione</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigazione</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">Account personale</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitoraggio</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Copertura</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segmenti</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Impostazioni</a>
-</div>
-
-# Account personale
- 
+# Come gestire il profilo dell'account e i dispositivi di test 
 Nella sezione Account personale dell'interfaccia utente è possibile visualizzare e modificare le impostazioni associate al proprio account, incluse le impostazioni del profilo e gli ID dei dispositivi di test. Queste impostazioni contengono elementi a cui è possibile accedere anche tramite l'API di dispositivo.
 
-**Vedere anche:** 
+### Vedere anche
+-  [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-- [Guida alla risoluzione dei problemi - Assistenza][Link 2]
- 
-![MyAccount1][7] 
+![MyAccount1][7]
 
 ## Profilo:
-È possibile visualizzare o modificare le impostazioni del proprio account:  password, nome, cognome, organizzazione, numero di telefono, fuso orario, oltre ad accettare o rifiutare esplicitamente gli aggiornamenti tramite posta elettronica. È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da "home".
+È possibile visualizzare o modificare le impostazioni del proprio account: password, nome, cognome, organizzazione, numero di telefono, fuso orario, consenso o rifiuto esplicito degli aggiornamenti tramite posta elettronica. È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da "home".
 
-**Vedere anche:** 
+### Vedere anche
+-  [Documentazione dell'interfaccia utente - Home page][Link 13]
 
-- [Documentazione dell'interfaccia utente - Home][Link 13]
-
-![MyAccount2][8] 
+![MyAccount2][8]
 
 ## Dispositivi:
-È possibile visualizzare, aggiungere o rimuovere gli ID dei dispositivi di test che si possono utilizzare per testare le campagne di push o copertura. Istruzioni contestuali per trovare l'ID dei dispositivi per ogni piattaforma (iOS, Android, Windows Phone e così via) vengono visualizzate quando si fa clic su "Nuovo dispositivo". 
+È possibile visualizzare, aggiungere o rimuovere gli ID dei dispositivi di test che si possono usare per testare le campagne di push o Reach. Istruzioni contestuali per trovare l'ID dei dispositivi per ogni piattaforma (iOS, Android, Windows Phone e così via) vengono visualizzate quando si fa clic su "Nuovo dispositivo".
  
-![MyAccount3][9] 
+![MyAccount3][9]
  
 Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identificatore univoco del dispositivo degli utenti (il parametro deviceid). Esistono diversi modi per recuperarlo:
  
 1. Dal back-end, è possibile utilizzare la funzionalità "Get" dell'API dispositivo per ottenere l'elenco completo degli identificatori dei dispositivi.
 2. Dall'app, è possibile ottenerlo utilizzando l'SDK (su Android chiamare la funzione getDeviceID() della classe Agent, su iOS leggere la proprietà deviceid della classe Agent).
-3. Da un annuncio di copertura, se l'URL dell'azione associato all'annuncio contiene il modello {deviceid}, esso viene automaticamente sostituito dall'identificatore del dispositivo che attiva l'azione.
-http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata 
-verrà sostituito da:
-http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
-4. Da un annuncio Web di copertura, se il codice HTML dell'annuncio contiene il modello {deviceid}, esso viene automaticamente sostituito dall'identificatore del dispositivo di visualizzazione dell'annuncio Web.
-Di seguito è indicato l'identificatore del dispositivo: {deviceid}
-verrà sostituito da:
-Di seguito è indicato l'identificatore del dispositivo: XXXXXXXXXXXXXXXX
-5. Aprire l'applicazione sul dispositivo ed eseguire un evento nell'app contrassegnata.
-Da "Interfaccia utente - app - Monitoraggio - Eventi - Dettagli", trovare l'evento eseguito nell'elenco.
-Fare clic su questo evento in Monitoraggio.
-L'ID del dispositivo sarà presente nell'elenco dei dispositivi che hanno eseguito l'evento.
-Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfaccia utente - Account personale - Dispositivi - Nuovo dispositivo - Seleziona la piattaforma del dispositivo".
->Tenere presente che quando IDFA è disabilitato per iOS, l'ID del dispositivo potrebbe cambiare nel tempo se si disinstalla e si reinstalla l'app.
+3. Da un annuncio Reach, se l'URL dell'azione associato all'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo che attiva l'azione. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata verrà sostituito da: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
+4. Da un annuncio Web Reach, se il codice HTML dell'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo di visualizzazione dell'annuncio Web. Ecco l'identificatore del dispositivo: {deviceid} verrà sostituito da: Ecco l'identificatore del dispositivo: XXXXXXXXXXXXXXXX
+5.  Aprire l'applicazione sul dispositivo ed eseguire un evento nell'app contrassegnata. Da "Interfaccia utente - app - Monitoraggio - Eventi - Dettagli", trovare l'evento eseguito nell'elenco. Fare clic su questo evento in Monitoraggio. L'ID del dispositivo sarà presente nell'elenco dei dispositivi che hanno eseguito l'evento. Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfaccia utente - Account personale - Dispositivi - Nuovo dispositivo - Seleziona la piattaforma del dispositivo".
+>
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -94,20 +66,20 @@ Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfacc
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -135,9 +107,9 @@ Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfacc
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -146,30 +118,27 @@ Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfacc
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-
- 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

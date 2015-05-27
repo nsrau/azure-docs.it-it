@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="App per le API Facebook Connector" 
    description="Come usare il connettore Facebook" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,7 +19,7 @@
 
 # Uso del connettore Facebook nell'app per la logica #
 
-Le app per la logica possono eseguire un'attivazione in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. 
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
 Il connettore Facebook consente di recuperare i nuovi post nella sequenza temporale utente e i nuovi post nella pagina, di pubblicare un post, di pubblicare una foto e così via dall'account Facebook.
 
@@ -35,7 +35,7 @@ Per usare il connettore Facebook, prima è necessario creare un'istanza dell'app
  
 	![][1]
 4.	Fare clic su OK per creare.
-5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore Facebook. 
+5.	Dopo avere creato l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore Facebook. 
 	- L'istanza dell'app per le API Facebook Connector può essere creata dall'app per la logica. 
 	- Aprire l'editor dell'app per la logica e fare clic sul connettore Facebook disponibile nella raccolta sulla destra
 	- Verrà creata un'istanza dell'app per le API Facebook Connector nello stesso gruppo di risorse in cui è stata creata l'app per la logica.
@@ -47,7 +47,7 @@ Una volta creata l'app per le API, è possibile usare il connettore Facebook com
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore Facebook.
  
 	![][2]
-2.	Aprire "Trigger e azioni" per aprire la finestra di progettazione delle app per la logica e configurare il flusso. 
+2.	Aprire "Triggers and Actions" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. 
  
 	![][3]
 3.	Il connettore Facebook apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
@@ -58,9 +58,7 @@ Una volta creata l'app per le API, è possibile usare il connettore Facebook com
 	![][5]
 5.	Consentire le app per la logica del servizio app di Azure 
 
-	![][6]
-	![][7]
-	![][8]     
+	![][6] ![][7] ![][8]     
 6.	Selezionare un trigger.
  
 	![][9]
@@ -71,8 +69,9 @@ Una volta creata l'app per le API, è possibile usare il connettore Facebook com
  
 	![][11]
 
+**SUGGERIMENTO**: per ottenere l'ID della pagina di Facebook o l'ID del gruppo di Yammer, cercare il codice numerico nell'URL.
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
 [2]: ./media/app-service-logic-connector-facebook/img2.png
 [3]: ./media/app-service-logic-connector-facebook/img3.png
@@ -85,4 +84,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Facebook com
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

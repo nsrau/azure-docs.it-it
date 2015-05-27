@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio | Azure"
    description="Informazioni su come creare topologie Storm in C# mediante la creazione di una semplice topologia di conteggio parole in Visual Studio usando HDInsight Tools per Visual Studio."
    services="hdinsight"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-#Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio
+# Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio
 
-Informazioni su come creare una topologia Storm C# usando HDInsight Tools per Visual Studio. Questo documento illustra il processo di creazione di un nuovo progetto Storm in Visual Studio, l'esecuzione del test in locale e la distribuzione in un cluster Apache Storm in HDInsight.
+Informazioni su come creare una topologia Storm C# usando HDInsight Tools per Visual Studio. Questa esercitazione illustra il processo di creazione di un nuovo progetto Storm in Visual Studio, l'esecuzione del test in locale e la distribuzione in un cluster Apache Storm in HDInsight.
 
-Verrà inoltre spiegato come creare topologie ibride che usano sia componenti C# che componenti Java.
+Verrà inoltre spiegato come creare topologie ibride che usano componenti C# e Java.
 
 ##Prerequisiti
 
@@ -32,39 +32,39 @@ Verrà inoltre spiegato come creare topologie ibride che usano sia componenti C#
 
 	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
-* Azure SDK 2.5.1 o versione successiva
+* Azure SDK 2.5.1 o versioni successive
 
 * HDInsight Tools per Visual Studio - Per installare e configurare gli strumenti HDInsight per Visual Studio, vedere <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introduzione all'uso di HDInsight Tools per Visual Studio</a>.
 
 * Apache Storm in cluster HDInsight - Per i passaggi relativi alla creazione di un cluster, vedere <a href="../hdinsight-storm-getting-started/" target="_blank">Introduzione a Storm con HDInsight</a>.
 
-	> [AZURE.NOTE] Attualmente HDInsight Tools per Visual Studio supporta Storm solo su cluster HDInsight versione 3.2.
+	> [AZURE.NOTE]Attualmente HDInsight Tools per Visual Studio supporta Storm solo su cluster HDInsight versione 3.2.
 
 ##Creare una topologia C#
 
 1. Se la versione più recente di HDInsight Tools per Visual Studio non è ancora installata, vedere <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introduzione all'uso di HDInsight Tools per Visual Studio</a>.
 
-2. Aprire Visual Studio, selezionare **File**, **Nuovo** e quindi **Progetto**.
+2. Aprire Visual Studio, selezionare **File** > **Nuovo** e quindi **Progetto**.
 
-3. Nella finestra di dialogo **Nuovo progetto** espandere **Installato**, **Modelli** e quindi selezionare **HDInsight**. Dall'elenco dei modelli selezionare **Applicazione Storm**. Nella parte inferiore della finestra di dialogo immettere **WordCount** come nome dell'applicazione.
+3. Nella schermata **Nuovo progetto** espandere **Installato** > **Modelli** e quindi selezionare **HDInsight**. Dall'elenco dei modelli selezionare **Applicazione Storm**. Nella parte inferiore della schermata immettere **WordCount** come nome dell'applicazione.
 
-	![image](./media/hdinsight-storm-develop-csharp-visual-studio/new-project.png)
+	![immagine](./media/hdinsight-storm-develop-csharp-visual-studio/new-project.png)
 
 4. Dopo aver creato il progetto, è necessario disporre dei seguenti file:
 
-	* **Program.cs**: definisce la topologia per il progetto. Per impostazione predefinita viene creata una topologia predefinita costituita da uno spout e da un bolt
+	* **Program.cs**: definisce la topologia per il progetto. Per impostazione predefinita viene creata una topologia predefinita costituita da uno spout e da un bolt.
 
-	* **Spout.cs**: spout di esempio che genera numeri casuali
+	* **Spout.cs**: spout di esempio che genera numeri casuali.
 
-	* **Bolt.cs**: bolt di esempio che tiene conto dei numeri generati dallo spout
+	* **Bolt.cs**: bolt di esempio che tiene conto dei numeri generati dallo spout.
 
-	Come parte della creazione del progetto, i <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">pacchetti SCP.NET</a> più recenti verranno scaricati da Nuget.
+	Come parte della creazione del progetto, verranno scaricati da NuGet i <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">pacchetti SCP.NET</a> più recenti.
 
 Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordCount di base.
 
 ###Implementare lo spout
 
-5. Aprire il file **Spout.cs**: gli spout vengono usati per leggere i dati in una topologia da un'origine esterna. Di seguito sono indicati i componenti principali di uno spout:
+5. Aprire **Spout.cs**. Gli spout vengono usati per leggere i dati in una topologia da un'origine esterna. Di seguito sono indicati i componenti principali di uno spout:
 
 	* **NextTuple**: chiamato da Storm quando allo spout è consentita la generazione di nuove tuple.
 
@@ -72,7 +72,7 @@ Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordC
 
 	* **Fail** (solo topologia transazionale): gestisce tuple la cui elaborazione da parte di altri componenti della topologia ha avuto esito negativo. Questo offre la possibilità di generare nuovamente la tupla, in modo che possa essere elaborata di nuovo.
 
-6. Sostituire il contenuto della classe spout con quanto riportato di seguito. Verrà creato uno spout che genera in modo casuale una frase nella topologia.
+6. Sostituire il contenuto della classe **Spout** con quanto riportato di seguito. Verrà creato uno spout che genera in modo casuale una frase nella topologia.
 
 		private Context ctx;
         private Random r = new Random();
@@ -136,17 +136,17 @@ Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordC
 
 1. Eliminare dal progetto il file **Bolt.cs** esistente.
 
-2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi**, **Nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere **Splitter.cs** come nome. Ripetere l'operazione per creare un secondo bolt denominato **Counter.cs**.
+2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse e selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere **Splitter.cs** come nome. Ripetere l'operazione per creare un secondo bolt denominato **Counter.cs**.
 
-	* **Splitter.cs**: implementerà un bolt che divide le frasi in singole parole e crea un nuovo flusso di parole.
+	* **Splitter.cs**: implementa un bolt che divide le frasi in singole parole e crea un nuovo flusso di parole.
 
-	* **Counter.cs**: implementerà un bolt che conta ogni parola e genera un nuovo flusso di parole con il numero di occorrenze di ciascuna di esse.
+	* **Counter.cs**: implementa un bolt che conta ogni parola e genera un nuovo flusso di parole con il numero di occorrenze di ciascuna di esse.
 
-	> [AZURE.NOTE] I bolt sopra descritti si limitano a leggere e scrivere nei flussi. È tuttavia possibile usare un bolt per comunicare con un database, un servizio e così via.
+	> [AZURE.NOTE]I bolt sopra descritti si limitano a leggere e scrivere nei flussi. È tuttavia possibile usare un bolt per comunicare con origini quali un database o un servizio.
 
 6. Aprire **Splitter.cs**. Si noti che, per impostazione predefinita, dispone soltanto del metodo **Execute**. Tale metodo viene chiamato quando il bolt riceve una tupla da elaborare. È possibile leggere ed elaborare tuple in ingresso e generare tuple in uscita.
 
-4. Sostituire il contenuto della classe **Splitter** con quanto riportato di seguito.
+4. Sostituire il contenuto della classe **Splitter** con il codice riportato di seguito:
 
 		private Context ctx;
 
@@ -177,7 +177,7 @@ Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordC
         {
             Context.Logger.Info("Execute enter");
 
-            // Get the sentance from the tuple
+            // Get the sentence from the tuple
             string sentence = tuple.GetString(0);
             // Split at space characters
             foreach (string word in sentence.Split(' '))
@@ -190,9 +190,9 @@ Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordC
             Context.Logger.Info("Execute exit");
         }
 
-	Si consiglia di leggere con attenzione il codice per comprenderne le finalità.
+	Si consiglia di leggere con attenzione i commenti per comprendere le finalità del codice.
 
-6. Aprire **Counter.cs** e sostituire il contenuto della classe con quanto riportato di seguito.
+6. Aprire **Counter.cs** e sostituire il contenuto della classe con quanto riportato di seguito:
 
 		private Context ctx;
 
@@ -245,19 +245,19 @@ Nelle sezioni successive il progetto verrà trasformato in un'applicazione WordC
             Context.Logger.Info("Execute exit");
         }
 
-	Si consiglia di leggere con attenzione il codice per comprenderne le finalità.
+	Si consiglia di leggere con attenzione i commenti per comprendere le finalità del codice.
 
 ###Definire la topologia
 
-Gli spout e i bolt vengono disposti in un grafico che definisce i flussi di dati tra i componenti. Di seguito è riportato il grafico relativo alla topologia in oggetto.
+Gli spout e i bolt vengono disposti in un grafico che definisce i flussi di dati tra i componenti. Di seguito è riportato il grafico relativo alla topologia in oggetto:
 
-![image of how components are arranged](./media/hdinsight-storm-develop-csharp-visual-studio/wordcount-topology.png)
+![immagine della disposizione degli elementi](./media/hdinsight-storm-develop-csharp-visual-studio/wordcount-topology.png)
 
 Lo spout genera frasi, che vengono quindi distribuite a istanze del bolt Splitter. Il bolt Splitter suddivide le frasi in parole, che vengono quindi distribuite al bolt Counter.
 
-Poiché il conteggio delle parole viene mantenuto in locale nell'istanza del bolt Counter, si desidera assicurare che parole specifiche vengano indirizzate alla stessa istanza del bolt Counter, in modo che soltanto un'istanza tenga traccia di una determinata parola. Per quanto riguarda il bolt Splitter, tuttavia, non è importante stabilire quale bolt riceve quale frase. Si desidera soltanto bilanciare il carico delle frasi tra le diverse istanze.
+Poiché il conteggio delle parole viene mantenuto in locale nell'istanza del bolt Counter, si desidera assicurare che parole specifiche vengano indirizzate alla stessa istanza del bolt Counter, in modo che soltanto un'istanza tenga traccia di una determinata parola. Per quanto riguarda il bolt Splitter, tuttavia, non è importante stabilire quale bolt riceve quale frase. Si desidera semplicemente bilanciare il carico delle frasi tra le diverse istanze.
 
-Aprire **Program.cs**. In questo caso il metodo importante è **ITopologyBuilder**, usato per definire la topologia inviata a Storm.  Sostituire il contenuto di **ITopologyBuilder** con il seguente codice per implementare la topologia descritta in precedenza.
+Aprire **Program.cs**. In questo caso il metodo importante è **ITopologyBuilder**, usato per definire la topologia inviata a Storm. Sostituire il contenuto di **ITopologyBuilder** con il seguente codice per implementare la topologia descritta in precedenza:
 
 		// Create a new topology named 'WordCount'
         TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount");
@@ -293,7 +293,7 @@ Aprire **Program.cs**. In questo caso il metodo importante è **ITopologyBuilder
         // Name the fields that are emitted 'word' and 'count'
         // Use fieldsGrouping to ensure that tuples are routed
         //   to counter instances based on the contents of field
-        //   position 0 (the word). This could also have been 
+        //   position 0 (the word). This could also have been
         //   List<string>(){"word"}.
         //   This ensures that the word 'jumped', for example, will always
         //   go to the same instance
@@ -309,48 +309,48 @@ Aprire **Program.cs**. In questo caso il metodo importante è **ITopologyBuilder
         // Add topology config
         topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
         {
-            {"topology.kryo.register","[\"[B\"]"}
+            {"topology.kryo.register","["[B"]"}
         });
 
         return topologyBuilder;
 
-Si consiglia di leggere con attenzione il codice per comprenderne le finalità.
+Si consiglia di leggere con attenzione i commenti per comprendere le finalità del codice.
 
 ##Inviare la topologia
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Submit to Storm on HDInsight**.
 
-	> [AZURE.NOTE] Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure. Se si dispone di più di una sottoscrizione, accedere a quella che contiene il cluster Storm in HDInsight.
+	> [AZURE.NOTE]Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure. Se si dispone di più di una sottoscrizione, accedere a quella che contiene il cluster Storm in HDInsight.
 
-2. Selezionare il cluster Storm in HDInsight dall'elenco a discesa **Storm Cluster**, quindi selezionare **Submit**. È possibile verificare se l'invio è riuscito o meno usando la finestra **Output**.
+2. Selezionare il cluster Storm in HDInsight dall'elenco a discesa **Storm Cluster** e quindi selezionare **Submit**. È possibile verificare se l'invio è riuscito o meno usando la finestra **Output**.
 
-3. Una volta che la topologia è stata inviata correttamente, verrà visualizzato l'elenco **Storm Topologies** relativo al cluster. Selezionare dall'elenco la topologia **WordCount** per visualizzare le informazioni sulla topologia in esecuzione.
+3. Dopo che la topologia è stata inviata correttamente, verrà visualizzato l'elenco **Storm Topologies** relativo al cluster. Selezionare dall'elenco la topologia **WordCount** per visualizzare le informazioni sulla topologia in esecuzione.
 
-	> [AZURE.NOTE] È possibile visualizzare **Storm Topologies** anche da **Esplora server**, espandendo **Azure**, **HDInsight** e quindi facendo clic su un cluster Storm in HDInsight e selezionando **View Storm Topologies**.
+	> [AZURE.NOTE]È possibile visualizzare **Storm Topologies** anche da **Esplora server**, espandendo **Azure** > **HDInsight** e quindi facendo clic su un cluster Storm in HDInsight e selezionando **View Storm Topologies**.
 
 	Usare i collegamenti per gli spout o i bolt per visualizzare informazioni su questi componenti. Verrà aperta una nuova finestra per ogni elemento selezionato.
 
 4. Nella visualizzazione **Topology Summary** selezionare **Kill** per arrestare la topologia.
 
-	> [AZURE.NOTE] Le topologie Storm continuano l'esecuzione fino a quando non vengono arrestate o fino a quando il cluster non viene eliminato.
+	> [AZURE.NOTE]Le topologie Storm continuano l'esecuzione fino a quando non vengono disattivate o il cluster non viene eliminato.
 
 ##Topologia transazionale
 
 La topologia descritta in precedenza è di tipo non transazionale. In altri termini, se si verifica un errore di elaborazione causato da un componente della topologia, i componenti all'interno della topologia stessa non implementano alcuna funzionalità per la ripetizione dei messaggi. Per un esempio di topologia transazionale, creare un nuovo progetto e selezionare **Storm Sample** come tipo di progetto.
 
-Le topologie transazionali implementano le seguenti operazioni per supportare la ripetizione dei dati:
+Le topologie transazionali implementano le operazioni seguenti per supportare la ripetizione dei dati:
 
-* **Memorizzazione dei metadati nella cache**: lo spout deve memorizzare i metadati relativi ai dati generati, in modo che, in caso di errore, questi ultimi possano essere recuperati e generati nuovamente. Poiché l'esempio genera una quantità limitata di dati, i dati non elaborati di ciascuna tupla vengono archiviati in un dizionario per la ripetizione.
+* **Memorizzazione dei metadati nella cache**: lo spout deve memorizzare i metadati relativi ai dati generati, in modo che, in caso di errore, questi ultimi possano essere recuperati e generati nuovamente. Poiché l'esempio genera una quantità limitata di dati, i dati non elaborati di ogni tupla vengono archiviati in un dizionario per la ripetizione.
 
-* **Ack**: ciascun bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Dopo che tutti i bolt hanno riconosciuto la tupla, viene richiamato il metodo `Ack` dello spout. Questo consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione, poiché tali dati sono stati completamente elaborati.
+* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Dopo che tutti i bolt hanno riconosciuto la tupla, viene richiamato il metodo `Ack` dello spout. Questo consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione, poiché tali dati sono stati completamente elaborati.
 
 * **Errore**: ciascun bolt può chiamare `this.ctx.Fail(tuple)` per indicare che l'elaborazione di una tupla non è riuscita. L'errore viene propagato al metodo `Fail` dello spout, dove la tupla può essere ripetuta usando i metadati memorizzati nella cache.
 
-* **ID sequenza**: quando si genera una tupla, è possibile specificare un ID sequenza. Deve trattarsi di un valore che identifica la tupla per la ripetizione dell'elaborazione (Riconoscimento ed Errore). Ad esempio, quando genera i dati, lo spout presente nel progetto **Storm Sample** usa il seguente codice:
+* **ID sequenza**: quando si genera una tupla, è possibile specificare un ID sequenza. Deve trattarsi di un valore che identifica la tupla per la ripetizione dell'elaborazione (Riconoscimento ed Errore). Ad esempio, quando genera i dati, lo spout presente nel progetto **Storm Sample** usa il codice riportato di seguito:
 
 		this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
-	Questo genera una nuova tupla contenente una frase indirizzata al flusso predefinito, con il valore di ID sequenza contenuto in lastSeqId. Ai fini di questo esempio, lastSeqId viene semplicemente incrementato per ogni tupla generata.
+	Questo genera una nuova tupla contenente una frase indirizzata al flusso predefinito, con il valore di ID sequenza contenuto in **lastSeqId**. Ai fini di questo esempio, **lastSeqId** viene semplicemente incrementato per ogni tupla generata.
 
 Come dimostrato nel progetto **Storm Sample**, è possibile specificare in fase di esecuzione, in base alla configurazione, se un componente è transazionale o meno.
 
@@ -358,56 +358,56 @@ Come dimostrato nel progetto **Storm Sample**, è possibile specificare in fase 
 
 HDInsight Tools per Visual Studio può essere usato anche per creare topologie ibride, dove alcuni componenti sono in C# e altri in Java.
 
-Per un esempio di topologia ibrida, creare un nuovo progetto e selezionare **Storm Hybrid Sample**. Verrà creato un esempio interamente commentato contenente diverse topologie che illustrano le seguenti operazioni:
+Per un esempio di topologia ibrida, creare un nuovo progetto e selezionare **Storm Hybrid Sample**. Viene creato un esempio interamente commentato contenente diverse topologie che illustrano le operazioni seguenti:
 
-* **Spout Java** e **Bolt C#**: definiti in **HybridTopology_javaSpout_csharpBolt**
+* **Java spout** e **C# bolt**: definiti in **HybridTopology_javaSpout_csharpBolt**
 
-	* Una versione transazionale è definita in **HybridTopologyTx_javaSpout_csharpBolt**.
+	* Una versione transazionale è definita in **HybridTopologyTx_javaSpout_csharpBolt**
 
-* **Spout C#** e **Bolt Java**: definiti in **HybridTopology_csharpSpout_javaBolt**
+* **C# spout** e **Java bolt**: definiti in **HybridTopology_csharpSpout_javaBolt**
 
 	* Una versione transazionale è definita in **HybridTopologyTx_csharpSpout_javaBolt**
 
-		> [AZURE.NOTE] Questa versione illustra anche come usare codice clojure da un file di testo come componente Java.
+		> [AZURE.NOTE]Questa versione illustra anche come usare codice Clojure da un file di testo come componente Java.
 
 Quando si invia il progetto, per passare da una topologia all'altra spostare semplicemente l'istruzione `[Active(true)]` nella topologia che si desidera usare prima di effettuare l'invio al cluster.
 
-> [AZURE.NOTE] Tutti i file Java necessari vengono forniti come parte di questo progetto nella cartella **JavaDependency**.
+> [AZURE.NOTE]Tutti i file Java necessari vengono forniti come parte di questo progetto nella cartella **JavaDependency**.
 
-Durante la creazione e l'invio di una topologia ibrida, vengono usati i seguenti elementi:
+Durante la creazione e l'invio di una topologia ibrida, tenere presente quanto riportato di seguito:
 
-* **JavaComponentConstructor**: da usare per creare una nuova istanza della classe Java per uno spout o un bolt.
+* Per creare una nuova istanza della classe Java per uno spout o un bolt è necessario usare **JavaComponentConstructor**.
 
-* **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**: da usare per serializzare i dati all'interno o all'esterno di componenti Java da oggetti Java a JSON.
+* Per serializzare i dati all'interno o all'esterno di componenti Java da oggetti Java a JSON è necessario usare **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**.
 
-* ****Durante l'invio della topologia al server, è necessario usare l'opzione **Additional configurations** per specificare i **percorsi dei file Java**. Il percorso specificato deve corrispondere alla directory contenente i file jar in cui sono presenti le classi Java.
+* Durante l'invio della topologia al server, è necessario usare l'opzione **Additional configurations** per specificare i **percorsi dei file Java**. Il percorso specificato deve corrispondere alla directory contenente i file con estensione jar in cui sono presenti le classi Java.
 
 ##Risoluzione dei problemi
 
 ###Testare la topologia in locale
 
-Anche se la distribuzione di una topologia a un cluster è un'operazione semplice, in alcuni casi può essere necessario eseguire un test in locale. Per eseguire e testare la topologia di esempio descritta nell'articolo nell'ambiente di sviluppo locale, seguire questa procedura.
+Anche se la distribuzione di una topologia a un cluster è un'operazione semplice, in alcuni casi può essere necessario eseguire un test in locale. Per eseguire e testare la topologia di esempio descritta in questa esercitazione nell'ambiente di sviluppo locale, seguire questa procedura.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**. Nelle proprietà del progetto impostare **Tipo di output** su **Applicazione console**.
 
-	![output type](./media/hdinsight-storm-develop-csharp-visual-studio/outputtype.png)
+	![tipo di output](./media/hdinsight-storm-develop-csharp-visual-studio/outputtype.png)
 
-	> [AZURE.NOTE] Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
+	> [AZURE.NOTE]Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
 
-2. In **Esplora soluzioni** fare clic sul progetto, quindi selezionare **Aggiungi**, **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Al termine, selezionare **Aggiungi**.
+2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Infine fare clic su **Aggiungi**.
 
-3. Aprire **LocalTest.cs** e aggiungere all'inizio la seguente istruzione `using`.
+3. Aprire **LocalTest.cs** e aggiungere all'inizio l'istruzione **using** seguente:
 
 		using Microsoft.SCP;
 
-3. Usare il seguente codice come contenuto della classe **LocalTest**.
+3. Usare il codice seguente come contenuto della classe **LocalTest**:
 
 		// Drives the topology components
 		public void RunTestCase()
 		{
 		    // An empty dictionary for use when creating components
 		    Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
-		
+
 		    #region Test the spout
 		    {
 		        Console.WriteLine("Starting spout");
@@ -416,7 +416,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		        LocalContext spoutCtx = LocalContext.Get();
 		        // Get a new instance of the spout, using the local context
 		        Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
-		
+
 		        // Emit 10 tuples
 		        for (int i = 0; i < 10; i++)
 		        {
@@ -427,7 +427,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		        Console.WriteLine("Spout finished");
 		    }
 		    #endregion
-		
+
 		    #region Test the splitter bolt
 		    {
 		        Console.WriteLine("Starting splitter bolt");
@@ -436,7 +436,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		        LocalContext splitterCtx = LocalContext.Get();
 		        // Get a new instance of the bolt
 		        Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
-		
+
 		        // Set the data stream to the data created by the spout
 		        splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
 		        // Get a batch of tuples from the stream
@@ -451,7 +451,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		        Console.WriteLine("Splitter bolt finished");
 		    }
 		    #endregion
-		
+
 		    #region Test the counter bolt
 		    {
 		        Console.WriteLine("Starting counter bolt");
@@ -460,7 +460,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		        LocalContext counterCtx = LocalContext.Get();
 		        // Get a new instance of the bolt
 		        Counter counter = Counter.Get(counterCtx, emptyDictionary);
-		
+
 		        // Set the data stream to the data created by splitter bolt
 		        counterCtx.ReadFromFileToMsgQueue("splitter.txt");
 		        // Get a batch of tuples from the stream
@@ -477,9 +477,9 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 		    #endregion
 		}
 
-	Leggere con attenzione i commenti del codice. Questo codice usa **LocalContext** per eseguire i componenti dell'ambiente di sviluppo, rendendo permanente il flusso di dati tra i componenti e i file di testo sull'unità locale.
+	Leggere con attenzione i commenti del codice. Questo codice usa **LocalContext** per eseguire i componenti dell'ambiente di sviluppo e rende permanente il flusso di dati tra i componenti e i file di testo sull'unità locale.
 
-2. Aprire **Program.cs** e aggiungere al metodo **Main** il seguente codice.
+2. Aprire **Program.cs** e aggiungere al metodo **Main** il codice seguente:
 
         Console.WriteLine("Starting tests");
         System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
@@ -498,58 +498,54 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
         Console.WriteLine("Tests finished");
         Console.ReadKey();
 
-3. Salvare le modifiche, quindi usare **F5** o **Debug**, **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata**, premere un tasto qualsiasi per chiudere la finestra.
+3. Salvare le modifiche, quindi usare **F5** o **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata**, premere un tasto qualsiasi per chiudere la finestra.
 
-4. Usare **Esplora risorse** per passare alla directory contenente il progetto, ad esempio, **C:\Users\<nome_utente>\Documenti\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
+4. Usare **Esplora risorse** per trovare la directory che contiene il progetto, ad esempio, **C:\\Users<nome_utente>\\Documenti\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
 
-	> [AZURE.NOTE] In questi file, i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, [[97,103,111]] nel file **splitter.txt** corrisponde alla parola 'and'.
+	> [AZURE.NOTE]In questi file, i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, [[97,103,111]] nel file **splitter.txt** corrisponde alla parola 'and'.
 
 Anche se il test di un'applicazione di conteggio parole di base è un'operazione abbastanza semplice, il valore effettivo risulta evidente nel caso di una topologia complessa che comunica con origini dati esterne o esegue l'analisi di dati complessi. Quando si lavora a un progetto di questo tipo, può essere necessario impostare punti di interruzione e scorrere il codice nei componenti per isolare i problemi.
 
-> [AZURE.NOTE] Assicurarsi di reimpostare **Tipo di progetto** su **Libreria di classi** prima di eseguire la distribuzione a un cluster Storm in HDInsight.
+> [AZURE.NOTE]Assicurarsi di reimpostare **Tipo di progetto** su **Libreria di classi** prima di eseguire la distribuzione a un cluster Storm in HDInsight.
 
 ###Informazioni di log
 
-È possibile registrare facilmente le informazioni provenienti dai componenti della topologia usando `Context.Logger`. Il seguente codice, ad esempio, crea una voce di log informativa.
+È possibile registrare facilmente le informazioni provenienti dai componenti della topologia usando `Context.Logger`. Il codice seguente, ad esempio, crea una voce di log informativa:
 
 	Context.Logger.Info("Component started");
 
 È possibile visualizzare le informazioni registrate da **Hadoop Service Log**, disponibile in **Esplora Server**. Espandere la voce relativa al cluster Storm in HDInsight, quindi espandere **Hadoop Service Log**. Al termine, selezionare il file di log da visualizzare.
 
-> [AZURE.NOTE] I log vengono memorizzati nell'account del servizio di Archiviazione di Azure usato dal cluster. Se si tratta di una sottoscrizione diversa da quella con cui si è eseguita la connessione con Visual Studio, per visualizzare le informazioni sarà necessario accedere alla sottoscrizione che contiene l'account di archiviazione.
+> [AZURE.NOTE]I log vengono memorizzati nell'account del servizio Archiviazione di Azure usato dal cluster. Se si tratta di una sottoscrizione diversa da quella con cui si è eseguita la connessione con Visual Studio, per visualizzare le informazioni sarà necessario accedere alla sottoscrizione che contiene l'account di archiviazione.
 
 ###Visualizzare le informazioni sugli errori
 
-Per visualizzare gli errori che si sono verificati in una topologia in esecuzione, seguire questa procedura.
+Per visualizzare gli errori che si sono verificati in una topologia in esecuzione, seguire questa procedura:
 
-1. Da **Esplora server ** fare clic con il pulsante destro del mouse sul cluster Storm in HDInsight e selezionare **View Storm topologies**.
+1. Da **Esplora server** fare clic con il pulsante destro del mouse sul cluster Storm in HDInsight e selezionare **View Storm topologies**.
 
 2. Per quanto riguarda **Spout** e **Bolts**, nella colonna **Last Error** verranno visualizzate informazioni sull'ultimo errore verificatosi.
 
 2. Selezionare **Spout Id** o **Bolt Id** per il componente in cui si è verificato un errore. Viene visualizzata una pagina dei dettagli. Nella parte inferiore di tale pagina, nella sezione **Errors**, verranno visualizzate informazioni aggiuntive sugli errori.
 
-3. Per ottenere altre informazioni, selezionare una porta**** nella sezione **Executors** della pagina. Verrà visualizzato il log di lavoro di Storm relativo agli ultimi minuti.
+3. Per ottenere altre informazioni, selezionare una **porta** nella sezione **Executors** della pagina. Verrà visualizzato il log di lavoro di Storm relativo agli ultimi minuti.
 
 
 ##Passaggi successivi
 
-Dopo aver illustrato come sviluppare e distribuire topologie Storm usando HDInsight Tools per Visual Studio. vedere l'articolo relativo a come [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+Dopo aver appreso come sviluppare e distribuire topologie Storm usando HDInsight Tools per Visual Studio, vedere l'articolo [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
-Per altre informazioni sulla creazione delle topologie C#, vedere [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Per un esempio di una topologia di C# che divide il flusso di dati in più flussi, vedere [csharp-storm-example](https://github.com/Blackmist/csharp-storm-example).
 
-Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsight, vedere le risorse seguenti.
+Per altre informazioni sulla creazione delle topologie C#, visitare la pagina [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+
+Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsight, vedere le risorse seguenti:
 
 **Apache Storm in HDInsight**
 
 * [Distribuzione e monitoraggio di topologie con Apache Storm in HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
-
-* [Sviluppo di topologie basate su Java per Apache Storm in HDInsight](hdinsight-storm-develop-java-topology.md)
-
-* [Hashtag tendenze per Twitter con Apache Storm in HDInsight](hdinsight-storm-twitter-trending.md)
-
-* [Esempi di Storm in HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
+* [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
 **Apache Hadoop in HDInsight**
 
@@ -563,4 +559,4 @@ Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsi
 
 * [Introduzione a HBase in HDInsight](hdinsight-hbase-get-started.md)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

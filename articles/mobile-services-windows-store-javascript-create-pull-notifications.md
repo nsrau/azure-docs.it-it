@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" 
 	description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." 
 	services="mobile-services" 
@@ -10,18 +10,18 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
-# Definire un'API personalizzata che supporta le notifiche periodiche
+# Definizione di un'API personalizzata che supporta le notifiche periodiche
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/it-it/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/it-it/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
 </div>
 
-Questo argomento descrive come usare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e userà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start. Per altre informazioni, vedere [Notifiche periodiche]. 
+In questo argomento viene illustrato come utilizzare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start. Per altre informazioni, vedere [Notifiche periodiche].
 
 Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente]. A questo scopo, verranno eseguiti i passaggi seguenti:
 
@@ -29,7 +29,7 @@ Questa funzionalità verrà aggiunta all'app creata durante l'esercitazione [Int
 2. [Aggiornare l'app per l'abilitazione delle notifiche periodiche]
 3. [Testare l'app] 
 
-Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].  
+Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente].
 
 ## <a name="define-custom-api"></a>Definire l'API personalizzata
 
@@ -43,7 +43,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
    	Verrà visualizzata la finestra di dialogo **Crea nuova API personalizzata**.
 
-3. Impostare **Autorizzazione GET** su **Tutti**, digitare _tiles_ in **Nome API**, quindi fare clic sul segno di spunta.
+3. Impostare **Autorizzazione GET** su **Tutti**, digitare _tiles_ in **Nome API** e quindi fare clic sul segno di spunta.
 
    	![][2]
 
@@ -58,8 +58,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoIte
-	ms.where({
+		    todoItems.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -81,7 +80,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		    }
 		};
 
-	Questo codice restituisce le prime tre voci non completate dalla tabella TodoItem, quindi le carica in un oggetto JSON passato alla funzione **wns**.**createTileSquareText01**. Questa funzione restituisce l'XML del modello di riquadro seguente:
+	Questo codice restituisce i primi tre elementi non completati dalla tabella TodoItem e quindi li carica in un oggetto JSON passato alla funzione **wns**.**createTileSquareText01**. Questa funzione restituisce l'XML del modello di riquadro seguente:
 
 		<tile>
 			<visual>
@@ -94,19 +93,19 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 			</visual>
 		</tile>
 
-	Viene usata la funzione **exports.get** in quanto il client invierà una richiesta GET per accedere al modello di riquadro.
+	Viene utilizzata la funzione **exports.get** in quanto il client invierà una richiesta GET per accedere al modello di riquadro.
 
-   	> [AZURE.NOTE] Lo script di questa API personalizzata usa il [modulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) di Node.js, al quale viene fatto riferimento mediante la funzione **require**. Questo modulo è diverso rispetto all'[oggetto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) restituito dall'[oggetto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), che viene usato per l'invio di notifiche push da script del server.
+   	> [AZURE.NOTE]Lo script di questa API personalizzata usa il [modulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) di Node.js, al quale viene fatto riferimento mediante la funzione **require**. Questo modulo è diverso rispetto all'[oggetto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) restituito dall'[oggetto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), che viene usato per l'invio di notifiche push da script del server.
 
 Si procederà quindi alla modifica dell'app di guida introduttiva per avviare notifiche periodiche che aggiornano il riquadro animato richiedendo la nuova API personalizzata.
 
-<h2><a name="update-app"></a>Aggiornare l'app per l'abilitazione delle notifiche periodiche</h2>
+##<a name="update-app"></a>Aggiornare l'app per l'abilitazione delle notifiche periodiche
 
 1. In Visual Studio premere F5 per eseguire l'app di guida introduttiva creata nell'esercitazione precedente.
 
 2. Verificare che sia visualizzata almeno una voce. Se non sono presenti voci, digitare un testo in **Insert a TodoItem**, quindi fare clic su **Save**.
 
-3. In Visual Studio espandere la cartella `\js` in Esplora soluzioni, aprire il progetto default.js, quindi aggiungere le righe di codice seguenti dopo il codice che definisce la variabile **client**:
+3. In Visual Studio espandere la cartella `\js` in Esplora soluzioni, aprire il progetto default.js e quindi aggiungere le righe di codice seguenti dopo il codice che definisce la variabile **client**:
 
         var notifications = Windows.UI.Notifications;
         var recurrence = notifications.PeriodicUpdateRecurrence.hour;
@@ -128,19 +127,17 @@ Si procederà quindi alla modifica dell'app di guida introduttiva per avviare no
 
 ## Passaggi successivi
 
-Dopo avere creato una notifica periodica, per altre informazioni vedere anche gli articoli relativi a Servizi mobili seguenti:
+Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anche gli articoli relativi a Servizi mobili seguenti:
 
-* [Introduzione alle notifiche push]
-	<br/>Le notifiche periodiche sono gestite da Windows e vengono inviate solo in base a una pianificazione predefinita. Le notifiche push possono essere inviate dal servizio mobile su richiesta e possono essere di tipo avviso popup, riquadro e notifiche non elaborate.
+* [Introduzione alle notifiche push] <br/>Le notifiche periodiche sono gestite da Windows e vengono inviate solo in base a una pianificazione predefinita. Le notifiche push possono essere inviate dal servizio mobile su richiesta e possono essere di tipo avviso popup, riquadro e notifiche non elaborate.
 
-* [Informazioni di riferimento sugli script del server di Servizi mobili]
-  <br/>Altre informazioni sulla creazione di API personalizzate.
+* [Riferimento per gli script del server di Servizi mobili] <br/>Ulteriori informazioni sulla creazione di API personalizzate.
 
 <!-- Anchors. -->
 [Definire l'API personalizzata]: #define-custom-api
 [Aggiornare l'app per l'abilitazione delle notifiche periodiche]: #update-app
 [Testare l'app]: #test-app
-[Passaggi successivi]: #next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
@@ -150,17 +147,15 @@ Dopo avere creato una notifica periodica, per altre informazioni vedere anche gl
 [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
 
 <!-- URLs. -->
-[Notifiche Push Windows e Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
-[Informazioni di riferimento sugli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Dashboard App personali]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introduzione a Servizi mobili]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
-[Aggiungere Servizi mobili a un'app esistente]: /it-it/documentation/articles/mobile-services-windows-store-javascript-get-started
-[Introduzione alle notifiche push]: /it-it/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Introduzione a Servizi mobili]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Aggiungere Servizi mobili a un'app esistente]: mobile-services-windows-store-javascript-get-started.md
+[Introduzione alle notifiche push]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Portale di gestione di Azure]: https://manage.windowsazure.com/
+[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Notifiche periodiche]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

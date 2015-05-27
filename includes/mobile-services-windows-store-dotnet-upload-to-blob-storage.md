@@ -1,10 +1,10 @@
-##<a name="add-select-images"></a>Aggiornamento dell'app client della guida introduttiva in modo da acquisire e caricare le immagini
+##<a name="add-select-images"></a>Aggiornare l'app client della guida introduttiva in modo da acquisire e caricare le immagini
 
-1. In Visual Studio 2012 aprire il file Package.appxmanifest e, nella scheda **Capabilities**, abilitare le funzionalità **Webcam** e **Microphone**.
+1. In Visual Studio aprire il file Package.appxmanifest e, nella scheda **Funzionalità**, abilitare **Webcam** e **Microfono**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   In questo modo si garantirà che l'app sia in grado di utilizzare una fotocamera collegata al computer. Alla prima esecuzione dell'app, verrà chiesto agli utenti di consentire l'accesso alla fotocamera.
+   	In questo modo si garantirà che l'app sia in grado di utilizzare una fotocamera collegata al computer. Alla prima esecuzione dell'app, verrà chiesto agli utenti di consentire l'accesso alla fotocamera.
 
 1. Aprire il file MainPage.xaml file e sostituire l'elemento **StackPanel** subito dopo il primo elemento **Task** con il codice seguente:
 
@@ -26,7 +26,7 @@
                     MaxHeight="250"/>
         </StackPanel> 
 
-   Verrà aggiunta un'immagine in **ItemTemplate** e la relativa origine di associazione verrà impostata come URI dell'immagine caricata nel servizio di archiviazione BLOB.
+   	Verrà aggiunta un'immagine in **ItemTemplate** e la relativa origine di associazione verrà impostata come URI dell'immagine caricata nel servizio di archiviazione BLOB.
 
 3. Aprire il file del progetto MainPage.xaml.cs e aggiungere le istruzioni **using** seguenti:
 	
@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   >[AZURE.NOTE]Per aggiungere nuove proprietà all'oggetto TodoItem, è necessario che lo schema dinamico sia abilitato nel servizio mobile. Quando lo schema dinamico è abilitato, nella tabella TodoItem vengono automaticamente aggiunte nuove colonne mappate a queste nuove proprietà.
+   	>[AZURE.NOTE]Per aggiungere nuove proprietà all'oggetto TodoItem, è necessario che lo schema dinamico sia abilitato nel servizio mobile. Quando lo schema dinamico è abilitato, nella tabella TodoItem vengono automaticamente aggiunte nuove colonne mappate a queste nuove proprietà.
 
 5. Nella classe MainPage aggiungere il codice seguente:
 
@@ -67,7 +67,7 @@
 
   	Questo codice consente di visualizzare l'interfaccia utente della fotocamera per acquisire un'immagine, che viene quindi salvata in un file di archiviazione.
 
-6. Sostituire il metodo  `InsertTodoItem` esistente con il codice seguente:
+6. Sostituire il metodo `InsertTodoItem` esistente con il codice seguente:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -118,7 +118,7 @@
 
 Il passaggio finale prevede il test dell'app e la convalida del completamento dei caricamenti.
 		
-##<a name="test"></a>Test del caricamento delle immagini nell'app
+##<a name="test"></a>Testare il caricamento delle immagini nell'app
 
 1. In Visual Studio premere F5 per eseguire l'app.
 
@@ -126,7 +126,7 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	Verrà visualizzata l'interfaccia utente di acquisizione della fotocamera. 
+  	Verrà visualizzata l'interfaccia utente di acquisizione della fotocamera.
 
 3. Fare clic sull'immagine per acquisire una foto, quindi fare clic su **OK**.
   
@@ -140,7 +140,7 @@ Il passaggio finale prevede il test dell'app e la convalida del completamento de
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   >[AZURE.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento viene associata al controllo <strong>Image</strong>.
+   	>[AZURE.NOTE]L'immagine viene scaricata automaticamente dal servizio di archiviazione BLOB quando la proprietà <code>imageUri</code> del nuovo elemento è associata al controllo <strong>Image</strong>.
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

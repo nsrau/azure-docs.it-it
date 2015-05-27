@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usare Hive in HDInsight | Azure"
+   pageTitle="Query Hive con Hadoop Tools per Visual Studio | Microsoft Azure"
    description="Informazioni su come usare Hive con HDInsight mediante Visual Studio."
    services="hdinsight"
    documentationCenter=""
@@ -9,34 +9,34 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-# Esecuzione di query Hive usando gli strumenti di HDInsight per Visual Studio
+#Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
-In questo articolo si apprenderà come usare gli strumenti di HDInsight per Visual Studio (HDInsight Tools for Visual Studio) per inviare in modalità remota query Hive a un cluster HDInsight.
+In questo articolo si apprenderà come inviare query Hive a un cluster HDInsight usando HDInsight Tools per Visual Studio.
 
-> [AZURE.NOTE] Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere <a href="../hdinsight-use-hive/" target="_blank">Usare Hive con Hadoop in HDInsight</a>.
+> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere <a href="hdinsight-use-hive.md" target="_blank">Usare Hive con Hadoop in HDInsight</a>.
 
-## <a id="prereq"></a>Prerequisiti
+##<a id="prereq"></a>Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Linux o su Windows)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">Update 3</a> o <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://go.microsoft.com/fwlink/?LinkId=390465" target="_blank">Update 3</a> o <a href="http://www.microsoft.com/download/details.aspx?id=40769" target="_blank">Visual Studio Express 2013</a>
 
-## <a id="run"></a> Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
+##<a id="run"></a> Eseguire query Hive usando HDInsight Tools per Visual Studio
 
-1. Aprire **Visual Studio**, quindi scegliere **Nuovo**, **Progetto**, **HDInsight** e infine **Hive Application**. Specificare un nome per questo progetto.
+1. Aprire **Visual Studio**, quindi scegliere **Nuovo** > **Progetto** > **HDInsight** > **Hive Application**. Specificare un nome per questo progetto.
 
-2. Aprire il file **Script.hql** creato con il progetto e incollarvi le seguenti istruzioni HiveQL.
+2. Aprire il file **Script.hql** creato con il progetto e incollarvi le seguenti istruzioni HiveQL:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -46,60 +46,60 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     Le istruzioni eseguono queste azioni:
 
-    * **DROP TABLE**: elimina la tabella e il file di dati, nel caso in cui la tabella esista già.
-    * **CREATE EXTERNAL TABLE**: crea una nuova tabella 'esterna' in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nella posizione originale.
+    * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
+    * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
-        > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+        > [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
         >
         > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
-    * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso i campi di ogni log sono separati da uno spazio.
-    * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (directory example/data) e specifica che i dati sono archiviati come testo.
+    * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
+    * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
-3. Nella barra degli strumenti selezionare il **cluster HDInsight** che si desidera usare per la query, quindi fare clic su **Invia** per eseguire le istruzioni come processo Hive. Verrà visualizzata una finestra di **riepilogo del processo hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non si imposta su **Completato**.
+3. Nella barra degli strumenti selezionare il **cluster HDInsight** che si desidera usare per la query, quindi fare clic su **Invia** per eseguire le istruzioni come processo Hive. Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene imposto su **Completato**.
 
 4. Usare il collegamento **Output processo** per visualizzare l'output del processo. Dovrebbe includere `[ERROR] 3`, ovvero il valore restituito dall'istruzione SELECT.
 
-5. È anche possibile eseguire query Hive senza creare un progetto. Usando **Esplora server**, espandere **Azure**, **HDInsight**, fare clic con il pulsante destro del mouse sul server HDInsight, quindi scegliere **Write a Hive Query**.
+5. È anche possibile eseguire query Hive senza creare un progetto. Usando **Esplora server**, espandere **Azure** > **HDInsight**, fare clic con il pulsante destro del mouse sul server HDInsight, quindi scegliere **Write a Hive Query**.
 
-6. Nel documento **temp.hql** che viene visualizzato aggiungere le seguenti istruzioni HiveQL.
+6. Nel documento **temp.hql** che viene visualizzato aggiungere le seguenti istruzioni HiveQL:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-    Queste istruzioni eseguono le azioni seguenti.
+    Le istruzioni eseguono queste azioni:
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
-        > [AZURE.NOTE] A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
+        > [AZURE.NOTE]A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-    * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Si tratta di un formato di file altamente ottimizzato per l'archiviazione di dati Hive.
+    * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
 
-7. Nella barra degli strumenti selezionare l'elenco a discesa per **Invia** per eseguire il processo. Usare **Stato processo** per accertarsi che il processo sia stato completato correttamente.
+7. Nella barra degli strumenti selezionare **Invia** per eseguire il processo. Usare **Stato processo** per accertarsi che il processo sia stato completato correttamente.
 
-8. Per verificare che il processo sia stato completato e che sia stata creata una nuova tabella, usare **Esplora server** ed espandere **Azure**, **HDInsight**, il cluster HDInsight, **Hive Databases** e **predefinito**. Dovrebbe essere visibile sia la tabella **errorLogs** sia la tabella **log4jLogs**.
+8. Per verificare che il processo sia stato completato e che sia stata creata una nuova tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il cluster HDInsight > **Hive Databases** > e **predefinito**. Dovrebbero essere visibili la tabella **errorLogs** e la tabella **log4jLogs**.
 
-## <a id="summary"></a>Riepilogo
+##<a id="summary"></a>Riepilogo
 
-Come è possibile notare, gli strumenti di HDInsight per Visual Studio forniscono un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
+Come è possibile notare, HDInsight Tools per Visual Studio fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
-## <a id="nextsteps"></a>Passaggi successivi
+##<a id="nextsteps"></a>Passaggi successivi
 
-Per informazioni generali su Hive in HDInsight.
+Per informazioni generali su Hive in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
+Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-Per altre informazioni sugli strumenti di HDInsight per Visual Studio.
+Per altre informazioni su HDInsight Tools per Visual Studio:
 
-* [Guida introduttiva agli strumenti di HDInsight per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+* [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
@@ -115,23 +115,23 @@ Per altre informazioni sugli strumenti di HDInsight per Visual Studio.
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=47-->
+<!--HONumber=54-->

@@ -1,63 +1,42 @@
-﻿<properties 
- pageTitle="Interfaccia utente di Azure Mobile Engagement - Segmenti" 
- description="Panoramica dell'interfaccia utente per la sezione Segmenti di Azure Mobile Engagement" 
- services="mobile-engagement" 
- documentationCenter="mobile" 
- authors="v-micada" 
- manager="mattgre" 
- editor=""/>
+<properties 
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Segmenti" 
+   description="Informazioni su come creare e gestire segmenti di utenti per identificare modelli di utilizzo mediante Azure Mobile Engagement" 
+   services="mobile-engagement" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
- ms.service="mobile-engagement"
- ms.devlang="Java"
- ms.topic="article"
- ms.tgt_pltfrm="mobile"
- ms.workload="required" 
- ms.date="02/17/2015"
- ms.author="v-micada"/>
+   ms.service="mobile-engagement"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
+   ms.date="02/17/2015"
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - Interfaccia utente
+# Come creare e gestire segmenti di utenti per identificare modelli di utilizzo
+La sezione Segmenti dell'interfaccia utente consente di dividere gli utenti in segmenti in base al comportamento e all'analisi che è possibile ottenere dall'applicazione ed è possibile accedervi anche tramite l'API Segmenti. I segmenti vengono calcolati per la prima volta 24 ore dopo che sono stati creati e quindi ricalcolati ogni 24 ore in base alle informazioni di analisi più recenti. Una volta calcolato un segmento, viene visualizzato un grafico di cronologia giorno per giorno ogni giorno.
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduzione</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigazione</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">Account personale</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitoraggio</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Copertura</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segmenti</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Impostazioni</a>
-</div>
+### Vedere anche
+- [Documentazione API - API Segments][Link 4], [Guida alla risoluzione dei problemi - Analytics][Link 21]
 
-# Segmenti
+## Creare segmenti
+È possibile creare un segmento basato su criteri (fino a 10) in base a un periodo specifico di massimo 60 giorni precedenti dalla sezione di analisi. Ad esempio, è possibile creare un segmento in base alle persone che hanno visualizzato alcune pagine o che hanno cercato contenuto specifico all'interno dell'app negli ultimi 10 giorni. Queste informazioni sono disponibili nella sezione di analisi. È possibile utilizzarle per creare un segmento e quindi configurare una notifica push da indirizzare a questo sottoinsieme di utenti per fare in modo che tornino all'applicazione.
  
-La sezione Segmenti dell'interfaccia utente consente di dividere gli utenti in segmenti in base al comportamento e all'analisi che è possibile ottenere dall'applicazione ed è possibile accedervi anche tramite l'API Segmenti. I segmenti vengono calcolati per la prima volta 24 ore dopo che sono stati creati e quindi ricalcolati ogni 24 ore in base alle informazioni di analisi più recenti. Una volta calcolato un segmento, viene visualizzato un grafico di di cronologia giorno per giorno ogni giorno.
-
-**Vedere anche:** 
-
-- [Documentazione API - API Segmenti][Link 4], [Guida alla risoluzione dei problemi - Analytics][Link 2]
-
-È possibile creare un segmento basato su criteri (fino a 10) in base a un periodo specifico di massimo 60 giorni precedenti dalla sezione di analisi. 
-Ad esempio, è possibile creare un segmento in base alle persone che hanno visualizzato alcune pagine o che hanno cercato contenuto specifico all'interno dell'app negli ultimi 10 giorni. Queste informazioni sono disponibili nella sezione di analisi. È possibile utilizzarle per creare un segmento e quindi configurare una notifica push da indirizzare a questo sottoinsieme di utenti per fare in modo che tornino all'applicazione. 
+> Nota: una volta calcolato, un segmento non può essere modificato; può essere solo duplicato (copiato) o distrutto (eliminato). Un segmento può essere duplicato all'interno della stessa applicazione (con lo stesso AppID) e anche in altre applicazioni (con un AppID diverso).
  
-> Nota: una volta calcolato, un segmento non può essere modificato; può essere solo duplicato (copiato) o distrutto (eliminato). Un segmento può essere duplicato all'interno della stessa applicazione (con lo stesso AppID) e anche in altre applicazioni (con un AppID diverso). 
- 
- ![segments1][35] 
+ ![segments1][35]
 
-## Esempi di segmentazione: 
-
+## Esempi di segmento
  ![segments2][36]
 
-I segmenti consentono di suddividere gli utenti finali dell'applicazione.
-La segmentazione degli utenti è un'importante strategia di marketing. Azure Mobile Engagement consente di ottenere dati cronologici e creare segmenti personalizzati. Questo potente strumento consente di acquisire informazioni sull'esperienza dei clienti con l'applicazione. È possibile analizzare facilmente i segmenti e utilizzarli come destinazioni di push.
-Un caso di utilizzo comune si verifica quando si desidera eseguire il push di una notifica per incoraggiare gli utenti finali a valutare l'applicazione nell'archivio. Anziché inviare una notifica a tutti gli utenti finali, è possibile creare un segmento che specifichi solo gli utenti che hanno utilizzato l'applicazione ogni giorno nel corso dell'ultimo mese e sono stati soddisfatti. Quando si invia un numero inferiore di notifiche push mirate, è possibile ottenere un ritorno sugli investimenti migliore.
+I segmenti consentono di suddividere gli utenti finali dell'applicazione. La segmentazione degli utenti è un'importante strategia di marketing. Azure Mobile Engagement consente di ottenere dati cronologici e creare segmenti personalizzati. Questo potente strumento consente di acquisire informazioni sull'esperienza dei clienti con l'applicazione. È possibile analizzare facilmente i segmenti e utilizzarli come destinazioni di push. Un caso di utilizzo comune si verifica quando si desidera eseguire il push di una notifica per incoraggiare gli utenti finali a valutare l'applicazione nell'archivio. Anziché inviare una notifica a tutti gli utenti finali, è possibile creare un segmento che specifichi solo gli utenti che hanno utilizzato l'applicazione ogni giorno nel corso dell'ultimo mese e sono stati soddisfatti. Quando si invia un numero inferiore di notifiche push mirate, è possibile ottenere un ritorno sugli investimenti migliore.
  
  ![segments3][37]
 
-**Esempi di segmenti che è possibile creare in base agli elementi principali di Azure Mobile Engagement:**
-
+### Segmenti che è possibile creare in base agli elementi principali di Azure Mobile Engagement:
 - Evento: creare un segmento destinato a un solo evento specifico dell'applicazione che si è verificato più di due volte alla settimana. 
 - Sessione: creare un segmento di utenti che hanno utilizzato l'applicazione più di 5 volte nell'ultima settimana.
 - Attività: creare un segmento di utenti che hanno utilizzato una pagina o un contenuto più o meno di 10 volte nell'ultimo mese.
@@ -68,14 +47,12 @@ Un caso di utilizzo comune si verifica quando si desidera eseguire il push di un
  
  ![segments4][38]
 
-Per utilizzare il segmento in modo ottimale, è necessario aver effettuato un'integrazione personalizzata dell'SDK nell'applicazione con un piano di tag "Info app".
-Quindi, passare alla home page dell'interfaccia, selezionare l'applicazione desiderata e scegliere la sezione "Segmenti".
+Per utilizzare il segmento in modo ottimale, è necessario aver effettuato un'integrazione personalizzata dell'SDK nell'applicazione con un piano di tag "Info app". Quindi, passare alla home page dell'interfaccia, selezionare l'applicazione desiderata e scegliere la sezione "Segmenti".
 
 1. Selezionare la sezione "Segmenti".
 2. Fare clic su "Nuovo segmento" per creare un nuovo segmento.
 
-**Esempio: Creare un segmento semplice in base alle informazioni di "Sessione".**
-
+## Esempio di vita reale: creare un segmento semplice in base alle informazioni di "Sessione"
 Creare un segmento di tutti gli utenti finali che hanno utilizzato l'app almeno 50 volte nell'ultima settimana. Da qui, individuare solo gli utenti finali che hanno trascorso almeno 30 secondi per sessione nell'applicazione. Verranno visualizzati tutti gli utenti finali che hanno avuto un'esperienza positiva nell'applicazione. Quindi, il segmento creato potrebbe essere utilizzato per effettuare il push di una notifica a tali utenti finali per chiedere loro di valutare l'app nell'archivio.
  
  ![segments5][39]
@@ -97,8 +74,7 @@ Selezionare Sessione.
 1. Selezionare l'operatore rilevante nell'elenco: =; ≥, ≤.
 2. Immettere il numero desiderato.
 3. Selezionare l'occorrenza desiderata. 
-4. Fare clic su Avanti.
-In questo esempio nell'ultima settimana gli utenti corrispondenti sono quelli che hanno creato almeno 50 sessioni.
+4. Fare clic su Avanti. In questo esempio nell'ultima settimana gli utenti corrispondenti sono quelli che hanno creato almeno 50 sessioni.
  
  ![segments9][43]
 
@@ -106,8 +82,7 @@ Per la segmentazione in base alla sessione, è possibile scegliere come criterio
 
 1. Selezionare l'operatore dall'elenco.
 2. Specificare la lunghezza per sessione.
-3. Fare clic su Avanti.
-In questo esempio, in tutte le sessioni segmentate in base alla sezione dell'occorrenza, devono essere selezionati solo gli utenti che hanno trascorso più di 30 secondi per sessione.
+3. Fare clic su Avanti. In questo esempio, in tutte le sessioni segmentate in base alla sezione dell'occorrenza, devono essere selezionati solo gli utenti che hanno trascorso più di 30 secondi per sessione.
  
  ![segments10][44]
 
@@ -115,9 +90,7 @@ Assegnare il nome al criterio per recuperarlo nel relativo grafico completo e fa
  
  ![segments11][45]
 
-Al termine dell'impostazione, il criterio viene visualizzato nel grafico del segmento.
-Poiché un segmento è basato su dati di analisi, i segmenti vengono calcolati una volta al giorno.
-In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio. Tali utenti sono quelli che hanno avuto un'esperienza ottima e che probabilmente esprimeranno una valutazione più alta se ricevono una notifica push che chiede loro di valutare l'applicazione nell'archivio.
+Al termine dell'impostazione, il criterio viene visualizzato nel grafico del segmento. Poiché un segmento è basato su dati di analisi, i segmenti vengono calcolati una volta al giorno. In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio. Tali utenti sono quelli che hanno avuto un'esperienza ottima e che probabilmente esprimeranno una valutazione più alta se ricevono una notifica push che chiede loro di valutare l'applicazione nell'archivio.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -139,20 +112,20 @@ In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -180,9 +153,9 @@ In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -191,27 +164,27 @@ In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=47-->
+<!--HONumber=54-->

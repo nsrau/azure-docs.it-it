@@ -1,30 +1,30 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Come iniziare a utilizzare Servizi mobili di Azure in un progetto di Visual Studio .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Introduzione a Servizi mobili (progetti .NET)
 
 > [AZURE.SELECTOR]
-> - [Introduzione](vs-mobile-services-dotnet-getting-started.md)
-> - [Risultati](vs-mobile-services-dotnet-what-happened.md)
-
-## Introduzione a Servizi mobili (progetti .NET)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 Il primo passaggio da eseguire per attenersi al codice riportato in questi esempi dipende dal tipo di servizio mobile a cui si è connessi.
 
-Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem.  Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
+Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem. Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
 
 Se invece si è connessi a un servizio mobile back-end .NET, nel modello di progetto predefinito creato da Visual Studio è già presente una tabella TodoItem, che deve però essere pubblicata in Azure. Per eseguire la pubblicazione, aprire il menu di scelta rapida per il progetto del servizio mobile in Esplora soluzioni e scegliere **Pubblica sito Web**. Accettare le impostazioni predefinite, quindi scegliere **Pubblica**.
 
@@ -45,7 +45,7 @@ Il codice seguente ottiene un riferimento a una tabella contenente i dati per To
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-Questo codice funziona se le autorizzazioni della tabella sono impostate su **Chiunque con la chiave applicazione**. Se si cambiano le autorizzazioni per proteggere il servizio mobile, sarà necessario aggiungere il supporto per l'autenticazione utente. Vedere [Introduzione all'autenticazione](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+Questo codice funziona se le autorizzazioni della tabella sono impostate su **Chiunque con la chiave applicazione**. Se si cambiano le autorizzazioni per proteggere il servizio mobile, sarà necessario aggiungere il supporto per l'autenticazione utente. Vedere [Introduzione all'autenticazione](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 #####Aggiungere una voce 
 
@@ -84,6 +84,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

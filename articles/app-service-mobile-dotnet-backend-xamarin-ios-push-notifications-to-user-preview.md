@@ -22,7 +22,7 @@
 
 Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. È stato introdotto il concetto di [modelli], che offre alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. L'operazione di invio raggiunge tutte le piattaforme grazie a questi segnaposto, abilitando le notifiche multipiattaforma.
 
-> [AZURE.NOTE] Affinché il push funzioni con i client multipiattaforma, sarà necessario completare questa esercitazione per ogni piattaforma che si vuole abilitare. Sarà sufficiente eseguire l'[aggiornamento del back-end mobile](#backend) una sola volta per i client che condividono lo stesso back-end mobile.
+> [AZURE.NOTE]Affinché il push funzioni con i client multipiattaforma, sarà necessario completare questa esercitazione per ogni piattaforma che si vuole abilitare. Sarà necessario effettuare l'[aggiornamento del back-end mobile](#backend) solo una volta per i client che condividono lo stesso back-end mobile.
  
 ##Prerequisiti 
 
@@ -60,7 +60,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
 
         // delete await push.RegisterAsync (deviceToken);
         
-        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
+        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
 
         JObject templateBody = new JObject();
         templateBody["body"] = notificationTemplate;
@@ -103,13 +103,12 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-##<a name="test"></a>Testare l'app
+##<a name="test"></a>Test dell'app
 
 Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi delle app client impostate. Quando viene inserito l'elemento, il back-end invierà le notifiche a tutte le app client alle quali l'utente è connesso.
 
 <!-- URLs. -->
 [Introduzione all'autenticazione]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Introduzione alle notifiche push]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[Modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
-
-<!--HONumber=49-->
+[modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
+<!--HONumber=54-->
